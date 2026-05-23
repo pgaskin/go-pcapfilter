@@ -26,8 +26,8 @@ func New(v0 Xenv) *Module {
 	m.memory = make([]byte, 0x20000)
 	m.elements = [][]any{{m._uint32_t_cmp, m._in6_addr_cmp, m._gen_port, m._gen_port6, m._vfprintf_cb, m._stbsp__count_clamp_callback, m._stbsp__clamp_callback, _pcap_cant_set_rfmon_dummy, _pcap_cleanup_dummy, _pcap_breakloop_dummy, _pcap_stats_dummy, _pcap_setnonblock_dummy, _pcap_getnonblock_dummy, _pcap_set_datalink_dummy, _pcap_setdirection_dummy, _pcap_setfilter_dummy, _pcap_inject_dummy, _pcap_read_dummy}}
 	copy(m.t0[i32(1):], m.elements[0])
-	copy(m.memory[uint32(i32(1024)):], data[0:59603])
-	m.___stack_pointer = i32(128560)
+	copy(m.memory[uint32(i32(65536)):], data[0:59571])
+	m.___stack_pointer = i32(65536)
 	if i, ok := any(v0).(interface {
 		Init(any)
 	}); ok {
@@ -90,57 +90,62 @@ func (m *Module) _newchunk_nolongjmp(v0, v1 int32) int32 {
 	var v5 int32
 	var v6 int32
 	var v7 int32
-	v2 = m.___stack_pointer - i32(48)
-	m.___stack_pointer = v2
+	v3 = m.___stack_pointer - i32(48)
+	m.___stack_pointer = v3
 	var p0 int32
 	{
-		v6 = (v1 + i32(3)) & i32(-4)
-		t1 := v6
-		v4 = v0 + i32(248)
-		t2 := v4
-		v1 = int32(load32(m.memory[int64(uint32(v0))+376:]))
-		v3 = v1 << 3
-		v5 = int32(load32(m.memory[uint32(t2+v3):]))
-		if uint32(t1) > uint32(v5) {
-			if uint32(v1) >= uint32(i32(15)) {
-				store32(m.memory[uint32(v2):], uint32(i32(16)))
-				m._bpf_set_error(v0, i32(2651), v2)
-				p0 = i32(0)
-				goto l0
-			}
-			v3 = v1 + i32(1)
-			v5 = i32_shl(i32(2048), v1)
-			if uint32(v5) < uint32(v6) {
-				store32(m.memory[int64(uint32(v2))+20:], uint32(v3))
-				store32(m.memory[int64(uint32(v2))+16:], uint32(v6))
-				m._bpf_set_error(v0, i32(1449), v2+i32(16))
-				p0 = i32(0)
-				goto l0
-			}
-			store32(m.memory[int64(uint32(v0))+376:], uint32(v3))
-			v7 = m._calloc(i32(1), v5)
-			t3 := v4
+		{
+			v5 = (v1 + i32(3)) & i32(-4)
+			t1 := v5
+			v6 = v0 + i32(248)
+			t2 := v6
 			v1 = int32(load32(m.memory[int64(uint32(v0))+376:]))
-			v3 = v1 << 3
-			store32(m.memory[int64(uint32(t3+v3))+4:], uint32(v7))
-			if v7 == 0 {
+			v2 = t2 + v1<<3
+			v4 = int32(load32(m.memory[uint32(v2):]))
+			if uint32(t1) <= uint32(v4) {
+				v2 = int32(load32(m.memory[int64(uint32(v2))+4:]))
+				goto l0
+			}
+			if uint32(v1) >= uint32(i32(15)) {
+				store32(m.memory[uint32(v3):], uint32(i32(16)))
+				m._bpf_set_error(v0, i32(67163), v3)
+				p0 = i32(0)
 				goto l1
 			}
-			store32(m.memory[uint32(v4+v1<<3):], uint32(v5))
+			v2 = v1 + i32(1)
+			v4 = i32_shl(i32(2048), v1)
+			if uint32(v4) < uint32(v5) {
+				store32(m.memory[int64(uint32(v3))+20:], uint32(v2))
+				store32(m.memory[int64(uint32(v3))+16:], uint32(v5))
+				m._bpf_set_error(v0, i32(65961), v3+i32(16))
+				p0 = i32(0)
+				goto l1
+			}
+			store32(m.memory[int64(uint32(v0))+376:], uint32(v2))
+			v2 = m._calloc(i32(1), v4)
+			t3 := v6
+			v1 = int32(load32(m.memory[int64(uint32(v0))+376:]))
+			v7 = t3 + v1<<3
+			store32(m.memory[int64(uint32(v7))+4:], uint32(v2))
+			if v2 == 0 {
+				goto l2
+			}
+			store32(m.memory[uint32(v7):], uint32(v4))
 		}
-		t4 := v4 + v1<<3
-		v0 = v5 - v6
+	l0:
+		t4 := v6 + v1<<3
+		v0 = v4 - v5
 		store32(m.memory[uint32(t4):], uint32(v0))
-		t5 := int32(load32(m.memory[int64(uint32(v3+v4))+4:])) + v0
+		t5 := v0 + v2
 		p0 = t5
-		goto l0
+		goto l1
 	}
-l1:
-	store32(m.memory[int64(uint32(v2))+32:], uint32(i32(4645)))
-	m._bpf_set_error(v0, i32(6139), v2+i32(32))
+l2:
+	store32(m.memory[int64(uint32(v3))+32:], uint32(i32(69157)))
+	m._bpf_set_error(v0, i32(70651), v3+i32(32))
 	p0 = i32(0)
-l0:
-	m.___stack_pointer = v2 + i32(48)
+l1:
+	m.___stack_pointer = v3 + i32(48)
 	return p0
 }
 func (m *Module) _pcap_compile(v0, v1, v2, v3, v4 int32) int32 {
@@ -149,23 +154,15 @@ func (m *Module) _pcap_compile(v0, v1, v2, v3, v4 int32) int32 {
 	var v7 int32
 	var v8 int32
 	var v9 int64
-	var v10 int32
 	v5 = m.___stack_pointer - i32(416)
 	m.___stack_pointer = v5
 	store32(m.memory[int64(uint32(v5))+32:], uint32(i32(0)))
 	{
 		if int32(load32(m.memory[int64(uint32(v0))+76:])) == 0 {
-			_ = m._snprintf(v0+i32(148), i32(256), i32(5773), i32(0))
+			_ = m._snprintf(v0+i32(148), i32(256), i32(70285), i32(0))
 			v4 = i32(-1)
 			goto l0
 		}
-		store64(m.memory[int64(uint32(v5))+224:], uint64(i64(0)))
-		store64(m.memory[int64(uint32(v5))+232:], uint64(i64(0)))
-		store64(m.memory[int64(uint32(v5))+240:], uint64(i64(0)))
-		store64(m.memory[int64(uint32(v5))+248:], uint64(i64(0)))
-		store64(m.memory[int64(uint32(v5))+256:], uint64(i64(0)))
-		store64(m.memory[int64(uint32(v5))+264:], uint64(i64(0)))
-		store64(m.memory[int64(uint32(v5))+272:], uint64(i64(0)))
 		store32(m.memory[int64(uint32(v5))+92:], uint32(i32(0)))
 		store32(m.memory[int64(uint32(v5))+76:], uint32(i32(0)))
 		store32(m.memory[int64(uint32(v5))+52:], uint32(i32(0)))
@@ -173,14 +170,21 @@ func (m *Module) _pcap_compile(v0, v1, v2, v3, v4 int32) int32 {
 		store64(m.memory[int64(uint32(v5))+44:], uint64(i64(0)))
 		store32(m.memory[int64(uint32(v5))+40:], uint32(v0))
 		store64(m.memory[int64(uint32(v5))+216:], uint64(i64(0)))
+		store64(m.memory[int64(uint32(v5))+224:], uint64(i64(0)))
+		store64(m.memory[int64(uint32(v5))+232:], uint64(i64(0)))
+		store64(m.memory[int64(uint32(v5))+240:], uint64(i64(0)))
+		store64(m.memory[int64(uint32(v5))+248:], uint64(i64(0)))
+		store64(m.memory[int64(uint32(v5))+256:], uint64(i64(0)))
+		store64(m.memory[int64(uint32(v5))+264:], uint64(i64(0)))
+		store64(m.memory[int64(uint32(v5))+272:], uint64(i64(0)))
 		memory_zero(m.memory, uint32(v5+i32(284)), uint32(i32(132)))
 		t0 := v5
 		v6 = m._calloc(i32(1), i32(1024))
 		store32(m.memory[int64(uint32(t0))+288:], uint32(v6))
 		{
 			if v6 == 0 {
-				store32(m.memory[uint32(v5):], uint32(i32(4645)))
-				m._bpf_set_error(v5+i32(36), i32(6139), v5)
+				store32(m.memory[uint32(v5):], uint32(i32(69157)))
+				m._bpf_set_error(v5+i32(36), i32(70651), v5)
 				v4 = i32(-1)
 				goto l1
 			}
@@ -190,17 +194,17 @@ func (m *Module) _pcap_compile(v0, v1, v2, v3, v4 int32) int32 {
 			v4 = m._pcap_snapshot(v0)
 			store32(m.memory[int64(uint32(t1))+56:], uint32(v4))
 			if v4 == 0 {
-				_ = m._snprintf(v0+i32(148), i32(256), i32(2038), i32(0))
+				_ = m._snprintf(v0+i32(148), i32(256), i32(66550), i32(0))
 				v4 = i32(-1)
 				goto l1
 			}
 			if m._pcap_lex_init(v5+i32(32)) != 0 {
 				t2 := v0 + i32(148)
-				m._pcapint_fmt_errmsg_for_errno(t2, i32(256), int32(load32(m.memory[uint32(i32(62704)):])), i32(3028), i32(0))
+				m._pcapint_fmt_errmsg_for_errno(t2, i32(256), int32(load32(m.memory[uint32(i32(127184)):])), i32(67540), i32(0))
 				v4 = i32(-1)
 				goto l1
 			}
-			p3 := i32(8225)
+			p3 := i32(72703)
 			if v2 != 0 {
 				p3 = v2
 			}
@@ -568,7 +572,7 @@ func (m *Module) _pcap_compile(v0, v1, v2, v3, v4 int32) int32 {
 				goto l56
 			l59:
 				store32(m.memory[int64(uint32(v5))+16:], uint32(v4))
-				m._bpf_set_error(v5+i32(36), i32(6234), v5+i32(16))
+				m._bpf_set_error(v5+i32(36), i32(70746), v5+i32(16))
 				v4 = i32(-1)
 				goto l60
 			l3:
@@ -595,12 +599,12 @@ func (m *Module) _pcap_compile(v0, v1, v2, v3, v4 int32) int32 {
 				v8 = v5 + i32(96)
 				v9 = int64(load64(m.memory[uint32(v8):]))
 				store64(m.memory[uint32(t8):], uint64(v9))
-				v10 = v5 + i32(120)
-				store64(m.memory[uint32(v10):], uint64(v9))
-				t9 := v4
-				v4 = int32(load32(m.memory[int64(uint32(v8))+8:]))
-				store32(m.memory[int64(uint32(t9))+8:], uint32(v4))
-				store32(m.memory[int64(uint32(v10))+8:], uint32(v4))
+				t9 := v5
+				v8 = int32(load32(m.memory[int64(uint32(v5))+104:]))
+				store32(m.memory[int64(uint32(t9))+116:], uint32(v8))
+				v4 = v5 + i32(120)
+				store64(m.memory[uint32(v4):], uint64(v9))
+				store32(m.memory[int64(uint32(v5))+128:], uint32(v8))
 				store32(m.memory[int64(uint32(v5))+212:], uint32(v6))
 				store32(m.memory[int64(uint32(v5))+208:], uint32(v2))
 				if m._pcap_parse(int32(load32(m.memory[int64(uint32(v5))+32:])), v5+i32(36)) != 0 {
@@ -642,7 +646,7 @@ func (m *Module) _pcap_compile(v0, v1, v2, v3, v4 int32) int32 {
 							goto l61
 						}
 					}
-					_ = m._snprintf(v3, i32(256), i32(2007), i32(0))
+					_ = m._snprintf(v3, i32(256), i32(66519), i32(0))
 					goto l60
 				}
 			l61:
@@ -742,7 +746,7 @@ l0:
 func (m *Module) _gen_retblk(v0, v1 int32) int32 {
 	v0 = m._newchunk_nolongjmp(v0, i32(212))
 	if v0 == 0 {
-		m.__pcap_longjmp_at(i32(4665), i32(870))
+		m.__pcap_longjmp_at(i32(69177), i32(870))
 		panic("unreachable")
 	}
 	store32(m.memory[int64(uint32(v0))+8:], uint32(i32(6)))
@@ -755,10 +759,10 @@ func (m *Module) __pcap_longjmp_at(v0, v1 int32) {
 	v2 = m.___stack_pointer - i32(16)
 	m.___stack_pointer = v2
 	store32(m.memory[int64(uint32(v2))+8:], uint32(v1))
-	store32(m.memory[int64(uint32(v2))+4:], uint32(i32(6520)))
+	store32(m.memory[int64(uint32(v2))+4:], uint32(i32(71032)))
 	store32(m.memory[uint32(v2):], uint32(v0))
-	_ = m._snprintf(i32(60640), i32(256), i32(6163), v2)
-	m.__env_panic(i32(60640))
+	_ = m._snprintf(i32(125120), i32(256), i32(70675), v2)
+	m.__env_panic(i32(125120))
 	panic("unreachable")
 }
 func (m *Module) _pcap_freecode(v0 int32) {
@@ -1912,10 +1916,10 @@ l0:
 l80:
 	goto l11
 l3:
-	m._bpf_error(v0, i32(3860), i32(0))
+	m._bpf_error(v0, i32(68372), i32(0))
 	panic("unreachable")
 l11:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _bpf_error(v0, v1, v2 int32) {
@@ -1924,14 +1928,14 @@ func (m *Module) _bpf_error(v0, v1, v2 int32) {
 	m.___stack_pointer = v3
 	store32(m.memory[int64(uint32(v3))+12:], uint32(v2))
 	_ = m._vsnprintf(int32(load32(m.memory[int64(uint32(v0))+4:]))+i32(148), i32(256), v1, v2)
-	m.__pcap_longjmp_at(i32(2987), i32(665))
+	m.__pcap_longjmp_at(i32(67499), i32(665))
 	panic("unreachable")
 }
 func (m *Module) _gen_cmp(v0, v1, v2, v3, v4 int32) int32 {
 	v3 = m._gen_load_a(v0, v1, v2, v3)
 	v0 = m._newchunk_nolongjmp(v0, i32(212))
 	if v0 == 0 {
-		m.__pcap_longjmp_at(i32(4665), i32(870))
+		m.__pcap_longjmp_at(i32(69177), i32(870))
 		panic("unreachable")
 	}
 	store32(m.memory[int64(uint32(v0))+8:], uint32(i32(21)))
@@ -2387,10 +2391,10 @@ func (m *Module) _gen_load_a(v0, v1, v2, v3 int32) int32 {
 l9:
 	return m._gen_load_absoffsetrel(v0, v4, v2, v3)
 l13:
-	m._bpf_error(v0, i32(3860), i32(0))
+	m._bpf_error(v0, i32(68372), i32(0))
 	panic("unreachable")
 l14:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_and(v0, v1 int32) int32 {
@@ -2613,7 +2617,7 @@ func (m *Module) _gen_llc_internal(v0 int32) int32 {
 				goto l5
 			}
 		l1:
-			m._fail_kw_on_dlt(v0, i32(6433))
+			m._fail_kw_on_dlt(v0, i32(70945))
 			panic("unreachable")
 		l0:
 			v1 = m._gen_load_a(v0, i32(5), i32(0), i32(8))
@@ -2811,7 +2815,7 @@ func (m *Module) _gen_llc_internal(v0 int32) int32 {
 l15:
 	return v2
 l8:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l18:
 	store32(m.memory[int64(uint32(v1))+8:], uint32(i32(21)))
@@ -2828,7 +2832,7 @@ func (m *Module) _fail_kw_on_dlt(v0, v1 int32) {
 	t0 := v2
 	store32(m.memory[int64(uint32(t0))+4:], uint32(m._pcapint_datalink_val_to_string(int32(load32(m.memory[int64(uint32(v0))+24:])))))
 	store32(m.memory[uint32(v2):], uint32(v1))
-	m._bpf_error(v0, i32(2889), v2)
+	m._bpf_error(v0, i32(67401), v2)
 	panic("unreachable")
 }
 func (m *Module) _gen_atm_prototype(v0, v1 int32) int32 {
@@ -2860,10 +2864,10 @@ func (m *Module) _gen_atm_prototype(v0, v1 int32) int32 {
 		store32(m.memory[int64(uint32(v2))+96:], uint32(v2))
 		return v2
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l1:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_llc_i(v0 int32) int32 {
@@ -2970,7 +2974,7 @@ func (m *Module) _gen_llc_i(v0 int32) int32 {
 	l3:
 		return v1
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_load_absoffsetrel(v0, v1, v2, v3 int32) int32 {
@@ -3012,15 +3016,15 @@ l3:
 	return v1
 l0:
 	store32(m.memory[int64(uint32(v5))+8:], uint32(v3))
-	store32(m.memory[int64(uint32(v5))+4:], uint32(i32(5263)))
-	store32(m.memory[uint32(v5):], uint32(i32(4309)))
-	m._bpf_error(v0, i32(6267), v5)
+	store32(m.memory[int64(uint32(v5))+4:], uint32(i32(69775)))
+	store32(m.memory[uint32(v5):], uint32(i32(68821)))
+	m._bpf_error(v0, i32(70779), v5)
 	panic("unreachable")
 l1:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l4:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_loadx_iphdrlen(v0 int32) int32 {
@@ -3055,7 +3059,7 @@ func (m *Module) _gen_loadx_iphdrlen(v0 int32) int32 {
 						goto l1
 					}
 				}
-				m._bpf_error(v0, i32(3860), i32(0))
+				m._bpf_error(v0, i32(68372), i32(0))
 				panic("unreachable")
 			l0:
 				store32(m.memory[uint32(v4):], uint32(i32(1)))
@@ -3152,7 +3156,7 @@ func (m *Module) _gen_loadx_iphdrlen(v0 int32) int32 {
 		return v1
 	}
 l2:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_llc_s(v0 int32) int32 {
@@ -3253,10 +3257,10 @@ func (m *Module) _gen_llc_s(v0 int32) int32 {
 	l2:
 		return v2
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l1:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_mcmp(v0, v1, v2, v3, v4, v5 int32) int32 {
@@ -3297,7 +3301,7 @@ l1:
 	store32(m.memory[int64(uint32(v5))+96:], uint32(v5))
 	return v5
 l0:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_ncmp(v0, v1, v2, v3, v4, v5, v6, v7 int32) int32 {
@@ -3353,10 +3357,10 @@ func (m *Module) _gen_ncmp(v0, v1, v2, v3, v4, v5, v6, v7 int32) int32 {
 l3:
 	return v4
 l0:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l2:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_llc_u(v0 int32) int32 {
@@ -3457,10 +3461,10 @@ func (m *Module) _gen_llc_u(v0 int32) int32 {
 	l2:
 		return v2
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l1:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_llc_s_subtype(v0, v1 int32) int32 {
@@ -3561,10 +3565,10 @@ func (m *Module) _gen_llc_s_subtype(v0, v1 int32) int32 {
 	l2:
 		return v3
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l1:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_llc_u_subtype(v0, v1 int32) int32 {
@@ -3665,10 +3669,10 @@ func (m *Module) _gen_llc_u_subtype(v0, v1 int32) int32 {
 	l2:
 		return v3
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l1:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_proto_abbrev(v0, v1 int32) int32 {
@@ -3681,7 +3685,7 @@ func (m *Module) _gen_proto_abbrev_internal(v0, v1 int32) int32 {
 	var v5 int32
 	var v6 int32
 	var v7 int32
-	v7 = m.___stack_pointer - i32(96)
+	v7 = m.___stack_pointer - i32(80)
 	m.___stack_pointer = v7
 	{
 		{
@@ -3726,506 +3730,239 @@ func (m *Module) _gen_proto_abbrev_internal(v0, v1 int32) int32 {
 														goto l13
 													}
 												l1:
-													v2 = int32(m.memory[int64(uint32(v1))+8240])
+													v2 = int32(m.memory[int64(uint32(v1))+72720])
 													if v2 == 0 {
 														goto l14
 													}
 													v1 = m._gen_proto(v0, v2, i32(0))
 													goto l15
 												l2:
-													v2 = int32(m.memory[int64(uint32(v1))+8240])
+													v2 = int32(m.memory[int64(uint32(v1))+72720])
 													if v2 == 0 {
 														goto l16
 													}
 													v1 = m._gen_proto(v0, v2, i32(2))
 													goto l15
 												l0:
-													v2 = int32(load16(m.memory[int64(uint32(v1<<1))+8496:]))
+													v2 = int32(load16(m.memory[int64(uint32(v1<<1))+72976:]))
 													if v2 == 0 {
 														goto l17
 													}
 													v1 = m._gen_linktype(v0, v2)
 													goto l15
 												l4:
-													v2 = int32(m.memory[int64(uint32(v1))+9008])
+													v2 = int32(m.memory[int64(uint32(v1))+73488])
 													if v2 == 0 {
 														goto l18
 													}
 													v1 = m._gen_linktype(v0, v2)
 													goto l15
 												l5:
-													v2 = int32(m.memory[int64(uint32(v1))+9264])
-													if v2 == 0 {
-														goto l19
-													}
-													v1 = m._gen_proto(v0, v2, i32(24))
-													goto l15
-												l6:
-													v3 = m._gen_proto(v0, i32(15), i32(26))
-													v1 = m._gen_proto(v0, i32(17), i32(26))
-													{
-														v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
-														if v2 == i32(2) {
-															goto l20
-														}
-														if v2 == i32(1) {
-															v1 = v3
-															goto l20
-														}
-														v2 = int32(load32(m.memory[int64(uint32(v1))+208:]))
-														if v2 == i32(2) {
-															v1 = v3
-															goto l20
-														}
-														if v2 == i32(1) {
-															goto l20
-														}
-														t0 := v3
-														v6 = int32(load32(m.memory[int64(uint32(v3))+44:]))
-														var p1 int32
-														if v6 == 0 {
-															p1 = 1
-														}
-														store32(m.memory[int64(uint32(t0))+44:], uint32(p1))
-														v4 = int32(load32(m.memory[int64(uint32(v1))+96:]))
-														v2 = v3
-													l21:
-														{
-															t2 := v2
-															p3 := i32(60)
-															if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-																p3 = i32(84)
-															}
-															v5 = t2 + p3
-															v2 = int32(load32(m.memory[uint32(v5):]))
-															store32(m.memory[uint32(v5):], uint32(v4))
-															if v2 != 0 {
-																goto l21
-															}
-														}
-														t4 := v3
-														var p5 int32
-														if v6 != i32(0) {
-															p5 = 1
-														}
-														store32(m.memory[int64(uint32(t4))+44:], uint32(p5))
-														v2 = v1
-													l22:
-														{
-															t6 := v2
-															p7 := i32(60)
-															if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-																p7 = i32(84)
-															}
-															v5 = t6 + p7
-															v2 = int32(load32(m.memory[uint32(v5):]))
-															if v2 != 0 {
-																goto l22
-															}
-														}
-														store32(m.memory[uint32(v5):], uint32(v3))
-														t8 := v1
-														store32(m.memory[int64(uint32(t8))+96:], load32(m.memory[int64(uint32(v3))+96:]))
-													}
-												l20:
-													{
-														v3 = m._gen_proto(v0, i32(18), i32(26))
-														v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
-														if v2 == i32(2) {
-															goto l23
-														}
-														if v2 == i32(1) {
-															v1 = v3
-															goto l23
-														}
-														v2 = int32(load32(m.memory[int64(uint32(v1))+208:]))
-														if v2 == i32(2) {
-															v1 = v3
-															goto l23
-														}
-														if v2 == i32(1) {
-															goto l23
-														}
-														t9 := v3
-														v6 = int32(load32(m.memory[int64(uint32(v3))+44:]))
-														var p10 int32
-														if v6 == 0 {
-															p10 = 1
-														}
-														store32(m.memory[int64(uint32(t9))+44:], uint32(p10))
-														v4 = int32(load32(m.memory[int64(uint32(v1))+96:]))
-														v2 = v3
-													l24:
-														{
-															t11 := v2
-															p12 := i32(60)
-															if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-																p12 = i32(84)
-															}
-															v5 = t11 + p12
-															v2 = int32(load32(m.memory[uint32(v5):]))
-															store32(m.memory[uint32(v5):], uint32(v4))
-															if v2 != 0 {
-																goto l24
-															}
-														}
-														t13 := v3
-														var p14 int32
-														if v6 != i32(0) {
-															p14 = 1
-														}
-														store32(m.memory[int64(uint32(t13))+44:], uint32(p14))
-														v2 = v1
-													l25:
-														{
-															t15 := v2
-															p16 := i32(60)
-															if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-																p16 = i32(84)
-															}
-															v5 = t15 + p16
-															v2 = int32(load32(m.memory[uint32(v5):]))
-															if v2 != 0 {
-																goto l25
-															}
-														}
-														store32(m.memory[uint32(v5):], uint32(v3))
-														t17 := v1
-														store32(m.memory[int64(uint32(t17))+96:], load32(m.memory[int64(uint32(v3))+96:]))
-													}
-												l23:
-													{
-														v3 = m._gen_proto(v0, i32(24), i32(26))
-														v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
-														if v2 == i32(2) {
-															goto l26
-														}
-														if v2 == i32(1) {
-															v1 = v3
-															goto l26
-														}
-														v2 = int32(load32(m.memory[int64(uint32(v1))+208:]))
-														if v2 == i32(2) {
-															v1 = v3
-															goto l26
-														}
-														if v2 == i32(1) {
-															goto l26
-														}
-														t18 := v3
-														v6 = int32(load32(m.memory[int64(uint32(v3))+44:]))
-														var p19 int32
-														if v6 == 0 {
-															p19 = 1
-														}
-														store32(m.memory[int64(uint32(t18))+44:], uint32(p19))
-														v4 = int32(load32(m.memory[int64(uint32(v1))+96:]))
-														v2 = v3
-													l27:
-														{
-															t20 := v2
-															p21 := i32(60)
-															if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-																p21 = i32(84)
-															}
-															v5 = t20 + p21
-															v2 = int32(load32(m.memory[uint32(v5):]))
-															store32(m.memory[uint32(v5):], uint32(v4))
-															if v2 != 0 {
-																goto l27
-															}
-														}
-														t22 := v3
-														var p23 int32
-														if v6 != i32(0) {
-															p23 = 1
-														}
-														store32(m.memory[int64(uint32(t22))+44:], uint32(p23))
-														v2 = v1
-													l28:
-														{
-															t24 := v2
-															p25 := i32(60)
-															if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-																p25 = i32(84)
-															}
-															v5 = t24 + p25
-															v2 = int32(load32(m.memory[uint32(v5):]))
-															if v2 != 0 {
-																goto l28
-															}
-														}
-														store32(m.memory[uint32(v5):], uint32(v3))
-														t26 := v1
-														store32(m.memory[int64(uint32(t26))+96:], load32(m.memory[int64(uint32(v3))+96:]))
-													}
-												l26:
-													v4 = m._gen_proto(v0, i32(26), i32(26))
-													v0 = int32(load32(m.memory[int64(uint32(v4))+208:]))
-													if v0 == i32(2) {
-														goto l15
-													}
-													if v0 == i32(1) {
-														v1 = v4
-														goto l15
-													}
-													v0 = int32(load32(m.memory[int64(uint32(v1))+208:]))
-													if v0 == i32(2) {
-														v1 = v4
-														goto l15
-													}
-													if v0 == i32(1) {
-														goto l15
-													}
-													t27 := v4
-													v3 = int32(load32(m.memory[int64(uint32(v4))+44:]))
-													var p28 int32
-													if v3 == 0 {
-														p28 = 1
-													}
-													store32(m.memory[int64(uint32(t27))+44:], uint32(p28))
-													v5 = int32(load32(m.memory[int64(uint32(v1))+96:]))
-													v0 = v4
-												l29:
-													{
-														t29 := v0
-														p30 := i32(60)
-														if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
-															p30 = i32(84)
-														}
-														v2 = t29 + p30
-														v0 = int32(load32(m.memory[uint32(v2):]))
-														store32(m.memory[uint32(v2):], uint32(v5))
-														if v0 != 0 {
-															goto l29
-														}
-													}
-													t31 := v4
-													var p32 int32
-													if v3 != i32(0) {
-														p32 = 1
-													}
-													store32(m.memory[int64(uint32(t31))+44:], uint32(p32))
-													v0 = v1
-												l30:
-													{
-														t33 := v0
-														p34 := i32(60)
-														if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
-															p34 = i32(84)
-														}
-														v2 = t33 + p34
-														v0 = int32(load32(m.memory[uint32(v2):]))
-														if v0 != 0 {
-															goto l30
-														}
-													}
-													store32(m.memory[uint32(v2):], uint32(v4))
-													t35 := v1
-													store32(m.memory[int64(uint32(t35))+96:], load32(m.memory[int64(uint32(v4))+96:]))
+													t0 := v0
+													v1 = m._gen_proto(t0, int32(m.memory[int64(uint32(v1))+73744]), i32(24))
 													goto l15
 												}
-											l7:
-												v3 = m._gen_proto(v0, i32(16), i32(26))
+											l6:
+												v3 = m._gen_proto(v0, i32(15), i32(26))
 												v1 = m._gen_proto(v0, i32(17), i32(26))
 												{
 													v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
 													if v2 == i32(2) {
-														goto l31
+														goto l19
 													}
 													if v2 == i32(1) {
 														v1 = v3
-														goto l31
+														goto l19
 													}
 													v2 = int32(load32(m.memory[int64(uint32(v1))+208:]))
 													if v2 == i32(2) {
 														v1 = v3
-														goto l31
+														goto l19
 													}
 													if v2 == i32(1) {
-														goto l31
+														goto l19
 													}
-													t36 := v3
+													t1 := v3
 													v6 = int32(load32(m.memory[int64(uint32(v3))+44:]))
-													var p37 int32
+													var p2 int32
 													if v6 == 0 {
-														p37 = 1
+														p2 = 1
 													}
-													store32(m.memory[int64(uint32(t36))+44:], uint32(p37))
+													store32(m.memory[int64(uint32(t1))+44:], uint32(p2))
 													v4 = int32(load32(m.memory[int64(uint32(v1))+96:]))
 													v2 = v3
-												l32:
+												l20:
 													{
-														t38 := v2
-														p39 := i32(60)
+														t3 := v2
+														p4 := i32(60)
 														if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-															p39 = i32(84)
+															p4 = i32(84)
 														}
-														v5 = t38 + p39
+														v5 = t3 + p4
 														v2 = int32(load32(m.memory[uint32(v5):]))
 														store32(m.memory[uint32(v5):], uint32(v4))
 														if v2 != 0 {
-															goto l32
+															goto l20
 														}
 													}
-													t40 := v3
-													var p41 int32
+													t5 := v3
+													var p6 int32
 													if v6 != i32(0) {
-														p41 = 1
+														p6 = 1
 													}
-													store32(m.memory[int64(uint32(t40))+44:], uint32(p41))
+													store32(m.memory[int64(uint32(t5))+44:], uint32(p6))
 													v2 = v1
-												l33:
+												l21:
 													{
-														t42 := v2
-														p43 := i32(60)
+														t7 := v2
+														p8 := i32(60)
 														if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-															p43 = i32(84)
+															p8 = i32(84)
 														}
-														v5 = t42 + p43
+														v5 = t7 + p8
 														v2 = int32(load32(m.memory[uint32(v5):]))
 														if v2 != 0 {
-															goto l33
+															goto l21
 														}
 													}
 													store32(m.memory[uint32(v5):], uint32(v3))
-													t44 := v1
-													store32(m.memory[int64(uint32(t44))+96:], load32(m.memory[int64(uint32(v3))+96:]))
+													t9 := v1
+													store32(m.memory[int64(uint32(t9))+96:], load32(m.memory[int64(uint32(v3))+96:]))
 												}
-											l31:
+											l19:
 												{
-													v3 = m._gen_proto(v0, i32(20), i32(26))
+													v3 = m._gen_proto(v0, i32(18), i32(26))
 													v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
 													if v2 == i32(2) {
-														goto l34
+														goto l22
 													}
 													if v2 == i32(1) {
 														v1 = v3
-														goto l34
+														goto l22
 													}
 													v2 = int32(load32(m.memory[int64(uint32(v1))+208:]))
 													if v2 == i32(2) {
 														v1 = v3
-														goto l34
+														goto l22
 													}
 													if v2 == i32(1) {
-														goto l34
+														goto l22
 													}
-													t45 := v3
+													t10 := v3
 													v6 = int32(load32(m.memory[int64(uint32(v3))+44:]))
-													var p46 int32
+													var p11 int32
 													if v6 == 0 {
-														p46 = 1
+														p11 = 1
 													}
-													store32(m.memory[int64(uint32(t45))+44:], uint32(p46))
+													store32(m.memory[int64(uint32(t10))+44:], uint32(p11))
 													v4 = int32(load32(m.memory[int64(uint32(v1))+96:]))
 													v2 = v3
-												l35:
+												l23:
 													{
-														t47 := v2
-														p48 := i32(60)
+														t12 := v2
+														p13 := i32(60)
 														if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-															p48 = i32(84)
+															p13 = i32(84)
 														}
-														v5 = t47 + p48
+														v5 = t12 + p13
 														v2 = int32(load32(m.memory[uint32(v5):]))
 														store32(m.memory[uint32(v5):], uint32(v4))
 														if v2 != 0 {
-															goto l35
+															goto l23
 														}
 													}
-													t49 := v3
-													var p50 int32
+													t14 := v3
+													var p15 int32
 													if v6 != i32(0) {
-														p50 = 1
+														p15 = 1
 													}
-													store32(m.memory[int64(uint32(t49))+44:], uint32(p50))
+													store32(m.memory[int64(uint32(t14))+44:], uint32(p15))
 													v2 = v1
-												l36:
+												l24:
 													{
-														t51 := v2
-														p52 := i32(60)
+														t16 := v2
+														p17 := i32(60)
 														if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-															p52 = i32(84)
+															p17 = i32(84)
 														}
-														v5 = t51 + p52
+														v5 = t16 + p17
 														v2 = int32(load32(m.memory[uint32(v5):]))
 														if v2 != 0 {
-															goto l36
+															goto l24
 														}
 													}
 													store32(m.memory[uint32(v5):], uint32(v3))
-													t53 := v1
-													store32(m.memory[int64(uint32(t53))+96:], load32(m.memory[int64(uint32(v3))+96:]))
+													t18 := v1
+													store32(m.memory[int64(uint32(t18))+96:], load32(m.memory[int64(uint32(v3))+96:]))
 												}
-											l34:
+											l22:
 												{
-													v3 = m._gen_proto(v0, i32(25), i32(26))
+													v3 = m._gen_proto(v0, i32(24), i32(26))
 													v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
 													if v2 == i32(2) {
-														goto l37
+														goto l25
 													}
 													if v2 == i32(1) {
 														v1 = v3
-														goto l37
+														goto l25
 													}
 													v2 = int32(load32(m.memory[int64(uint32(v1))+208:]))
 													if v2 == i32(2) {
 														v1 = v3
-														goto l37
+														goto l25
 													}
 													if v2 == i32(1) {
-														goto l37
+														goto l25
 													}
-													t54 := v3
+													t19 := v3
 													v6 = int32(load32(m.memory[int64(uint32(v3))+44:]))
-													var p55 int32
+													var p20 int32
 													if v6 == 0 {
-														p55 = 1
+														p20 = 1
 													}
-													store32(m.memory[int64(uint32(t54))+44:], uint32(p55))
+													store32(m.memory[int64(uint32(t19))+44:], uint32(p20))
 													v4 = int32(load32(m.memory[int64(uint32(v1))+96:]))
 													v2 = v3
-												l38:
+												l26:
 													{
-														t56 := v2
-														p57 := i32(60)
+														t21 := v2
+														p22 := i32(60)
 														if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-															p57 = i32(84)
+															p22 = i32(84)
 														}
-														v5 = t56 + p57
+														v5 = t21 + p22
 														v2 = int32(load32(m.memory[uint32(v5):]))
 														store32(m.memory[uint32(v5):], uint32(v4))
 														if v2 != 0 {
-															goto l38
+															goto l26
 														}
 													}
-													t58 := v3
-													var p59 int32
+													t23 := v3
+													var p24 int32
 													if v6 != i32(0) {
-														p59 = 1
+														p24 = 1
 													}
-													store32(m.memory[int64(uint32(t58))+44:], uint32(p59))
+													store32(m.memory[int64(uint32(t23))+44:], uint32(p24))
 													v2 = v1
-												l39:
+												l27:
 													{
-														t60 := v2
-														p61 := i32(60)
+														t25 := v2
+														p26 := i32(60)
 														if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-															p61 = i32(84)
+															p26 = i32(84)
 														}
-														v5 = t60 + p61
+														v5 = t25 + p26
 														v2 = int32(load32(m.memory[uint32(v5):]))
 														if v2 != 0 {
-															goto l39
+															goto l27
 														}
 													}
 													store32(m.memory[uint32(v5):], uint32(v3))
-													t62 := v1
-													store32(m.memory[int64(uint32(t62))+96:], load32(m.memory[int64(uint32(v3))+96:]))
+													t27 := v1
+													store32(m.memory[int64(uint32(t27))+96:], load32(m.memory[int64(uint32(v3))+96:]))
 												}
-											l37:
-												v4 = m._gen_proto(v0, i32(27), i32(26))
+											l25:
+												v4 = m._gen_proto(v0, i32(26), i32(26))
 												v0 = int32(load32(m.memory[int64(uint32(v4))+208:]))
 												if v0 == i32(2) {
 													goto l15
@@ -4242,123 +3979,255 @@ func (m *Module) _gen_proto_abbrev_internal(v0, v1 int32) int32 {
 												if v0 == i32(1) {
 													goto l15
 												}
-												t63 := v4
+												t28 := v4
 												v3 = int32(load32(m.memory[int64(uint32(v4))+44:]))
-												var p64 int32
+												var p29 int32
 												if v3 == 0 {
-													p64 = 1
+													p29 = 1
 												}
-												store32(m.memory[int64(uint32(t63))+44:], uint32(p64))
+												store32(m.memory[int64(uint32(t28))+44:], uint32(p29))
 												v5 = int32(load32(m.memory[int64(uint32(v1))+96:]))
 												v0 = v4
-											l40:
+											l28:
 												{
-													t65 := v0
-													p66 := i32(60)
+													t30 := v0
+													p31 := i32(60)
 													if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
-														p66 = i32(84)
+														p31 = i32(84)
 													}
-													v2 = t65 + p66
+													v2 = t30 + p31
 													v0 = int32(load32(m.memory[uint32(v2):]))
 													store32(m.memory[uint32(v2):], uint32(v5))
 													if v0 != 0 {
-														goto l40
+														goto l28
 													}
 												}
-												t67 := v4
-												var p68 int32
+												t32 := v4
+												var p33 int32
 												if v3 != i32(0) {
-													p68 = 1
+													p33 = 1
 												}
-												store32(m.memory[int64(uint32(t67))+44:], uint32(p68))
+												store32(m.memory[int64(uint32(t32))+44:], uint32(p33))
 												v0 = v1
-											l41:
+											l29:
 												{
-													t69 := v0
-													p70 := i32(60)
+													t34 := v0
+													p35 := i32(60)
 													if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
-														p70 = i32(84)
+														p35 = i32(84)
 													}
-													v2 = t69 + p70
+													v2 = t34 + p35
 													v0 = int32(load32(m.memory[uint32(v2):]))
 													if v0 != 0 {
-														goto l41
+														goto l29
 													}
 												}
 												store32(m.memory[uint32(v2):], uint32(v4))
-												t71 := v1
-												store32(m.memory[int64(uint32(t71))+96:], load32(m.memory[int64(uint32(v4))+96:]))
+												t36 := v1
+												store32(m.memory[int64(uint32(t36))+96:], load32(m.memory[int64(uint32(v4))+96:]))
 												goto l15
 											}
-										l8:
-											v3 = m._gen_proto(v0, i32(15), i32(26))
-											v1 = m._gen_proto(v0, i32(16), i32(26))
+										l7:
+											v3 = m._gen_proto(v0, i32(16), i32(26))
+											v1 = m._gen_proto(v0, i32(17), i32(26))
 											{
 												v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
 												if v2 == i32(2) {
-													goto l42
+													goto l30
 												}
 												if v2 == i32(1) {
 													v1 = v3
-													goto l42
+													goto l30
 												}
 												v2 = int32(load32(m.memory[int64(uint32(v1))+208:]))
 												if v2 == i32(2) {
 													v1 = v3
-													goto l42
+													goto l30
 												}
 												if v2 == i32(1) {
-													goto l42
+													goto l30
 												}
-												t72 := v3
+												t37 := v3
 												v6 = int32(load32(m.memory[int64(uint32(v3))+44:]))
-												var p73 int32
+												var p38 int32
 												if v6 == 0 {
-													p73 = 1
+													p38 = 1
 												}
-												store32(m.memory[int64(uint32(t72))+44:], uint32(p73))
+												store32(m.memory[int64(uint32(t37))+44:], uint32(p38))
 												v4 = int32(load32(m.memory[int64(uint32(v1))+96:]))
 												v2 = v3
-											l43:
+											l31:
 												{
-													t74 := v2
-													p75 := i32(60)
+													t39 := v2
+													p40 := i32(60)
 													if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-														p75 = i32(84)
+														p40 = i32(84)
 													}
-													v5 = t74 + p75
+													v5 = t39 + p40
 													v2 = int32(load32(m.memory[uint32(v5):]))
 													store32(m.memory[uint32(v5):], uint32(v4))
 													if v2 != 0 {
-														goto l43
+														goto l31
 													}
 												}
-												t76 := v3
-												var p77 int32
+												t41 := v3
+												var p42 int32
 												if v6 != i32(0) {
-													p77 = 1
+													p42 = 1
 												}
-												store32(m.memory[int64(uint32(t76))+44:], uint32(p77))
+												store32(m.memory[int64(uint32(t41))+44:], uint32(p42))
 												v2 = v1
-											l44:
+											l32:
 												{
-													t78 := v2
-													p79 := i32(60)
+													t43 := v2
+													p44 := i32(60)
 													if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-														p79 = i32(84)
+														p44 = i32(84)
 													}
-													v5 = t78 + p79
+													v5 = t43 + p44
 													v2 = int32(load32(m.memory[uint32(v5):]))
 													if v2 != 0 {
-														goto l44
+														goto l32
 													}
 												}
 												store32(m.memory[uint32(v5):], uint32(v3))
-												t80 := v1
-												store32(m.memory[int64(uint32(t80))+96:], load32(m.memory[int64(uint32(v3))+96:]))
+												t45 := v1
+												store32(m.memory[int64(uint32(t45))+96:], load32(m.memory[int64(uint32(v3))+96:]))
 											}
-										l42:
-											v4 = m._gen_proto(v0, i32(17), i32(26))
+										l30:
+											{
+												v3 = m._gen_proto(v0, i32(20), i32(26))
+												v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
+												if v2 == i32(2) {
+													goto l33
+												}
+												if v2 == i32(1) {
+													v1 = v3
+													goto l33
+												}
+												v2 = int32(load32(m.memory[int64(uint32(v1))+208:]))
+												if v2 == i32(2) {
+													v1 = v3
+													goto l33
+												}
+												if v2 == i32(1) {
+													goto l33
+												}
+												t46 := v3
+												v6 = int32(load32(m.memory[int64(uint32(v3))+44:]))
+												var p47 int32
+												if v6 == 0 {
+													p47 = 1
+												}
+												store32(m.memory[int64(uint32(t46))+44:], uint32(p47))
+												v4 = int32(load32(m.memory[int64(uint32(v1))+96:]))
+												v2 = v3
+											l34:
+												{
+													t48 := v2
+													p49 := i32(60)
+													if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
+														p49 = i32(84)
+													}
+													v5 = t48 + p49
+													v2 = int32(load32(m.memory[uint32(v5):]))
+													store32(m.memory[uint32(v5):], uint32(v4))
+													if v2 != 0 {
+														goto l34
+													}
+												}
+												t50 := v3
+												var p51 int32
+												if v6 != i32(0) {
+													p51 = 1
+												}
+												store32(m.memory[int64(uint32(t50))+44:], uint32(p51))
+												v2 = v1
+											l35:
+												{
+													t52 := v2
+													p53 := i32(60)
+													if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
+														p53 = i32(84)
+													}
+													v5 = t52 + p53
+													v2 = int32(load32(m.memory[uint32(v5):]))
+													if v2 != 0 {
+														goto l35
+													}
+												}
+												store32(m.memory[uint32(v5):], uint32(v3))
+												t54 := v1
+												store32(m.memory[int64(uint32(t54))+96:], load32(m.memory[int64(uint32(v3))+96:]))
+											}
+										l33:
+											{
+												v3 = m._gen_proto(v0, i32(25), i32(26))
+												v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
+												if v2 == i32(2) {
+													goto l36
+												}
+												if v2 == i32(1) {
+													v1 = v3
+													goto l36
+												}
+												v2 = int32(load32(m.memory[int64(uint32(v1))+208:]))
+												if v2 == i32(2) {
+													v1 = v3
+													goto l36
+												}
+												if v2 == i32(1) {
+													goto l36
+												}
+												t55 := v3
+												v6 = int32(load32(m.memory[int64(uint32(v3))+44:]))
+												var p56 int32
+												if v6 == 0 {
+													p56 = 1
+												}
+												store32(m.memory[int64(uint32(t55))+44:], uint32(p56))
+												v4 = int32(load32(m.memory[int64(uint32(v1))+96:]))
+												v2 = v3
+											l37:
+												{
+													t57 := v2
+													p58 := i32(60)
+													if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
+														p58 = i32(84)
+													}
+													v5 = t57 + p58
+													v2 = int32(load32(m.memory[uint32(v5):]))
+													store32(m.memory[uint32(v5):], uint32(v4))
+													if v2 != 0 {
+														goto l37
+													}
+												}
+												t59 := v3
+												var p60 int32
+												if v6 != i32(0) {
+													p60 = 1
+												}
+												store32(m.memory[int64(uint32(t59))+44:], uint32(p60))
+												v2 = v1
+											l38:
+												{
+													t61 := v2
+													p62 := i32(60)
+													if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
+														p62 = i32(84)
+													}
+													v5 = t61 + p62
+													v2 = int32(load32(m.memory[uint32(v5):]))
+													if v2 != 0 {
+														goto l38
+													}
+												}
+												store32(m.memory[uint32(v5):], uint32(v3))
+												t63 := v1
+												store32(m.memory[int64(uint32(t63))+96:], load32(m.memory[int64(uint32(v3))+96:]))
+											}
+										l36:
+											v4 = m._gen_proto(v0, i32(27), i32(26))
 											v0 = int32(load32(m.memory[int64(uint32(v4))+208:]))
 											if v0 == i32(2) {
 												goto l15
@@ -4375,57 +4244,123 @@ func (m *Module) _gen_proto_abbrev_internal(v0, v1 int32) int32 {
 											if v0 == i32(1) {
 												goto l15
 											}
-											t81 := v4
+											t64 := v4
 											v3 = int32(load32(m.memory[int64(uint32(v4))+44:]))
-											var p82 int32
+											var p65 int32
 											if v3 == 0 {
-												p82 = 1
+												p65 = 1
 											}
-											store32(m.memory[int64(uint32(t81))+44:], uint32(p82))
+											store32(m.memory[int64(uint32(t64))+44:], uint32(p65))
 											v5 = int32(load32(m.memory[int64(uint32(v1))+96:]))
 											v0 = v4
-										l45:
+										l39:
 											{
-												t83 := v0
-												p84 := i32(60)
+												t66 := v0
+												p67 := i32(60)
 												if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
-													p84 = i32(84)
+													p67 = i32(84)
 												}
-												v2 = t83 + p84
+												v2 = t66 + p67
 												v0 = int32(load32(m.memory[uint32(v2):]))
 												store32(m.memory[uint32(v2):], uint32(v5))
 												if v0 != 0 {
-													goto l45
+													goto l39
 												}
 											}
-											t85 := v4
-											var p86 int32
+											t68 := v4
+											var p69 int32
 											if v3 != i32(0) {
-												p86 = 1
+												p69 = 1
 											}
-											store32(m.memory[int64(uint32(t85))+44:], uint32(p86))
+											store32(m.memory[int64(uint32(t68))+44:], uint32(p69))
 											v0 = v1
-										l46:
+										l40:
 											{
-												t87 := v0
-												p88 := i32(60)
+												t70 := v0
+												p71 := i32(60)
 												if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
-													p88 = i32(84)
+													p71 = i32(84)
 												}
-												v2 = t87 + p88
+												v2 = t70 + p71
 												v0 = int32(load32(m.memory[uint32(v2):]))
 												if v0 != 0 {
-													goto l46
+													goto l40
 												}
 											}
 											store32(m.memory[uint32(v2):], uint32(v4))
-											t89 := v1
-											store32(m.memory[int64(uint32(t89))+96:], load32(m.memory[int64(uint32(v4))+96:]))
+											t72 := v1
+											store32(m.memory[int64(uint32(t72))+96:], load32(m.memory[int64(uint32(v4))+96:]))
 											goto l15
 										}
-									l12:
-										v4 = m._gen_proto(v0, i32(18), i32(26))
-										v1 = m._gen_proto(v0, i32(20), i32(26))
+									l8:
+										v3 = m._gen_proto(v0, i32(15), i32(26))
+										v1 = m._gen_proto(v0, i32(16), i32(26))
+										{
+											v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
+											if v2 == i32(2) {
+												goto l41
+											}
+											if v2 == i32(1) {
+												v1 = v3
+												goto l41
+											}
+											v2 = int32(load32(m.memory[int64(uint32(v1))+208:]))
+											if v2 == i32(2) {
+												v1 = v3
+												goto l41
+											}
+											if v2 == i32(1) {
+												goto l41
+											}
+											t73 := v3
+											v6 = int32(load32(m.memory[int64(uint32(v3))+44:]))
+											var p74 int32
+											if v6 == 0 {
+												p74 = 1
+											}
+											store32(m.memory[int64(uint32(t73))+44:], uint32(p74))
+											v4 = int32(load32(m.memory[int64(uint32(v1))+96:]))
+											v2 = v3
+										l42:
+											{
+												t75 := v2
+												p76 := i32(60)
+												if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
+													p76 = i32(84)
+												}
+												v5 = t75 + p76
+												v2 = int32(load32(m.memory[uint32(v5):]))
+												store32(m.memory[uint32(v5):], uint32(v4))
+												if v2 != 0 {
+													goto l42
+												}
+											}
+											t77 := v3
+											var p78 int32
+											if v6 != i32(0) {
+												p78 = 1
+											}
+											store32(m.memory[int64(uint32(t77))+44:], uint32(p78))
+											v2 = v1
+										l43:
+											{
+												t79 := v2
+												p80 := i32(60)
+												if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
+													p80 = i32(84)
+												}
+												v5 = t79 + p80
+												v2 = int32(load32(m.memory[uint32(v5):]))
+												if v2 != 0 {
+													goto l43
+												}
+											}
+											store32(m.memory[uint32(v5):], uint32(v3))
+											t81 := v1
+											store32(m.memory[int64(uint32(t81))+96:], load32(m.memory[int64(uint32(v3))+96:]))
+										}
+									l41:
+										v4 = m._gen_proto(v0, i32(17), i32(26))
 										v0 = int32(load32(m.memory[int64(uint32(v4))+208:]))
 										if v0 == i32(2) {
 											goto l15
@@ -4442,189 +4377,57 @@ func (m *Module) _gen_proto_abbrev_internal(v0, v1 int32) int32 {
 										if v0 == i32(1) {
 											goto l15
 										}
-										t90 := v4
+										t82 := v4
 										v3 = int32(load32(m.memory[int64(uint32(v4))+44:]))
-										var p91 int32
+										var p83 int32
 										if v3 == 0 {
-											p91 = 1
+											p83 = 1
 										}
-										store32(m.memory[int64(uint32(t90))+44:], uint32(p91))
+										store32(m.memory[int64(uint32(t82))+44:], uint32(p83))
 										v5 = int32(load32(m.memory[int64(uint32(v1))+96:]))
 										v0 = v4
-									l47:
+									l44:
 										{
-											t92 := v0
-											p93 := i32(60)
+											t84 := v0
+											p85 := i32(60)
 											if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
-												p93 = i32(84)
+												p85 = i32(84)
 											}
-											v2 = t92 + p93
+											v2 = t84 + p85
 											v0 = int32(load32(m.memory[uint32(v2):]))
 											store32(m.memory[uint32(v2):], uint32(v5))
 											if v0 != 0 {
-												goto l47
+												goto l44
 											}
 										}
-										t94 := v4
-										var p95 int32
+										t86 := v4
+										var p87 int32
 										if v3 != i32(0) {
-											p95 = 1
+											p87 = 1
 										}
-										store32(m.memory[int64(uint32(t94))+44:], uint32(p95))
+										store32(m.memory[int64(uint32(t86))+44:], uint32(p87))
 										v0 = v1
-									l48:
+									l45:
 										{
-											t96 := v0
-											p97 := i32(60)
+											t88 := v0
+											p89 := i32(60)
 											if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
-												p97 = i32(84)
+												p89 = i32(84)
 											}
-											v2 = t96 + p97
+											v2 = t88 + p89
 											v0 = int32(load32(m.memory[uint32(v2):]))
 											if v0 != 0 {
-												goto l48
+												goto l45
 											}
 										}
 										store32(m.memory[uint32(v2):], uint32(v4))
-										t98 := v1
-										store32(m.memory[int64(uint32(t98))+96:], load32(m.memory[int64(uint32(v4))+96:]))
+										t90 := v1
+										store32(m.memory[int64(uint32(t90))+96:], load32(m.memory[int64(uint32(v4))+96:]))
 										goto l15
 									}
-								l9:
-									v3 = m._gen_proto(v0, i32(24), i32(26))
-									v1 = m._gen_proto(v0, i32(25), i32(26))
-									{
-										v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
-										if v2 == i32(2) {
-											goto l49
-										}
-										if v2 == i32(1) {
-											v1 = v3
-											goto l49
-										}
-										v2 = int32(load32(m.memory[int64(uint32(v1))+208:]))
-										if v2 == i32(2) {
-											v1 = v3
-											goto l49
-										}
-										if v2 == i32(1) {
-											goto l49
-										}
-										t99 := v3
-										v6 = int32(load32(m.memory[int64(uint32(v3))+44:]))
-										var p100 int32
-										if v6 == 0 {
-											p100 = 1
-										}
-										store32(m.memory[int64(uint32(t99))+44:], uint32(p100))
-										v4 = int32(load32(m.memory[int64(uint32(v1))+96:]))
-										v2 = v3
-									l50:
-										{
-											t101 := v2
-											p102 := i32(60)
-											if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-												p102 = i32(84)
-											}
-											v5 = t101 + p102
-											v2 = int32(load32(m.memory[uint32(v5):]))
-											store32(m.memory[uint32(v5):], uint32(v4))
-											if v2 != 0 {
-												goto l50
-											}
-										}
-										t103 := v3
-										var p104 int32
-										if v6 != i32(0) {
-											p104 = 1
-										}
-										store32(m.memory[int64(uint32(t103))+44:], uint32(p104))
-										v2 = v1
-									l51:
-										{
-											t105 := v2
-											p106 := i32(60)
-											if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-												p106 = i32(84)
-											}
-											v5 = t105 + p106
-											v2 = int32(load32(m.memory[uint32(v5):]))
-											if v2 != 0 {
-												goto l51
-											}
-										}
-										store32(m.memory[uint32(v5):], uint32(v3))
-										t107 := v1
-										store32(m.memory[int64(uint32(t107))+96:], load32(m.memory[int64(uint32(v3))+96:]))
-									}
-								l49:
-									{
-										v3 = m._gen_proto(v0, i32(26), i32(26))
-										v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
-										if v2 == i32(2) {
-											goto l52
-										}
-										if v2 == i32(1) {
-											v1 = v3
-											goto l52
-										}
-										v2 = int32(load32(m.memory[int64(uint32(v1))+208:]))
-										if v2 == i32(2) {
-											v1 = v3
-											goto l52
-										}
-										if v2 == i32(1) {
-											goto l52
-										}
-										t108 := v3
-										v6 = int32(load32(m.memory[int64(uint32(v3))+44:]))
-										var p109 int32
-										if v6 == 0 {
-											p109 = 1
-										}
-										store32(m.memory[int64(uint32(t108))+44:], uint32(p109))
-										v4 = int32(load32(m.memory[int64(uint32(v1))+96:]))
-										v2 = v3
-									l53:
-										{
-											t110 := v2
-											p111 := i32(60)
-											if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-												p111 = i32(84)
-											}
-											v5 = t110 + p111
-											v2 = int32(load32(m.memory[uint32(v5):]))
-											store32(m.memory[uint32(v5):], uint32(v4))
-											if v2 != 0 {
-												goto l53
-											}
-										}
-										t112 := v3
-										var p113 int32
-										if v6 != i32(0) {
-											p113 = 1
-										}
-										store32(m.memory[int64(uint32(t112))+44:], uint32(p113))
-										v2 = v1
-									l54:
-										{
-											t114 := v2
-											p115 := i32(60)
-											if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-												p115 = i32(84)
-											}
-											v5 = t114 + p115
-											v2 = int32(load32(m.memory[uint32(v5):]))
-											if v2 != 0 {
-												goto l54
-											}
-										}
-										store32(m.memory[uint32(v5):], uint32(v3))
-										t116 := v1
-										store32(m.memory[int64(uint32(t116))+96:], load32(m.memory[int64(uint32(v3))+96:]))
-									}
-								l52:
-									v4 = m._gen_proto(v0, i32(27), i32(26))
+								l12:
+									v4 = m._gen_proto(v0, i32(18), i32(26))
+									v1 = m._gen_proto(v0, i32(20), i32(26))
 									v0 = int32(load32(m.memory[int64(uint32(v4))+208:]))
 									if v0 == i32(2) {
 										goto l15
@@ -4641,57 +4444,189 @@ func (m *Module) _gen_proto_abbrev_internal(v0, v1 int32) int32 {
 									if v0 == i32(1) {
 										goto l15
 									}
-									t117 := v4
+									t91 := v4
 									v3 = int32(load32(m.memory[int64(uint32(v4))+44:]))
-									var p118 int32
+									var p92 int32
 									if v3 == 0 {
-										p118 = 1
+										p92 = 1
 									}
-									store32(m.memory[int64(uint32(t117))+44:], uint32(p118))
+									store32(m.memory[int64(uint32(t91))+44:], uint32(p92))
 									v5 = int32(load32(m.memory[int64(uint32(v1))+96:]))
 									v0 = v4
-								l55:
+								l46:
 									{
-										t119 := v0
-										p120 := i32(60)
+										t93 := v0
+										p94 := i32(60)
 										if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
-											p120 = i32(84)
+											p94 = i32(84)
 										}
-										v2 = t119 + p120
+										v2 = t93 + p94
 										v0 = int32(load32(m.memory[uint32(v2):]))
 										store32(m.memory[uint32(v2):], uint32(v5))
 										if v0 != 0 {
-											goto l55
+											goto l46
 										}
 									}
-									t121 := v4
-									var p122 int32
+									t95 := v4
+									var p96 int32
 									if v3 != i32(0) {
-										p122 = 1
+										p96 = 1
 									}
-									store32(m.memory[int64(uint32(t121))+44:], uint32(p122))
+									store32(m.memory[int64(uint32(t95))+44:], uint32(p96))
 									v0 = v1
-								l56:
+								l47:
 									{
-										t123 := v0
-										p124 := i32(60)
+										t97 := v0
+										p98 := i32(60)
 										if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
-											p124 = i32(84)
+											p98 = i32(84)
 										}
-										v2 = t123 + p124
+										v2 = t97 + p98
 										v0 = int32(load32(m.memory[uint32(v2):]))
 										if v0 != 0 {
-											goto l56
+											goto l47
 										}
 									}
 									store32(m.memory[uint32(v2):], uint32(v4))
-									t125 := v1
-									store32(m.memory[int64(uint32(t125))+96:], load32(m.memory[int64(uint32(v4))+96:]))
+									t99 := v1
+									store32(m.memory[int64(uint32(t99))+96:], load32(m.memory[int64(uint32(v4))+96:]))
 									goto l15
 								}
-							l10:
-								v4 = m._gen_proto(v0, i32(24), i32(26))
+							l9:
+								v3 = m._gen_proto(v0, i32(24), i32(26))
 								v1 = m._gen_proto(v0, i32(25), i32(26))
+								{
+									v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
+									if v2 == i32(2) {
+										goto l48
+									}
+									if v2 == i32(1) {
+										v1 = v3
+										goto l48
+									}
+									v2 = int32(load32(m.memory[int64(uint32(v1))+208:]))
+									if v2 == i32(2) {
+										v1 = v3
+										goto l48
+									}
+									if v2 == i32(1) {
+										goto l48
+									}
+									t100 := v3
+									v6 = int32(load32(m.memory[int64(uint32(v3))+44:]))
+									var p101 int32
+									if v6 == 0 {
+										p101 = 1
+									}
+									store32(m.memory[int64(uint32(t100))+44:], uint32(p101))
+									v4 = int32(load32(m.memory[int64(uint32(v1))+96:]))
+									v2 = v3
+								l49:
+									{
+										t102 := v2
+										p103 := i32(60)
+										if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
+											p103 = i32(84)
+										}
+										v5 = t102 + p103
+										v2 = int32(load32(m.memory[uint32(v5):]))
+										store32(m.memory[uint32(v5):], uint32(v4))
+										if v2 != 0 {
+											goto l49
+										}
+									}
+									t104 := v3
+									var p105 int32
+									if v6 != i32(0) {
+										p105 = 1
+									}
+									store32(m.memory[int64(uint32(t104))+44:], uint32(p105))
+									v2 = v1
+								l50:
+									{
+										t106 := v2
+										p107 := i32(60)
+										if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
+											p107 = i32(84)
+										}
+										v5 = t106 + p107
+										v2 = int32(load32(m.memory[uint32(v5):]))
+										if v2 != 0 {
+											goto l50
+										}
+									}
+									store32(m.memory[uint32(v5):], uint32(v3))
+									t108 := v1
+									store32(m.memory[int64(uint32(t108))+96:], load32(m.memory[int64(uint32(v3))+96:]))
+								}
+							l48:
+								{
+									v3 = m._gen_proto(v0, i32(26), i32(26))
+									v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
+									if v2 == i32(2) {
+										goto l51
+									}
+									if v2 == i32(1) {
+										v1 = v3
+										goto l51
+									}
+									v2 = int32(load32(m.memory[int64(uint32(v1))+208:]))
+									if v2 == i32(2) {
+										v1 = v3
+										goto l51
+									}
+									if v2 == i32(1) {
+										goto l51
+									}
+									t109 := v3
+									v6 = int32(load32(m.memory[int64(uint32(v3))+44:]))
+									var p110 int32
+									if v6 == 0 {
+										p110 = 1
+									}
+									store32(m.memory[int64(uint32(t109))+44:], uint32(p110))
+									v4 = int32(load32(m.memory[int64(uint32(v1))+96:]))
+									v2 = v3
+								l52:
+									{
+										t111 := v2
+										p112 := i32(60)
+										if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
+											p112 = i32(84)
+										}
+										v5 = t111 + p112
+										v2 = int32(load32(m.memory[uint32(v5):]))
+										store32(m.memory[uint32(v5):], uint32(v4))
+										if v2 != 0 {
+											goto l52
+										}
+									}
+									t113 := v3
+									var p114 int32
+									if v6 != i32(0) {
+										p114 = 1
+									}
+									store32(m.memory[int64(uint32(t113))+44:], uint32(p114))
+									v2 = v1
+								l53:
+									{
+										t115 := v2
+										p116 := i32(60)
+										if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
+											p116 = i32(84)
+										}
+										v5 = t115 + p116
+										v2 = int32(load32(m.memory[uint32(v5):]))
+										if v2 != 0 {
+											goto l53
+										}
+									}
+									store32(m.memory[uint32(v5):], uint32(v3))
+									t117 := v1
+									store32(m.memory[int64(uint32(t117))+96:], load32(m.memory[int64(uint32(v3))+96:]))
+								}
+							l51:
+								v4 = m._gen_proto(v0, i32(27), i32(26))
 								v0 = int32(load32(m.memory[int64(uint32(v4))+208:]))
 								if v0 == i32(2) {
 									goto l15
@@ -4708,57 +4643,57 @@ func (m *Module) _gen_proto_abbrev_internal(v0, v1 int32) int32 {
 								if v0 == i32(1) {
 									goto l15
 								}
-								t126 := v4
+								t118 := v4
 								v3 = int32(load32(m.memory[int64(uint32(v4))+44:]))
-								var p127 int32
+								var p119 int32
 								if v3 == 0 {
-									p127 = 1
+									p119 = 1
 								}
-								store32(m.memory[int64(uint32(t126))+44:], uint32(p127))
+								store32(m.memory[int64(uint32(t118))+44:], uint32(p119))
 								v5 = int32(load32(m.memory[int64(uint32(v1))+96:]))
 								v0 = v4
-							l57:
+							l54:
 								{
-									t128 := v0
-									p129 := i32(60)
+									t120 := v0
+									p121 := i32(60)
 									if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
-										p129 = i32(84)
+										p121 = i32(84)
 									}
-									v2 = t128 + p129
+									v2 = t120 + p121
 									v0 = int32(load32(m.memory[uint32(v2):]))
 									store32(m.memory[uint32(v2):], uint32(v5))
 									if v0 != 0 {
-										goto l57
+										goto l54
 									}
 								}
-								t130 := v4
-								var p131 int32
+								t122 := v4
+								var p123 int32
 								if v3 != i32(0) {
-									p131 = 1
+									p123 = 1
 								}
-								store32(m.memory[int64(uint32(t130))+44:], uint32(p131))
+								store32(m.memory[int64(uint32(t122))+44:], uint32(p123))
 								v0 = v1
-							l58:
+							l55:
 								{
-									t132 := v0
-									p133 := i32(60)
+									t124 := v0
+									p125 := i32(60)
 									if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
-										p133 = i32(84)
+										p125 = i32(84)
 									}
-									v2 = t132 + p133
+									v2 = t124 + p125
 									v0 = int32(load32(m.memory[uint32(v2):]))
 									if v0 != 0 {
-										goto l58
+										goto l55
 									}
 								}
 								store32(m.memory[uint32(v2):], uint32(v4))
-								t134 := v1
-								store32(m.memory[int64(uint32(t134))+96:], load32(m.memory[int64(uint32(v4))+96:]))
+								t126 := v1
+								store32(m.memory[int64(uint32(t126))+96:], load32(m.memory[int64(uint32(v4))+96:]))
 								goto l15
 							}
-						l11:
-							v4 = m._gen_proto(v0, i32(26), i32(26))
-							v1 = m._gen_proto(v0, i32(27), i32(26))
+						l10:
+							v4 = m._gen_proto(v0, i32(24), i32(26))
+							v1 = m._gen_proto(v0, i32(25), i32(26))
 							v0 = int32(load32(m.memory[int64(uint32(v4))+208:]))
 							if v0 == i32(2) {
 								goto l15
@@ -4775,93 +4710,154 @@ func (m *Module) _gen_proto_abbrev_internal(v0, v1 int32) int32 {
 							if v0 == i32(1) {
 								goto l15
 							}
-							t135 := v4
+							t127 := v4
 							v3 = int32(load32(m.memory[int64(uint32(v4))+44:]))
-							var p136 int32
+							var p128 int32
 							if v3 == 0 {
-								p136 = 1
+								p128 = 1
 							}
-							store32(m.memory[int64(uint32(t135))+44:], uint32(p136))
+							store32(m.memory[int64(uint32(t127))+44:], uint32(p128))
 							v5 = int32(load32(m.memory[int64(uint32(v1))+96:]))
 							v0 = v4
-						l59:
+						l56:
 							{
-								t137 := v0
-								p138 := i32(60)
+								t129 := v0
+								p130 := i32(60)
 								if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
-									p138 = i32(84)
+									p130 = i32(84)
 								}
-								v2 = t137 + p138
+								v2 = t129 + p130
 								v0 = int32(load32(m.memory[uint32(v2):]))
 								store32(m.memory[uint32(v2):], uint32(v5))
 								if v0 != 0 {
-									goto l59
+									goto l56
 								}
 							}
-							t139 := v4
-							var p140 int32
+							t131 := v4
+							var p132 int32
 							if v3 != i32(0) {
-								p140 = 1
+								p132 = 1
 							}
-							store32(m.memory[int64(uint32(t139))+44:], uint32(p140))
+							store32(m.memory[int64(uint32(t131))+44:], uint32(p132))
 							v0 = v1
-						l60:
+						l57:
 							{
-								t141 := v0
-								p142 := i32(60)
+								t133 := v0
+								p134 := i32(60)
 								if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
-									p142 = i32(84)
+									p134 = i32(84)
 								}
-								v2 = t141 + p142
+								v2 = t133 + p134
 								v0 = int32(load32(m.memory[uint32(v2):]))
 								if v0 != 0 {
-									goto l60
+									goto l57
 								}
 							}
 							store32(m.memory[uint32(v2):], uint32(v4))
-							t143 := v1
-							store32(m.memory[int64(uint32(t143))+96:], load32(m.memory[int64(uint32(v4))+96:]))
+							t135 := v1
+							store32(m.memory[int64(uint32(t135))+96:], load32(m.memory[int64(uint32(v4))+96:]))
 							goto l15
 						}
-					l13:
-						t144 := v7
-						store32(m.memory[uint32(t144):], uint32(m._pqkw(v1)))
-						m._bpf_error(v0, i32(3709), v7)
-						panic("unreachable")
+					l11:
+						v4 = m._gen_proto(v0, i32(26), i32(26))
+						v1 = m._gen_proto(v0, i32(27), i32(26))
+						v0 = int32(load32(m.memory[int64(uint32(v4))+208:]))
+						if v0 == i32(2) {
+							goto l15
+						}
+						if v0 == i32(1) {
+							v1 = v4
+							goto l15
+						}
+						v0 = int32(load32(m.memory[int64(uint32(v1))+208:]))
+						if v0 == i32(2) {
+							v1 = v4
+							goto l15
+						}
+						if v0 == i32(1) {
+							goto l15
+						}
+						t136 := v4
+						v3 = int32(load32(m.memory[int64(uint32(v4))+44:]))
+						var p137 int32
+						if v3 == 0 {
+							p137 = 1
+						}
+						store32(m.memory[int64(uint32(t136))+44:], uint32(p137))
+						v5 = int32(load32(m.memory[int64(uint32(v1))+96:]))
+						v0 = v4
+					l58:
+						{
+							t138 := v0
+							p139 := i32(60)
+							if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
+								p139 = i32(84)
+							}
+							v2 = t138 + p139
+							v0 = int32(load32(m.memory[uint32(v2):]))
+							store32(m.memory[uint32(v2):], uint32(v5))
+							if v0 != 0 {
+								goto l58
+							}
+						}
+						t140 := v4
+						var p141 int32
+						if v3 != i32(0) {
+							p141 = 1
+						}
+						store32(m.memory[int64(uint32(t140))+44:], uint32(p141))
+						v0 = v1
+					l59:
+						{
+							t142 := v0
+							p143 := i32(60)
+							if int32(load32(m.memory[int64(uint32(v0))+44:])) != 0 {
+								p143 = i32(84)
+							}
+							v2 = t142 + p143
+							v0 = int32(load32(m.memory[uint32(v2):]))
+							if v0 != 0 {
+								goto l59
+							}
+						}
+						store32(m.memory[uint32(v2):], uint32(v4))
+						t144 := v1
+						store32(m.memory[int64(uint32(t144))+96:], load32(m.memory[int64(uint32(v4))+96:]))
+						goto l15
 					}
-				l3:
-					v1 = m._gen_proto(v0, i32(58), i32(17))
-				l15:
-					m.___stack_pointer = v7 + i32(96)
-					return v1
-				l14:
+				l13:
 					t145 := v7
-					store32(m.memory[int64(uint32(t145))+16:], uint32(m._pqkw(v1)))
-					m._bpf_error(v0, i32(4163), v7+i32(16))
+					store32(m.memory[uint32(t145):], uint32(m._pqkw(v1)))
+					m._bpf_error(v0, i32(68221), v7)
 					panic("unreachable")
 				}
-			l16:
+			l3:
+				v1 = m._gen_proto(v0, i32(58), i32(17))
+			l15:
+				m.___stack_pointer = v7 + i32(80)
+				return v1
+			l14:
 				t146 := v7
-				store32(m.memory[int64(uint32(t146))+32:], uint32(m._pqkw(v1)))
-				m._bpf_error(v0, i32(4163), v7+i32(32))
+				store32(m.memory[int64(uint32(t146))+16:], uint32(m._pqkw(v1)))
+				m._bpf_error(v0, i32(68675), v7+i32(16))
 				panic("unreachable")
 			}
-		l17:
+		l16:
 			t147 := v7
-			store32(m.memory[int64(uint32(t147))+48:], uint32(m._pqkw(v1)))
-			m._bpf_error(v0, i32(5618), v7+i32(48))
+			store32(m.memory[int64(uint32(t147))+32:], uint32(m._pqkw(v1)))
+			m._bpf_error(v0, i32(68675), v7+i32(32))
 			panic("unreachable")
 		}
-	l18:
+	l17:
 		t148 := v7
-		store32(m.memory[int64(uint32(t148))+64:], uint32(m._pqkw(v1)))
-		m._bpf_error(v0, i32(6756), v7-i32(-64))
+		store32(m.memory[int64(uint32(t148))+48:], uint32(m._pqkw(v1)))
+		m._bpf_error(v0, i32(70130), v7+i32(48))
 		panic("unreachable")
 	}
-l19:
+l18:
 	t149 := v7
-	store32(m.memory[int64(uint32(t149))+80:], uint32(m._pqkw(v1)))
-	m._bpf_error(v0, i32(6866), v7+i32(80))
+	store32(m.memory[int64(uint32(t149))+64:], uint32(m._pqkw(v1)))
+	m._bpf_error(v0, i32(71268), v7-i32(-64))
 	panic("unreachable")
 }
 func (m *Module) _gen_proto(v0, v1, v2 int32) int32 {
@@ -5885,9 +5881,9 @@ func (m *Module) _gen_proto(v0, v1, v2 int32) int32 {
 	}
 l3:
 	v2 = m._pqkw(v2)
-	store32(m.memory[int64(uint32(v6))+4:], uint32(i32(3501)))
+	store32(m.memory[int64(uint32(v6))+4:], uint32(i32(68013)))
 	store32(m.memory[uint32(v6):], uint32(v2))
-	m._bpf_error(v0, i32(7762), v6)
+	m._bpf_error(v0, i32(72240), v6)
 	panic("unreachable")
 l1:
 	v2 = m._gen_linktype(v0, v1)
@@ -5897,35 +5893,35 @@ l21:
 l7:
 	store32(m.memory[int64(uint32(v6))+24:], uint32(i32(255)))
 	store32(m.memory[int64(uint32(v6))+20:], uint32(v1))
-	store32(m.memory[int64(uint32(v6))+16:], uint32(i32(3086)))
-	m._bpf_error(v0, i32(1419), v6+i32(16))
+	store32(m.memory[int64(uint32(v6))+16:], uint32(i32(67598)))
+	m._bpf_error(v0, i32(65931), v6+i32(16))
 	panic("unreachable")
 l24:
 	store32(m.memory[int64(uint32(v6))+40:], uint32(i32(255)))
 	store32(m.memory[int64(uint32(v6))+36:], uint32(v1))
-	store32(m.memory[int64(uint32(v6))+32:], uint32(i32(3086)))
-	m._bpf_error(v0, i32(1419), v6+i32(32))
+	store32(m.memory[int64(uint32(v6))+32:], uint32(i32(67598)))
+	m._bpf_error(v0, i32(65931), v6+i32(32))
 	panic("unreachable")
 l27:
 	store32(m.memory[int64(uint32(v6))+56:], uint32(i32(255)))
 	store32(m.memory[int64(uint32(v6))+52:], uint32(v1))
-	store32(m.memory[int64(uint32(v6))+48:], uint32(i32(3086)))
-	m._bpf_error(v0, i32(1419), v6+i32(48))
+	store32(m.memory[int64(uint32(v6))+48:], uint32(i32(67598)))
+	m._bpf_error(v0, i32(65931), v6+i32(48))
 	panic("unreachable")
 l36:
 	store32(m.memory[int64(uint32(v6))+72:], uint32(i32(255)))
 	store32(m.memory[int64(uint32(v6))+68:], uint32(v1))
-	store32(m.memory[int64(uint32(v6))+64:], uint32(i32(4203)))
-	m._bpf_error(v0, i32(1419), v6-i32(-64))
+	store32(m.memory[int64(uint32(v6))+64:], uint32(i32(68715)))
+	m._bpf_error(v0, i32(65931), v6-i32(-64))
 	panic("unreachable")
 l44:
 	store32(m.memory[int64(uint32(v6))+88:], uint32(i32(31)))
 	store32(m.memory[int64(uint32(v6))+84:], uint32(v1))
-	store32(m.memory[int64(uint32(v6))+80:], uint32(i32(5583)))
-	m._bpf_error(v0, i32(1419), v6+i32(80))
+	store32(m.memory[int64(uint32(v6))+80:], uint32(i32(70095)))
+	m._bpf_error(v0, i32(65931), v6+i32(80))
 	panic("unreachable")
 l8:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_linktype(v0, v1 int32) int32 {
@@ -6105,7 +6101,7 @@ func (m *Module) _gen_linktype(v0, v1 int32) int32 {
 			goto l2
 		}
 	l0:
-		m._bpf_error(v0, i32(2620), i32(0))
+		m._bpf_error(v0, i32(67132), i32(0))
 		panic("unreachable")
 	}
 	{
@@ -7135,8 +7131,8 @@ func (m *Module) _gen_linktype(v0, v1 int32) int32 {
 					}
 					store32(m.memory[int64(uint32(v5))+88:], uint32(i32(0xffff)))
 					store32(m.memory[int64(uint32(v5))+84:], uint32(v1))
-					store32(m.memory[int64(uint32(v5))+80:], uint32(i32(4150)))
-					m._bpf_error(v0, i32(1419), v5+i32(80))
+					store32(m.memory[int64(uint32(v5))+80:], uint32(i32(68662)))
+					m._bpf_error(v0, i32(65931), v5+i32(80))
 					panic("unreachable")
 				}
 			l78:
@@ -7275,7 +7271,7 @@ func (m *Module) _gen_linktype(v0, v1 int32) int32 {
 	l23:
 		t134 := v5
 		store32(m.memory[uint32(t134):], uint32(m._pcapint_datalink_val_to_string(v2)))
-		m._bpf_error(v0, i32(2840), v5)
+		m._bpf_error(v0, i32(67352), v5)
 		panic("unreachable")
 	}
 l10:
@@ -7284,26 +7280,26 @@ l10:
 l62:
 	store32(m.memory[int64(uint32(v5))+40:], uint32(i32(255)))
 	store32(m.memory[int64(uint32(v5))+36:], uint32(v1))
-	store32(m.memory[int64(uint32(v5))+32:], uint32(i32(6747)))
-	m._bpf_error(v0, i32(1419), v5+i32(32))
+	store32(m.memory[int64(uint32(v5))+32:], uint32(i32(71259)))
+	m._bpf_error(v0, i32(65931), v5+i32(32))
 	panic("unreachable")
 l68:
 	store32(m.memory[int64(uint32(v5))+56:], uint32(i32(0xffff)))
 	store32(m.memory[int64(uint32(v5))+52:], uint32(v1))
-	store32(m.memory[int64(uint32(v5))+48:], uint32(i32(5646)))
-	m._bpf_error(v0, i32(1419), v5+i32(48))
+	store32(m.memory[int64(uint32(v5))+48:], uint32(i32(70158)))
+	m._bpf_error(v0, i32(65931), v5+i32(48))
 	panic("unreachable")
 l69:
 	store32(m.memory[int64(uint32(v5))+72:], uint32(i32(0xffff)))
 	store32(m.memory[int64(uint32(v5))+68:], uint32(v1))
-	store32(m.memory[int64(uint32(v5))+64:], uint32(i32(4216)))
-	m._bpf_error(v0, i32(1419), v5-i32(-64))
+	store32(m.memory[int64(uint32(v5))+64:], uint32(i32(68728)))
+	m._bpf_error(v0, i32(65931), v5-i32(-64))
 	panic("unreachable")
 l86:
 	store32(m.memory[int64(uint32(v5))+24:], uint32(i32(0xffff)))
 	store32(m.memory[int64(uint32(v5))+20:], uint32(v1))
-	store32(m.memory[int64(uint32(v5))+16:], uint32(i32(5646)))
-	m._bpf_error(v0, i32(1419), v5+i32(16))
+	store32(m.memory[int64(uint32(v5))+16:], uint32(i32(70158)))
+	m._bpf_error(v0, i32(65931), v5+i32(16))
 	panic("unreachable")
 l80:
 	v2 = m._gen_false(v0)
@@ -7311,7 +7307,7 @@ l2:
 	m.___stack_pointer = v5 + i32(112)
 	return v2
 l1:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _pqkw(v0 int32) int32 {
@@ -7320,20 +7316,23 @@ func (m *Module) _pqkw(v0 int32) int32 {
 	var v3 int32
 	v1 = m.___stack_pointer - i32(16)
 	m.___stack_pointer = v1
-	if uint32(v0) <= uint32(i32(39)) {
-		v2 = int32(load32(m.memory[int64(uint32(v0<<2))+9600:]))
-		if v2 != 0 {
-			goto l0
-		}
+	if uint32(v0) > uint32(i32(39)) {
+		goto l0
 	}
-	v3 = int32(load32(m.memory[uint32(i32(61152)):]))
-	v2 = v3<<6 + i32(60896)
-	m.memory[uint32(v2)] = byte(i32(0))
-	store32(m.memory[uint32(i32(61152)):], uint32((v3+i32(1))&i32(3)))
-	store32(m.memory[uint32(v1):], uint32(i32(3501)))
-	store32(m.memory[int64(uint32(v1))+4:], uint32(v0))
-	_ = m._snprintf(v2, i32(64), i32(6936), v1)
+	if v0 == 0 {
+		goto l0
+	}
+	v2 = int32(load32(m.memory[int64(uint32(v0<<2))+74080:]))
+	goto l1
 l0:
+	v3 = int32(load32(m.memory[uint32(i32(125632)):]))
+	v2 = v3<<6 + i32(125376)
+	m.memory[uint32(v2)] = byte(i32(0))
+	store32(m.memory[uint32(i32(125632)):], uint32((v3+i32(1))&i32(3)))
+	store32(m.memory[uint32(v1):], uint32(i32(68013)))
+	store32(m.memory[int64(uint32(v1))+4:], uint32(v0))
+	_ = m._snprintf(v2, i32(64), i32(71414), v1)
+l1:
 	m.___stack_pointer = v1 + i32(16)
 	return v2
 }
@@ -7391,14 +7390,14 @@ func (m *Module) _gen_scode(v0, v1, v2, v3, v4, v5 int32) int32 {
 									}
 									store32(m.memory[int64(uint32(v6))+440:], uint32(v2))
 									store32(m.memory[int64(uint32(v6))+444:], uint32(v1))
-									v2 = m._gen_host(v0, i32(1), v6+i32(440), v6+i32(444), v3&i32(255), v4&i32(255), i32(0), i32(7036))
+									v2 = m._gen_host(v0, i32(1), v6+i32(440), v6+i32(444), v3&i32(255), v4&i32(255), i32(0), i32(71514))
 									goto l10
 								l0:
 									v2 = v3 & i32(255)
 									if v2 != i32(1) {
 										goto l11
 									}
-									v2 = m._gen_mac48host_byname(v0, v1, v4&i32(255), i32(6851))
+									v2 = m._gen_mac48host_byname(v0, v1, v4&i32(255), i32(71363))
 									goto l10
 								l2:
 									v2 = v3 & i32(255)
@@ -7434,11 +7433,11 @@ func (m *Module) _gen_scode(v0, v1, v2, v3, v4, v5 int32) int32 {
 											goto l18
 										}
 										store32(m.memory[int64(uint32(v6))+112:], uint32(v1))
-										m._bpf_error(v0, i32(3458), v6+i32(112))
+										m._bpf_error(v0, i32(67970), v6+i32(112))
 										panic("unreachable")
 									}
 									store32(m.memory[int64(uint32(v6))+128:], uint32(v1))
-									m._bpf_error(v0, i32(3162), v6+i32(128))
+									m._bpf_error(v0, i32(67674), v6+i32(128))
 									panic("unreachable")
 								l15:
 									v2 = int32(load32(m.memory[int64(uint32(v6))+440:]))
@@ -7448,11 +7447,11 @@ func (m *Module) _gen_scode(v0, v1, v2, v3, v4, v5 int32) int32 {
 											goto l18
 										}
 										store32(m.memory[int64(uint32(v6))+144:], uint32(v1))
-										m._bpf_error(v0, i32(3410), v6+i32(144))
+										m._bpf_error(v0, i32(67922), v6+i32(144))
 										panic("unreachable")
 									}
 									store32(m.memory[int64(uint32(v6))+160:], uint32(v1))
-									m._bpf_error(v0, i32(3162), v6+i32(160))
+									m._bpf_error(v0, i32(67674), v6+i32(160))
 									panic("unreachable")
 								l14:
 									v2 = i32(132)
@@ -7466,11 +7465,11 @@ func (m *Module) _gen_scode(v0, v1, v2, v3, v4, v5 int32) int32 {
 									}
 								l20:
 									store32(m.memory[int64(uint32(v6))+176:], uint32(v1))
-									m._bpf_error(v0, i32(3410), v6+i32(176))
+									m._bpf_error(v0, i32(67922), v6+i32(176))
 									panic("unreachable")
 								l19:
 									store32(m.memory[int64(uint32(v6))+192:], uint32(v1))
-									m._bpf_error(v0, i32(3458), v6+i32(192))
+									m._bpf_error(v0, i32(67970), v6+i32(192))
 									panic("unreachable")
 								}
 							l6:
@@ -7527,11 +7526,11 @@ func (m *Module) _gen_scode(v0, v1, v2, v3, v4, v5 int32) int32 {
 										goto l29
 									}
 									store32(m.memory[int64(uint32(v6))+320:], uint32(v1))
-									m._bpf_error(v0, i32(3475), v6+i32(320))
+									m._bpf_error(v0, i32(67987), v6+i32(320))
 									panic("unreachable")
 								}
 								store32(m.memory[int64(uint32(v6))+336:], uint32(v1))
-								m._bpf_error(v0, i32(3180), v6+i32(336))
+								m._bpf_error(v0, i32(67692), v6+i32(336))
 								panic("unreachable")
 							l27:
 								if v8 != i32(132) {
@@ -7540,11 +7539,11 @@ func (m *Module) _gen_scode(v0, v1, v2, v3, v4, v5 int32) int32 {
 										goto l29
 									}
 									store32(m.memory[int64(uint32(v6))+352:], uint32(v1))
-									m._bpf_error(v0, i32(3427), v6+i32(352))
+									m._bpf_error(v0, i32(67939), v6+i32(352))
 									panic("unreachable")
 								}
 								store32(m.memory[int64(uint32(v6))+368:], uint32(v1))
-								m._bpf_error(v0, i32(3180), v6+i32(368))
+								m._bpf_error(v0, i32(67692), v6+i32(368))
 								panic("unreachable")
 							l26:
 								v2 = v8 - i32(6)
@@ -7559,11 +7558,11 @@ func (m *Module) _gen_scode(v0, v1, v2, v3, v4, v5 int32) int32 {
 								}
 							l31:
 								store32(m.memory[int64(uint32(v6))+384:], uint32(v1))
-								m._bpf_error(v0, i32(3427), v6+i32(384))
+								m._bpf_error(v0, i32(67939), v6+i32(384))
 								panic("unreachable")
 							l30:
 								store32(m.memory[int64(uint32(v6))+400:], uint32(v1))
-								m._bpf_error(v0, i32(3475), v6+i32(400))
+								m._bpf_error(v0, i32(67987), v6+i32(400))
 								panic("unreachable")
 							}
 						l3:
@@ -7585,7 +7584,7 @@ func (m *Module) _gen_scode(v0, v1, v2, v3, v4, v5 int32) int32 {
 							if int32(load32(m.memory[int64(uint32(v0))+124:])) != 0 {
 								goto l34
 							}
-							v4 = m._gen_mac48host_byname(v0, v1, i32(3), i32(1114))
+							v4 = m._gen_mac48host_byname(v0, v1, i32(3), i32(65626))
 							v2 = m._gen_host46_byname(v0, v1, v3&i32(255), i32(2), i32(3), i32(1))
 							v1 = int32(load32(m.memory[int64(uint32(v4))+208:]))
 							if v1 == i32(2) {
@@ -7674,7 +7673,7 @@ func (m *Module) _gen_scode(v0, v1, v2, v3, v4, v5 int32) int32 {
 				v2 = m._tqkw(v2 & i32(255))
 				store32(m.memory[int64(uint32(v6))+20:], uint32(v1))
 				store32(m.memory[int64(uint32(v6))+16:], uint32(v2))
-				m._bpf_error(v0, i32(7762), v6+i32(16))
+				m._bpf_error(v0, i32(72240), v6+i32(16))
 				panic("unreachable")
 			l11:
 				v2 = m._gen_host46_byname(v0, v1, v2, v2, v4&i32(255), i32(0))
@@ -7687,57 +7686,57 @@ func (m *Module) _gen_scode(v0, v1, v2, v3, v4, v5 int32) int32 {
 				p22 = i32(1)
 			}
 			store32(m.memory[int64(uint32(t21))+4:], uint32(m._tqkw(p22)))
-			store32(m.memory[uint32(v6):], uint32(i32(1897)))
-			m._bpf_error(v0, i32(7762), v6)
+			store32(m.memory[uint32(v6):], uint32(i32(66409)))
+			m._bpf_error(v0, i32(72240), v6)
 			panic("unreachable")
 		}
 	l8:
 		store32(m.memory[int64(uint32(v6))+32:], uint32(v1))
-		m._bpf_error(v0, i32(7801), v6+i32(32))
+		m._bpf_error(v0, i32(72279), v6+i32(32))
 		panic("unreachable")
 	l12:
 		v2 = m._pqkw(v8)
-		store32(m.memory[int64(uint32(v6))+52:], uint32(i32(1653)))
+		store32(m.memory[int64(uint32(v6))+52:], uint32(i32(66165)))
 		store32(m.memory[int64(uint32(v6))+48:], uint32(v2))
-		m._bpf_error(v0, i32(7762), v6+i32(48))
+		m._bpf_error(v0, i32(72240), v6+i32(48))
 		panic("unreachable")
 	l13:
 		store32(m.memory[int64(uint32(v6))+64:], uint32(v1))
-		m._bpf_error(v0, i32(7603), v6-i32(-64))
+		m._bpf_error(v0, i32(72081), v6-i32(-64))
 		panic("unreachable")
 	l21:
 		v2 = m._pqkw(v8)
-		store32(m.memory[int64(uint32(v6))+212:], uint32(i32(5821)))
+		store32(m.memory[int64(uint32(v6))+212:], uint32(i32(70333)))
 		store32(m.memory[int64(uint32(v6))+208:], uint32(v2))
-		m._bpf_error(v0, i32(7762), v6+i32(208))
+		m._bpf_error(v0, i32(72240), v6+i32(208))
 		panic("unreachable")
 	l22:
 		store32(m.memory[int64(uint32(v6))+224:], uint32(v1))
-		m._bpf_error(v0, i32(4020), v6+i32(224))
+		m._bpf_error(v0, i32(68532), v6+i32(224))
 		panic("unreachable")
 	l23:
 		store32(m.memory[int64(uint32(v6))+416:], uint32(v1))
-		m._bpf_error(v0, i32(4055), v6+i32(416))
+		m._bpf_error(v0, i32(68567), v6+i32(416))
 		panic("unreachable")
 	l24:
 		store32(m.memory[int64(uint32(v6))+240:], uint32(v1))
-		m._bpf_error(v0, i32(1561), v6+i32(240))
+		m._bpf_error(v0, i32(66073), v6+i32(240))
 		panic("unreachable")
 	l25:
 		store32(m.memory[int64(uint32(v6))+256:], uint32(v1))
-		m._bpf_error(v0, i32(1598), v6+i32(256))
+		m._bpf_error(v0, i32(66110), v6+i32(256))
 		panic("unreachable")
 	l32:
 		v2 = m._pqkw(v8)
-		store32(m.memory[int64(uint32(v6))+436:], uint32(i32(1114)))
+		store32(m.memory[int64(uint32(v6))+436:], uint32(i32(65626)))
 		store32(m.memory[int64(uint32(v6))+432:], uint32(v2))
-		m._bpf_error(v0, i32(7762), v6+i32(432))
+		m._bpf_error(v0, i32(72240), v6+i32(432))
 		panic("unreachable")
 	l33:
-		m._bpf_error(v0, i32(6710), i32(0))
+		m._bpf_error(v0, i32(71222), i32(0))
 		panic("unreachable")
 	l34:
-		m._bpf_error(v0, i32(5339), i32(0))
+		m._bpf_error(v0, i32(69851), i32(0))
 		panic("unreachable")
 	l37:
 		m._syntax(v0)
@@ -7926,9 +7925,9 @@ func (m *Module) _gen_scode(v0, v1, v2, v3, v4, v5 int32) int32 {
 							}
 						l43:
 							v2 = m._dqkw(v2)
-							store32(m.memory[int64(uint32(v6))+308:], uint32(i32(5821)))
+							store32(m.memory[int64(uint32(v6))+308:], uint32(i32(70333)))
 							store32(m.memory[int64(uint32(v6))+304:], uint32(v2))
-							m._bpf_error(v0, i32(7762), v6+i32(304))
+							m._bpf_error(v0, i32(72240), v6+i32(304))
 							panic("unreachable")
 						l40:
 							t43 := v0
@@ -8146,14 +8145,14 @@ func (m *Module) _gen_scode(v0, v1, v2, v3, v4, v5 int32) int32 {
 		}
 		store32(m.memory[int64(uint32(v6))+280:], uint32(i32(0xffff)))
 		store32(m.memory[int64(uint32(v6))+276:], uint32(v9))
-		store32(m.memory[int64(uint32(v6))+272:], uint32(i32(3053)))
-		m._bpf_error(v0, i32(1419), v6+i32(272))
+		store32(m.memory[int64(uint32(v6))+272:], uint32(i32(67565)))
+		m._bpf_error(v0, i32(65931), v6+i32(272))
 		panic("unreachable")
 	l38:
 		store32(m.memory[int64(uint32(v6))+296:], uint32(i32(0xffff)))
 		store32(m.memory[int64(uint32(v6))+292:], uint32(v10))
-		store32(m.memory[int64(uint32(v6))+288:], uint32(i32(3053)))
-		m._bpf_error(v0, i32(1419), v6+i32(288))
+		store32(m.memory[int64(uint32(v6))+288:], uint32(i32(67565)))
+		m._bpf_error(v0, i32(65931), v6+i32(288))
 		panic("unreachable")
 	l18:
 		store32(m.memory[int64(uint32(v6))+440:], uint32(v2))
@@ -8241,11 +8240,11 @@ l10:
 	return v2
 l61:
 	store32(m.memory[int64(uint32(v6))+80:], uint32(v2))
-	m._bpf_error(v0, i32(7205), v6+i32(80))
+	m._bpf_error(v0, i32(71683), v6+i32(80))
 	panic("unreachable")
 l62:
 	store32(m.memory[int64(uint32(v6))+96:], uint32(v2))
-	m._bpf_error(v0, i32(7109), v6+i32(96))
+	m._bpf_error(v0, i32(71587), v6+i32(96))
 	panic("unreachable")
 }
 func (m *Module) _gen_host(v0, v1, v2, v3, v4, v5, v6, v7 int32) int32 {
@@ -8425,7 +8424,7 @@ func (m *Module) _gen_host(v0, v1, v2, v3, v4, v5, v6, v7 int32) int32 {
 				v5 = m._pqkw(v4)
 				store32(m.memory[int64(uint32(v13))+4:], uint32(v7))
 				store32(m.memory[uint32(v13):], uint32(v5))
-				m._bpf_error(v0, i32(7762), v13)
+				m._bpf_error(v0, i32(72240), v13)
 				panic("unreachable")
 			l4:
 				v14 = i32(24)
@@ -8787,14 +8786,14 @@ func (m *Module) _gen_host(v0, v1, v2, v3, v4, v5, v6, v7 int32) int32 {
 		}
 		t61 := v13
 		store32(m.memory[int64(uint32(t61))+16:], uint32(m._dqkw(v5)))
-		m._bpf_error(v0, i32(1047), v13+i32(16))
+		m._bpf_error(v0, i32(65559), v13+i32(16))
 		panic("unreachable")
 	}
 l11:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l12:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_mac48host_byname(v0, v1, v2, v3 int32) int32 {
@@ -8856,7 +8855,7 @@ l2:
 	v4 = m._pcap_ether_hostton(v1)
 	if v4 == 0 {
 		store32(m.memory[uint32(v5):], uint32(v1))
-		m._bpf_error(v0, i32(7571), v5)
+		m._bpf_error(v0, i32(72049), v5)
 		panic("unreachable")
 	}
 	t2 := v5
@@ -8916,17 +8915,17 @@ func (m *Module) _stringtoport(v0, v1, v2, v3 int32) int32 {
 			goto l5
 		}
 		store32(m.memory[int64(uint32(v5))+16:], uint32(v4))
-		m._bpf_set_error(v0, i32(1633), v5+i32(16))
+		m._bpf_set_error(v0, i32(66145), v5+i32(16))
 		m.Xfree(v4)
-		m.__pcap_longjmp_at(i32(1548), i32(7090))
+		m.__pcap_longjmp_at(i32(66060), i32(7090))
 		panic("unreachable")
 	l2:
-		m.__pcap_longjmp_at(i32(1548), i32(7098))
+		m.__pcap_longjmp_at(i32(66060), i32(7098))
 		panic("unreachable")
 	l1:
 		store32(m.memory[uint32(v5):], uint32(v4))
-		m._bpf_set_error(v0, i32(3967), v5)
-		m.__pcap_longjmp_at(i32(1548), i32(7107))
+		m._bpf_set_error(v0, i32(68479), v5)
+		m.__pcap_longjmp_at(i32(66060), i32(7107))
 		panic("unreachable")
 	l0:
 		store32(m.memory[uint32(v3):], uint32(i32(-1)))
@@ -8937,11 +8936,11 @@ func (m *Module) _stringtoport(v0, v1, v2, v3 int32) int32 {
 	}
 l3:
 	m.Xfree(v4)
-	m.__pcap_longjmp_at(i32(1548), i32(7045))
+	m.__pcap_longjmp_at(i32(66060), i32(7045))
 	panic("unreachable")
 l4:
 	m.Xfree(v4)
-	m.__pcap_longjmp_at(i32(1548), i32(7055))
+	m.__pcap_longjmp_at(i32(66060), i32(7055))
 	panic("unreachable")
 }
 func (m *Module) _gen_host46_byname(v0, v1, v2, v3, v4, v5 int32) int32 {
@@ -8989,14 +8988,14 @@ func (m *Module) _gen_host46_byname(v0, v1, v2, v3, v4, v5 int32) int32 {
 			goto l4
 		}
 		store32(m.memory[uint32(v8):], uint32(v1))
-		m._bpf_error(v0, i32(7553), v8)
+		m._bpf_error(v0, i32(72031), v8)
 		panic("unreachable")
 	l1:
 		store32(m.memory[int64(uint32(v8))+48:], uint32(i32(100)))
-		m._bpf_error(v0, i32(5711), v8+i32(48))
+		m._bpf_error(v0, i32(70223), v8+i32(48))
 		panic("unreachable")
 	l3:
-		p1 = m._gen_host(v0, v6, v8+i32(1664), v8-i32(-64), v2, v4, v5, i32(7011))
+		p1 = m._gen_host(v0, v6, v8+i32(1664), v8-i32(-64), v2, v4, v5, i32(71489))
 	l4:
 		v9 = p1
 		v7 = int32(load32(m.memory[int64(uint32(v0))+56:]))
@@ -9021,9 +9020,9 @@ l0:
 			v11 = v10 + (v8 + i32(1664))
 			t2 := v11
 			v12 = int32(load32(m.memory[int64(uint32(v7))+20:]))
-			store64(m.memory[uint32(t2):], load64(m.memory[int64(uint32(v12))+8:]))
+			store64(m.memory[int64(uint32(t2))+8:], load64(m.memory[int64(uint32(v12))+16:]))
 			t3 := v11
-			store64(m.memory[int64(uint32(t3))+8:], load64(m.memory[int64(uint32(v12))+16:]))
+			store64(m.memory[uint32(t3):], load64(m.memory[int64(uint32(v12))+8:]))
 			v10 = v8 - i32(-64) + v10
 			store64(m.memory[uint32(v10):], uint64(i64(-1)))
 			store64(m.memory[int64(uint32(v10))+8:], uint64(i64(-1)))
@@ -9046,10 +9045,10 @@ l0:
 		goto l6
 	l7:
 		store32(m.memory[int64(uint32(v8))+32:], uint32(i32(100)))
-		m._bpf_error(v0, i32(5674), v8+i32(32))
+		m._bpf_error(v0, i32(70186), v8+i32(32))
 		panic("unreachable")
 	l9:
-		v6 = m._gen_host6(v0, v7, v8+i32(1664), v8-i32(-64), v3, v4, v5, i32(7011))
+		v6 = m._gen_host6(v0, v7, v8+i32(1664), v8-i32(-64), v3, v4, v5, i32(71489))
 		if v9 == 0 {
 			goto l6
 		}
@@ -9127,12 +9126,12 @@ l5:
 	}
 	store32(m.memory[int64(uint32(v8))+16:], uint32(v1))
 	t14 := v8
-	p13 := i32(8225)
+	p13 := i32(72703)
 	if v2 != 0 {
-		p13 = i32(1084)
+		p13 = i32(65596)
 	}
 	store32(m.memory[int64(uint32(t14))+20:], uint32(p13))
-	m._bpf_error(v0, i32(2753), v8+i32(16))
+	m._bpf_error(v0, i32(67265), v8+i32(16))
 	panic("unreachable")
 }
 func (m *Module) _lookup_proto(v0, v1, v2, v3 int32) int32 {
@@ -9160,15 +9159,15 @@ l1:
 	v4 = m._pcap_nametollc(v1)
 	goto l4
 l3:
-	if m._strcmp(v1, i32(2694)) == 0 {
+	if m._strcmp(v1, i32(67206)) == 0 {
 		v4 = i32(130)
 		goto l5
 	}
-	if m._strcmp(v1, i32(2689)) == 0 {
+	if m._strcmp(v1, i32(67201)) == 0 {
 		v4 = i32(131)
 		goto l5
 	}
-	if m._strcmp(v1, i32(3345)) != 0 {
+	if m._strcmp(v1, i32(67857)) != 0 {
 		goto l2
 	}
 	v4 = i32(129)
@@ -9188,13 +9187,13 @@ l2:
 	store32(m.memory[int64(uint32(v5))+8:], uint32(v1))
 	store32(m.memory[int64(uint32(v5))+4:], uint32(v3))
 	store32(m.memory[uint32(v5):], uint32(v4))
-	m._bpf_error(v0, i32(7846), v5)
+	m._bpf_error(v0, i32(72324), v5)
 	panic("unreachable")
 l6:
 	v4 = m._tqkw(v2 & i32(255))
 	store32(m.memory[int64(uint32(v5))+20:], uint32(v1))
 	store32(m.memory[int64(uint32(v5))+16:], uint32(v4))
-	m._bpf_error(v0, i32(7822), v5+i32(16))
+	m._bpf_error(v0, i32(72300), v5+i32(16))
 	panic("unreachable")
 l5:
 	m.___stack_pointer = v5 + i32(32)
@@ -9211,42 +9210,41 @@ func (m *Module) _gen_protochain(v0, v1, v2 int32) int32 {
 	var v10 int32
 	var v11 int32
 	var v12 int32
-	var v13 int32
-	v5 = m.___stack_pointer - i32(432)
-	m.___stack_pointer = v5
-	v10 = v0 + i32(180)
-	v9 = v5 - i32(-64)
-	v7 = v5 + i32(104)
-	v6 = int32(load32(m.memory[int64(uint32(v0))+244:]))
-	v4 = i32(-16)
+	v4 = m.___stack_pointer - i32(432)
+	m.___stack_pointer = v4
+	v9 = v0 + i32(180)
+	v10 = v4 - i32(-64)
+	v6 = v4 + i32(104)
+	v12 = v4 + i32(56)
+	v5 = int32(load32(m.memory[int64(uint32(v0))+244:]))
+	v7 = i32(-16)
 l1:
 	{
-		v3 = v10 + v6<<2
+		v3 = v9 + v5<<2
 		if int32(load32(m.memory[uint32(v3):])) == 0 {
 			goto l0
 		}
 		t0 := v0
-		v6 = (v6 + i32(1)) % i32(16)
-		store32(m.memory[int64(uint32(t0))+244:], uint32(v6))
-		v3 = v10 + v6<<2
+		v5 = (v5 + i32(1)) % i32(16)
+		store32(m.memory[int64(uint32(t0))+244:], uint32(v5))
+		v3 = v9 + v5<<2
 		if int32(load32(m.memory[uint32(v3):])) == 0 {
 			goto l0
 		}
 		t1 := v0
-		v6 = (v6 + i32(1)) % i32(16)
-		store32(m.memory[int64(uint32(t1))+244:], uint32(v6))
-		v4 = v4 + i32(2)
-		if v4 != 0 {
+		v5 = (v5 + i32(1)) % i32(16)
+		store32(m.memory[int64(uint32(t1))+244:], uint32(v5))
+		v7 = v7 + i32(2)
+		if v7 != 0 {
 			goto l1
 		}
 	}
-	m._bpf_error(v0, i32(3860), i32(0))
+	m._bpf_error(v0, i32(68372), i32(0))
 	panic("unreachable")
 l0:
 	store32(m.memory[uint32(v3):], uint32(i32(1)))
 	v11 = int32(load32(m.memory[int64(uint32(v0))+244:]))
-	memory_zero(m.memory, uint32(v5+i32(32)), uint32(i32(400)))
-	v13 = v5 + i32(56)
+	memory_zero(m.memory, uint32(v4+i32(32)), uint32(i32(400)))
 	{
 		{
 			switch v2 {
@@ -9264,89 +9262,89 @@ l0:
 			if int32(load32(m.memory[int64(uint32(v0))+96:])) == 0 {
 				goto l6
 			}
-			m._bpf_error(v0, i32(2555), i32(0))
+			m._bpf_error(v0, i32(67067), i32(0))
 			panic("unreachable")
 		l2:
-			v7 = m._gen_protochain(v0, v1, i32(2))
+			v6 = m._gen_protochain(v0, v1, i32(2))
 			v3 = m._gen_protochain(v0, v1, i32(17))
-			v6 = int32(load32(m.memory[int64(uint32(v7))+208:]))
-			if v6 == i32(2) {
+			v5 = int32(load32(m.memory[int64(uint32(v6))+208:]))
+			if v5 == i32(2) {
 				goto l7
 			}
-			if v6 == i32(1) {
-				v3 = v7
+			if v5 == i32(1) {
+				v3 = v6
 				goto l7
 			}
-			v6 = int32(load32(m.memory[int64(uint32(v3))+208:]))
-			if v6 == i32(2) {
-				v3 = v7
+			v5 = int32(load32(m.memory[int64(uint32(v3))+208:]))
+			if v5 == i32(2) {
+				v3 = v6
 				goto l7
 			}
-			if v6 == i32(1) {
+			if v5 == i32(1) {
 				goto l7
 			}
-			t2 := v7
-			v10 = int32(load32(m.memory[int64(uint32(v7))+44:]))
+			t2 := v6
+			v9 = int32(load32(m.memory[int64(uint32(v6))+44:]))
 			var p3 int32
-			if v10 == 0 {
+			if v9 == 0 {
 				p3 = 1
 			}
 			store32(m.memory[int64(uint32(t2))+44:], uint32(p3))
 			v0 = int32(load32(m.memory[int64(uint32(v3))+96:]))
-			v6 = v7
+			v5 = v6
 		l8:
 			{
-				t4 := v6
+				t4 := v5
 				p5 := i32(60)
-				if int32(load32(m.memory[int64(uint32(v6))+44:])) != 0 {
+				if int32(load32(m.memory[int64(uint32(v5))+44:])) != 0 {
 					p5 = i32(84)
 				}
-				v4 = t4 + p5
-				v6 = int32(load32(m.memory[uint32(v4):]))
-				store32(m.memory[uint32(v4):], uint32(v0))
-				if v6 != 0 {
+				v7 = t4 + p5
+				v5 = int32(load32(m.memory[uint32(v7):]))
+				store32(m.memory[uint32(v7):], uint32(v0))
+				if v5 != 0 {
 					goto l8
 				}
 			}
-			t6 := v7
+			t6 := v6
 			var p7 int32
-			if v10 != i32(0) {
+			if v9 != i32(0) {
 				p7 = 1
 			}
 			store32(m.memory[int64(uint32(t6))+44:], uint32(p7))
-			v6 = v3
+			v5 = v3
 		l9:
 			{
-				t8 := v6
+				t8 := v5
 				p9 := i32(60)
-				if int32(load32(m.memory[int64(uint32(v6))+44:])) != 0 {
+				if int32(load32(m.memory[int64(uint32(v5))+44:])) != 0 {
 					p9 = i32(84)
 				}
-				v4 = t8 + p9
-				v6 = int32(load32(m.memory[uint32(v4):]))
-				if v6 != 0 {
+				v7 = t8 + p9
+				v5 = int32(load32(m.memory[uint32(v7):]))
+				if v5 != 0 {
 					goto l9
 				}
 			}
-			store32(m.memory[uint32(v4):], uint32(v7))
+			store32(m.memory[uint32(v7):], uint32(v6))
 			t10 := v3
-			store32(m.memory[int64(uint32(t10))+96:], load32(m.memory[int64(uint32(v7))+96:]))
+			store32(m.memory[int64(uint32(t10))+96:], load32(m.memory[int64(uint32(v6))+96:]))
 			goto l7
 		}
 	l3:
-		v6 = m._pqkw(v2)
-		store32(m.memory[int64(uint32(v5))+4:], uint32(i32(3956)))
-		store32(m.memory[uint32(v5):], uint32(v6))
-		m._bpf_error(v0, i32(7762), v5)
+		v5 = m._pqkw(v2)
+		store32(m.memory[int64(uint32(v4))+4:], uint32(i32(68468)))
+		store32(m.memory[uint32(v4):], uint32(v5))
+		m._bpf_error(v0, i32(72240), v4)
 		panic("unreachable")
 	l6:
 		store32(m.memory[int64(uint32(v0))+40:], uint32(i32(1)))
-		v6 = m._newchunk_nolongjmp(v0, i32(20))
-		if v6 == 0 {
+		v5 = m._newchunk_nolongjmp(v0, i32(20))
+		if v5 == 0 {
 			goto l10
 		}
-		store32(m.memory[uint32(v6):], uint32(i32(0)))
-		store32(m.memory[int64(uint32(v5))+32:], uint32(v6))
+		store32(m.memory[uint32(v5):], uint32(i32(0)))
+		store32(m.memory[int64(uint32(v4))+32:], uint32(v5))
 		{
 			{
 				switch v2 - i32(2) {
@@ -9359,7 +9357,7 @@ l0:
 				}
 			l13:
 				v8 = m._gen_linktype(v0, i32(34525))
-				t11 := v5
+				t11 := v4
 				store32(m.memory[int64(uint32(t11))+36:], uint32(m._gen_load_a(v0, i32(6), i32(6), i32(16))))
 				v3 = m._newchunk_nolongjmp(v0, i32(20))
 				if v3 == 0 {
@@ -9367,17 +9365,17 @@ l0:
 				}
 				store32(m.memory[uint32(v3):], uint32(i32(1)))
 				store32(m.memory[int64(uint32(v3))+12:], uint32(i32(40)))
-				store32(m.memory[int64(uint32(v5))+40:], uint32(v3))
+				store32(m.memory[int64(uint32(v4))+40:], uint32(v3))
 				goto l14
 			}
 		l12:
-			m._bpf_error(v0, i32(3931), i32(0))
+			m._bpf_error(v0, i32(68443), i32(0))
 			panic("unreachable")
 		l11:
 			v8 = m._gen_linktype(v0, i32(2048))
-			t12 := v5
+			t12 := v4
 			store32(m.memory[int64(uint32(t12))+36:], uint32(m._gen_load_a(v0, i32(6), i32(9), i32(16))))
-			t13 := v5
+			t13 := v4
 			store32(m.memory[int64(uint32(t13))+40:], uint32(m._gen_loadx_iphdrlen(v0)))
 		}
 	l14:
@@ -9385,69 +9383,69 @@ l0:
 		if v3 == 0 {
 			goto l10
 		}
-		store32(m.memory[int64(uint32(v5))+44:], uint32(v3))
+		store32(m.memory[int64(uint32(v4))+44:], uint32(v3))
 		store32(m.memory[int64(uint32(v3))+4:], uint32(i32(0)))
 		store32(m.memory[uint32(v3):], uint32(i32(21)))
 		store32(m.memory[int64(uint32(v3))+12:], uint32(v1))
-		store32(m.memory[int64(load32(m.memory[int64(uint32(v5))+44:]))+8:], uint32(i32(0)))
+		store32(m.memory[int64(load32(m.memory[int64(uint32(v4))+44:]))+8:], uint32(i32(0)))
 		v3 = m._newchunk_nolongjmp(v0, i32(20))
 		if v3 == 0 {
 			goto l10
 		}
-		store32(m.memory[int64(uint32(v5))+48:], uint32(v3))
+		store32(m.memory[int64(uint32(v4))+48:], uint32(v3))
 		store32(m.memory[int64(uint32(v3))+4:], uint32(i32(0)))
-		store32(m.memory[int64(load32(m.memory[int64(uint32(v5))+48:]))+8:], uint32(i32(0)))
+		store32(m.memory[int64(load32(m.memory[int64(uint32(v4))+48:]))+8:], uint32(i32(0)))
 		store32(m.memory[uint32(v3):], uint32(i32(21)))
-		t14 := int32(load32(m.memory[int64(uint32(v5))+44:]))
-		v4 = int32(load32(m.memory[int64(uint32(v5))+48:]))
-		store32(m.memory[int64(uint32(t14))+8:], uint32(v4))
-		store32(m.memory[int64(uint32(v4))+12:], uint32(i32(59)))
+		t14 := int32(load32(m.memory[int64(uint32(v4))+44:]))
+		v7 = int32(load32(m.memory[int64(uint32(v4))+48:]))
+		store32(m.memory[int64(uint32(t14))+8:], uint32(v7))
+		store32(m.memory[int64(uint32(v7))+12:], uint32(i32(59)))
 		v3 = m._newchunk_nolongjmp(v0, i32(20))
 		var p15 int32
 		if v2 == i32(17) {
 			if v3 == 0 {
 				goto l10
 			}
-			store32(m.memory[int64(uint32(v5))+52:], uint32(v3))
+			store32(m.memory[int64(uint32(v4))+52:], uint32(v3))
 			store32(m.memory[int64(uint32(v3))+4:], uint32(i32(0)))
-			store32(m.memory[int64(load32(m.memory[int64(uint32(v5))+52:]))+8:], uint32(i32(0)))
+			store32(m.memory[int64(load32(m.memory[int64(uint32(v4))+52:]))+8:], uint32(i32(0)))
 			store32(m.memory[uint32(v3):], uint32(i32(21)))
-			t16 := int32(load32(m.memory[int64(uint32(v5))+48:]))
-			v4 = int32(load32(m.memory[int64(uint32(v5))+52:]))
-			store32(m.memory[int64(uint32(t16))+8:], uint32(v4))
-			store32(m.memory[int64(uint32(v4))+12:], uint32(i32(0)))
+			t16 := int32(load32(m.memory[int64(uint32(v4))+48:]))
+			v7 = int32(load32(m.memory[int64(uint32(v4))+52:]))
+			store32(m.memory[int64(uint32(t16))+8:], uint32(v7))
+			store32(m.memory[int64(uint32(v7))+12:], uint32(i32(0)))
 			v3 = m._newchunk_nolongjmp(v0, i32(20))
 			if v3 == 0 {
 				goto l10
 			}
-			store32(m.memory[int64(uint32(v5))+56:], uint32(v3))
-			store32(m.memory[int64(uint32(v4))+8:], uint32(v3))
-			store32(m.memory[int64(load32(m.memory[int64(uint32(v5))+56:]))+4:], uint32(i32(0)))
-			store32(m.memory[int64(load32(m.memory[int64(uint32(v5))+56:]))+8:], uint32(i32(0)))
+			store32(m.memory[int64(uint32(v4))+56:], uint32(v3))
+			store32(m.memory[int64(uint32(v7))+8:], uint32(v3))
+			store32(m.memory[int64(load32(m.memory[int64(uint32(v4))+56:]))+4:], uint32(i32(0)))
+			store32(m.memory[int64(load32(m.memory[int64(uint32(v4))+56:]))+8:], uint32(i32(0)))
 			store32(m.memory[uint32(v3):], uint32(i32(21)))
-			v4 = int32(load32(m.memory[int64(uint32(v5))+56:]))
-			store32(m.memory[int64(uint32(v4))+12:], uint32(i32(60)))
+			v7 = int32(load32(m.memory[int64(uint32(v4))+56:]))
+			store32(m.memory[int64(uint32(v7))+12:], uint32(i32(60)))
 			v3 = m._newchunk_nolongjmp(v0, i32(20))
 			if v3 == 0 {
 				goto l10
 			}
-			store32(m.memory[int64(uint32(v5))+60:], uint32(v3))
-			store32(m.memory[int64(uint32(v4))+8:], uint32(v3))
-			store32(m.memory[int64(load32(m.memory[int64(uint32(v5))+60:]))+4:], uint32(i32(0)))
-			store32(m.memory[int64(load32(m.memory[int64(uint32(v5))+60:]))+8:], uint32(i32(0)))
+			store32(m.memory[int64(uint32(v4))+60:], uint32(v3))
+			store32(m.memory[int64(uint32(v7))+8:], uint32(v3))
+			store32(m.memory[int64(load32(m.memory[int64(uint32(v4))+60:]))+4:], uint32(i32(0)))
+			store32(m.memory[int64(load32(m.memory[int64(uint32(v4))+60:]))+8:], uint32(i32(0)))
 			store32(m.memory[uint32(v3):], uint32(i32(21)))
-			v4 = int32(load32(m.memory[int64(uint32(v5))+60:]))
-			store32(m.memory[int64(uint32(v4))+12:], uint32(i32(43)))
+			v7 = int32(load32(m.memory[int64(uint32(v4))+60:]))
+			store32(m.memory[int64(uint32(v7))+12:], uint32(i32(43)))
 			v3 = m._newchunk_nolongjmp(v0, i32(20))
 			if v3 == 0 {
 				goto l10
 			}
-			store32(m.memory[int64(uint32(v5))+64:], uint32(v3))
-			store32(m.memory[int64(uint32(v4))+8:], uint32(v3))
-			store32(m.memory[int64(load32(m.memory[int64(uint32(v5))+64:]))+4:], uint32(i32(0)))
-			store32(m.memory[int64(load32(m.memory[int64(uint32(v5))+64:]))+8:], uint32(i32(0)))
+			store32(m.memory[int64(uint32(v4))+64:], uint32(v3))
+			store32(m.memory[int64(uint32(v7))+8:], uint32(v3))
+			store32(m.memory[int64(load32(m.memory[int64(uint32(v4))+64:]))+4:], uint32(i32(0)))
+			store32(m.memory[int64(load32(m.memory[int64(uint32(v4))+64:]))+8:], uint32(i32(0)))
 			store32(m.memory[uint32(v3):], uint32(i32(21)))
-			store32(m.memory[int64(load32(m.memory[int64(uint32(v5))+64:]))+12:], uint32(i32(44)))
+			store32(m.memory[int64(load32(m.memory[int64(uint32(v4))+64:]))+12:], uint32(i32(44)))
 			v3 = m._newchunk_nolongjmp(v0, i32(20))
 			if v3 == 0 {
 				goto l10
@@ -9456,14 +9454,14 @@ l0:
 			t17 := v3
 			t18 := int32(load32(m.memory[int64(uint32(v0))+172:]))
 			store32(m.memory[int64(uint32(t17))+12:], uint32(t18+int32(load32(m.memory[int64(uint32(v0))+100:]))))
-			store32(m.memory[int64(uint32(v5))+68:], uint32(v3))
+			store32(m.memory[int64(uint32(v4))+68:], uint32(v3))
 			v3 = m._newchunk_nolongjmp(v0, i32(20))
 			if v3 == 0 {
 				goto l10
 			}
 			store32(m.memory[uint32(v3):], uint32(i32(2)))
 			store32(m.memory[int64(uint32(v3))+12:], uint32(v11))
-			store32(m.memory[int64(uint32(v5))+72:], uint32(v3))
+			store32(m.memory[int64(uint32(v4))+72:], uint32(v3))
 			v3 = m._newchunk_nolongjmp(v0, i32(20))
 			if v3 == 0 {
 				goto l10
@@ -9472,57 +9470,57 @@ l0:
 			t19 := v3
 			t20 := int32(load32(m.memory[int64(uint32(v0))+100:]))
 			store32(m.memory[int64(uint32(t19))+12:], uint32(t20+int32(load32(m.memory[int64(uint32(v0))+172:]))+i32(1)))
-			store32(m.memory[int64(uint32(v5))+76:], uint32(v3))
+			store32(m.memory[int64(uint32(v4))+76:], uint32(v3))
 			v3 = m._newchunk_nolongjmp(v0, i32(20))
 			if v3 == 0 {
 				goto l10
 			}
 			store32(m.memory[uint32(v3):], uint32(i32(4)))
 			store32(m.memory[int64(uint32(v3))+12:], uint32(i32(1)))
-			store32(m.memory[int64(uint32(v5))+80:], uint32(v3))
+			store32(m.memory[int64(uint32(v4))+80:], uint32(v3))
 			v3 = m._newchunk_nolongjmp(v0, i32(20))
 			if v3 == 0 {
 				goto l10
 			}
 			store32(m.memory[uint32(v3):], uint32(i32(36)))
 			store32(m.memory[int64(uint32(v3))+12:], uint32(i32(8)))
-			store32(m.memory[int64(uint32(v5))+84:], uint32(v3))
+			store32(m.memory[int64(uint32(v4))+84:], uint32(v3))
 			v3 = m._newchunk_nolongjmp(v0, i32(20))
 			if v3 == 0 {
 				goto l10
 			}
 			store32(m.memory[uint32(v3):], uint32(i32(12)))
 			store32(m.memory[int64(uint32(v3))+12:], uint32(i32(0)))
-			store32(m.memory[int64(uint32(v5))+88:], uint32(v3))
+			store32(m.memory[int64(uint32(v4))+88:], uint32(v3))
 			v3 = m._newchunk_nolongjmp(v0, i32(20))
 			if v3 == 0 {
 				goto l10
 			}
 			store32(m.memory[uint32(v3):], uint32(i32(7)))
-			store32(m.memory[int64(uint32(v5))+92:], uint32(v3))
+			store32(m.memory[int64(uint32(v4))+92:], uint32(v3))
 			v3 = m._newchunk_nolongjmp(v0, i32(20))
 			if v3 == 0 {
 				goto l10
 			}
 			store32(m.memory[uint32(v3):], uint32(i32(96)))
 			store32(m.memory[int64(uint32(v3))+12:], uint32(v11))
-			store32(m.memory[int64(uint32(v5))+96:], uint32(v3))
-			v4 = m._newchunk_nolongjmp(v0, i32(20))
-			if v4 == 0 {
+			store32(m.memory[int64(uint32(v4))+96:], uint32(v3))
+			v7 = m._newchunk_nolongjmp(v0, i32(20))
+			if v7 == 0 {
 				goto l10
 			}
-			store32(m.memory[int64(uint32(v5))+100:], uint32(v4))
-			store32(m.memory[int64(uint32(v3))+8:], uint32(v4))
-			t21 := int32(load32(m.memory[int64(uint32(v5))+52:]))
-			v3 = int32(load32(m.memory[int64(uint32(v5))+68:]))
+			store32(m.memory[int64(uint32(v4))+100:], uint32(v7))
+			store32(m.memory[int64(uint32(v3))+8:], uint32(v7))
+			t21 := int32(load32(m.memory[int64(uint32(v4))+52:]))
+			v3 = int32(load32(m.memory[int64(uint32(v4))+68:]))
 			store32(m.memory[int64(uint32(t21))+4:], uint32(v3))
-			store32(m.memory[int64(load32(m.memory[int64(uint32(v5))+56:]))+4:], uint32(v3))
-			t22 := int32(load32(m.memory[int64(uint32(v5))+60:]))
-			v3 = int32(load32(m.memory[int64(uint32(v5))+68:]))
+			store32(m.memory[int64(load32(m.memory[int64(uint32(v4))+56:]))+4:], uint32(v3))
+			t22 := int32(load32(m.memory[int64(uint32(v4))+60:]))
+			v3 = int32(load32(m.memory[int64(uint32(v4))+68:]))
 			store32(m.memory[int64(uint32(t22))+4:], uint32(v3))
-			store32(m.memory[uint32(v4):], uint32(i32(5)))
-			store32(m.memory[int64(uint32(v4))+12:], uint32(i32(-15)))
-			store32(m.memory[int64(load32(m.memory[int64(uint32(v5))+64:]))+4:], uint32(v3))
+			store32(m.memory[uint32(v7):], uint32(i32(5)))
+			store32(m.memory[int64(uint32(v7))+12:], uint32(i32(-15)))
+			store32(m.memory[int64(load32(m.memory[int64(uint32(v4))+64:]))+4:], uint32(v3))
 			p15 = i32(18)
 			goto l15
 		}
@@ -9531,257 +9529,247 @@ l0:
 		}
 		store32(m.memory[uint32(v3):], uint32(i32(4)))
 		store32(m.memory[int64(uint32(v3))+12:], uint32(i32(0)))
-		store32(m.memory[int64(uint32(v5))+52:], uint32(v3))
-		store32(m.memory[int64(uint32(v4))+8:], uint32(v3))
-		v9 = v5 + i32(32)
-		v7 = v13
+		store32(m.memory[int64(uint32(v4))+52:], uint32(v3))
+		store32(m.memory[int64(uint32(v7))+8:], uint32(v3))
+		v10 = v4 + i32(32)
+		v6 = v12
 		p15 = i32(6)
 	l15:
-		v3 = p15
-		v4 = m._newchunk_nolongjmp(v0, i32(20))
-		if v4 == 0 {
-			goto l10
-		}
-		store32(m.memory[uint32(v7):], uint32(v4))
-		store32(m.memory[int64(uint32(v4))+4:], uint32(i32(0)))
-		store32(m.memory[int64(load32(m.memory[uint32(v7):]))+8:], uint32(i32(0)))
-		store32(m.memory[uint32(v4):], uint32(i32(21)))
-		v4 = int32(load32(m.memory[uint32(v7):]))
-		store32(m.memory[int64(uint32(v4))+12:], uint32(i32(51)))
-		if v2 == i32(17) {
-			store32(m.memory[int64(load32(m.memory[uint32(v9):]))+8:], uint32(v4))
-		}
-		v4 = m._newchunk_nolongjmp(v0, i32(20))
-		if v4 == 0 {
-			goto l10
-		}
-		t23 := v5
-		v2 = v3 << 2
-		store32(m.memory[int64(uint32(t23+v2))+36:], uint32(v4))
-		store32(m.memory[uint32(v4):], uint32(i32(80)))
-		t24 := v4
-		t25 := int32(load32(m.memory[int64(uint32(v0))+172:]))
-		store32(m.memory[int64(uint32(t24))+12:], uint32(t25+int32(load32(m.memory[int64(uint32(v0))+100:]))))
-		store32(m.memory[int64(load32(m.memory[uint32(v7):]))+4:], uint32(v4))
-		v4 = m._newchunk_nolongjmp(v0, i32(20))
-		if v4 == 0 {
-			goto l10
-		}
-		store32(m.memory[uint32(v4):], uint32(i32(2)))
-		store32(m.memory[int64(uint32(v4))+12:], uint32(v11))
-		store32(m.memory[int64(uint32(v2+v5))+40:], uint32(v4))
-		v2 = m._newchunk_nolongjmp(v0, i32(20))
-		if v2 == 0 {
-			goto l10
-		}
-		v9 = v5 + i32(32) + v3<<2
-		store32(m.memory[int64(uint32(v9))+12:], uint32(v2))
-		store32(m.memory[uint32(v2):], uint32(i32(135)))
-		store32(m.memory[int64(uint32(v4))+4:], uint32(v2))
-		v4 = m._newchunk_nolongjmp(v0, i32(20))
-		if v4 == 0 {
-			goto l10
-		}
-		store32(m.memory[uint32(v4):], uint32(i32(4)))
-		store32(m.memory[int64(uint32(v4))+12:], uint32(i32(1)))
-		store32(m.memory[int64(uint32(v9))+16:], uint32(v4))
-		v4 = m._newchunk_nolongjmp(v0, i32(20))
-		if v4 == 0 {
-			goto l10
-		}
-		store32(m.memory[uint32(v4):], uint32(i32(7)))
-		v2 = v5 + i32(32) + v3<<2
-		store32(m.memory[int64(uint32(v2))+20:], uint32(v4))
-		v4 = m._newchunk_nolongjmp(v0, i32(20))
-		if v4 == 0 {
-			goto l10
-		}
-		store32(m.memory[uint32(v4):], uint32(i32(80)))
-		t26 := v4
-		t27 := int32(load32(m.memory[int64(uint32(v0))+172:]))
-		store32(m.memory[int64(uint32(t26))+12:], uint32(t27+int32(load32(m.memory[int64(uint32(v0))+100:]))))
-		store32(m.memory[int64(uint32(v2))+24:], uint32(v4))
-		v4 = m._newchunk_nolongjmp(v0, i32(20))
-		if v4 == 0 {
-			goto l10
-		}
-		store32(m.memory[uint32(v4):], uint32(i32(4)))
-		store32(m.memory[int64(uint32(v4))+12:], uint32(i32(2)))
-		t28 := v5
-		v2 = v3 << 2
-		store32(m.memory[int64(uint32(t28+v2))+60:], uint32(v4))
-		v4 = m._newchunk_nolongjmp(v0, i32(20))
-		if v4 == 0 {
-			goto l10
-		}
-		store32(m.memory[uint32(v4):], uint32(i32(36)))
-		store32(m.memory[int64(uint32(v4))+12:], uint32(i32(4)))
-		store32(m.memory[uint32(v2+v5-i32(-64)):], uint32(v4))
-		v4 = m._newchunk_nolongjmp(v0, i32(20))
-		if v4 == 0 {
-			goto l10
-		}
-		store32(m.memory[uint32(v4):], uint32(i32(7)))
-		t29 := v5
-		v2 = v3 << 2
-		store32(m.memory[int64(uint32(t29+v2))+68:], uint32(v4))
-		v4 = m._newchunk_nolongjmp(v0, i32(20))
-		if v4 == 0 {
-			goto l10
-		}
-		store32(m.memory[uint32(v4):], uint32(i32(96)))
-		store32(m.memory[int64(uint32(v4))+12:], uint32(v11))
-		store32(m.memory[int64(uint32(v2+v5))+72:], uint32(v4))
-		v4 = m._newchunk_nolongjmp(v0, i32(20))
-		if v4 == 0 {
-			goto l10
-		}
-		store32(m.memory[uint32(v4):], uint32(i32(5)))
-		store32(m.memory[int64(uint32(v4))+12:], uint32(i32(-9)-v3))
-		v2 = v3 << 2
-		v9 = v2 + (v5 + i32(32))
-		store32(m.memory[int64(uint32(v9))+44:], uint32(v4))
+		v7 = p15
 		v3 = m._newchunk_nolongjmp(v0, i32(20))
 		if v3 == 0 {
 			goto l10
 		}
-		v12 = v9
-		v9 = v12 + i32(48)
-		store32(m.memory[uint32(v9):], uint32(v3))
-		store32(m.memory[int64(load32(m.memory[int64(uint32(v5))+48:]))+4:], uint32(v3))
-		t30 := int32(load32(m.memory[uint32(v7):]))
-		v7 = int32(load32(m.memory[int64(uint32(v12))+48:]))
-		store32(m.memory[int64(uint32(t30))+8:], uint32(v7))
+		store32(m.memory[uint32(v6):], uint32(v3))
+		store32(m.memory[int64(uint32(v3))+4:], uint32(i32(0)))
+		store32(m.memory[int64(load32(m.memory[uint32(v6):]))+8:], uint32(i32(0)))
+		store32(m.memory[uint32(v3):], uint32(i32(21)))
+		v3 = int32(load32(m.memory[uint32(v6):]))
+		store32(m.memory[int64(uint32(v3))+12:], uint32(i32(51)))
+		if v2 == i32(17) {
+			store32(m.memory[int64(load32(m.memory[uint32(v10):]))+8:], uint32(v3))
+		}
+		v3 = m._newchunk_nolongjmp(v0, i32(20))
+		if v3 == 0 {
+			goto l10
+		}
+		store32(m.memory[int64(uint32(v6))+4:], uint32(v3))
+		store32(m.memory[uint32(v3):], uint32(i32(80)))
+		store32(m.memory[int64(load32(m.memory[uint32(v6):]))+4:], uint32(v3))
+		t23 := v3
+		t24 := int32(load32(m.memory[int64(uint32(v0))+172:]))
+		store32(m.memory[int64(uint32(t23))+12:], uint32(t24+int32(load32(m.memory[int64(uint32(v0))+100:]))))
+		v3 = m._newchunk_nolongjmp(v0, i32(20))
+		if v3 == 0 {
+			goto l10
+		}
+		store32(m.memory[int64(uint32(v6))+8:], uint32(v3))
+		store32(m.memory[uint32(v3):], uint32(i32(2)))
+		store32(m.memory[int64(uint32(v3))+12:], uint32(v11))
+		v3 = m._newchunk_nolongjmp(v0, i32(20))
+		if v3 == 0 {
+			goto l10
+		}
+		store32(m.memory[int64(uint32(v6))+12:], uint32(v3))
+		store32(m.memory[uint32(v3):], uint32(i32(135)))
+		store32(m.memory[int64(load32(m.memory[int64(uint32(v6))+8:]))+4:], uint32(v3))
+		v3 = m._newchunk_nolongjmp(v0, i32(20))
+		if v3 == 0 {
+			goto l10
+		}
+		store32(m.memory[int64(uint32(v6))+16:], uint32(v3))
 		store32(m.memory[uint32(v3):], uint32(i32(4)))
-		v4 = i32(0)
+		store32(m.memory[int64(uint32(v3))+12:], uint32(i32(1)))
+		v3 = m._newchunk_nolongjmp(v0, i32(20))
+		if v3 == 0 {
+			goto l10
+		}
+		store32(m.memory[int64(uint32(v6))+20:], uint32(v3))
+		store32(m.memory[uint32(v3):], uint32(i32(7)))
+		v3 = m._newchunk_nolongjmp(v0, i32(20))
+		if v3 == 0 {
+			goto l10
+		}
+		store32(m.memory[int64(uint32(v6))+24:], uint32(v3))
+		store32(m.memory[uint32(v3):], uint32(i32(80)))
+		t25 := v3
+		t26 := int32(load32(m.memory[int64(uint32(v0))+172:]))
+		store32(m.memory[int64(uint32(t25))+12:], uint32(t26+int32(load32(m.memory[int64(uint32(v0))+100:]))))
+		v3 = m._newchunk_nolongjmp(v0, i32(20))
+		if v3 == 0 {
+			goto l10
+		}
+		store32(m.memory[int64(uint32(v6))+28:], uint32(v3))
+		store32(m.memory[uint32(v3):], uint32(i32(4)))
+		store32(m.memory[int64(uint32(v3))+12:], uint32(i32(2)))
+		v3 = m._newchunk_nolongjmp(v0, i32(20))
+		if v3 == 0 {
+			goto l10
+		}
+		store32(m.memory[int64(uint32(v6))+32:], uint32(v3))
+		store32(m.memory[uint32(v3):], uint32(i32(36)))
+		store32(m.memory[int64(uint32(v3))+12:], uint32(i32(4)))
+		v3 = m._newchunk_nolongjmp(v0, i32(20))
+		if v3 == 0 {
+			goto l10
+		}
+		store32(m.memory[int64(uint32(v6))+36:], uint32(v3))
+		store32(m.memory[uint32(v3):], uint32(i32(7)))
+		v3 = m._newchunk_nolongjmp(v0, i32(20))
+		if v3 == 0 {
+			goto l10
+		}
+		store32(m.memory[int64(uint32(v6))+40:], uint32(v3))
+		store32(m.memory[uint32(v3):], uint32(i32(96)))
+		store32(m.memory[int64(uint32(v3))+12:], uint32(v11))
+		v3 = m._newchunk_nolongjmp(v0, i32(20))
+		if v3 == 0 {
+			goto l10
+		}
+		store32(m.memory[int64(uint32(v6))+44:], uint32(v3))
+		store32(m.memory[uint32(v3):], uint32(i32(5)))
+		store32(m.memory[int64(uint32(v3))+12:], uint32(i32(-9)-v7))
+		v3 = m._newchunk_nolongjmp(v0, i32(20))
+		if v3 == 0 {
+			goto l10
+		}
+		v2 = v7 << 2
+		v10 = v2 + (v4 + i32(32))
+		store32(m.memory[int64(uint32(v10))+48:], uint32(v3))
+		store32(m.memory[int64(load32(m.memory[int64(uint32(v4))+48:]))+4:], uint32(v3))
+		t27 := int32(load32(m.memory[uint32(v6):]))
+		v6 = int32(load32(m.memory[int64(uint32(v10))+48:]))
+		store32(m.memory[int64(uint32(t27))+8:], uint32(v6))
+		store32(m.memory[uint32(v3):], uint32(i32(4)))
+		v7 = i32(0)
 		store32(m.memory[int64(uint32(v3))+12:], uint32(i32(0)))
-		store32(m.memory[int64(load32(m.memory[int64(uint32(v5))+44:]))+4:], uint32(v7))
+		store32(m.memory[int64(load32(m.memory[int64(uint32(v4))+44:]))+4:], uint32(v6))
 		v2 = v2 + i32(40)
 	l16:
 		{
+			t28 := v5
+			v3 = v4 + i32(32) + v7
+			v6 = int32(load32(m.memory[int64(uint32(v3))+4:]))
+			store32(m.memory[int64(uint32(t28))+16:], uint32(v6))
+			t29 := v6
+			v5 = int32(load32(m.memory[int64(uint32(v3))+8:]))
+			store32(m.memory[int64(uint32(t29))+16:], uint32(v5))
+			t30 := v5
+			v6 = int32(load32(m.memory[int64(uint32(v3))+12:]))
+			store32(m.memory[int64(uint32(t30))+16:], uint32(v6))
 			t31 := v6
-			v3 = v5 + i32(32) + v4
-			v7 = int32(load32(m.memory[int64(uint32(v3))+4:]))
-			store32(m.memory[int64(uint32(t31))+16:], uint32(v7))
-			t32 := v7
-			v6 = int32(load32(m.memory[int64(uint32(v3))+8:]))
-			store32(m.memory[int64(uint32(t32))+16:], uint32(v6))
-			t33 := v6
-			v7 = int32(load32(m.memory[int64(uint32(v3))+12:]))
-			store32(m.memory[int64(uint32(t33))+16:], uint32(v7))
-			t34 := v7
-			v6 = int32(load32(m.memory[int64(uint32(v3))+16:]))
-			store32(m.memory[int64(uint32(t34))+16:], uint32(v6))
-			t35 := v2
-			v4 = v4 + i32(16)
-			if t35 != v4 {
+			v5 = int32(load32(m.memory[int64(uint32(v3))+16:]))
+			store32(m.memory[int64(uint32(t31))+16:], uint32(v5))
+			t32 := v2
+			v7 = v7 + i32(16)
+			if t32 != v7 {
 				goto l16
 			}
 		}
-		v3 = v4 + v5 + i32(36)
-		v4 = i32(2)
+		v3 = v4 + v7 + i32(36)
+		v7 = i32(2)
 	l17:
 		{
-			t36 := v6
-			v7 = int32(load32(m.memory[uint32(v3):]))
-			store32(m.memory[int64(uint32(t36))+16:], uint32(v7))
+			t33 := v5
+			v6 = int32(load32(m.memory[uint32(v3):]))
+			store32(m.memory[int64(uint32(t33))+16:], uint32(v6))
 			v3 = v3 + i32(4)
-			v6 = v7
-			v4 = v4 - i32(1)
-			if v4 != 0 {
+			v5 = v6
+			v7 = v7 - i32(1)
+			if v7 != 0 {
 				goto l17
 			}
 		}
-		store32(m.memory[int64(load32(m.memory[int64(uint32(v12))+48:]))+16:], uint32(i32(0)))
-		v6 = int32(load32(m.memory[int64(uint32(v5))+36:]))
+		store32(m.memory[int64(load32(m.memory[int64(uint32(v10))+48:]))+16:], uint32(i32(0)))
+		v5 = int32(load32(m.memory[int64(uint32(v4))+36:]))
 		v3 = m._newchunk_nolongjmp(v0, i32(212))
 		if v3 == 0 {
 			goto l10
 		}
 		store32(m.memory[int64(uint32(v3))+8:], uint32(i32(21)))
 		store32(m.memory[int64(uint32(v3))+20:], uint32(v1))
-		store32(m.memory[uint32(v10+v11<<2):], uint32(i32(0)))
-		store32(m.memory[int64(uint32(v3))+4:], uint32(v6))
+		store32(m.memory[uint32(v9+v11<<2):], uint32(i32(0)))
+		store32(m.memory[int64(uint32(v3))+4:], uint32(v5))
 		store32(m.memory[int64(uint32(v3))+96:], uint32(v3))
-		v6 = int32(load32(m.memory[int64(uint32(v8))+208:]))
-		if v6 == i32(2) {
+		v5 = int32(load32(m.memory[int64(uint32(v8))+208:]))
+		if v5 == i32(2) {
 			v3 = v8
 			goto l7
 		}
-		if v6 == i32(1) {
+		if v5 == i32(1) {
 			goto l7
 		}
-		v6 = int32(load32(m.memory[int64(uint32(v3))+208:]))
-		if v6 == i32(2) {
+		v5 = int32(load32(m.memory[int64(uint32(v3))+208:]))
+		if v5 == i32(2) {
 			goto l7
 		}
-		if v6 == i32(1) {
+		if v5 == i32(1) {
 			v3 = v8
 			goto l7
 		}
-		v6 = v8
+		v5 = v8
 	l18:
 		{
-			t37 := v6
-			p38 := i32(60)
-			if int32(load32(m.memory[int64(uint32(v6))+44:])) != 0 {
-				p38 = i32(84)
+			t34 := v5
+			p35 := i32(60)
+			if int32(load32(m.memory[int64(uint32(v5))+44:])) != 0 {
+				p35 = i32(84)
 			}
-			v4 = t37 + p38
-			v6 = int32(load32(m.memory[uint32(v4):]))
-			store32(m.memory[uint32(v4):], uint32(v3))
-			if v6 != 0 {
+			v7 = t34 + p35
+			v5 = int32(load32(m.memory[uint32(v7):]))
+			store32(m.memory[uint32(v7):], uint32(v3))
+			if v5 != 0 {
 				goto l18
 			}
 		}
-		t39 := v8
-		var p40 int32
+		t36 := v8
+		var p37 int32
 		if int32(load32(m.memory[int64(uint32(v8))+44:])) == 0 {
-			p40 = 1
+			p37 = 1
 		}
-		store32(m.memory[int64(uint32(t39))+44:], uint32(p40))
-		t41 := v3
+		store32(m.memory[int64(uint32(t36))+44:], uint32(p37))
+		t38 := v3
 		v0 = int32(load32(m.memory[int64(uint32(v3))+44:]))
-		var p42 int32
+		var p39 int32
 		if v0 == 0 {
-			p42 = 1
+			p39 = 1
 		}
-		store32(m.memory[int64(uint32(t41))+44:], uint32(p42))
-		v6 = v3
+		store32(m.memory[int64(uint32(t38))+44:], uint32(p39))
+		v5 = v3
 	l19:
 		{
-			t43 := v6
-			p44 := i32(60)
-			if int32(load32(m.memory[int64(uint32(v6))+44:])) != 0 {
-				p44 = i32(84)
+			t40 := v5
+			p41 := i32(60)
+			if int32(load32(m.memory[int64(uint32(v5))+44:])) != 0 {
+				p41 = i32(84)
 			}
-			v4 = t43 + p44
-			v6 = int32(load32(m.memory[uint32(v4):]))
-			if v6 != 0 {
+			v7 = t40 + p41
+			v5 = int32(load32(m.memory[uint32(v7):]))
+			if v5 != 0 {
 				goto l19
 			}
 		}
-		store32(m.memory[uint32(v4):], uint32(v8))
-		t45 := v3
-		var p46 int32
+		store32(m.memory[uint32(v7):], uint32(v8))
+		t42 := v3
+		var p43 int32
 		if v0 != i32(0) {
-			p46 = 1
+			p43 = 1
 		}
-		store32(m.memory[int64(uint32(t45))+44:], uint32(p46))
-		t47 := v3
-		store32(m.memory[int64(uint32(t47))+96:], load32(m.memory[int64(uint32(v8))+96:]))
+		store32(m.memory[int64(uint32(t42))+44:], uint32(p43))
+		t44 := v3
+		store32(m.memory[int64(uint32(t44))+96:], load32(m.memory[int64(uint32(v8))+96:]))
 	}
 l7:
-	m.___stack_pointer = v5 + i32(432)
+	m.___stack_pointer = v4 + i32(432)
 	return v3
 l5:
-	store32(m.memory[int64(uint32(v5))+24:], uint32(i32(255)))
-	store32(m.memory[int64(uint32(v5))+20:], uint32(v1))
-	store32(m.memory[int64(uint32(v5))+16:], uint32(i32(3086)))
-	m._bpf_error(v0, i32(1419), v5+i32(16))
+	store32(m.memory[int64(uint32(v4))+24:], uint32(i32(255)))
+	store32(m.memory[int64(uint32(v4))+20:], uint32(v1))
+	store32(m.memory[int64(uint32(v4))+16:], uint32(i32(67598)))
+	m._bpf_error(v0, i32(65931), v4+i32(16))
 	panic("unreachable")
 l10:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _tqkw(v0 int32) int32 {
@@ -9790,25 +9778,28 @@ func (m *Module) _tqkw(v0 int32) int32 {
 	var v3 int32
 	v1 = m.___stack_pointer - i32(16)
 	m.___stack_pointer = v1
-	if uint32(v0) <= uint32(i32(7)) {
-		v2 = int32(load32(m.memory[int64(uint32(v0<<2))+9520:]))
-		if v2 != 0 {
-			goto l0
-		}
+	if uint32(v0) > uint32(i32(7)) {
+		goto l0
 	}
-	v3 = int32(load32(m.memory[uint32(i32(61152)):]))
-	v2 = v3<<6 + i32(60896)
-	m.memory[uint32(v2)] = byte(i32(0))
-	store32(m.memory[uint32(i32(61152)):], uint32((v3+i32(1))&i32(3)))
-	store32(m.memory[uint32(v1):], uint32(i32(5613)))
-	store32(m.memory[int64(uint32(v1))+4:], uint32(v0))
-	_ = m._snprintf(v2, i32(64), i32(6936), v1)
+	if v0 == 0 {
+		goto l0
+	}
+	v2 = int32(load32(m.memory[int64(uint32(v0<<2))+74000:]))
+	goto l1
 l0:
+	v3 = int32(load32(m.memory[uint32(i32(125632)):]))
+	v2 = v3<<6 + i32(125376)
+	m.memory[uint32(v2)] = byte(i32(0))
+	store32(m.memory[uint32(i32(125632)):], uint32((v3+i32(1))&i32(3)))
+	store32(m.memory[uint32(v1):], uint32(i32(70125)))
+	store32(m.memory[int64(uint32(v1))+4:], uint32(v0))
+	_ = m._snprintf(v2, i32(64), i32(71414), v1)
+l1:
 	m.___stack_pointer = v1 + i32(16)
 	return v2
 }
 func (m *Module) _syntax(v0 int32) {
-	m._bpf_error(v0, i32(3780), i32(0))
+	m._bpf_error(v0, i32(68292), i32(0))
 	panic("unreachable")
 }
 func (m *Module) _gen_portrangeatom(v0, v1, v2, v3 int32) int32 {
@@ -9972,7 +9963,7 @@ func (m *Module) _gen_portrangeatom(v0, v1, v2, v3 int32) int32 {
 		}
 	l1:
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_port_common(v0, v1, v2 int32) int32 {
@@ -10416,12 +10407,12 @@ func (m *Module) _gen_port_common(v0, v1, v2 int32) int32 {
 	}
 l1:
 	store32(m.memory[int64(uint32(v6))+8:], uint32(v1))
-	store32(m.memory[int64(uint32(v6))+4:], uint32(i32(3501)))
-	store32(m.memory[uint32(v6):], uint32(i32(3562)))
-	m._bpf_error(v0, i32(6267), v6)
+	store32(m.memory[int64(uint32(v6))+4:], uint32(i32(68013)))
+	store32(m.memory[uint32(v6):], uint32(i32(68074)))
+	m._bpf_error(v0, i32(70779), v6)
 	panic("unreachable")
 l4:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_portrangeatom6(v0, v1, v2, v3 int32) int32 {
@@ -10560,7 +10551,7 @@ func (m *Module) _gen_portrangeatom6(v0, v1, v2, v3 int32) int32 {
 		return v4
 	}
 l0:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _dqkw(v0 int32) int32 {
@@ -10569,20 +10560,23 @@ func (m *Module) _dqkw(v0 int32) int32 {
 	var v3 int32
 	v1 = m.___stack_pointer - i32(16)
 	m.___stack_pointer = v1
-	if uint32(v0) <= uint32(i32(10)) {
-		v2 = int32(load32(m.memory[int64(uint32(v0<<2))+9552:]))
-		if v2 != 0 {
-			goto l0
-		}
+	if uint32(v0) > uint32(i32(10)) {
+		goto l0
 	}
-	v3 = int32(load32(m.memory[uint32(i32(61152)):]))
-	v2 = v3<<6 + i32(60896)
-	m.memory[uint32(v2)] = byte(i32(0))
-	store32(m.memory[uint32(i32(61152)):], uint32((v3+i32(1))&i32(3)))
-	store32(m.memory[uint32(v1):], uint32(i32(3020)))
-	store32(m.memory[int64(uint32(v1))+4:], uint32(v0))
-	_ = m._snprintf(v2, i32(64), i32(6936), v1)
+	if v0 == 0 {
+		goto l0
+	}
+	v2 = int32(load32(m.memory[int64(uint32(v0<<2))+74032:]))
+	goto l1
 l0:
+	v3 = int32(load32(m.memory[uint32(i32(125632)):]))
+	v2 = v3<<6 + i32(125376)
+	m.memory[uint32(v2)] = byte(i32(0))
+	store32(m.memory[uint32(i32(125632)):], uint32((v3+i32(1))&i32(3)))
+	store32(m.memory[uint32(v1):], uint32(i32(67532)))
+	store32(m.memory[int64(uint32(v1))+4:], uint32(v0))
+	_ = m._snprintf(v2, i32(64), i32(71414), v1)
+l1:
 	m.___stack_pointer = v1 + i32(16)
 	return v2
 }
@@ -10925,12 +10919,12 @@ l14:
 	return v2
 l1:
 	store32(m.memory[int64(uint32(v6))+8:], uint32(v1))
-	store32(m.memory[int64(uint32(v6))+4:], uint32(i32(3501)))
-	store32(m.memory[uint32(v6):], uint32(i32(3578)))
-	m._bpf_error(v0, i32(6267), v6)
+	store32(m.memory[int64(uint32(v6))+4:], uint32(i32(68013)))
+	store32(m.memory[uint32(v6):], uint32(i32(68090)))
+	m._bpf_error(v0, i32(70779), v6)
 	panic("unreachable")
 l4:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_port(v0, v1, v2, v3, v4 int32) int32 {
@@ -11103,7 +11097,7 @@ func (m *Module) _gen_port(v0, v1, v2, v3, v4 int32) int32 {
 		t20 := v7
 		store32(m.memory[int64(uint32(t20))+4:], uint32(m._tqkw(v4)))
 		store32(m.memory[uint32(v7):], uint32(v1))
-		m._bpf_error(v0, i32(7762), v7)
+		m._bpf_error(v0, i32(72240), v7)
 		panic("unreachable")
 	}
 l1:
@@ -11336,11 +11330,11 @@ func (m *Module) _gen_port6(v0, v1, v2, v3, v4 int32) int32 {
 		t21 := v6
 		store32(m.memory[int64(uint32(t21))+4:], uint32(m._tqkw(v4)))
 		store32(m.memory[uint32(v6):], uint32(v3))
-		m._bpf_error(v0, i32(7762), v6)
+		m._bpf_error(v0, i32(72240), v6)
 		panic("unreachable")
 	}
 l5:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_mac48host(v0, v1, v2, v3 int32) int32 {
@@ -11650,7 +11644,7 @@ func (m *Module) _gen_mac48host(v0, v1, v2, v3 int32) int32 {
 		}
 		t31 := v8
 		store32(m.memory[uint32(t31):], uint32(m._dqkw(v2)))
-		m._bpf_error(v0, i32(1047), v8)
+		m._bpf_error(v0, i32(65559), v8)
 		panic("unreachable")
 	}
 l0:
@@ -11698,7 +11692,7 @@ func (m *Module) _gen_host6(v0, v1, v2, v3, v4, v5, v6, v7 int32) int32 {
 			v4 = m._pqkw(v4)
 			store32(m.memory[int64(uint32(v10))+4:], uint32(v7))
 			store32(m.memory[uint32(v10):], uint32(v4))
-			m._bpf_error(v0, i32(7762), v10)
+			m._bpf_error(v0, i32(72240), v10)
 			panic("unreachable")
 		l0:
 			v9 = m._gen_linktype(v0, i32(34525))
@@ -11894,14 +11888,14 @@ func (m *Module) _gen_host6(v0, v1, v2, v3, v4, v5, v6, v7 int32) int32 {
 		}
 		t24 := v10
 		store32(m.memory[int64(uint32(t24))+16:], uint32(m._dqkw(v5)))
-		m._bpf_error(v0, i32(1047), v10+i32(16))
+		m._bpf_error(v0, i32(65559), v10+i32(16))
 		panic("unreachable")
 	}
 l2:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l3:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_portatom(v0, v1, v2 int32) int32 {
@@ -11934,10 +11928,10 @@ func (m *Module) _gen_portatom(v0, v1, v2 int32) int32 {
 		store32(m.memory[int64(uint32(v1))+96:], uint32(v1))
 		return v1
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l1:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_mcode(v0, v1, v2, v3, v4, v5, v6, v7 int32) int32 {
@@ -11962,7 +11956,7 @@ func (m *Module) _gen_mcode(v0, v1, v2, v3, v4, v5, v6, v7 int32) int32 {
 				store32(m.memory[int64(uint32(v8))+116:], uint32(v2))
 				t1 := v8
 				store32(m.memory[int64(uint32(t1))+1160:], uint32(i32_shl(int32(load32(m.memory[int64(uint32(v8))+1160:])), i32(32)-v3)))
-				_ = m._snprintf(v8+i32(128), i32(1024), i32(2914), v8+i32(112))
+				_ = m._snprintf(v8+i32(128), i32(1024), i32(67426), v8+i32(112))
 				goto l2
 			}
 			if uint32(v3) >= uint32(i32(33)) {
@@ -11971,7 +11965,7 @@ func (m *Module) _gen_mcode(v0, v1, v2, v3, v4, v5, v6, v7 int32) int32 {
 			store32(m.memory[int64(uint32(v8))+80:], uint32(v1))
 			store32(m.memory[int64(uint32(v8))+84:], uint32(v3))
 			store32(m.memory[int64(uint32(v8))+1160:], uint32(i64_shl(i64(0xffffffff), int64(uint32(i32(32)-v3)))))
-			_ = m._snprintf(v8+i32(128), i32(1024), i32(1413), v8+i32(80))
+			_ = m._snprintf(v8+i32(128), i32(1024), i32(65925), v8+i32(80))
 		l2:
 			t2 := int32(load32(m.memory[int64(uint32(v8))+1164:]))
 			if t2&(int32(load32(m.memory[int64(uint32(v8))+1160:]))^i32(-1)) != 0 {
@@ -11984,7 +11978,7 @@ func (m *Module) _gen_mcode(v0, v1, v2, v3, v4, v5, v6, v7 int32) int32 {
 			t3 := v8
 			store32(m.memory[int64(uint32(t3))+48:], uint32(m._tqkw(v2)))
 			store32(m.memory[int64(uint32(v8))+52:], uint32(v8+i32(128)))
-			m._bpf_error(v0, i32(7762), v8+i32(48))
+			m._bpf_error(v0, i32(72240), v8+i32(48))
 			panic("unreachable")
 		}
 		t4 := v8
@@ -11994,30 +11988,30 @@ func (m *Module) _gen_mcode(v0, v1, v2, v3, v4, v5, v6, v7 int32) int32 {
 			p5 = i32(1)
 		}
 		store32(m.memory[int64(uint32(t4))+4:], uint32(m._tqkw(p5)))
-		store32(m.memory[uint32(v8):], uint32(i32(1897)))
-		m._bpf_error(v0, i32(7762), v8)
+		store32(m.memory[uint32(v8):], uint32(i32(66409)))
+		m._bpf_error(v0, i32(72240), v8)
 		panic("unreachable")
 	}
 l0:
 	store32(m.memory[int64(uint32(v8))+16:], uint32(v1))
-	m._bpf_error(v0, i32(7736), v8+i32(16))
+	m._bpf_error(v0, i32(72214), v8+i32(16))
 	panic("unreachable")
 l1:
 	store32(m.memory[int64(uint32(v8))+96:], uint32(v2))
-	m._bpf_error(v0, i32(7736), v8+i32(96))
+	m._bpf_error(v0, i32(72214), v8+i32(96))
 	panic("unreachable")
 l3:
 	store32(m.memory[int64(uint32(v8))+40:], uint32(i32(32)))
 	store32(m.memory[int64(uint32(v8))+36:], uint32(v3))
-	store32(m.memory[int64(uint32(v8))+32:], uint32(i32(5190)))
-	m._bpf_error(v0, i32(1419), v8+i32(32))
+	store32(m.memory[int64(uint32(v8))+32:], uint32(i32(69702)))
+	m._bpf_error(v0, i32(65931), v8+i32(32))
 	panic("unreachable")
 l4:
 	store32(m.memory[int64(uint32(v8))+64:], uint32(v8+i32(128)))
-	m._bpf_error(v0, i32(8010), v8-i32(-64))
+	m._bpf_error(v0, i32(72488), v8-i32(-64))
 	panic("unreachable")
 l5:
-	t6 := m._gen_host(v0, i32(1), v8+i32(1164), v8+i32(1160), v5&i32(255), v6&i32(255), i32(0), i32(6918))
+	t6 := m._gen_host(v0, i32(1), v8+i32(1164), v8+i32(1160), v5&i32(255), v6&i32(255), i32(0), i32(71396))
 	m.___stack_pointer = v8 + i32(1168)
 	return t6
 }
@@ -12025,337 +12019,330 @@ func (m *Module) _gen_ncode(v0, v1, v2, v3, v4, v5, v6 int32) int32 {
 	var v7 int32
 	var v8 int32
 	var v9 int32
-	v7 = m.___stack_pointer - i32(1232)
+	v7 = m.___stack_pointer - i32(1216)
 	m.___stack_pointer = v7
-	store32(m.memory[int64(uint32(v7))+1228:], uint32(v2))
+	store32(m.memory[int64(uint32(v7))+1212:], uint32(v2))
 	{
 		{
 			{
 				{
-					v9 = v4 & i32(255)
-					if v9 == i32(12) {
-						if uint32(v5&i32(255)) >= uint32(i32(5)) {
-							goto l0
-						}
-						v4 = v3 & i32(255)
-						if uint32(v4) >= uint32(i32(2)) {
-							goto l1
-						}
-						if v1 == 0 {
-							goto l2
-						}
-						if m._pcapint_atodn(v1, v7+i32(192)) == 0 {
-							goto l3
-						}
-						v3 = m._gen_linktype(v0, i32(24579))
-						t0 := v0
-						v4 = m._gen_dnhostop(t0, int32(load16(m.memory[int64(uint32(v7))+192:])), v5&i32(255))
-						v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
-						if v2 == i32(2) {
-							v4 = v3
-							goto l4
-						}
-						if v2 == i32(1) {
-							goto l4
-						}
-						v2 = int32(load32(m.memory[int64(uint32(v4))+208:]))
-						if v2 == i32(2) {
-							goto l4
-						}
-						if v2 == i32(1) {
-							v4 = v3
-							goto l4
-						}
-						v0 = int32(load32(m.memory[int64(uint32(v4))+96:]))
-						v2 = v3
-					l5:
-						{
-							t1 := v2
-							p2 := i32(60)
-							if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-								p2 = i32(84)
-							}
-							v1 = t1 + p2
-							v2 = int32(load32(m.memory[uint32(v1):]))
-							store32(m.memory[uint32(v1):], uint32(v0))
-							if v2 != 0 {
-								goto l5
-							}
-						}
-						t3 := v3
-						var p4 int32
-						if int32(load32(m.memory[int64(uint32(v3))+44:])) == 0 {
-							p4 = 1
-						}
-						store32(m.memory[int64(uint32(t3))+44:], uint32(p4))
-						t5 := v4
-						v0 = int32(load32(m.memory[int64(uint32(v4))+44:]))
-						var p6 int32
-						if v0 == 0 {
-							p6 = 1
-						}
-						store32(m.memory[int64(uint32(t5))+44:], uint32(p6))
-						v2 = v4
-					l6:
-						{
-							t7 := v2
-							p8 := i32(60)
-							if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-								p8 = i32(84)
-							}
-							v1 = t7 + p8
-							v2 = int32(load32(m.memory[uint32(v1):]))
-							if v2 != 0 {
-								goto l6
-							}
-						}
-						store32(m.memory[uint32(v1):], uint32(v3))
-						t9 := v4
-						var p10 int32
-						if v0 != i32(0) {
-							p10 = 1
-						}
-						store32(m.memory[int64(uint32(t9))+44:], uint32(p10))
-						t11 := v4
-						store32(m.memory[int64(uint32(t11))+96:], load32(m.memory[int64(uint32(v3))+96:]))
-						goto l4
-					}
-					var p12 int32
-					if v1 == 0 {
-						store32(m.memory[int64(uint32(v7))+144:], uint32(v2))
-						_ = m._snprintf(v7+i32(192), i32(1024), i32(1484), v7+i32(144))
-						p12 = i32(0)
-						goto l7
-					}
-					v2 = m._pcapint_atoin(v1, v7+i32(1228))
-					if v2 < i32(0) {
-						goto l8
-					}
-					store32(m.memory[int64(uint32(v7))+176:], uint32(v1))
-					_ = m._snprintf(v7+i32(192), i32(1024), i32(2956), v7+i32(176))
-					p12 = i32(32) - v2
-				l7:
-					v8 = p12
 					{
-						{
-							{
-								v2 = v3 & i32(255)
-								switch v2 {
-								case 0, 1, 2:
-									goto l9
-								case 3, 7:
-									goto l10
-								case 4:
-									goto l11
-								case 5:
-									goto l12
-								case 6:
-									goto l13
-								default:
-									goto l14
-								}
-							l9:
-								if v4&i32(255) == i32(1) {
-									goto l15
-								}
-								v2 = int32(load32(m.memory[int64(uint32(v7))+1228:]))
-								if v1 != 0 {
-									goto l16
-								}
-								if v3&i32(255) != i32(2) {
-									goto l16
-								}
-								v1 = i32(-1)
-								if uint32(v2-i32(1)) <= uint32(i32(0xfffffe)) {
-								l17:
-									v1 = v1 << 8
-									v2 = v2 << 8
-									if uint32(v2-i32(1)) < uint32(i32(0xffffff)) {
-										goto l17
-									}
-								}
-								store32(m.memory[int64(uint32(v7))+1228:], uint32(v2))
-								goto l18
-							l10:
-								v1 = int32(load32(m.memory[int64(uint32(v2<<2))+9520:]))
-								if v1 == 0 {
-									v8 = int32(load32(m.memory[uint32(i32(61152)):]))
-									v1 = v8<<6 + i32(60896)
-									m.memory[uint32(v1)] = byte(i32(0))
-									store32(m.memory[uint32(i32(61152)):], uint32((v8+i32(1))&i32(3)))
-									store32(m.memory[int64(uint32(v7))+128:], uint32(i32(5613)))
-									store32(m.memory[int64(uint32(v7))+132:], uint32(v2))
-									_ = m._snprintf(v1, i32(64), i32(6936), v7+i32(128))
-								}
-								v2 = v4 & i32(255)
-								if uint32(v2) > uint32(i32(7)) {
-									goto l19
-								}
-								if i32_shr_u(i32(225), v2)&i32(1) == 0 {
-									goto l19
-								}
-								v2 = int32(load32(m.memory[int64(uint32(v7))+1228:]))
-								if uint32(v2) >= uint32(i32(65536)) {
-									goto l20
-								}
-								t13 := v0
-								t14 := v2
-								v1 = int32(load32(m.memory[int64(uint32(v4&i32(255)<<2))+10160:]))
-								t15 := v1
-								v5 = v5 & i32(255)
-								t16 := v5
-								v3 = v3 & i32(255)
-								v4 = m._gen_port(t13, t14, t15, t16, v3)
-								t17 := v0
-								v3 = m._gen_port6(t17, int32(load16(m.memory[int64(uint32(v7))+1228:])), v1, v5, v3)
-								v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
-								if v2 == i32(2) {
-									goto l4
-								}
-								if v2 == i32(1) {
-									v4 = v3
-									goto l4
-								}
-								v2 = int32(load32(m.memory[int64(uint32(v4))+208:]))
-								if v2 == i32(2) {
-									v4 = v3
-									goto l4
-								}
-								if v2 == i32(1) {
-									goto l4
-								}
-								t18 := v3
-								v5 = int32(load32(m.memory[int64(uint32(v3))+44:]))
-								var p19 int32
-								if v5 == 0 {
-									p19 = 1
-								}
-								store32(m.memory[int64(uint32(t18))+44:], uint32(p19))
-								v0 = int32(load32(m.memory[int64(uint32(v4))+96:]))
-								v2 = v3
-							l21:
-								{
-									t20 := v2
-									p21 := i32(60)
-									if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-										p21 = i32(84)
-									}
-									v1 = t20 + p21
-									v2 = int32(load32(m.memory[uint32(v1):]))
-									store32(m.memory[uint32(v1):], uint32(v0))
-									if v2 != 0 {
-										goto l21
-									}
-								}
-								t22 := v3
-								var p23 int32
-								if v5 != i32(0) {
-									p23 = 1
-								}
-								store32(m.memory[int64(uint32(t22))+44:], uint32(p23))
-								v2 = v4
-							l22:
-								{
-									t24 := v2
-									p25 := i32(60)
-									if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
-										p25 = i32(84)
-									}
-									v1 = t24 + p25
-									v2 = int32(load32(m.memory[uint32(v1):]))
-									if v2 != 0 {
-										goto l22
-									}
-								}
-								store32(m.memory[uint32(v1):], uint32(v3))
-								t26 := v4
-								store32(m.memory[int64(uint32(t26))+96:], load32(m.memory[int64(uint32(v3))+96:]))
+						v8 = v4 & i32(255)
+						if v8 == i32(12) {
+							if uint32(v5&i32(255)) >= uint32(i32(5)) {
+								goto l0
+							}
+							v4 = v3 & i32(255)
+							if uint32(v4) >= uint32(i32(2)) {
+								goto l1
+							}
+							if v1 == 0 {
+								goto l2
+							}
+							if m._pcapint_atodn(v1, v7+i32(176)) == 0 {
+								goto l3
+							}
+							v3 = m._gen_linktype(v0, i32(24579))
+							t0 := v0
+							v4 = m._gen_dnhostop(t0, int32(load16(m.memory[int64(uint32(v7))+176:])), v5&i32(255))
+							v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
+							if v2 == i32(2) {
+								v4 = v3
 								goto l4
 							}
-						l13:
-							t27 := v0
-							v4 = m._gen_protochain(t27, int32(load32(m.memory[int64(uint32(v7))+1228:])), v9)
+							if v2 == i32(1) {
+								goto l4
+							}
+							v2 = int32(load32(m.memory[int64(uint32(v4))+208:]))
+							if v2 == i32(2) {
+								goto l4
+							}
+							if v2 == i32(1) {
+								v4 = v3
+								goto l4
+							}
+							v0 = int32(load32(m.memory[int64(uint32(v4))+96:]))
+							v2 = v3
+						l5:
+							{
+								t1 := v2
+								p2 := i32(60)
+								if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
+									p2 = i32(84)
+								}
+								v1 = t1 + p2
+								v2 = int32(load32(m.memory[uint32(v1):]))
+								store32(m.memory[uint32(v1):], uint32(v0))
+								if v2 != 0 {
+									goto l5
+								}
+							}
+							t3 := v3
+							var p4 int32
+							if int32(load32(m.memory[int64(uint32(v3))+44:])) == 0 {
+								p4 = 1
+							}
+							store32(m.memory[int64(uint32(t3))+44:], uint32(p4))
+							t5 := v4
+							v0 = int32(load32(m.memory[int64(uint32(v4))+44:]))
+							var p6 int32
+							if v0 == 0 {
+								p6 = 1
+							}
+							store32(m.memory[int64(uint32(t5))+44:], uint32(p6))
+							v2 = v4
+						l6:
+							{
+								t7 := v2
+								p8 := i32(60)
+								if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
+									p8 = i32(84)
+								}
+								v1 = t7 + p8
+								v2 = int32(load32(m.memory[uint32(v1):]))
+								if v2 != 0 {
+									goto l6
+								}
+							}
+							store32(m.memory[uint32(v1):], uint32(v3))
+							t9 := v4
+							var p10 int32
+							if v0 != i32(0) {
+								p10 = 1
+							}
+							store32(m.memory[int64(uint32(t9))+44:], uint32(p10))
+							t11 := v4
+							store32(m.memory[int64(uint32(t11))+96:], load32(m.memory[int64(uint32(v3))+96:]))
 							goto l4
 						}
-					l14:
-						if v2 == i32(255) {
-							goto l23
+						var p12 int32
+						if v1 == 0 {
+							store32(m.memory[int64(uint32(v7))+128:], uint32(v2))
+							_ = m._snprintf(v7+i32(176), i32(1024), i32(65996), v7+i32(128))
+							p12 = i32(0)
+							goto l7
 						}
-					l11:
-						t28 := v7
-						store32(m.memory[int64(uint32(t28))+64:], uint32(m._tqkw(v2)))
-						store32(m.memory[int64(uint32(v7))+68:], uint32(v7+i32(192)))
-						m._bpf_error(v0, i32(7762), v7-i32(-64))
-						panic("unreachable")
+						v2 = m._pcapint_atoin(v1, v7+i32(1212))
+						if v2 < i32(0) {
+							goto l8
+						}
+						store32(m.memory[int64(uint32(v7))+160:], uint32(v1))
+						_ = m._snprintf(v7+i32(176), i32(1024), i32(67468), v7+i32(160))
+						p12 = i32(32) - v2
+					l7:
+						v9 = p12
+						{
+							{
+								{
+									v2 = v3 & i32(255)
+									switch v2 {
+									case 0, 1, 2:
+										goto l9
+									case 3, 7:
+										goto l10
+									case 4:
+										goto l11
+									case 5:
+										goto l12
+									case 6:
+										goto l13
+									default:
+										goto l14
+									}
+								l9:
+									if v4&i32(255) == i32(1) {
+										goto l15
+									}
+									v2 = int32(load32(m.memory[int64(uint32(v7))+1212:]))
+									if v1 != 0 {
+										goto l16
+									}
+									if v3&i32(255) != i32(2) {
+										goto l16
+									}
+									v1 = i32(-1)
+									if uint32(v2-i32(1)) <= uint32(i32(0xfffffe)) {
+									l17:
+										v1 = v1 << 8
+										v2 = v2 << 8
+										if uint32(v2-i32(1)) < uint32(i32(0xffffff)) {
+											goto l17
+										}
+									}
+									store32(m.memory[int64(uint32(v7))+1212:], uint32(v2))
+									goto l18
+								l10:
+									v1 = v4 & i32(255)
+									if uint32(v1) > uint32(i32(7)) {
+										goto l19
+									}
+									if i32_shr_u(i32(225), v1)&i32(1) == 0 {
+										goto l19
+									}
+									v2 = int32(load32(m.memory[int64(uint32(v7))+1212:]))
+									if uint32(v2) >= uint32(i32(65536)) {
+										goto l20
+									}
+									t13 := v0
+									t14 := v2
+									v1 = int32(load32(m.memory[int64(uint32(v4&i32(255)<<2))+74640:]))
+									t15 := v1
+									v5 = v5 & i32(255)
+									t16 := v5
+									v3 = v3 & i32(255)
+									v4 = m._gen_port(t13, t14, t15, t16, v3)
+									t17 := v0
+									v3 = m._gen_port6(t17, int32(load16(m.memory[int64(uint32(v7))+1212:])), v1, v5, v3)
+									v2 = int32(load32(m.memory[int64(uint32(v3))+208:]))
+									if v2 == i32(2) {
+										goto l4
+									}
+									if v2 == i32(1) {
+										v4 = v3
+										goto l4
+									}
+									v2 = int32(load32(m.memory[int64(uint32(v4))+208:]))
+									if v2 == i32(2) {
+										v4 = v3
+										goto l4
+									}
+									if v2 == i32(1) {
+										goto l4
+									}
+									t18 := v3
+									v5 = int32(load32(m.memory[int64(uint32(v3))+44:]))
+									var p19 int32
+									if v5 == 0 {
+										p19 = 1
+									}
+									store32(m.memory[int64(uint32(t18))+44:], uint32(p19))
+									v0 = int32(load32(m.memory[int64(uint32(v4))+96:]))
+									v2 = v3
+								l21:
+									{
+										t20 := v2
+										p21 := i32(60)
+										if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
+											p21 = i32(84)
+										}
+										v1 = t20 + p21
+										v2 = int32(load32(m.memory[uint32(v1):]))
+										store32(m.memory[uint32(v1):], uint32(v0))
+										if v2 != 0 {
+											goto l21
+										}
+									}
+									t22 := v3
+									var p23 int32
+									if v5 != i32(0) {
+										p23 = 1
+									}
+									store32(m.memory[int64(uint32(t22))+44:], uint32(p23))
+									v2 = v4
+								l22:
+									{
+										t24 := v2
+										p25 := i32(60)
+										if int32(load32(m.memory[int64(uint32(v2))+44:])) != 0 {
+											p25 = i32(84)
+										}
+										v1 = t24 + p25
+										v2 = int32(load32(m.memory[uint32(v1):]))
+										if v2 != 0 {
+											goto l22
+										}
+									}
+									store32(m.memory[uint32(v1):], uint32(v3))
+									t26 := v4
+									store32(m.memory[int64(uint32(t26))+96:], load32(m.memory[int64(uint32(v3))+96:]))
+									goto l4
+								}
+							l13:
+								t27 := v0
+								v4 = m._gen_protochain(t27, int32(load32(m.memory[int64(uint32(v7))+1212:])), v8)
+								goto l4
+							}
+						l14:
+							if v2 == i32(255) {
+								goto l23
+							}
+						l11:
+							t28 := v7
+							store32(m.memory[int64(uint32(t28))+64:], uint32(m._tqkw(v2)))
+							store32(m.memory[int64(uint32(v7))+68:], uint32(v7+i32(176)))
+							m._bpf_error(v0, i32(72240), v7-i32(-64))
+							panic("unreachable")
+						}
+					l12:
+						t29 := v0
+						v4 = m._gen_proto(t29, int32(load32(m.memory[int64(uint32(v7))+1212:])), v8)
+						goto l4
 					}
-				l12:
-					t29 := v0
-					v4 = m._gen_proto(t29, int32(load32(m.memory[int64(uint32(v7))+1228:])), v9)
-					goto l4
+				l0:
+					t30 := v7
+					store32(m.memory[int64(uint32(t30))+48:], uint32(m._dqkw(v5&i32(255))))
+					m._bpf_error(v0, i32(65559), v7+i32(48))
+					panic("unreachable")
 				}
-			l0:
-				t30 := v7
-				store32(m.memory[int64(uint32(t30))+48:], uint32(m._dqkw(v5&i32(255))))
-				m._bpf_error(v0, i32(1047), v7+i32(48))
+			l1:
+				t31 := v7
+				store32(m.memory[int64(uint32(t31))+4:], uint32(m._tqkw(v4)))
+				store32(m.memory[uint32(v7):], uint32(i32(66409)))
+				m._bpf_error(v0, i32(72240), v7)
 				panic("unreachable")
 			}
-		l1:
-			t31 := v7
-			store32(m.memory[int64(uint32(t31))+4:], uint32(m._tqkw(v4)))
-			store32(m.memory[uint32(v7):], uint32(i32(1897)))
-			m._bpf_error(v0, i32(7762), v7)
+		l2:
+			store32(m.memory[int64(uint32(v7))+16:], uint32(v2))
+			m._bpf_error(v0, i32(72003), v7+i32(16))
+			panic("unreachable")
+		l3:
+			store32(m.memory[int64(uint32(v7))+32:], uint32(v1))
+			m._bpf_error(v0, i32(72099), v7+i32(32))
+			panic("unreachable")
+		l8:
+			store32(m.memory[int64(uint32(v7))+144:], uint32(v1))
+			m._bpf_error(v0, i32(72214), v7+i32(144))
+			panic("unreachable")
+		l15:
+			store32(m.memory[int64(uint32(v7))+80:], uint32(v7+i32(176)))
+			m._bpf_error(v0, i32(72127), v7+i32(80))
+			panic("unreachable")
+		l16:
+			store32(m.memory[int64(uint32(v7))+1212:], uint32(i32_shl(v2, v9)))
+			v1 = i32_shl(i32(-1), v9)
+			goto l18
+		l19:
+			t32 := v7
+			store32(m.memory[int64(uint32(t32))+112:], uint32(m._pqkw(v8)))
+			t33 := v7
+			store32(m.memory[int64(uint32(t33))+116:], load32(m.memory[int64(uint32(v2<<2))+74000:]))
+			m._bpf_error(v0, i32(72240), v7+i32(112))
 			panic("unreachable")
 		}
-	l2:
-		store32(m.memory[int64(uint32(v7))+16:], uint32(v2))
-		m._bpf_error(v0, i32(7525), v7+i32(16))
-		panic("unreachable")
-	l3:
-		store32(m.memory[int64(uint32(v7))+32:], uint32(v1))
-		m._bpf_error(v0, i32(7621), v7+i32(32))
-		panic("unreachable")
-	l8:
-		store32(m.memory[int64(uint32(v7))+160:], uint32(v1))
-		m._bpf_error(v0, i32(7736), v7+i32(160))
-		panic("unreachable")
-	l15:
-		store32(m.memory[int64(uint32(v7))+80:], uint32(v7+i32(192)))
-		m._bpf_error(v0, i32(7649), v7+i32(80))
-		panic("unreachable")
-	l16:
-		store32(m.memory[int64(uint32(v7))+1228:], uint32(i32_shl(v2, v8)))
-		v1 = i32_shl(i32(-1), v8)
-		goto l18
-	l19:
-		v2 = m._pqkw(v9)
-		store32(m.memory[int64(uint32(v7))+116:], uint32(v1))
-		store32(m.memory[int64(uint32(v7))+112:], uint32(v2))
-		m._bpf_error(v0, i32(7762), v7+i32(112))
-		panic("unreachable")
 	l20:
 		store32(m.memory[int64(uint32(v7))+104:], uint32(i32(0xffff)))
 		store32(m.memory[int64(uint32(v7))+100:], uint32(v2))
-		store32(m.memory[int64(uint32(v7))+96:], uint32(i32(3053)))
-		m._bpf_error(v0, i32(1419), v7+i32(96))
+		store32(m.memory[int64(uint32(v7))+96:], uint32(i32(67565)))
+		m._bpf_error(v0, i32(65931), v7+i32(96))
 		panic("unreachable")
 	l23:
 		m._syntax(v0)
 		panic("unreachable")
 	l18:
-		store32(m.memory[int64(uint32(v7))+1224:], uint32(v1))
-		t33 := v0
-		t34 := v7 + i32(1228)
-		t35 := v7 + i32(1224)
-		t36 := v4 & i32(255)
-		t37 := v5 & i32(255)
-		p32 := i32(6972)
+		store32(m.memory[int64(uint32(v7))+1208:], uint32(v1))
+		t35 := v0
+		t36 := v7 + i32(1212)
+		t37 := v7 + i32(1208)
+		t38 := v4 & i32(255)
+		t39 := v5 & i32(255)
+		p34 := i32(71450)
 		if v3&i32(255) == i32(2) {
-			p32 = i32(6992)
+			p34 = i32(71470)
 		}
-		v4 = m._gen_host(t33, i32(1), t34, t35, t36, t37, i32(0), p32)
+		v4 = m._gen_host(t35, i32(1), t36, t37, t38, t39, i32(0), p34)
 	}
 l4:
-	m.___stack_pointer = v7 + i32(1232)
+	m.___stack_pointer = v7 + i32(1216)
 	return v4
 }
 func (m *Module) _gen_dnhostop(v0, v1, v2 int32) int32 {
@@ -12530,9 +12517,9 @@ func (m *Module) _gen_dnhostop(v0, v1, v2 int32) int32 {
 		l4:
 			t20 := v9
 			store32(m.memory[int64(uint32(t20))+8:], uint32(m._dqkw(v2)))
-			store32(m.memory[int64(uint32(v9))+4:], uint32(i32(3020)))
-			store32(m.memory[uint32(v9):], uint32(i32(3282)))
-			m._bpf_error(v0, i32(7873), v9)
+			store32(m.memory[int64(uint32(v9))+4:], uint32(i32(67532)))
+			store32(m.memory[uint32(v9):], uint32(i32(67794)))
+			m._bpf_error(v0, i32(72351), v9)
 			panic("unreachable")
 		}
 	l1:
@@ -13200,7 +13187,7 @@ l5:
 	m.___stack_pointer = v9 + i32(16)
 	return v5
 l10:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_mcode6(v0, v1, v2, v3, v4, v5, v6 int32) int32 {
@@ -13249,11 +13236,11 @@ func (m *Module) _gen_mcode6(v0, v1, v2, v3, v4, v5, v6 int32) int32 {
 			}
 			store32(m.memory[int64(uint32(v7))+52:], uint32(v2))
 			store32(m.memory[int64(uint32(v7))+48:], uint32(v1))
-			_ = m._snprintf(v7+i32(128), i32(51), i32(1413), v7+i32(48))
+			_ = m._snprintf(v7+i32(128), i32(51), i32(65925), v7+i32(48))
 			t4 := v7
 			store32(m.memory[int64(uint32(t4))+32:], uint32(m._tqkw(v8)))
 			store32(m.memory[int64(uint32(v7))+36:], uint32(v7+i32(128)))
-			m._bpf_error(v0, i32(7762), v7+i32(32))
+			m._bpf_error(v0, i32(72240), v7+i32(32))
 			panic("unreachable")
 		}
 		if v2 != i32(128) {
@@ -13265,39 +13252,39 @@ func (m *Module) _gen_mcode6(v0, v1, v2, v3, v4, v5, v6 int32) int32 {
 		t8 := v7 + i32(192)
 		t9 := v4 & i32(255)
 		t10 := v5 & i32(255)
-		p5 := i32(6900)
+		p5 := i32(71378)
 		if v3&i32(255) == i32(1) {
-			p5 = i32(6952)
+			p5 = i32(71430)
 		}
 		t11 := m._gen_host6(t6, i32(1), t7, t8, t9, t10, i32(0), p5)
 		m.___stack_pointer = v7 + i32(224)
 		return t11
 	}
 	store32(m.memory[int64(uint32(v7))+112:], uint32(v1))
-	m._bpf_error(v0, i32(2251), v7+i32(112))
+	m._bpf_error(v0, i32(66763), v7+i32(112))
 	panic("unreachable")
 l0:
 	store32(m.memory[uint32(v7):], uint32(i32(128)))
-	m._bpf_error(v0, i32(1369), v7)
+	m._bpf_error(v0, i32(65881), v7)
 	panic("unreachable")
 l1:
 	store32(m.memory[int64(uint32(v7))+100:], uint32(v2))
 	store32(m.memory[int64(uint32(v7))+96:], uint32(v1))
-	m._bpf_error(v0, i32(8129), v7+i32(96))
+	m._bpf_error(v0, i32(72607), v7+i32(96))
 	panic("unreachable")
 l4:
 	store32(m.memory[int64(uint32(v7))+84:], uint32(v2))
 	store32(m.memory[int64(uint32(v7))+80:], uint32(v1))
-	_ = m._snprintf(v7+i32(128), i32(51), i32(1413), v7+i32(80))
-	store32(m.memory[int64(uint32(v7))+64:], uint32(i32(1495)))
+	_ = m._snprintf(v7+i32(128), i32(51), i32(65925), v7+i32(80))
+	store32(m.memory[int64(uint32(v7))+64:], uint32(i32(66007)))
 	store32(m.memory[int64(uint32(v7))+68:], uint32(v7+i32(128)))
-	m._bpf_error(v0, i32(7762), v7-i32(-64))
+	m._bpf_error(v0, i32(72240), v7-i32(-64))
 	panic("unreachable")
 l3:
 	v2 = m._tqkw(v8)
 	store32(m.memory[int64(uint32(v7))+20:], uint32(v1))
 	store32(m.memory[int64(uint32(v7))+16:], uint32(v2))
-	m._bpf_error(v0, i32(7762), v7+i32(16))
+	m._bpf_error(v0, i32(72240), v7+i32(16))
 	panic("unreachable")
 }
 func (m *Module) _gen_hostop6(v0, v1, v2, v3 int32) int32 {
@@ -13574,20 +13561,20 @@ func (m *Module) _gen_hostop6(v0, v1, v2, v3 int32) int32 {
 		l4:
 			t38 := v5
 			store32(m.memory[int64(uint32(t38))+8:], uint32(m._dqkw(v3)))
-			store32(m.memory[int64(uint32(v5))+4:], uint32(i32(3020)))
-			store32(m.memory[uint32(v5):], uint32(i32(7087)))
-			m._bpf_error(v0, i32(7873), v5)
+			store32(m.memory[int64(uint32(v5))+4:], uint32(i32(67532)))
+			store32(m.memory[uint32(v5):], uint32(i32(71565)))
+			m._bpf_error(v0, i32(72351), v5)
 			panic("unreachable")
 		}
 	l2:
 		v4 = i32(24)
 	l1:
 		t39 := v5
-		store64(m.memory[int64(uint32(t39))+32:], load64(m.memory[uint32(v1):]))
+		store64(m.memory[int64(uint32(t39))+40:], load64(m.memory[int64(uint32(v1))+8:]))
 		t40 := v5
-		store64(m.memory[int64(uint32(t40))+16:], load64(m.memory[uint32(v2):]))
+		store64(m.memory[int64(uint32(t40))+32:], load64(m.memory[uint32(v1):]))
 		t41 := v5
-		store64(m.memory[int64(uint32(t41))+40:], load64(m.memory[int64(uint32(v1))+8:]))
+		store64(m.memory[int64(uint32(t41))+16:], load64(m.memory[uint32(v2):]))
 		t42 := v5
 		store64(m.memory[int64(uint32(t42))+24:], load64(m.memory[int64(uint32(v2))+8:]))
 		v3 = m._newchunk_nolongjmp(v0, i32(20))
@@ -13693,7 +13680,7 @@ l10:
 	m.___stack_pointer = v5 + i32(48)
 	return v2
 l5:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_ecode(v0, v1, v2, v3, v4, v5 int32) int32 {
@@ -13737,7 +13724,7 @@ func (m *Module) _gen_ecode(v0, v1, v2, v3, v4, v5 int32) int32 {
 		}
 		goto l3
 	l0:
-		m._bpf_error(v0, i32(3814), i32(0))
+		m._bpf_error(v0, i32(68326), i32(0))
 		panic("unreachable")
 	l2:
 		;
@@ -13757,16 +13744,16 @@ func (m *Module) _gen_ecode(v0, v1, v2, v3, v4, v5 int32) int32 {
 		}
 	}
 l4:
-	m._fail_kw_on_dlt(v0, i32(6643))
+	m._fail_kw_on_dlt(v0, i32(71155))
 	panic("unreachable")
 l3:
 	if m._pcapint_atomac48(v1, v6+i32(10)) != 0 {
-		t2 := m._gen_mac48host(v0, v6+i32(10), v4&i32(255), i32(6643))
+		t2 := m._gen_mac48host(v0, v6+i32(10), v4&i32(255), i32(71155))
 		m.___stack_pointer = v6 + i32(16)
 		return t2
 	}
 	store32(m.memory[uint32(v6):], uint32(v1))
-	m._bpf_error(v0, i32(7681), v6)
+	m._bpf_error(v0, i32(72159), v6)
 	panic("unreachable")
 }
 func (m *Module) _pcapint_datalink_val_to_string(v0 int32) int32 {
@@ -13782,20 +13769,20 @@ func (m *Module) _pcapint_datalink_val_to_string(v0 int32) int32 {
 		if v2 != 0 {
 			store32(m.memory[int64(uint32(v1))+36:], uint32(v2))
 			store32(m.memory[int64(uint32(v1))+32:], uint32(v3))
-			_ = m._snprintf(i32(61168), i32(1024), i32(7236), v1+i32(32))
-			p0 = i32(61168)
+			_ = m._snprintf(i32(125648), i32(1024), i32(71714), v1+i32(32))
+			p0 = i32(125648)
 			goto l0
 		}
 		store32(m.memory[int64(uint32(v1))+16:], uint32(v3))
-		_ = m._snprintf(i32(61168), i32(1024), i32(2746), v1+i32(16))
-		p0 = i32(61168)
+		_ = m._snprintf(i32(125648), i32(1024), i32(67258), v1+i32(16))
+		p0 = i32(125648)
 		goto l0
 	}
 	if v2 != 0 {
 		store32(m.memory[int64(uint32(v1))+4:], uint32(v2))
 		store32(m.memory[uint32(v1):], uint32(v0))
-		_ = m._snprintf(i32(61168), i32(1024), i32(7248), v1)
-		p0 = i32(61168)
+		_ = m._snprintf(i32(125648), i32(1024), i32(71726), v1)
+		p0 = i32(125648)
 		goto l0
 	}
 	p0 = m._pcap_datalink_val_to_description_or_dlt(v0)
@@ -13895,7 +13882,7 @@ func (m *Module) _gen_prevlinkhdr_check(v0 int32) int32 {
 l4:
 	return v1
 l0:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_bcmp(v0, v1, v2, v3, v4 int32) int32 {
@@ -13912,31 +13899,31 @@ func (m *Module) _gen_bcmp(v0, v1, v2, v3, v4 int32) int32 {
 	m.___stack_pointer = v10
 	if v3 != 0 {
 		if uint32(v3) >= uint32(i32(4)) {
-			v12 = v2 - i32(4)
+			v11 = v2 - i32(4)
 		l5:
 			{
 				t0 := v4
 				v6 = v3
 				v3 = v6 - i32(4)
 				v5 = t0 + v3
-				v8 = int32(m.memory[int64(uint32(v5))+3])
+				v7 = int32(m.memory[int64(uint32(v5))+3])
 				v9 = int32(m.memory[int64(uint32(v5))+2])
-				v11 = int32(m.memory[int64(uint32(v5))+1])
+				v12 = int32(m.memory[int64(uint32(v5))+1])
 				v5 = int32(m.memory[uint32(v5)])
-				v13 = m._gen_load_a(v0, v1, v6+v12, i32(0))
+				v13 = m._gen_load_a(v0, v1, v6+v11, i32(0))
 				v6 = m._newchunk_nolongjmp(v0, i32(212))
 				if v6 == 0 {
 					goto l0
 				}
 				store32(m.memory[int64(uint32(v6))+8:], uint32(i32(21)))
 				store32(m.memory[int64(uint32(v6))+4:], uint32(v13))
-				store32(m.memory[int64(uint32(v6))+20:], uint32(v11<<16|v5<<24|v9<<8|v8))
+				store32(m.memory[int64(uint32(v6))+20:], uint32(v12<<16|v5<<24|v9<<8|v7))
 				store32(m.memory[int64(uint32(v6))+96:], uint32(v6))
 				{
-					if v7 == 0 {
+					if v8 == 0 {
 						goto l1
 					}
-					v5 = int32(load32(m.memory[int64(uint32(v7))+208:]))
+					v5 = int32(load32(m.memory[int64(uint32(v8))+208:]))
 					if v5 == i32(2) {
 						goto l2
 					}
@@ -13950,7 +13937,7 @@ func (m *Module) _gen_bcmp(v0, v1, v2, v3, v4 int32) int32 {
 					if v5 == i32(1) {
 						goto l2
 					}
-					v5 = v7
+					v5 = v8
 				l3:
 					{
 						t1 := v5
@@ -13958,16 +13945,16 @@ func (m *Module) _gen_bcmp(v0, v1, v2, v3, v4 int32) int32 {
 						if int32(load32(m.memory[int64(uint32(v5))+44:])) != 0 {
 							p2 = i32(84)
 						}
-						v8 = t1 + p2
-						v5 = int32(load32(m.memory[uint32(v8):]))
-						store32(m.memory[uint32(v8):], uint32(v6))
+						v7 = t1 + p2
+						v5 = int32(load32(m.memory[uint32(v7):]))
+						store32(m.memory[uint32(v7):], uint32(v6))
 						if v5 != 0 {
 							goto l3
 						}
 					}
-					t3 := v7
+					t3 := v8
 					var p4 int32
-					if int32(load32(m.memory[int64(uint32(v7))+44:])) == 0 {
+					if int32(load32(m.memory[int64(uint32(v8))+44:])) == 0 {
 						p4 = 1
 					}
 					store32(m.memory[int64(uint32(t3))+44:], uint32(p4))
@@ -13986,13 +13973,13 @@ func (m *Module) _gen_bcmp(v0, v1, v2, v3, v4 int32) int32 {
 						if int32(load32(m.memory[int64(uint32(v5))+44:])) != 0 {
 							p8 = i32(84)
 						}
-						v8 = t7 + p8
-						v5 = int32(load32(m.memory[uint32(v8):]))
+						v7 = t7 + p8
+						v5 = int32(load32(m.memory[uint32(v7):]))
 						if v5 != 0 {
 							goto l4
 						}
 					}
-					store32(m.memory[uint32(v8):], uint32(v7))
+					store32(m.memory[uint32(v7):], uint32(v8))
 					t9 := v6
 					var p10 int32
 					if v9 != i32(0) {
@@ -14000,165 +13987,159 @@ func (m *Module) _gen_bcmp(v0, v1, v2, v3, v4 int32) int32 {
 					}
 					store32(m.memory[int64(uint32(t9))+44:], uint32(p10))
 					t11 := v6
-					store32(m.memory[int64(uint32(t11))+96:], load32(m.memory[int64(uint32(v7))+96:]))
+					store32(m.memory[int64(uint32(t11))+96:], load32(m.memory[int64(uint32(v8))+96:]))
 				}
 			l1:
-				v7 = v6
+				v8 = v6
 			l2:
 				if uint32(v3) > uint32(i32(3)) {
 					goto l5
 				}
 			}
 		}
-		if uint32(v3) >= uint32(i32(2)) {
-			v11 = v2 - i32(2)
-		l10:
+		{
+			if uint32(v3) <= uint32(i32(1)) {
+				v6 = v8
+				goto l6
+			}
+			t12 := v4
+			v3 = v3 - i32(2)
+			v5 = t12 + v3
+			v7 = int32(m.memory[int64(uint32(v5))+1])
+			v5 = int32(m.memory[uint32(v5)])
+			v9 = m._gen_load_a(v0, v1, v2+v3, i32(8))
+			v6 = m._newchunk_nolongjmp(v0, i32(212))
+			if v6 == 0 {
+				goto l0
+			}
+			store32(m.memory[int64(uint32(v6))+8:], uint32(i32(21)))
+			store32(m.memory[int64(uint32(v6))+4:], uint32(v9))
+			store32(m.memory[int64(uint32(v6))+20:], uint32(v5<<8|v7))
+			store32(m.memory[int64(uint32(v6))+96:], uint32(v6))
+			if v8 == 0 {
+				goto l6
+			}
+			v5 = int32(load32(m.memory[int64(uint32(v8))+208:]))
+			if v5 == i32(2) {
+				v6 = v8
+				goto l6
+			}
+			if v5 == i32(1) {
+				goto l6
+			}
+			v5 = int32(load32(m.memory[int64(uint32(v6))+208:]))
+			if v5 == i32(2) {
+				goto l6
+			}
+			if v5 == i32(1) {
+				v6 = v8
+				goto l6
+			}
+			v5 = v8
+		l7:
 			{
-				t12 := v4
-				v5 = v3
-				v3 = v5 - i32(2)
-				v6 = t12 + v3
-				v8 = int32(m.memory[int64(uint32(v6))+1])
-				v9 = int32(m.memory[uint32(v6)])
-				v5 = m._gen_load_a(v0, v1, v5+v11, i32(8))
-				v6 = m._newchunk_nolongjmp(v0, i32(212))
-				if v6 == 0 {
-					goto l0
+				t13 := v5
+				p14 := i32(60)
+				if int32(load32(m.memory[int64(uint32(v5))+44:])) != 0 {
+					p14 = i32(84)
 				}
-				store32(m.memory[int64(uint32(v6))+8:], uint32(i32(21)))
-				store32(m.memory[int64(uint32(v6))+4:], uint32(v5))
-				store32(m.memory[int64(uint32(v6))+20:], uint32(v9<<8|v8))
-				store32(m.memory[int64(uint32(v6))+96:], uint32(v6))
-				{
-					if v7 == 0 {
-						goto l6
-					}
-					v5 = int32(load32(m.memory[int64(uint32(v7))+208:]))
-					if v5 == i32(2) {
-						goto l7
-					}
-					if v5 == i32(1) {
-						goto l6
-					}
-					v5 = int32(load32(m.memory[int64(uint32(v6))+208:]))
-					if v5 == i32(2) {
-						goto l6
-					}
-					if v5 == i32(1) {
-						goto l7
-					}
-					v5 = v7
-				l8:
-					{
-						t13 := v5
-						p14 := i32(60)
-						if int32(load32(m.memory[int64(uint32(v5))+44:])) != 0 {
-							p14 = i32(84)
-						}
-						v8 = t13 + p14
-						v5 = int32(load32(m.memory[uint32(v8):]))
-						store32(m.memory[uint32(v8):], uint32(v6))
-						if v5 != 0 {
-							goto l8
-						}
-					}
-					t15 := v7
-					var p16 int32
-					if int32(load32(m.memory[int64(uint32(v7))+44:])) == 0 {
-						p16 = 1
-					}
-					store32(m.memory[int64(uint32(t15))+44:], uint32(p16))
-					t17 := v6
-					v9 = int32(load32(m.memory[int64(uint32(v6))+44:]))
-					var p18 int32
-					if v9 == 0 {
-						p18 = 1
-					}
-					store32(m.memory[int64(uint32(t17))+44:], uint32(p18))
-					v5 = v6
-				l9:
-					{
-						t19 := v5
-						p20 := i32(60)
-						if int32(load32(m.memory[int64(uint32(v5))+44:])) != 0 {
-							p20 = i32(84)
-						}
-						v8 = t19 + p20
-						v5 = int32(load32(m.memory[uint32(v8):]))
-						if v5 != 0 {
-							goto l9
-						}
-					}
-					store32(m.memory[uint32(v8):], uint32(v7))
-					t21 := v6
-					var p22 int32
-					if v9 != i32(0) {
-						p22 = 1
-					}
-					store32(m.memory[int64(uint32(t21))+44:], uint32(p22))
-					t23 := v6
-					store32(m.memory[int64(uint32(t23))+96:], load32(m.memory[int64(uint32(v7))+96:]))
-				}
-			l6:
-				v7 = v6
-			l7:
-				if uint32(v3) > uint32(i32(1)) {
-					goto l10
+				v7 = t13 + p14
+				v5 = int32(load32(m.memory[uint32(v7):]))
+				store32(m.memory[uint32(v7):], uint32(v6))
+				if v5 != 0 {
+					goto l7
 				}
 			}
+			t15 := v8
+			var p16 int32
+			if int32(load32(m.memory[int64(uint32(v8))+44:])) == 0 {
+				p16 = 1
+			}
+			store32(m.memory[int64(uint32(t15))+44:], uint32(p16))
+			t17 := v6
+			v9 = int32(load32(m.memory[int64(uint32(v6))+44:]))
+			var p18 int32
+			if v9 == 0 {
+				p18 = 1
+			}
+			store32(m.memory[int64(uint32(t17))+44:], uint32(p18))
+			v5 = v6
+		l8:
+			{
+				t19 := v5
+				p20 := i32(60)
+				if int32(load32(m.memory[int64(uint32(v5))+44:])) != 0 {
+					p20 = i32(84)
+				}
+				v7 = t19 + p20
+				v5 = int32(load32(m.memory[uint32(v7):]))
+				if v5 != 0 {
+					goto l8
+				}
+			}
+			store32(m.memory[uint32(v7):], uint32(v8))
+			t21 := v6
+			var p22 int32
+			if v9 != i32(0) {
+				p22 = 1
+			}
+			store32(m.memory[int64(uint32(t21))+44:], uint32(p22))
+			t23 := v6
+			store32(m.memory[int64(uint32(t23))+96:], load32(m.memory[int64(uint32(v8))+96:]))
 		}
+	l6:
 		{
 			if v3 == 0 {
-				v5 = v7
-				goto l11
+				v5 = v6
+				goto l9
 			}
-			v6 = int32(m.memory[uint32(v4)])
+			v7 = int32(m.memory[uint32(v4)])
 			v3 = m._gen_load_a(v0, v1, v2, i32(16))
 			v5 = m._newchunk_nolongjmp(v0, i32(212))
 			if v5 == 0 {
-				goto l12
+				goto l10
 			}
 			store32(m.memory[int64(uint32(v5))+8:], uint32(i32(21)))
-			store32(m.memory[int64(uint32(v5))+20:], uint32(v6))
+			store32(m.memory[int64(uint32(v5))+20:], uint32(v7))
 			store32(m.memory[int64(uint32(v5))+4:], uint32(v3))
 			store32(m.memory[int64(uint32(v5))+96:], uint32(v5))
-			if v7 == 0 {
-				goto l11
+			if v6 == 0 {
+				goto l9
 			}
-			v6 = int32(load32(m.memory[int64(uint32(v7))+208:]))
-			if v6 == i32(2) {
-				v5 = v7
-				goto l11
+			v7 = int32(load32(m.memory[int64(uint32(v6))+208:]))
+			if v7 == i32(2) {
+				v5 = v6
+				goto l9
 			}
-			if v6 == i32(1) {
-				goto l11
+			if v7 == i32(1) {
+				goto l9
 			}
-			v6 = int32(load32(m.memory[int64(uint32(v5))+208:]))
-			if v6 == i32(2) {
-				goto l11
+			v7 = int32(load32(m.memory[int64(uint32(v5))+208:]))
+			if v7 == i32(2) {
+				goto l9
 			}
-			if v6 == i32(1) {
-				v5 = v7
-				goto l11
+			if v7 == i32(1) {
+				v5 = v6
+				goto l9
 			}
-			v6 = v7
-		l13:
+			v7 = v6
+		l11:
 			{
-				t24 := v6
+				t24 := v7
 				p25 := i32(60)
-				if int32(load32(m.memory[int64(uint32(v6))+44:])) != 0 {
+				if int32(load32(m.memory[int64(uint32(v7))+44:])) != 0 {
 					p25 = i32(84)
 				}
 				v3 = t24 + p25
-				v6 = int32(load32(m.memory[uint32(v3):]))
+				v7 = int32(load32(m.memory[uint32(v3):]))
 				store32(m.memory[uint32(v3):], uint32(v5))
-				if v6 != 0 {
-					goto l13
+				if v7 != 0 {
+					goto l11
 				}
 			}
-			t26 := v7
+			t26 := v6
 			var p27 int32
-			if int32(load32(m.memory[int64(uint32(v7))+44:])) == 0 {
+			if int32(load32(m.memory[int64(uint32(v6))+44:])) == 0 {
 				p27 = 1
 			}
 			store32(m.memory[int64(uint32(t26))+44:], uint32(p27))
@@ -14169,21 +14150,21 @@ func (m *Module) _gen_bcmp(v0, v1, v2, v3, v4 int32) int32 {
 				p29 = 1
 			}
 			store32(m.memory[int64(uint32(t28))+44:], uint32(p29))
-			v6 = v5
-		l14:
+			v7 = v5
+		l12:
 			{
-				t30 := v6
+				t30 := v7
 				p31 := i32(60)
-				if int32(load32(m.memory[int64(uint32(v6))+44:])) != 0 {
+				if int32(load32(m.memory[int64(uint32(v7))+44:])) != 0 {
 					p31 = i32(84)
 				}
 				v3 = t30 + p31
-				v6 = int32(load32(m.memory[uint32(v3):]))
-				if v6 != 0 {
-					goto l14
+				v7 = int32(load32(m.memory[uint32(v3):]))
+				if v7 != 0 {
+					goto l12
 				}
 			}
-			store32(m.memory[uint32(v3):], uint32(v7))
+			store32(m.memory[uint32(v3):], uint32(v6))
 			t32 := v5
 			var p33 int32
 			if v8 != i32(0) {
@@ -14191,21 +14172,21 @@ func (m *Module) _gen_bcmp(v0, v1, v2, v3, v4 int32) int32 {
 			}
 			store32(m.memory[int64(uint32(t32))+44:], uint32(p33))
 			t34 := v5
-			store32(m.memory[int64(uint32(t34))+96:], load32(m.memory[int64(uint32(v7))+96:]))
+			store32(m.memory[int64(uint32(t34))+96:], load32(m.memory[int64(uint32(v6))+96:]))
 		}
-	l11:
+	l9:
 		m.___stack_pointer = v10 + i32(16)
 		return v5
-	l12:
+	l10:
 		goto l0
 	}
 	store32(m.memory[int64(uint32(v10))+8:], uint32(i32(0)))
-	store32(m.memory[int64(uint32(v10))+4:], uint32(i32(5263)))
-	store32(m.memory[uint32(v10):], uint32(i32(3384)))
-	m._bpf_error(v0, i32(6267), v10)
+	store32(m.memory[int64(uint32(v10))+4:], uint32(i32(69775)))
+	store32(m.memory[uint32(v10):], uint32(i32(67896)))
+	m._bpf_error(v0, i32(70779), v10)
 	panic("unreachable")
 l0:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_wlanhostop(v0, v1, v2 int32) int32 {
@@ -16566,9 +16547,9 @@ func (m *Module) _gen_wlanhostop(v0, v1, v2 int32) int32 {
 	}
 l10:
 	store32(m.memory[int64(uint32(v8))+8:], uint32(v2))
-	store32(m.memory[int64(uint32(v8))+4:], uint32(i32(3020)))
-	store32(m.memory[uint32(v8):], uint32(i32(3295)))
-	m._bpf_error(v0, i32(6267), v8)
+	store32(m.memory[int64(uint32(v8))+4:], uint32(i32(67532)))
+	store32(m.memory[uint32(v8):], uint32(i32(67807)))
+	m._bpf_error(v0, i32(70779), v8)
 	panic("unreachable")
 l52:
 	v2 = v0
@@ -16581,7 +16562,7 @@ l51:
 	m.___stack_pointer = v8 + i32(16)
 	return v2
 l11:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_acode(v0, v1, v2, v3, v4, v5 int32) int32 {
@@ -16602,27 +16583,27 @@ func (m *Module) _gen_acode(v0, v1, v2, v3, v4, v5 int32) int32 {
 				goto l2
 			}
 			t0 := v0
-			t1 := m._gen_mac8host(t0, int32(m.memory[int64(uint32(v6))+47]), v4&i32(255), i32(6671))
+			t1 := m._gen_mac8host(t0, int32(m.memory[int64(uint32(v6))+47]), v4&i32(255), i32(71183))
 			m.___stack_pointer = v6 + i32(48)
 			return t1
 		}
 		t2 := v6
 		store32(m.memory[int64(uint32(t2))+32:], uint32(m._dqkw(v7)))
-		m._bpf_error(v0, i32(1047), v6+i32(32))
+		m._bpf_error(v0, i32(65559), v6+i32(32))
 		panic("unreachable")
 	}
 l0:
 	v4 = m._tqkw(v2 & i32(255))
-	store32(m.memory[int64(uint32(v6))+4:], uint32(i32(6681)))
+	store32(m.memory[int64(uint32(v6))+4:], uint32(i32(71193)))
 	store32(m.memory[uint32(v6):], uint32(v4))
-	m._bpf_error(v0, i32(7762), v6)
+	m._bpf_error(v0, i32(72240), v6)
 	panic("unreachable")
 l1:
-	m._bpf_error(v0, i32(7908), i32(0))
+	m._bpf_error(v0, i32(72386), i32(0))
 	panic("unreachable")
 l2:
 	store32(m.memory[int64(uint32(v6))+16:], uint32(v1))
-	m._bpf_error(v0, i32(7709), v6+i32(16))
+	m._bpf_error(v0, i32(72187), v6+i32(16))
 	panic("unreachable")
 }
 func (m *Module) _gen_mac8host(v0, v1, v2, v3 int32) int32 {
@@ -16861,13 +16842,13 @@ func (m *Module) _gen_mac8host(v0, v1, v2, v3 int32) int32 {
 	l6:
 		t20 := v7
 		store32(m.memory[int64(uint32(t20))+8:], uint32(m._dqkw(v2)))
-		store32(m.memory[int64(uint32(v7))+4:], uint32(i32(3020)))
-		store32(m.memory[uint32(v7):], uint32(i32(1487)))
-		m._bpf_error(v0, i32(7873), v7)
+		store32(m.memory[int64(uint32(v7))+4:], uint32(i32(67532)))
+		store32(m.memory[uint32(v7):], uint32(i32(65999)))
+		m._bpf_error(v0, i32(72351), v7)
 		panic("unreachable")
 	}
 l7:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _sappend(v0, v1 int32) {
@@ -16936,7 +16917,7 @@ func (m *Module) _gen_load(v0, v1, v2, v3 int32) int32 {
 			goto l5
 		}
 	l5:
-		m._bpf_error(v0, i32(7152), i32(0))
+		m._bpf_error(v0, i32(71630), i32(0))
 		panic("unreachable")
 	l4:
 		v10 = i32(72)
@@ -16967,7 +16948,7 @@ func (m *Module) _gen_load(v0, v1, v2, v3 int32) int32 {
 							l11:
 								t3 := v9
 								store32(m.memory[uint32(t3):], uint32(m._pqkw(v1)))
-								m._bpf_error(v0, i32(3648), v9)
+								m._bpf_error(v0, i32(68160), v9)
 								panic("unreachable")
 							}
 						l12:
@@ -16986,7 +16967,7 @@ func (m *Module) _gen_load(v0, v1, v2, v3 int32) int32 {
 								goto l13
 							}
 						l14:
-							m._bpf_error(v0, i32(5453), i32(0))
+							m._bpf_error(v0, i32(69965), i32(0))
 							panic("unreachable")
 						l7:
 							if int32(load32(m.memory[int64(uint32(v0))+60:])) == 0 {
@@ -17088,7 +17069,7 @@ func (m *Module) _gen_load(v0, v1, v2, v3 int32) int32 {
 					v3 = m._gen_loadx_iphdrlen(v0)
 					t13 := int32(load32(m.memory[int64(uint32(v0))+100:]))
 					t14 := int32(load32(m.memory[int64(uint32(v0))+172:]))
-					v4 = int32(m.memory[int64(uint32(v1))+8240])
+					v4 = int32(m.memory[int64(uint32(v1))+72720])
 					v7 = m._gen_linktype(v0, i32(2048))
 					if v4 == 0 {
 						goto l23
@@ -17578,17 +17559,17 @@ func (m *Module) _gen_load(v0, v1, v2, v3 int32) int32 {
 		l23:
 			t68 := v9
 			store32(m.memory[int64(uint32(t68))+16:], uint32(m._pqkw(v1)))
-			m._bpf_error(v0, i32(4163), v9+i32(16))
+			m._bpf_error(v0, i32(68675), v9+i32(16))
 			panic("unreachable")
 		}
 	l48:
 		goto l18
 	}
 l2:
-	m._bpf_error(v0, i32(3860), i32(0))
+	m._bpf_error(v0, i32(68372), i32(0))
 	panic("unreachable")
 l18:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_relation(v0, v1, v2, v3, v4 int32) int32 {
@@ -17823,7 +17804,7 @@ func (m *Module) _gen_relation(v0, v1, v2, v3, v4 int32) int32 {
 		}
 	l0:
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_loadlen(v0 int32) int32 {
@@ -17855,7 +17836,7 @@ l1:
 			goto l1
 		}
 	}
-	m._bpf_error(v0, i32(3860), i32(0))
+	m._bpf_error(v0, i32(68372), i32(0))
 	panic("unreachable")
 l0:
 	store32(m.memory[uint32(v3):], uint32(i32(1)))
@@ -17879,7 +17860,7 @@ l0:
 		return v1
 	l2:
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_loadi(v0, v1 int32) int32 {
@@ -17914,7 +17895,7 @@ func (m *Module) _gen_loadi(v0, v1 int32) int32 {
 				goto l1
 			}
 		}
-		m._bpf_error(v0, i32(3860), i32(0))
+		m._bpf_error(v0, i32(68372), i32(0))
 		panic("unreachable")
 	l0:
 		store32(m.memory[uint32(v6):], uint32(i32(1)))
@@ -17937,7 +17918,7 @@ func (m *Module) _gen_loadi(v0, v1 int32) int32 {
 		return v4
 	l2:
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_neg(v0, v1 int32) int32 {
@@ -17991,7 +17972,7 @@ func (m *Module) _gen_neg(v0, v1 int32) int32 {
 		}
 	l1:
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_arth(v0, v1, v2, v3 int32) int32 {
@@ -18011,7 +17992,7 @@ func (m *Module) _gen_arth(v0, v1, v2, v3 int32) int32 {
 			if int32(load32(m.memory[int64(uint32(v4))+12:])) != 0 {
 				goto l1
 			}
-			m._bpf_error(v0, i32(3527), i32(0))
+			m._bpf_error(v0, i32(68039), i32(0))
 			panic("unreachable")
 		}
 		v4 = int32(load32(m.memory[int64(uint32(v3))+4:]))
@@ -18021,7 +18002,7 @@ func (m *Module) _gen_arth(v0, v1, v2, v3 int32) int32 {
 		if int32(load32(m.memory[int64(uint32(v4))+12:])) != 0 {
 			goto l1
 		}
-		m._bpf_error(v0, i32(3511), i32(0))
+		m._bpf_error(v0, i32(68023), i32(0))
 		panic("unreachable")
 	l0:
 		if v1&i32(-17) != i32(96) {
@@ -18120,7 +18101,7 @@ func (m *Module) _gen_arth(v0, v1, v2, v3 int32) int32 {
 				goto l9
 			}
 		}
-		m._bpf_error(v0, i32(3860), i32(0))
+		m._bpf_error(v0, i32(68372), i32(0))
 		panic("unreachable")
 	l8:
 		store32(m.memory[uint32(v5):], uint32(i32(1)))
@@ -18139,10 +18120,10 @@ func (m *Module) _gen_arth(v0, v1, v2, v3 int32) int32 {
 		return v2
 	}
 l2:
-	m._bpf_error(v0, i32(1980), i32(0))
+	m._bpf_error(v0, i32(66492), i32(0))
 	panic("unreachable")
 l3:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_greater(v0, v1 int32) int32 {
@@ -18160,10 +18141,10 @@ func (m *Module) _gen_greater(v0, v1 int32) int32 {
 		store32(m.memory[int64(uint32(v0))+96:], uint32(v0))
 		return v0
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l0:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_less(v0, v1 int32) int32 {
@@ -18201,10 +18182,10 @@ func (m *Module) _gen_less(v0, v1 int32) int32 {
 	l3:
 		return v0
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l0:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_byteop(v0, v1, v2, v3 int32) int32 {
@@ -18235,9 +18216,9 @@ func (m *Module) _gen_byteop(v0, v1, v2, v3 int32) int32 {
 				}
 			l1:
 				store32(m.memory[int64(uint32(v4))+24:], uint32(v1))
-				store32(m.memory[int64(uint32(v4))+20:], uint32(i32(3332)))
-				store32(m.memory[int64(uint32(v4))+16:], uint32(i32(3324)))
-				m._bpf_error(v0, i32(6267), v4+i32(16))
+				store32(m.memory[int64(uint32(v4))+20:], uint32(i32(67844)))
+				store32(m.memory[int64(uint32(v4))+16:], uint32(i32(67836)))
+				m._bpf_error(v0, i32(70779), v4+i32(16))
 				panic("unreachable")
 			l3:
 				v2 = m._gen_load_a(v0, i32(1), v2, i32(16))
@@ -18350,11 +18331,11 @@ func (m *Module) _gen_byteop(v0, v1, v2, v3 int32) int32 {
 	}
 	store32(m.memory[int64(uint32(v4))+8:], uint32(i32(255)))
 	store32(m.memory[int64(uint32(v4))+4:], uint32(v3))
-	store32(m.memory[uint32(v4):], uint32(i32(1684)))
-	m._bpf_error(v0, i32(1419), v4)
+	store32(m.memory[uint32(v4):], uint32(i32(66196)))
+	m._bpf_error(v0, i32(65931), v4)
 	panic("unreachable")
 l7:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_broadcast(v0, v1 int32) int32 {
@@ -18372,9 +18353,9 @@ func (m *Module) _gen_broadcast(v0, v1 int32) int32 {
 				goto l0
 			}
 			v1 = m._pqkw(v1)
-			store32(m.memory[int64(uint32(v6))+4:], uint32(i32(1538)))
+			store32(m.memory[int64(uint32(v6))+4:], uint32(i32(66050)))
 			store32(m.memory[uint32(v6):], uint32(v1))
-			m._bpf_error(v0, i32(7762), v6)
+			m._bpf_error(v0, i32(72240), v6)
 			panic("unreachable")
 		}
 		v1 = int32(load32(m.memory[int64(uint32(v0))+24:]))
@@ -18552,18 +18533,18 @@ func (m *Module) _gen_broadcast(v0, v1 int32) int32 {
 		goto l4
 	}
 l2:
-	v0 = m._gen_mac48host(v0, i32(8226), i32(2), i32(1538))
+	v0 = m._gen_mac48host(v0, i32(72704), i32(2), i32(66050))
 l4:
 	m.___stack_pointer = v6 + i32(16)
 	return v0
 l3:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l5:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l6:
-	m._bpf_error(v0, i32(6003), i32(0))
+	m._bpf_error(v0, i32(70515), i32(0))
 	panic("unreachable")
 }
 func (m *Module) _gen_ip_version(v0, v1, v2 int32) int32 {
@@ -18573,49 +18554,43 @@ func (m *Module) _gen_ip_version(v0, v1, v2 int32) int32 {
 	var v6 int32
 	v3 = m.___stack_pointer - i32(16)
 	m.___stack_pointer = v3
-	switch v2 - i32(4) {
-	case 0, 2:
-		goto l0
-	default:
-		goto l1
+	if v2 != i32(5) {
+		v5 = m._gen_load_a(v0, v1, i32(0), i32(16))
+		v4 = m._newchunk_nolongjmp(v0, i32(20))
+		if v4 == 0 {
+			goto l0
+		}
+		store32(m.memory[int64(uint32(v4))+12:], uint32(i32(240)))
+		store32(m.memory[uint32(v4):], uint32(i32(84)))
+		v1 = v5
+	l1:
+		v6 = v1
+		v1 = int32(load32(m.memory[int64(uint32(v6))+16:]))
+		if v1 != 0 {
+			goto l1
+		}
+		store32(m.memory[int64(uint32(v6))+16:], uint32(v4))
+		v1 = m._newchunk_nolongjmp(v0, i32(212))
+		if v1 == 0 {
+			goto l2
+		}
+		store32(m.memory[int64(uint32(v1))+8:], uint32(i32(21)))
+		store32(m.memory[int64(uint32(v1))+4:], uint32(v5))
+		store32(m.memory[int64(uint32(v1))+20:], uint32(v2<<4))
+		store32(m.memory[int64(uint32(v1))+96:], uint32(v1))
+		m.___stack_pointer = v3 + i32(16)
+		return v1
 	}
-l0:
-	v5 = m._gen_load_a(v0, v1, i32(0), i32(16))
-	v4 = m._newchunk_nolongjmp(v0, i32(20))
-	if v4 == 0 {
-		goto l2
-	}
-	store32(m.memory[int64(uint32(v4))+12:], uint32(i32(240)))
-	store32(m.memory[uint32(v4):], uint32(i32(84)))
-	v1 = v5
-l3:
-	v6 = v1
-	v1 = int32(load32(m.memory[int64(uint32(v6))+16:]))
-	if v1 != 0 {
-		goto l3
-	}
-	store32(m.memory[int64(uint32(v6))+16:], uint32(v4))
-	v1 = m._newchunk_nolongjmp(v0, i32(212))
-	if v1 == 0 {
-		goto l4
-	}
-	store32(m.memory[int64(uint32(v1))+8:], uint32(i32(21)))
-	store32(m.memory[int64(uint32(v1))+4:], uint32(v5))
-	store32(m.memory[int64(uint32(v1))+20:], uint32(v2<<4))
-	store32(m.memory[int64(uint32(v1))+96:], uint32(v1))
-	m.___stack_pointer = v3 + i32(16)
-	return v1
-l1:
 	store32(m.memory[int64(uint32(v3))+8:], uint32(v2))
-	store32(m.memory[int64(uint32(v3))+4:], uint32(i32(3024)))
-	store32(m.memory[uint32(v3):], uint32(i32(3909)))
-	m._bpf_error(v0, i32(6267), v3)
+	store32(m.memory[int64(uint32(v3))+4:], uint32(i32(67536)))
+	store32(m.memory[uint32(v3):], uint32(i32(68421)))
+	m._bpf_error(v0, i32(70779), v3)
+	panic("unreachable")
+l0:
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l2:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
-	panic("unreachable")
-l4:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_llc_linktype(v0, v1 int32) int32 {
@@ -18694,14 +18669,14 @@ l3:
 l6:
 	store32(m.memory[int64(uint32(v2))+8:], uint32(i32(255)))
 	store32(m.memory[int64(uint32(v2))+4:], uint32(v1))
-	store32(m.memory[uint32(v2):], uint32(i32(6747)))
-	m._bpf_error(v0, i32(1419), v2)
+	store32(m.memory[uint32(v2):], uint32(i32(71259)))
+	m._bpf_error(v0, i32(65931), v2)
 	panic("unreachable")
 l7:
 	store32(m.memory[int64(uint32(v2))+24:], uint32(i32(0xffff)))
 	store32(m.memory[int64(uint32(v2))+20:], uint32(v1))
-	store32(m.memory[int64(uint32(v2))+16:], uint32(i32(5646)))
-	m._bpf_error(v0, i32(1419), v2+i32(16))
+	store32(m.memory[int64(uint32(v2))+16:], uint32(i32(70158)))
+	m._bpf_error(v0, i32(65931), v2+i32(16))
 	panic("unreachable")
 l5:
 	store64(m.memory[int64(uint32(v2))+40:], uint64(i64(-0x647ff8fff7fc5556)))
@@ -18710,7 +18685,7 @@ l8:
 	m.___stack_pointer = v2 + i32(48)
 	return v0
 l2:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_linux_sll_linktype(v0, v1 int32) int32 {
@@ -19422,17 +19397,17 @@ l8:
 l26:
 	store32(m.memory[int64(uint32(v5))+8:], uint32(i32(255)))
 	store32(m.memory[int64(uint32(v5))+4:], uint32(v1))
-	store32(m.memory[uint32(v5):], uint32(i32(6747)))
-	m._bpf_error(v0, i32(1419), v5)
+	store32(m.memory[uint32(v5):], uint32(i32(71259)))
+	m._bpf_error(v0, i32(65931), v5)
 	panic("unreachable")
 l29:
 	store32(m.memory[int64(uint32(v5))+24:], uint32(i32(0xffff)))
 	store32(m.memory[int64(uint32(v5))+20:], uint32(v1))
-	store32(m.memory[int64(uint32(v5))+16:], uint32(i32(5646)))
-	m._bpf_error(v0, i32(1419), v5+i32(16))
+	store32(m.memory[int64(uint32(v5))+16:], uint32(i32(70158)))
+	m._bpf_error(v0, i32(65931), v5+i32(16))
 	panic("unreachable")
 l2:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_false(v0 int32) int32 {
@@ -19452,10 +19427,10 @@ func (m *Module) _gen_false(v0 int32) int32 {
 		store32(m.memory[int64(uint32(v0))+96:], uint32(v0))
 		return v0
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l0:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_true(v0 int32) int32 {
@@ -19475,10 +19450,10 @@ func (m *Module) _gen_true(v0 int32) int32 {
 		store32(m.memory[int64(uint32(v0))+96:], uint32(v0))
 		return v0
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l0:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _ethertype_to_ppptype(v0, v1 int32) int32 {
@@ -19548,8 +19523,8 @@ func (m *Module) _ethertype_to_ppptype(v0, v1 int32) int32 {
 l4:
 	store32(m.memory[int64(uint32(v2))+8:], uint32(i32(0xffff)))
 	store32(m.memory[int64(uint32(v2))+4:], uint32(v1))
-	store32(m.memory[uint32(v2):], uint32(i32(4150)))
-	m._bpf_error(v0, i32(1419), v2)
+	store32(m.memory[uint32(v2):], uint32(i32(68662)))
+	m._bpf_error(v0, i32(65931), v2)
 	panic("unreachable")
 }
 func (m *Module) _gen_loopback_linktype(v0, v1 int32) int32 {
@@ -19680,9 +19655,9 @@ l4:
 	goto l1
 l7:
 	store32(m.memory[int64(uint32(v4))+8:], uint32(v5))
-	store32(m.memory[int64(uint32(v4))+4:], uint32(i32(5561)))
-	store32(m.memory[uint32(v4):], uint32(i32(5510)))
-	m._bpf_error(v0, i32(6267), v4)
+	store32(m.memory[int64(uint32(v4))+4:], uint32(i32(70073)))
+	store32(m.memory[uint32(v4):], uint32(i32(70022)))
+	m._bpf_error(v0, i32(70779), v4)
 	panic("unreachable")
 l0:
 	v1 = m._gen_loopback_linktype_live(v0, i32(2))
@@ -19690,10 +19665,10 @@ l1:
 	m.___stack_pointer = v4 + i32(16)
 	return v1
 l2:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l3:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_pflog_linktype(v0, v1 int32) int32 {
@@ -19737,7 +19712,7 @@ l0:
 	store32(m.memory[int64(uint32(v0))+208:], uint32(i32(2)))
 	goto l2
 l1:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l2:
 	store32(m.memory[int64(uint32(v0))+4:], uint32(v1))
@@ -19749,7 +19724,7 @@ func (m *Module) _gen_frelay_nlpid(v0, v1 int32) int32 {
 	v2 = m._gen_load_a(v0, i32(1), i32(2), i32(8))
 	v0 = m._newchunk_nolongjmp(v0, i32(212))
 	if v0 == 0 {
-		m.__pcap_longjmp_at(i32(4665), i32(870))
+		m.__pcap_longjmp_at(i32(69177), i32(870))
 		panic("unreachable")
 	}
 	store32(m.memory[int64(uint32(v0))+8:], uint32(i32(21)))
@@ -19796,7 +19771,7 @@ l0:
 	store32(m.memory[int64(uint32(v0))+208:], uint32(i32(2)))
 	goto l2
 l1:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l2:
 	store32(m.memory[int64(uint32(v0))+4:], uint32(v1))
@@ -19998,7 +19973,7 @@ func (m *Module) _gen_multicast(v0, v1 int32) int32 {
 					goto l4
 				}
 			l5:
-				m._fail_kw_on_dlt(v0, i32(1528))
+				m._fail_kw_on_dlt(v0, i32(66040))
 				panic("unreachable")
 			l1:
 				v4 = m._gen_linktype(v0, i32(2048))
@@ -20176,9 +20151,9 @@ func (m *Module) _gen_multicast(v0, v1 int32) int32 {
 		}
 	l2:
 		v1 = m._pqkw(v1)
-		store32(m.memory[int64(uint32(v7))+4:], uint32(i32(1528)))
+		store32(m.memory[int64(uint32(v7))+4:], uint32(i32(66040)))
 		store32(m.memory[uint32(v7):], uint32(v1))
-		m._bpf_error(v0, i32(7762), v7)
+		m._bpf_error(v0, i32(72240), v7)
 		panic("unreachable")
 	l4:
 		v1 = m._gen_load_a(v0, i32(1), i32(1), i32(16))
@@ -20796,7 +20771,7 @@ l14:
 	m.___stack_pointer = v7 + i32(16)
 	return v1
 l13:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_ifindex(v0, v1 int32) int32 {
@@ -20813,10 +20788,10 @@ func (m *Module) _gen_ifindex(v0, v1 int32) int32 {
 		store32(m.memory[int64(uint32(v0))+96:], uint32(v0))
 		return v0
 	}
-	m._fail_kw_on_dlt(v0, i32(1130))
+	m._fail_kw_on_dlt(v0, i32(65642))
 	panic("unreachable")
 l0:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_inbound_outbound(v0, v1 int32) int32 {
@@ -21025,9 +21000,9 @@ func (m *Module) _gen_inbound_outbound(v0, v1 int32) int32 {
 				}
 			l1:
 				t11 := v0
-				p10 := i32(5944)
+				p10 := i32(70456)
 				if v1 != 0 {
-					p10 = i32(5935)
+					p10 = i32(70447)
 				}
 				m._fail_kw_on_dlt(t11, p10)
 				panic("unreachable")
@@ -21047,7 +21022,7 @@ func (m *Module) _gen_inbound_outbound(v0, v1 int32) int32 {
 	l13:
 		return v2
 	l10:
-		m.__pcap_longjmp_at(i32(4665), i32(870))
+		m.__pcap_longjmp_at(i32(69177), i32(870))
 		panic("unreachable")
 	l11:
 		store32(m.memory[int64(uint32(v2))+8:], uint32(i32(21)))
@@ -21082,12 +21057,12 @@ func (m *Module) _gen_pf_ifname(v0, v1 int32) int32 {
 		m.___stack_pointer = v2 + i32(32)
 		return t1
 	}
-	store32(m.memory[int64(uint32(v2))+16:], uint32(i32(5667)))
-	m._bpf_error(v0, i32(5532), v2+i32(16))
+	store32(m.memory[int64(uint32(v2))+16:], uint32(i32(70179)))
+	m._bpf_error(v0, i32(70044), v2+i32(16))
 	panic("unreachable")
 l0:
 	store32(m.memory[uint32(v2):], uint32(i32(15)))
-	m._bpf_error(v0, i32(2506), v2)
+	m._bpf_error(v0, i32(67018), v2)
 	panic("unreachable")
 }
 func (m *Module) _gen_pf_ruleset(v0, v1 int32) int32 {
@@ -21103,12 +21078,12 @@ func (m *Module) _gen_pf_ruleset(v0, v1 int32) int32 {
 		m.___stack_pointer = v2 + i32(32)
 		return t1
 	}
-	store32(m.memory[int64(uint32(v2))+16:], uint32(i32(1885)))
-	m._bpf_error(v0, i32(5532), v2+i32(16))
+	store32(m.memory[int64(uint32(v2))+16:], uint32(i32(66397)))
+	m._bpf_error(v0, i32(70044), v2+i32(16))
 	panic("unreachable")
 l0:
 	store32(m.memory[uint32(v2):], uint32(i32(15)))
-	m._bpf_error(v0, i32(2465), v2)
+	m._bpf_error(v0, i32(66977), v2)
 	panic("unreachable")
 }
 func (m *Module) _gen_pf_rnr(v0, v1 int32) int32 {
@@ -21129,11 +21104,11 @@ func (m *Module) _gen_pf_rnr(v0, v1 int32) int32 {
 		m.___stack_pointer = v2 + i32(16)
 		return v0
 	}
-	store32(m.memory[uint32(v2):], uint32(i32(3011)))
-	m._bpf_error(v0, i32(5532), v2)
+	store32(m.memory[uint32(v2):], uint32(i32(67523)))
+	m._bpf_error(v0, i32(70044), v2)
 	panic("unreachable")
 l0:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_pf_srnr(v0, v1 int32) int32 {
@@ -21154,11 +21129,11 @@ func (m *Module) _gen_pf_srnr(v0, v1 int32) int32 {
 		m.___stack_pointer = v2 + i32(16)
 		return v0
 	}
-	store32(m.memory[uint32(v2):], uint32(i32(3010)))
-	m._bpf_error(v0, i32(5532), v2)
+	store32(m.memory[uint32(v2):], uint32(i32(67522)))
+	m._bpf_error(v0, i32(70044), v2)
 	panic("unreachable")
 l0:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_pf_reason(v0, v1 int32) int32 {
@@ -21179,11 +21154,11 @@ func (m *Module) _gen_pf_reason(v0, v1 int32) int32 {
 		m.___stack_pointer = v2 + i32(16)
 		return v0
 	}
-	store32(m.memory[uint32(v2):], uint32(i32(3555)))
-	m._bpf_error(v0, i32(5532), v2)
+	store32(m.memory[uint32(v2):], uint32(i32(68067)))
+	m._bpf_error(v0, i32(70044), v2)
 	panic("unreachable")
 l0:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_pf_action(v0, v1 int32) int32 {
@@ -21204,11 +21179,11 @@ func (m *Module) _gen_pf_action(v0, v1 int32) int32 {
 		m.___stack_pointer = v2 + i32(16)
 		return v0
 	}
-	store32(m.memory[uint32(v2):], uint32(i32(3641)))
-	m._bpf_error(v0, i32(5532), v2)
+	store32(m.memory[uint32(v2):], uint32(i32(68153)))
+	m._bpf_error(v0, i32(70044), v2)
 	panic("unreachable")
 l0:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_p80211_type(v0, v1, v2 int32) int32 {
@@ -21234,7 +21209,7 @@ func (m *Module) _gen_p80211_type(v0, v1, v2 int32) int32 {
 		if v3 == i32(163) {
 			goto l0
 		}
-		m._fail_kw_on_dlt(v0, i32(5570))
+		m._fail_kw_on_dlt(v0, i32(70082))
 		panic("unreachable")
 	}
 l0:
@@ -21292,13 +21267,13 @@ l3:
 	store32(m.memory[int64(uint32(v2))+96:], uint32(v2))
 	return v2
 l1:
-	m._fail_kw_on_dlt(v0, i32(3020))
+	m._fail_kw_on_dlt(v0, i32(67532))
 	panic("unreachable")
 l2:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l4:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_vlan(v0, v1, v2 int32) int32 {
@@ -21335,14 +21310,14 @@ func (m *Module) _gen_vlan(v0, v1, v2 int32) int32 {
 		}
 		goto l2
 	}
-	m._bpf_error(v0, i32(6685), i32(0))
+	m._bpf_error(v0, i32(71197), i32(0))
 	panic("unreachable")
 l1:
 	if v3 == i32(1) {
 		goto l2
 	}
 l3:
-	m._fail_kw_on_dlt(v0, i32(4101))
+	m._fail_kw_on_dlt(v0, i32(68613))
 	panic("unreachable")
 l2:
 	t0 := m._gen_vlan_no_bpf_extensions(v0, v1, v2)
@@ -21604,14 +21579,14 @@ l3:
 l7:
 	store32(m.memory[int64(uint32(v8))+8:], uint32(i32(0xfff)))
 	store32(m.memory[int64(uint32(v8))+4:], uint32(v1))
-	store32(m.memory[uint32(v8):], uint32(i32(5254)))
-	m._bpf_error(v0, i32(1419), v8)
+	store32(m.memory[uint32(v8):], uint32(i32(69766)))
+	m._bpf_error(v0, i32(65931), v8)
 	panic("unreachable")
 l8:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l10:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_mpls(v0, v1, v2 int32) int32 {
@@ -21690,7 +21665,7 @@ func (m *Module) _gen_mpls(v0, v1, v2 int32) int32 {
 		v3 = m._gen_linktype(v0, i32(34887))
 		goto l3
 	l5:
-		m._fail_kw_on_dlt(v0, i32(2646))
+		m._fail_kw_on_dlt(v0, i32(67158))
 		panic("unreachable")
 	l6:
 		v3 = m._gen_linktype(v0, i32(641))
@@ -21808,11 +21783,11 @@ func (m *Module) _gen_mpls(v0, v1, v2 int32) int32 {
 l10:
 	store32(m.memory[int64(uint32(v6))+8:], uint32(i32(0xfffff)))
 	store32(m.memory[int64(uint32(v6))+4:], uint32(v1))
-	store32(m.memory[uint32(v6):], uint32(i32(4331)))
-	m._bpf_error(v0, i32(1419), v6)
+	store32(m.memory[uint32(v6):], uint32(i32(68843)))
+	m._bpf_error(v0, i32(65931), v6)
 	panic("unreachable")
 l0:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_pppoed(v0 int32) int32 {
@@ -21925,14 +21900,13 @@ func (m *Module) _gen_pppoes(v0, v1, v2 int32) int32 {
 		t14 := v0
 		store32(m.memory[int64(uint32(t14))+28:], load32(m.memory[int64(uint32(v0))+24:]))
 		store64(m.memory[int64(uint32(v0))+72:], uint64(v7))
-		store32(m.memory[int64(uint32(v0))+24:], uint32(i32(9)))
+		v4 = int32(load32(m.memory[int64(uint32(v0))+68:]))
 		t15 := v0
-		v4 = int32(load32(m.memory[int64(uint32(v0))+104:]))
-		store32(m.memory[int64(uint32(t15))+116:], uint32(v4))
-		v3 = v0 + i32(68)
-		v6 = int32(load32(m.memory[uint32(v3):]))
-		store32(m.memory[int64(uint32(v0))+68:], uint32(v4))
-		store32(m.memory[int64(uint32(v0))+80:], uint32(v6))
+		v3 = int32(load32(m.memory[int64(uint32(v0))+104:]))
+		store32(m.memory[int64(uint32(t15))+68:], uint32(v3))
+		store32(m.memory[int64(uint32(v0))+80:], uint32(v4))
+		store32(m.memory[int64(uint32(v0))+24:], uint32(i32(9)))
+		store32(m.memory[int64(uint32(v0))+116:], uint32(v3))
 		t16 := v0
 		store64(m.memory[int64(uint32(t16))+108:], load64(m.memory[int64(uint32(v0))+60:]))
 		store64(m.memory[int64(uint32(v0))+172:], uint64(i64(0)))
@@ -21943,11 +21917,11 @@ func (m *Module) _gen_pppoes(v0, v1, v2 int32) int32 {
 l1:
 	store32(m.memory[int64(uint32(v5))+8:], uint32(i32(0xffff)))
 	store32(m.memory[int64(uint32(v5))+4:], uint32(v1))
-	store32(m.memory[uint32(v5):], uint32(i32(3065)))
-	m._bpf_error(v0, i32(1419), v5)
+	store32(m.memory[uint32(v5):], uint32(i32(67577)))
+	m._bpf_error(v0, i32(65931), v5)
 	panic("unreachable")
 l2:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_geneve(v0, v1, v2 int32) int32 {
@@ -22736,10 +22710,10 @@ func (m *Module) _gen_geneve(v0, v1, v2 int32) int32 {
 	}
 	goto l1
 l7:
-	m._bpf_error(v0, i32(3860), i32(0))
+	m._bpf_error(v0, i32(68372), i32(0))
 	panic("unreachable")
 l1:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_geneve_check(v0, v1, v2, v3, v4 int32) int32 {
@@ -22950,11 +22924,11 @@ func (m *Module) _gen_geneve_check(v0, v1, v2, v3, v4 int32) int32 {
 l6:
 	store32(m.memory[int64(uint32(v9))+8:], uint32(i32(0xffffff)))
 	store32(m.memory[int64(uint32(v9))+4:], uint32(v3))
-	store32(m.memory[uint32(v9):], uint32(i32(6826)))
-	m._bpf_error(v0, i32(1419), v9)
+	store32(m.memory[uint32(v9):], uint32(i32(71338)))
+	m._bpf_error(v0, i32(65931), v9)
 	panic("unreachable")
 l1:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_vxlan(v0, v1, v2 int32) int32 {
@@ -23585,10 +23559,10 @@ func (m *Module) _gen_vxlan(v0, v1, v2 int32) int32 {
 	}
 	goto l1
 l7:
-	m._bpf_error(v0, i32(3860), i32(0))
+	m._bpf_error(v0, i32(68372), i32(0))
 	panic("unreachable")
 l1:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_vxlan_check(v0, v1, v2, v3, v4 int32) int32 {
@@ -23785,11 +23759,11 @@ func (m *Module) _gen_vxlan_check(v0, v1, v2, v3, v4 int32) int32 {
 l4:
 	store32(m.memory[int64(uint32(v8))+8:], uint32(i32(0xffffff)))
 	store32(m.memory[int64(uint32(v8))+4:], uint32(v3))
-	store32(m.memory[uint32(v8):], uint32(i32(6837)))
-	m._bpf_error(v0, i32(1419), v8)
+	store32(m.memory[uint32(v8):], uint32(i32(71349)))
+	m._bpf_error(v0, i32(65931), v8)
 	panic("unreachable")
 l5:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_atmfield_code(v0, v1, v2, v3, v4 int32) int32 {
@@ -23803,18 +23777,18 @@ func (m *Module) _gen_atmfield_code_internal(v0, v1, v2, v3, v4 int32) int32 {
 	v5 = m.___stack_pointer - i32(80)
 	m.___stack_pointer = v5
 	if uint32(v1) <= uint32(i32(71)) {
-		v6 = int32(load32(m.memory[int64(uint32(v1<<2))+9760:]))
+		v6 = int32(load32(m.memory[int64(uint32(v1<<2))+74240:]))
 		if v6 != 0 {
 			goto l0
 		}
 	}
-	v7 = int32(load32(m.memory[uint32(i32(61152)):]))
-	v6 = v7<<6 + i32(60896)
+	v7 = int32(load32(m.memory[uint32(i32(125632)):]))
+	v6 = v7<<6 + i32(125376)
 	m.memory[uint32(v6)] = byte(i32(0))
-	store32(m.memory[uint32(i32(61152)):], uint32((v7+i32(1))&i32(3)))
-	store32(m.memory[int64(uint32(v5))+64:], uint32(i32(5847)))
+	store32(m.memory[uint32(i32(125632)):], uint32((v7+i32(1))&i32(3)))
+	store32(m.memory[int64(uint32(v5))+64:], uint32(i32(70359)))
 	store32(m.memory[int64(uint32(v5))+68:], uint32(v1))
-	_ = m._snprintf(v6, i32(64), i32(6936), v5-i32(-64))
+	_ = m._snprintf(v6, i32(64), i32(71414), v5-i32(-64))
 l0:
 	if int32(load32(m.memory[int64(uint32(v0))+24:])) != i32(123) {
 		goto l1
@@ -23924,31 +23898,31 @@ l7:
 	return v0
 l1:
 	store32(m.memory[uint32(v5):], uint32(v6))
-	m._bpf_error(v0, i32(6792), v5)
+	m._bpf_error(v0, i32(71304), v5)
 	panic("unreachable")
 l5:
 	store32(m.memory[int64(uint32(v5))+40:], uint32(i32(255)))
 	store32(m.memory[int64(uint32(v5))+36:], uint32(v2))
-	store32(m.memory[int64(uint32(v5))+32:], uint32(i32(6822)))
-	m._bpf_error(v0, i32(1419), v5+i32(32))
+	store32(m.memory[int64(uint32(v5))+32:], uint32(i32(71334)))
+	m._bpf_error(v0, i32(65931), v5+i32(32))
 	panic("unreachable")
 l6:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l10:
 	store32(m.memory[int64(uint32(v5))+56:], uint32(i32(0xffff)))
 	store32(m.memory[int64(uint32(v5))+52:], uint32(v2))
-	store32(m.memory[int64(uint32(v5))+48:], uint32(i32(6847)))
-	m._bpf_error(v0, i32(1419), v5+i32(48))
+	store32(m.memory[int64(uint32(v5))+48:], uint32(i32(71359)))
+	m._bpf_error(v0, i32(65931), v5+i32(48))
 	panic("unreachable")
 l11:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l4:
 	store32(m.memory[int64(uint32(v5))+24:], uint32(v1))
-	store32(m.memory[int64(uint32(v5))+20:], uint32(i32(5963)))
-	store32(m.memory[int64(uint32(v5))+16:], uint32(i32(4354)))
-	m._bpf_error(v0, i32(6267), v5+i32(16))
+	store32(m.memory[int64(uint32(v5))+20:], uint32(i32(70475)))
+	store32(m.memory[int64(uint32(v5))+16:], uint32(i32(68866)))
+	m._bpf_error(v0, i32(70779), v5+i32(16))
 	panic("unreachable")
 }
 func (m *Module) _gen_atmtype_abbrev(v0, v1 int32) int32 {
@@ -23960,18 +23934,18 @@ func (m *Module) _gen_atmtype_abbrev(v0, v1 int32) int32 {
 	v5 = m.___stack_pointer - i32(48)
 	m.___stack_pointer = v5
 	if uint32(v1) <= uint32(i32(71)) {
-		v3 = int32(load32(m.memory[int64(uint32(v1<<2))+9760:]))
+		v3 = int32(load32(m.memory[int64(uint32(v1<<2))+74240:]))
 		if v3 != 0 {
 			goto l0
 		}
 	}
-	v4 = int32(load32(m.memory[uint32(i32(61152)):]))
-	v3 = v4<<6 + i32(60896)
+	v4 = int32(load32(m.memory[uint32(i32(125632)):]))
+	v3 = v4<<6 + i32(125376)
 	m.memory[uint32(v3)] = byte(i32(0))
-	store32(m.memory[uint32(i32(61152)):], uint32((v4+i32(1))&i32(3)))
-	store32(m.memory[int64(uint32(v5))+32:], uint32(i32(5847)))
+	store32(m.memory[uint32(i32(125632)):], uint32((v4+i32(1))&i32(3)))
+	store32(m.memory[int64(uint32(v5))+32:], uint32(i32(70359)))
 	store32(m.memory[int64(uint32(v5))+36:], uint32(v1))
-	_ = m._snprintf(v3, i32(64), i32(6936), v5+i32(32))
+	_ = m._snprintf(v3, i32(64), i32(71414), v5+i32(32))
 l0:
 	if int32(load32(m.memory[int64(uint32(v0))+24:])) != i32(123) {
 		goto l1
@@ -24456,9 +24430,9 @@ l0:
 		}
 	l8:
 		store32(m.memory[int64(uint32(v5))+24:], uint32(v1))
-		store32(m.memory[int64(uint32(v5))+20:], uint32(i32(5613)))
-		store32(m.memory[int64(uint32(v5))+16:], uint32(i32(1330)))
-		m._bpf_error(v0, i32(6267), v5+i32(16))
+		store32(m.memory[int64(uint32(v5))+20:], uint32(i32(70125)))
+		store32(m.memory[int64(uint32(v5))+16:], uint32(i32(65842)))
+		m._bpf_error(v0, i32(70779), v5+i32(16))
 		panic("unreachable")
 	l9:
 		v1 = m._gen_atm_prototype(v0, i32(1))
@@ -24469,10 +24443,9 @@ l0:
 		v6 = int64(load64(m.memory[int64(uint32(v0))+60:]))
 		store32(m.memory[int64(uint32(v0))+60:], uint32(i32(0)))
 		store64(m.memory[int64(uint32(v0))+72:], uint64(v6))
-		v3 = v0 + i32(68)
-		v4 = int32(load32(m.memory[uint32(v3):]))
+		v3 = int32(load32(m.memory[int64(uint32(v0))+68:]))
 		store32(m.memory[int64(uint32(v0))+68:], uint32(i32(-1)))
-		store32(m.memory[int64(uint32(v0))+80:], uint32(v4))
+		store32(m.memory[int64(uint32(v0))+80:], uint32(v3))
 		store32(m.memory[int64(uint32(v0))+24:], uint32(i32(1)))
 		t67 := v0
 		v3 = int32(load32(m.memory[int64(uint32(v0))+168:]))
@@ -24485,7 +24458,7 @@ l10:
 	return v1
 l1:
 	store32(m.memory[uint32(v5):], uint32(v3))
-	m._bpf_error(v0, i32(6792), v5)
+	m._bpf_error(v0, i32(71304), v5)
 	panic("unreachable")
 }
 func (m *Module) _gen_mtp2type_abbrev(v0, v1 int32) int32 {
@@ -24496,20 +24469,23 @@ func (m *Module) _gen_mtp2type_abbrev(v0, v1 int32) int32 {
 	var v6 int32
 	v5 = m.___stack_pointer - i32(48)
 	m.___stack_pointer = v5
-	if uint32(v1) <= uint32(i32(27)) {
-		v2 = int32(load32(m.memory[int64(uint32(v1<<2))+10048:]))
-		if v2 != 0 {
-			goto l0
-		}
+	if uint32(v1) > uint32(i32(27)) {
+		goto l0
 	}
-	v3 = int32(load32(m.memory[uint32(i32(61152)):]))
-	v2 = v3<<6 + i32(60896)
-	m.memory[uint32(v2)] = byte(i32(0))
-	store32(m.memory[uint32(i32(61152)):], uint32((v3+i32(1))&i32(3)))
-	store32(m.memory[int64(uint32(v5))+32:], uint32(i32(5835)))
-	store32(m.memory[int64(uint32(v5))+36:], uint32(v1))
-	_ = m._snprintf(v2, i32(64), i32(6936), v5+i32(32))
+	if i32_shl(i32(1), v1)&i32(4193793) != 0 {
+		goto l0
+	}
+	v2 = int32(load32(m.memory[int64(uint32(v1<<2))+74528:]))
+	goto l1
 l0:
+	v3 = int32(load32(m.memory[uint32(i32(125632)):]))
+	v2 = v3<<6 + i32(125376)
+	m.memory[uint32(v2)] = byte(i32(0))
+	store32(m.memory[uint32(i32(125632)):], uint32((v3+i32(1))&i32(3)))
+	store32(m.memory[int64(uint32(v5))+32:], uint32(i32(70347)))
+	store32(m.memory[int64(uint32(v5))+36:], uint32(v1))
+	_ = m._snprintf(v2, i32(64), i32(71414), v5+i32(32))
+l1:
 	{
 		v3 = int32(load32(m.memory[int64(uint32(v0))+24:]))
 		var p0 int32
@@ -24521,94 +24497,94 @@ l0:
 			p1 = 1
 		}
 		if p0&p1 != 0 {
-			goto l1
+			goto l2
 		}
 		if int32(load32(m.memory[int64(uint32(v0))+152:])) == i32(-1) {
-			goto l1
+			goto l2
 		}
 		if int32(load32(m.memory[int64(uint32(v0))+156:])) == i32(-1) {
-			goto l1
+			goto l2
 		}
 		if int32(load32(m.memory[int64(uint32(v0))+160:])) == i32(-1) {
-			goto l1
+			goto l2
 		}
 		if int32(load32(m.memory[int64(uint32(v0))+164:])) == i32(-1) {
-			goto l1
+			goto l2
 		}
 		{
 			{
 				switch v1 - i32(22) {
 				case 0:
-					goto l2
-				case 1:
 					goto l3
-				case 2:
+				case 1:
 					goto l4
-				case 3:
+				case 2:
 					goto l5
-				case 4:
+				case 3:
 					goto l6
-				case 5:
+				case 4:
 					goto l7
-				default:
+				case 5:
 					goto l8
+				default:
+					goto l9
 				}
-			l2:
+			l3:
 				v1 = int32(load32(m.memory[int64(uint32(v0))+144:]))
 				v3 = m._newchunk_nolongjmp(v0, i32(20))
 				if v3 == 0 {
-					goto l9
+					goto l10
 				}
 				store32(m.memory[int64(uint32(v3))+12:], uint32(v1))
 				store32(m.memory[uint32(v3):], uint32(i32(48)))
 				v4 = m._newchunk_nolongjmp(v0, i32(20))
 				if v4 == 0 {
-					goto l9
+					goto l10
 				}
 				store32(m.memory[int64(uint32(v4))+12:], uint32(i32(63)))
 				store32(m.memory[uint32(v4):], uint32(i32(84)))
 				v1 = v3
-			l10:
+			l11:
 				v2 = v1
 				v1 = int32(load32(m.memory[int64(uint32(v2))+16:]))
 				if v1 != 0 {
-					goto l10
+					goto l11
 				}
 				store32(m.memory[int64(uint32(v2))+16:], uint32(v4))
 				v2 = m._newchunk_nolongjmp(v0, i32(212))
 				if v2 == 0 {
-					goto l9
+					goto l10
 				}
 				store32(m.memory[int64(uint32(v2))+8:], uint32(i32(21)))
 				store32(m.memory[int64(uint32(v2))+20:], uint32(i32(0)))
-				goto l11
-			l3:
+				goto l12
+			l4:
 				t2 := v0
 				v2 = m._gen_ncmp(t2, i32(0), int32(load32(m.memory[int64(uint32(v0))+144:])), i32(16), i32(63), i32(32), i32(1), i32(2))
 				v1 = int32(load32(m.memory[int64(uint32(v0))+144:]))
 				v4 = m._newchunk_nolongjmp(v0, i32(20))
 				if v4 == 0 {
-					goto l9
+					goto l10
 				}
 				store32(m.memory[int64(uint32(v4))+12:], uint32(v1))
 				store32(m.memory[uint32(v4):], uint32(i32(48)))
 				v6 = m._newchunk_nolongjmp(v0, i32(20))
 				if v6 == 0 {
-					goto l9
+					goto l10
 				}
 				store32(m.memory[int64(uint32(v6))+12:], uint32(i32(63)))
 				store32(m.memory[uint32(v6):], uint32(i32(84)))
 				v1 = v4
-			l12:
+			l13:
 				v3 = v1
 				v1 = int32(load32(m.memory[int64(uint32(v3))+16:]))
 				if v1 != 0 {
-					goto l12
+					goto l13
 				}
 				store32(m.memory[int64(uint32(v3))+16:], uint32(v6))
 				v0 = m._newchunk_nolongjmp(v0, i32(212))
 				if v0 == 0 {
-					goto l9
+					goto l10
 				}
 				store32(m.memory[int64(uint32(v0))+8:], uint32(i32(37)))
 				store32(m.memory[int64(uint32(v0))+20:], uint32(i32(0)))
@@ -24617,22 +24593,22 @@ l0:
 				v1 = int32(load32(m.memory[int64(uint32(v0))+208:]))
 				if v1 == i32(2) {
 					v2 = v0
-					goto l13
+					goto l14
 				}
 				if v1 == i32(1) {
-					goto l13
+					goto l14
 				}
 				v1 = int32(load32(m.memory[int64(uint32(v2))+208:]))
 				if v1 == i32(2) {
-					goto l13
+					goto l14
 				}
 				if v1 == i32(1) {
 					v2 = v0
-					goto l13
+					goto l14
 				}
 				v4 = int32(load32(m.memory[int64(uint32(v2))+96:]))
 				v1 = v0
-			l14:
+			l15:
 				{
 					t3 := v1
 					p4 := i32(60)
@@ -24643,7 +24619,7 @@ l0:
 					v1 = int32(load32(m.memory[uint32(v3):]))
 					store32(m.memory[uint32(v3):], uint32(v4))
 					if v1 != 0 {
-						goto l14
+						goto l15
 					}
 				}
 				t5 := v0
@@ -24660,7 +24636,7 @@ l0:
 				}
 				store32(m.memory[int64(uint32(t7))+44:], uint32(p8))
 				v1 = v2
-			l15:
+			l16:
 				{
 					t9 := v1
 					p10 := i32(60)
@@ -24670,7 +24646,7 @@ l0:
 					v3 = t9 + p10
 					v1 = int32(load32(m.memory[uint32(v3):]))
 					if v1 != 0 {
-						goto l15
+						goto l16
 					}
 				}
 				store32(m.memory[uint32(v3):], uint32(v0))
@@ -24682,50 +24658,21 @@ l0:
 				store32(m.memory[int64(uint32(t11))+44:], uint32(p12))
 				t13 := v2
 				store32(m.memory[int64(uint32(t13))+96:], load32(m.memory[int64(uint32(v0))+96:]))
-				goto l13
+				goto l14
 			}
-		l4:
+		l5:
 			v1 = int32(load32(m.memory[int64(uint32(v0))+144:]))
 			v3 = m._newchunk_nolongjmp(v0, i32(20))
 			if v3 == 0 {
-				goto l9
+				goto l10
 			}
 			store32(m.memory[int64(uint32(v3))+12:], uint32(v1))
 			store32(m.memory[uint32(v3):], uint32(i32(48)))
 			v4 = m._newchunk_nolongjmp(v0, i32(20))
 			if v4 == 0 {
-				goto l9
+				goto l10
 			}
 			store32(m.memory[int64(uint32(v4))+12:], uint32(i32(63)))
-			store32(m.memory[uint32(v4):], uint32(i32(84)))
-			v1 = v3
-		l16:
-			v2 = v1
-			v1 = int32(load32(m.memory[int64(uint32(v2))+16:]))
-			if v1 != 0 {
-				goto l16
-			}
-			store32(m.memory[int64(uint32(v2))+16:], uint32(v4))
-			v2 = m._newchunk_nolongjmp(v0, i32(212))
-			if v2 == 0 {
-				goto l9
-			}
-			store32(m.memory[int64(uint32(v2))+8:], uint32(i32(37)))
-			store32(m.memory[int64(uint32(v2))+20:], uint32(i32(2)))
-			goto l11
-		l5:
-			v1 = int32(load32(m.memory[int64(uint32(v0))+148:]))
-			v3 = m._newchunk_nolongjmp(v0, i32(20))
-			if v3 == 0 {
-				goto l9
-			}
-			store32(m.memory[int64(uint32(v3))+12:], uint32(v1))
-			store32(m.memory[uint32(v3):], uint32(i32(40)))
-			v4 = m._newchunk_nolongjmp(v0, i32(20))
-			if v4 == 0 {
-				goto l9
-			}
-			store32(m.memory[int64(uint32(v4))+12:], uint32(i32(65408)))
 			store32(m.memory[uint32(v4):], uint32(i32(84)))
 			v1 = v3
 		l17:
@@ -24737,38 +24684,67 @@ l0:
 			store32(m.memory[int64(uint32(v2))+16:], uint32(v4))
 			v2 = m._newchunk_nolongjmp(v0, i32(212))
 			if v2 == 0 {
-				goto l9
+				goto l10
+			}
+			store32(m.memory[int64(uint32(v2))+8:], uint32(i32(37)))
+			store32(m.memory[int64(uint32(v2))+20:], uint32(i32(2)))
+			goto l12
+		l6:
+			v1 = int32(load32(m.memory[int64(uint32(v0))+148:]))
+			v3 = m._newchunk_nolongjmp(v0, i32(20))
+			if v3 == 0 {
+				goto l10
+			}
+			store32(m.memory[int64(uint32(v3))+12:], uint32(v1))
+			store32(m.memory[uint32(v3):], uint32(i32(40)))
+			v4 = m._newchunk_nolongjmp(v0, i32(20))
+			if v4 == 0 {
+				goto l10
+			}
+			store32(m.memory[int64(uint32(v4))+12:], uint32(i32(65408)))
+			store32(m.memory[uint32(v4):], uint32(i32(84)))
+			v1 = v3
+		l18:
+			v2 = v1
+			v1 = int32(load32(m.memory[int64(uint32(v2))+16:]))
+			if v1 != 0 {
+				goto l18
+			}
+			store32(m.memory[int64(uint32(v2))+16:], uint32(v4))
+			v2 = m._newchunk_nolongjmp(v0, i32(212))
+			if v2 == 0 {
+				goto l10
 			}
 			store32(m.memory[int64(uint32(v2))+8:], uint32(i32(21)))
 			store32(m.memory[int64(uint32(v2))+20:], uint32(i32(0)))
-			goto l11
-		l6:
+			goto l12
+		l7:
 			t14 := v0
 			v2 = m._gen_ncmp(t14, i32(0), int32(load32(m.memory[int64(uint32(v0))+148:])), i32(8), i32(65408), i32(32), i32(1), i32(256))
 			v1 = int32(load32(m.memory[int64(uint32(v0))+148:]))
 			v4 = m._newchunk_nolongjmp(v0, i32(20))
 			if v4 == 0 {
-				goto l9
+				goto l10
 			}
 			store32(m.memory[int64(uint32(v4))+12:], uint32(v1))
 			store32(m.memory[uint32(v4):], uint32(i32(40)))
 			v6 = m._newchunk_nolongjmp(v0, i32(20))
 			if v6 == 0 {
-				goto l9
+				goto l10
 			}
 			store32(m.memory[int64(uint32(v6))+12:], uint32(i32(65408)))
 			store32(m.memory[uint32(v6):], uint32(i32(84)))
 			v1 = v4
-		l18:
+		l19:
 			v3 = v1
 			v1 = int32(load32(m.memory[int64(uint32(v3))+16:]))
 			if v1 != 0 {
-				goto l18
+				goto l19
 			}
 			store32(m.memory[int64(uint32(v3))+16:], uint32(v6))
 			v0 = m._newchunk_nolongjmp(v0, i32(212))
 			if v0 == 0 {
-				goto l9
+				goto l10
 			}
 			store32(m.memory[int64(uint32(v0))+8:], uint32(i32(37)))
 			store32(m.memory[int64(uint32(v0))+20:], uint32(i32(0)))
@@ -24777,22 +24753,22 @@ l0:
 			v1 = int32(load32(m.memory[int64(uint32(v0))+208:]))
 			if v1 == i32(2) {
 				v2 = v0
-				goto l13
+				goto l14
 			}
 			if v1 == i32(1) {
-				goto l13
+				goto l14
 			}
 			v1 = int32(load32(m.memory[int64(uint32(v2))+208:]))
 			if v1 == i32(2) {
-				goto l13
+				goto l14
 			}
 			if v1 == i32(1) {
 				v2 = v0
-				goto l13
+				goto l14
 			}
 			v4 = int32(load32(m.memory[int64(uint32(v2))+96:]))
 			v1 = v0
-		l19:
+		l20:
 			{
 				t15 := v1
 				p16 := i32(60)
@@ -24803,7 +24779,7 @@ l0:
 				v1 = int32(load32(m.memory[uint32(v3):]))
 				store32(m.memory[uint32(v3):], uint32(v4))
 				if v1 != 0 {
-					goto l19
+					goto l20
 				}
 			}
 			t17 := v0
@@ -24820,7 +24796,7 @@ l0:
 			}
 			store32(m.memory[int64(uint32(t19))+44:], uint32(p20))
 			v1 = v2
-		l20:
+		l21:
 			{
 				t21 := v1
 				p22 := i32(60)
@@ -24830,7 +24806,7 @@ l0:
 				v3 = t21 + p22
 				v1 = int32(load32(m.memory[uint32(v3):]))
 				if v1 != 0 {
-					goto l20
+					goto l21
 				}
 			}
 			store32(m.memory[uint32(v3):], uint32(v0))
@@ -24842,55 +24818,55 @@ l0:
 			store32(m.memory[int64(uint32(t23))+44:], uint32(p24))
 			t25 := v2
 			store32(m.memory[int64(uint32(t25))+96:], load32(m.memory[int64(uint32(v0))+96:]))
-			goto l13
+			goto l14
 		}
-	l7:
+	l8:
 		v1 = int32(load32(m.memory[int64(uint32(v0))+148:]))
 		v3 = m._newchunk_nolongjmp(v0, i32(20))
 		if v3 == 0 {
-			goto l9
+			goto l10
 		}
 		store32(m.memory[int64(uint32(v3))+12:], uint32(v1))
 		store32(m.memory[uint32(v3):], uint32(i32(40)))
 		v4 = m._newchunk_nolongjmp(v0, i32(20))
 		if v4 == 0 {
-			goto l9
+			goto l10
 		}
 		store32(m.memory[int64(uint32(v4))+12:], uint32(i32(65408)))
 		store32(m.memory[uint32(v4):], uint32(i32(84)))
 		v1 = v3
-	l21:
+	l22:
 		v2 = v1
 		v1 = int32(load32(m.memory[int64(uint32(v2))+16:]))
 		if v1 != 0 {
-			goto l21
+			goto l22
 		}
 		store32(m.memory[int64(uint32(v2))+16:], uint32(v4))
 		v2 = m._newchunk_nolongjmp(v0, i32(212))
 		if v2 == 0 {
-			goto l9
+			goto l10
 		}
 		store32(m.memory[int64(uint32(v2))+8:], uint32(i32(37)))
 		store32(m.memory[int64(uint32(v2))+20:], uint32(i32(256)))
-	l11:
+	l12:
 		store32(m.memory[int64(uint32(v2))+4:], uint32(v3))
 		store32(m.memory[int64(uint32(v2))+96:], uint32(v2))
-	l13:
+	l14:
 		m.___stack_pointer = v5 + i32(48)
 		return v2
 	}
-l1:
+l2:
 	store32(m.memory[uint32(v5):], uint32(v2))
-	m._bpf_error(v0, i32(7060), v5)
-	panic("unreachable")
-l8:
-	store32(m.memory[int64(uint32(v5))+24:], uint32(v1))
-	store32(m.memory[int64(uint32(v5))+20:], uint32(i32(5613)))
-	store32(m.memory[int64(uint32(v5))+16:], uint32(i32(1349)))
-	m._bpf_error(v0, i32(6267), v5+i32(16))
+	m._bpf_error(v0, i32(71538), v5)
 	panic("unreachable")
 l9:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	store32(m.memory[int64(uint32(v5))+24:], uint32(v1))
+	store32(m.memory[int64(uint32(v5))+20:], uint32(i32(70125)))
+	store32(m.memory[int64(uint32(v5))+16:], uint32(i32(65861)))
+	m._bpf_error(v0, i32(70779), v5+i32(16))
+	panic("unreachable")
+l10:
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _gen_mtp3field_code(v0, v1, v2, v3, v4 int32) int32 {
@@ -24903,102 +24879,107 @@ func (m *Module) _gen_mtp3field_code(v0, v1, v2, v3, v4 int32) int32 {
 	var v11 int32
 	v5 = m.___stack_pointer - i32(176)
 	m.___stack_pointer = v5
-	v7 = int32(load32(m.memory[int64(uint32(v0))+164:]))
-	v8 = int32(load32(m.memory[int64(uint32(v0))+160:]))
-	v9 = int32(load32(m.memory[int64(uint32(v0))+156:]))
-	v10 = int32(load32(m.memory[int64(uint32(v0))+152:]))
-	if uint32(v1) <= uint32(i32(27)) {
-		v6 = int32(load32(m.memory[int64(uint32(v1<<2))+10048:]))
-		if v6 != 0 {
-			goto l0
-		}
+	v8 = int32(load32(m.memory[int64(uint32(v0))+164:]))
+	v9 = int32(load32(m.memory[int64(uint32(v0))+160:]))
+	v10 = int32(load32(m.memory[int64(uint32(v0))+156:]))
+	v11 = int32(load32(m.memory[int64(uint32(v0))+152:]))
+	if uint32(v1) > uint32(i32(27)) {
+		goto l0
 	}
-	v11 = int32(load32(m.memory[uint32(i32(61152)):]))
-	v6 = v11<<6 + i32(60896)
-	m.memory[uint32(v6)] = byte(i32(0))
-	store32(m.memory[uint32(i32(61152)):], uint32((v11+i32(1))&i32(3)))
-	store32(m.memory[int64(uint32(v5))+160:], uint32(i32(5835)))
-	store32(m.memory[int64(uint32(v5))+164:], uint32(v1))
-	_ = m._snprintf(v6, i32(64), i32(6936), v5+i32(160))
+	if i32_shl(i32(1), v1)&i32(4193793) != 0 {
+		goto l0
+	}
+	v6 = int32(load32(m.memory[int64(uint32(v1<<2))+74528:]))
+	goto l1
 l0:
+	v7 = int32(load32(m.memory[uint32(i32(125632)):]))
+	v6 = v7<<6 + i32(125376)
+	m.memory[uint32(v6)] = byte(i32(0))
+	store32(m.memory[uint32(i32(125632)):], uint32((v7+i32(1))&i32(3)))
+	store32(m.memory[int64(uint32(v5))+160:], uint32(i32(70347)))
+	store32(m.memory[int64(uint32(v5))+164:], uint32(v1))
+	_ = m._snprintf(v6, i32(64), i32(71414), v5+i32(160))
+l1:
 	{
-		v11 = int32(load32(m.memory[int64(uint32(v0))+24:]))
+		v7 = int32(load32(m.memory[int64(uint32(v0))+24:]))
 		var p0 int32
-		if uint32(v11-i32(139)) >= uint32(i32(2)) {
+		if uint32(v7-i32(139)) >= uint32(i32(2)) {
 			p0 = 1
 		}
 		var p1 int32
-		if v11 != i32(197) {
+		if v7 != i32(197) {
 			p1 = 1
 		}
 		if p0&p1 != 0 {
-			goto l1
+			goto l2
 		}
 		if int32(load32(m.memory[int64(uint32(v0))+152:])) == i32(-1) {
-			goto l1
+			goto l2
 		}
 		if int32(load32(m.memory[int64(uint32(v0))+156:])) == i32(-1) {
-			goto l1
+			goto l2
 		}
 		if int32(load32(m.memory[int64(uint32(v0))+160:])) == i32(-1) {
-			goto l1
+			goto l2
 		}
 		if int32(load32(m.memory[int64(uint32(v0))+164:])) == i32(-1) {
-			goto l1
+			goto l2
 		}
 		{
 			switch v1 - i32(1) {
 			case 0:
-				goto l2
-			case 1:
 				goto l3
-			case 2:
+			case 1:
 				goto l4
-			case 3:
+			case 2:
 				goto l5
-			case 4:
+			case 3:
 				goto l6
-			case 5:
+			case 4:
 				goto l7
-			case 6:
+			case 5:
 				goto l8
-			case 7:
+			case 6:
 				goto l9
-			default:
+			case 7:
 				goto l10
-			}
-		l6:
-			v10 = v10 + i32(3)
-		l2:
-			v6 = int32(load32(m.memory[int64(uint32(v1<<2))+10048:]))
-			if v6 == 0 {
-				v7 = int32(load32(m.memory[uint32(i32(61152)):]))
-				v6 = v7<<6 + i32(60896)
-				m.memory[uint32(v6)] = byte(i32(0))
-				store32(m.memory[uint32(i32(61152)):], uint32((v7+i32(1))&i32(3)))
-				store32(m.memory[int64(uint32(v5))+48:], uint32(i32(5835)))
-				store32(m.memory[int64(uint32(v5))+52:], uint32(v1))
-				_ = m._snprintf(v6, i32(64), i32(6936), v5+i32(48))
-			}
-			if uint32(v2) >= uint32(i32(256)) {
+			default:
 				goto l11
+			}
+		l7:
+			v11 = v11 + i32(3)
+		l3:
+			if i32_shl(i32(1), v1)&i32(4193793) == 0 {
+				v6 = int32(load32(m.memory[int64(uint32(v1<<2))+74528:]))
+				goto l12
+			}
+			v7 = int32(load32(m.memory[uint32(i32(125632)):]))
+			v6 = v7<<6 + i32(125376)
+			m.memory[uint32(v6)] = byte(i32(0))
+			store32(m.memory[uint32(i32(125632)):], uint32((v7+i32(1))&i32(3)))
+			store32(m.memory[int64(uint32(v5))+48:], uint32(i32(70347)))
+			store32(m.memory[int64(uint32(v5))+52:], uint32(v1))
+			_ = m._snprintf(v6, i32(64), i32(71414), v5+i32(48))
+		l12:
+			if uint32(v2) >= uint32(i32(256)) {
+				goto l13
 			}
 			v1 = m._newchunk_nolongjmp(v0, i32(20))
 			if v1 == 0 {
-				goto l12
+				goto l14
 			}
-			store32(m.memory[int64(uint32(v1))+12:], uint32(v10))
+			store32(m.memory[int64(uint32(v1))+12:], uint32(v11))
 			store32(m.memory[uint32(v1):], uint32(i32(48)))
 			v0 = m._newchunk_nolongjmp(v0, i32(212))
 			if v0 == 0 {
-				goto l13
+				goto l15
 			}
 			store32(m.memory[int64(uint32(v0))+20:], uint32(v2))
 			store32(m.memory[int64(uint32(v0))+4:], uint32(v1))
 			store32(m.memory[int64(uint32(v0))+8:], uint32(v3|i32(5)))
 			store32(m.memory[int64(uint32(v0))+96:], uint32(v0))
 			if v4 == 0 {
-				goto l14
+				goto l16
 			}
 			t2 := v0
 			var p3 int32
@@ -25009,114 +24990,120 @@ l0:
 			v1 = i32(2)
 			switch int32(load32(m.memory[int64(uint32(v0))+208:])) - i32(1) {
 			case 0:
-				goto l15
+				goto l17
 			case 1:
-				goto l16
+				goto l18
 			default:
-				goto l14
+				goto l16
 			}
-		l16:
+		l18:
 			v1 = i32(1)
-		l15:
+		l17:
 			store32(m.memory[int64(uint32(v0))+208:], uint32(v1))
-			goto l14
+			goto l16
 		}
-	l7:
-		v9 = v9 + i32(3)
-	l3:
-		v6 = int32(load32(m.memory[int64(uint32(v1<<2))+10048:]))
-		if v6 == 0 {
-			v7 = int32(load32(m.memory[uint32(i32(61152)):]))
-			v6 = v7<<6 + i32(60896)
-			m.memory[uint32(v6)] = byte(i32(0))
-			store32(m.memory[uint32(i32(61152)):], uint32((v7+i32(1))&i32(3)))
-			store32(m.memory[int64(uint32(v5))+80:], uint32(i32(5835)))
-			store32(m.memory[int64(uint32(v5))+84:], uint32(v1))
-			_ = m._snprintf(v6, i32(64), i32(6936), v5+i32(80))
-		}
-		if uint32(v2) >= uint32(i32(0x4000)) {
-			goto l17
-		}
-		v0 = m._gen_ncmp(v0, i32(0), v9, i32(0), i32(0xc0ff0f), v3, v4, v2<<22&i32(0xc00000)|(v2<<6&i32(0xff00)|int32(uint32(v2)>>10)))
-		goto l14
 	l8:
-		v8 = v8 + i32(3)
+		v10 = v10 + i32(3)
 	l4:
-		v6 = int32(load32(m.memory[int64(uint32(v1<<2))+10048:]))
-		if v6 == 0 {
-			v7 = int32(load32(m.memory[uint32(i32(61152)):]))
-			v6 = v7<<6 + i32(60896)
-			m.memory[uint32(v6)] = byte(i32(0))
-			store32(m.memory[uint32(i32(61152)):], uint32((v7+i32(1))&i32(3)))
-			store32(m.memory[int64(uint32(v5))+112:], uint32(i32(5835)))
-			store32(m.memory[int64(uint32(v5))+116:], uint32(v1))
-			_ = m._snprintf(v6, i32(64), i32(6936), v5+i32(112))
-		}
-		if uint32(v2) >= uint32(i32(0x4000)) {
-			goto l18
-		}
-		v0 = m._gen_ncmp(v0, i32(0), v8, i32(8), i32(65343), v3, v4, (v2<<8|int32(uint32(v2&i32(0xff00))>>8))&i32(0xffff))
-		goto l14
-	l9:
-		v7 = v7 + i32(3)
-	l5:
-		v6 = int32(load32(m.memory[int64(uint32(v1<<2))+10048:]))
-		if v6 == 0 {
-			v8 = int32(load32(m.memory[uint32(i32(61152)):]))
-			v6 = v8<<6 + i32(60896)
-			m.memory[uint32(v6)] = byte(i32(0))
-			store32(m.memory[uint32(i32(61152)):], uint32((v8+i32(1))&i32(3)))
-			store32(m.memory[int64(uint32(v5))+144:], uint32(i32(5835)))
-			store32(m.memory[int64(uint32(v5))+148:], uint32(v1))
-			_ = m._snprintf(v6, i32(64), i32(6936), v5+i32(144))
-		}
-		if uint32(v2) >= uint32(i32(16)) {
+		if i32_shl(i32(1), v1)&i32(4193793) == 0 {
+			v6 = int32(load32(m.memory[int64(uint32(v1<<2))+74528:]))
 			goto l19
 		}
-		v0 = m._gen_ncmp(v0, i32(0), v7, i32(16), i32(240), v3, v4, v2<<4)
-	l14:
+		v7 = int32(load32(m.memory[uint32(i32(125632)):]))
+		v6 = v7<<6 + i32(125376)
+		m.memory[uint32(v6)] = byte(i32(0))
+		store32(m.memory[uint32(i32(125632)):], uint32((v7+i32(1))&i32(3)))
+		store32(m.memory[int64(uint32(v5))+80:], uint32(i32(70347)))
+		store32(m.memory[int64(uint32(v5))+84:], uint32(v1))
+		_ = m._snprintf(v6, i32(64), i32(71414), v5+i32(80))
+	l19:
+		if uint32(v2) >= uint32(i32(0x4000)) {
+			goto l20
+		}
+		v0 = m._gen_ncmp(v0, i32(0), v10, i32(0), i32(0xc0ff0f), v3, v4, v2<<22&i32(0xc00000)|(v2<<6&i32(0xff00)|int32(uint32(v2)>>10)))
+		goto l16
+	l9:
+		v9 = v9 + i32(3)
+	l5:
+		if i32_shl(i32(1), v1)&i32(4193793) == 0 {
+			v6 = int32(load32(m.memory[int64(uint32(v1<<2))+74528:]))
+			goto l21
+		}
+		v7 = int32(load32(m.memory[uint32(i32(125632)):]))
+		v6 = v7<<6 + i32(125376)
+		m.memory[uint32(v6)] = byte(i32(0))
+		store32(m.memory[uint32(i32(125632)):], uint32((v7+i32(1))&i32(3)))
+		store32(m.memory[int64(uint32(v5))+112:], uint32(i32(70347)))
+		store32(m.memory[int64(uint32(v5))+116:], uint32(v1))
+		_ = m._snprintf(v6, i32(64), i32(71414), v5+i32(112))
+	l21:
+		if uint32(v2) >= uint32(i32(0x4000)) {
+			goto l22
+		}
+		v0 = m._gen_ncmp(v0, i32(0), v9, i32(8), i32(65343), v3, v4, (v2<<8|int32(uint32(v2&i32(0xff00))>>8))&i32(0xffff))
+		goto l16
+	l10:
+		v8 = v8 + i32(3)
+	l6:
+		if i32_shl(i32(1), v1)&i32(4193793) == 0 {
+			v6 = int32(load32(m.memory[int64(uint32(v1<<2))+74528:]))
+			goto l23
+		}
+		v7 = int32(load32(m.memory[uint32(i32(125632)):]))
+		v6 = v7<<6 + i32(125376)
+		m.memory[uint32(v6)] = byte(i32(0))
+		store32(m.memory[uint32(i32(125632)):], uint32((v7+i32(1))&i32(3)))
+		store32(m.memory[int64(uint32(v5))+144:], uint32(i32(70347)))
+		store32(m.memory[int64(uint32(v5))+148:], uint32(v1))
+		_ = m._snprintf(v6, i32(64), i32(71414), v5+i32(144))
+	l23:
+		if uint32(v2) >= uint32(i32(16)) {
+			goto l24
+		}
+		v0 = m._gen_ncmp(v0, i32(0), v8, i32(16), i32(240), v3, v4, v2<<4)
+	l16:
 		m.___stack_pointer = v5 + i32(176)
 		return v0
 	}
-l1:
+l2:
 	store32(m.memory[uint32(v5):], uint32(v6))
-	m._bpf_error(v0, i32(7060), v5)
+	m._bpf_error(v0, i32(71538), v5)
 	panic("unreachable")
-l11:
+l13:
 	store32(m.memory[int64(uint32(v5))+40:], uint32(i32(255)))
 	store32(m.memory[int64(uint32(v5))+36:], uint32(v2))
 	store32(m.memory[int64(uint32(v5))+32:], uint32(v6))
-	m._bpf_error(v0, i32(1419), v5+i32(32))
+	m._bpf_error(v0, i32(65931), v5+i32(32))
 	panic("unreachable")
-l12:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+l14:
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
-l13:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+l15:
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
-l17:
+l20:
 	store32(m.memory[int64(uint32(v5))+72:], uint32(i32(0x3fff)))
 	store32(m.memory[int64(uint32(v5))+68:], uint32(v2))
 	store32(m.memory[int64(uint32(v5))+64:], uint32(v6))
-	m._bpf_error(v0, i32(1419), v5-i32(-64))
+	m._bpf_error(v0, i32(65931), v5-i32(-64))
 	panic("unreachable")
-l18:
+l22:
 	store32(m.memory[int64(uint32(v5))+104:], uint32(i32(0x3fff)))
 	store32(m.memory[int64(uint32(v5))+100:], uint32(v2))
 	store32(m.memory[int64(uint32(v5))+96:], uint32(v6))
-	m._bpf_error(v0, i32(1419), v5+i32(96))
+	m._bpf_error(v0, i32(65931), v5+i32(96))
 	panic("unreachable")
-l19:
+l24:
 	store32(m.memory[int64(uint32(v5))+136:], uint32(i32(15)))
 	store32(m.memory[int64(uint32(v5))+132:], uint32(v2))
 	store32(m.memory[int64(uint32(v5))+128:], uint32(v6))
-	m._bpf_error(v0, i32(1419), v5+i32(128))
+	m._bpf_error(v0, i32(65931), v5+i32(128))
 	panic("unreachable")
-l10:
+l11:
 	store32(m.memory[int64(uint32(v5))+24:], uint32(v1))
-	store32(m.memory[int64(uint32(v5))+20:], uint32(i32(5972)))
-	store32(m.memory[int64(uint32(v5))+16:], uint32(i32(4381)))
-	m._bpf_error(v0, i32(6267), v5+i32(16))
+	store32(m.memory[int64(uint32(v5))+20:], uint32(i32(70484)))
+	store32(m.memory[int64(uint32(v5))+16:], uint32(i32(68893)))
+	m._bpf_error(v0, i32(70779), v5+i32(16))
 	panic("unreachable")
 }
 func (m *Module) _gen_atmmulti_abbrev(v0, v1 int32) int32 {
@@ -25129,18 +25116,18 @@ func (m *Module) _gen_atmmulti_abbrev(v0, v1 int32) int32 {
 	v7 = m.___stack_pointer - i32(48)
 	m.___stack_pointer = v7
 	if uint32(v1) <= uint32(i32(71)) {
-		v2 = int32(load32(m.memory[int64(uint32(v1<<2))+9760:]))
+		v2 = int32(load32(m.memory[int64(uint32(v1<<2))+74240:]))
 		if v2 != 0 {
 			goto l0
 		}
 	}
-	v3 = int32(load32(m.memory[uint32(i32(61152)):]))
-	v2 = v3<<6 + i32(60896)
+	v3 = int32(load32(m.memory[uint32(i32(125632)):]))
+	v2 = v3<<6 + i32(125376)
 	m.memory[uint32(v2)] = byte(i32(0))
-	store32(m.memory[uint32(i32(61152)):], uint32((v3+i32(1))&i32(3)))
-	store32(m.memory[int64(uint32(v7))+32:], uint32(i32(5847)))
+	store32(m.memory[uint32(i32(125632)):], uint32((v3+i32(1))&i32(3)))
+	store32(m.memory[int64(uint32(v7))+32:], uint32(i32(70359)))
 	store32(m.memory[int64(uint32(v7))+36:], uint32(v1))
-	_ = m._snprintf(v2, i32(64), i32(6936), v7+i32(32))
+	_ = m._snprintf(v2, i32(64), i32(71414), v7+i32(32))
 l0:
 	if int32(load32(m.memory[int64(uint32(v0))+24:])) != i32(123) {
 		goto l1
@@ -26299,16 +26286,16 @@ l11:
 	return v1
 l1:
 	store32(m.memory[uint32(v7):], uint32(v2))
-	m._bpf_error(v0, i32(6792), v7)
+	m._bpf_error(v0, i32(71304), v7)
 	panic("unreachable")
 l7:
 	store32(m.memory[int64(uint32(v7))+24:], uint32(v1))
-	store32(m.memory[int64(uint32(v7))+20:], uint32(i32(5613)))
-	store32(m.memory[int64(uint32(v7))+16:], uint32(i32(1310)))
-	m._bpf_error(v0, i32(6267), v7+i32(16))
+	store32(m.memory[int64(uint32(v7))+20:], uint32(i32(70125)))
+	store32(m.memory[int64(uint32(v7))+16:], uint32(i32(65822)))
+	m._bpf_error(v0, i32(70779), v7+i32(16))
 	panic("unreachable")
 l19:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _nametoport(v0, v1, v2 int32) int32 {
@@ -26316,8 +26303,8 @@ func (m *Module) _nametoport(v0, v1, v2 int32) int32 {
 	var v4 int32
 	v3 = m.___stack_pointer + i32(-64)
 	m.___stack_pointer = v3
-	v4 = v3 + i32(40)
-	store64(m.memory[uint32(v4):], uint64(i64(0)))
+	store64(m.memory[int64(uint32(v3))+40:], uint64(i64(0)))
+	store64(m.memory[int64(uint32(v3))+32:], uint64(i64(0)))
 	store64(m.memory[int64(uint32(v3))+48:], uint64(i64(0)))
 	store64(m.memory[int64(uint32(v3))+56:], uint64(i64(0)))
 	store32(m.memory[int64(uint32(v3))+44:], uint32(v2))
@@ -26327,7 +26314,6 @@ func (m *Module) _nametoport(v0, v1, v2 int32) int32 {
 		p0 = i32(6)
 	}
 	store32(m.memory[int64(uint32(t1))+40:], uint32(p0))
-	store64(m.memory[int64(uint32(v3))+32:], uint64(i64(0)))
 	v2 = i32(-1)
 	{
 		var p2 int32
@@ -26353,15 +26339,15 @@ func (m *Module) _nametoport(v0, v1, v2 int32) int32 {
 		l0:
 			store32(m.memory[int64(uint32(v3))+16:], uint32(v1))
 			t3 := v3
-			store32(m.memory[int64(uint32(t3))+20:], load32(m.memory[uint32(i32(62704)):]))
-			m._bpf_set_error(v0, i32(6300), v3+i32(16))
+			store32(m.memory[int64(uint32(t3))+20:], load32(m.memory[uint32(i32(127184)):]))
+			m._bpf_set_error(v0, i32(70812), v3+i32(16))
 			v2 = i32(-2)
 			goto l2
 		}
 	l1:
 		store32(m.memory[int64(uint32(v3))+4:], uint32(v4))
 		store32(m.memory[uint32(v3):], uint32(v1))
-		m._bpf_set_error(v0, i32(6345), v3)
+		m._bpf_set_error(v0, i32(70857), v3)
 		v2 = i32(-2)
 		goto l2
 	l7:
@@ -26412,7 +26398,7 @@ l1:
 	if v0 != 0 {
 		goto l4
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l0:
 	v3 = m._gen_load_a(v0, i32(1), i32(0), i32(0))
@@ -26420,13 +26406,13 @@ l0:
 	if v0 != 0 {
 		goto l4
 	}
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 l3:
 	store32(m.memory[int64(uint32(v2))+8:], uint32(v3))
-	store32(m.memory[int64(uint32(v2))+4:], uint32(i32(5561)))
-	store32(m.memory[uint32(v2):], uint32(i32(5312)))
-	m._bpf_error(v0, i32(6267), v2)
+	store32(m.memory[int64(uint32(v2))+4:], uint32(i32(70073)))
+	store32(m.memory[uint32(v2):], uint32(i32(69824)))
+	m._bpf_error(v0, i32(70779), v2)
 	panic("unreachable")
 l4:
 	store32(m.memory[int64(uint32(v0))+8:], uint32(i32(21)))
@@ -26649,7 +26635,7 @@ l2:
 l6:
 	return v3
 l1:
-	m.__pcap_longjmp_at(i32(4665), i32(870))
+	m.__pcap_longjmp_at(i32(69177), i32(870))
 	panic("unreachable")
 }
 func (m *Module) _bpf_optimize(v0, v1 int32) int32 {
@@ -26754,86 +26740,84 @@ func (m *Module) _bpf_optimize(v0, v1 int32) int32 {
 				goto l3
 			}
 			v6 = v7 & i32(3)
-			v11 = int32(load32(m.memory[int64(uint32(v3))+32:]))
-			if uint32(v7) < uint32(i32(4)) {
-				v5 = i32(0)
-				goto l4
-			}
-			v9 = v7 & i32(0x7ffffffc)
-			v12 = v10<<2 + i32(4)
-			v13 = v10<<3 + i32(8)
-			v14 = v10*i32(12) + i32(12)
-			v15 = v10<<4 + i32(16)
 			v5 = i32(0)
-			v2 = v11
-		l5:
-			{
-				store32(m.memory[int64(load32(m.memory[uint32(v2):]))+104:], uint32(v1))
-				store32(m.memory[int64(load32(m.memory[int64(uint32(v2))+4:]))+104:], uint32(v1+v12))
-				store32(m.memory[int64(load32(m.memory[int64(uint32(v2))+8:]))+104:], uint32(v1+v13))
-				store32(m.memory[int64(load32(m.memory[int64(uint32(v2))+12:]))+104:], uint32(v1+v14))
-				v2 = v2 + i32(16)
-				v1 = v1 + v15
-				t14 := v9
-				v5 = v5 + i32(4)
-				if t14 != v5 {
+			v11 = int32(load32(m.memory[int64(uint32(v3))+32:]))
+			if uint32(v7) >= uint32(i32(4)) {
+				v9 = v7 & i32(0x7ffffffc)
+				v12 = v10<<2 + i32(4)
+				v13 = v10<<3 + i32(8)
+				v14 = v10*i32(12) + i32(12)
+				v15 = v10<<4 + i32(16)
+				v2 = v11
+			l4:
+				{
+					store32(m.memory[int64(load32(m.memory[uint32(v2):]))+104:], uint32(v1))
+					store32(m.memory[int64(load32(m.memory[int64(uint32(v2))+4:]))+104:], uint32(v1+v12))
+					store32(m.memory[int64(load32(m.memory[int64(uint32(v2))+8:]))+104:], uint32(v1+v13))
+					store32(m.memory[int64(load32(m.memory[int64(uint32(v2))+12:]))+104:], uint32(v1+v14))
+					v2 = v2 + i32(16)
+					v1 = v1 + v15
+					t14 := v9
+					v5 = v5 + i32(4)
+					if t14 != v5 {
+						goto l4
+					}
+				}
+				if v6 == 0 {
 					goto l5
 				}
 			}
-		l4:
-			if v6 != 0 {
-				v2 = v11 + v5<<2
-				v9 = v10<<2 + i32(4)
-				v5 = v6
-			l6:
-				store32(m.memory[int64(load32(m.memory[uint32(v2):]))+104:], uint32(v1))
-				v2 = v2 + i32(4)
-				v1 = v1 + v9
-				v5 = v5 - i32(1)
-				if v5 != 0 {
-					goto l6
-				}
+			v2 = v11 + v5<<2
+			v9 = v10<<2 + i32(4)
+			v5 = v6
+		l6:
+			store32(m.memory[int64(load32(m.memory[uint32(v2):]))+104:], uint32(v1))
+			v2 = v2 + i32(4)
+			v1 = v1 + v9
+			v5 = v5 - i32(1)
+			if v5 != 0 {
+				goto l6
 			}
+		l5:
 			store32(m.memory[int64(uint32(v3))+64:], uint32(v1))
-			t15 := v7 & i32(3)
-			if uint32(v7) < uint32(i32(4)) {
-				v5 = i32(0)
-				goto l7
-			}
-			v9 = v7 & i32(0x7ffffffc)
-			v12 = v10<<2 + i32(4)
-			v13 = v10<<3 + i32(8)
-			v14 = v10*i32(12) + i32(12)
-			v15 = v10<<4 + i32(16)
 			v5 = i32(0)
-			v2 = v11
-		l8:
-			{
-				store32(m.memory[int64(load32(m.memory[uint32(v2):]))+108:], uint32(v1))
-				store32(m.memory[int64(load32(m.memory[int64(uint32(v2))+4:]))+108:], uint32(v1+v12))
-				store32(m.memory[int64(load32(m.memory[int64(uint32(v2))+8:]))+108:], uint32(v1+v13))
-				store32(m.memory[int64(load32(m.memory[int64(uint32(v2))+12:]))+108:], uint32(v1+v14))
-				v2 = v2 + i32(16)
-				v1 = v1 + v15
-				t16 := v9
-				v5 = v5 + i32(4)
-				if t16 != v5 {
+			if uint32(v7) >= uint32(i32(4)) {
+				t15 := v7 & i32(3)
+				v9 = v7 & i32(0x7ffffffc)
+				v12 = v10<<2 + i32(4)
+				v13 = v10<<3 + i32(8)
+				v14 = v10*i32(12) + i32(12)
+				v15 = v10<<4 + i32(16)
+				v2 = v11
+			l7:
+				{
+					store32(m.memory[int64(load32(m.memory[uint32(v2):]))+108:], uint32(v1))
+					store32(m.memory[int64(load32(m.memory[int64(uint32(v2))+4:]))+108:], uint32(v1+v12))
+					store32(m.memory[int64(load32(m.memory[int64(uint32(v2))+8:]))+108:], uint32(v1+v13))
+					store32(m.memory[int64(load32(m.memory[int64(uint32(v2))+12:]))+108:], uint32(v1+v14))
+					v2 = v2 + i32(16)
+					v1 = v1 + v15
+					t16 := v9
+					v5 = v5 + i32(4)
+					if t16 != v5 {
+						goto l7
+					}
+				}
+				if t15 == 0 {
 					goto l8
 				}
 			}
-		l7:
-			if t15 != 0 {
-				v2 = v11 + v5<<2
-				v5 = v10<<2 + i32(4)
-			l9:
-				store32(m.memory[int64(load32(m.memory[uint32(v2):]))+108:], uint32(v1))
-				v2 = v2 + i32(4)
-				v1 = v1 + v5
-				v6 = v6 - i32(1)
-				if v6 != 0 {
-					goto l9
-				}
+			v2 = v11 + v5<<2
+			v5 = v10<<2 + i32(4)
+		l9:
+			store32(m.memory[int64(load32(m.memory[uint32(v2):]))+108:], uint32(v1))
+			v2 = v2 + i32(4)
+			v1 = v1 + v5
+			v6 = v6 - i32(1)
+			if v6 != 0 {
+				goto l9
 			}
+		l8:
 			store32(m.memory[int64(uint32(v3))+68:], uint32(v1))
 			v9 = v8 << 2
 			v12 = v17<<3 + i32(8)
@@ -26892,7 +26876,7 @@ func (m *Module) _bpf_optimize(v0, v1 int32) int32 {
 		}
 		goto l2
 	l0:
-		m._opt_error(v3+i32(12), i32(5387), i32(0))
+		m._opt_error(v3+i32(12), i32(69899), i32(0))
 		panic("unreachable")
 	l3:
 		store32(m.memory[int64(uint32(v3))+68:], uint32(v1))
@@ -26917,11 +26901,12 @@ func (m *Module) _bpf_optimize(v0, v1 int32) int32 {
 					if v5 == 0 {
 						goto l14
 					}
+					v2 = v5 & i32(3)
 					v4 = i32(0)
-					v6 = int32(load32(m.memory[int64(uint32(v3))+32:]))
+					v7 = int32(load32(m.memory[int64(uint32(v3))+32:]))
 					if uint32(v5) >= uint32(i32(4)) {
-						v2 = v5 & i32(-4)
-						v1 = v6
+						v6 = v5 & i32(-4)
+						v1 = v7
 					l15:
 						{
 							store32(m.memory[int64(load32(m.memory[uint32(v1):]))+100:], uint32(i32(0)))
@@ -26929,18 +26914,17 @@ func (m *Module) _bpf_optimize(v0, v1 int32) int32 {
 							store32(m.memory[int64(load32(m.memory[int64(uint32(v1))+8:]))+100:], uint32(i32(0)))
 							store32(m.memory[int64(load32(m.memory[int64(uint32(v1))+12:]))+100:], uint32(i32(0)))
 							v1 = v1 + i32(16)
-							t24 := v2
+							t24 := v6
 							v4 = v4 + i32(4)
 							if t24 != v4 {
 								goto l15
 							}
 						}
+						if v2 == 0 {
+							goto l14
+						}
 					}
-					v2 = v5 & i32(3)
-					if v2 == 0 {
-						goto l14
-					}
-					v1 = v6 + v4<<2
+					v1 = v7 + v4<<2
 				l16:
 					store32(m.memory[int64(load32(m.memory[uint32(v1):]))+100:], uint32(i32(0)))
 					v1 = v1 + i32(4)
@@ -27147,10 +27131,10 @@ func (m *Module) _bpf_optimize(v0, v1 int32) int32 {
 		}
 	}
 l2:
-	m._opt_error(v3+i32(12), i32(6426), i32(0))
+	m._opt_error(v3+i32(12), i32(70938), i32(0))
 	panic("unreachable")
 l1:
-	m._opt_error(v3+i32(12), i32(5268), i32(0))
+	m._opt_error(v3+i32(12), i32(69780), i32(0))
 	panic("unreachable")
 }
 func (m *Module) _count_blocks(v0, v1 int32) int32 {
@@ -27207,7 +27191,7 @@ l2:
 	}
 	return
 l1:
-	m._opt_error(v0, i32(5268), i32(0))
+	m._opt_error(v0, i32(69780), i32(0))
 	panic("unreachable")
 }
 func (m *Module) _opt_error(v0, v1, v2 int32) {
@@ -27218,7 +27202,7 @@ func (m *Module) _opt_error(v0, v1, v2 int32) {
 		store32(m.memory[int64(uint32(v3))+12:], uint32(v2))
 		_ = m._vsnprintf(int32(load32(m.memory[int64(uint32(v0))+4:])), i32(256), v1, v2)
 	}
-	m.__pcap_longjmp_at_137(i32(2977), i32(2402))
+	m.__pcap_longjmp_at_137(i32(67489), i32(2402))
 	panic("unreachable")
 }
 func (m *Module) _opt_loop(v0, v1, v2 int32) {
@@ -27266,12 +27250,12 @@ l219:
 		if v4 != 0 {
 			memory_zero(m.memory, load32(m.memory[int64(uint32(v0))+52:]), uint32(v4))
 		}
-		v12 = int32(load32(m.memory[int64(uint32(t4))+36:]))
-		if v12 >= i32(0) {
+		v9 = int32(load32(m.memory[int64(uint32(t4))+36:]))
+		if v9 >= i32(0) {
 			v10 = int32(load32(m.memory[int64(uint32(v0))+40:]))
 		l7:
 			{
-				v8 = int32(load32(m.memory[uint32(v10+v12<<2):]))
+				v8 = int32(load32(m.memory[uint32(v10+v9<<2):]))
 				if v8 != 0 {
 				l6:
 					{
@@ -27390,10 +27374,10 @@ l219:
 					}
 				}
 				var p30 int32
-				if v12 > i32(0) {
+				if v9 > i32(0) {
 					p30 = 1
 				}
-				v12 = v12 - i32(1)
+				v9 = v9 - i32(1)
 				if p30 != 0 {
 					goto l7
 				}
@@ -27408,18 +27392,18 @@ l219:
 		v11 = v14
 	l28:
 		{
-			v12 = int32(load32(m.memory[uint32(v15+v11<<2):]))
-			if v12 != 0 {
+			v9 = int32(load32(m.memory[uint32(v15+v11<<2):]))
+			if v9 != 0 {
 			l27:
-				v3 = int32(load32(m.memory[int64(uint32(v12))+4:]))
+				v3 = int32(load32(m.memory[int64(uint32(v9))+4:]))
 				if v3 == 0 {
 					v7 = i32(0)
 					v5 = i32(0)
-					v9 = i32(0)
+					v12 = i32(0)
 					goto l9
 				}
-				v9 = i32(0)
 				v5 = i32(0)
+				v12 = i32(0)
 				v7 = i32(0)
 			l25:
 				{
@@ -27545,7 +27529,7 @@ l219:
 					if v4&v5 != 0 {
 						p36 = i32(0)
 					}
-					v9 = p36 | v9
+					v12 = p36 | v12
 					v7 = v4 | v7
 				}
 			l10:
@@ -27554,7 +27538,7 @@ l219:
 					goto l25
 				}
 			l9:
-				v3 = int32(load32(m.memory[int64(uint32(v12))+8:]))
+				v3 = int32(load32(m.memory[int64(uint32(v9))+8:]))
 				if v3&i32(7) != i32(5) {
 					goto l26
 				}
@@ -27564,12 +27548,12 @@ l219:
 				}
 				v5 = (v7^i32(-1))&i32(65536) | v5
 			l26:
-				store32(m.memory[int64(uint32(v12))+128:], uint32(i32(0)))
-				store32(m.memory[int64(uint32(v12))+124:], uint32(v5))
-				store32(m.memory[int64(uint32(v12))+120:], uint32(v9))
-				store32(m.memory[int64(uint32(v12))+116:], uint32(v7))
-				v12 = int32(load32(m.memory[int64(uint32(v12))+100:]))
-				if v12 != 0 {
+				store32(m.memory[int64(uint32(v9))+128:], uint32(i32(0)))
+				store32(m.memory[int64(uint32(v9))+124:], uint32(v5))
+				store32(m.memory[int64(uint32(v9))+120:], uint32(v12))
+				store32(m.memory[int64(uint32(v9))+116:], uint32(v7))
+				v9 = int32(load32(m.memory[int64(uint32(v9))+100:]))
+				if v9 != 0 {
 					goto l27
 				}
 			}
@@ -27674,13 +27658,13 @@ l219:
 						t47 := v5
 						store32(m.memory[uint32(t47):], uint32(int32(load32(m.memory[uint32(v5):]))|i32_shl(i32(1), v3)))
 						{
-							v9 = int32(load32(m.memory[int64(uint32(v8))+60:]))
-							if v9 == 0 {
+							v12 = int32(load32(m.memory[int64(uint32(v8))+60:]))
+							if v12 == 0 {
 								goto l33
 							}
 							v6 = int32(load32(m.memory[int64(uint32(v0))+36:]))
 							t48 := v6 - i32(1)
-							v3 = int32(load32(m.memory[int64(uint32(v9))+56:]))
+							v3 = int32(load32(m.memory[int64(uint32(v12))+56:]))
 							v7 = v6 & i32(3)
 							if v7 == 0 {
 								v5 = v4
@@ -27729,7 +27713,7 @@ l219:
 							}
 							v7 = int32(load32(m.memory[int64(uint32(v0))+36:]))
 							t59 := v7 - i32(1)
-							v3 = int32(load32(m.memory[int64(uint32(v9))+80:]))
+							v3 = int32(load32(m.memory[int64(uint32(v12))+80:]))
 							v5 = v7 & i32(3)
 							if v5 != 0 {
 								v7 = v7 & i32(-4)
@@ -27782,13 +27766,13 @@ l219:
 						t71 := v5
 						store32(m.memory[uint32(t71):], uint32(int32(load32(m.memory[uint32(v5):]))|i32_shl(i32(1), v3)))
 						{
-							v9 = int32(load32(m.memory[int64(uint32(v8))+84:]))
-							if v9 == 0 {
+							v12 = int32(load32(m.memory[int64(uint32(v8))+84:]))
+							if v12 == 0 {
 								goto l39
 							}
 							v6 = int32(load32(m.memory[int64(uint32(v0))+36:]))
 							t72 := v6 - i32(1)
-							v3 = int32(load32(m.memory[int64(uint32(v9))+56:]))
+							v3 = int32(load32(m.memory[int64(uint32(v12))+56:]))
 							v7 = v6 & i32(3)
 							if v7 == 0 {
 								v5 = v4
@@ -27837,7 +27821,7 @@ l219:
 							}
 							v7 = int32(load32(m.memory[int64(uint32(v0))+36:]))
 							t83 := v7 - i32(1)
-							v3 = int32(load32(m.memory[int64(uint32(v9))+80:]))
+							v3 = int32(load32(m.memory[int64(uint32(v12))+80:]))
 							v5 = v7 & i32(3)
 							if v5 != 0 {
 								v7 = v7 & i32(-4)
@@ -27931,9 +27915,9 @@ l219:
 					goto l48
 				}
 			}
-		}
-		if v4 == 0 {
-			goto l47
+			if v4 == 0 {
+				goto l47
+			}
 		}
 		v3 = v6 + v5<<2
 	l49:
@@ -28607,10 +28591,10 @@ l219:
 																goto l60
 															}
 														l106:
-															m._opt_error(v0, i32(3527), i32(0))
+															m._opt_error(v0, i32(68039), i32(0))
 															panic("unreachable")
 														l107:
-															m._opt_error(v0, i32(3511), i32(0))
+															m._opt_error(v0, i32(68023), i32(0))
 															panic("unreachable")
 														l102:
 															v9 = int32(load32(m.memory[int64(uint32(v0))+920:]))
@@ -29079,7 +29063,7 @@ l219:
 										goto l60
 									}
 								l118:
-									m._opt_error(v0, i32(1980), i32(0))
+									m._opt_error(v0, i32(66492), i32(0))
 									panic("unreachable")
 								l115:
 									t155 := v13
@@ -29633,10 +29617,10 @@ l219:
 					}
 				l152:
 					m._deadstmt(v0, v6+i32(8), v17)
-					v3 = i32(0)
 					v4 = i32(0)
+					v3 = v17
 				l186:
-					v5 = int32(load32(m.memory[uint32(v3+v17):]))
+					v5 = int32(load32(m.memory[uint32(v3):]))
 					if v5 == 0 {
 						goto l185
 					}
@@ -29644,12 +29628,13 @@ l219:
 						goto l185
 					}
 					store32(m.memory[uint32(v5):], uint32(i32(-1)))
-					store32(m.memory[uint32(v3+v12):], uint32(i32(0)))
+					store32(m.memory[uint32(v12):], uint32(i32(0)))
 					store64(m.memory[int64(uint32(v0))+8:], uint64(i64(0x100000000)))
 				l185:
-					v4 = v4 + i32(1)
 					v3 = v3 + i32(4)
-					if v3 != i32(72) {
+					v12 = v12 + i32(4)
+					v4 = v4 + i32(1)
+					if v4 != i32(18) {
 						goto l186
 					}
 				l151:
@@ -29767,9 +29752,9 @@ l219:
 						goto l196
 					}
 				}
-			}
-			if v4 == 0 {
-				goto l195
+				if v4 == 0 {
+					goto l195
+				}
 			}
 			v3 = v8 + v5<<2
 		l197:
@@ -29853,14 +29838,14 @@ l219:
 							if v3 == 0 {
 								goto l202
 							}
-							v9 = int32(load32(m.memory[int64(uint32(v5))+60:]))
-							t202 := v9
+							v12 = int32(load32(m.memory[int64(uint32(v5))+60:]))
+							t202 := v12
 							if t202 != int32(load32(m.memory[int64(uint32(v3))+60:])) {
 								goto l202
 							}
 							v10 = int32(load32(m.memory[uint32(v5):]))
-							v12 = i32_shl(i32(1), v10)
-							t203 := v12
+							v9 = i32_shl(i32(1), v10)
+							t203 := v9
 							v10 = int32(uint32(v10)>>5) << 2
 							t204 := v10
 							if t203&int32(load32(m.memory[uint32(t204+int32(load32(m.memory[int64(uint32(v3))+104:]))):])) == 0 {
@@ -29884,10 +29869,10 @@ l219:
 								v11 = v3 + i32(84)
 							l204:
 								{
-									if int32(load32(m.memory[int64(uint32(v6))+60:])) != v9 {
+									if int32(load32(m.memory[int64(uint32(v6))+60:])) != v12 {
 										goto l202
 									}
-									if int32(load32(m.memory[uint32(int32(load32(m.memory[int64(uint32(v6))+104:]))+v10):]))&v12 == 0 {
+									if int32(load32(m.memory[uint32(int32(load32(m.memory[int64(uint32(v6))+104:]))+v10):]))&v9 == 0 {
 										goto l202
 									}
 									t207 := v4
@@ -29909,10 +29894,10 @@ l219:
 							if v3 == 0 {
 								goto l202
 							}
-							if int32(load32(m.memory[int64(uint32(v3))+60:])) != v9 {
+							if int32(load32(m.memory[int64(uint32(v3))+60:])) != v12 {
 								goto l202
 							}
-							if int32(load32(m.memory[uint32(int32(load32(m.memory[int64(uint32(v3))+104:]))+v10):]))&v12 == 0 {
+							if int32(load32(m.memory[uint32(int32(load32(m.memory[int64(uint32(v3))+104:]))+v10):]))&v9 == 0 {
 								goto l202
 							}
 							if int32(load32(m.memory[int64(uint32(v3))+200:])) != v4 {
@@ -29977,14 +29962,14 @@ l219:
 						if v3 == 0 {
 							goto l200
 						}
-						v9 = int32(load32(m.memory[int64(uint32(v5))+84:]))
-						t215 := v9
+						v12 = int32(load32(m.memory[int64(uint32(v5))+84:]))
+						t215 := v12
 						if t215 != int32(load32(m.memory[int64(uint32(v3))+84:])) {
 							goto l200
 						}
 						v10 = int32(load32(m.memory[uint32(v5):]))
-						v12 = i32_shl(i32(1), v10)
-						t216 := v12
+						v9 = i32_shl(i32(1), v10)
+						t216 := v9
 						v10 = int32(uint32(v10)>>5) << 2
 						t217 := v10
 						if t216&int32(load32(m.memory[uint32(t217+int32(load32(m.memory[int64(uint32(v3))+104:]))):])) == 0 {
@@ -30008,10 +29993,10 @@ l219:
 							v11 = v3 + i32(60)
 						l211:
 							{
-								if int32(load32(m.memory[int64(uint32(v6))+84:])) != v9 {
+								if int32(load32(m.memory[int64(uint32(v6))+84:])) != v12 {
 									goto l200
 								}
-								if int32(load32(m.memory[uint32(int32(load32(m.memory[int64(uint32(v6))+104:]))+v10):]))&v12 == 0 {
+								if int32(load32(m.memory[uint32(int32(load32(m.memory[int64(uint32(v6))+104:]))+v10):]))&v9 == 0 {
 									goto l200
 								}
 								t220 := v4
@@ -30033,10 +30018,10 @@ l219:
 						if v3 == 0 {
 							goto l200
 						}
-						if int32(load32(m.memory[int64(uint32(v3))+84:])) != v9 {
+						if int32(load32(m.memory[int64(uint32(v3))+84:])) != v12 {
 							goto l200
 						}
-						if int32(load32(m.memory[uint32(int32(load32(m.memory[int64(uint32(v3))+104:]))+v10):]))&v12 == 0 {
+						if int32(load32(m.memory[uint32(int32(load32(m.memory[int64(uint32(v3))+104:]))+v10):]))&v9 == 0 {
 							goto l200
 						}
 						if int32(load32(m.memory[int64(uint32(v3))+200:])) != v4 {
@@ -30480,10 +30465,10 @@ func (m *Module) _fold_op(v0, v1, v2, v3 int32) {
 		return
 	}
 l12:
-	m._opt_error(v0, i32(3527), i32(0))
+	m._opt_error(v0, i32(68039), i32(0))
 	panic("unreachable")
 l13:
-	m._opt_error(v0, i32(3511), i32(0))
+	m._opt_error(v0, i32(68023), i32(0))
 	panic("unreachable")
 }
 func (m *Module) _deadstmt(v0, v1, v2 int32) {
@@ -30793,7 +30778,7 @@ l2:
 			v8 = v6 << 3
 			v5 = m.Xmalloc(v8)
 			if v5 == 0 {
-				_ = m._snprintf(v3, i32(256), i32(6426), i32(0))
+				_ = m._snprintf(v3, i32(256), i32(70938), i32(0))
 				goto l0
 			}
 			if v8 != 0 {
@@ -30958,7 +30943,7 @@ func (m *Module) _convert_code_r(v0, v1, v2 int32) int32 {
 				}
 				goto l5
 			}
-			m._conv_error(v0, i32(5494), i32(0))
+			m._conv_error(v0, i32(70006), i32(0))
 			panic("unreachable")
 		l4:
 			if v10 == 0 {
@@ -30983,17 +30968,17 @@ func (m *Module) _convert_code_r(v0, v1, v2 int32) int32 {
 						goto l8
 					}
 					t15 := v3
-					m.memory[int64(uint32(t15))+136] = byte(int32(m.memory[uint32(i32(10232))]))
+					m.memory[int64(uint32(t15))+136] = byte(int32(m.memory[uint32(i32(74712))]))
 					t16 := v3
-					store64(m.memory[int64(uint32(t16))+128:], load64(m.memory[uint32(i32(10224)):]))
+					store64(m.memory[int64(uint32(t16))+128:], load64(m.memory[uint32(i32(74704)):]))
 					t17 := v3
-					store64(m.memory[int64(uint32(t17))+120:], load64(m.memory[uint32(i32(10216)):]))
+					store64(m.memory[int64(uint32(t17))+120:], load64(m.memory[uint32(i32(74696)):]))
 					t18 := v3
-					store64(m.memory[int64(uint32(t18))+112:], load64(m.memory[uint32(i32(10208)):]))
+					store64(m.memory[int64(uint32(t18))+112:], load64(m.memory[uint32(i32(74688)):]))
 					t19 := v3
-					store64(m.memory[int64(uint32(t19))+104:], load64(m.memory[uint32(i32(10200)):]))
+					store64(m.memory[int64(uint32(t19))+104:], load64(m.memory[uint32(i32(74680)):]))
 					t20 := v3
-					store64(m.memory[int64(uint32(t20))+96:], load64(m.memory[uint32(i32(10192)):]))
+					store64(m.memory[int64(uint32(t20))+96:], load64(m.memory[uint32(i32(74672)):]))
 					v15 = int32(load32(m.memory[int64(uint32(v10))+4:]))
 					if v15 == 0 {
 						goto l9
@@ -31084,7 +31069,7 @@ func (m *Module) _convert_code_r(v0, v1, v2 int32) int32 {
 	l9:
 		m.Xfree(v7)
 		store32(m.memory[int64(uint32(v3))+4:], uint32(v9))
-		store32(m.memory[uint32(v3):], uint32(i32(3690)))
+		store32(m.memory[uint32(v3):], uint32(i32(68202)))
 		m._conv_error(v0, v3+i32(96), v3)
 		panic("unreachable")
 	l18:
@@ -31124,31 +31109,31 @@ l1:
 l11:
 	m.Xfree(v7)
 	store32(m.memory[int64(uint32(v3))+84:], uint32(v9))
-	store32(m.memory[int64(uint32(v3))+80:], uint32(i32(2699)))
+	store32(m.memory[int64(uint32(v3))+80:], uint32(i32(67211)))
 	m._conv_error(v0, v3+i32(96), v3+i32(80))
 	panic("unreachable")
 l12:
 	m.Xfree(v7)
 	store32(m.memory[int64(uint32(v3))+36:], uint32(v9))
-	store32(m.memory[int64(uint32(v3))+32:], uint32(i32(3350)))
+	store32(m.memory[int64(uint32(v3))+32:], uint32(i32(67862)))
 	m._conv_error(v0, v3+i32(96), v3+i32(32))
 	panic("unreachable")
 l13:
 	m.Xfree(v7)
 	store32(m.memory[int64(uint32(v3))+68:], uint32(v9))
-	store32(m.memory[int64(uint32(v3))+64:], uint32(i32(2699)))
+	store32(m.memory[int64(uint32(v3))+64:], uint32(i32(67211)))
 	m._conv_error(v0, v3+i32(96), v3-i32(-64))
 	panic("unreachable")
 l14:
 	m.Xfree(v7)
 	store32(m.memory[int64(uint32(v3))+52:], uint32(v9))
-	store32(m.memory[int64(uint32(v3))+48:], uint32(i32(3350)))
+	store32(m.memory[int64(uint32(v3))+48:], uint32(i32(67862)))
 	m._conv_error(v0, v3+i32(96), v3+i32(48))
 	panic("unreachable")
 l10:
 	m.Xfree(v7)
 	store32(m.memory[int64(uint32(v3))+20:], uint32(v9))
-	store32(m.memory[int64(uint32(v3))+16:], uint32(i32(5914)))
+	store32(m.memory[int64(uint32(v3))+16:], uint32(i32(70426)))
 	m._conv_error(v0, v3+i32(96), v3+i32(16))
 	panic("unreachable")
 }
@@ -31158,7 +31143,7 @@ func (m *Module) _conv_error(v0, v1, v2 int32) {
 	m.___stack_pointer = v3
 	store32(m.memory[int64(uint32(v3))+12:], uint32(v2))
 	_ = m._vsnprintf(int32(load32(m.memory[int64(uint32(v0))+4:])), i32(256), v1, v2)
-	m.__pcap_longjmp_at_137(i32(2966), i32(2905))
+	m.__pcap_longjmp_at_137(i32(67478), i32(2905))
 	panic("unreachable")
 }
 func (m *Module) __pcap_longjmp_at_137(v0, v1 int32) {
@@ -31166,10 +31151,10 @@ func (m *Module) __pcap_longjmp_at_137(v0, v1 int32) {
 	v2 = m.___stack_pointer - i32(16)
 	m.___stack_pointer = v2
 	store32(m.memory[int64(uint32(v2))+8:], uint32(v1))
-	store32(m.memory[int64(uint32(v2))+4:], uint32(i32(6461)))
+	store32(m.memory[int64(uint32(v2))+4:], uint32(i32(70973)))
 	store32(m.memory[uint32(v2):], uint32(v0))
-	_ = m._snprintf(i32(62192), i32(256), i32(6163), v2)
-	m.__env_panic(i32(62192))
+	_ = m._snprintf(i32(126672), i32(256), i32(70675), v2)
+	m.__env_panic(i32(126672))
 	panic("unreachable")
 }
 func (m *Module) _pcap_nametoaddrinfo(v0 int32) int32 {
@@ -31177,10 +31162,10 @@ func (m *Module) _pcap_nametoaddrinfo(v0 int32) int32 {
 	var v2 int32
 	v1 = m.___stack_pointer - i32(48)
 	m.___stack_pointer = v1
+	store64(m.memory[int64(uint32(v1))+16:], uint64(i64(0)))
 	store64(m.memory[int64(uint32(v1))+32:], uint64(i64(0)))
 	store64(m.memory[int64(uint32(v1))+40:], uint64(i64(0)))
 	store64(m.memory[int64(uint32(v1))+24:], uint64(i64(0x600000006)))
-	store64(m.memory[int64(uint32(v1))+16:], uint64(i64(0)))
 	v0 = m._getaddrinfo(v0, i32(0), v1+i32(16), v1+i32(12))
 	v2 = int32(load32(m.memory[int64(uint32(v1))+12:]))
 	m.___stack_pointer = v1 + i32(48)
@@ -31205,10 +31190,10 @@ func (m *Module) _pcap_nametoport(v0, v1, v2 int32) int32 {
 	var v7 int32
 	v3 = m.___stack_pointer - i32(48)
 	m.___stack_pointer = v3
+	store64(m.memory[int64(uint32(v3))+16:], uint64(i64(0)))
 	store64(m.memory[int64(uint32(v3))+32:], uint64(i64(0)))
 	store64(m.memory[int64(uint32(v3))+40:], uint64(i64(0)))
 	store64(m.memory[int64(uint32(v3))+24:], uint64(i64(0x600000006)))
-	store64(m.memory[int64(uint32(v3))+16:], uint64(i64(0)))
 	v5 = i32(-1)
 	v7 = i32(-1)
 	{
@@ -31252,8 +31237,8 @@ func (m *Module) _pcap_nametoport(v0, v1, v2 int32) int32 {
 	l0:
 		store64(m.memory[int64(uint32(v3))+40:], uint64(i64(0)))
 		store64(m.memory[int64(uint32(v3))+32:], uint64(i64(0)))
-		store64(m.memory[int64(uint32(v3))+24:], uint64(i64(0x1100000005)))
 		store64(m.memory[int64(uint32(v3))+16:], uint64(i64(0)))
+		store64(m.memory[int64(uint32(v3))+24:], uint64(i64(0x1100000005)))
 		v4 = i32(0)
 		{
 			switch m._getaddrinfo(i32(0), v0, v3+i32(16), v3+i32(12)) + i32(8) {
@@ -31335,9 +31320,9 @@ func (m *Module) _pcap_nametoeproto(v0 int32) int32 {
 	var v2 int32
 	var v3 int32
 	_ = v3
-	v2 = int32(load32(m.memory[uint32(i32(60496)):]))
+	v2 = int32(load32(m.memory[uint32(i32(124976)):]))
 	if v2 != 0 {
-		v1 = i32(60500)
+		v1 = i32(124980)
 	l0:
 		{
 			if m._strcmp(v2, v0) == 0 {
@@ -31357,27 +31342,27 @@ func (m *Module) _pcap_nametollc(v0 int32) int32 {
 	var p0 int32
 	{
 		var p1 int32
-		if m._strcmp(i32(3507), v0) == 0 {
-			p1 = i32(10240)
+		if m._strcmp(i32(68019), v0) == 0 {
+			p1 = i32(74720)
 			goto l0
 		}
-		_ = i32(10240)
-		if m._strcmp(i32(3158), v0) == 0 {
-			p1 = i32(10248)
+		_ = i32(74720)
+		if m._strcmp(i32(67670), v0) == 0 {
+			p1 = i32(74728)
 			goto l0
 		}
-		_ = i32(10248)
-		if m._strcmp(i32(1126), v0) == 0 {
-			p1 = i32(10256)
+		_ = i32(74728)
+		if m._strcmp(i32(65638), v0) == 0 {
+			p1 = i32(74736)
 			goto l0
 		}
-		_ = i32(10256)
-		if m._strcmp(i32(4731), v0) != 0 {
+		_ = i32(74736)
+		if m._strcmp(i32(69243), v0) != 0 {
 			p0 = i32(-1)
 			goto l1
 		}
 		_ = i32(-1)
-		p1 = i32(10264)
+		p1 = i32(74744)
 	l0:
 		v0 = p1
 		p0 = int32(load16(m.memory[int64(uint32(v0))+4:]))
@@ -31430,109 +31415,118 @@ func (m *Module) _pcapint_atodn(v0, v1 int32) int32 {
 	var v3 int32
 	var v4 int32
 	var v5 int32
-	v2 = int32(m.memory[uint32(v0)])
-	if v2 == 0 {
-		goto l0
-	}
-l9:
 	{
+		v2 = int32(m.memory[uint32(v0)])
+		if v2 == 0 {
+			goto l0
+		}
+		t1 := v1
 		var p0 int32
+	l9:
 		{
+			var p2 int32
 			{
 				{
-					switch v3 - i32(1) {
-					case 0:
-						goto l1
-					case 1:
-						goto l2
-					case 2:
-						goto l3
-					case 3:
-						goto l0
-					default:
-						goto l4
+					{
+						{
+							switch v3 - i32(1) {
+							case 0:
+								goto l1
+							case 1:
+								goto l2
+							case 2:
+								goto l3
+							case 3:
+								goto l0
+							default:
+								goto l4
+							}
+						l2:
+							v3 = (v2 - i32(48)) & i32(255)
+							if uint32(v3) > uint32(i32(9)) {
+								goto l5
+							}
+							v2 = int32(m.memory[int64(uint32(v0))+1])
+							if v2 == 0 {
+								goto l6
+							}
+							v0 = v0 + i32(1)
+							v5 = v3
+						l3:
+							if uint32((v2-i32(48))&i32(255)) > uint32(i32(9)) {
+								goto l5
+							}
+							v5 = v5*i32(10) + v2&i32(255) - i32(48)
+							p3 := i32(4)
+							if uint32(v5) < uint32(i32(1024)) {
+								p3 = i32(3)
+							}
+							p2 = p3
+							goto l7
+						}
+					l4:
+						v2 = (v2 - i32(48)) & i32(255)
+						t4 := v2
+						t5 := v4
+						var p6 int32
+						if uint32(v2) < uint32(i32(10)) {
+							p6 = 1
+						}
+						v2 = p6
+						p7 := t5
+						if v2 != 0 {
+							p7 = t4
+						}
+						v4 = p7
+						p8 := i32(4)
+						if v2 != 0 {
+							p8 = i32(1)
+						}
+						p2 = p8
+						goto l7
 					}
-				l2:
-					v3 = (v2 - i32(48)) & i32(255)
-					if uint32(v3) > uint32(i32(9)) {
+				l1:
+					if v2&i32(255) == i32(46) {
+						p2 = i32(2)
+						goto l7
+					}
+					_ = i32(2)
+					if uint32((v2-i32(48))&i32(255)) > uint32(i32(9)) {
 						goto l5
 					}
-					v2 = int32(m.memory[int64(uint32(v0))+1])
-					if v2 != 0 {
-						goto l6
+					v4 = int32(int8(v2)) + v4*i32(10) - i32(48)
+					p9 := i32(4)
+					if uint32(v4) < uint32(i32(64)) {
+						p9 = i32(1)
 					}
-					v5 = v3
+					p2 = p9
 					goto l7
-				l4:
-					v2 = (v2 - i32(48)) & i32(255)
-					t1 := v2
-					t2 := v4
-					var p3 int32
-					if uint32(v2) < uint32(i32(10)) {
-						p3 = 1
-					}
-					v2 = p3
-					p4 := t2
-					if v2 != 0 {
-						p4 = t1
-					}
-					v4 = p4
-					p5 := i32(4)
-					if v2 != 0 {
-						p5 = i32(1)
-					}
-					p0 = p5
-					goto l8
 				}
-			l1:
-				if v2&i32(255) == i32(46) {
-					p0 = i32(2)
-					goto l8
-				}
-				_ = i32(2)
-				if uint32((v2-i32(48))&i32(255)) > uint32(i32(9)) {
-					goto l5
-				}
-				v4 = int32(int8(v2)) + v4*i32(10) - i32(48)
-				p6 := i32(4)
-				if uint32(v4) < uint32(i32(64)) {
-					p6 = i32(1)
-				}
-				p0 = p6
+			l6:
+				t10 := v4<<10 | v3
+				p0 = t10
 				goto l8
 			}
-		l6:
-			v0 = v0 + i32(1)
-			v5 = v3
-		l3:
-			if uint32((v2-i32(48))&i32(255)) > uint32(i32(9)) {
-				goto l5
+		l5:
+			p2 = i32(4)
+		l7:
+			v3 = p2
+			v2 = v0
+			v0 = v2 + i32(1)
+			v2 = int32(m.memory[int64(uint32(v2))+1])
+			if v2 != 0 {
+				goto l9
 			}
-			v5 = v5*i32(10) + v2&i32(255) - i32(48)
-			p7 := i32(4)
-			if uint32(v5) < uint32(i32(1024)) {
-				p7 = i32(3)
-			}
-			p0 = p7
-			goto l8
 		}
-	l5:
-		p0 = i32(4)
+		if v3 != i32(3) {
+			goto l0
+		}
+		p0 = v4<<10 | v5
 	l8:
-		v3 = p0
-		v2 = v0
-		v0 = v2 + i32(1)
-		v2 = int32(m.memory[int64(uint32(v2))+1])
-		if v2 != 0 {
-			goto l9
-		}
+		v2 = p0
+		store16(m.memory[uint32(t1):], uint16(v2))
+		return i32(1)
 	}
-	if v3 != i32(3) {
-		goto l0
-	}
-l7:
-	store16(m.memory[uint32(v1):], uint16(v4<<10|v5))
-	return i32(1)
 l0:
 	return i32(0)
 }
@@ -31541,76 +31535,79 @@ func (m *Module) _pcapint_atoan(v0, v1 int32) int32 {
 	var v3 int32
 	var v4 int32
 	var v5 int32
+	var v6 int32
+	var v7 int32
 	v2 = int32(m.memory[uint32(v0)])
 	if v2 == 0 {
 		return i32(0)
 	}
-l6:
-	switch v3 {
+	v6 = v0 + i32(1)
+l7:
+	v0 = v6
+	switch v3 - i32(1) {
 	case 0:
 		goto l0
 	case 1:
 		goto l1
 	case 2:
 		goto l2
-	case 3:
-		goto l3
 	default:
+		goto l3
+	}
+l3:
+	v5 = i32(1)
+	v3 = i32(1)
+	if v2 == i32(36) {
 		goto l4
 	}
+	goto l2
 l0:
-	if v2 != i32(36) {
-		goto l3
-	}
-	v2 = int32(m.memory[int64(uint32(v0))+1])
-	if v2 == 0 {
-		goto l3
-	}
-	v0 = v0 + i32(1)
-l1:
 	v3 = i32(2)
+	v5 = i32(0)
 	v4 = v2 - i32(48)
 	if uint32(v4&i32(255)) < uint32(i32(10)) {
 		goto l4
 	}
 	if uint32((v2-i32(65))&i32(255)) >= uint32(i32(6)) {
 		if uint32((v2-i32(97))&i32(255)) > uint32(i32(5)) {
-			goto l3
+			return i32(0)
 		}
 		v4 = v2 - i32(87)
-		goto l4
+		goto l5
 	}
 	v4 = v2 - i32(55)
 	goto l4
-l2:
+l1:
 	v3 = v2 - i32(48)
 	if uint32(v3&i32(255)) < uint32(i32(10)) {
-		goto l5
+		goto l6
 	}
 	if uint32((v2-i32(65))&i32(255)) >= uint32(i32(6)) {
 		if uint32((v2-i32(97))&i32(255)) > uint32(i32(5)) {
-			goto l3
+			goto l2
 		}
 		v3 = v2 - i32(87)
-		goto l5
-	}
-	v3 = v2 - i32(55)
-l5:
-	v4 = v3 | v4<<4
-	v3 = i32(3)
-l4:
-	v2 = int32(m.memory[int64(uint32(v0))+1])
-	v0 = v0 + i32(1)
-	if v2 != 0 {
 		goto l6
 	}
-	if uint32(v3) < uint32(i32(2)) {
-		goto l3
+	v3 = v2 - i32(55)
+l6:
+	v4 = v3 | v4<<4
+	v3 = i32(3)
+l5:
+	v5 = i32(0)
+l4:
+	v6 = v0 + i32(1)
+	v2 = int32(m.memory[uint32(v0)])
+	if v2 != 0 {
+		goto l7
+	}
+	if v5 != 0 {
+		goto l2
 	}
 	m.memory[uint32(v1)] = byte(v4)
-	v5 = i32(1)
-l3:
-	return v5
+	v7 = i32(1)
+l2:
+	return v7
 }
 func (m *Module) _pcapint_atomac48(v0, v1 int32) int32 {
 	var v2 int32
@@ -31630,160 +31627,160 @@ func (m *Module) _pcapint_atomac48(v0, v1 int32) int32 {
 		if m._strlen(v0) != i32(12) {
 			goto l1
 		}
-		v4 = int32(m.memory[uint32(v0)])
-		v2 = v4 - i32(48)
-		if uint32(v2&i32(255)) < uint32(i32(10)) {
+		v2 = int32(m.memory[uint32(v0)])
+		v4 = v2 - i32(48)
+		if uint32(v4&i32(255)) < uint32(i32(10)) {
 			goto l2
 		}
-		switch v4&i32(255) - i32(65) {
+		switch v2&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l2
 		default:
 			goto l1
 		}
 	l2:
-		v5 = int32(m.memory[int64(uint32(v0))+1])
-		v3 = v5 - i32(48)
-		if uint32(v3&i32(255)) < uint32(i32(10)) {
+		v3 = int32(m.memory[int64(uint32(v0))+1])
+		v6 = v3 - i32(48)
+		if uint32(v6&i32(255)) < uint32(i32(10)) {
 			goto l3
 		}
-		switch v5&i32(255) - i32(65) {
+		switch v3&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l3
 		default:
 			goto l1
 		}
 	l3:
-		v6 = int32(m.memory[int64(uint32(v0))+2])
-		if uint32((v6-i32(48))&i32(255)) < uint32(i32(10)) {
+		v5 = int32(m.memory[int64(uint32(v0))+2])
+		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l4
 		}
-		switch v6&i32(255) - i32(65) {
+		switch v5&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l4
 		default:
 			goto l1
 		}
 	l4:
-		v6 = int32(m.memory[int64(uint32(v0))+3])
-		if uint32((v6-i32(48))&i32(255)) < uint32(i32(10)) {
+		v5 = int32(m.memory[int64(uint32(v0))+3])
+		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l5
 		}
-		switch v6&i32(255) - i32(65) {
+		switch v5&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l5
 		default:
 			goto l1
 		}
 	l5:
-		v6 = int32(m.memory[int64(uint32(v0))+4])
-		if uint32((v6-i32(48))&i32(255)) < uint32(i32(10)) {
+		v5 = int32(m.memory[int64(uint32(v0))+4])
+		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l6
 		}
-		switch v6&i32(255) - i32(65) {
+		switch v5&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l6
 		default:
 			goto l1
 		}
 	l6:
-		v6 = int32(m.memory[int64(uint32(v0))+5])
-		if uint32((v6-i32(48))&i32(255)) < uint32(i32(10)) {
+		v5 = int32(m.memory[int64(uint32(v0))+5])
+		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l7
 		}
-		switch v6&i32(255) - i32(65) {
+		switch v5&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l7
 		default:
 			goto l1
 		}
 	l7:
-		v6 = int32(m.memory[int64(uint32(v0))+6])
-		if uint32((v6-i32(48))&i32(255)) < uint32(i32(10)) {
+		v5 = int32(m.memory[int64(uint32(v0))+6])
+		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l8
 		}
-		switch v6&i32(255) - i32(65) {
+		switch v5&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l8
 		default:
 			goto l1
 		}
 	l8:
-		v6 = int32(m.memory[int64(uint32(v0))+7])
-		if uint32((v6-i32(48))&i32(255)) < uint32(i32(10)) {
+		v5 = int32(m.memory[int64(uint32(v0))+7])
+		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l9
 		}
-		switch v6&i32(255) - i32(65) {
+		switch v5&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l9
 		default:
 			goto l1
 		}
 	l9:
-		v6 = int32(m.memory[int64(uint32(v0))+8])
-		if uint32((v6-i32(48))&i32(255)) < uint32(i32(10)) {
+		v5 = int32(m.memory[int64(uint32(v0))+8])
+		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l10
 		}
-		switch v6&i32(255) - i32(65) {
+		switch v5&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l10
 		default:
 			goto l1
 		}
 	l10:
-		v6 = int32(m.memory[int64(uint32(v0))+9])
-		if uint32((v6-i32(48))&i32(255)) < uint32(i32(10)) {
+		v5 = int32(m.memory[int64(uint32(v0))+9])
+		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l11
 		}
-		switch v6&i32(255) - i32(65) {
+		switch v5&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l11
 		default:
 			goto l1
 		}
 	l11:
-		v6 = int32(m.memory[int64(uint32(v0))+10])
-		if uint32((v6-i32(48))&i32(255)) < uint32(i32(10)) {
+		v5 = int32(m.memory[int64(uint32(v0))+10])
+		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l12
 		}
-		switch v6&i32(255) - i32(65) {
+		switch v5&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l12
 		default:
 			goto l1
 		}
 	l12:
-		v6 = int32(m.memory[int64(uint32(v0))+11])
-		if uint32((v6-i32(48))&i32(255)) < uint32(i32(10)) {
+		v5 = int32(m.memory[int64(uint32(v0))+11])
+		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l13
 		}
-		switch v6&i32(255) - i32(65) {
+		switch v5&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l13
 		default:
 			goto l1
 		}
 	l13:
-		if uint32(v2&i32(255)) < uint32(i32(10)) {
+		if uint32(v2&i32(255)) < uint32(i32(58)) {
 			goto l14
 		}
-		if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
-			v2 = v4 - i32(87)
+		if uint32((v2-i32(97))&i32(255)) <= uint32(i32(5)) {
+			v4 = v2 - i32(87)
 			goto l14
 		}
-		v2 = v4 - i32(55)
+		v4 = v2 - i32(55)
 	l14:
-		v2 = v2 << 4
-		if uint32(v3&i32(255)) < uint32(i32(10)) {
+		v2 = v4 << 4
+		if uint32(v3&i32(255)) < uint32(i32(58)) {
 			goto l15
 		}
-		if uint32((v5-i32(97))&i32(255)) <= uint32(i32(5)) {
-			v3 = v5 - i32(87)
+		if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
+			v6 = v3 - i32(87)
 			goto l15
 		}
-		v3 = v5 - i32(55)
+		v6 = v3 - i32(55)
 	l15:
-		m.memory[uint32(v1)] = byte(v2 | v3)
+		m.memory[uint32(v1)] = byte(v2 | v6)
 		v3 = int32(m.memory[int64(uint32(v0))+2])
 		v2 = v3 - i32(48)
 		if uint32(v2&i32(255)) < uint32(i32(10)) {
@@ -31897,20 +31894,20 @@ func (m *Module) _pcapint_atomac48(v0, v1 int32) int32 {
 		v3 = v0 - i32(48)
 		if uint32(v3&i32(255)) >= uint32(i32(10)) {
 			if uint32((v0-i32(97))&i32(255)) <= uint32(i32(5)) {
-				v5 = v0 - i32(87) | v2
+				v6 = v0 - i32(87) | v2
 				goto l25
 			}
 			v3 = v0 - i32(55)
 		}
-		v5 = t0 | v3
+		v6 = t0 | v3
 		goto l25
 	}
 l1:
 	v3 = m._strlen(v0)
 	v2 = int32(m.memory[uint32(v0)])
 	if v3 == i32(14) {
-		v4 = v2 - i32(48)
-		if uint32(v4&i32(255)) < uint32(i32(10)) {
+		v6 = v2 - i32(48)
+		if uint32(v6&i32(255)) < uint32(i32(10)) {
 			goto l26
 		}
 		v7 = v2 & i32(255)
@@ -31935,22 +31932,22 @@ l1:
 			goto l27
 		}
 	l28:
-		v5 = int32(m.memory[int64(uint32(v0))+2])
-		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
+		v4 = int32(m.memory[int64(uint32(v0))+2])
+		if uint32((v4-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l29
 		}
-		switch v5&i32(255) - i32(65) {
+		switch v4&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l29
 		default:
 			goto l27
 		}
 	l29:
-		v5 = int32(m.memory[int64(uint32(v0))+3])
-		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
+		v4 = int32(m.memory[int64(uint32(v0))+3])
+		if uint32((v4-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l30
 		}
-		switch v5&i32(255) - i32(65) {
+		switch v4&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l30
 		default:
@@ -31960,44 +31957,44 @@ l1:
 		if int32(m.memory[int64(uint32(v0))+4]) != i32(46) {
 			goto l27
 		}
-		v5 = int32(m.memory[int64(uint32(v0))+5])
-		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
+		v4 = int32(m.memory[int64(uint32(v0))+5])
+		if uint32((v4-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l31
 		}
-		switch v5&i32(255) - i32(65) {
+		switch v4&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l31
 		default:
 			goto l27
 		}
 	l31:
-		v5 = int32(m.memory[int64(uint32(v0))+6])
-		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
+		v4 = int32(m.memory[int64(uint32(v0))+6])
+		if uint32((v4-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l32
 		}
-		switch v5&i32(255) - i32(65) {
+		switch v4&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l32
 		default:
 			goto l27
 		}
 	l32:
-		v5 = int32(m.memory[int64(uint32(v0))+7])
-		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
+		v4 = int32(m.memory[int64(uint32(v0))+7])
+		if uint32((v4-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l33
 		}
-		switch v5&i32(255) - i32(65) {
+		switch v4&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l33
 		default:
 			goto l27
 		}
 	l33:
-		v5 = int32(m.memory[int64(uint32(v0))+8])
-		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
+		v4 = int32(m.memory[int64(uint32(v0))+8])
+		if uint32((v4-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l34
 		}
-		switch v5&i32(255) - i32(65) {
+		switch v4&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l34
 		default:
@@ -32007,61 +32004,61 @@ l1:
 		if int32(m.memory[int64(uint32(v0))+9]) != i32(46) {
 			goto l27
 		}
-		v5 = int32(m.memory[int64(uint32(v0))+10])
-		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
+		v4 = int32(m.memory[int64(uint32(v0))+10])
+		if uint32((v4-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l35
 		}
-		switch v5&i32(255) - i32(65) {
+		switch v4&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l35
 		default:
 			goto l27
 		}
 	l35:
-		v5 = int32(m.memory[int64(uint32(v0))+11])
-		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
+		v4 = int32(m.memory[int64(uint32(v0))+11])
+		if uint32((v4-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l36
 		}
-		switch v5&i32(255) - i32(65) {
+		switch v4&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l36
 		default:
 			goto l27
 		}
 	l36:
-		v5 = int32(m.memory[int64(uint32(v0))+12])
-		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
+		v4 = int32(m.memory[int64(uint32(v0))+12])
+		if uint32((v4-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l37
 		}
-		switch v5&i32(255) - i32(65) {
+		switch v4&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l37
 		default:
 			goto l27
 		}
 	l37:
-		v5 = int32(m.memory[int64(uint32(v0))+13])
-		if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
+		v4 = int32(m.memory[int64(uint32(v0))+13])
+		if uint32((v4-i32(48))&i32(255)) < uint32(i32(10)) {
 			goto l38
 		}
-		switch v5&i32(255) - i32(65) {
+		switch v4&i32(255) - i32(65) {
 		case 0, 1, 2, 3, 4, 5, 32, 33, 34, 35, 36, 37:
 			goto l38
 		default:
 			goto l27
 		}
 	l38:
-		if uint32(v4&i32(255)) < uint32(i32(10)) {
+		if uint32(v2&i32(255)) < uint32(i32(58)) {
 			goto l39
 		}
 		if uint32((v2-i32(97))&i32(255)) <= uint32(i32(5)) {
-			v4 = v2 - i32(87)
+			v6 = v2 - i32(87)
 			goto l39
 		}
-		v4 = v2 - i32(55)
+		v6 = v2 - i32(55)
 	l39:
-		v2 = v4 << 4
-		if uint32(v7&i32(255)) < uint32(i32(10)) {
+		v2 = v6 << 4
+		if uint32(v3&i32(255)) < uint32(i32(58)) {
 			goto l40
 		}
 		if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
@@ -32184,12 +32181,12 @@ l1:
 		v3 = v0 - i32(48)
 		if uint32(v3&i32(255)) >= uint32(i32(10)) {
 			if uint32((v0-i32(97))&i32(255)) <= uint32(i32(5)) {
-				v5 = v0 - i32(87) | v2
+				v6 = v0 - i32(87) | v2
 				goto l25
 			}
 			v3 = v0 - i32(55)
 		}
-		v5 = t1 | v3
+		v6 = t1 | v3
 		goto l25
 	}
 	if v2&i32(255) == 0 {
@@ -32257,7 +32254,7 @@ l78:
 		v8 = v2 - i32(55)
 		goto l67
 	l51:
-		t2 := m._strchr(i32(7232), int32(int8(v2)))
+		t2 := m._strchr(i32(71710), int32(int8(v2)))
 		v2 = int32(m.memory[uint32(v0)])
 		if t2 != 0 {
 			v3 = i32(3)
@@ -32282,7 +32279,7 @@ l78:
 		goto l67
 	}
 l52:
-	if m._strchr(i32(7232), int32(int8(v2))) == 0 {
+	if m._strchr(i32(71710), int32(int8(v2))) == 0 {
 		goto l0
 	}
 	v4 = int32(m.memory[uint32(v0)])
@@ -32290,18 +32287,18 @@ l52:
 	goto l67
 l53:
 	v3 = i32(4)
-	v6 = v2 - i32(48)
-	if uint32(v6&i32(255)) < uint32(i32(10)) {
+	v5 = v2 - i32(48)
+	if uint32(v5&i32(255)) < uint32(i32(10)) {
 		goto l67
 	}
 	if uint32((v2-i32(65))&i32(255)) >= uint32(i32(6)) {
 		if uint32((v2-i32(97))&i32(255)) > uint32(i32(5)) {
 			goto l0
 		}
-		v6 = v2 - i32(87)
+		v5 = v2 - i32(87)
 		goto l67
 	}
-	v6 = v2 - i32(55)
+	v5 = v2 - i32(55)
 	goto l67
 l54:
 	if v2&i32(255) == v4&i32(255) {
@@ -32320,7 +32317,7 @@ l54:
 	}
 	v3 = v2 - i32(55)
 l70:
-	v6 = v3 | v6<<4
+	v5 = v3 | v5<<4
 	v3 = i32(5)
 	goto l67
 l55:
@@ -32450,18 +32447,18 @@ l64:
 	goto l0
 l65:
 	v3 = i32(16)
-	v5 = v2 - i32(48)
-	if uint32(v5&i32(255)) < uint32(i32(10)) {
+	v6 = v2 - i32(48)
+	if uint32(v6&i32(255)) < uint32(i32(10)) {
 		goto l67
 	}
 	if uint32((v2-i32(65))&i32(255)) >= uint32(i32(6)) {
 		if uint32((v2-i32(97))&i32(255)) > uint32(i32(5)) {
 			goto l0
 		}
-		v5 = v2 - i32(87)
+		v6 = v2 - i32(87)
 		goto l67
 	}
-	v5 = v2 - i32(55)
+	v6 = v2 - i32(55)
 	goto l67
 l66:
 	v3 = v2 - i32(48)
@@ -32477,7 +32474,7 @@ l66:
 	}
 	v3 = v2 - i32(55)
 l77:
-	v5 = v3 | v5<<4
+	v6 = v3 | v6<<4
 	v3 = i32(17)
 	goto l67
 l75:
@@ -32507,10 +32504,10 @@ l67:
 	m.memory[int64(uint32(v1))+4] = byte(v11)
 	m.memory[int64(uint32(v1))+3] = byte(v10)
 	m.memory[int64(uint32(v1))+2] = byte(v9)
-	m.memory[int64(uint32(v1))+1] = byte(v6)
+	m.memory[int64(uint32(v1))+1] = byte(v5)
 	m.memory[uint32(v1)] = byte(v8)
 l25:
-	m.memory[int64(uint32(v1))+5] = byte(v5)
+	m.memory[int64(uint32(v1))+5] = byte(v6)
 	v7 = i32(1)
 l0:
 	return v7
@@ -32531,9 +32528,9 @@ func (m *Module) _pcap_ether_hostton(v0 int32) int32 {
 			goto l0
 		}
 		t0 := v2
-		store32(m.memory[uint32(t0):], load32(m.memory[int64(uint32(v1))+1034:]))
+		store16(m.memory[int64(uint32(t0))+4:], load16(m.memory[int64(uint32(v1))+1038:]))
 		t1 := v2
-		store16(m.memory[int64(uint32(t1))+4:], load16(m.memory[uint32(v1+i32(1038)):]))
+		store32(m.memory[uint32(t1):], load32(m.memory[int64(uint32(v1))+1034:]))
 		v0 = v2
 	}
 l0:
@@ -32710,7 +32707,7 @@ l41:
 																													goto l0
 																												}
 																												v0 = int32(load32(m.memory[uint32(v0+v1):]))
-																												v0 = v0<<24 | v0&i32(0xff00)<<8 | (int32(uint32(v0)>>8)&i32(0xff00) | int32(uint32(v0)>>24))
+																												v0 = i32_rotr(v0&i32(0xff00ff), i32(8)) | i32_rotr(v0, i32(24))&i32(0xff00ff)
 																												goto l41
 																											}
 																										l18:
@@ -32758,7 +32755,7 @@ l41:
 																										goto l0
 																									}
 																									v0 = int32(load32(m.memory[uint32(v0+v1):]))
-																									v0 = v0<<24 | v0&i32(0xff00)<<8 | (int32(uint32(v0)>>8)&i32(0xff00) | int32(uint32(v0)>>24))
+																									v0 = i32_rotr(v0&i32(0xff00ff), i32(8)) | i32_rotr(v0, i32(24))&i32(0xff00ff)
 																									goto l41
 																								}
 																							l29:
@@ -33045,8 +33042,8 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 	var v5 int32
 	v2 = m.___stack_pointer - i32(608)
 	m.___stack_pointer = v2
-	v4 = i32(8225)
-	v3 = i32(1893)
+	v4 = i32(72703)
+	v3 = i32(66405)
 	{
 		{
 			{
@@ -33181,314 +33178,314 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 																														}
 																													l8:
 																														store32(m.memory[int64(uint32(v2))+64:], uint32(v5))
-																														_ = m._snprintf(v2+i32(544), i32(64), i32(1252), v2-i32(-64))
+																														_ = m._snprintf(v2+i32(544), i32(64), i32(65764), v2-i32(-64))
 																														v4 = v2 + i32(544)
-																														v3 = i32(3368)
+																														v3 = i32(67880)
 																														goto l12
 																													l6:
 																														t0 := v2
 																														store32(m.memory[int64(uint32(t0))+80:], load32(m.memory[int64(uint32(v0))+4:]))
-																														_ = m._snprintf(v2+i32(544), i32(64), i32(6200), v2+i32(80))
+																														_ = m._snprintf(v2+i32(544), i32(64), i32(70712), v2+i32(80))
 																														v4 = v2 + i32(544)
 																														goto l12
 																													}
 																												l15:
 																													t1 := v2
 																													store32(m.memory[int64(uint32(t1))+96:], load32(m.memory[int64(uint32(v0))+4:]))
-																													_ = m._snprintf(v2+i32(544), i32(64), i32(6629), v2+i32(96))
+																													_ = m._snprintf(v2+i32(544), i32(64), i32(71141), v2+i32(96))
 																													v4 = v2 + i32(544)
-																													v3 = i32(5979)
+																													v3 = i32(70491)
 																													goto l12
 																												}
 																											l18:
 																												t2 := v2
 																												store32(m.memory[int64(uint32(t2))+112:], load32(m.memory[int64(uint32(v0))+4:]))
-																												_ = m._snprintf(v2+i32(544), i32(64), i32(6629), v2+i32(112))
+																												_ = m._snprintf(v2+i32(544), i32(64), i32(71141), v2+i32(112))
 																												v4 = v2 + i32(544)
-																												v3 = i32(5217)
+																												v3 = i32(69729)
 																												goto l12
 																											}
 																										l21:
 																											t3 := v2
 																											store32(m.memory[int64(uint32(t3))+128:], load32(m.memory[int64(uint32(v0))+4:]))
-																											_ = m._snprintf(v2+i32(544), i32(64), i32(6629), v2+i32(128))
+																											_ = m._snprintf(v2+i32(544), i32(64), i32(71141), v2+i32(128))
 																											v4 = v2 + i32(544)
-																											v3 = i32(6595)
+																											v3 = i32(71107)
 																											goto l12
 																										}
 																									l41:
-																										v4 = i32(4012)
-																										v3 = i32(5979)
+																										v4 = i32(68524)
+																										v3 = i32(70491)
 																										goto l12
 																									l42:
-																										v4 = i32(4012)
-																										v3 = i32(1138)
+																										v4 = i32(68524)
+																										v3 = i32(65650)
 																										goto l12
 																									l26:
 																										t4 := v2
 																										store32(m.memory[int64(uint32(t4))+144:], load32(m.memory[int64(uint32(v0))+4:]))
-																										_ = m._snprintf(v2+i32(544), i32(64), i32(6634), v2+i32(144))
+																										_ = m._snprintf(v2+i32(544), i32(64), i32(71146), v2+i32(144))
 																										v4 = v2 + i32(544)
-																										v3 = i32(5979)
+																										v3 = i32(70491)
 																										goto l12
 																									}
 																								l29:
 																									t5 := v2
 																									store32(m.memory[int64(uint32(t5))+160:], load32(m.memory[int64(uint32(v0))+4:]))
-																									_ = m._snprintf(v2+i32(544), i32(64), i32(6634), v2+i32(160))
+																									_ = m._snprintf(v2+i32(544), i32(64), i32(71146), v2+i32(160))
 																									v4 = v2 + i32(544)
-																									v3 = i32(5217)
+																									v3 = i32(69729)
 																									goto l12
 																								}
 																							l32:
 																								t6 := v2
 																								store32(m.memory[int64(uint32(t6))+176:], load32(m.memory[int64(uint32(v0))+4:]))
-																								_ = m._snprintf(v2+i32(544), i32(64), i32(6634), v2+i32(176))
+																								_ = m._snprintf(v2+i32(544), i32(64), i32(71146), v2+i32(176))
 																								v4 = v2 + i32(544)
-																								v3 = i32(6595)
+																								v3 = i32(71107)
 																								goto l12
 																							}
 																						l0:
 																							t7 := v2
 																							store32(m.memory[int64(uint32(t7))+192:], load32(m.memory[int64(uint32(v0))+4:]))
-																							_ = m._snprintf(v2+i32(544), i32(64), i32(1215), v2+i32(192))
+																							_ = m._snprintf(v2+i32(544), i32(64), i32(65727), v2+i32(192))
 																							v4 = v2 + i32(544)
-																							v3 = i32(5979)
+																							v3 = i32(70491)
 																							goto l12
 																						}
 																					l1:
 																						t8 := v2
 																						store32(m.memory[int64(uint32(t8))+208:], load32(m.memory[int64(uint32(v0))+4:]))
-																						_ = m._snprintf(v2+i32(544), i32(64), i32(1215), v2+i32(208))
+																						_ = m._snprintf(v2+i32(544), i32(64), i32(65727), v2+i32(208))
 																						v4 = v2 + i32(544)
-																						v3 = i32(1138)
+																						v3 = i32(65650)
 																						goto l12
 																					}
 																				l49:
 																					t9 := v2
 																					store32(m.memory[int64(uint32(t9))+224:], load32(m.memory[int64(uint32(v0))+4:]))
-																					_ = m._snprintf(v2+i32(544), i32(64), i32(7260), v2+i32(224))
+																					_ = m._snprintf(v2+i32(544), i32(64), i32(71738), v2+i32(224))
 																					v4 = v2 + i32(544)
-																					v3 = i32(6578)
+																					v3 = i32(71090)
 																					goto l12
 																				}
 																			l35:
 																				t10 := v2
 																				store32(m.memory[int64(uint32(t10))+240:], load32(m.memory[int64(uint32(v0))+4:]))
-																				_ = m._snprintf(v2+i32(544), i32(64), i32(6628), v2+i32(240))
+																				_ = m._snprintf(v2+i32(544), i32(64), i32(71140), v2+i32(240))
 																				v4 = v2 + i32(544)
-																				v3 = i32(5979)
+																				v3 = i32(70491)
 																				goto l12
 																			}
 																		l36:
 																			t11 := v2
 																			store32(m.memory[int64(uint32(t11))+256:], load32(m.memory[int64(uint32(v0))+4:]))
-																			_ = m._snprintf(v2+i32(544), i32(64), i32(6628), v2+i32(256))
+																			_ = m._snprintf(v2+i32(544), i32(64), i32(71140), v2+i32(256))
 																			v4 = v2 + i32(544)
-																			v3 = i32(1138)
+																			v3 = i32(65650)
 																			goto l12
 																		}
 																	l2:
 																		t12 := v2
 																		store32(m.memory[int64(uint32(t12))+272:], load32(m.memory[int64(uint32(v0))+4:]))
-																		_ = m._snprintf(v2+i32(544), i32(64), i32(6628), v2+i32(272))
+																		_ = m._snprintf(v2+i32(544), i32(64), i32(71140), v2+i32(272))
 																		v4 = v2 + i32(544)
-																		v3 = i32(1545)
+																		v3 = i32(66057)
 																		goto l12
 																	}
 																l3:
 																	t13 := v2
 																	store32(m.memory[int64(uint32(t13))+288:], load32(m.memory[int64(uint32(v0))+4:]))
-																	_ = m._snprintf(v2+i32(544), i32(64), i32(6628), v2+i32(288))
+																	_ = m._snprintf(v2+i32(544), i32(64), i32(71140), v2+i32(288))
 																	v4 = v2 + i32(544)
-																	v3 = i32(1122)
+																	v3 = i32(65634)
 																	goto l12
 																}
 															l5:
 																t14 := v2
 																t15 := v1
 																store32(m.memory[int64(uint32(t14))+304:], uint32(t15+int32(load32(m.memory[int64(uint32(v0))+4:]))+i32(1)))
-																_ = m._snprintf(v2+i32(544), i32(64), i32(6381), v2+i32(304))
+																_ = m._snprintf(v2+i32(544), i32(64), i32(70893), v2+i32(304))
 																v4 = v2 + i32(544)
-																v3 = i32(6618)
+																v3 = i32(71130)
 																goto l12
 															}
 														l17:
 															t16 := v2
 															store32(m.memory[int64(uint32(t16))+320:], load32(m.memory[int64(uint32(v0))+4:]))
-															_ = m._snprintf(v2+i32(544), i32(64), i32(1215), v2+i32(320))
+															_ = m._snprintf(v2+i32(544), i32(64), i32(65727), v2+i32(320))
 															v4 = v2 + i32(544)
-															v3 = i32(1865)
+															v3 = i32(66377)
 															goto l12
 														}
 													l23:
 														t17 := v2
 														store32(m.memory[int64(uint32(t17))+336:], load32(m.memory[int64(uint32(v0))+4:]))
-														_ = m._snprintf(v2+i32(544), i32(64), i32(1215), v2+i32(336))
+														_ = m._snprintf(v2+i32(544), i32(64), i32(65727), v2+i32(336))
 														v4 = v2 + i32(544)
-														v3 = i32(5831)
+														v3 = i32(70343)
 														goto l12
 													}
 												l11:
 													t18 := v2
 													store32(m.memory[int64(uint32(t18))+352:], load32(m.memory[int64(uint32(v0))+4:]))
-													_ = m._snprintf(v2+i32(544), i32(64), i32(1215), v2+i32(352))
+													_ = m._snprintf(v2+i32(544), i32(64), i32(65727), v2+i32(352))
 													v4 = v2 + i32(544)
-													v3 = i32(3154)
+													v3 = i32(67666)
 													goto l12
 												}
 											l28:
 												t19 := v2
 												store32(m.memory[int64(uint32(t19))+368:], load32(m.memory[int64(uint32(v0))+4:]))
-												_ = m._snprintf(v2+i32(544), i32(64), i32(1215), v2+i32(368))
+												_ = m._snprintf(v2+i32(544), i32(64), i32(65727), v2+i32(368))
 												v4 = v2 + i32(544)
-												v3 = i32(1869)
+												v3 = i32(66381)
 												goto l12
 											}
 										l20:
-											v4 = i32(1255)
-											v3 = i32(1865)
+											v4 = i32(65767)
+											v3 = i32(66377)
 											goto l12
 										l25:
-											v4 = i32(1255)
-											v3 = i32(5831)
+											v4 = i32(65767)
+											v3 = i32(70343)
 											goto l12
 										l14:
-											v4 = i32(1255)
-											v3 = i32(3154)
+											v4 = i32(65767)
+											v3 = i32(67666)
 											goto l12
 										l31:
-											v4 = i32(1255)
-											v3 = i32(1869)
+											v4 = i32(65767)
+											v3 = i32(66381)
 											goto l12
 										l9:
-											v4 = i32(1255)
-											v3 = i32(6159)
+											v4 = i32(65767)
+											v3 = i32(70671)
 											goto l12
 										l13:
-											v4 = i32(1255)
-											v3 = i32(6583)
+											v4 = i32(65767)
+											v3 = i32(71095)
 											goto l12
 										l19:
-											v4 = i32(1255)
-											v3 = i32(4134)
+											v4 = i32(65767)
+											v3 = i32(68646)
 											goto l12
 										l24:
-											v4 = i32(1255)
-											v3 = i32(1306)
+											v4 = i32(65767)
+											v3 = i32(65818)
 											goto l12
 										l46:
-											v4 = i32(1255)
-											v3 = i32(5859)
+											v4 = i32(65767)
+											v3 = i32(70371)
 											goto l12
 										l34:
-											v4 = i32(1255)
-											v3 = i32(5959)
+											v4 = i32(65767)
+											v3 = i32(70471)
 											goto l12
 										l30:
-											v4 = i32(1255)
-											v3 = i32(3007)
+											v4 = i32(65767)
+											v3 = i32(67519)
 											goto l12
 										l48:
-											v4 = i32(1255)
-											v3 = i32(2962)
+											v4 = i32(65767)
+											v3 = i32(67474)
 											goto l12
 										l38:
-											v4 = i32(1255)
-											v3 = i32(5209)
+											v4 = i32(65767)
+											v3 = i32(69721)
 											goto l12
 										l40:
-											v4 = i32(1255)
-											v3 = i32(5205)
+											v4 = i32(65767)
+											v3 = i32(69717)
 											goto l12
 										l4:
 											t20 := v2
 											store32(m.memory[int64(uint32(t20))+384:], load32(m.memory[int64(uint32(v0))+4:]))
-											_ = m._snprintf(v2+i32(544), i32(64), i32(6200), v2+i32(384))
+											_ = m._snprintf(v2+i32(544), i32(64), i32(70712), v2+i32(384))
 											v4 = v2 + i32(544)
-											v3 = i32(6159)
+											v3 = i32(70671)
 											goto l12
 										}
 									l10:
 										t21 := v2
 										store32(m.memory[int64(uint32(t21))+400:], load32(m.memory[int64(uint32(v0))+4:]))
-										_ = m._snprintf(v2+i32(544), i32(64), i32(6200), v2+i32(400))
+										_ = m._snprintf(v2+i32(544), i32(64), i32(70712), v2+i32(400))
 										v4 = v2 + i32(544)
-										v3 = i32(6583)
+										v3 = i32(71095)
 										goto l12
 									}
 								l16:
 									t22 := v2
 									store32(m.memory[int64(uint32(t22))+416:], load32(m.memory[int64(uint32(v0))+4:]))
-									_ = m._snprintf(v2+i32(544), i32(64), i32(6200), v2+i32(416))
+									_ = m._snprintf(v2+i32(544), i32(64), i32(70712), v2+i32(416))
 									v4 = v2 + i32(544)
-									v3 = i32(4134)
+									v3 = i32(68646)
 									goto l12
 								}
 							l22:
 								t23 := v2
 								store32(m.memory[int64(uint32(t23))+432:], load32(m.memory[int64(uint32(v0))+4:]))
-								_ = m._snprintf(v2+i32(544), i32(64), i32(6200), v2+i32(432))
+								_ = m._snprintf(v2+i32(544), i32(64), i32(70712), v2+i32(432))
 								v4 = v2 + i32(544)
-								v3 = i32(1306)
+								v3 = i32(65818)
 								goto l12
 							}
 						l45:
 							t24 := v2
 							store32(m.memory[int64(uint32(t24))+448:], load32(m.memory[int64(uint32(v0))+4:]))
-							_ = m._snprintf(v2+i32(544), i32(64), i32(6200), v2+i32(448))
+							_ = m._snprintf(v2+i32(544), i32(64), i32(70712), v2+i32(448))
 							v4 = v2 + i32(544)
-							v3 = i32(5859)
+							v3 = i32(70371)
 							goto l12
 						}
 					l33:
 						t25 := v2
 						store32(m.memory[int64(uint32(t25))+464:], load32(m.memory[int64(uint32(v0))+4:]))
-						_ = m._snprintf(v2+i32(544), i32(64), i32(1215), v2+i32(464))
+						_ = m._snprintf(v2+i32(544), i32(64), i32(65727), v2+i32(464))
 						v4 = v2 + i32(544)
-						v3 = i32(5959)
+						v3 = i32(70471)
 						goto l12
 					}
 				l27:
 					t26 := v2
 					store32(m.memory[int64(uint32(t26))+480:], load32(m.memory[int64(uint32(v0))+4:]))
-					_ = m._snprintf(v2+i32(544), i32(64), i32(1215), v2+i32(480))
+					_ = m._snprintf(v2+i32(544), i32(64), i32(65727), v2+i32(480))
 					v4 = v2 + i32(544)
-					v3 = i32(3007)
+					v3 = i32(67519)
 					goto l12
 				}
 			l47:
 				t27 := v2
 				store32(m.memory[int64(uint32(t27))+496:], load32(m.memory[int64(uint32(v0))+4:]))
-				_ = m._snprintf(v2+i32(544), i32(64), i32(1215), v2+i32(496))
+				_ = m._snprintf(v2+i32(544), i32(64), i32(65727), v2+i32(496))
 				v4 = v2 + i32(544)
-				v3 = i32(2962)
+				v3 = i32(67474)
 				goto l12
 			}
 		l37:
 			t28 := v2
 			store32(m.memory[int64(uint32(t28))+512:], load32(m.memory[int64(uint32(v0))+4:]))
-			_ = m._snprintf(v2+i32(544), i32(64), i32(6200), v2+i32(512))
+			_ = m._snprintf(v2+i32(544), i32(64), i32(70712), v2+i32(512))
 			v4 = v2 + i32(544)
-			v3 = i32(5209)
+			v3 = i32(69721)
 			goto l12
 		}
 	l39:
 		t29 := v2
 		store32(m.memory[int64(uint32(t29))+528:], load32(m.memory[int64(uint32(v0))+4:]))
-		_ = m._snprintf(v2+i32(544), i32(64), i32(6200), v2+i32(528))
+		_ = m._snprintf(v2+i32(544), i32(64), i32(70712), v2+i32(528))
 		v4 = v2 + i32(544)
-		v3 = i32(5205)
+		v3 = i32(69717)
 		goto l12
 	}
 l43:
-	v3 = i32(5250)
+	v3 = i32(69762)
 	goto l12
 l7:
-	v3 = i32(1142)
+	v3 = i32(65654)
 	goto l12
 l44:
-	v3 = i32(6599)
+	v3 = i32(71111)
 l12:
 	;
 	var p30 int32
@@ -33510,27 +33507,27 @@ l12:
 		store32(m.memory[int64(uint32(v2))+40:], uint32(v4))
 		store32(m.memory[int64(uint32(v2))+36:], uint32(v3))
 		store32(m.memory[int64(uint32(v2))+44:], uint32(v1+v5))
-		_ = m._snprintf(i32(62448), i32(256), i32(6204), v2+i32(32))
-		p30 = i32(62448)
+		_ = m._snprintf(i32(126928), i32(256), i32(70716), v2+i32(32))
+		p30 = i32(126928)
 		goto l51
 	}
 l50:
 	if int32(m.memory[uint32(v4)]) == 0 {
 		store32(m.memory[int64(uint32(v2))+4:], uint32(v3))
 		store32(m.memory[uint32(v2):], uint32(v1))
-		_ = m._snprintf(i32(62448), i32(256), i32(2735), v2)
-		p30 = i32(62448)
+		_ = m._snprintf(i32(126928), i32(256), i32(67247), v2)
+		p30 = i32(126928)
 		goto l51
 	}
 	store32(m.memory[int64(uint32(v2))+24:], uint32(v4))
 	store32(m.memory[int64(uint32(v2))+20:], uint32(v3))
 	store32(m.memory[int64(uint32(v2))+16:], uint32(v1))
-	_ = m._snprintf(i32(62448), i32(256), i32(2825), v2+i32(16))
-	p30 = i32(62448)
+	_ = m._snprintf(i32(126928), i32(256), i32(67337), v2+i32(16))
+	p30 = i32(126928)
 l51:
 	v0 = p30
 	m.___stack_pointer = v2 + i32(608)
-	return i32(62448)
+	return i32(126928)
 }
 func (m *Module) _pcapint_fmt_errmsg_for_errno(v0, v1, v2, v3, v4 int32) {
 	var v5 int32
@@ -33546,7 +33543,7 @@ func (m *Module) _pcapint_fmt_errmsg_for_errno(v0, v1, v2, v3, v4 int32) {
 		store16(m.memory[uint32(v0):], uint16(i32(8250)))
 		t1 := v5
 		store32(m.memory[uint32(t1):], uint32(_pcap_strerror(v2)))
-		_ = m._snprintf(v0+i32(2), v1-v4-i32(2), i32(2956), v5)
+		_ = m._snprintf(v0+i32(2), v1-v4-i32(2), i32(67468), v5)
 	}
 	m.___stack_pointer = v5 + i32(16)
 }
@@ -33574,18 +33571,15 @@ func (m *Module) _stbsp_vsprintfcb(v0, v1, v2, v3, v4 int32) int32 {
 	var v25 int32
 	var v26 int32
 	var v27 int32
-	var v28 int32
-	var v29 int32
 	v10 = m.___stack_pointer - i32(528)
 	m.___stack_pointer = v10
-	v27 = v10 + i32(14)
+	v26 = v10 + i32(14)
 	v24 = v10 + i32(15)
 	v21 = v10 + i32(527)
-	v28 = v10 + i32(1)
+	v27 = v10 + i32(1)
 	v23 = v10 + i32(528)
 	v25 = v10 + i32(9)
-	v29 = v10 + i32(8)
-	v12 = v2
+	v13 = v2
 l126:
 	{
 		{
@@ -33599,7 +33593,7 @@ l126:
 			if t0&v6 != 0 {
 				goto l0
 			}
-			v8 = v12 - v2 + i32(512)
+			v8 = v13 - v2 + i32(512)
 		l2:
 			{
 				if v6&(v5-i32(16843009)) != 0 {
@@ -33852,27 +33846,27 @@ l126:
 													}
 													v15 = p13
 													v5 = int32(load32(m.memory[uint32(v7):]))
-													p14 := i32(4230)
+													p14 := i32(68742)
 													if v5 != 0 {
 														p14 = v5
 													}
 													v5 = p14
 													if v5&i32(3) == 0 {
-														v11 = v5
+														v12 = v5
 														goto l37
 													}
 													v3 = v5 + v15
 													if v14 == 0 {
-														v11 = v3
+														v12 = v3
 														goto l38
 													}
 													if int32(m.memory[uint32(v5)]) == 0 {
-														v11 = v5
+														v12 = v5
 														goto l38
 													}
 													v6 = v15 - i32(1)
-													v11 = v5 + i32(1)
-													if v11&i32(3) != 0 {
+													v12 = v5 + i32(1)
+													if v12&i32(3) != 0 {
 														goto l39
 													}
 													v15 = v6
@@ -33880,7 +33874,7 @@ l126:
 												}
 											l31:
 												v5 = int32(load32(m.memory[uint32(v7):]))
-												v13 = i32(0)
+												v11 = i32(0)
 												m.memory[int64(uint32(v10))+8] = byte(i32(0))
 												m.memory[int64(uint32(v10))+527] = byte(v5)
 												m.memory[uint32(v10)] = byte(i32(0))
@@ -33892,11 +33886,11 @@ l126:
 												p11 = i32(0)
 												goto l40
 											l27:
-												v13 = i32(0)
+												v11 = i32(0)
 												m.memory[uint32(v10)] = byte(i32(0))
 												m.memory[int64(uint32(v10))+8] = byte(i32(0))
 												v16 = i32(8)
-												v5 = i32(1916)
+												v5 = i32(66428)
 												t15 := (v7+i32(7))&i32(-8) + i32(8)
 												p12 = t15
 												goto l41
@@ -33908,9 +33902,9 @@ l126:
 												p16 = 1
 											}
 											v5 = p16
-											p17 := i32(10288)
+											p17 := i32(74768)
 											if v5 != 0 {
-												p17 = i32(10320)
+												p17 = i32(74800)
 											}
 											v9 = p17
 											v3 = i32(384)
@@ -33928,7 +33922,7 @@ l126:
 										}
 									l34:
 										m.memory[int64(uint32(v10))+8] = byte(i32(0))
-										v9 = i32(10320)
+										v9 = i32(74800)
 										v3 = i32(816)
 										if v8&i32(8) == 0 {
 											goto l42
@@ -33945,9 +33939,9 @@ l126:
 											p20 = 1
 										}
 										v5 = p20
-										p21 := i32(10288)
+										p21 := i32(74768)
 										if v5 != 0 {
-											p21 = i32(10320)
+											p21 = i32(74800)
 										}
 										v9 = p21
 										v3 = i32(1088)
@@ -33980,7 +33974,7 @@ l126:
 									if v18 != i64(0) {
 										goto l44
 									}
-									v13 = i32(0)
+									v11 = i32(0)
 									m.memory[int64(uint32(v10))+8] = byte(i32(0))
 									if v14 != 0 {
 										goto l44
@@ -34008,13 +34002,13 @@ l126:
 									v5 = v21
 									goto l46
 								l45:
-									v13 = v8 & i32(64)
+									v11 = v8 & i32(64)
 									v5 = v21
 									v6 = v23
 								l48:
 									{
 										{
-											if v13 == 0 {
+											if v11 == 0 {
 												v6 = v5
 												goto l47
 											}
@@ -34025,7 +34019,7 @@ l126:
 											}
 											v6 = v6 - i32(2)
 											t29 := v6
-											m.memory[uint32(t29)] = byte(int32(m.memory[uint32(i32(60616))]))
+											m.memory[uint32(t29)] = byte(int32(m.memory[uint32(i32(125096))]))
 											v3 = v3 & i32(-16)
 										}
 									l47:
@@ -34045,7 +34039,7 @@ l126:
 										}
 									}
 								l46:
-									v13 = int32(int8(m.memory[uint32(v10)]))
+									v11 = int32(int8(m.memory[uint32(v10)]))
 									v6 = int32(m.memory[int64(uint32(v10))+8])
 									t33 := v16 + v3<<20&i32(0xf000000)
 									p11 = t33
@@ -34111,11 +34105,11 @@ l126:
 								v4 = p34
 								v16 = v8 & i32(64)
 								v6 = i32(0)
-								v11 = int32(m.memory[uint32(i32(60616))])
+								v12 = int32(m.memory[uint32(i32(125096))])
 								v5 = i32(512)
 							l55:
 								v22 = i64(0)
-								v7 = v5 + v29
+								v7 = v5 + v10 + i32(8)
 								if uint64(v18) >= uint64(i64(100000000)) {
 									t48 := v18
 									v22 = int64(uint64(v18) / uint64(i64(100000000)))
@@ -34125,10 +34119,10 @@ l126:
 								if v16 == 0 {
 								l50:
 									{
-										t49 := v5 + v27
+										t49 := v5 + v26
 										t50 := v3
 										v9 = int32(uint32(v3) / uint32(i32(100)))
-										store16(m.memory[uint32(t49):], load16(m.memory[int64(uint32((t50-v9*i32(100))<<1))+10342:]))
+										store16(m.memory[uint32(t49):], load16(m.memory[int64(uint32((t50-v9*i32(100))<<1))+74822:]))
 										v5 = v5 - i32(2)
 										var p51 int32
 										if uint32(v3) < uint32(i32(100)) {
@@ -34149,7 +34143,7 @@ l126:
 									var p52 int32
 									{
 										if v6 == i32(3) {
-											m.memory[uint32(v5+v24)] = byte(v11)
+											m.memory[uint32(v5+v24)] = byte(v12)
 											v7 = v7 - i32(1)
 											p52 = i32(0)
 											goto l52
@@ -34187,7 +34181,7 @@ l126:
 								m.memory[int64(uint32(v5+v10))+15] = byte(i32(48))
 								goto l57
 							l56:
-								m.memory[int64(uint32(v5+v10))+15] = byte(v11)
+								m.memory[int64(uint32(v5+v10))+15] = byte(v12)
 								v7 = v7 - i32(1)
 								v6 = i32(0)
 							l57:
@@ -34198,16 +34192,16 @@ l126:
 								goto l55
 							}
 						l33:
-							store32(m.memory[load32(m.memory[uint32(v7):]):], uint32(v17-v12+v2))
+							store32(m.memory[load32(m.memory[uint32(v7):]):], uint32(v17-v13+v2))
 							v4 = v7 + i32(4)
 							goto l59
 						l29:
-							v13 = i32(0)
+							v6 = i32(0)
 							m.memory[int64(uint32(v10))+8] = byte(i32(0))
 							m.memory[int64(uint32(v10))+527] = byte(v5)
 							m.memory[uint32(v10)] = byte(i32(0))
 							v16 = i32(1)
-							v6 = i32(0)
+							v11 = i32(0)
 							v5 = v21
 							v8 = i32(0)
 							v14 = i32(0)
@@ -34260,7 +34254,7 @@ l126:
 						l61:
 							v6 = p58
 							v5 = v10 + i32(16) + v3
-							v13 = i32(0)
+							v11 = i32(0)
 							p62 := i32(0)
 							if v14 > i32(0) {
 								p62 = v14
@@ -34281,61 +34275,61 @@ l126:
 						}
 					l39:
 						if v6 == 0 {
-							v11 = v3
+							v12 = v3
 							goto l38
 						}
-						if int32(m.memory[uint32(v11)]) == 0 {
+						if int32(m.memory[uint32(v12)]) == 0 {
 							goto l38
 						}
 						v6 = v15 - i32(2)
-						v11 = v5 + i32(2)
-						if v11&i32(3) == 0 {
+						v12 = v5 + i32(2)
+						if v12&i32(3) == 0 {
 							v15 = v6
 							goto l37
 						}
 						if v6 == 0 {
-							v11 = v3
+							v12 = v3
 							goto l38
 						}
-						if int32(m.memory[uint32(v11)]) == 0 {
+						if int32(m.memory[uint32(v12)]) == 0 {
 							goto l38
 						}
 						v6 = v15 - i32(3)
-						v11 = v5 + i32(3)
-						if v11&i32(3) == 0 {
+						v12 = v5 + i32(3)
+						if v12&i32(3) == 0 {
 							v15 = v6
 							goto l37
 						}
 						if v6 == 0 {
-							v11 = v3
+							v12 = v3
 							goto l38
 						}
-						if int32(m.memory[uint32(v11)]) == 0 {
+						if int32(m.memory[uint32(v12)]) == 0 {
 							goto l38
 						}
 						v15 = v15 - i32(4)
-						v11 = v5 + i32(4)
-						if v11&i32(3) == 0 {
+						v12 = v5 + i32(4)
+						if v12&i32(3) == 0 {
 							goto l37
 						}
 						p65 := v3
 						if v15 != 0 {
-							p65 = v11
+							p65 = v12
 						}
-						v11 = p65
+						v12 = p65
 						goto l38
 					}
 				l37:
 					v9 = v15
-					v13 = v11
+					v11 = v12
 				l63:
-					v3 = v13
+					v3 = v11
 					v6 = v9
 					if uint32(v6) < uint32(i32(4)) {
 						goto l62
 					}
 					v9 = v6 - i32(4)
-					v13 = v3 + i32(4)
+					v11 = v3 + i32(4)
 					v16 = int32(load32(m.memory[uint32(v3):]))
 					if (i32(16843008)-v16|v16)&i32(-2139062144) == i32(-2139062144) {
 						goto l63
@@ -34345,15 +34339,15 @@ l126:
 					if v6 != 0 {
 						goto l64
 					}
-					v11 = v3
+					v12 = v3
 					goto l38
 				l64:
-					t66 := v11 + v15
+					t66 := v12 + v15
 					v9 = i32(0)
 				l65:
 					{
-						v11 = v3 + v9
-						if int32(m.memory[uint32(v11)]) == 0 {
+						v12 = v3 + v9
+						if int32(m.memory[uint32(v12)]) == 0 {
 							goto l38
 						}
 						t67 := v6
@@ -34362,13 +34356,13 @@ l126:
 							goto l65
 						}
 					}
-					v11 = t66
+					v12 = t66
 				}
 			l38:
-				v13 = i32(0)
+				v11 = i32(0)
 				m.memory[uint32(v10)] = byte(i32(0))
 				m.memory[int64(uint32(v10))+8] = byte(i32(0))
-				v16 = v11 - v5
+				v16 = v12 - v5
 				p12 = v7 + i32(4)
 			l41:
 				v4 = p12
@@ -34384,12 +34378,12 @@ l126:
 				p68 = v14
 			}
 			v7 = p68
-			v3 = v7 + int32(int8(v6)) + v13
+			v3 = v7 + int32(int8(v6)) + v11
 			p70 := v3
 			if v3 < v19 {
 				p70 = t69
 			}
-			v11 = p70 - v3
+			v12 = p70 - v3
 			v14 = v7 - v16
 			{
 				if v8&i32(1) != 0 {
@@ -34400,29 +34394,29 @@ l126:
 					goto l66
 				}
 				p71 := v14
-				if v11 > v14 {
-					p71 = v11
+				if v12 > v14 {
+					p71 = v12
 				}
 				v14 = p71
-				v11 = i32(0)
+				v12 = i32(0)
 			}
 		l66:
-			if i32(0)-v14 != v11 {
+			if i32(0)-v14 != v12 {
 				if v8&i32(1) != 0 {
 					goto l67
 				}
-				if v11 <= i32(0) {
+				if v12 <= i32(0) {
 					goto l67
 				}
 			l78:
 				{
-					t72 := v11
-					v3 = v12 - v2 + i32(512)
+					t72 := v12
+					v3 = v13 - v2 + i32(512)
 					p73 := v3
-					if v3 > v11 {
+					if v3 > v12 {
 						p73 = t72
 					}
-					p74 := v11
+					p74 := v12
 					if v0 != 0 {
 						p74 = p73
 					}
@@ -34472,10 +34466,10 @@ l126:
 					v7 = v6
 					goto l69
 				}
-				v13 = v6 - i32(4)
-				if v13&i32(28) != i32(28) {
+				v11 = v6 - i32(4)
+				if v11&i32(28) != i32(28) {
 					t76 := v6
-					v2 = (int32(uint32(v13)>>2) + i32(1)) & i32(7)
+					v2 = (int32(uint32(v11)>>2) + i32(1)) & i32(7)
 					v6 = t76 - v2<<2
 				l70:
 					store32(m.memory[uint32(v3):], uint32(i32(538976288)))
@@ -34486,7 +34480,7 @@ l126:
 					}
 					v7 = v6
 				}
-				if uint32(v13) < uint32(i32(28)) {
+				if uint32(v11) < uint32(i32(28)) {
 					goto l69
 				}
 			l71:
@@ -34496,10 +34490,13 @@ l126:
 					store64(m.memory[int64(uint32(v3))+16:], uint64(i64(2314885530818453536)))
 					store64(m.memory[int64(uint32(v3))+8:], uint64(i64(2314885530818453536)))
 					v3 = v3 + i32(32)
-					t77 := v6 - i32(36)
+					var p77 int32
+					if v6 > i32(35) {
+						p77 = 1
+					}
 					v7 = v6 - i32(32)
 					v6 = v7
-					if uint32(t77) < uint32(i32(-8)) {
+					if p77 != 0 {
 						goto l71
 					}
 				}
@@ -34536,20 +34533,20 @@ l126:
 					v2 = v3
 					goto l76
 				}
-				v2 = v3 - v12
+				v2 = v3 - v13
 				if v2 < i32(511) {
 					v2 = v3
 					goto l76
 				}
 				v17 = v2 + v17
-				v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v2)
+				v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v2)
 				if v2 == 0 {
 					goto l77
 				}
-				v12 = v2
+				v13 = v2
 			l76:
-				v11 = v11 - v9
-				if v11 > i32(0) {
+				v12 = v12 - v9
+				if v12 > i32(0) {
 					goto l78
 				}
 				v6 = int32(m.memory[int64(uint32(v10))+8])
@@ -34560,7 +34557,7 @@ l126:
 					{
 						t78 := v10
 						t79 := v6
-						v9 = v12 - v2 + i32(512)
+						v9 = v13 - v2 + i32(512)
 						t80 := v9
 						v7 = int32(int8(v6))
 						p81 := v7
@@ -34626,16 +34623,16 @@ l126:
 						if v0 == 0 {
 							goto l83
 						}
-						v6 = v2 - v12
+						v6 = v2 - v13
 						if v6 < i32(511) {
 							goto l83
 						}
 						v17 = v6 + v17
-						v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v6)
+						v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v6)
 						if v2 == 0 {
 							goto l77
 						}
-						v12 = v2
+						v13 = v2
 					l83:
 						v6 = int32(m.memory[int64(uint32(v10))+8])
 						if v6 != 0 {
@@ -34656,7 +34653,7 @@ l126:
 			l93:
 				{
 					t93 := v14
-					v3 = v12 - v2 + i32(512)
+					v3 = v13 - v2 + i32(512)
 					p94 := v3
 					if v3 > v14 {
 						p94 = t93
@@ -34667,7 +34664,7 @@ l126:
 					}
 					v15 = p95
 					if v7 != 0 {
-						v13 = v15
+						v11 = v15
 						v3 = v2
 						goto l86
 					}
@@ -34677,14 +34674,14 @@ l126:
 							p96 = v15
 						}
 						if p96 == 0 {
-							v9 = v15
+							v11 = v15
 							v3 = v2
 							goto l87
 						}
 						m.memory[uint32(v2)] = byte(i32(48))
 						v3 = v2 + i32(1)
-						v9 = v15 - i32(1)
-						if v9 == 0 {
+						v11 = v15 - i32(1)
+						if v11 == 0 {
 							goto l87
 						}
 						if v3&i32(3) == 0 {
@@ -34692,8 +34689,8 @@ l126:
 						}
 						m.memory[int64(uint32(v2))+1] = byte(i32(48))
 						v3 = v2 + i32(2)
-						v9 = v15 - i32(2)
-						if v9 == 0 {
+						v11 = v15 - i32(2)
+						if v11 == 0 {
 							goto l87
 						}
 						if v3&i32(3) == 0 {
@@ -34701,27 +34698,26 @@ l126:
 						}
 						m.memory[int64(uint32(v2))+2] = byte(i32(48))
 						v3 = v2 + i32(3)
-						v9 = v15 - i32(3)
-						if v9 == 0 {
+						v11 = v15 - i32(3)
+						if v11 == 0 {
 							goto l87
 						}
 						if v3&i32(3) == 0 {
 							goto l87
 						}
 						m.memory[int64(uint32(v2))+3] = byte(i32(48))
-						v9 = v15 - i32(4)
+						v11 = v15 - i32(4)
 						v3 = v2 + i32(4)
 					}
 				l87:
-					if v9 < i32(4) {
-						v13 = v9
+					if v11 < i32(4) {
 						goto l86
 					}
-					v26 = v9 - i32(4)
-					if v26&i32(28) != i32(28) {
-						t97 := v9
-						v2 = (int32(uint32(v26)>>2) + i32(1)) & i32(7)
-						v9 = t97 - v2<<2
+					v9 = v11 - i32(4)
+					if v9&i32(28) != i32(28) {
+						t97 := v11
+						v2 = (int32(uint32(v9)>>2) + i32(1)) & i32(7)
+						v11 = t97 - v2<<2
 					l88:
 						store32(m.memory[uint32(v3):], uint32(i32(808464432)))
 						v3 = v3 + i32(4)
@@ -34729,105 +34725,101 @@ l126:
 						if v2 != 0 {
 							goto l88
 						}
-						v13 = v9
 					}
-					if uint32(v26) < uint32(i32(28)) {
+					if uint32(v9) < uint32(i32(28)) {
 						goto l86
 					}
 				l89:
-					{
-						store64(m.memory[uint32(v3):], uint64(i64(3472328296227680304)))
-						store64(m.memory[int64(uint32(v3))+24:], uint64(i64(3472328296227680304)))
-						store64(m.memory[int64(uint32(v3))+16:], uint64(i64(3472328296227680304)))
-						store64(m.memory[int64(uint32(v3))+8:], uint64(i64(3472328296227680304)))
-						v3 = v3 + i32(32)
-						t98 := v9 - i32(36)
-						v13 = v9 - i32(32)
-						v9 = v13
-						if uint32(t98) < uint32(i32(-8)) {
-							goto l89
-						}
+					store64(m.memory[uint32(v3):], uint64(i64(3472328296227680304)))
+					store64(m.memory[int64(uint32(v3))+24:], uint64(i64(3472328296227680304)))
+					store64(m.memory[int64(uint32(v3))+16:], uint64(i64(3472328296227680304)))
+					store64(m.memory[int64(uint32(v3))+8:], uint64(i64(3472328296227680304)))
+					v2 = v11
+					v11 = v2 - i32(32)
+					v3 = v3 + i32(32)
+					if v2 > i32(35) {
+						goto l89
 					}
 				l86:
 					{
-						if v13 == 0 {
+						if v11 == 0 {
 							goto l90
 						}
-						var p99 int32
-						if v13&i32(1) != 0 {
+						var p98 int32
+						if v11&i32(1) != 0 {
 							v2 = i32(48)
 							if v7 != 0 {
-								t100 := v6 + i32(1)
-								var p101 int32
+								t99 := v6 + i32(1)
+								var p100 int32
 								if v6 == v19 {
-									p101 = 1
+									p100 = 1
 								}
-								v2 = p101
-								p102 := t100
+								v2 = p100
+								p101 := t99
 								if v2 != 0 {
-									p102 = i32(0)
+									p101 = i32(0)
 								}
-								v6 = p102
-								p103 := i32(48)
+								v6 = p101
+								p102 := i32(48)
 								if v2 != 0 {
-									p103 = int32(m.memory[uint32(i32(60616))])
+									p102 = int32(m.memory[uint32(i32(125096))])
 								}
-								v2 = p103
+								v2 = p102
 							}
 							m.memory[uint32(v3)] = byte(v2)
 							v3 = v3 + i32(1)
-							p99 = v13 - i32(1)
+							p98 = v11 - i32(1)
 						} else {
-							p99 = v13
+							p98 = v11
 						}
-						v9 = p99
-						if v13 == i32(1) {
+						v9 = p98
+						if v11 == i32(1) {
 							goto l90
 						}
 					l91:
 						{
 							v2 = i32(48)
-							t105 := v3
-							var p104 int32
+							t104 := v3
+							var p103 int32
 							if v7 != 0 {
-								t106 := v6 + i32(1)
-								var p107 int32
+								t105 := v6 + i32(1)
+								var p106 int32
 								if v6 == v19 {
-									p107 = 1
+									p106 = 1
 								}
-								v13 = p107
-								p108 := t106
-								if v13 != 0 {
-									p108 = i32(0)
+								v11 = p106
+								p107 := t105
+								if v11 != 0 {
+									p107 = i32(0)
 								}
-								v6 = p108
-								p109 := i32(48)
-								if v13 != 0 {
-									p109 = int32(m.memory[uint32(i32(60616))])
+								v6 = p107
+								p108 := i32(48)
+								if v11 != 0 {
+									p108 = int32(m.memory[uint32(i32(125096))])
 								}
-								p104 = p109
+								p103 = p108
 							} else {
-								p104 = i32(48)
+								p103 = i32(48)
 							}
-							v13 = p104
-							m.memory[uint32(t105)] = byte(v13)
+							v11 = p103
+							m.memory[uint32(t104)] = byte(v11)
 							if v7 != 0 {
-								t110 := v6 + i32(1)
-								var p111 int32
+								t109 := v6 + i32(1)
+								var p110 int32
 								if v6 == v19 {
-									p111 = 1
+									p110 = 1
 								}
-								v2 = p111
-								p112 := t110
+								v2 = p110
+								p111 := t109
 								if v2 != 0 {
-									p112 = i32(0)
+									p111 = i32(0)
 								}
-								v6 = p112
-								p113 := i32(48)
+								v6 = p111
+								p112 := i32(48)
 								if v2 != 0 {
-									p113 = int32(m.memory[uint32(i32(60616))])
+									p112 = int32(m.memory[uint32(i32(125096))])
 								}
-								v2 = p113
+								v2 = p112
 							}
 							m.memory[int64(uint32(v3))+1] = byte(v2)
 							v3 = v3 + i32(2)
@@ -34842,17 +34834,17 @@ l126:
 						v2 = v3
 						goto l92
 					}
-					v2 = v3 - v12
+					v2 = v3 - v13
 					if v2 < i32(511) {
 						v2 = v3
 						goto l92
 					}
 					v17 = v2 + v17
-					v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v2)
+					v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v2)
 					if v2 == 0 {
 						goto l77
 					}
-					v12 = v2
+					v13 = v2
 				l92:
 					v14 = v14 - v15
 					if v14 > i32(0) {
@@ -34867,21 +34859,21 @@ l126:
 			v3 = v25
 		l99:
 			{
-				t114 := v10
-				t115 := v6
-				v9 = v12 - v2 + i32(512)
-				t116 := v9
+				t113 := v10
+				t114 := v6
+				v9 = v13 - v2 + i32(512)
+				t115 := v9
 				v7 = int32(int8(v6))
-				p117 := v7
+				p116 := v7
 				if v7 > v9 {
-					p117 = t116
+					p116 = t115
 				}
-				p118 := v7
+				p117 := v7
 				if v0 != 0 {
-					p118 = p117
+					p117 = p116
 				}
-				v9 = p118
-				m.memory[int64(uint32(t114))+8] = byte(t115 - v9)
+				v9 = p117
+				m.memory[int64(uint32(t113))+8] = byte(t114 - v9)
 				if v9 == 0 {
 					goto l94
 				}
@@ -34893,8 +34885,8 @@ l126:
 				v7 = v9 & i32(-8)
 			l96:
 				{
-					t119 := v2
-					m.memory[uint32(t119)] = byte(int32(m.memory[uint32(v3)]))
+					t118 := v2
+					m.memory[uint32(t118)] = byte(int32(m.memory[uint32(v3)]))
 					v2 = v2 + i32(1)
 					v3 = v3 + i32(1)
 					v6 = v6 - i32(1)
@@ -34908,22 +34900,22 @@ l126:
 				}
 			l97:
 				{
+					t119 := v2
+					m.memory[uint32(t119)] = byte(int32(m.memory[uint32(v3)]))
 					t120 := v2
-					m.memory[uint32(t120)] = byte(int32(m.memory[uint32(v3)]))
+					m.memory[int64(uint32(t120))+1] = byte(int32(m.memory[int64(uint32(v3))+1]))
 					t121 := v2
-					m.memory[int64(uint32(t121))+1] = byte(int32(m.memory[int64(uint32(v3))+1]))
+					m.memory[int64(uint32(t121))+2] = byte(int32(m.memory[int64(uint32(v3))+2]))
 					t122 := v2
-					m.memory[int64(uint32(t122))+2] = byte(int32(m.memory[int64(uint32(v3))+2]))
+					m.memory[int64(uint32(t122))+3] = byte(int32(m.memory[int64(uint32(v3))+3]))
 					t123 := v2
-					m.memory[int64(uint32(t123))+3] = byte(int32(m.memory[int64(uint32(v3))+3]))
+					m.memory[int64(uint32(t123))+4] = byte(int32(m.memory[int64(uint32(v3))+4]))
 					t124 := v2
-					m.memory[int64(uint32(t124))+4] = byte(int32(m.memory[int64(uint32(v3))+4]))
+					m.memory[int64(uint32(t124))+5] = byte(int32(m.memory[int64(uint32(v3))+5]))
 					t125 := v2
-					m.memory[int64(uint32(t125))+5] = byte(int32(m.memory[int64(uint32(v3))+5]))
+					m.memory[int64(uint32(t125))+6] = byte(int32(m.memory[int64(uint32(v3))+6]))
 					t126 := v2
-					m.memory[int64(uint32(t126))+6] = byte(int32(m.memory[int64(uint32(v3))+6]))
-					t127 := v2
-					m.memory[int64(uint32(t127))+7] = byte(int32(m.memory[int64(uint32(v3))+7]))
+					m.memory[int64(uint32(t126))+7] = byte(int32(m.memory[int64(uint32(v3))+7]))
 					v2 = v2 + i32(8)
 					v3 = v3 + i32(8)
 					v7 = v7 - i32(8)
@@ -34935,16 +34927,16 @@ l126:
 				if v0 == 0 {
 					goto l98
 				}
-				v6 = v2 - v12
+				v6 = v2 - v13
 				if v6 < i32(511) {
 					goto l98
 				}
 				v17 = v6 + v17
-				v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v6)
+				v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v6)
 				if v2 == 0 {
 					goto l77
 				}
-				v12 = v2
+				v13 = v2
 			l98:
 				v6 = int32(m.memory[int64(uint32(v10))+8])
 				if v6 != 0 {
@@ -34955,34 +34947,34 @@ l126:
 			if v16 != 0 {
 			l109:
 				{
-					t128 := v16
-					v3 = v12 - v2 + i32(512)
-					p129 := v3
+					t127 := v16
+					v3 = v13 - v2 + i32(512)
+					p128 := v3
 					if v3 > v16 {
-						p129 = t128
+						p128 = t127
 					}
-					p130 := v16
+					p129 := v16
 					if v0 != 0 {
-						p130 = p129
+						p129 = p128
 					}
-					v9 = p130
+					v9 = p129
 					if v9 < i32(4) {
 						v7 = v9
 						goto l100
 					}
 					{
-						v13 = v9 - i32(4)
-						if v13&i32(28) == i32(28) {
+						v11 = v9 - i32(4)
+						if v11&i32(28) == i32(28) {
 							v3 = v9
 							goto l101
 						}
-						t131 := v9
-						v6 = (int32(uint32(v13)>>2) + i32(1)) & i32(7)
-						v3 = t131 - v6<<2
+						t130 := v9
+						v6 = (int32(uint32(v11)>>2) + i32(1)) & i32(7)
+						v3 = t130 - v6<<2
 					l102:
 						{
-							t132 := v2
-							store32(m.memory[uint32(t132):], load32(m.memory[uint32(v5):]))
+							t131 := v2
+							store32(m.memory[uint32(t131):], load32(m.memory[uint32(v5):]))
 							v5 = v5 + i32(4)
 							v2 = v2 + i32(4)
 							v6 = v6 - i32(1)
@@ -34993,33 +34985,36 @@ l126:
 						v7 = v3
 					}
 				l101:
-					if uint32(v13) < uint32(i32(28)) {
+					if uint32(v11) < uint32(i32(28)) {
 						goto l100
 					}
 				l103:
 					{
+						t132 := v2
+						store32(m.memory[uint32(t132):], load32(m.memory[uint32(v5):]))
 						t133 := v2
-						store32(m.memory[uint32(t133):], load32(m.memory[uint32(v5):]))
+						store32(m.memory[int64(uint32(t133))+4:], load32(m.memory[int64(uint32(v5))+4:]))
 						t134 := v2
-						store32(m.memory[int64(uint32(t134))+4:], load32(m.memory[int64(uint32(v5))+4:]))
+						store32(m.memory[int64(uint32(t134))+8:], load32(m.memory[int64(uint32(v5))+8:]))
 						t135 := v2
-						store32(m.memory[int64(uint32(t135))+8:], load32(m.memory[int64(uint32(v5))+8:]))
+						store32(m.memory[int64(uint32(t135))+12:], load32(m.memory[int64(uint32(v5))+12:]))
 						t136 := v2
-						store32(m.memory[int64(uint32(t136))+12:], load32(m.memory[int64(uint32(v5))+12:]))
+						store32(m.memory[int64(uint32(t136))+16:], load32(m.memory[int64(uint32(v5))+16:]))
 						t137 := v2
-						store32(m.memory[int64(uint32(t137))+16:], load32(m.memory[int64(uint32(v5))+16:]))
+						store32(m.memory[int64(uint32(t137))+20:], load32(m.memory[int64(uint32(v5))+20:]))
 						t138 := v2
-						store32(m.memory[int64(uint32(t138))+20:], load32(m.memory[int64(uint32(v5))+20:]))
+						store32(m.memory[int64(uint32(t138))+24:], load32(m.memory[int64(uint32(v5))+24:]))
 						t139 := v2
-						store32(m.memory[int64(uint32(t139))+24:], load32(m.memory[int64(uint32(v5))+24:]))
-						t140 := v2
-						store32(m.memory[int64(uint32(t140))+28:], load32(m.memory[int64(uint32(v5))+28:]))
+						store32(m.memory[int64(uint32(t139))+28:], load32(m.memory[int64(uint32(v5))+28:]))
 						v5 = v5 + i32(32)
 						v2 = v2 + i32(32)
-						t141 := v3 - i32(36)
+						var p140 int32
+						if v3 > i32(35) {
+							p140 = 1
+						}
 						v7 = v3 - i32(32)
 						v3 = v7
-						if uint32(t141) < uint32(i32(-8)) {
+						if p140 != 0 {
 							goto l103
 						}
 					}
@@ -35036,8 +35031,8 @@ l126:
 				v6 = v7 & i32(-8)
 			l106:
 				{
-					t142 := v2
-					m.memory[uint32(t142)] = byte(int32(m.memory[uint32(v5)]))
+					t141 := v2
+					m.memory[uint32(t141)] = byte(int32(m.memory[uint32(v5)]))
 					v2 = v2 + i32(1)
 					v5 = v5 + i32(1)
 					v3 = v3 - i32(1)
@@ -35051,22 +35046,22 @@ l126:
 				}
 			l107:
 				{
+					t142 := v2
+					m.memory[uint32(t142)] = byte(int32(m.memory[uint32(v5)]))
 					t143 := v2
-					m.memory[uint32(t143)] = byte(int32(m.memory[uint32(v5)]))
+					m.memory[int64(uint32(t143))+1] = byte(int32(m.memory[int64(uint32(v5))+1]))
 					t144 := v2
-					m.memory[int64(uint32(t144))+1] = byte(int32(m.memory[int64(uint32(v5))+1]))
+					m.memory[int64(uint32(t144))+2] = byte(int32(m.memory[int64(uint32(v5))+2]))
 					t145 := v2
-					m.memory[int64(uint32(t145))+2] = byte(int32(m.memory[int64(uint32(v5))+2]))
+					m.memory[int64(uint32(t145))+3] = byte(int32(m.memory[int64(uint32(v5))+3]))
 					t146 := v2
-					m.memory[int64(uint32(t146))+3] = byte(int32(m.memory[int64(uint32(v5))+3]))
+					m.memory[int64(uint32(t146))+4] = byte(int32(m.memory[int64(uint32(v5))+4]))
 					t147 := v2
-					m.memory[int64(uint32(t147))+4] = byte(int32(m.memory[int64(uint32(v5))+4]))
+					m.memory[int64(uint32(t147))+5] = byte(int32(m.memory[int64(uint32(v5))+5]))
 					t148 := v2
-					m.memory[int64(uint32(t148))+5] = byte(int32(m.memory[int64(uint32(v5))+5]))
+					m.memory[int64(uint32(t148))+6] = byte(int32(m.memory[int64(uint32(v5))+6]))
 					t149 := v2
-					m.memory[int64(uint32(t149))+6] = byte(int32(m.memory[int64(uint32(v5))+6]))
-					t150 := v2
-					m.memory[int64(uint32(t150))+7] = byte(int32(m.memory[int64(uint32(v5))+7]))
+					m.memory[int64(uint32(t149))+7] = byte(int32(m.memory[int64(uint32(v5))+7]))
 					v2 = v2 + i32(8)
 					v5 = v5 + i32(8)
 					v6 = v6 - i32(8)
@@ -35078,16 +35073,16 @@ l126:
 				if v0 == 0 {
 					goto l108
 				}
-				v3 = v2 - v12
+				v3 = v2 - v13
 				if v3 < i32(511) {
 					goto l108
 				}
 				v17 = v3 + v17
-				v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v3)
+				v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v3)
 				if v2 == 0 {
 					goto l77
 				}
-				v12 = v2
+				v13 = v2
 			l108:
 				v16 = v16 - v9
 				if v16 != 0 {
@@ -35096,24 +35091,24 @@ l126:
 			}
 			v3 = int32(m.memory[uint32(v10)])
 			if v3 != 0 {
-				v5 = v28
+				v5 = v27
 			l115:
 				{
-					t151 := v10
-					t152 := v3
-					v7 = v12 - v2 + i32(512)
-					t153 := v7
+					t150 := v10
+					t151 := v3
+					v7 = v13 - v2 + i32(512)
+					t152 := v7
 					v6 = int32(int8(v3))
-					p154 := v6
+					p153 := v6
 					if v6 > v7 {
-						p154 = t153
+						p153 = t152
 					}
-					p155 := v6
+					p154 := v6
 					if v0 != 0 {
-						p155 = p154
+						p154 = p153
 					}
-					v7 = p155
-					m.memory[uint32(t151)] = byte(t152 - v7)
+					v7 = p154
+					m.memory[uint32(t150)] = byte(t151 - v7)
 					if v7 == 0 {
 						goto l110
 					}
@@ -35125,8 +35120,8 @@ l126:
 					v6 = v7 & i32(-8)
 				l112:
 					{
-						t156 := v2
-						m.memory[uint32(t156)] = byte(int32(m.memory[uint32(v5)]))
+						t155 := v2
+						m.memory[uint32(t155)] = byte(int32(m.memory[uint32(v5)]))
 						v2 = v2 + i32(1)
 						v5 = v5 + i32(1)
 						v3 = v3 - i32(1)
@@ -35140,22 +35135,22 @@ l126:
 					}
 				l113:
 					{
+						t156 := v2
+						m.memory[uint32(t156)] = byte(int32(m.memory[uint32(v5)]))
 						t157 := v2
-						m.memory[uint32(t157)] = byte(int32(m.memory[uint32(v5)]))
+						m.memory[int64(uint32(t157))+1] = byte(int32(m.memory[int64(uint32(v5))+1]))
 						t158 := v2
-						m.memory[int64(uint32(t158))+1] = byte(int32(m.memory[int64(uint32(v5))+1]))
+						m.memory[int64(uint32(t158))+2] = byte(int32(m.memory[int64(uint32(v5))+2]))
 						t159 := v2
-						m.memory[int64(uint32(t159))+2] = byte(int32(m.memory[int64(uint32(v5))+2]))
+						m.memory[int64(uint32(t159))+3] = byte(int32(m.memory[int64(uint32(v5))+3]))
 						t160 := v2
-						m.memory[int64(uint32(t160))+3] = byte(int32(m.memory[int64(uint32(v5))+3]))
+						m.memory[int64(uint32(t160))+4] = byte(int32(m.memory[int64(uint32(v5))+4]))
 						t161 := v2
-						m.memory[int64(uint32(t161))+4] = byte(int32(m.memory[int64(uint32(v5))+4]))
+						m.memory[int64(uint32(t161))+5] = byte(int32(m.memory[int64(uint32(v5))+5]))
 						t162 := v2
-						m.memory[int64(uint32(t162))+5] = byte(int32(m.memory[int64(uint32(v5))+5]))
+						m.memory[int64(uint32(t162))+6] = byte(int32(m.memory[int64(uint32(v5))+6]))
 						t163 := v2
-						m.memory[int64(uint32(t163))+6] = byte(int32(m.memory[int64(uint32(v5))+6]))
-						t164 := v2
-						m.memory[int64(uint32(t164))+7] = byte(int32(m.memory[int64(uint32(v5))+7]))
+						m.memory[int64(uint32(t163))+7] = byte(int32(m.memory[int64(uint32(v5))+7]))
 						v2 = v2 + i32(8)
 						v5 = v5 + i32(8)
 						v6 = v6 - i32(8)
@@ -35167,16 +35162,16 @@ l126:
 					if v0 == 0 {
 						goto l114
 					}
-					v3 = v2 - v12
+					v3 = v2 - v13
 					if v3 < i32(511) {
 						goto l114
 					}
 					v17 = v3 + v17
-					v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v3)
+					v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v3)
 					if v2 == 0 {
 						goto l77
 					}
-					v12 = v2
+					v13 = v2
 				l114:
 					v3 = int32(m.memory[uint32(v10)])
 					if v3 != 0 {
@@ -35187,27 +35182,27 @@ l126:
 			if v8&i32(1) == 0 {
 				goto l59
 			}
-			if v11 <= i32(0) {
+			if v12 <= i32(0) {
 				goto l59
 			}
 		l125:
 			{
-				t165 := v11
-				v5 = v12 - v2 + i32(512)
-				p166 := v5
-				if v5 > v11 {
-					p166 = t165
+				t164 := v12
+				v5 = v13 - v2 + i32(512)
+				p165 := v5
+				if v5 > v12 {
+					p165 = t164
 				}
-				p167 := v11
+				p166 := v12
 				if v0 != 0 {
-					p167 = p166
+					p166 = p165
 				}
-				v6 = p167
-				p168 := i32(0)
+				v6 = p166
+				p167 := i32(0)
 				if v2&i32(3) != 0 {
-					p168 = v6
+					p167 = v6
 				}
-				if p168 == 0 {
+				if p167 == 0 {
 					v5 = v2
 					v3 = v6
 					goto l116
@@ -35250,9 +35245,9 @@ l126:
 			}
 			v7 = v3 - i32(4)
 			if v7&i32(28) != i32(28) {
-				t169 := v3
+				t168 := v3
 				v2 = (int32(uint32(v7)>>2) + i32(1)) & i32(7)
-				v3 = t169 - v2<<2
+				v3 = t168 - v2<<2
 			l118:
 				store32(m.memory[uint32(v5):], uint32(i32(538976288)))
 				v5 = v5 + i32(4)
@@ -35272,10 +35267,13 @@ l126:
 				store64(m.memory[int64(uint32(v5))+16:], uint64(i64(2314885530818453536)))
 				store64(m.memory[int64(uint32(v5))+8:], uint64(i64(2314885530818453536)))
 				v5 = v5 + i32(32)
-				t170 := v3 - i32(36)
+				var p169 int32
+				if v3 > i32(35) {
+					p169 = 1
+				}
 				v8 = v3 - i32(32)
 				v3 = v8
-				if uint32(t170) < uint32(i32(-8)) {
+				if p169 != 0 {
 					goto l119
 				}
 			}
@@ -35314,19 +35312,19 @@ l126:
 			if v0 == 0 {
 				goto l124
 			}
-			v5 = v2 - v12
+			v5 = v2 - v13
 			if v5 < i32(511) {
 				goto l124
 			}
 			v17 = v5 + v17
-			v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v5)
+			v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v5)
 			if v2 == 0 {
 				goto l77
 			}
-			v12 = v2
+			v13 = v2
 		l124:
-			v11 = v11 - v6
-			if v11 != 0 {
+			v12 = v12 - v6
+			if v12 != 0 {
 				goto l125
 			}
 		}
@@ -35341,22 +35339,22 @@ l1:
 	if v0 == 0 {
 		goto l128
 	}
-	v8 = v2 - v12
+	v8 = v2 - v13
 	if v8 < i32(511) {
 		goto l128
 	}
 	v17 = v8 + v17
-	v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v8)
+	v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v8)
 	if v2 != 0 {
 		goto l129
 	}
 l77:
 	v2 = i32(0)
-	v12 = i32(0)
+	v13 = i32(0)
 	goto l130
 l129:
 	v5 = int32(m.memory[uint32(v3)])
-	v12 = v2
+	v13 = v2
 l128:
 	m.memory[uint32(v2)] = byte(v5)
 	v3 = v3 + i32(1)
@@ -35367,16 +35365,16 @@ l127:
 		m.memory[uint32(v2)] = byte(i32(0))
 		goto l130
 	}
-	v5 = v2 - v12
+	v5 = v2 - v13
 	if v5 <= i32(0) {
 		goto l130
 	}
 	v17 = v5 + v17
-	v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v5)
-	v12 = v2
+	v2 = m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v5)
+	v13 = v2
 l130:
 	m.___stack_pointer = v10 + i32(528)
-	return v2 + v17 - v12
+	return v2 + v17 - v13
 }
 func (m *Module) _stbsp__count_clamp_callback(v0, v1, v2 int32) int32 {
 	t0 := v1
@@ -35723,9 +35721,9 @@ func (m *Module) Xmalloc(v0 int32) int32 {
 	{
 		v2 = (v0 + i32(15)) & i32(-16)
 		t0 := v2
-		v3 = int32(load32(m.memory[uint32(i32(0xeccc)):]))
+		v3 = int32(load32(m.memory[uint32(i32(125100)):]))
 		t1 := v3
-		v4 = int32(load32(m.memory[uint32(i32(60624)):]))
+		v4 = int32(load32(m.memory[uint32(i32(125104)):]))
 		v1 = t1 - v4
 		if uint32(t0) <= uint32(v1) {
 			v0 = v4
@@ -35742,13 +35740,13 @@ func (m *Module) Xmalloc(v0 int32) int32 {
 			t2 := v3
 			v0 = v1 << 16
 			if t2 == v0 {
-				store32(m.memory[uint32(i32(0xeccc)):], uint32(v3+v5&i32(-65536)))
+				store32(m.memory[uint32(i32(125100)):], uint32(v3+v5&i32(-65536)))
 				v0 = v4
 				goto l0
 			}
-			store32(m.memory[uint32(i32(60624)):], uint32(v0))
+			store32(m.memory[uint32(i32(125104)):], uint32(v0))
 			v3 = (v1 + v6) << 16
-			store32(m.memory[uint32(i32(0xeccc)):], uint32(v3))
+			store32(m.memory[uint32(i32(125100)):], uint32(v3))
 			v4 = v0
 			t3 := v2
 			v1 = v5 & i32(-65536)
@@ -35758,7 +35756,7 @@ func (m *Module) Xmalloc(v0 int32) int32 {
 		}
 	}
 l0:
-	store32(m.memory[uint32(i32(60624)):], uint32(v0+v2))
+	store32(m.memory[uint32(i32(125104)):], uint32(v0+v2))
 	return v0
 }
 func (m *Module) _calloc(v0, v1 int32) int32 {
@@ -35779,9 +35777,9 @@ func (m *Module) _calloc(v0, v1 int32) int32 {
 	{
 		v0 = (v1 + i32(15)) & i32(-16)
 		t0 := v0
-		v3 = int32(load32(m.memory[uint32(i32(0xeccc)):]))
+		v3 = int32(load32(m.memory[uint32(i32(125100)):]))
 		t1 := v3
-		v4 = int32(load32(m.memory[uint32(i32(60624)):]))
+		v4 = int32(load32(m.memory[uint32(i32(125104)):]))
 		v1 = t1 - v4
 		if uint32(t0) <= uint32(v1) {
 			v2 = v4
@@ -35798,13 +35796,13 @@ func (m *Module) _calloc(v0, v1 int32) int32 {
 			t2 := v3
 			v2 = v1 << 16
 			if t2 == v2 {
-				store32(m.memory[uint32(i32(0xeccc)):], uint32(v3+v5&i32(-65536)))
+				store32(m.memory[uint32(i32(125100)):], uint32(v3+v5&i32(-65536)))
 				v2 = v4
 				goto l1
 			}
-			store32(m.memory[uint32(i32(60624)):], uint32(v2))
+			store32(m.memory[uint32(i32(125104)):], uint32(v2))
 			v3 = (v1 + v7) << 16
-			store32(m.memory[uint32(i32(0xeccc)):], uint32(v3))
+			store32(m.memory[uint32(i32(125100)):], uint32(v3))
 			v4 = v2
 			t3 := v0
 			v1 = v5 & i32(-65536)
@@ -35814,7 +35812,7 @@ func (m *Module) _calloc(v0, v1 int32) int32 {
 		}
 	}
 l1:
-	store32(m.memory[uint32(i32(60624)):], uint32(v0+v2))
+	store32(m.memory[uint32(i32(125104)):], uint32(v0+v2))
 l0:
 	return v2
 }
@@ -35834,9 +35832,9 @@ func (m *Module) _realloc(v0, v1 int32) int32 {
 		{
 			v4 = (v1 + i32(15)) & i32(-16)
 			t0 := v4
-			v5 = int32(load32(m.memory[uint32(i32(0xeccc)):]))
+			v5 = int32(load32(m.memory[uint32(i32(125100)):]))
 			t1 := v5
-			v0 = int32(load32(m.memory[uint32(i32(60624)):]))
+			v0 = int32(load32(m.memory[uint32(i32(125104)):]))
 			v3 = t1 - v0
 			if uint32(t0) <= uint32(v3) {
 				v2 = v0
@@ -35853,13 +35851,13 @@ func (m *Module) _realloc(v0, v1 int32) int32 {
 				t2 := v5
 				v2 = v3 << 16
 				if t2 == v2 {
-					store32(m.memory[uint32(i32(0xeccc)):], uint32(v5+v7&i32(-65536)))
+					store32(m.memory[uint32(i32(125100)):], uint32(v5+v7&i32(-65536)))
 					v2 = v0
 					goto l0
 				}
-				store32(m.memory[uint32(i32(60624)):], uint32(v2))
+				store32(m.memory[uint32(i32(125104)):], uint32(v2))
 				v5 = (v3 + v8) << 16
-				store32(m.memory[uint32(i32(0xeccc)):], uint32(v5))
+				store32(m.memory[uint32(i32(125100)):], uint32(v5))
 				v0 = v2
 				t3 := v4
 				v3 = v7 & i32(-65536)
@@ -35869,22 +35867,22 @@ func (m *Module) _realloc(v0, v1 int32) int32 {
 			}
 		}
 	l0:
-		store32(m.memory[uint32(i32(60624)):], uint32(v2+v4))
+		store32(m.memory[uint32(i32(125104)):], uint32(v2+v4))
 		return v2
 	}
 	if uint32(v1) < uint32(i32(17)) {
 		return v0
 	}
-	v6 = int32(load32(m.memory[uint32(i32(60624)):]))
+	v6 = int32(load32(m.memory[uint32(i32(125104)):]))
 	v9 = v6 - v0
 	if v9 == i32(16) {
-		store32(m.memory[uint32(i32(60624)):], uint32(v0))
+		store32(m.memory[uint32(i32(125104)):], uint32(v0))
 		v6 = v0
 	}
 	{
 		v4 = (v1 + i32(15)) & i32(-16)
 		t4 := v4
-		v5 = int32(load32(m.memory[uint32(i32(0xeccc)):]))
+		v5 = int32(load32(m.memory[uint32(i32(125100)):]))
 		v3 = v5 - v6
 		if uint32(t4) <= uint32(v3) {
 			v2 = v6
@@ -35901,13 +35899,13 @@ func (m *Module) _realloc(v0, v1 int32) int32 {
 			t5 := v5
 			v2 = v3 << 16
 			if t5 == v2 {
-				store32(m.memory[uint32(i32(0xeccc)):], uint32(v5+v7&i32(-65536)))
+				store32(m.memory[uint32(i32(125100)):], uint32(v5+v7&i32(-65536)))
 				v2 = v6
 				goto l2
 			}
-			store32(m.memory[uint32(i32(60624)):], uint32(v2))
+			store32(m.memory[uint32(i32(125104)):], uint32(v2))
 			v5 = (v3 + v8) << 16
-			store32(m.memory[uint32(i32(0xeccc)):], uint32(v5))
+			store32(m.memory[uint32(i32(125100)):], uint32(v5))
 			v6 = v2
 			t6 := v4
 			v3 = v7 & i32(-65536)
@@ -35917,7 +35915,7 @@ func (m *Module) _realloc(v0, v1 int32) int32 {
 		}
 	}
 l2:
-	store32(m.memory[uint32(i32(60624)):], uint32(v2+v4))
+	store32(m.memory[uint32(i32(125104)):], uint32(v2+v4))
 	{
 		if v2 == 0 {
 			goto l4
@@ -35955,129 +35953,128 @@ func (m *Module) _pcap_parse(v0, v1 int32) int32 {
 	var v15 int32
 	var v16 int32
 	var v17 int32
-	var v18 int32
-	v3 = m.___stack_pointer - i32(3776)
-	m.___stack_pointer = v3
-	v18 = v3 + i32(3768)
-	store64(m.memory[uint32(v18):], uint64(i64(0)))
-	store64(m.memory[int64(uint32(v3))+3760:], uint64(i64(0)))
-	v16 = i32(200)
-	v4 = v3 + i32(160)
-	v17 = v4
-	v10 = v3 + i32(3360)
-	v13 = v10
+	v7 = m.___stack_pointer - i32(3776)
+	m.___stack_pointer = v7
+	store64(m.memory[int64(uint32(v7))+3768:], uint64(i64(0)))
+	store64(m.memory[int64(uint32(v7))+3760:], uint64(i64(0)))
+	v15 = i32(200)
+	v16 = v7 + i32(160)
+	v3 = v16
+	v13 = v7 + i32(3360)
+	v11 = v13
 	v14 = i32(-2)
-l260:
-	store16(m.memory[uint32(v10):], uint16(v2))
+l218:
+	store16(m.memory[uint32(v11):], uint16(v4))
 	{
 		{
+			t0 := v11
+			t1 := v13
+			v9 = v15 << 1
+			if uint32(t0) >= uint32(t1+v9-i32(2)) {
+				if v15 > i32(9999) {
+					goto l0
+				}
+				p2 := v9
+				if v9 >= i32(10000) {
+					p2 = i32(10000)
+				}
+				v15 = p2
+				v9 = m.Xmalloc(v15*i32(18) + i32(15))
+				if v9 == 0 {
+					goto l0
+				}
+				v11 = (v11-v13)>>1 + i32(1)
+				v3 = v11 << 1
+				if v3 != 0 {
+					memory_copy(m.memory, uint32(v9), uint32(v13), uint32(v3))
+				}
+				v2 = v9 + (v15<<1+i32(15))/i32(16)<<4
+				v3 = v11 << 4
+				if v3 != 0 {
+					memory_copy(m.memory, uint32(v2), uint32(v16), uint32(v3))
+				}
+				if v7+i32(3360) != v13 {
+					m.Xfree(v13)
+				}
+				v5 = i32(1)
+				if v11 >= v15 {
+					v13 = v9
+					goto l1
+				}
+				v11 = v9 + v11<<1 - i32(2)
+				v16 = v2
+				v13 = v9
+				v3 = v2 + v3 - i32(16)
+			}
+			if v4 == i32(3) {
+				v5 = i32(0)
+				goto l2
+			}
 			{
-				t0 := v10
-				t1 := v13
-				v8 = v16 << 1
-				if uint32(t0) >= uint32(t1+v8-i32(2)) {
-					if v16 > i32(9999) {
-						goto l0
-					}
-					p2 := v8
-					if v8 >= i32(10000) {
-						p2 = i32(10000)
-					}
-					v16 = p2
-					v8 = m.Xmalloc(v16*i32(18) + i32(15))
-					if v8 == 0 {
-						goto l0
-					}
-					v10 = (v10-v13)>>1 + i32(1)
-					v4 = v10 << 1
-					if v4 != 0 {
-						memory_copy(m.memory, uint32(v8), uint32(v13), uint32(v4))
-					}
-					v12 = v8 + (v16<<1+i32(15))/i32(16)<<4
-					v4 = v10 << 4
-					if v4 != 0 {
-						memory_copy(m.memory, uint32(v12), uint32(v17), uint32(v4))
-					}
-					if v3+i32(3360) != v13 {
-						m.Xfree(v13)
-					}
-					v5 = i32(1)
-					if v10 >= v16 {
-						v13 = v8
-						goto l1
-					}
-					v10 = v8 + v10<<1 - i32(2)
-					v17 = v12
-					v13 = v8
-					v4 = v4 + v12 - i32(16)
-				}
-				if v2 == i32(3) {
-					v5 = i32(0)
-					goto l2
-				}
 				{
-					{
-						v8 = int32(int16(load16(m.memory[uint32(v2<<1+i32(10544)):])))
-						if v8 == i32(-215) {
-							goto l3
-						}
-						var p3 int32
-						if v14 == i32(-2) {
-							v14 = m._pcap_lex(v3+i32(3760), v0)
-						}
-						if v14 <= i32(0) {
-							v14 = i32(0)
-							p3 = i32(0)
-							goto l4
-						}
-						if v14 == i32(256) {
-							v5 = i32(1)
-							goto l2
-						}
-						if uint32(v14) > uint32(i32(379)) {
-							p3 = i32(2)
-							goto l4
-						}
-						_ = i32(2)
-						p3 = int32(m.memory[int64(uint32(v14))+11152])
-					l4:
-						v12 = p3
-						v8 = v12 + v8
-						if uint32(v8) > uint32(i32(773)) {
-							goto l3
-						}
-						t4 := v12
-						v8 = v8 << 1
-						if t4 != int32(int16(load16(m.memory[int64(uint32(v8))+11536:]))) {
-							goto l3
-						}
-						v2 = int32(int16(load16(m.memory[int64(uint32(v8))+13088:])))
-						if v2 > i32(0) {
-							t5 := v4
-							store64(m.memory[int64(uint32(t5))+16:], load64(m.memory[int64(uint32(v3))+3760:]))
-							t6 := v4
-							store64(m.memory[int64(uint32(t6))+24:], load64(m.memory[uint32(v18):]))
-							v4 = v4 + i32(16)
-							v14 = i32(-2)
-							goto l5
-						}
-						v8 = i32(0) - v2
-						goto l6
+					v9 = int32(int16(load16(m.memory[uint32(v4<<1+i32(75024)):])))
+					if v9 == i32(-215) {
+						goto l3
 					}
-				l3:
-					v8 = int32(m.memory[uint32(v2+i32(14640))])
-					if v8 == 0 {
-						goto l7
+					var p3 int32
+					if v14 == i32(-2) {
+						v14 = m._pcap_lex(v7+i32(3760), v0)
 					}
-				l6:
-					t7 := v3
-					t8 := v4
-					v12 = int32(int8(m.memory[int64(uint32(v8))+14944]))
-					v2 = t8 + (i32(1)-v12)<<4
-					store32(m.memory[int64(uint32(t7))+156:], load32(m.memory[uint32(v2):]))
-					v6 = int32(load32(m.memory[int64(uint32(v2))+12:]))
-					v9 = int32(load32(m.memory[int64(uint32(v2))+8:]))
-					v11 = int32(load32(m.memory[int64(uint32(v2))+4:]))
+					if v14 <= i32(0) {
+						v14 = i32(0)
+						p3 = i32(0)
+						goto l4
+					}
+					if v14 == i32(256) {
+						v5 = i32(1)
+						goto l2
+					}
+					if uint32(v14) > uint32(i32(379)) {
+						p3 = i32(2)
+						goto l4
+					}
+					_ = i32(2)
+					p3 = int32(m.memory[int64(uint32(v14))+75632])
+				l4:
+					v2 = p3
+					v9 = v2 + v9
+					if uint32(v9) > uint32(i32(773)) {
+						goto l3
+					}
+					t4 := v2
+					v9 = v9 << 1
+					if t4 != int32(int16(load16(m.memory[int64(uint32(v9))+76016:]))) {
+						goto l3
+					}
+					v4 = int32(int16(load16(m.memory[int64(uint32(v9))+77568:])))
+					if v4 > i32(0) {
+						t5 := v3
+						store64(m.memory[int64(uint32(t5))+24:], load64(m.memory[int64(uint32(v7))+3768:]))
+						t6 := v3
+						store64(m.memory[int64(uint32(t6))+16:], load64(m.memory[int64(uint32(v7))+3760:]))
+						v3 = v3 + i32(16)
+						v14 = i32(-2)
+						goto l5
+					}
+					v9 = i32(0) - v4
+					goto l6
+				}
+			l3:
+				v9 = int32(m.memory[uint32(v4+i32(79120))])
+				if v9 == 0 {
+					goto l7
+				}
+			l6:
+				t7 := v3
+				v17 = int32(int8(m.memory[int64(uint32(v9))+79424]))
+				v4 = t7 + (i32(1)-v17)<<4
+				v6 = int32(load32(m.memory[int64(uint32(v4))+12:]))
+				v10 = int32(load32(m.memory[int64(uint32(v4))+8:]))
+				v12 = int32(load32(m.memory[int64(uint32(v4))+4:]))
+				v2 = int32(load32(m.memory[uint32(v4):]))
+				{
+					t9 := v3
+					var p8 int32
 					{
 						{
 							{
@@ -36149,2485 +36146,2015 @@ l260:
 																																																																									{
 																																																																										{
 																																																																											{
-																																																																												{
-																																																																													{
-																																																																														{
-																																																																															{
-																																																																																{
-																																																																																	{
-																																																																																		{
-																																																																																			{
-																																																																																				{
-																																																																																					{
-																																																																																						{
-																																																																																							{
-																																																																																								{
-																																																																																									{
-																																																																																										{
-																																																																																											{
-																																																																																												{
-																																																																																													{
-																																																																																														{
-																																																																																															{
-																																																																																																{
-																																																																																																	{
-																																																																																																		{
-																																																																																																			{
-																																																																																																				{
-																																																																																																					{
-																																																																																																						{
-																																																																																																							{
-																																																																																																								{
-																																																																																																									{
-																																																																																																										switch v8 - i32(2) {
-																																																																																																										case 0:
-																																																																																																											goto l8
-																																																																																																										case 2:
-																																																																																																											goto l10
-																																																																																																										case 4:
-																																																																																																											goto l11
-																																																																																																										case 5:
-																																																																																																											goto l12
-																																																																																																										case 6:
-																																																																																																											goto l13
-																																																																																																										case 7:
-																																																																																																											goto l14
-																																																																																																										case 8:
-																																																																																																											goto l15
-																																																																																																										case 9:
-																																																																																																											goto l16
-																																																																																																										case 11:
-																																																																																																											goto l17
-																																																																																																										case 12:
-																																																																																																											goto l18
-																																																																																																										case 13:
-																																																																																																											goto l19
-																																																																																																										case 14:
-																																																																																																											goto l20
-																																																																																																										case 15:
-																																																																																																											goto l21
-																																																																																																										case 16:
-																																																																																																											goto l22
-																																																																																																										case 17:
-																																																																																																											goto l23
-																																																																																																										case 18:
-																																																																																																											goto l24
-																																																																																																										case 19:
-																																																																																																											goto l25
-																																																																																																										case 20:
-																																																																																																											goto l26
-																																																																																																										case 21:
-																																																																																																											goto l27
-																																																																																																										case 22:
-																																																																																																											goto l28
-																																																																																																										case 23:
-																																																																																																											goto l29
-																																																																																																										case 25:
-																																																																																																											goto l30
-																																																																																																										case 26:
-																																																																																																											goto l31
-																																																																																																										case 27:
-																																																																																																											goto l32
-																																																																																																										case 30:
-																																																																																																											goto l33
-																																																																																																										case 31:
-																																																																																																											goto l34
-																																																																																																										case 32:
-																																																																																																											goto l35
-																																																																																																										case 33:
-																																																																																																											goto l36
-																																																																																																										case 34:
-																																																																																																											goto l37
-																																																																																																										case 35:
-																																																																																																											goto l38
-																																																																																																										case 36:
-																																																																																																											goto l39
-																																																																																																										case 37:
-																																																																																																											goto l40
-																																																																																																										case 38:
-																																																																																																											goto l41
-																																																																																																										case 39:
-																																																																																																											goto l42
-																																																																																																										case 40:
-																																																																																																											goto l43
-																																																																																																										case 41:
-																																																																																																											goto l44
-																																																																																																										case 42:
-																																																																																																											goto l45
-																																																																																																										case 43:
-																																																																																																											goto l46
-																																																																																																										case 44:
-																																																																																																											goto l47
-																																																																																																										case 45:
-																																																																																																											goto l48
-																																																																																																										case 46:
-																																																																																																											goto l49
-																																																																																																										case 47:
-																																																																																																											goto l50
-																																																																																																										case 49:
-																																																																																																											goto l51
-																																																																																																										case 50:
-																																																																																																											goto l52
-																																																																																																										case 51:
-																																																																																																											goto l53
-																																																																																																										case 52:
-																																																																																																											goto l54
-																																																																																																										case 53:
-																																																																																																											goto l55
-																																																																																																										case 54:
-																																																																																																											goto l56
-																																																																																																										case 55:
-																																																																																																											goto l57
-																																																																																																										case 56:
-																																																																																																											goto l58
-																																																																																																										case 57:
-																																																																																																											goto l59
-																																																																																																										case 58:
-																																																																																																											goto l60
-																																																																																																										case 59:
-																																																																																																											goto l61
-																																																																																																										case 60:
-																																																																																																											goto l62
-																																																																																																										case 61:
-																																																																																																											goto l63
-																																																																																																										case 62:
-																																																																																																											goto l64
-																																																																																																										case 63:
-																																																																																																											goto l65
-																																																																																																										case 64:
-																																																																																																											goto l66
-																																																																																																										case 65:
-																																																																																																											goto l67
-																																																																																																										case 66:
-																																																																																																											goto l68
-																																																																																																										case 67:
-																																																																																																											goto l69
-																																																																																																										case 68:
-																																																																																																											goto l70
-																																																																																																										case 69:
-																																																																																																											goto l71
-																																																																																																										case 70:
-																																																																																																											goto l72
-																																																																																																										case 71:
-																																																																																																											goto l73
-																																																																																																										case 72:
-																																																																																																											goto l74
-																																																																																																										case 73:
-																																																																																																											goto l75
-																																																																																																										case 74:
-																																																																																																											goto l76
-																																																																																																										case 75:
-																																																																																																											goto l77
-																																																																																																										case 76:
-																																																																																																											goto l78
-																																																																																																										case 77:
-																																																																																																											goto l79
-																																																																																																										case 78:
-																																																																																																											goto l80
-																																																																																																										case 79:
-																																																																																																											goto l81
-																																																																																																										case 80:
-																																																																																																											goto l82
-																																																																																																										case 81:
-																																																																																																											goto l83
-																																																																																																										case 82:
-																																																																																																											goto l84
-																																																																																																										case 83:
-																																																																																																											goto l85
-																																																																																																										case 84:
-																																																																																																											goto l86
-																																																																																																										case 85:
-																																																																																																											goto l87
-																																																																																																										case 86:
-																																																																																																											goto l88
-																																																																																																										case 87:
-																																																																																																											goto l89
-																																																																																																										case 88:
-																																																																																																											goto l90
-																																																																																																										case 89:
-																																																																																																											goto l91
-																																																																																																										case 90:
-																																																																																																											goto l92
-																																																																																																										case 91:
-																																																																																																											goto l93
-																																																																																																										case 92:
-																																																																																																											goto l94
-																																																																																																										case 93:
-																																																																																																											goto l95
-																																																																																																										case 94:
-																																																																																																											goto l96
-																																																																																																										case 95:
-																																																																																																											goto l97
-																																																																																																										case 96:
-																																																																																																											goto l98
-																																																																																																										case 97:
-																																																																																																											goto l99
-																																																																																																										case 98:
-																																																																																																											goto l100
-																																																																																																										case 99:
-																																																																																																											goto l101
-																																																																																																										case 100:
-																																																																																																											goto l102
-																																																																																																										case 101:
-																																																																																																											goto l103
-																																																																																																										case 102:
-																																																																																																											goto l104
-																																																																																																										case 103:
-																																																																																																											goto l105
-																																																																																																										case 104:
-																																																																																																											goto l106
-																																																																																																										case 105:
-																																																																																																											goto l107
-																																																																																																										case 106:
-																																																																																																											goto l108
-																																																																																																										case 107:
-																																																																																																											goto l109
-																																																																																																										case 108:
-																																																																																																											goto l110
-																																																																																																										case 109:
-																																																																																																											goto l111
-																																																																																																										case 110:
-																																																																																																											goto l112
-																																																																																																										case 111:
-																																																																																																											goto l113
-																																																																																																										case 112:
-																																																																																																											goto l114
-																																																																																																										case 113:
-																																																																																																											goto l115
-																																																																																																										case 114:
-																																																																																																											goto l116
-																																																																																																										case 115:
-																																																																																																											goto l117
-																																																																																																										case 116:
-																																																																																																											goto l118
-																																																																																																										case 117:
-																																																																																																											goto l119
-																																																																																																										case 118:
-																																																																																																											goto l120
-																																																																																																										case 119:
-																																																																																																											goto l121
-																																																																																																										case 120:
-																																																																																																											goto l122
-																																																																																																										case 121:
-																																																																																																											goto l123
-																																																																																																										case 122:
-																																																																																																											goto l124
-																																																																																																										case 123:
-																																																																																																											goto l125
-																																																																																																										case 124:
-																																																																																																											goto l126
-																																																																																																										case 125:
-																																																																																																											goto l127
-																																																																																																										case 126:
-																																																																																																											goto l128
-																																																																																																										case 127:
-																																																																																																											goto l129
-																																																																																																										case 128:
-																																																																																																											goto l130
-																																																																																																										case 129:
-																																																																																																											goto l131
-																																																																																																										case 130:
-																																																																																																											goto l132
-																																																																																																										case 131:
-																																																																																																											goto l133
-																																																																																																										case 132:
-																																																																																																											goto l134
-																																																																																																										case 133:
-																																																																																																											goto l135
-																																																																																																										case 134:
-																																																																																																											goto l136
-																																																																																																										case 135:
-																																																																																																											goto l137
-																																																																																																										case 136:
-																																																																																																											goto l138
-																																																																																																										case 137:
-																																																																																																											goto l139
-																																																																																																										case 138:
-																																																																																																											goto l140
-																																																																																																										case 139:
-																																																																																																											goto l141
-																																																																																																										case 140:
-																																																																																																											goto l142
-																																																																																																										case 141:
-																																																																																																											goto l143
-																																																																																																										case 142:
-																																																																																																											goto l144
-																																																																																																										case 143:
-																																																																																																											goto l145
-																																																																																																										case 144:
-																																																																																																											goto l146
-																																																																																																										case 145:
-																																																																																																											goto l147
-																																																																																																										case 146:
-																																																																																																											goto l148
-																																																																																																										case 147:
-																																																																																																											goto l149
-																																																																																																										case 148:
-																																																																																																											goto l150
-																																																																																																										case 149:
-																																																																																																											goto l151
-																																																																																																										case 150:
-																																																																																																											goto l152
-																																																																																																										case 151:
-																																																																																																											goto l153
-																																																																																																										case 152:
-																																																																																																											goto l154
-																																																																																																										case 153:
-																																																																																																											goto l155
-																																																																																																										case 154:
-																																																																																																											goto l156
-																																																																																																										case 155:
-																																																																																																											goto l157
-																																																																																																										case 156:
-																																																																																																											goto l158
-																																																																																																										case 157:
-																																																																																																											goto l159
-																																																																																																										case 159:
-																																																																																																											goto l160
-																																																																																																										case 160:
-																																																																																																											goto l161
-																																																																																																										case 161:
-																																																																																																											goto l162
-																																																																																																										case 162:
-																																																																																																											goto l163
-																																																																																																										case 163:
-																																																																																																											goto l164
-																																																																																																										case 164:
-																																																																																																											goto l165
-																																																																																																										case 165:
-																																																																																																											goto l166
-																																																																																																										case 166:
-																																																																																																											goto l167
-																																																																																																										case 167:
-																																																																																																											goto l168
-																																																																																																										case 168:
-																																																																																																											goto l169
-																																																																																																										case 169:
-																																																																																																											goto l170
-																																																																																																										case 170:
-																																																																																																											goto l171
-																																																																																																										case 171:
-																																																																																																											goto l172
-																																																																																																										case 172:
-																																																																																																											goto l173
-																																																																																																										case 173:
-																																																																																																											goto l174
-																																																																																																										case 174:
-																																																																																																											goto l175
-																																																																																																										case 175:
-																																																																																																											goto l176
-																																																																																																										case 176:
-																																																																																																											goto l177
-																																																																																																										case 177:
-																																																																																																											goto l178
-																																																																																																										case 178:
-																																																																																																											goto l179
-																																																																																																										case 180:
-																																																																																																											goto l180
-																																																																																																										case 181:
-																																																																																																											goto l181
-																																																																																																										case 182:
-																																																																																																											goto l182
-																																																																																																										case 183:
-																																																																																																											goto l183
-																																																																																																										case 184:
-																																																																																																											goto l184
-																																																																																																										case 185:
-																																																																																																											goto l185
-																																																																																																										case 186:
-																																																																																																											goto l186
-																																																																																																										case 187:
-																																																																																																											goto l187
-																																																																																																										case 188:
-																																																																																																											goto l188
-																																																																																																										case 189:
-																																																																																																											goto l189
-																																																																																																										case 190:
-																																																																																																											goto l190
-																																																																																																										case 191:
-																																																																																																											goto l191
-																																																																																																										case 192:
-																																																																																																											goto l192
-																																																																																																										case 193:
-																																																																																																											goto l193
-																																																																																																										case 195:
-																																																																																																											goto l194
-																																																																																																										case 196:
-																																																																																																											goto l195
-																																																																																																										case 197:
-																																																																																																											goto l196
-																																																																																																										case 198:
-																																																																																																											goto l197
-																																																																																																										case 200:
-																																																																																																											goto l198
-																																																																																																										case 201:
-																																																																																																											goto l199
-																																																																																																										case 202:
-																																																																																																											goto l200
-																																																																																																										case 203:
-																																																																																																											goto l201
-																																																																																																										case 204:
-																																																																																																											goto l202
-																																																																																																										case 205:
-																																																																																																											goto l203
-																																																																																																										case 206:
-																																																																																																											goto l204
-																																																																																																										case 207:
-																																																																																																											goto l205
-																																																																																																										case 208:
-																																																																																																											goto l206
-																																																																																																										case 209:
-																																																																																																											goto l207
-																																																																																																										case 210:
-																																																																																																											goto l208
-																																																																																																										case 211:
-																																																																																																											goto l209
-																																																																																																										case 212:
-																																																																																																											goto l210
-																																																																																																										case 213:
-																																																																																																											goto l211
-																																																																																																										case 214:
-																																																																																																											goto l212
-																																																																																																										case 216:
-																																																																																																											goto l213
-																																																																																																										case 217:
-																																																																																																											goto l214
-																																																																																																										case 218:
-																																																																																																											goto l215
-																																																																																																										case 219:
-																																																																																																											goto l216
-																																																																																																										case 221:
-																																																																																																											goto l217
-																																																																																																										default:
-																																																																																																											goto l9
-																																																																																																										}
-																																																																																																									l8:
-																																																																																																										t9 := v1
-																																																																																																										if m._finish_parse(t9, int32(load32(m.memory[int64(uint32(v4))+12:]))) != i32(-1) {
-																																																																																																											goto l9
-																																																																																																										}
-																																																																																																										v5 = i32(1)
-																																																																																																										goto l2
-																																																																																																									}
-																																																																																																								l10:
-																																																																																																									store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
-																																																																																																									goto l9
-																																																																																																								l11:
-																																																																																																									t10 := v4
-																																																																																																									t11 := int32(load32(m.memory[uint32(v4-i32(20)):]))
-																																																																																																									v6 = m._gen_and(t11, int32(load32(m.memory[int64(uint32(v4))+12:])))
-																																																																																																									store32(m.memory[int64(uint32(t10))+12:], uint32(v6))
-																																																																																																									t12 := v3
-																																																																																																									store32(m.memory[int64(uint32(t12))+156:], load32(m.memory[uint32(v4):]))
-																																																																																																									goto l218
-																																																																																																								}
-																																																																																																							l12:
-																																																																																																								t13 := v4
-																																																																																																								t14 := int32(load32(m.memory[uint32(v4-i32(20)):]))
-																																																																																																								v6 = m._gen_and(t14, int32(load32(m.memory[int64(uint32(v4))+12:])))
-																																																																																																								store32(m.memory[int64(uint32(t13))+12:], uint32(v6))
-																																																																																																								t15 := v3
-																																																																																																								store32(m.memory[int64(uint32(t15))+156:], load32(m.memory[uint32(v4):]))
-																																																																																																								goto l218
-																																																																																																							}
-																																																																																																						l13:
-																																																																																																							t16 := v4
-																																																																																																							t17 := int32(load32(m.memory[uint32(v4-i32(20)):]))
-																																																																																																							v6 = m._gen_or(t17, int32(load32(m.memory[int64(uint32(v4))+12:])))
-																																																																																																							store32(m.memory[int64(uint32(t16))+12:], uint32(v6))
-																																																																																																							t18 := v3
-																																																																																																							store32(m.memory[int64(uint32(t18))+156:], load32(m.memory[uint32(v4):]))
-																																																																																																							goto l218
-																																																																																																						}
-																																																																																																					l14:
-																																																																																																						t19 := v4
-																																																																																																						t20 := int32(load32(m.memory[uint32(v4-i32(20)):]))
-																																																																																																						v6 = m._gen_or(t20, int32(load32(m.memory[int64(uint32(v4))+12:])))
-																																																																																																						store32(m.memory[int64(uint32(t19))+12:], uint32(v6))
-																																																																																																						t21 := v3
-																																																																																																						store32(m.memory[int64(uint32(t21))+156:], load32(m.memory[uint32(v4):]))
-																																																																																																						goto l218
-																																																																																																					}
-																																																																																																				l15:
-																																																																																																					t22 := v3
-																																																																																																					store32(m.memory[int64(uint32(t22))+156:], load32(m.memory[uint32(v4-i32(16)):]))
-																																																																																																					v6 = int32(load32(m.memory[uint32(v4-i32(4)):]))
-																																																																																																					v9 = int32(load32(m.memory[uint32(v4-i32(8)):]))
-																																																																																																					v11 = int32(load32(m.memory[uint32(v4-i32(12)):]))
-																																																																																																					goto l9
-																																																																																																				}
-																																																																																																			l16:
-																																																																																																				t23 := v3
-																																																																																																				store32(m.memory[int64(uint32(t23))+156:], load32(m.memory[uint32(v4-i32(16)):]))
-																																																																																																				v6 = int32(load32(m.memory[uint32(v4-i32(4)):]))
-																																																																																																				v9 = int32(load32(m.memory[uint32(v4-i32(8)):]))
-																																																																																																				v11 = int32(load32(m.memory[uint32(v4-i32(12)):]))
-																																																																																																				goto l9
-																																																																																																			}
-																																																																																																		l17:
-																																																																																																			v6 = int32(load32(m.memory[uint32(v4):]))
-																																																																																																			t24 := v3
-																																																																																																			v2 = int32(load32(m.memory[uint32(v4-i32(16)):]))
-																																																																																																			store32(m.memory[int64(uint32(t24))+156:], uint32(v2))
-																																																																																																			v6 = m._gen_ncode(v1, i32(0), v6, v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
-																																																																																																			if v6 != 0 {
-																																																																																																				goto l9
-																																																																																																			}
-																																																																																																			v5 = i32(1)
-																																																																																																			goto l2
-																																																																																																		}
-																																																																																																	l18:
-																																																																																																		t25 := v3
-																																																																																																		store32(m.memory[int64(uint32(t25))+156:], load32(m.memory[uint32(v4-i32(16)):]))
-																																																																																																		v6 = int32(load32(m.memory[uint32(v4-i32(4)):]))
-																																																																																																		v9 = int32(load32(m.memory[uint32(v4-i32(8)):]))
-																																																																																																		v11 = int32(load32(m.memory[uint32(v4-i32(12)):]))
-																																																																																																		goto l9
-																																																																																																	}
-																																																																																																l19:
-																																																																																																	v5 = i32(1)
-																																																																																																	v6 = int32(load32(m.memory[uint32(v4):]))
-																																																																																																	if v6 == 0 {
-																																																																																																		goto l2
-																																																																																																	}
-																																																																																																	t26 := v3
-																																																																																																	v2 = int32(load32(m.memory[uint32(v4-i32(16)):]))
-																																																																																																	store32(m.memory[int64(uint32(t26))+156:], uint32(v2))
-																																																																																																	v6 = m._gen_scode(v1, v6, v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
-																																																																																																	if v6 != 0 {
-																																																																																																		goto l9
-																																																																																																	}
-																																																																																																	goto l2
-																																																																																																}
-																																																																																															l20:
-																																																																																																v5 = i32(1)
-																																																																																																v6 = v4 - i32(32)
-																																																																																																if int32(load32(m.memory[uint32(v6):])) == 0 {
-																																																																																																	goto l2
-																																																																																																}
-																																																																																																t27 := v3
-																																																																																																v2 = int32(load32(m.memory[uint32(v4-i32(48)):]))
-																																																																																																store32(m.memory[int64(uint32(t27))+156:], uint32(v2))
-																																																																																																switch v2&i32(255) - i32(3) {
-																																																																																																case 0:
-																																																																																																	goto l219
-																																																																																																case 2:
-																																																																																																	goto l221
-																																																																																																case 3:
-																																																																																																	goto l222
-																																																																																																case 4:
-																																																																																																	goto l223
-																																																																																																default:
-																																																																																																	goto l220
-																																																																																																}
-																																																																																															l219:
-																																																																																																m._bpf_set_error(v1, i32(4942), i32(0))
-																																																																																																goto l2
-																																																																																															l223:
-																																																																																																m._bpf_set_error(v1, i32(5126), i32(0))
-																																																																																																goto l2
-																																																																																															l221:
-																																																																																																m._bpf_set_error(v1, i32(5001), i32(0))
-																																																																																																goto l2
-																																																																																															l222:
-																																																																																																m._bpf_set_error(v1, i32(5061), i32(0))
-																																																																																																goto l2
-																																																																																															l220:
-																																																																																																t28 := v1
-																																																																																																t29 := int32(load32(m.memory[uint32(v6):]))
-																																																																																																v6 = m._gen_mcode(t28, t29, i32(0), int32(load32(m.memory[uint32(v4):])), v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
-																																																																																																if v6 != 0 {
-																																																																																																	goto l9
-																																																																																																}
-																																																																																																goto l2
-																																																																																															}
-																																																																																														l21:
-																																																																																															v5 = i32(1)
-																																																																																															v6 = v4 - i32(32)
-																																																																																															if int32(load32(m.memory[uint32(v6):])) == 0 {
-																																																																																																goto l2
-																																																																																															}
-																																																																																															if int32(load32(m.memory[uint32(v4):])) == 0 {
-																																																																																																goto l2
-																																																																																															}
-																																																																																															t30 := v3
-																																																																																															v2 = int32(load32(m.memory[uint32(v4-i32(48)):]))
-																																																																																															store32(m.memory[int64(uint32(t30))+156:], uint32(v2))
-																																																																																															switch v2&i32(255) - i32(3) {
-																																																																																															case 0:
-																																																																																																goto l224
-																																																																																															case 2:
-																																																																																																goto l226
-																																																																																															case 3:
-																																																																																																goto l227
-																																																																																															case 4:
-																																																																																																goto l228
-																																																																																															default:
-																																																																																																goto l225
-																																																																																															}
-																																																																																														l224:
-																																																																																															m._bpf_set_error(v1, i32(4421), i32(0))
-																																																																																															goto l2
-																																																																																														l228:
-																																																																																															m._bpf_set_error(v1, i32(4587), i32(0))
-																																																																																															goto l2
-																																																																																														l226:
-																																																																																															m._bpf_set_error(v1, i32(4474), i32(0))
-																																																																																															goto l2
-																																																																																														l227:
-																																																																																															m._bpf_set_error(v1, i32(4528), i32(0))
-																																																																																															goto l2
-																																																																																														l225:
-																																																																																															t31 := v1
-																																																																																															t32 := int32(load32(m.memory[uint32(v6):]))
-																																																																																															v6 = m._gen_mcode(t31, t32, int32(load32(m.memory[uint32(v4):])), i32(0), v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
-																																																																																															if v6 != 0 {
-																																																																																																goto l9
-																																																																																															}
-																																																																																															goto l2
-																																																																																														}
-																																																																																													l22:
-																																																																																														v5 = i32(1)
-																																																																																														if int32(load32(m.memory[uint32(v4):])) == 0 {
-																																																																																															goto l2
-																																																																																														}
-																																																																																														t33 := v3
-																																																																																														v2 = int32(load32(m.memory[uint32(v4-i32(16)):]))
-																																																																																														store32(m.memory[int64(uint32(t33))+156:], uint32(v2))
-																																																																																														switch v2&i32(255) - i32(3) {
-																																																																																														case 0:
-																																																																																															goto l229
-																																																																																														case 2:
-																																																																																															goto l231
-																																																																																														case 3:
-																																																																																															goto l232
-																																																																																														case 4:
-																																																																																															goto l233
-																																																																																														default:
-																																																																																															goto l230
-																																																																																														}
-																																																																																													l229:
-																																																																																														m._bpf_set_error(v1, i32(2284), i32(0))
-																																																																																														goto l2
-																																																																																													l233:
-																																																																																														m._bpf_set_error(v1, i32(2414), i32(0))
-																																																																																														goto l2
-																																																																																													l231:
-																																																																																														m._bpf_set_error(v1, i32(2325), i32(0))
-																																																																																														goto l2
-																																																																																													l232:
-																																																																																														m._bpf_set_error(v1, i32(2367), i32(0))
-																																																																																														goto l2
-																																																																																													l230:
-																																																																																														t34 := v1
-																																																																																														v6 = m._gen_ncode(t34, int32(load32(m.memory[uint32(v4):])), i32(0), v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
-																																																																																														if v6 != 0 {
-																																																																																															goto l9
-																																																																																														}
-																																																																																														goto l2
-																																																																																													}
-																																																																																												l23:
-																																																																																													v5 = i32(1)
-																																																																																													v6 = v4 - i32(32)
-																																																																																													if int32(load32(m.memory[uint32(v6):])) == 0 {
-																																																																																														goto l2
-																																																																																													}
-																																																																																													t35 := v3
-																																																																																													v2 = int32(load32(m.memory[uint32(v4-i32(48)):]))
-																																																																																													store32(m.memory[int64(uint32(t35))+156:], uint32(v2))
-																																																																																													switch v2&i32(255) - i32(3) {
-																																																																																													case 0:
-																																																																																														goto l234
-																																																																																													case 2:
-																																																																																														goto l236
-																																																																																													case 3:
-																																																																																														goto l237
-																																																																																													case 4:
-																																																																																														goto l238
-																																																																																													default:
-																																																																																														goto l235
-																																																																																													}
-																																																																																												l234:
-																																																																																													m._bpf_set_error(v1, i32(4754), i32(0))
-																																																																																													goto l2
-																																																																																												l238:
-																																																																																													m._bpf_set_error(v1, i32(4878), i32(0))
-																																																																																													goto l2
-																																																																																												l236:
-																																																																																													m._bpf_set_error(v1, i32(8161), i32(0))
-																																																																																													goto l2
-																																																																																												l237:
-																																																																																													m._bpf_set_error(v1, i32(4813), i32(0))
-																																																																																													goto l2
-																																																																																												l235:
-																																																																																													t36 := v1
-																																																																																													t37 := int32(load32(m.memory[uint32(v6):]))
-																																																																																													v6 = m._gen_mcode6(t36, t37, int32(load32(m.memory[uint32(v4):])), v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
-																																																																																													if v6 != 0 {
-																																																																																														goto l9
-																																																																																													}
-																																																																																													goto l2
-																																																																																												}
-																																																																																											l24:
-																																																																																												v5 = i32(1)
-																																																																																												if int32(load32(m.memory[uint32(v4):])) == 0 {
-																																																																																													goto l2
-																																																																																												}
-																																																																																												t38 := v3
-																																																																																												v2 = int32(load32(m.memory[uint32(v4-i32(16)):]))
-																																																																																												store32(m.memory[int64(uint32(t38))+156:], uint32(v2))
-																																																																																												switch v2&i32(255) - i32(3) {
-																																																																																												case 0:
-																																																																																													goto l239
-																																																																																												case 2:
-																																																																																													goto l241
-																																																																																												case 3:
-																																																																																													goto l242
-																																																																																												case 4:
-																																																																																													goto l243
-																																																																																												default:
-																																																																																													goto l240
-																																																																																												}
-																																																																																											l239:
-																																																																																												m._bpf_set_error(v1, i32(2075), i32(0))
-																																																																																												goto l2
-																																																																																											l243:
-																																																																																												m._bpf_set_error(v1, i32(2205), i32(0))
-																																																																																												goto l2
-																																																																																											l241:
-																																																																																												m._bpf_set_error(v1, i32(2116), i32(0))
-																																																																																												goto l2
-																																																																																											l242:
-																																																																																												m._bpf_set_error(v1, i32(2158), i32(0))
-																																																																																												goto l2
-																																																																																											l240:
-																																																																																												t39 := v1
-																																																																																												v6 = m._gen_mcode6(t39, int32(load32(m.memory[uint32(v4):])), i32(128), v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
-																																																																																												if v6 != 0 {
-																																																																																													goto l9
-																																																																																												}
-																																																																																												goto l2
-																																																																																											}
-																																																																																										l25:
-																																																																																											v5 = i32(1)
-																																																																																											v6 = int32(load32(m.memory[uint32(v4):]))
-																																																																																											if v6 == 0 {
-																																																																																												goto l2
-																																																																																											}
-																																																																																											t40 := v3
-																																																																																											v2 = int32(load32(m.memory[uint32(v4-i32(16)):]))
-																																																																																											store32(m.memory[int64(uint32(t40))+156:], uint32(v2))
-																																																																																											v6 = m._gen_ecode(v1, v6, v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
-																																																																																											if v6 != 0 {
-																																																																																												goto l9
-																																																																																											}
-																																																																																											goto l2
-																																																																																										}
-																																																																																									l26:
-																																																																																										v5 = i32(1)
-																																																																																										v6 = int32(load32(m.memory[uint32(v4):]))
-																																																																																										if v6 == 0 {
-																																																																																											goto l2
-																																																																																										}
-																																																																																										t41 := v3
-																																																																																										v2 = int32(load32(m.memory[uint32(v4-i32(16)):]))
-																																																																																										store32(m.memory[int64(uint32(t41))+156:], uint32(v2))
-																																																																																										v6 = m._gen_acode(v1, v6, v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
-																																																																																										if v6 != 0 {
-																																																																																											goto l9
-																																																																																										}
-																																																																																										goto l2
-																																																																																									}
-																																																																																								l27:
-																																																																																									_ = m._gen_not(int32(load32(m.memory[int64(uint32(v4))+12:])))
-																																																																																									t42 := v3
-																																																																																									store32(m.memory[int64(uint32(t42))+156:], load32(m.memory[uint32(v4):]))
-																																																																																									v6 = int32(load32(m.memory[int64(uint32(v4))+12:]))
-																																																																																									goto l218
-																																																																																								}
-																																																																																							l28:
-																																																																																								t43 := v3
-																																																																																								store32(m.memory[int64(uint32(t43))+156:], load32(m.memory[uint32(v4-i32(16)):]))
-																																																																																								v6 = int32(load32(m.memory[uint32(v4-i32(4)):]))
-																																																																																								v9 = int32(load32(m.memory[uint32(v4-i32(8)):]))
-																																																																																								v11 = int32(load32(m.memory[uint32(v4-i32(12)):]))
-																																																																																								goto l9
-																																																																																							}
-																																																																																						l29:
-																																																																																							t44 := v3
-																																																																																							store32(m.memory[int64(uint32(t44))+156:], load32(m.memory[uint32(v4-i32(16)):]))
-																																																																																							v6 = int32(load32(m.memory[uint32(v4-i32(4)):]))
-																																																																																							v9 = int32(load32(m.memory[uint32(v4-i32(8)):]))
-																																																																																							v11 = int32(load32(m.memory[uint32(v4-i32(12)):]))
-																																																																																							goto l9
-																																																																																						}
-																																																																																					l30:
-																																																																																						t45 := v4
-																																																																																						t46 := int32(load32(m.memory[uint32(v4-i32(20)):]))
-																																																																																						v6 = m._gen_and(t46, int32(load32(m.memory[int64(uint32(v4))+12:])))
-																																																																																						store32(m.memory[int64(uint32(t45))+12:], uint32(v6))
-																																																																																						t47 := v3
-																																																																																						store32(m.memory[int64(uint32(t47))+156:], load32(m.memory[uint32(v4):]))
-																																																																																						goto l218
-																																																																																					}
-																																																																																				l31:
-																																																																																					t48 := v4
-																																																																																					t49 := int32(load32(m.memory[uint32(v4-i32(20)):]))
-																																																																																					v6 = m._gen_or(t49, int32(load32(m.memory[int64(uint32(v4))+12:])))
-																																																																																					store32(m.memory[int64(uint32(t48))+12:], uint32(v6))
-																																																																																					t50 := v3
-																																																																																					store32(m.memory[int64(uint32(t50))+156:], load32(m.memory[uint32(v4):]))
-																																																																																					goto l218
-																																																																																				}
-																																																																																			l32:
-																																																																																				v6 = int32(load32(m.memory[uint32(v4):]))
-																																																																																				t51 := v3
-																																																																																				v2 = int32(load32(m.memory[uint32(v4-i32(16)):]))
-																																																																																				store32(m.memory[int64(uint32(t51))+156:], uint32(v2))
-																																																																																				v6 = m._gen_ncode(v1, i32(0), v6, v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
-																																																																																				if v6 != 0 {
-																																																																																					goto l9
-																																																																																				}
-																																																																																				v5 = i32(1)
-																																																																																				goto l2
-																																																																																			}
-																																																																																		l33:
-																																																																																			_ = m._gen_not(int32(load32(m.memory[int64(uint32(v4))+12:])))
-																																																																																			t52 := v3
-																																																																																			store32(m.memory[int64(uint32(t52))+156:], load32(m.memory[uint32(v4):]))
-																																																																																			v6 = int32(load32(m.memory[int64(uint32(v4))+12:]))
-																																																																																			goto l218
-																																																																																		}
-																																																																																	l34:
-																																																																																		t53 := v3
-																																																																																		m.memory[int64(uint32(t53))+157] = byte(int32(load32(m.memory[uint32(v4-i32(32)):])))
-																																																																																		t54 := v3
-																																																																																		m.memory[int64(uint32(t54))+158] = byte(int32(load32(m.memory[uint32(v4-i32(16)):])))
-																																																																																		t55 := v3
-																																																																																		m.memory[int64(uint32(t55))+156] = byte(int32(load32(m.memory[uint32(v4):])))
-																																																																																		goto l9
-																																																																																	}
-																																																																																l35:
-																																																																																	t56 := v3
-																																																																																	m.memory[int64(uint32(t56))+157] = byte(int32(load32(m.memory[uint32(v4-i32(16)):])))
-																																																																																	v2 = int32(load32(m.memory[uint32(v4):]))
-																																																																																	m.memory[int64(uint32(v3))+156] = byte(i32(0))
-																																																																																	m.memory[int64(uint32(v3))+158] = byte(v2)
-																																																																																	goto l9
-																																																																																}
-																																																																															l36:
-																																																																																v2 = int32(load32(m.memory[uint32(v4-i32(16)):]))
-																																																																																m.memory[int64(uint32(v3))+158] = byte(i32(0))
-																																																																																m.memory[int64(uint32(v3))+157] = byte(v2)
-																																																																																t57 := v3
-																																																																																m.memory[int64(uint32(t57))+156] = byte(int32(load32(m.memory[uint32(v4):])))
-																																																																																goto l9
-																																																																															}
-																																																																														l37:
-																																																																															v2 = int32(load32(m.memory[uint32(v4-i32(16)):]))
-																																																																															m.memory[int64(uint32(v3))+158] = byte(i32(0))
-																																																																															m.memory[int64(uint32(v3))+157] = byte(v2)
-																																																																															m.memory[int64(uint32(v3))+156] = byte(i32(5))
-																																																																															goto l9
-																																																																														l38:
-																																																																															v2 = int32(load32(m.memory[uint32(v4-i32(16)):]))
-																																																																															m.memory[int64(uint32(v3))+158] = byte(i32(0))
-																																																																															m.memory[int64(uint32(v3))+157] = byte(v2)
-																																																																															m.memory[int64(uint32(v3))+156] = byte(i32(6))
-																																																																															goto l9
-																																																																														l39:
-																																																																															v2 = int32(load32(m.memory[uint32(v4-i32(16)):]))
-																																																																															m.memory[int64(uint32(v3))+158] = byte(i32(0))
-																																																																															m.memory[int64(uint32(v3))+157] = byte(v2)
-																																																																															t58 := v3
-																																																																															m.memory[int64(uint32(t58))+156] = byte(int32(load32(m.memory[uint32(v4):])))
-																																																																															goto l9
-																																																																														}
-																																																																													l40:
-																																																																														t59 := v3
-																																																																														store32(m.memory[int64(uint32(t59))+156:], load32(m.memory[uint32(v4):]))
-																																																																														v6 = int32(load32(m.memory[int64(uint32(v4))+12:]))
-																																																																														goto l218
-																																																																													}
-																																																																												l41:
-																																																																													v6 = int32(load32(m.memory[uint32(v4-i32(4)):]))
-																																																																													t60 := v3
-																																																																													store32(m.memory[int64(uint32(t60))+156:], load32(m.memory[uint32(v4-i32(32)):]))
+																																																																												switch v9 - i32(2) {
+																																																																												case 0:
+																																																																													goto l8
+																																																																												case 2:
+																																																																													goto l10
+																																																																												case 4:
+																																																																													goto l11
+																																																																												case 5:
+																																																																													goto l12
+																																																																												case 6:
+																																																																													goto l13
+																																																																												case 7:
+																																																																													goto l14
+																																																																												case 8:
+																																																																													goto l15
+																																																																												case 9:
+																																																																													goto l16
+																																																																												case 11:
+																																																																													goto l17
+																																																																												case 12:
+																																																																													goto l18
+																																																																												case 13:
+																																																																													goto l19
+																																																																												case 14:
+																																																																													goto l20
+																																																																												case 15:
+																																																																													goto l21
+																																																																												case 16:
+																																																																													goto l22
+																																																																												case 17:
+																																																																													goto l23
+																																																																												case 18:
+																																																																													goto l24
+																																																																												case 19:
+																																																																													goto l25
+																																																																												case 20:
+																																																																													goto l26
+																																																																												case 21:
+																																																																													goto l27
+																																																																												case 22:
+																																																																													goto l28
+																																																																												case 23:
+																																																																													goto l29
+																																																																												case 25:
+																																																																													goto l30
+																																																																												case 26:
+																																																																													goto l31
+																																																																												case 27:
+																																																																													goto l32
+																																																																												case 30:
+																																																																													goto l33
+																																																																												case 31:
+																																																																													goto l34
+																																																																												case 32:
+																																																																													goto l35
+																																																																												case 33:
+																																																																													goto l36
+																																																																												case 34:
+																																																																													goto l37
+																																																																												case 35:
+																																																																													goto l38
+																																																																												case 36:
+																																																																													goto l39
+																																																																												case 37:
+																																																																													goto l40
+																																																																												case 38:
+																																																																													goto l41
+																																																																												case 39:
+																																																																													goto l42
+																																																																												case 40:
+																																																																													goto l43
+																																																																												case 41:
+																																																																													goto l44
+																																																																												case 42:
+																																																																													goto l45
+																																																																												case 43:
+																																																																													goto l46
+																																																																												case 44:
+																																																																													goto l47
+																																																																												case 45, 47:
+																																																																													goto l48
+																																																																												case 46:
+																																																																													goto l49
+																																																																												case 49:
+																																																																													goto l50
+																																																																												case 50, 62, 67:
+																																																																													goto l51
+																																																																												case 51, 63, 68:
+																																																																													goto l52
+																																																																												case 52, 53, 64, 69:
+																																																																													goto l53
+																																																																												case 54, 55, 66, 70:
+																																																																													goto l54
+																																																																												case 56, 71:
+																																																																													goto l55
+																																																																												case 57, 72:
+																																																																													goto l56
+																																																																												case 58, 65, 73:
+																																																																													goto l57
+																																																																												case 59, 74:
+																																																																													goto l58
+																																																																												case 60, 75:
+																																																																													goto l59
+																																																																												case 61, 76:
+																																																																													goto l60
+																																																																												case 77:
+																																																																													goto l61
+																																																																												case 78, 182, 201:
+																																																																													goto l62
+																																																																												case 79:
+																																																																													goto l63
+																																																																												case 80:
+																																																																													goto l64
+																																																																												case 81, 183, 202:
+																																																																													goto l65
+																																																																												case 82:
+																																																																													goto l66
+																																																																												case 83:
+																																																																													goto l67
+																																																																												case 84:
+																																																																													goto l68
+																																																																												case 85, 153, 156:
+																																																																													goto l69
+																																																																												case 86:
+																																																																													goto l70
+																																																																												case 87:
+																																																																													goto l71
+																																																																												case 88:
+																																																																													goto l72
+																																																																												case 89:
+																																																																													goto l73
+																																																																												case 90:
+																																																																													goto l74
+																																																																												case 91, 185, 203:
+																																																																													goto l75
+																																																																												case 92, 184, 204:
+																																																																													goto l76
+																																																																												case 93, 186, 205:
+																																																																													goto l77
+																																																																												case 94:
+																																																																													goto l78
+																																																																												case 95, 151, 154:
+																																																																													goto l79
+																																																																												case 96:
+																																																																													goto l80
+																																																																												case 97:
+																																																																													goto l81
+																																																																												case 98:
+																																																																													goto l82
+																																																																												case 99:
+																																																																													goto l83
+																																																																												case 100:
+																																																																													goto l84
+																																																																												case 101, 187, 206:
+																																																																													goto l85
+																																																																												case 102, 188:
+																																																																													goto l86
+																																																																												case 103, 189:
+																																																																													goto l87
+																																																																												case 104, 181:
+																																																																													goto l88
+																																																																												case 105, 174:
+																																																																													goto l89
+																																																																												case 106:
+																																																																													goto l90
+																																																																												case 107:
+																																																																													goto l91
+																																																																												case 108:
+																																																																													goto l92
+																																																																												case 109:
+																																																																													goto l93
+																																																																												case 110:
+																																																																													goto l94
+																																																																												case 111:
+																																																																													goto l95
+																																																																												case 112:
+																																																																													goto l96
+																																																																												case 113:
+																																																																													goto l97
+																																																																												case 114:
+																																																																													goto l98
+																																																																												case 115:
+																																																																													goto l99
+																																																																												case 116:
+																																																																													goto l100
+																																																																												case 117:
+																																																																													goto l101
+																																																																												case 118:
+																																																																													goto l102
+																																																																												case 119:
+																																																																													goto l103
+																																																																												case 120:
+																																																																													goto l104
+																																																																												case 121:
+																																																																													goto l105
+																																																																												case 122:
+																																																																													goto l106
+																																																																												case 123:
+																																																																													goto l107
+																																																																												case 124:
+																																																																													goto l108
+																																																																												case 125, 126, 127, 148:
+																																																																													goto l109
+																																																																												case 128:
+																																																																													goto l110
+																																																																												case 129:
+																																																																													goto l111
+																																																																												case 130:
+																																																																													goto l112
+																																																																												case 131:
+																																																																													goto l113
+																																																																												case 132:
+																																																																													goto l114
+																																																																												case 133:
+																																																																													goto l115
+																																																																												case 134:
+																																																																													goto l116
+																																																																												case 135:
+																																																																													goto l117
+																																																																												case 136:
+																																																																													goto l118
+																																																																												case 137:
+																																																																													goto l119
+																																																																												case 138:
+																																																																													goto l120
+																																																																												case 139:
+																																																																													goto l121
+																																																																												case 140:
+																																																																													goto l122
+																																																																												case 141:
+																																																																													goto l123
+																																																																												case 142:
+																																																																													goto l124
+																																																																												case 143:
+																																																																													goto l125
+																																																																												case 144:
+																																																																													goto l126
+																																																																												case 145:
+																																																																													goto l127
+																																																																												case 146:
+																																																																													goto l128
+																																																																												case 147:
+																																																																													goto l129
+																																																																												case 149:
+																																																																													goto l130
+																																																																												case 150:
+																																																																													goto l131
+																																																																												case 152, 155:
+																																																																													goto l132
+																																																																												case 157:
+																																																																													goto l133
+																																																																												case 159:
+																																																																													goto l134
+																																																																												case 160:
+																																																																													goto l135
+																																																																												case 161:
+																																																																													goto l136
+																																																																												case 162:
+																																																																													goto l137
+																																																																												case 163:
+																																																																													goto l138
+																																																																												case 164:
+																																																																													goto l139
+																																																																												case 165:
+																																																																													goto l140
+																																																																												case 166:
+																																																																													goto l141
+																																																																												case 167:
+																																																																													goto l142
+																																																																												case 168:
+																																																																													goto l143
+																																																																												case 169:
+																																																																													goto l144
+																																																																												case 170:
+																																																																													goto l145
+																																																																												case 171:
+																																																																													goto l146
+																																																																												case 172:
+																																																																													goto l147
+																																																																												case 173:
+																																																																													goto l148
+																																																																												case 175:
+																																																																													goto l149
+																																																																												case 176:
+																																																																													goto l150
+																																																																												case 177:
+																																																																													goto l151
+																																																																												case 178:
+																																																																													goto l152
+																																																																												case 180:
+																																																																													goto l153
+																																																																												case 190:
+																																																																													goto l154
+																																																																												case 191:
+																																																																													goto l155
+																																																																												case 192:
+																																																																													goto l156
+																																																																												case 193:
+																																																																													goto l157
+																																																																												case 195:
+																																																																													goto l158
+																																																																												case 196:
+																																																																													goto l159
+																																																																												case 197:
+																																																																													goto l160
+																																																																												case 198:
+																																																																													goto l161
+																																																																												case 200:
+																																																																													goto l162
+																																																																												case 207:
+																																																																													goto l163
+																																																																												case 208:
+																																																																													goto l164
+																																																																												case 209:
+																																																																													goto l165
+																																																																												case 210:
+																																																																													goto l166
+																																																																												case 211:
+																																																																													goto l167
+																																																																												case 212:
+																																																																													goto l168
+																																																																												case 213:
+																																																																													goto l169
+																																																																												case 214:
+																																																																													goto l170
+																																																																												case 216:
+																																																																													goto l171
+																																																																												case 217:
+																																																																													goto l172
+																																																																												case 218:
+																																																																													goto l173
+																																																																												case 219:
+																																																																													goto l174
+																																																																												case 221:
+																																																																													goto l175
+																																																																												default:
 																																																																													goto l9
 																																																																												}
-																																																																											l42:
-																																																																												t61 := v1
-																																																																												v6 = m._gen_proto_abbrev(t61, int32(load32(m.memory[uint32(v4):])))
-																																																																												if v6 == 0 {
-																																																																													v5 = i32(1)
-																																																																													goto l2
+																																																																											l8:
+																																																																												t10 := v1
+																																																																												if m._finish_parse(t10, int32(load32(m.memory[int64(uint32(v3))+12:]))) != i32(-1) {
+																																																																													goto l9
 																																																																												}
-																																																																												store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
-																																																																												goto l9
-																																																																											}
-																																																																										l43:
-																																																																											t62 := v1
-																																																																											t63 := int32(load32(m.memory[uint32(v4-i32(16)):]))
-																																																																											t64 := int32(load32(m.memory[uint32(v4-i32(32)):]))
-																																																																											v6 = m._gen_relation(t62, t63, t64, int32(load32(m.memory[uint32(v4):])), i32(0))
-																																																																											if v6 == 0 {
 																																																																												v5 = i32(1)
 																																																																												goto l2
 																																																																											}
-																																																																											store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
+																																																																										l10:
+																																																																											v2 = i32(-1)
 																																																																											goto l9
+																																																																										l11:
+																																																																											t11 := int32(load32(m.memory[uint32(v3-i32(20)):]))
+																																																																											t12 := m._gen_and(t11, int32(load32(m.memory[int64(uint32(v3))+12:])))
+																																																																											p8 = t12
+																																																																											goto l176
 																																																																										}
-																																																																									l44:
-																																																																										v5 = i32(1)
-																																																																										t65 := v1
-																																																																										t66 := int32(load32(m.memory[uint32(v4-i32(16)):]))
-																																																																										t67 := int32(load32(m.memory[uint32(v4-i32(32)):]))
-																																																																										v6 = m._gen_relation(t65, t66, t67, int32(load32(m.memory[uint32(v4):])), i32(1))
-																																																																										if v6 == 0 {
-																																																																											goto l2
-																																																																										}
-																																																																										store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
-																																																																										goto l9
+																																																																									l12:
+																																																																										t13 := int32(load32(m.memory[uint32(v3-i32(20)):]))
+																																																																										t14 := m._gen_and(t13, int32(load32(m.memory[int64(uint32(v3))+12:])))
+																																																																										p8 = t14
+																																																																										goto l176
 																																																																									}
-																																																																								l45:
-																																																																									v6 = int32(load32(m.memory[uint32(v4):]))
-																																																																									store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
-																																																																									goto l9
-																																																																								l46:
-																																																																									t68 := v1
-																																																																									v6 = m._gen_atmtype_abbrev(t68, int32(load32(m.memory[uint32(v4):])))
-																																																																									if v6 == 0 {
-																																																																										v5 = i32(1)
-																																																																										goto l2
-																																																																									}
-																																																																									store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
-																																																																									goto l9
+																																																																								l13:
+																																																																									t15 := int32(load32(m.memory[uint32(v3-i32(20)):]))
+																																																																									t16 := m._gen_or(t15, int32(load32(m.memory[int64(uint32(v3))+12:])))
+																																																																									p8 = t16
+																																																																									goto l176
 																																																																								}
-																																																																							l47:
-																																																																								t69 := v1
-																																																																								v6 = m._gen_atmmulti_abbrev(t69, int32(load32(m.memory[uint32(v4):])))
-																																																																								if v6 == 0 {
-																																																																									v5 = i32(1)
-																																																																									goto l2
-																																																																								}
-																																																																								store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
+																																																																							l14:
+																																																																								t17 := int32(load32(m.memory[uint32(v3-i32(20)):]))
+																																																																								t18 := m._gen_or(t17, int32(load32(m.memory[int64(uint32(v3))+12:])))
+																																																																								p8 = t18
+																																																																								goto l176
+																																																																							}
+																																																																						l15:
+																																																																							v6 = int32(load32(m.memory[uint32(v3-i32(4)):]))
+																																																																							v10 = int32(load32(m.memory[uint32(v3-i32(8)):]))
+																																																																							v12 = int32(load32(m.memory[uint32(v3-i32(12)):]))
+																																																																							v2 = int32(load32(m.memory[uint32(v3-i32(16)):]))
+																																																																							goto l9
+																																																																						l16:
+																																																																							v6 = int32(load32(m.memory[uint32(v3-i32(4)):]))
+																																																																							v10 = int32(load32(m.memory[uint32(v3-i32(8)):]))
+																																																																							v12 = int32(load32(m.memory[uint32(v3-i32(12)):]))
+																																																																							v2 = int32(load32(m.memory[uint32(v3-i32(16)):]))
+																																																																							goto l9
+																																																																						l17:
+																																																																							t19 := v1
+																																																																							t20 := int32(load32(m.memory[uint32(v3):]))
+																																																																							v2 = int32(load32(m.memory[uint32(v3-i32(16)):]))
+																																																																							v6 = m._gen_ncode(t19, i32(0), t20, v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
+																																																																							if v6 != 0 {
 																																																																								goto l9
 																																																																							}
-																																																																						l48:
-																																																																							store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
-																																																																							v6 = int32(load32(m.memory[int64(uint32(v4))+12:]))
-																																																																							goto l9
-																																																																						l49:
-																																																																							t70 := v1
-																																																																							v6 = m._gen_mtp2type_abbrev(t70, int32(load32(m.memory[uint32(v4):])))
-																																																																							if v6 == 0 {
-																																																																								v5 = i32(1)
-																																																																								goto l2
-																																																																							}
-																																																																							store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
-																																																																							goto l9
+																																																																							v5 = i32(1)
+																																																																							goto l2
 																																																																						}
-																																																																					l50:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
-																																																																						v6 = int32(load32(m.memory[int64(uint32(v4))+12:]))
+																																																																					l18:
+																																																																						v6 = int32(load32(m.memory[uint32(v3-i32(4)):]))
+																																																																						v10 = int32(load32(m.memory[uint32(v3-i32(8)):]))
+																																																																						v12 = int32(load32(m.memory[uint32(v3-i32(12)):]))
+																																																																						v2 = int32(load32(m.memory[uint32(v3-i32(16)):]))
 																																																																						goto l9
-																																																																					l51:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(0)))
-																																																																						goto l9
-																																																																					l52:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(1)))
-																																																																						goto l9
-																																																																					l53:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(2)))
-																																																																						goto l9
-																																																																					l54:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(3)))
-																																																																						goto l9
-																																																																					l55:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(3)))
-																																																																						goto l9
-																																																																					l56:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(4)))
-																																																																						goto l9
-																																																																					l57:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(4)))
-																																																																						goto l9
-																																																																					l58:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(5)))
-																																																																						goto l9
-																																																																					l59:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(6)))
-																																																																						goto l9
-																																																																					l60:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(7)))
-																																																																						goto l9
-																																																																					l61:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(8)))
-																																																																						goto l9
-																																																																					l62:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(9)))
-																																																																						goto l9
-																																																																					l63:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(10)))
-																																																																						goto l9
-																																																																					l64:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(1)))
-																																																																						goto l9
-																																																																					l65:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(2)))
-																																																																						goto l9
-																																																																					l66:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(3)))
-																																																																						goto l9
-																																																																					l67:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(7)))
-																																																																						goto l9
-																																																																					l68:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(4)))
-																																																																						goto l9
-																																																																					l69:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(1)))
-																																																																						goto l9
-																																																																					l70:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(2)))
-																																																																						goto l9
-																																																																					l71:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(3)))
-																																																																						goto l9
-																																																																					l72:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(4)))
-																																																																						goto l9
-																																																																					l73:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(5)))
-																																																																						goto l9
-																																																																					l74:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(6)))
-																																																																						goto l9
-																																																																					l75:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(7)))
-																																																																						goto l9
-																																																																					l76:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(8)))
-																																																																						goto l9
-																																																																					l77:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(9)))
-																																																																						goto l9
-																																																																					l78:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(10)))
-																																																																						goto l9
-																																																																					l79:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(21)))
-																																																																						goto l9
-																																																																					l80:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(22)))
-																																																																						goto l9
-																																																																					l81:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(39)))
-																																																																						goto l9
-																																																																					l82:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(11)))
-																																																																						goto l9
-																																																																					l83:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(23)))
-																																																																						goto l9
-																																																																					l84:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(12)))
-																																																																						goto l9
-																																																																					l85:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(13)))
-																																																																						goto l9
-																																																																					l86:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(14)))
-																																																																						goto l9
-																																																																					l87:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(16)))
-																																																																						goto l9
-																																																																					l88:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(15)))
-																																																																						goto l9
-																																																																					l89:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(17)))
-																																																																						goto l9
-																																																																					l90:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(18)))
-																																																																						goto l9
-																																																																					l91:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(19)))
-																																																																						goto l9
-																																																																					l92:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(20)))
-																																																																						goto l9
-																																																																					l93:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(24)))
-																																																																						goto l9
-																																																																					l94:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(25)))
-																																																																						goto l9
-																																																																					l95:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(26)))
-																																																																						goto l9
-																																																																					l96:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(31)))
-																																																																						goto l9
-																																																																					l97:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(32)))
-																																																																						goto l9
-																																																																					l98:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(33)))
-																																																																						goto l9
-																																																																					l99:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(37)))
-																																																																						goto l9
-																																																																					l100:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(34)))
-																																																																						goto l9
-																																																																					l101:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(36)))
-																																																																						goto l9
-																																																																					l102:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(35)))
-																																																																						goto l9
-																																																																					l103:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(27)))
-																																																																						goto l9
-																																																																					l104:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(28)))
-																																																																						goto l9
-																																																																					l105:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(29)))
-																																																																						goto l9
-																																																																					l106:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(30)))
-																																																																						goto l9
-																																																																					l107:
-																																																																						store32(m.memory[int64(uint32(v3))+156:], uint32(i32(38)))
-																																																																						goto l9
-																																																																					l108:
-																																																																						t71 := v3
-																																																																						t72 := v1
-																																																																						v2 = m._gen_broadcast(t72, int32(load32(m.memory[uint32(v4-i32(16)):])))
-																																																																						store32(m.memory[int64(uint32(t71))+156:], uint32(v2))
-																																																																						if v2 != 0 {
-																																																																							goto l9
-																																																																						}
+																																																																					l19:
 																																																																						v5 = i32(1)
+																																																																						v4 = int32(load32(m.memory[uint32(v3):]))
+																																																																						if v4 == 0 {
+																																																																							goto l2
+																																																																						}
+																																																																						t21 := v1
+																																																																						t22 := v4
+																																																																						v2 = int32(load32(m.memory[uint32(v3-i32(16)):]))
+																																																																						v6 = m._gen_scode(t21, t22, v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
+																																																																						if v6 != 0 {
+																																																																							goto l9
+																																																																						}
 																																																																						goto l2
 																																																																					}
-																																																																				l109:
-																																																																					t73 := v3
-																																																																					t74 := v1
-																																																																					v2 = m._gen_multicast(t74, int32(load32(m.memory[uint32(v4-i32(16)):])))
-																																																																					store32(m.memory[int64(uint32(t73))+156:], uint32(v2))
-																																																																					if v2 != 0 {
+																																																																				l20:
+																																																																					v5 = i32(1)
+																																																																					v4 = int32(load32(m.memory[uint32(v3-i32(32)):]))
+																																																																					if v4 == 0 {
+																																																																						goto l2
+																																																																					}
+																																																																					v2 = int32(load32(m.memory[uint32(v3-i32(48)):]))
+																																																																					switch v2&i32(255) - i32(3) {
+																																																																					case 0:
+																																																																						goto l177
+																																																																					case 2:
+																																																																						goto l179
+																																																																					case 3:
+																																																																						goto l180
+																																																																					case 4:
+																																																																						goto l181
+																																																																					default:
+																																																																						goto l178
+																																																																					}
+																																																																				l177:
+																																																																					m._bpf_set_error(v1, i32(69454), i32(0))
+																																																																					goto l2
+																																																																				l181:
+																																																																					m._bpf_set_error(v1, i32(69638), i32(0))
+																																																																					goto l2
+																																																																				l179:
+																																																																					m._bpf_set_error(v1, i32(69513), i32(0))
+																																																																					goto l2
+																																																																				l180:
+																																																																					m._bpf_set_error(v1, i32(69573), i32(0))
+																																																																					goto l2
+																																																																				l178:
+																																																																					t23 := v1
+																																																																					t24 := v4
+																																																																					v6 = m._gen_mcode(t23, t24, i32(0), int32(load32(m.memory[uint32(v3):])), v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
+																																																																					if v6 != 0 {
 																																																																						goto l9
 																																																																					}
-																																																																					v5 = i32(1)
 																																																																					goto l2
 																																																																				}
-																																																																			l110:
-																																																																				t75 := v3
-																																																																				t76 := v1
-																																																																				v2 = m._gen_less(t76, int32(load32(m.memory[uint32(v4):])))
-																																																																				store32(m.memory[int64(uint32(t75))+156:], uint32(v2))
-																																																																				if v2 != 0 {
+																																																																			l21:
+																																																																				v5 = i32(1)
+																																																																				v4 = int32(load32(m.memory[uint32(v3-i32(32)):]))
+																																																																				if v4 == 0 {
+																																																																					goto l2
+																																																																				}
+																																																																				v6 = int32(load32(m.memory[uint32(v3):]))
+																																																																				if v6 == 0 {
+																																																																					goto l2
+																																																																				}
+																																																																				v2 = int32(load32(m.memory[uint32(v3-i32(48)):]))
+																																																																				switch v2&i32(255) - i32(3) {
+																																																																				case 0:
+																																																																					goto l182
+																																																																				case 2:
+																																																																					goto l184
+																																																																				case 3:
+																																																																					goto l185
+																																																																				case 4:
+																																																																					goto l186
+																																																																				default:
+																																																																					goto l183
+																																																																				}
+																																																																			l182:
+																																																																				m._bpf_set_error(v1, i32(68933), i32(0))
+																																																																				goto l2
+																																																																			l186:
+																																																																				m._bpf_set_error(v1, i32(69099), i32(0))
+																																																																				goto l2
+																																																																			l184:
+																																																																				m._bpf_set_error(v1, i32(68986), i32(0))
+																																																																				goto l2
+																																																																			l185:
+																																																																				m._bpf_set_error(v1, i32(69040), i32(0))
+																																																																				goto l2
+																																																																			l183:
+																																																																				v6 = m._gen_mcode(v1, v4, v6, i32(0), v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
+																																																																				if v6 != 0 {
 																																																																					goto l9
 																																																																				}
+																																																																				goto l2
+																																																																			l22:
 																																																																				v5 = i32(1)
+																																																																				v4 = int32(load32(m.memory[uint32(v3):]))
+																																																																				if v4 == 0 {
+																																																																					goto l2
+																																																																				}
+																																																																				v2 = int32(load32(m.memory[uint32(v3-i32(16)):]))
+																																																																				switch v2&i32(255) - i32(3) {
+																																																																				case 0:
+																																																																					goto l187
+																																																																				case 2:
+																																																																					goto l189
+																																																																				case 3:
+																																																																					goto l190
+																																																																				case 4:
+																																																																					goto l191
+																																																																				default:
+																																																																					goto l188
+																																																																				}
+																																																																			l187:
+																																																																				m._bpf_set_error(v1, i32(66796), i32(0))
+																																																																				goto l2
+																																																																			l191:
+																																																																				m._bpf_set_error(v1, i32(66926), i32(0))
+																																																																				goto l2
+																																																																			l189:
+																																																																				m._bpf_set_error(v1, i32(66837), i32(0))
+																																																																				goto l2
+																																																																			l190:
+																																																																				m._bpf_set_error(v1, i32(66879), i32(0))
+																																																																				goto l2
+																																																																			l188:
+																																																																				v6 = m._gen_ncode(v1, v4, i32(0), v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
+																																																																				if v6 != 0 {
+																																																																					goto l9
+																																																																				}
+																																																																				goto l2
+																																																																			l23:
+																																																																				v5 = i32(1)
+																																																																				v4 = int32(load32(m.memory[uint32(v3-i32(32)):]))
+																																																																				if v4 == 0 {
+																																																																					goto l2
+																																																																				}
+																																																																				v2 = int32(load32(m.memory[uint32(v3-i32(48)):]))
+																																																																				switch v2&i32(255) - i32(3) {
+																																																																				case 0:
+																																																																					goto l192
+																																																																				case 2:
+																																																																					goto l194
+																																																																				case 3:
+																																																																					goto l195
+																																																																				case 4:
+																																																																					goto l196
+																																																																				default:
+																																																																					goto l193
+																																																																				}
+																																																																			l192:
+																																																																				m._bpf_set_error(v1, i32(69266), i32(0))
+																																																																				goto l2
+																																																																			l196:
+																																																																				m._bpf_set_error(v1, i32(69390), i32(0))
+																																																																				goto l2
+																																																																			l194:
+																																																																				m._bpf_set_error(v1, i32(72639), i32(0))
+																																																																				goto l2
+																																																																			l195:
+																																																																				m._bpf_set_error(v1, i32(69325), i32(0))
+																																																																				goto l2
+																																																																			l193:
+																																																																				t25 := v1
+																																																																				t26 := v4
+																																																																				v6 = m._gen_mcode6(t25, t26, int32(load32(m.memory[uint32(v3):])), v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
+																																																																				if v6 != 0 {
+																																																																					goto l9
+																																																																				}
 																																																																				goto l2
 																																																																			}
-																																																																		l111:
-																																																																			t77 := v3
-																																																																			t78 := v1
-																																																																			v2 = m._gen_greater(t78, int32(load32(m.memory[uint32(v4):])))
-																																																																			store32(m.memory[int64(uint32(t77))+156:], uint32(v2))
-																																																																			if v2 != 0 {
+																																																																		l24:
+																																																																			v5 = i32(1)
+																																																																			v4 = int32(load32(m.memory[uint32(v3):]))
+																																																																			if v4 == 0 {
+																																																																				goto l2
+																																																																			}
+																																																																			v2 = int32(load32(m.memory[uint32(v3-i32(16)):]))
+																																																																			switch v2&i32(255) - i32(3) {
+																																																																			case 0:
+																																																																				goto l197
+																																																																			case 2:
+																																																																				goto l199
+																																																																			case 3:
+																																																																				goto l200
+																																																																			case 4:
+																																																																				goto l201
+																																																																			default:
+																																																																				goto l198
+																																																																			}
+																																																																		l197:
+																																																																			m._bpf_set_error(v1, i32(66587), i32(0))
+																																																																			goto l2
+																																																																		l201:
+																																																																			m._bpf_set_error(v1, i32(66717), i32(0))
+																																																																			goto l2
+																																																																		l199:
+																																																																			m._bpf_set_error(v1, i32(66628), i32(0))
+																																																																			goto l2
+																																																																		l200:
+																																																																			m._bpf_set_error(v1, i32(66670), i32(0))
+																																																																			goto l2
+																																																																		l198:
+																																																																			v6 = m._gen_mcode6(v1, v4, i32(128), v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
+																																																																			if v6 != 0 {
 																																																																				goto l9
 																																																																			}
+																																																																			goto l2
+																																																																		l25:
 																																																																			v5 = i32(1)
+																																																																			v4 = int32(load32(m.memory[uint32(v3):]))
+																																																																			if v4 == 0 {
+																																																																				goto l2
+																																																																			}
+																																																																			t27 := v1
+																																																																			t28 := v4
+																																																																			v2 = int32(load32(m.memory[uint32(v3-i32(16)):]))
+																																																																			v6 = m._gen_ecode(t27, t28, v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
+																																																																			if v6 != 0 {
+																																																																				goto l9
+																																																																			}
 																																																																			goto l2
 																																																																		}
-																																																																	l112:
-																																																																		t79 := v3
-																																																																		t80 := v1
-																																																																		t81 := int32(load32(m.memory[uint32(v4-i32(16)):]))
-																																																																		t82 := int32(load32(m.memory[uint32(v4-i32(32)):]))
-																																																																		v2 = m._gen_byteop(t80, t81, t82, int32(load32(m.memory[uint32(v4):])))
-																																																																		store32(m.memory[int64(uint32(t79))+156:], uint32(v2))
-																																																																		if v2 != 0 {
+																																																																	l26:
+																																																																		v5 = i32(1)
+																																																																		v4 = int32(load32(m.memory[uint32(v3):]))
+																																																																		if v4 == 0 {
+																																																																			goto l2
+																																																																		}
+																																																																		t29 := v1
+																																																																		t30 := v4
+																																																																		v2 = int32(load32(m.memory[uint32(v3-i32(16)):]))
+																																																																		v6 = m._gen_acode(t29, t30, v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
+																																																																		if v6 != 0 {
 																																																																			goto l9
 																																																																		}
-																																																																		v5 = i32(1)
 																																																																		goto l2
 																																																																	}
-																																																																l113:
-																																																																	t83 := v3
-																																																																	v2 = m._gen_inbound_outbound(v1, i32(0))
-																																																																	store32(m.memory[int64(uint32(t83))+156:], uint32(v2))
-																																																																	if v2 != 0 {
-																																																																		goto l9
-																																																																	}
-																																																																	v5 = i32(1)
-																																																																	goto l2
-																																																																}
-																																																															l114:
-																																																																v5 = i32(1)
-																																																																t84 := v3
-																																																																v2 = m._gen_inbound_outbound(v1, i32(1))
-																																																																store32(m.memory[int64(uint32(t84))+156:], uint32(v2))
-																																																																if v2 != 0 {
+																																																																l28:
+																																																																	v6 = int32(load32(m.memory[uint32(v3-i32(4)):]))
+																																																																	v10 = int32(load32(m.memory[uint32(v3-i32(8)):]))
+																																																																	v12 = int32(load32(m.memory[uint32(v3-i32(12)):]))
+																																																																	v2 = int32(load32(m.memory[uint32(v3-i32(16)):]))
 																																																																	goto l9
+																																																																l29:
+																																																																	v6 = int32(load32(m.memory[uint32(v3-i32(4)):]))
+																																																																	v10 = int32(load32(m.memory[uint32(v3-i32(8)):]))
+																																																																	v12 = int32(load32(m.memory[uint32(v3-i32(12)):]))
+																																																																	v2 = int32(load32(m.memory[uint32(v3-i32(16)):]))
+																																																																	goto l9
+																																																																l30:
+																																																																	t31 := int32(load32(m.memory[uint32(v3-i32(20)):]))
+																																																																	t32 := m._gen_and(t31, int32(load32(m.memory[int64(uint32(v3))+12:])))
+																																																																	p8 = t32
+																																																																	goto l176
 																																																																}
-																																																																goto l2
+																																																															l31:
+																																																																t33 := int32(load32(m.memory[uint32(v3-i32(20)):]))
+																																																																t34 := m._gen_or(t33, int32(load32(m.memory[int64(uint32(v3))+12:])))
+																																																																p8 = t34
+																																																																goto l176
 																																																															}
-																																																														l115:
-																																																															t85 := v3
-																																																															t86 := v1
-																																																															v2 = m._gen_ifindex(t86, int32(load32(m.memory[uint32(v4):])))
-																																																															store32(m.memory[int64(uint32(t85))+156:], uint32(v2))
-																																																															if v2 != 0 {
+																																																														l32:
+																																																															t35 := v1
+																																																															t36 := int32(load32(m.memory[uint32(v3):]))
+																																																															v2 = int32(load32(m.memory[uint32(v3-i32(16)):]))
+																																																															v6 = m._gen_ncode(t35, i32(0), t36, v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
+																																																															if v6 != 0 {
 																																																																goto l9
 																																																															}
 																																																															v5 = i32(1)
 																																																															goto l2
 																																																														}
-																																																													l116:
-																																																														v5 = i32(1)
-																																																														t87 := v3
-																																																														t88 := v1
-																																																														v2 = m._gen_vlan(t88, int32(load32(m.memory[uint32(v4):])), i32(1))
-																																																														store32(m.memory[int64(uint32(t87))+156:], uint32(v2))
-																																																														if v2 != 0 {
-																																																															goto l9
-																																																														}
-																																																														goto l2
-																																																													}
-																																																												l117:
-																																																													t89 := v3
-																																																													v2 = m._gen_vlan(v1, i32(0), i32(0))
-																																																													store32(m.memory[int64(uint32(t89))+156:], uint32(v2))
-																																																													if v2 != 0 {
+																																																													l33:
+																																																														_ = m._gen_not(int32(load32(m.memory[int64(uint32(v3))+12:])))
+																																																														v6 = int32(load32(m.memory[int64(uint32(v3))+12:]))
+																																																														goto l202
+																																																													l34:
+																																																														t37 := int32(m.memory[uint32(v3)])
+																																																														t38 := int32(load32(m.memory[uint32(v3-i32(16)):])) << 16 & i32(0xff0000)
+																																																														v2 = t37 | (t38 | (int32(load32(m.memory[uint32(v3-i32(32)):]))<<8&i32(0xff00) | v2&i32(-0x1000000)))
 																																																														goto l9
 																																																													}
-																																																													v5 = i32(1)
-																																																													goto l2
-																																																												}
-																																																											l118:
-																																																												v5 = i32(1)
-																																																												t90 := v3
-																																																												t91 := v1
-																																																												v2 = m._gen_mpls(t91, int32(load32(m.memory[uint32(v4):])), i32(1))
-																																																												store32(m.memory[int64(uint32(t90))+156:], uint32(v2))
-																																																												if v2 != 0 {
+																																																												l35:
+																																																													t39 := int32(load32(m.memory[uint32(v3):])) << 16 & i32(0xff0000)
+																																																													v2 = t39 | (int32(load32(m.memory[uint32(v3-i32(16)):]))<<8&i32(0xff00) | v2&i32(-0x1000000))
 																																																													goto l9
 																																																												}
-																																																												goto l2
-																																																											}
-																																																										l119:
-																																																											t92 := v3
-																																																											v2 = m._gen_mpls(v1, i32(0), i32(0))
-																																																											store32(m.memory[int64(uint32(t92))+156:], uint32(v2))
-																																																											if v2 != 0 {
+																																																											l36:
+																																																												t40 := int32(m.memory[uint32(v3)])
+																																																												v2 = t40 | (int32(load32(m.memory[uint32(v3-i32(16)):]))<<8&i32(0xff00) | v2&i32(-0x1000000))
 																																																												goto l9
 																																																											}
-																																																											v5 = i32(1)
-																																																											goto l2
-																																																										}
-																																																									l120:
-																																																										t93 := v3
-																																																										v2 = m._gen_pppoed(v1)
-																																																										store32(m.memory[int64(uint32(t93))+156:], uint32(v2))
-																																																										if v2 != 0 {
+																																																										l37:
+																																																											t41 := v2 & i32(-0x1000000)
+																																																											v2 = t41 | int32(load32(m.memory[uint32(v3-i32(16)):]))<<8&i32(0xff00) | i32(5)
 																																																											goto l9
 																																																										}
-																																																										v5 = i32(1)
-																																																										goto l2
-																																																									}
-																																																								l121:
-																																																									v5 = i32(1)
-																																																									t94 := v3
-																																																									t95 := v1
-																																																									v2 = m._gen_pppoes(t95, int32(load32(m.memory[uint32(v4):])), i32(1))
-																																																									store32(m.memory[int64(uint32(t94))+156:], uint32(v2))
-																																																									if v2 != 0 {
+																																																									l38:
+																																																										t42 := v2 & i32(-0x1000000)
+																																																										v2 = t42 | int32(load32(m.memory[uint32(v3-i32(16)):]))<<8&i32(0xff00) | i32(6)
 																																																										goto l9
 																																																									}
-																																																									goto l2
+																																																								l39:
+																																																									t43 := int32(m.memory[uint32(v3)])
+																																																									v2 = t43 | (int32(load32(m.memory[uint32(v3-i32(16)):]))<<8&i32(0xff00) | v2&i32(-0x1000000))
+																																																									goto l9
 																																																								}
-																																																							l122:
-																																																								t96 := v3
-																																																								v2 = m._gen_pppoes(v1, i32(0), i32(0))
-																																																								store32(m.memory[int64(uint32(t96))+156:], uint32(v2))
-																																																								if v2 != 0 {
+																																																							l27:
+																																																								_ = m._gen_not(int32(load32(m.memory[int64(uint32(v3))+12:])))
+																																																							l40:
+																																																								v6 = int32(load32(m.memory[int64(uint32(v3))+12:]))
+																																																								goto l202
+																																																							l41:
+																																																								v2 = int32(load32(m.memory[uint32(v3-i32(32)):]))
+																																																								v6 = int32(load32(m.memory[uint32(v3-i32(4)):]))
+																																																								goto l9
+																																																							l42:
+																																																								t44 := v1
+																																																								v6 = m._gen_proto_abbrev(t44, int32(load32(m.memory[uint32(v3):])))
+																																																								if v6 != 0 {
+																																																									v2 = i32(-1)
 																																																									goto l9
 																																																								}
 																																																								v5 = i32(1)
 																																																								goto l2
 																																																							}
-																																																						l123:
-																																																							v5 = i32(1)
-																																																							t97 := v3
-																																																							t98 := v1
-																																																							v2 = m._gen_geneve(t98, int32(load32(m.memory[uint32(v4):])), i32(1))
-																																																							store32(m.memory[int64(uint32(t97))+156:], uint32(v2))
-																																																							if v2 != 0 {
+																																																						l43:
+																																																							t45 := v1
+																																																							t46 := int32(load32(m.memory[uint32(v3-i32(16)):]))
+																																																							t47 := int32(load32(m.memory[uint32(v3-i32(32)):]))
+																																																							v6 = m._gen_relation(t45, t46, t47, int32(load32(m.memory[uint32(v3):])), i32(0))
+																																																							if v6 != 0 {
+																																																								v2 = i32(-1)
 																																																								goto l9
 																																																							}
+																																																							v5 = i32(1)
 																																																							goto l2
 																																																						}
-																																																					l124:
-																																																						t99 := v3
-																																																						v2 = m._gen_geneve(v1, i32(0), i32(0))
-																																																						store32(m.memory[int64(uint32(t99))+156:], uint32(v2))
-																																																						if v2 != 0 {
-																																																							goto l9
-																																																						}
+																																																					l44:
 																																																						v5 = i32(1)
-																																																						goto l2
-																																																					}
-																																																				l125:
-																																																					v5 = i32(1)
-																																																					t100 := v3
-																																																					t101 := v1
-																																																					v2 = m._gen_vxlan(t101, int32(load32(m.memory[uint32(v4):])), i32(1))
-																																																					store32(m.memory[int64(uint32(t100))+156:], uint32(v2))
-																																																					if v2 != 0 {
+																																																						t48 := v1
+																																																						t49 := int32(load32(m.memory[uint32(v3-i32(16)):]))
+																																																						t50 := int32(load32(m.memory[uint32(v3-i32(32)):]))
+																																																						v6 = m._gen_relation(t48, t49, t50, int32(load32(m.memory[uint32(v3):])), i32(1))
+																																																						if v6 == 0 {
+																																																							goto l2
+																																																						}
+																																																						v2 = i32(-1)
 																																																						goto l9
 																																																					}
+																																																				l45:
+																																																					v6 = int32(load32(m.memory[uint32(v3):]))
+																																																					v2 = i32(-1)
+																																																					goto l9
+																																																				l46:
+																																																					t51 := v1
+																																																					v6 = m._gen_atmtype_abbrev(t51, int32(load32(m.memory[uint32(v3):])))
+																																																					if v6 != 0 {
+																																																						v2 = i32(-1)
+																																																						goto l9
+																																																					}
+																																																					v5 = i32(1)
 																																																					goto l2
 																																																				}
-																																																			l126:
-																																																				t102 := v3
-																																																				v2 = m._gen_vxlan(v1, i32(0), i32(0))
-																																																				store32(m.memory[int64(uint32(t102))+156:], uint32(v2))
-																																																				if v2 != 0 {
+																																																			l47:
+																																																				t52 := v1
+																																																				v6 = m._gen_atmmulti_abbrev(t52, int32(load32(m.memory[uint32(v3):])))
+																																																				if v6 != 0 {
+																																																					v2 = i32(-1)
 																																																					goto l9
 																																																				}
 																																																				v5 = i32(1)
 																																																				goto l2
 																																																			}
-																																																		l127:
-																																																			t103 := v3
-																																																			store32(m.memory[int64(uint32(t103))+156:], load32(m.memory[uint32(v4):]))
+																																																		l49:
+																																																			t53 := v1
+																																																			v6 = m._gen_mtp2type_abbrev(t53, int32(load32(m.memory[uint32(v3):])))
+																																																			if v6 != 0 {
+																																																				v2 = i32(-1)
+																																																				goto l9
+																																																			}
+																																																			v5 = i32(1)
+																																																			goto l2
+																																																		}
+																																																	l48:
+																																																		v6 = int32(load32(m.memory[int64(uint32(v3))+12:]))
+																																																		v2 = i32(-1)
+																																																		goto l9
+																																																	l50:
+																																																		v2 = i32(0)
+																																																		goto l9
+																																																	l51:
+																																																		v2 = i32(1)
+																																																		goto l9
+																																																	l52:
+																																																		v2 = i32(2)
+																																																		goto l9
+																																																	l53:
+																																																		v2 = i32(3)
+																																																		goto l9
+																																																	l54:
+																																																		v2 = i32(4)
+																																																		goto l9
+																																																	l55:
+																																																		v2 = i32(5)
+																																																		goto l9
+																																																	l56:
+																																																		v2 = i32(6)
+																																																		goto l9
+																																																	l57:
+																																																		v2 = i32(7)
+																																																		goto l9
+																																																	l58:
+																																																		v2 = i32(8)
+																																																		goto l9
+																																																	l59:
+																																																		v2 = i32(9)
+																																																		goto l9
+																																																	l60:
+																																																		v2 = i32(10)
+																																																		goto l9
+																																																	l61:
+																																																		v2 = i32(21)
+																																																		goto l9
+																																																	l62:
+																																																		v2 = i32(22)
+																																																		goto l9
+																																																	l63:
+																																																		v2 = i32(39)
+																																																		goto l9
+																																																	l64:
+																																																		v2 = i32(11)
+																																																		goto l9
+																																																	l65:
+																																																		v2 = i32(23)
+																																																		goto l9
+																																																	l66:
+																																																		v2 = i32(12)
+																																																		goto l9
+																																																	l67:
+																																																		v2 = i32(13)
+																																																		goto l9
+																																																	l68:
+																																																		v2 = i32(14)
+																																																		goto l9
+																																																	l69:
+																																																		v2 = i32(16)
+																																																		goto l9
+																																																	l70:
+																																																		v2 = i32(15)
+																																																		goto l9
+																																																	l71:
+																																																		v2 = i32(17)
+																																																		goto l9
+																																																	l72:
+																																																		v2 = i32(18)
+																																																		goto l9
+																																																	l73:
+																																																		v2 = i32(19)
+																																																		goto l9
+																																																	l74:
+																																																		v2 = i32(20)
+																																																		goto l9
+																																																	l75:
+																																																		v2 = i32(24)
+																																																		goto l9
+																																																	l76:
+																																																		v2 = i32(25)
+																																																		goto l9
+																																																	l77:
+																																																		v2 = i32(26)
+																																																		goto l9
+																																																	l78:
+																																																		v2 = i32(31)
+																																																		goto l9
+																																																	l79:
+																																																		v2 = i32(32)
+																																																		goto l9
+																																																	l80:
+																																																		v2 = i32(33)
+																																																		goto l9
+																																																	l81:
+																																																		v2 = i32(37)
+																																																		goto l9
+																																																	l82:
+																																																		v2 = i32(34)
+																																																		goto l9
+																																																	l83:
+																																																		v2 = i32(36)
+																																																		goto l9
+																																																	l84:
+																																																		v2 = i32(35)
+																																																		goto l9
+																																																	l85:
+																																																		v2 = i32(27)
+																																																		goto l9
+																																																	l86:
+																																																		v2 = i32(28)
+																																																		goto l9
+																																																	l87:
+																																																		v2 = i32(29)
+																																																		goto l9
+																																																	l88:
+																																																		v2 = i32(30)
+																																																		goto l9
+																																																	l89:
+																																																		v2 = i32(38)
+																																																		goto l9
+																																																	l90:
+																																																		t54 := v1
+																																																		v2 = m._gen_broadcast(t54, int32(load32(m.memory[uint32(v3-i32(16)):])))
+																																																		if v2 != 0 {
 																																																			goto l9
 																																																		}
-																																																	l128:
-																																																		t104 := v3
-																																																		store32(m.memory[int64(uint32(t104))+156:], load32(m.memory[uint32(v4):]))
+																																																		v5 = i32(1)
+																																																		goto l2
+																																																	}
+																																																l91:
+																																																	t55 := v1
+																																																	v2 = m._gen_multicast(t55, int32(load32(m.memory[uint32(v3-i32(16)):])))
+																																																	if v2 != 0 {
 																																																		goto l9
 																																																	}
-																																																l129:
-																																																	t105 := v3
-																																																	store32(m.memory[int64(uint32(t105))+156:], load32(m.memory[uint32(v4):]))
-																																																	goto l9
-																																																}
-																																															l130:
-																																																v5 = i32(1)
-																																																v2 = int32(load32(m.memory[uint32(v4):]))
-																																																if v2 == 0 {
+																																																	v5 = i32(1)
 																																																	goto l2
 																																																}
-																																																t106 := v3
-																																																v2 = m._gen_pf_ifname(v1, v2)
-																																																store32(m.memory[int64(uint32(t106))+156:], uint32(v2))
+																																															l92:
+																																																t56 := v1
+																																																v2 = m._gen_less(t56, int32(load32(m.memory[uint32(v3):])))
 																																																if v2 != 0 {
 																																																	goto l9
 																																																}
+																																																v5 = i32(1)
 																																																goto l2
 																																															}
-																																														l131:
-																																															v5 = i32(1)
-																																															v2 = int32(load32(m.memory[uint32(v4):]))
-																																															if v2 == 0 {
-																																																goto l2
-																																															}
-																																															t107 := v3
-																																															v2 = m._gen_pf_ruleset(v1, v2)
-																																															store32(m.memory[int64(uint32(t107))+156:], uint32(v2))
+																																														l93:
+																																															t57 := v1
+																																															v2 = m._gen_greater(t57, int32(load32(m.memory[uint32(v3):])))
 																																															if v2 != 0 {
 																																																goto l9
 																																															}
+																																															v5 = i32(1)
 																																															goto l2
 																																														}
-																																													l132:
-																																														t108 := v3
-																																														t109 := v1
-																																														v2 = m._gen_pf_rnr(t109, int32(load32(m.memory[uint32(v4):])))
-																																														store32(m.memory[int64(uint32(t108))+156:], uint32(v2))
+																																													l94:
+																																														t58 := v1
+																																														t59 := int32(load32(m.memory[uint32(v3-i32(16)):]))
+																																														t60 := int32(load32(m.memory[uint32(v3-i32(32)):]))
+																																														v2 = m._gen_byteop(t58, t59, t60, int32(load32(m.memory[uint32(v3):])))
 																																														if v2 != 0 {
 																																															goto l9
 																																														}
 																																														v5 = i32(1)
 																																														goto l2
 																																													}
-																																												l133:
-																																													t110 := v3
-																																													t111 := v1
-																																													v2 = m._gen_pf_srnr(t111, int32(load32(m.memory[uint32(v4):])))
-																																													store32(m.memory[int64(uint32(t110))+156:], uint32(v2))
+																																												l95:
+																																													v2 = m._gen_inbound_outbound(v1, i32(0))
+																																													if v2 != 0 {
+																																														goto l9
+																																													}
+																																													v5 = i32(1)
+																																													goto l2
+																																												l96:
+																																													v5 = i32(1)
+																																													v2 = m._gen_inbound_outbound(v1, i32(1))
+																																													if v2 != 0 {
+																																														goto l9
+																																													}
+																																													goto l2
+																																												l97:
+																																													t61 := v1
+																																													v2 = m._gen_ifindex(t61, int32(load32(m.memory[uint32(v3):])))
 																																													if v2 != 0 {
 																																														goto l9
 																																													}
 																																													v5 = i32(1)
 																																													goto l2
 																																												}
-																																											l134:
-																																												t112 := v3
-																																												t113 := v1
-																																												v2 = m._gen_pf_reason(t113, int32(load32(m.memory[uint32(v4):])))
-																																												store32(m.memory[int64(uint32(t112))+156:], uint32(v2))
+																																											l98:
+																																												v5 = i32(1)
+																																												t62 := v1
+																																												v2 = m._gen_vlan(t62, int32(load32(m.memory[uint32(v3):])), i32(1))
 																																												if v2 != 0 {
 																																													goto l9
 																																												}
-																																												v5 = i32(1)
 																																												goto l2
 																																											}
-																																										l135:
-																																											t114 := v3
-																																											t115 := v1
-																																											v2 = m._gen_pf_action(t115, int32(load32(m.memory[uint32(v4):])))
-																																											store32(m.memory[int64(uint32(t114))+156:], uint32(v2))
+																																										l99:
+																																											v2 = m._gen_vlan(v1, i32(0), i32(0))
 																																											if v2 != 0 {
 																																												goto l9
 																																											}
 																																											v5 = i32(1)
 																																											goto l2
+																																										l100:
+																																											v5 = i32(1)
+																																											t63 := v1
+																																											v2 = m._gen_mpls(t63, int32(load32(m.memory[uint32(v3):])), i32(1))
+																																											if v2 != 0 {
+																																												goto l9
+																																											}
+																																											goto l2
 																																										}
-																																									l136:
-																																										t116 := v3
-																																										t117 := v1
-																																										t118 := int32(load32(m.memory[uint32(v4):]))
-																																										v2 = m._gen_p80211_type(t117, t118|int32(load32(m.memory[uint32(v4-i32(32)):])), i32(252))
-																																										store32(m.memory[int64(uint32(t116))+156:], uint32(v2))
+																																									l101:
+																																										v2 = m._gen_mpls(v1, i32(0), i32(0))
 																																										if v2 != 0 {
 																																											goto l9
 																																										}
 																																										v5 = i32(1)
 																																										goto l2
+																																									l102:
+																																										v2 = m._gen_pppoed(v1)
+																																										if v2 != 0 {
+																																											goto l9
+																																										}
+																																										v5 = i32(1)
+																																										goto l2
+																																									l103:
+																																										v5 = i32(1)
+																																										t64 := v1
+																																										v2 = m._gen_pppoes(t64, int32(load32(m.memory[uint32(v3):])), i32(1))
+																																										if v2 != 0 {
+																																											goto l9
+																																										}
+																																										goto l2
 																																									}
-																																								l137:
-																																									t119 := v3
-																																									t120 := v1
-																																									v2 = m._gen_p80211_type(t120, int32(load32(m.memory[uint32(v4):])), i32(12))
-																																									store32(m.memory[int64(uint32(t119))+156:], uint32(v2))
+																																								l104:
+																																									v2 = m._gen_pppoes(v1, i32(0), i32(0))
 																																									if v2 != 0 {
 																																										goto l9
 																																									}
 																																									v5 = i32(1)
 																																									goto l2
+																																								l105:
+																																									v5 = i32(1)
+																																									t65 := v1
+																																									v2 = m._gen_geneve(t65, int32(load32(m.memory[uint32(v3):])), i32(1))
+																																									if v2 != 0 {
+																																										goto l9
+																																									}
+																																									goto l2
 																																								}
-																																							l138:
-																																								t121 := v3
-																																								t122 := v1
-																																								v2 = m._gen_p80211_type(t122, int32(load32(m.memory[uint32(v4):])), i32(252))
-																																								store32(m.memory[int64(uint32(t121))+156:], uint32(v2))
+																																							l106:
+																																								v2 = m._gen_geneve(v1, i32(0), i32(0))
 																																								if v2 != 0 {
 																																									goto l9
 																																								}
 																																								v5 = i32(1)
 																																								goto l2
+																																							l107:
+																																								v5 = i32(1)
+																																								t66 := v1
+																																								v2 = m._gen_vxlan(t66, int32(load32(m.memory[uint32(v3):])), i32(1))
+																																								if v2 != 0 {
+																																									goto l9
+																																								}
+																																								goto l2
 																																							}
-																																						l139:
-																																							t123 := v3
-																																							t124 := v1
-																																							v2 = m._gen_p80211_fcdir(t124, int32(load32(m.memory[uint32(v4):])))
-																																							store32(m.memory[int64(uint32(t123))+156:], uint32(v2))
+																																						l108:
+																																							v2 = m._gen_vxlan(v1, i32(0), i32(0))
+																																							if v2 != 0 {
+																																								goto l9
+																																							}
+																																							v5 = i32(1)
+																																							goto l2
+																																						l110:
+																																							v5 = i32(1)
+																																							v4 = int32(load32(m.memory[uint32(v3):]))
+																																							if v4 == 0 {
+																																								goto l2
+																																							}
+																																							v2 = m._gen_pf_ifname(v1, v4)
+																																							if v2 != 0 {
+																																								goto l9
+																																							}
+																																							goto l2
+																																						l111:
+																																							v5 = i32(1)
+																																							v4 = int32(load32(m.memory[uint32(v3):]))
+																																							if v4 == 0 {
+																																								goto l2
+																																							}
+																																							v2 = m._gen_pf_ruleset(v1, v4)
+																																							if v2 != 0 {
+																																								goto l9
+																																							}
+																																							goto l2
+																																						l112:
+																																							t67 := v1
+																																							v2 = m._gen_pf_rnr(t67, int32(load32(m.memory[uint32(v3):])))
 																																							if v2 != 0 {
 																																								goto l9
 																																							}
 																																							v5 = i32(1)
 																																							goto l2
 																																						}
-																																					l140:
-																																						v2 = int32(load32(m.memory[uint32(v4):]))
-																																						if v2&i32(-13) != 0 {
-																																							store32(m.memory[int64(uint32(v3))+16:], uint32(v2))
-																																							m._bpf_set_error(v1, i32(1182), v3+i32(16))
-																																							v5 = i32(1)
-																																							goto l2
+																																					l113:
+																																						t68 := v1
+																																						v2 = m._gen_pf_srnr(t68, int32(load32(m.memory[uint32(v3):])))
+																																						if v2 != 0 {
+																																							goto l9
 																																						}
-																																						store32(m.memory[int64(uint32(v3))+156:], uint32(v2))
-																																						goto l9
-																																					l141:
-																																						v2 = int32(load32(m.memory[uint32(v4):]))
-																																						if v2 == 0 {
-																																							v5 = i32(1)
-																																							goto l2
-																																						}
-																																						var p125 int32
-																																						if m._pcapint_strcasecmp(i32(6610), v2) == 0 {
-																																							p125 = i32(0)
-																																							goto l244
-																																						}
-																																						_ = i32(0)
-																																						if m._pcapint_strcasecmp(i32(1861), v2) == 0 {
-																																							p125 = i32(1)
-																																							goto l244
-																																						}
-																																						_ = i32(1)
-																																						if m._pcapint_strcasecmp(i32(1707), v2) == 0 {
-																																							p125 = i32(2)
-																																							goto l244
-																																						}
-																																						_ = i32(2)
-																																						if m._pcapint_strcasecmp(i32(4138), v2) == 0 {
-																																							p125 = i32(3)
-																																							goto l244
-																																						}
-																																						_ = i32(3)
-																																						if m._pcapint_strcasecmp(i32(4142), v2) != 0 {
-																																							goto l245
-																																						}
-																																						p125 = i32(4)
-																																					l244:
-																																						v2 = p125
-																																						v2 = int32(load32(m.memory[int64(uint32(v2<<3))+15168:]))
-																																						if v2 == i32(-1) {
-																																							goto l246
-																																						}
-																																						store32(m.memory[int64(uint32(v3))+156:], uint32(v2))
-																																						goto l9
-																																					}
-																																				l142:
-																																					v2 = int32(load32(m.memory[uint32(v4):]))
-																																					if v2&i32(-241) != 0 {
-																																						store32(m.memory[int64(uint32(v3))+48:], uint32(v2))
-																																						m._bpf_set_error(v1, i32(1146), v3+i32(48))
 																																						v5 = i32(1)
 																																						goto l2
 																																					}
-																																					store32(m.memory[int64(uint32(v3))+156:], uint32(v2))
-																																					goto l9
-																																				l143:
-																																					v5 = i32(1)
-																																					v15 = int32(load32(m.memory[uint32(v4):]))
-																																					if v15 == 0 {
-																																						goto l2
-																																					}
-																																					v2 = i32(15776)
-																																					switch int32(load32(m.memory[uint32(v4-i32(32)):])) {
-																																					case 0:
-																																						goto l247
-																																					case 4:
-																																						goto l249
-																																					case 8:
-																																						goto l250
-																																					default:
-																																						goto l248
-																																					}
-																																				l248:
-																																					m._bpf_set_error(v1, i32(5598), i32(0))
-																																					goto l2
-																																				l249:
-																																					v2 = i32(15952)
-																																					goto l247
-																																				l250:
-																																					v2 = i32(16032)
-																																				l247:
-																																					t126 := v3
-																																					v2 = m._str2tok(v15, v2)
-																																					store32(m.memory[int64(uint32(t126))+156:], uint32(v2))
-																																					if v2 != i32(-1) {
+																																				l114:
+																																					t69 := v1
+																																					v2 = m._gen_pf_reason(t69, int32(load32(m.memory[uint32(v3):])))
+																																					if v2 != 0 {
 																																						goto l9
 																																					}
-																																					t127 := v3
-																																					store32(m.memory[int64(uint32(t127))+64:], load32(m.memory[uint32(v4):]))
-																																					m._bpf_set_error(v1, i32(8039), v3-i32(-64))
-																																					goto l2
-																																				}
-																																			l144:
-																																				v7 = int32(load32(m.memory[uint32(v4):]))
-																																				if v7 == 0 {
 																																					v5 = i32(1)
 																																					goto l2
 																																				}
-																																				v5 = i32(0)
-																																				v15 = i32(3123)
-																																				v2 = i32(15788)
-																																			l251:
-																																				if m._pcapint_strcasecmp(v15, v7) != 0 {
-																																					v15 = int32(load32(m.memory[uint32(v2):]))
-																																					v2 = v2 + i32(8)
-																																					v5 = v5 + i32(1)
-																																					if v5 != i32(20) {
-																																						goto l251
-																																					}
-																																					goto l252
-																																				}
-																																				v15 = i32(15216)
-																																				v2 = i32(15776)
-																																				goto l253
-																																			l252:
-																																				store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
-																																				v5 = i32(0)
-																																				v15 = i32(15224)
-																																				v2 = i32(15952)
-																																				v7 = int32(load32(m.memory[uint32(v4):]))
-																																				if m._pcapint_strcasecmp(i32(3108), v7) == 0 {
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(6625), v7) == 0 {
-																																					v5 = i32(1)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(4235), v7) == 0 {
-																																					v5 = i32(2)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(1943), v7) == 0 {
-																																					v5 = i32(3)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(2071), v7) == 0 {
-																																					v5 = i32(4)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(4723), v7) == 0 {
-																																					v5 = i32(5)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(5952), v7) == 0 {
-																																					v5 = i32(6)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(4716), v7) == 0 {
-																																					v5 = i32(7)
-																																					goto l253
-																																				}
-																																				store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
-																																				v15 = i32(15232)
-																																				v2 = i32(16032)
-																																				v7 = int32(load32(m.memory[uint32(v4):]))
-																																				if m._pcapint_strcasecmp(i32(6610), v7) == 0 {
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(4704), v7) == 0 {
-																																					v5 = i32(1)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(4296), v7) == 0 {
-																																					v5 = i32(2)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(4263), v7) == 0 {
-																																					v5 = i32(3)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(4230), v7) == 0 {
-																																					v5 = i32(4)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(4709), v7) == 0 {
-																																					v5 = i32(5)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(4301), v7) == 0 {
-																																					v5 = i32(6)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(4268), v7) == 0 {
-																																					v5 = i32(7)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(6606), v7) == 0 {
-																																					v5 = i32(8)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(4700), v7) == 0 {
-																																					v5 = i32(9)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(4292), v7) == 0 {
-																																					v5 = i32(10)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(4259), v7) == 0 {
-																																					v5 = i32(11)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(2611), v7) == 0 {
-																																					v5 = i32(12)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(4280), v7) == 0 {
-																																					v5 = i32(13)
-																																					goto l253
-																																				}
-																																				if m._pcapint_strcasecmp(i32(4243), v7) == 0 {
-																																					v5 = i32(14)
-																																					goto l253
-																																				}
-																																				store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
-																																				m._bpf_set_error(v1, i32(5748), i32(0))
-																																				v5 = i32(1)
-																																				goto l2
-																																			l145:
-																																				t128 := v3
-																																				v2 = m._gen_llc(v1)
-																																				store32(m.memory[int64(uint32(t128))+156:], uint32(v2))
+																																			l115:
+																																				t70 := v1
+																																				v2 = m._gen_pf_action(t70, int32(load32(m.memory[uint32(v3):])))
 																																				if v2 != 0 {
 																																					goto l9
 																																				}
 																																				v5 = i32(1)
 																																				goto l2
 																																			}
-																																		l146:
-																																			v5 = i32(1)
-																																			v2 = int32(load32(m.memory[uint32(v4):]))
-																																			if v2 == 0 {
-																																				goto l2
-																																			}
-																																			if m._pcapint_strcasecmp(v2, i32(4745)) == 0 {
-																																				t129 := v3
-																																				v2 = m._gen_llc_i(v1)
-																																				store32(m.memory[int64(uint32(t129))+156:], uint32(v2))
-																																				if v2 != 0 {
-																																					goto l9
-																																				}
-																																				goto l2
-																																			}
-																																			if m._pcapint_strcasecmp(int32(load32(m.memory[uint32(v4):])), i32(2957)) == 0 {
-																																				t130 := v3
-																																				v2 = m._gen_llc_s(v1)
-																																				store32(m.memory[int64(uint32(t130))+156:], uint32(v2))
-																																				if v2 != 0 {
-																																					goto l9
-																																				}
-																																				goto l2
-																																			}
-																																			if m._pcapint_strcasecmp(int32(load32(m.memory[uint32(v4):])), i32(1485)) == 0 {
-																																				t131 := v3
-																																				v2 = m._gen_llc_u(v1)
-																																				store32(m.memory[int64(uint32(t131))+156:], uint32(v2))
-																																				if v2 != 0 {
-																																					goto l9
-																																				}
-																																				goto l2
-																																			}
-																																			v2 = m._str2tok(int32(load32(m.memory[uint32(v4):])), i32(15248))
-																																			if v2 != i32(-1) {
-																																				t132 := v3
-																																				v2 = m._gen_llc_s_subtype(v1, v2)
-																																				store32(m.memory[int64(uint32(t132))+156:], uint32(v2))
-																																				if v2 != 0 {
-																																					goto l9
-																																				}
-																																				goto l2
-																																			}
-																																			v2 = m._str2tok(int32(load32(m.memory[uint32(v4):])), i32(15280))
-																																			if v2 == i32(-1) {
-																																				t133 := v3
-																																				store32(m.memory[int64(uint32(t133))+80:], load32(m.memory[uint32(v4):]))
-																																				m._bpf_set_error(v1, i32(8072), v3+i32(80))
-																																				goto l2
-																																			}
-																																			t134 := v3
-																																			v2 = m._gen_llc_u_subtype(v1, v2)
-																																			store32(m.memory[int64(uint32(t134))+156:], uint32(v2))
+																																		l116:
+																																			t71 := v1
+																																			t72 := int32(load32(m.memory[uint32(v3):]))
+																																			v2 = m._gen_p80211_type(t71, t72|int32(load32(m.memory[uint32(v3-i32(32)):])), i32(252))
 																																			if v2 != 0 {
 																																				goto l9
 																																			}
+																																			v5 = i32(1)
 																																			goto l2
 																																		}
-																																	l147:
-																																		t135 := v3
-																																		v2 = m._gen_llc_s_subtype(v1, i32(5))
-																																		store32(m.memory[int64(uint32(t135))+156:], uint32(v2))
+																																	l117:
+																																		t73 := v1
+																																		v2 = m._gen_p80211_type(t73, int32(load32(m.memory[uint32(v3):])), i32(12))
 																																		if v2 != 0 {
 																																			goto l9
 																																		}
 																																		v5 = i32(1)
 																																		goto l2
 																																	}
-																																l148:
-																																	v2 = int32(load32(m.memory[uint32(v4):]))
-																																	if uint32(v2) >= uint32(i32(4)) {
-																																		store32(m.memory[int64(uint32(v3))+96:], uint32(v2))
-																																		m._bpf_set_error(v1, i32(1221), v3+i32(96))
-																																		v5 = i32(1)
-																																		goto l2
-																																	}
-																																	store32(m.memory[int64(uint32(v3))+156:], uint32(v2))
-																																	goto l9
-																																l149:
-																																	v5 = i32(1)
-																																	v2 = int32(load32(m.memory[uint32(v4):]))
-																																	if v2 == 0 {
-																																		goto l2
-																																	}
-																																	if m._pcapint_strcasecmp(v2, i32(2723)) == 0 {
-																																		store32(m.memory[int64(uint32(v3))+156:], uint32(i32(0)))
+																																l118:
+																																	t74 := v1
+																																	v2 = m._gen_p80211_type(t74, int32(load32(m.memory[uint32(v3):])), i32(252))
+																																	if v2 != 0 {
 																																		goto l9
 																																	}
-																																	if m._pcapint_strcasecmp(int32(load32(m.memory[uint32(v4):])), i32(2718)) == 0 {
-																																		store32(m.memory[int64(uint32(v3))+156:], uint32(i32(1)))
-																																		goto l9
-																																	}
-																																	if m._pcapint_strcasecmp(int32(load32(m.memory[uint32(v4):])), i32(2728)) == 0 {
-																																		store32(m.memory[int64(uint32(v3))+156:], uint32(i32(2)))
-																																		goto l9
-																																	}
-																																	if m._pcapint_strcasecmp(int32(load32(m.memory[uint32(v4):])), i32(2716)) == 0 {
-																																		store32(m.memory[int64(uint32(v3))+156:], uint32(i32(3)))
-																																		goto l9
-																																	}
-																																	m._bpf_set_error(v1, i32(3616), i32(0))
-																																	goto l2
-																																l150:
-																																	t136 := v3
-																																	store32(m.memory[int64(uint32(t136))+156:], load32(m.memory[uint32(v4):]))
-																																	goto l9
-																																}
-																															l151:
-																																v2 = int32(load32(m.memory[uint32(v4):]))
-																																if v2 == 0 {
 																																	v5 = i32(1)
 																																	goto l2
 																																}
-																																var p137 int32
-																																if m._pcapint_strcasecmp(i32(5230), v2) == 0 {
-																																	p137 = i32(0)
-																																	goto l254
+																															l119:
+																																t75 := v1
+																																v2 = m._gen_p80211_fcdir(t75, int32(load32(m.memory[uint32(v3):])))
+																																if v2 != 0 {
+																																	goto l9
 																																}
-																																_ = i32(0)
-																																if m._pcapint_strcasecmp(i32(1874), v2) == 0 {
-																																	p137 = i32(1)
-																																	goto l254
-																																}
-																																_ = i32(1)
-																																if m._pcapint_strcasecmp(i32(1698), v2) == 0 {
-																																	p137 = i32(2)
-																																	goto l254
-																																}
-																																_ = i32(2)
-																																if m._pcapint_strcasecmp(i32(1658), v2) == 0 {
-																																	p137 = i32(3)
-																																	goto l254
-																																}
-																																_ = i32(3)
-																																if m._pcapint_strcasecmp(i32(5302), v2) == 0 {
-																																	p137 = i32(4)
-																																	goto l254
-																																}
-																																_ = i32(4)
-																																if m._pcapint_strcasecmp(i32(1040), v2) == 0 {
-																																	p137 = i32(5)
-																																	goto l254
-																																}
-																																_ = i32(5)
-																																if m._pcapint_strcasecmp(i32(3393), v2) == 0 {
-																																	p137 = i32(6)
-																																	goto l254
-																																}
-																																_ = i32(6)
-																																if m._pcapint_strcasecmp(i32(3595), v2) == 0 {
-																																	p137 = i32(7)
-																																	goto l254
-																																}
-																																_ = i32(7)
-																																if m._pcapint_strcasecmp(i32(3606), v2) == 0 {
-																																	p137 = i32(8)
-																																	goto l254
-																																}
-																																_ = i32(8)
-																																if m._pcapint_strcasecmp(i32(4106), v2) == 0 {
-																																	p137 = i32(9)
-																																	goto l254
-																																}
-																																_ = i32(9)
-																																if m._pcapint_strcasecmp(i32(5221), v2) == 0 {
-																																	p137 = i32(10)
-																																	goto l254
-																																}
-																																_ = i32(10)
-																																if m._pcapint_strcasecmp(i32(1664), v2) == 0 {
-																																	p137 = i32(11)
-																																	goto l254
-																																}
-																																_ = i32(11)
-																																if m._pcapint_strcasecmp(i32(1734), v2) == 0 {
-																																	p137 = i32(12)
-																																	goto l254
-																																}
-																																_ = i32(12)
-																																if m._pcapint_strcasecmp(i32(1746), v2) == 0 {
-																																	p137 = i32(13)
-																																	goto l254
-																																}
-																																_ = i32(13)
-																																if m._pcapint_strcasecmp(i32(1024), v2) != 0 {
-																																	goto l255
-																																}
-																																p137 = i32(14)
-																															l254:
-																																v2 = p137
-																																v2 = int32(load32(m.memory[int64(uint32(v2<<3))+16160:]))
-																																if v2 == i32(-1) {
-																																	goto l246
-																																}
-																																store32(m.memory[int64(uint32(v3))+156:], uint32(v2))
-																																goto l9
-																															}
-																														l152:
-																															v2 = int32(load32(m.memory[uint32(v4):]))
-																															if v2 == 0 {
 																																v5 = i32(1)
 																																goto l2
 																															}
-																															var p138 int32
-																															if m._pcapint_strcasecmp(i32(2460), v2) == 0 {
-																																p138 = i32(0)
-																																goto l256
+																														l120:
+																															v2 = int32(load32(m.memory[uint32(v3):]))
+																															if v2&i32(-13) == 0 {
+																																goto l9
+																															}
+																															store32(m.memory[int64(uint32(v7))+16:], uint32(v2))
+																															m._bpf_set_error(v1, i32(65694), v7+i32(16))
+																															v5 = i32(1)
+																															goto l2
+																														l121:
+																															v4 = int32(load32(m.memory[uint32(v3):]))
+																															if v4 == 0 {
+																																v5 = i32(1)
+																																goto l2
+																															}
+																															var p76 int32
+																															if m._pcapint_strcasecmp(i32(71122), v4) == 0 {
+																																p76 = i32(0)
+																																goto l203
 																															}
 																															_ = i32(0)
-																															if m._pcapint_strcasecmp(i32(1677), v2) == 0 {
-																																p138 = i32(1)
-																																goto l256
+																															if m._pcapint_strcasecmp(i32(66373), v4) == 0 {
+																																p76 = i32(1)
+																																goto l203
 																															}
 																															_ = i32(1)
-																															if m._pcapint_strcasecmp(i32(3319), v2) == 0 {
-																																p138 = i32(2)
-																																goto l256
+																															if m._pcapint_strcasecmp(i32(66219), v4) == 0 {
+																																p76 = i32(2)
+																																goto l203
 																															}
 																															_ = i32(2)
-																															if m._pcapint_strcasecmp(i32(4685), v2) == 0 {
-																																p138 = i32(3)
-																																goto l256
+																															if m._pcapint_strcasecmp(i32(68650), v4) == 0 {
+																																p76 = i32(3)
+																																goto l203
 																															}
 																															_ = i32(3)
-																															if m._pcapint_strcasecmp(i32(6589), v2) == 0 {
-																																p138 = i32(4)
-																																goto l256
+																															if m._pcapint_strcasecmp(i32(68654), v4) != 0 {
+																																goto l204
 																															}
-																															_ = i32(4)
-																															if m._pcapint_strcasecmp(i32(6587), v2) == 0 {
-																																p138 = i32(5)
-																																goto l256
-																															}
-																															_ = i32(5)
-																															if m._pcapint_strcasecmp(i32(1935), v2) == 0 {
-																																p138 = i32(6)
-																																goto l256
-																															}
-																															_ = i32(6)
-																															if m._pcapint_strcasecmp(i32(1925), v2) == 0 {
-																																p138 = i32(7)
-																																goto l256
-																															}
-																															_ = i32(7)
-																															if m._pcapint_strcasecmp(i32(1933), v2) == 0 {
-																																p138 = i32(8)
-																																goto l256
-																															}
-																															_ = i32(8)
-																															if m._pcapint_strcasecmp(i32(1931), v2) == 0 {
-																																p138 = i32(9)
-																																goto l256
-																															}
-																															_ = i32(9)
-																															if m._pcapint_strcasecmp(i32(3104), v2) == 0 {
-																																p138 = i32(10)
-																																goto l256
-																															}
-																															_ = i32(10)
-																															if m._pcapint_strcasecmp(i32(3102), v2) == 0 {
-																																p138 = i32(11)
-																																goto l256
-																															}
-																															_ = i32(11)
-																															if m._pcapint_strcasecmp(i32(3310), v2) != 0 {
-																																goto l257
-																															}
-																															p138 = i32(12)
-																														l256:
-																															v2 = p138
-																															v2 = int32(load32(m.memory[int64(uint32(v2<<3))+16288:]))
-																															if v2 == i32(-1) {
-																																goto l246
-																															}
-																															store32(m.memory[int64(uint32(v3))+156:], uint32(v2))
+																															p76 = i32(4)
+																														l203:
+																															v4 = p76
+																															v2 = int32(load32(m.memory[int64(uint32(v4<<3))+79648:]))
 																															goto l9
 																														}
-																													l153:
-																														store32(m.memory[int64(uint32(v3))+156:], uint32(i32(32)))
-																														goto l9
-																													l154:
-																														store32(m.memory[int64(uint32(v3))+156:], uint32(i32(48)))
-																														goto l9
-																													l155:
-																														store32(m.memory[int64(uint32(v3))+156:], uint32(i32(16)))
-																														goto l9
-																													l156:
-																														store32(m.memory[int64(uint32(v3))+156:], uint32(i32(32)))
-																														goto l9
-																													l157:
-																														store32(m.memory[int64(uint32(v3))+156:], uint32(i32(48)))
-																														goto l9
-																													l158:
-																														store32(m.memory[int64(uint32(v3))+156:], uint32(i32(16)))
-																														goto l9
-																													l159:
-																														t139 := v3
-																														t140 := v1
-																														v2 = m._gen_loadi(t140, int32(load32(m.memory[uint32(v4):])))
-																														store32(m.memory[int64(uint32(t139))+156:], uint32(v2))
-																														if v2 != 0 {
+																													l122:
+																														v2 = int32(load32(m.memory[uint32(v3):]))
+																														if v2&i32(-241) == 0 {
 																															goto l9
 																														}
+																														store32(m.memory[int64(uint32(v7))+48:], uint32(v2))
+																														m._bpf_set_error(v1, i32(65658), v7+i32(48))
+																														v5 = i32(1)
+																														goto l2
+																													l123:
+																														v5 = i32(1)
+																														v2 = int32(load32(m.memory[uint32(v3):]))
+																														if v2 == 0 {
+																															goto l2
+																														}
+																														v4 = i32(79696)
+																														switch int32(load32(m.memory[uint32(v3-i32(32)):])) {
+																														case 0:
+																															goto l205
+																														case 4:
+																															goto l207
+																														case 8:
+																															goto l208
+																														default:
+																															goto l206
+																														}
+																													l206:
+																														m._bpf_set_error(v1, i32(70110), i32(0))
+																														goto l2
+																													l207:
+																														v4 = i32(79704)
+																														goto l205
+																													l208:
+																														v4 = i32(79712)
+																													l205:
+																														t77 := v2
+																														v2 = m._str2tok(t77, int32(load32(m.memory[int64(uint32(v4))+4:])))
+																														if v2 != i32(-1) {
+																															goto l9
+																														}
+																														t78 := v7
+																														store32(m.memory[int64(uint32(t78))+64:], load32(m.memory[uint32(v3):]))
+																														m._bpf_set_error(v1, i32(72517), v7-i32(-64))
+																														goto l2
+																													}
+																												l124:
+																													v8 = int32(load32(m.memory[uint32(v3):]))
+																													if v8 == 0 {
 																														v5 = i32(1)
 																														goto l2
 																													}
-																												l160:
+																													v2 = i32(0)
+																													v5 = i32(67635)
+																													v4 = i32(80268)
+																												l209:
+																													if m._pcapint_strcasecmp(v5, v8) != 0 {
+																														v5 = int32(load32(m.memory[uint32(v4):]))
+																														v4 = v4 + i32(8)
+																														v2 = v2 + i32(1)
+																														if v2 != i32(20) {
+																															goto l209
+																														}
+																														goto l210
+																													}
+																													v4 = i32(80256)
+																													v5 = i32(79696)
+																													goto l211
+																												l210:
+																													v2 = i32(0)
+																													v4 = i32(80432)
+																													v5 = i32(79704)
+																													v8 = int32(load32(m.memory[uint32(v3):]))
+																													if m._pcapint_strcasecmp(i32(67620), v8) == 0 {
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(71137), v8) == 0 {
+																														v2 = i32(1)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(68747), v8) == 0 {
+																														v2 = i32(2)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(66455), v8) == 0 {
+																														v2 = i32(3)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(66583), v8) == 0 {
+																														v2 = i32(4)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(69235), v8) == 0 {
+																														v2 = i32(5)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(70464), v8) == 0 {
+																														v2 = i32(6)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(69228), v8) == 0 {
+																														v2 = i32(7)
+																														goto l211
+																													}
+																													v4 = i32(80512)
+																													v5 = i32(79712)
+																													v8 = int32(load32(m.memory[uint32(v3):]))
+																													if m._pcapint_strcasecmp(i32(71122), v8) == 0 {
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(69216), v8) == 0 {
+																														v2 = i32(1)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(68808), v8) == 0 {
+																														v2 = i32(2)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(68775), v8) == 0 {
+																														v2 = i32(3)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(68742), v8) == 0 {
+																														v2 = i32(4)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(69221), v8) == 0 {
+																														v2 = i32(5)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(68813), v8) == 0 {
+																														v2 = i32(6)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(68780), v8) == 0 {
+																														v2 = i32(7)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(71118), v8) == 0 {
+																														v2 = i32(8)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(69212), v8) == 0 {
+																														v2 = i32(9)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(68804), v8) == 0 {
+																														v2 = i32(10)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(68771), v8) == 0 {
+																														v2 = i32(11)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(67123), v8) == 0 {
+																														v2 = i32(12)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(68792), v8) == 0 {
+																														v2 = i32(13)
+																														goto l211
+																													}
+																													if m._pcapint_strcasecmp(i32(68755), v8) == 0 {
+																														v2 = i32(14)
+																														goto l211
+																													}
+																													m._bpf_set_error(v1, i32(70260), i32(0))
 																													v5 = i32(1)
-																													t141 := v3
-																													t142 := v1
-																													t143 := int32(load32(m.memory[uint32(v4-i32(48)):]))
-																													v2 = m._gen_load(t142, t143, int32(load32(m.memory[uint32(v4-i32(16)):])), i32(1))
-																													store32(m.memory[int64(uint32(t141))+156:], uint32(v2))
+																													goto l2
+																												l125:
+																													v2 = m._gen_llc(v1)
+																													if v2 != 0 {
+																														goto l9
+																													}
+																													v5 = i32(1)
+																													goto l2
+																												l126:
+																													v5 = i32(1)
+																													v4 = int32(load32(m.memory[uint32(v3):]))
+																													if v4 == 0 {
+																														goto l2
+																													}
+																													if m._pcapint_strcasecmp(v4, i32(69257)) == 0 {
+																														v2 = m._gen_llc_i(v1)
+																														if v2 != 0 {
+																															goto l9
+																														}
+																														goto l2
+																													}
+																													if m._pcapint_strcasecmp(int32(load32(m.memory[uint32(v3):])), i32(67469)) == 0 {
+																														v2 = m._gen_llc_s(v1)
+																														if v2 != 0 {
+																															goto l9
+																														}
+																														goto l2
+																													}
+																													if m._pcapint_strcasecmp(int32(load32(m.memory[uint32(v3):])), i32(65997)) == 0 {
+																														v2 = m._gen_llc_u(v1)
+																														if v2 != 0 {
+																															goto l9
+																														}
+																														goto l2
+																													}
+																													v4 = m._str2tok(int32(load32(m.memory[uint32(v3):])), i32(79728))
+																													if v4 != i32(-1) {
+																														v2 = m._gen_llc_s_subtype(v1, v4)
+																														if v2 != 0 {
+																															goto l9
+																														}
+																														goto l2
+																													}
+																													v4 = m._str2tok(int32(load32(m.memory[uint32(v3):])), i32(79760))
+																													if v4 == i32(-1) {
+																														t79 := v7
+																														store32(m.memory[int64(uint32(t79))+80:], load32(m.memory[uint32(v3):]))
+																														m._bpf_set_error(v1, i32(72550), v7+i32(80))
+																														goto l2
+																													}
+																													v2 = m._gen_llc_u_subtype(v1, v4)
 																													if v2 != 0 {
 																														goto l9
 																													}
 																													goto l2
-																												}
-																											l161:
-																												t144 := v3
-																												t145 := v1
-																												t146 := int32(load32(m.memory[uint32(v4-i32(80)):]))
-																												t147 := int32(load32(m.memory[uint32(v4-i32(48)):]))
-																												v2 = m._gen_load(t145, t146, t147, int32(load32(m.memory[uint32(v4-i32(16)):])))
-																												store32(m.memory[int64(uint32(t144))+156:], uint32(v2))
-																												if v2 != 0 {
+																												l127:
+																													v2 = m._gen_llc_s_subtype(v1, i32(5))
+																													if v2 != 0 {
+																														goto l9
+																													}
+																													v5 = i32(1)
+																													goto l2
+																												l128:
+																													v2 = int32(load32(m.memory[uint32(v3):]))
+																													if uint32(v2) < uint32(i32(4)) {
+																														goto l9
+																													}
+																													store32(m.memory[int64(uint32(v7))+96:], uint32(v2))
+																													m._bpf_set_error(v1, i32(65733), v7+i32(96))
+																													v5 = i32(1)
+																													goto l2
+																												l129:
+																													v4 = int32(load32(m.memory[uint32(v3):]))
+																													if v4 == 0 {
+																														v5 = i32(1)
+																														goto l2
+																													}
+																													if m._pcapint_strcasecmp(v4, i32(67235)) == 0 {
+																														v2 = i32(0)
+																														goto l9
+																													}
+																													if m._pcapint_strcasecmp(int32(load32(m.memory[uint32(v3):])), i32(67230)) == 0 {
+																														v2 = i32(1)
+																														goto l9
+																													}
+																													if m._pcapint_strcasecmp(int32(load32(m.memory[uint32(v3):])), i32(67240)) == 0 {
+																														v2 = i32(2)
+																														goto l9
+																													}
+																													if m._pcapint_strcasecmp(int32(load32(m.memory[uint32(v3):])), i32(67228)) == 0 {
+																														v2 = i32(3)
+																														goto l9
+																													}
+																													m._bpf_set_error(v1, i32(68128), i32(0))
+																													v5 = i32(1)
+																													goto l2
+																												l130:
+																													v4 = int32(load32(m.memory[uint32(v3):]))
+																													if v4 == 0 {
+																														v5 = i32(1)
+																														goto l2
+																													}
+																													var p80 int32
+																													if m._pcapint_strcasecmp(i32(69742), v4) == 0 {
+																														p80 = i32(0)
+																														goto l212
+																													}
+																													_ = i32(0)
+																													if m._pcapint_strcasecmp(i32(66386), v4) == 0 {
+																														p80 = i32(1)
+																														goto l212
+																													}
+																													_ = i32(1)
+																													if m._pcapint_strcasecmp(i32(66210), v4) == 0 {
+																														p80 = i32(2)
+																														goto l212
+																													}
+																													_ = i32(2)
+																													if m._pcapint_strcasecmp(i32(66170), v4) == 0 {
+																														p80 = i32(3)
+																														goto l212
+																													}
+																													_ = i32(3)
+																													if m._pcapint_strcasecmp(i32(69814), v4) == 0 {
+																														p80 = i32(4)
+																														goto l212
+																													}
+																													_ = i32(4)
+																													if m._pcapint_strcasecmp(i32(65552), v4) == 0 {
+																														p80 = i32(5)
+																														goto l212
+																													}
+																													_ = i32(5)
+																													if m._pcapint_strcasecmp(i32(67905), v4) == 0 {
+																														p80 = i32(6)
+																														goto l212
+																													}
+																													_ = i32(6)
+																													if m._pcapint_strcasecmp(i32(68107), v4) == 0 {
+																														p80 = i32(7)
+																														goto l212
+																													}
+																													_ = i32(7)
+																													if m._pcapint_strcasecmp(i32(68118), v4) == 0 {
+																														p80 = i32(8)
+																														goto l212
+																													}
+																													_ = i32(8)
+																													if m._pcapint_strcasecmp(i32(68618), v4) == 0 {
+																														p80 = i32(9)
+																														goto l212
+																													}
+																													_ = i32(9)
+																													if m._pcapint_strcasecmp(i32(69733), v4) == 0 {
+																														p80 = i32(10)
+																														goto l212
+																													}
+																													_ = i32(10)
+																													if m._pcapint_strcasecmp(i32(66176), v4) == 0 {
+																														p80 = i32(11)
+																														goto l212
+																													}
+																													_ = i32(11)
+																													if m._pcapint_strcasecmp(i32(66246), v4) == 0 {
+																														p80 = i32(12)
+																														goto l212
+																													}
+																													_ = i32(12)
+																													if m._pcapint_strcasecmp(i32(66258), v4) == 0 {
+																														p80 = i32(13)
+																														goto l212
+																													}
+																													_ = i32(13)
+																													if m._pcapint_strcasecmp(i32(65536), v4) != 0 {
+																														goto l213
+																													}
+																													p80 = i32(14)
+																												l212:
+																													v4 = p80
+																													v2 = int32(load32(m.memory[int64(uint32(v4<<3))+80640:]))
 																													goto l9
 																												}
-																												v5 = i32(1)
-																												goto l2
+																											l131:
+																												v4 = int32(load32(m.memory[uint32(v3):]))
+																												if v4 == 0 {
+																													v5 = i32(1)
+																													goto l2
+																												}
+																												var p81 int32
+																												if m._pcapint_strcasecmp(i32(66972), v4) == 0 {
+																													p81 = i32(0)
+																													goto l214
+																												}
+																												_ = i32(0)
+																												if m._pcapint_strcasecmp(i32(66189), v4) == 0 {
+																													p81 = i32(1)
+																													goto l214
+																												}
+																												_ = i32(1)
+																												if m._pcapint_strcasecmp(i32(67831), v4) == 0 {
+																													p81 = i32(2)
+																													goto l214
+																												}
+																												_ = i32(2)
+																												if m._pcapint_strcasecmp(i32(69197), v4) == 0 {
+																													p81 = i32(3)
+																													goto l214
+																												}
+																												_ = i32(3)
+																												if m._pcapint_strcasecmp(i32(71101), v4) == 0 {
+																													p81 = i32(4)
+																													goto l214
+																												}
+																												_ = i32(4)
+																												if m._pcapint_strcasecmp(i32(71099), v4) == 0 {
+																													p81 = i32(5)
+																													goto l214
+																												}
+																												_ = i32(5)
+																												if m._pcapint_strcasecmp(i32(66447), v4) == 0 {
+																													p81 = i32(6)
+																													goto l214
+																												}
+																												_ = i32(6)
+																												if m._pcapint_strcasecmp(i32(66437), v4) == 0 {
+																													p81 = i32(7)
+																													goto l214
+																												}
+																												_ = i32(7)
+																												if m._pcapint_strcasecmp(i32(66445), v4) == 0 {
+																													p81 = i32(8)
+																													goto l214
+																												}
+																												_ = i32(8)
+																												if m._pcapint_strcasecmp(i32(66443), v4) == 0 {
+																													p81 = i32(9)
+																													goto l214
+																												}
+																												_ = i32(9)
+																												if m._pcapint_strcasecmp(i32(67616), v4) == 0 {
+																													p81 = i32(10)
+																													goto l214
+																												}
+																												_ = i32(10)
+																												if m._pcapint_strcasecmp(i32(67614), v4) == 0 {
+																													p81 = i32(11)
+																													goto l214
+																												}
+																												_ = i32(11)
+																												if m._pcapint_strcasecmp(i32(67822), v4) != 0 {
+																													goto l215
+																												}
+																												p81 = i32(12)
+																											l214:
+																												v4 = p81
+																												v2 = int32(load32(m.memory[int64(uint32(v4<<3))+80768:]))
+																												goto l9
 																											}
-																										l162:
-																											t148 := v3
-																											t149 := v1
-																											t150 := int32(load32(m.memory[uint32(v4-i32(32)):]))
-																											v2 = m._gen_arth(t149, i32(0), t150, int32(load32(m.memory[uint32(v4):])))
-																											store32(m.memory[int64(uint32(t148))+156:], uint32(v2))
+																										l132:
+																											v2 = i32(48)
+																											goto l9
+																										l133:
+																											t82 := v1
+																											v2 = m._gen_loadi(t82, int32(load32(m.memory[uint32(v3):])))
 																											if v2 != 0 {
 																												goto l9
 																											}
 																											v5 = i32(1)
 																											goto l2
 																										}
-																									l163:
-																										t151 := v3
-																										t152 := v1
-																										t153 := int32(load32(m.memory[uint32(v4-i32(32)):]))
-																										v2 = m._gen_arth(t152, i32(16), t153, int32(load32(m.memory[uint32(v4):])))
-																										store32(m.memory[int64(uint32(t151))+156:], uint32(v2))
+																									l134:
+																										v5 = i32(1)
+																										t83 := v1
+																										t84 := int32(load32(m.memory[uint32(v3-i32(48)):]))
+																										v2 = m._gen_load(t83, t84, int32(load32(m.memory[uint32(v3-i32(16)):])), i32(1))
 																										if v2 != 0 {
 																											goto l9
 																										}
-																										v5 = i32(1)
 																										goto l2
 																									}
-																								l164:
-																									t154 := v3
-																									t155 := v1
-																									t156 := int32(load32(m.memory[uint32(v4-i32(32)):]))
-																									v2 = m._gen_arth(t155, i32(32), t156, int32(load32(m.memory[uint32(v4):])))
-																									store32(m.memory[int64(uint32(t154))+156:], uint32(v2))
+																								l135:
+																									t85 := v1
+																									t86 := int32(load32(m.memory[uint32(v3-i32(80)):]))
+																									t87 := int32(load32(m.memory[uint32(v3-i32(48)):]))
+																									v2 = m._gen_load(t85, t86, t87, int32(load32(m.memory[uint32(v3-i32(16)):])))
 																									if v2 != 0 {
 																										goto l9
 																									}
 																									v5 = i32(1)
 																									goto l2
 																								}
-																							l165:
-																								t157 := v3
-																								t158 := v1
-																								t159 := int32(load32(m.memory[uint32(v4-i32(32)):]))
-																								v2 = m._gen_arth(t158, i32(48), t159, int32(load32(m.memory[uint32(v4):])))
-																								store32(m.memory[int64(uint32(t157))+156:], uint32(v2))
+																							l136:
+																								t88 := v1
+																								t89 := int32(load32(m.memory[uint32(v3-i32(32)):]))
+																								v2 = m._gen_arth(t88, i32(0), t89, int32(load32(m.memory[uint32(v3):])))
 																								if v2 != 0 {
 																									goto l9
 																								}
 																								v5 = i32(1)
 																								goto l2
 																							}
-																						l166:
-																							t160 := v3
-																							t161 := v1
-																							t162 := int32(load32(m.memory[uint32(v4-i32(32)):]))
-																							v2 = m._gen_arth(t161, i32(144), t162, int32(load32(m.memory[uint32(v4):])))
-																							store32(m.memory[int64(uint32(t160))+156:], uint32(v2))
+																						l137:
+																							t90 := v1
+																							t91 := int32(load32(m.memory[uint32(v3-i32(32)):]))
+																							v2 = m._gen_arth(t90, i32(16), t91, int32(load32(m.memory[uint32(v3):])))
 																							if v2 != 0 {
 																								goto l9
 																							}
 																							v5 = i32(1)
 																							goto l2
 																						}
-																					l167:
-																						t163 := v3
-																						t164 := v1
-																						t165 := int32(load32(m.memory[uint32(v4-i32(32)):]))
-																						v2 = m._gen_arth(t164, i32(80), t165, int32(load32(m.memory[uint32(v4):])))
-																						store32(m.memory[int64(uint32(t163))+156:], uint32(v2))
+																					l138:
+																						t92 := v1
+																						t93 := int32(load32(m.memory[uint32(v3-i32(32)):]))
+																						v2 = m._gen_arth(t92, i32(32), t93, int32(load32(m.memory[uint32(v3):])))
 																						if v2 != 0 {
 																							goto l9
 																						}
 																						v5 = i32(1)
 																						goto l2
 																					}
-																				l168:
-																					t166 := v3
-																					t167 := v1
-																					t168 := int32(load32(m.memory[uint32(v4-i32(32)):]))
-																					v2 = m._gen_arth(t167, i32(64), t168, int32(load32(m.memory[uint32(v4):])))
-																					store32(m.memory[int64(uint32(t166))+156:], uint32(v2))
+																				l139:
+																					t94 := v1
+																					t95 := int32(load32(m.memory[uint32(v3-i32(32)):]))
+																					v2 = m._gen_arth(t94, i32(48), t95, int32(load32(m.memory[uint32(v3):])))
 																					if v2 != 0 {
 																						goto l9
 																					}
 																					v5 = i32(1)
 																					goto l2
 																				}
-																			l169:
-																				t169 := v3
-																				t170 := v1
-																				t171 := int32(load32(m.memory[uint32(v4-i32(32)):]))
-																				v2 = m._gen_arth(t170, i32(160), t171, int32(load32(m.memory[uint32(v4):])))
-																				store32(m.memory[int64(uint32(t169))+156:], uint32(v2))
+																			l140:
+																				t96 := v1
+																				t97 := int32(load32(m.memory[uint32(v3-i32(32)):]))
+																				v2 = m._gen_arth(t96, i32(144), t97, int32(load32(m.memory[uint32(v3):])))
 																				if v2 != 0 {
 																					goto l9
 																				}
 																				v5 = i32(1)
 																				goto l2
 																			}
-																		l170:
-																			t172 := v3
-																			t173 := v1
-																			t174 := int32(load32(m.memory[uint32(v4-i32(32)):]))
-																			v2 = m._gen_arth(t173, i32(96), t174, int32(load32(m.memory[uint32(v4):])))
-																			store32(m.memory[int64(uint32(t172))+156:], uint32(v2))
+																		l141:
+																			t98 := v1
+																			t99 := int32(load32(m.memory[uint32(v3-i32(32)):]))
+																			v2 = m._gen_arth(t98, i32(80), t99, int32(load32(m.memory[uint32(v3):])))
 																			if v2 != 0 {
 																				goto l9
 																			}
 																			v5 = i32(1)
 																			goto l2
 																		}
-																	l171:
-																		t175 := v3
-																		t176 := v1
-																		t177 := int32(load32(m.memory[uint32(v4-i32(32)):]))
-																		v2 = m._gen_arth(t176, i32(112), t177, int32(load32(m.memory[uint32(v4):])))
-																		store32(m.memory[int64(uint32(t175))+156:], uint32(v2))
+																	l142:
+																		t100 := v1
+																		t101 := int32(load32(m.memory[uint32(v3-i32(32)):]))
+																		v2 = m._gen_arth(t100, i32(64), t101, int32(load32(m.memory[uint32(v3):])))
 																		if v2 != 0 {
 																			goto l9
 																		}
 																		v5 = i32(1)
 																		goto l2
 																	}
-																l172:
-																	t178 := v3
-																	t179 := v1
-																	v2 = m._gen_neg(t179, int32(load32(m.memory[uint32(v4):])))
-																	store32(m.memory[int64(uint32(t178))+156:], uint32(v2))
+																l143:
+																	t102 := v1
+																	t103 := int32(load32(m.memory[uint32(v3-i32(32)):]))
+																	v2 = m._gen_arth(t102, i32(160), t103, int32(load32(m.memory[uint32(v3):])))
 																	if v2 != 0 {
 																		goto l9
 																	}
 																	v5 = i32(1)
 																	goto l2
 																}
-															l173:
-																t180 := v3
-																store32(m.memory[int64(uint32(t180))+156:], load32(m.memory[uint32(v4-i32(16)):]))
-																goto l9
+															l144:
+																t104 := v1
+																t105 := int32(load32(m.memory[uint32(v3-i32(32)):]))
+																v2 = m._gen_arth(t104, i32(96), t105, int32(load32(m.memory[uint32(v3):])))
+																if v2 != 0 {
+																	goto l9
+																}
+																v5 = i32(1)
+																goto l2
 															}
-														l174:
-															t181 := v3
-															v2 = m._gen_loadlen(v1)
-															store32(m.memory[int64(uint32(t181))+156:], uint32(v2))
+														l145:
+															t106 := v1
+															t107 := int32(load32(m.memory[uint32(v3-i32(32)):]))
+															v2 = m._gen_arth(t106, i32(112), t107, int32(load32(m.memory[uint32(v3):])))
 															if v2 != 0 {
 																goto l9
 															}
 															v5 = i32(1)
 															goto l2
 														}
-													l175:
-														store32(m.memory[int64(uint32(v3))+156:], uint32(i32(38)))
-														goto l9
-													l176:
-														store32(m.memory[int64(uint32(v3))+156:], uint32(i32(124)))
-														goto l9
-													l177:
-														store32(m.memory[int64(uint32(v3))+156:], uint32(i32(60)))
-														goto l9
-													l178:
-														store32(m.memory[int64(uint32(v3))+156:], uint32(i32(62)))
-														goto l9
-													l179:
-														store32(m.memory[int64(uint32(v3))+156:], uint32(i32(61)))
-														goto l9
-													l180:
-														t182 := v3
-														store32(m.memory[int64(uint32(t182))+156:], load32(m.memory[uint32(v4-i32(16)):]))
+													l146:
+														t108 := v1
+														v2 = m._gen_neg(t108, int32(load32(m.memory[uint32(v3):])))
+														if v2 != 0 {
+															goto l9
+														}
+														v5 = i32(1)
+														goto l2
+													}
+												l147:
+													v2 = int32(load32(m.memory[uint32(v3-i32(16)):]))
+													goto l9
+												l148:
+													v2 = m._gen_loadlen(v1)
+													if v2 != 0 {
 														goto l9
 													}
-												l181:
-													store32(m.memory[int64(uint32(v3))+156:], uint32(i32(30)))
+													v5 = i32(1)
+													goto l2
+												l149:
+													v2 = i32(124)
 													goto l9
-												l182:
-													store32(m.memory[int64(uint32(v3))+156:], uint32(i32(22)))
+												l150:
+													v2 = i32(60)
 													goto l9
-												l183:
-													store32(m.memory[int64(uint32(v3))+156:], uint32(i32(23)))
+												l151:
+													v2 = i32(62)
 													goto l9
-												l184:
-													store32(m.memory[int64(uint32(v3))+156:], uint32(i32(25)))
+												l152:
+													v2 = i32(61)
 													goto l9
-												l185:
-													store32(m.memory[int64(uint32(v3))+156:], uint32(i32(24)))
+												l153:
+													v2 = int32(load32(m.memory[uint32(v3-i32(16)):]))
 													goto l9
-												l186:
-													store32(m.memory[int64(uint32(v3))+156:], uint32(i32(26)))
+												l154:
+													v2 = i32(70)
 													goto l9
-												l187:
-													store32(m.memory[int64(uint32(v3))+156:], uint32(i32(27)))
+												l155:
+													v2 = i32(71)
 													goto l9
-												l188:
-													store32(m.memory[int64(uint32(v3))+156:], uint32(i32(28)))
+												l156:
+													v12 = i32(51)
 													goto l9
-												l189:
-													store32(m.memory[int64(uint32(v3))+156:], uint32(i32(29)))
+												l157:
+													v12 = i32(52)
 													goto l9
-												l190:
-													store32(m.memory[int64(uint32(v3))+156:], uint32(i32(70)))
-													goto l9
-												l191:
-													store32(m.memory[int64(uint32(v3))+156:], uint32(i32(71)))
-													goto l9
-												l192:
-													v11 = i32(51)
-													goto l9
-												l193:
-													v11 = i32(52)
-													goto l9
-												l194:
-													t183 := v1
-													t184 := int32(load32(m.memory[uint32(v4-i32(28)):]))
-													t185 := int32(load32(m.memory[uint32(v4):]))
-													v6 = m._gen_atmfield_code(t183, t184, t185, int32(load32(m.memory[uint32(v4-i32(16)):])), i32(0))
+												l158:
+													t109 := v1
+													t110 := int32(load32(m.memory[uint32(v3-i32(28)):]))
+													t111 := int32(load32(m.memory[uint32(v3):]))
+													v6 = m._gen_atmfield_code(t109, t110, t111, int32(load32(m.memory[uint32(v3-i32(16)):])), i32(0))
 													if v6 != 0 {
 														goto l9
 													}
 													v5 = i32(1)
 													goto l2
 												}
-											l195:
+											l159:
 												v5 = i32(1)
-												t186 := v1
-												t187 := int32(load32(m.memory[uint32(v4-i32(28)):]))
-												t188 := int32(load32(m.memory[uint32(v4):]))
-												v6 = m._gen_atmfield_code(t186, t187, t188, int32(load32(m.memory[uint32(v4-i32(16)):])), i32(1))
+												t112 := v1
+												t113 := int32(load32(m.memory[uint32(v3-i32(28)):]))
+												t114 := int32(load32(m.memory[uint32(v3):]))
+												v6 = m._gen_atmfield_code(t112, t113, t114, int32(load32(m.memory[uint32(v3-i32(16)):])), i32(1))
 												if v6 != 0 {
 													goto l9
 												}
 												goto l2
 											}
-										l196:
-											v6 = int32(load32(m.memory[uint32(v4-i32(4)):]))
-											store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
+										l160:
+											v6 = int32(load32(m.memory[uint32(v3-i32(4)):]))
+											v2 = i32(-1)
 											goto l9
-										l197:
+										l161:
 											v5 = i32(1)
-											v11 = int32(load32(m.memory[uint32(v4-i32(12)):]))
-											if uint32(v11-i32(51)) > uint32(i32(1)) {
+											v12 = int32(load32(m.memory[uint32(v3-i32(12)):]))
+											if uint32(v12-i32(51)) > uint32(i32(1)) {
 												goto l9
 											}
-											t189 := v1
-											t190 := v11
-											v6 = m._gen_atmfield_code(t189, t190, int32(load32(m.memory[uint32(v4):])), i32(16), i32(0))
+											t115 := v1
+											t116 := v12
+											v6 = m._gen_atmfield_code(t115, t116, int32(load32(m.memory[uint32(v3):])), i32(16), i32(0))
 											if v6 != 0 {
 												goto l9
 											}
 											goto l2
 										}
-									l198:
-										t191 := v4
-										t192 := int32(load32(m.memory[uint32(v4-i32(20)):]))
-										v6 = m._gen_or(t192, int32(load32(m.memory[int64(uint32(v4))+12:])))
-										store32(m.memory[int64(uint32(t191))+12:], uint32(v6))
-										t193 := v3
-										store32(m.memory[int64(uint32(t193))+156:], load32(m.memory[uint32(v4):]))
-										goto l218
+									l162:
+										t117 := int32(load32(m.memory[uint32(v3-i32(20)):]))
+										t118 := m._gen_or(t117, int32(load32(m.memory[int64(uint32(v3))+12:])))
+										p8 = t118
+										goto l176
 									}
-								l199:
-									store32(m.memory[int64(uint32(v3))+156:], uint32(i32(22)))
+								l163:
+									v10 = i32(1)
 									goto l9
-								l200:
-									store32(m.memory[int64(uint32(v3))+156:], uint32(i32(23)))
+								l164:
+									v10 = i32(2)
 									goto l9
-								l201:
-									store32(m.memory[int64(uint32(v3))+156:], uint32(i32(24)))
+								l165:
+									v10 = i32(3)
 									goto l9
-								l202:
-									store32(m.memory[int64(uint32(v3))+156:], uint32(i32(25)))
+								l166:
+									v10 = i32(4)
 									goto l9
-								l203:
-									store32(m.memory[int64(uint32(v3))+156:], uint32(i32(26)))
+								l167:
+									v10 = i32(5)
 									goto l9
-								l204:
-									store32(m.memory[int64(uint32(v3))+156:], uint32(i32(27)))
+								l168:
+									v10 = i32(6)
 									goto l9
-								l205:
-									v9 = i32(1)
+								l169:
+									v10 = i32(7)
 									goto l9
-								l206:
-									v9 = i32(2)
+								l170:
+									v10 = i32(8)
 									goto l9
-								l207:
-									v9 = i32(3)
-									goto l9
-								l208:
-									v9 = i32(4)
-									goto l9
-								l209:
-									v9 = i32(5)
-									goto l9
-								l210:
-									v9 = i32(6)
-									goto l9
-								l211:
-									v9 = i32(7)
-									goto l9
-								l212:
-									v9 = i32(8)
-									goto l9
-								l213:
-									t194 := v1
-									t195 := int32(load32(m.memory[uint32(v4-i32(24)):]))
-									t196 := int32(load32(m.memory[uint32(v4):]))
-									v6 = m._gen_mtp3field_code(t194, t195, t196, int32(load32(m.memory[uint32(v4-i32(16)):])), i32(0))
+								l171:
+									t119 := v1
+									t120 := int32(load32(m.memory[uint32(v3-i32(24)):]))
+									t121 := int32(load32(m.memory[uint32(v3):]))
+									v6 = m._gen_mtp3field_code(t119, t120, t121, int32(load32(m.memory[uint32(v3-i32(16)):])), i32(0))
 									if v6 != 0 {
 										goto l9
 									}
 									v5 = i32(1)
 									goto l2
 								}
-							l214:
+							l172:
 								v5 = i32(1)
-								t197 := v1
-								t198 := int32(load32(m.memory[uint32(v4-i32(24)):]))
-								t199 := int32(load32(m.memory[uint32(v4):]))
-								v6 = m._gen_mtp3field_code(t197, t198, t199, int32(load32(m.memory[uint32(v4-i32(16)):])), i32(1))
+								t122 := v1
+								t123 := int32(load32(m.memory[uint32(v3-i32(24)):]))
+								t124 := int32(load32(m.memory[uint32(v3):]))
+								v6 = m._gen_mtp3field_code(t122, t123, t124, int32(load32(m.memory[uint32(v3-i32(16)):])), i32(1))
 								if v6 != 0 {
 									goto l9
 								}
 								goto l2
 							}
-						l215:
-							v6 = int32(load32(m.memory[uint32(v4-i32(4)):]))
-							store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
+						l173:
+							v6 = int32(load32(m.memory[uint32(v3-i32(4)):]))
+							v2 = i32(-1)
 							goto l9
-						l216:
-							v9 = int32(load32(m.memory[uint32(v4-i32(8)):]))
-							if uint32(v9-i32(1)) > uint32(i32(7)) {
+						l174:
+							v10 = int32(load32(m.memory[uint32(v3-i32(8)):]))
+							if uint32(v10-i32(1)) > uint32(i32(7)) {
 								goto l9
 							}
-							t200 := v1
-							t201 := v9
-							v6 = m._gen_mtp3field_code(t200, t201, int32(load32(m.memory[uint32(v4):])), i32(16), i32(0))
+							t125 := v1
+							t126 := v10
+							v6 = m._gen_mtp3field_code(t125, t126, int32(load32(m.memory[uint32(v3):])), i32(16), i32(0))
 							if v6 != 0 {
 								goto l9
 							}
 							v5 = i32(1)
 							goto l2
 						}
-					l217:
-						t202 := v4
-						t203 := int32(load32(m.memory[uint32(v4-i32(20)):]))
-						v6 = m._gen_or(t203, int32(load32(m.memory[int64(uint32(v4))+12:])))
-						store32(m.memory[int64(uint32(t202))+12:], uint32(v6))
-						t204 := v3
-						store32(m.memory[int64(uint32(t204))+156:], load32(m.memory[uint32(v4):]))
+					l175:
+						t127 := int32(load32(m.memory[uint32(v3-i32(20)):]))
+						p8 = m._gen_or(t127, int32(load32(m.memory[int64(uint32(v3))+12:])))
 					}
-				l218:
-					v9 = int32(load32(m.memory[int64(uint32(v4))+8:]))
-					v11 = int32(load32(m.memory[int64(uint32(v4))+4:]))
-					goto l9
+				l176:
+					v6 = p8
+					store32(m.memory[int64(uint32(t9))+12:], uint32(v6))
 				}
-			l7:
-				store32(m.memory[uint32(v3):], uint32(i32(2997)))
-				m._bpf_set_error(v1, i32(2925), v3)
-				v5 = i32(1)
-				goto l2
+			l202:
+				v10 = int32(load32(m.memory[int64(uint32(v3))+8:]))
+				v12 = int32(load32(m.memory[int64(uint32(v3))+4:]))
+			l109:
+				v2 = int32(load32(m.memory[uint32(v3):]))
+				goto l9
 			}
-		l0:
-			store32(m.memory[int64(uint32(v3))+144:], uint32(i32(5986)))
-			m._bpf_set_error(v1, i32(2925), v3+i32(144))
-			v5 = i32(2)
-			goto l2
-		l245:
-			store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
-			t205 := v3
-			store32(m.memory[int64(uint32(t205))+32:], load32(m.memory[uint32(v4):]))
-			m._bpf_set_error(v1, i32(8099), v3+i32(32))
+		l7:
+			store32(m.memory[uint32(v7):], uint32(i32(67509)))
+			m._bpf_set_error(v1, i32(67437), v7)
 			v5 = i32(1)
 			goto l2
 		}
-	l255:
-		store32(m.memory[int64(uint32(v3))+112:], uint32(v2))
-		m._bpf_set_error(v1, i32(7964), v3+i32(112))
-		store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
+	l0:
+		store32(m.memory[int64(uint32(v7))+144:], uint32(i32(70498)))
+		m._bpf_set_error(v1, i32(67437), v7+i32(144))
+		v5 = i32(2)
+		goto l2
+	l204:
+		t128 := v7
+		store32(m.memory[int64(uint32(t128))+32:], load32(m.memory[uint32(v3):]))
+		m._bpf_set_error(v1, i32(72577), v7+i32(32))
 		v5 = i32(1)
 		goto l2
-	l257:
-		store32(m.memory[int64(uint32(v3))+128:], uint32(v2))
-		m._bpf_set_error(v1, i32(7987), v3+i32(128))
-		store32(m.memory[int64(uint32(v3))+156:], uint32(i32(-1)))
-		v5 = i32(1)
-	l2:
-		if v13 == v3+i32(3360) {
-			goto l258
-		}
-	l1:
-		m.Xfree(v13)
-	l258:
-		m.___stack_pointer = v3 + i32(3776)
-		return v5
-	l253:
-		v2 = int32(load32(m.memory[uint32(v2+v5<<3):]))
-		if v2 == i32(-1) {
-			goto l246
-		}
-		t206 := v3
-		store32(m.memory[int64(uint32(t206))+156:], uint32(int32(load32(m.memory[uint32(v15):]))|v2))
 	}
+l213:
+	store32(m.memory[int64(uint32(v7))+112:], uint32(v4))
+	m._bpf_set_error(v1, i32(72442), v7+i32(112))
+	v5 = i32(1)
+	goto l2
+l215:
+	store32(m.memory[int64(uint32(v7))+128:], uint32(v4))
+	m._bpf_set_error(v1, i32(72465), v7+i32(128))
+	v5 = i32(1)
+l2:
+	if v13 == v7+i32(3360) {
+		goto l216
+	}
+l1:
+	m.Xfree(v13)
+l216:
+	m.___stack_pointer = v7 + i32(3776)
+	return v5
+l211:
+	v4 = int32(load32(m.memory[uint32(v4+v2<<3):]))
+	if v4 == i32(-1) {
+		_abort()
+		panic("unreachable")
+	}
+	v2 = int32(load32(m.memory[uint32(v5):])) | v4
 l9:
-	v5 = int32(load32(m.memory[int64(uint32(v3))+156:]))
-	v2 = v4 - v12<<4
-	store32(m.memory[int64(uint32(v2))+28:], uint32(v6))
-	store32(m.memory[int64(uint32(v2))+24:], uint32(v9))
-	store32(m.memory[int64(uint32(v2))+20:], uint32(v11))
-	store32(m.memory[int64(uint32(v2))+16:], uint32(v5))
-	v4 = v2 + i32(16)
+	v4 = v3 - v17<<4
+	store32(m.memory[int64(uint32(v4))+28:], uint32(v6))
+	store32(m.memory[int64(uint32(v4))+24:], uint32(v10))
+	store32(m.memory[int64(uint32(v4))+20:], uint32(v12))
+	store32(m.memory[int64(uint32(v4))+16:], uint32(v2))
+	v3 = v4 + i32(16)
 	{
-		v10 = v10 - v12<<1
-		v12 = int32(int16(load16(m.memory[uint32(v10):])))
-		t207 := v12
-		v2 = (int32(m.memory[int64(uint32(v8))+15360]) - i32(142)) << 1
-		v8 = t207 + int32(int16(load16(m.memory[uint32(v2+i32(15584)):])))
-		if uint32(v8) > uint32(i32(773)) {
-			goto l259
+		v11 = v11 - v17<<1
+		v2 = int32(int16(load16(m.memory[uint32(v11):])))
+		t129 := v2
+		v4 = (int32(m.memory[int64(uint32(v9))+79840]) - i32(142)) << 1
+		v9 = t129 + int32(int16(load16(m.memory[uint32(v4+i32(80064)):])))
+		if uint32(v9) > uint32(i32(773)) {
+			goto l217
 		}
-		if int32(load16(m.memory[int64(uint32(v8<<1))+11536:])) != v12&i32(0xffff) {
-			goto l259
+		if int32(load16(m.memory[int64(uint32(v9<<1))+76016:])) != v2&i32(0xffff) {
+			goto l217
 		}
-		v2 = int32(int16(load16(m.memory[uint32(v8<<1+i32(13088)):])))
+		v4 = int32(int16(load16(m.memory[uint32(v9<<1+i32(77568)):])))
 		goto l5
 	}
-l259:
-	v2 = int32(int16(load16(m.memory[uint32(v2+i32(15680)):])))
+l217:
+	v4 = int32(int16(load16(m.memory[uint32(v4+i32(80160)):])))
 l5:
-	v10 = v10 + i32(2)
-	goto l260
-l246:
-	_abort()
-	panic("unreachable")
+	v11 = v11 + i32(2)
+	goto l218
 }
 func (m *Module) _str2tok(v0, v1 int32) int32 {
 	var v2 int32
@@ -38708,45 +38235,45 @@ func (m *Module) _pcap_lex(v0, v1 int32) int32 {
 	}
 l114:
 	{
-		v4 = int32(load32(m.memory[int64(uint32(v1))+36:]))
-		t6 := v4
+		v6 = int32(load32(m.memory[int64(uint32(v1))+36:]))
+		t6 := v6
 		m.memory[uint32(t6)] = byte(int32(m.memory[int64(uint32(v1))+24]))
 		v0 = int32(load32(m.memory[int64(uint32(v1))+44:]))
-		v3 = v4
+		v4 = v6
 	l2:
-		v2 = int32(m.memory[int64(uint32(int32(m.memory[uint32(v3)])))+16400])
+		v2 = int32(m.memory[int64(uint32(int32(m.memory[uint32(v4)])))+80880])
 		v5 = v0 << 1
-		if int32(load16(m.memory[uint32(v5+i32(16656)):])) != 0 {
-			store32(m.memory[int64(uint32(v1))+68:], uint32(v3))
+		if int32(load16(m.memory[uint32(v5+i32(81136)):])) != 0 {
+			store32(m.memory[int64(uint32(v1))+68:], uint32(v4))
 			store32(m.memory[int64(uint32(v1))+64:], uint32(v0))
 		}
-		v7 = int32(int16(load16(m.memory[uint32(v5+i32(35824)):]))) + v2
-		if int32(int16(load16(m.memory[uint32(v7<<1+i32(20240)):]))) != v0 {
+		v3 = int32(int16(load16(m.memory[uint32(v5+i32(100304)):]))) + v2
+		if int32(int16(load16(m.memory[uint32(v3<<1+i32(84720)):]))) != v0 {
 			v5 = v2
 		l1:
 			{
-				v0 = int32(int16(load16(m.memory[uint32(v0<<1+i32(40336)):])))
+				v0 = int32(int16(load16(m.memory[uint32(v0<<1+i32(104816)):])))
 				if v0 >= i32(1789) {
-					v5 = int32(m.memory[int64(uint32(v2))+44848])
+					v2 = int32(m.memory[int64(uint32(v5))+109328])
 				}
-				v2 = v5 & i32(255)
-				t7 := v2
-				v7 = t7 + int32(int16(load16(m.memory[uint32(v0<<1+i32(35824)):])))
-				if int32(load16(m.memory[uint32(v7<<1+i32(20240)):])) != v0&i32(0xffff) {
+				v5 = v2 & i32(255)
+				t7 := v5
+				v3 = t7 + int32(int16(load16(m.memory[uint32(v0<<1+i32(100304)):])))
+				if int32(load16(m.memory[uint32(v3<<1+i32(84720)):])) != v0&i32(0xffff) {
 					goto l1
 				}
 			}
 		}
-		v3 = v3 + i32(1)
-		v0 = int32(int16(load16(m.memory[uint32(v7<<1+i32(44912)):])))
+		v4 = v4 + i32(1)
+		v0 = int32(int16(load16(m.memory[uint32(v3<<1+i32(109392)):])))
 		if v0 != i32(1788) {
 			goto l2
 		}
-		v7 = v4
+		v7 = v6
 	l192:
 		v0 = int32(load32(m.memory[int64(uint32(v1))+64:]))
 		v5 = int32(load32(m.memory[int64(uint32(v1))+68:]))
-	l226:
+	l227:
 		{
 			store32(m.memory[int64(uint32(v1))+80:], uint32(v7))
 			store32(m.memory[int64(uint32(v1))+32:], uint32(v5-v7))
@@ -38754,8 +38281,8 @@ l114:
 			m.memory[int64(uint32(t8))+24] = byte(int32(m.memory[uint32(v5)]))
 			m.memory[uint32(v5)] = byte(i32(0))
 			store32(m.memory[int64(uint32(v1))+36:], uint32(v5))
-			v0 = int32(int16(load16(m.memory[uint32(v0<<1+i32(16656)):])))
-		l229:
+			v0 = int32(int16(load16(m.memory[uint32(v0<<1+i32(81136)):])))
+		l230:
 			{
 				{
 					{
@@ -39528,7 +39055,7 @@ l114:
 													var p18 int32
 													if v0 != i32(1) {
 														store32(m.memory[uint32(v9):], uint32(v2))
-														m._bpf_set_error(v5, i32(2801), v9)
+														m._bpf_set_error(v5, i32(67313), v9)
 														p18 = i32(0)
 														goto l194
 													}
@@ -39543,7 +39070,7 @@ l114:
 												t19 := int32(load32(m.memory[uint32(v1):]))
 												t20 := v9
 												store32(m.memory[int64(uint32(t20))+16:], load32(m.memory[int64(uint32(v1))+80:]))
-												m._bpf_set_error(t19, i32(2773), v9+i32(16))
+												m._bpf_set_error(t19, i32(67285), v9+i32(16))
 												store32(m.memory[load32(m.memory[int64(uint32(v1))+92:]):], uint32(i32(0)))
 												p9 = i32(316)
 												goto l193
@@ -39811,14 +39338,14 @@ l114:
 									v2 = int32(load32(m.memory[uint32(t26+int32(load32(m.memory[int64(uint32(v1))+12:]))<<2):]))
 									v3 = int32(load32(m.memory[int64(uint32(v2))+44:]))
 									if v3 != 0 {
-										v6 = int32(load32(m.memory[int64(uint32(v1))+28:]))
+										v4 = int32(load32(m.memory[int64(uint32(v1))+28:]))
 										goto l195
 									}
 									v3 = i32(1)
 									store32(m.memory[int64(uint32(v2))+44:], uint32(i32(1)))
 									t27 := v1
-									v6 = int32(load32(m.memory[int64(uint32(v2))+16:]))
-									store32(m.memory[int64(uint32(t27))+28:], uint32(v6))
+									v4 = int32(load32(m.memory[int64(uint32(v2))+16:]))
+									store32(m.memory[int64(uint32(t27))+28:], uint32(v4))
 									t28 := v2
 									store32(m.memory[uint32(t28):], load32(m.memory[int64(uint32(v1))+4:]))
 								}
@@ -39826,8 +39353,8 @@ l114:
 								v10 = int32(load32(m.memory[int64(uint32(v1))+36:]))
 								t29 := v10
 								v0 = int32(load32(m.memory[int64(uint32(v2))+4:]))
-								v4 = v0 + v6
-								if uint32(t29) <= uint32(v4) {
+								v6 = v0 + v4
+								if uint32(t29) <= uint32(v6) {
 									t30 := v1
 									v7 = int32(load32(m.memory[int64(uint32(v1))+80:]))
 									t31 := v7
@@ -39842,55 +39369,55 @@ l114:
 											v2 = i32(1)
 											v5 = int32(m.memory[uint32(v4)])
 											if v5 != 0 {
-												v2 = int32(m.memory[int64(uint32(v5))+16400])
+												v2 = int32(m.memory[int64(uint32(v5))+80880])
 											}
-											if int32(load16(m.memory[uint32(v0<<1+i32(16656)):])) != 0 {
+											if int32(load16(m.memory[uint32(v0<<1+i32(81136)):])) != 0 {
 												store32(m.memory[int64(uint32(v1))+68:], uint32(v4))
 												store32(m.memory[int64(uint32(v1))+64:], uint32(v0))
 											}
 											v5 = v2 & i32(255)
 											t32 := v5
-											v3 = t32 + int32(int16(load16(m.memory[uint32(v0<<1+i32(35824)):])))
-											if int32(int16(load16(m.memory[uint32(v3<<1+i32(20240)):]))) != v0 {
+											v3 = t32 + int32(int16(load16(m.memory[uint32(v0<<1+i32(100304)):])))
+											if int32(int16(load16(m.memory[uint32(v3<<1+i32(84720)):]))) != v0 {
 											l196:
 												{
-													v0 = int32(int16(load16(m.memory[uint32(v0<<1+i32(40336)):])))
+													v0 = int32(int16(load16(m.memory[uint32(v0<<1+i32(104816)):])))
 													if v0 >= i32(1789) {
-														v2 = int32(m.memory[int64(uint32(v5))+44848])
+														v2 = int32(m.memory[int64(uint32(v5))+109328])
 													}
 													v5 = v2 & i32(255)
 													t33 := v5
-													v3 = t33 + int32(int16(load16(m.memory[uint32(v0<<1+i32(35824)):])))
-													if int32(load16(m.memory[uint32(v3<<1+i32(20240)):])) != v0&i32(0xffff) {
+													v3 = t33 + int32(int16(load16(m.memory[uint32(v0<<1+i32(100304)):])))
+													if int32(load16(m.memory[uint32(v3<<1+i32(84720)):])) != v0&i32(0xffff) {
 														goto l196
 													}
 												}
 											}
-											v0 = int32(int16(load16(m.memory[uint32(v3<<1+i32(44912)):])))
+											v0 = int32(int16(load16(m.memory[uint32(v3<<1+i32(109392)):])))
 											v4 = v4 + i32(1)
 											if v4 != v6 {
 												goto l197
 											}
 										}
 									}
-									if int32(load16(m.memory[uint32(v0<<1+i32(16656)):])) != 0 {
+									if int32(load16(m.memory[uint32(v0<<1+i32(81136)):])) != 0 {
 										store32(m.memory[int64(uint32(v1))+68:], uint32(v6))
 										store32(m.memory[int64(uint32(v1))+64:], uint32(v0))
 									}
-									v2 = int32(int16(load16(m.memory[uint32(v0<<1+i32(35824)):]))) + i32(1)
-									if int32(int16(load16(m.memory[uint32(v2<<1+i32(20240)):]))) != v0 {
+									v2 = int32(int16(load16(m.memory[uint32(v0<<1+i32(100304)):]))) + i32(1)
+									if int32(int16(load16(m.memory[uint32(v2<<1+i32(84720)):]))) != v0 {
 									l198:
 										{
-											v0 = int32(load16(m.memory[uint32(v0<<1+i32(40336)):]))
+											v0 = int32(load16(m.memory[uint32(v0<<1+i32(104816)):]))
 											t34 := v0
 											v0 = int32(int16(v0))
-											v2 = int32(int16(load16(m.memory[uint32(v0<<1+i32(35824)):]))) + i32(1)
-											if t34 != int32(load16(m.memory[uint32(v2<<1+i32(20240)):])) {
+											v2 = int32(int16(load16(m.memory[uint32(v0<<1+i32(100304)):]))) + i32(1)
+											if t34 != int32(load16(m.memory[uint32(v2<<1+i32(84720)):])) {
 												goto l198
 											}
 										}
 									}
-									v0 = int32(load16(m.memory[uint32(v2<<1+i32(44912)):]))
+									v0 = int32(load16(m.memory[uint32(v2<<1+i32(109392)):]))
 									if v0 == 0 {
 										goto l192
 									}
@@ -39899,30 +39426,30 @@ l114:
 									}
 									v0 = int32(int16(v0))
 									t35 := v1
-									v3 = v6 + i32(1)
-									store32(m.memory[int64(uint32(t35))+36:], uint32(v3))
-									v4 = v7
+									v4 = v6 + i32(1)
+									store32(m.memory[int64(uint32(t35))+36:], uint32(v4))
+									v6 = v7
 									goto l2
 								}
-								if uint32(v10) > uint32(v4+i32(1)) {
+								if uint32(v10) > uint32(v6+i32(1)) {
 									goto l199
 								}
-								v4 = int32(load32(m.memory[int64(uint32(v1))+80:]))
+								v6 = int32(load32(m.memory[int64(uint32(v1))+80:]))
 								if int32(load32(m.memory[int64(uint32(v2))+40:])) == 0 {
-									if v10-v4 != i32(1) {
+									if v10-v6 != i32(1) {
 										goto l200
 									}
 									goto l201
 								}
-								v8 = v4 ^ i32(-1) + v10
+								v8 = v6 ^ i32(-1) + v10
 								if v8 > i32(0) {
 									v3 = v8 & i32(7)
-									if uint32(v10-v4-i32(2)) < uint32(i32(7)) {
-										v2 = v4
-										goto l202
+									if uint32(v10-v6-i32(2)) < uint32(i32(7)) {
+										v2 = v6
+										goto l205
 									}
-									v6 = v8 & i32(0x7ffffff8)
-									v2 = v4
+									v4 = v8 & i32(0x7ffffff8)
+									v2 = v6
 								l203:
 									{
 										t36 := v0
@@ -39943,25 +39470,26 @@ l114:
 										m.memory[int64(uint32(t43))+7] = byte(int32(m.memory[int64(uint32(v2))+7]))
 										v2 = v2 + i32(8)
 										v0 = v0 + i32(8)
-										v6 = v6 - i32(8)
-										if v6 != 0 {
+										v4 = v4 - i32(8)
+										if v4 != 0 {
 											goto l203
 										}
 									}
-								l202:
-									if v3 != 0 {
-									l204:
-										{
-											t44 := v0
-											m.memory[uint32(t44)] = byte(int32(m.memory[uint32(v2)]))
-											v0 = v0 + i32(1)
-											v2 = v2 + i32(1)
-											v3 = v3 - i32(1)
-											if v3 != 0 {
-												goto l204
-											}
+									if v3 == 0 {
+										goto l204
+									}
+								l205:
+									{
+										t44 := v0
+										m.memory[uint32(t44)] = byte(int32(m.memory[uint32(v2)]))
+										v0 = v0 + i32(1)
+										v2 = v2 + i32(1)
+										v3 = v3 - i32(1)
+										if v3 != 0 {
+											goto l205
 										}
 									}
+								l204:
 									t45 := int32(load32(m.memory[int64(uint32(v1))+20:]))
 									v2 = int32(load32(m.memory[uint32(t45+int32(load32(m.memory[int64(uint32(v1))+12:]))<<2):]))
 									v3 = int32(load32(m.memory[int64(uint32(v2))+44:]))
@@ -39969,19 +39497,19 @@ l114:
 								if v3 == i32(2) {
 									store32(m.memory[int64(uint32(v2))+16:], uint32(i32(0)))
 									store32(m.memory[int64(uint32(v1))+28:], uint32(i32(0)))
-									goto l205
+									goto l206
 								}
 								v0 = int32(load32(m.memory[int64(uint32(v2))+12:]))
 								t46 := v0
-								v6 = v4 - v10
+								v6 = v6 - v10
 								v3 = t46 + v6
 								if v3 <= i32(0) {
 									v4 = int32(load32(m.memory[int64(uint32(v1))+36:]))
-								l207:
+								l208:
 									{
 										if int32(load32(m.memory[int64(uint32(v2))+20:])) == 0 {
 											store32(m.memory[int64(uint32(v2))+4:], uint32(i32(0)))
-											goto l206
+											goto l207
 										}
 										v3 = int32(load32(m.memory[int64(uint32(v2))+4:]))
 										t48 := v2
@@ -39995,7 +39523,7 @@ l114:
 										v0 = m._realloc(v3, v0+i32(2))
 										store32(m.memory[int64(uint32(t49))+4:], uint32(v0))
 										if v0 == 0 {
-											goto l206
+											goto l207
 										}
 										t50 := v1
 										v4 = v0 + (v4 - v3)
@@ -40005,7 +39533,7 @@ l114:
 										v0 = int32(load32(m.memory[int64(uint32(v2))+12:]))
 										v3 = v0 + v6
 										if v3 <= i32(0) {
-											goto l207
+											goto l208
 										}
 									}
 								}
@@ -40016,84 +39544,84 @@ l114:
 								v3 = p52
 								if int32(load32(m.memory[int64(uint32(v2))+24:])) != 0 {
 									v0 = i32(0)
-								l210:
+								l211:
 									{
 										v2 = _getc(int32(load32(m.memory[int64(uint32(v1))+4:])))
 										switch v2 + i32(1) {
 										case 0, 11:
-											goto l208
-										default:
 											goto l209
+										default:
+											goto l210
 										}
-									l209:
+									l210:
 										t53 := int32(load32(m.memory[int64(uint32(v1))+20:]))
 										m.memory[uint32(int32(load32(m.memory[int64(load32(m.memory[uint32(t53+int32(load32(m.memory[int64(uint32(v1))+12:]))<<2):]))+4:]))+v8+v0)] = byte(v2)
 										t54 := v3
 										v0 = v0 + i32(1)
 										if t54 != v0 {
-											goto l210
+											goto l211
 										}
 									}
 									v0 = v3
-								l208:
+								l209:
 									{
 										switch v2 + i32(1) {
 										case 0:
-											goto l211
+											goto l212
 										case 11:
-											goto l213
+											goto l214
 										default:
-											goto l212
+											goto l213
 										}
-									l211:
+									l212:
 										if _ferror(int32(load32(m.memory[int64(uint32(v1))+4:]))) == 0 {
-											goto l212
+											goto l213
 										}
-										m._yy_fatal_error(i32(6110))
+										m._yy_fatal_error(i32(70622))
 										panic("unreachable")
-									l213:
+									l214:
 										t55 := int32(load32(m.memory[int64(uint32(v1))+20:]))
 										m.memory[uint32(int32(load32(m.memory[int64(load32(m.memory[uint32(t55+int32(load32(m.memory[int64(uint32(v1))+12:]))<<2):]))+4:]))+v8+v0)] = byte(i32(10))
 										v0 = v0 + i32(1)
 									}
-								l212:
+								l213:
 									store32(m.memory[int64(uint32(v1))+28:], uint32(v0))
-									goto l214
+									goto l215
 								}
-								v6 = i32(0)
-								store32(m.memory[uint32(i32(62704)):], uint32(i32(0)))
+								v4 = i32(0)
+								store32(m.memory[uint32(i32(127184)):], uint32(i32(0)))
 								t56 := int32(load32(m.memory[int64(uint32(v2))+4:])) + v8
 								t57 := v3
 								v0 = _fread(t56, i32(1), t57, int32(load32(m.memory[int64(uint32(v1))+4:])))
-							l217:
+							l218:
 								{
 									store32(m.memory[int64(uint32(v1))+28:], uint32(v0))
 									if v0 != 0 {
-										goto l215
+										goto l216
 									}
 									if _ferror(int32(load32(m.memory[int64(uint32(v1))+4:]))) == 0 {
 										v0 = int32(load32(m.memory[int64(uint32(v1))+28:]))
-										goto l214
+										goto l215
 									}
-									if int32(load32(m.memory[uint32(i32(62704)):])) != i32(4) {
-										goto l216
+									if int32(load32(m.memory[uint32(i32(127184)):])) != i32(4) {
+										goto l217
 									}
-									store32(m.memory[uint32(i32(62704)):], uint32(i32(0)))
+									store32(m.memory[uint32(i32(127184)):], uint32(i32(0)))
 									_clearerr(int32(load32(m.memory[int64(uint32(v1))+4:])))
 									t58 := int32(load32(m.memory[int64(uint32(v1))+20:]))
 									t59 := int32(load32(m.memory[int64(load32(m.memory[uint32(t58+int32(load32(m.memory[int64(uint32(v1))+12:]))<<2):]))+4:])) + v8
 									t60 := v3
 									v0 = _fread(t59, i32(1), t60, int32(load32(m.memory[int64(uint32(v1))+4:])))
-									goto l217
+									goto l218
 								}
-							l215:
+							l216:
 								t61 := int32(load32(m.memory[int64(uint32(v1))+20:]))
 								v2 = int32(load32(m.memory[uint32(t61+int32(load32(m.memory[int64(uint32(v1))+12:]))<<2):]))
 								store32(m.memory[int64(uint32(v2))+16:], uint32(v0))
-								goto l218
+								goto l219
 							}
 						l191:
-							m._yy_fatal_error(i32(5863))
+							m._yy_fatal_error(i32(70375))
 							panic("unreachable")
 						l4:
 							p9 = i32(258)
@@ -40117,39 +39645,39 @@ l114:
 							return p9
 						}
 					l199:
-						m._yy_fatal_error(i32(6054))
+						m._yy_fatal_error(i32(70566))
 						panic("unreachable")
-					l216:
-						m._yy_fatal_error(i32(6110))
+					l217:
+						m._yy_fatal_error(i32(70622))
 						panic("unreachable")
-					l214:
+					l215:
 						t62 := int32(load32(m.memory[int64(uint32(v1))+20:]))
 						v2 = int32(load32(m.memory[uint32(t62+int32(load32(m.memory[int64(uint32(v1))+12:]))<<2):]))
 						store32(m.memory[int64(uint32(v2))+16:], uint32(v0))
-						v6 = i32(0)
+						v4 = i32(0)
 						if v0 != 0 {
-							goto l218
+							goto l219
 						}
 					}
-				l205:
+				l206:
 					if v8 == 0 {
 						m._pcap_restart(int32(load32(m.memory[int64(uint32(v1))+4:])), v1)
 						t63 := int32(load32(m.memory[int64(uint32(v1))+20:]))
 						v2 = int32(load32(m.memory[uint32(t63+int32(load32(m.memory[int64(uint32(v1))+12:]))<<2):]))
 						v0 = int32(load32(m.memory[int64(uint32(v1))+28:]))
-						v6 = i32(1)
-						goto l218
+						v4 = i32(1)
+						goto l219
 					}
-					v6 = i32(2)
+					v4 = i32(2)
 					store32(m.memory[int64(uint32(v2))+44:], uint32(i32(2)))
 					v0 = i32(0)
-				l218:
+				l219:
 					{
 						v3 = v0 + v8
 						t64 := v3
 						if t64 <= int32(load32(m.memory[int64(uint32(v2))+12:])) {
 							v0 = int32(load32(m.memory[int64(uint32(v2))+4:]))
-							goto l219
+							goto l220
 						}
 						t65 := int32(load32(m.memory[int64(uint32(v2))+4:]))
 						v2 = v3 + v0>>1
@@ -40158,12 +39686,12 @@ l114:
 						v3 = int32(load32(m.memory[uint32(t66+int32(load32(m.memory[int64(uint32(v1))+12:]))<<2):]))
 						store32(m.memory[int64(uint32(v3))+4:], uint32(v0))
 						if v0 == 0 {
-							goto l220
+							goto l221
 						}
 						store32(m.memory[int64(uint32(v3))+12:], uint32(v2-i32(2)))
 						v3 = int32(load32(m.memory[int64(uint32(v1))+28:])) + v8
 					}
-				l219:
+				l220:
 					store32(m.memory[int64(uint32(v1))+28:], uint32(v3))
 					m.memory[uint32(v0+v3)] = byte(i32(0))
 					t67 := int32(load32(m.memory[int64(uint32(v1))+20:]))
@@ -40171,134 +39699,133 @@ l114:
 					m.memory[int64(uint32(t68+int32(load32(m.memory[int64(uint32(v1))+28:]))))+1] = byte(i32(0))
 					t69 := v1
 					t70 := int32(load32(m.memory[int64(uint32(v1))+20:]))
-					v4 = int32(load32(m.memory[int64(load32(m.memory[uint32(t70+int32(load32(m.memory[int64(uint32(v1))+12:]))<<2):]))+4:]))
-					store32(m.memory[int64(uint32(t69))+80:], uint32(v4))
-					if v6 == i32(1) {
+					v6 = int32(load32(m.memory[int64(load32(m.memory[uint32(t70+int32(load32(m.memory[int64(uint32(v1))+12:]))<<2):]))+4:]))
+					store32(m.memory[int64(uint32(t69))+80:], uint32(v6))
+					if v4 == i32(1) {
 						goto l201
 					}
 					{
-						switch v6 - i32(1) {
+						switch v4 - i32(1) {
 						case 0:
-							goto l221
-						case 1:
 							goto l222
-						default:
+						case 1:
 							goto l223
+						default:
+							goto l224
 						}
-					l223:
+					l224:
 						t71 := v1
-						t72 := v4
+						t72 := v6
 						v2 = v11 ^ i32(-1) + v5
-						v3 = t72 + v2
-						store32(m.memory[int64(uint32(t71))+36:], uint32(v3))
+						v4 = t72 + v2
+						store32(m.memory[int64(uint32(t71))+36:], uint32(v4))
 						v0 = int32(load32(m.memory[int64(uint32(v1))+44:]))
 						if v2 <= i32(0) {
 							goto l2
 						}
-						v6 = v4
-					l225:
+						v7 = v6
+					l226:
 						{
 							v2 = i32(1)
-							v5 = int32(m.memory[uint32(v6)])
+							v5 = int32(m.memory[uint32(v7)])
 							if v5 != 0 {
-								v2 = int32(m.memory[int64(uint32(v5))+16400])
+								v2 = int32(m.memory[int64(uint32(v5))+80880])
 							}
-							if int32(load16(m.memory[uint32(v0<<1+i32(16656)):])) != 0 {
-								store32(m.memory[int64(uint32(v1))+68:], uint32(v6))
+							if int32(load16(m.memory[uint32(v0<<1+i32(81136)):])) != 0 {
+								store32(m.memory[int64(uint32(v1))+68:], uint32(v7))
 								store32(m.memory[int64(uint32(v1))+64:], uint32(v0))
 							}
 							v5 = v2 & i32(255)
 							t73 := v5
-							v7 = t73 + int32(int16(load16(m.memory[uint32(v0<<1+i32(35824)):])))
-							if int32(int16(load16(m.memory[uint32(v7<<1+i32(20240)):]))) != v0 {
-							l224:
+							v3 = t73 + int32(int16(load16(m.memory[uint32(v0<<1+i32(100304)):])))
+							if int32(int16(load16(m.memory[uint32(v3<<1+i32(84720)):]))) != v0 {
+							l225:
 								{
-									v0 = int32(int16(load16(m.memory[uint32(v0<<1+i32(40336)):])))
+									v0 = int32(int16(load16(m.memory[uint32(v0<<1+i32(104816)):])))
 									if v0 >= i32(1789) {
-										v2 = int32(m.memory[int64(uint32(v5))+44848])
+										v2 = int32(m.memory[int64(uint32(v5))+109328])
 									}
 									v5 = v2 & i32(255)
 									t74 := v5
-									v7 = t74 + int32(int16(load16(m.memory[uint32(v0<<1+i32(35824)):])))
-									if int32(load16(m.memory[uint32(v7<<1+i32(20240)):])) != v0&i32(0xffff) {
-										goto l224
+									v3 = t74 + int32(int16(load16(m.memory[uint32(v0<<1+i32(100304)):])))
+									if int32(load16(m.memory[uint32(v3<<1+i32(84720)):])) != v0&i32(0xffff) {
+										goto l225
 									}
 								}
 							}
-							v0 = int32(int16(load16(m.memory[uint32(v7<<1+i32(44912)):])))
-							t75 := v3
-							v6 = v6 + i32(1)
-							if t75 != v6 {
-								goto l225
+							v0 = int32(int16(load16(m.memory[uint32(v3<<1+i32(109392)):])))
+							t75 := v4
+							v7 = v7 + i32(1)
+							if t75 != v7 {
+								goto l226
 							}
 						}
 						goto l2
 					}
-				l222:
-					v6 = int32(load32(m.memory[int64(uint32(v1))+28:]))
-					v0 = v4
+				l223:
+					v4 = int32(load32(m.memory[int64(uint32(v1))+28:]))
+					v0 = v6
 				}
 			l200:
 				t76 := v1
-				v5 = v0 + v6
+				v5 = v0 + v4
 				store32(m.memory[int64(uint32(t76))+36:], uint32(v5))
 				v0 = int32(load32(m.memory[int64(uint32(v1))+44:]))
-				v7 = v4
-				if uint32(v4) >= uint32(v5) {
-					goto l226
+				v7 = v6
+				if uint32(v5) <= uint32(v6) {
+					goto l227
 				}
-				v6 = v4
-			l228:
+			l229:
 				{
 					v2 = i32(1)
-					v7 = int32(m.memory[uint32(v6)])
-					if v7 != 0 {
-						v2 = int32(m.memory[int64(uint32(v7))+16400])
+					v3 = int32(m.memory[uint32(v7)])
+					if v3 != 0 {
+						v2 = int32(m.memory[int64(uint32(v3))+80880])
 					}
-					if int32(load16(m.memory[uint32(v0<<1+i32(16656)):])) != 0 {
-						store32(m.memory[int64(uint32(v1))+68:], uint32(v6))
+					if int32(load16(m.memory[uint32(v0<<1+i32(81136)):])) != 0 {
+						store32(m.memory[int64(uint32(v1))+68:], uint32(v7))
 						store32(m.memory[int64(uint32(v1))+64:], uint32(v0))
 					}
-					v7 = v2 & i32(255)
-					t77 := v7
-					v3 = t77 + int32(int16(load16(m.memory[uint32(v0<<1+i32(35824)):])))
-					if int32(int16(load16(m.memory[uint32(v3<<1+i32(20240)):]))) != v0 {
-					l227:
+					v3 = v2 & i32(255)
+					t77 := v3
+					v4 = t77 + int32(int16(load16(m.memory[uint32(v0<<1+i32(100304)):])))
+					if int32(int16(load16(m.memory[uint32(v4<<1+i32(84720)):]))) != v0 {
+					l228:
 						{
-							v0 = int32(int16(load16(m.memory[uint32(v0<<1+i32(40336)):])))
+							v0 = int32(int16(load16(m.memory[uint32(v0<<1+i32(104816)):])))
 							if v0 >= i32(1789) {
-								v2 = int32(m.memory[int64(uint32(v7))+44848])
+								v2 = int32(m.memory[int64(uint32(v3))+109328])
 							}
-							v7 = v2 & i32(255)
-							t78 := v7
-							v3 = t78 + int32(int16(load16(m.memory[uint32(v0<<1+i32(35824)):])))
-							if int32(load16(m.memory[uint32(v3<<1+i32(20240)):])) != v0&i32(0xffff) {
-								goto l227
+							v3 = v2 & i32(255)
+							t78 := v3
+							v4 = t78 + int32(int16(load16(m.memory[uint32(v0<<1+i32(100304)):])))
+							if int32(load16(m.memory[uint32(v4<<1+i32(84720)):])) != v0&i32(0xffff) {
+								goto l228
 							}
 						}
 					}
-					v0 = int32(int16(load16(m.memory[uint32(v3<<1+i32(44912)):])))
-					v6 = v6 + i32(1)
-					if v6 != v5 {
-						goto l228
+					v0 = int32(int16(load16(m.memory[uint32(v4<<1+i32(109392)):])))
+					v7 = v7 + i32(1)
+					if v7 != v5 {
+						goto l229
 					}
 				}
-				v7 = v4
-				goto l226
+				v7 = v6
+				goto l227
 			}
+		l222:
+			panic("unreachable")
 		l221:
+			m._yy_fatal_error(i32(71822))
 			panic("unreachable")
-		l220:
-			m._yy_fatal_error(i32(7344))
-			panic("unreachable")
-		l206:
-			m._yy_fatal_error(i32(1262))
+		l207:
+			m._yy_fatal_error(i32(65774))
 			panic("unreachable")
 		l201:
-			store32(m.memory[int64(uint32(v1))+36:], uint32(v4))
+			store32(m.memory[int64(uint32(v1))+36:], uint32(v6))
 			store32(m.memory[int64(uint32(v1))+48:], uint32(i32(0)))
 			v0 = (int32(load32(m.memory[int64(uint32(v1))+44:]))-i32(1))/i32(2) + i32(191)
-			goto l229
+			goto l230
 		}
 	}
 }
@@ -40331,19 +39858,19 @@ func (m *Module) _pcap_ensure_buffer_stack(v0 int32) {
 			}
 			t4 := v1
 			v1 = t4 + int32(load32(m.memory[int64(uint32(v0))+16:]))<<2
-			store64(m.memory[uint32(v1):], uint64(i64(0)))
 			store64(m.memory[int64(uint32(v1))+24:], uint64(i64(0)))
 			store64(m.memory[int64(uint32(v1))+16:], uint64(i64(0)))
 			store64(m.memory[int64(uint32(v1))+8:], uint64(i64(0)))
+			store64(m.memory[uint32(v1):], uint64(i64(0)))
 			store32(m.memory[int64(uint32(v0))+16:], uint32(v2))
 		}
 		return
 	}
 l0:
-	m._yy_fatal_error(i32(7476))
+	m._yy_fatal_error(i32(71954))
 	panic("unreachable")
 l1:
-	m._yy_fatal_error(i32(7476))
+	m._yy_fatal_error(i32(71954))
 	panic("unreachable")
 }
 func (m *Module) _pcap__create_buffer(v0, v1, v2 int32) int32 {
@@ -40364,7 +39891,7 @@ func (m *Module) _pcap__create_buffer(v0, v1, v2 int32) int32 {
 		store32(m.memory[int64(uint32(v3))+44:], uint32(i32(0)))
 		store32(m.memory[int64(uint32(v3))+28:], uint32(i32(1)))
 		store32(m.memory[int64(uint32(v3))+8:], uint32(v1))
-		v1 = int32(load32(m.memory[uint32(i32(62704)):]))
+		v1 = int32(load32(m.memory[uint32(i32(127184)):]))
 		var p1 int32
 		{
 			v5 = int32(load32(m.memory[int64(uint32(v2))+20:]))
@@ -40399,14 +39926,14 @@ func (m *Module) _pcap__create_buffer(v0, v1, v2 int32) int32 {
 		p1 = i32(36)
 	l2:
 		store32(m.memory[int64(uint32(v3))+24:], uint32(i32(0)))
-		store32(m.memory[uint32(i32(62704)):], uint32(v1))
+		store32(m.memory[uint32(i32(127184)):], uint32(v1))
 		store32(m.memory[uint32(p1+v3):], uint32(v4))
 		return v3
 	}
-	m._yy_fatal_error(i32(7432))
+	m._yy_fatal_error(i32(71910))
 	panic("unreachable")
 l0:
-	m._yy_fatal_error(i32(7432))
+	m._yy_fatal_error(i32(71910))
 	panic("unreachable")
 }
 func (m *Module) _stou(v0, v1, v2 int32) int32 {
@@ -40432,15 +39959,15 @@ func (m *Module) _stou(v0, v1, v2 int32) int32 {
 	}
 l1:
 	store32(m.memory[uint32(v3):], uint32(v0))
-	m._bpf_set_error(v2, i32(1789), v3)
+	m._bpf_set_error(v2, i32(66301), v3)
 	goto l3
 l0:
 	store32(m.memory[int64(uint32(v3))+16:], uint32(v0))
-	m._bpf_set_error(v2, i32(1756), v3+i32(16))
+	m._bpf_set_error(v2, i32(66268), v3+i32(16))
 	goto l3
 l2:
 	store32(m.memory[int64(uint32(v3))+32:], uint32(v0))
-	m._bpf_set_error(v2, i32(1824), v3+i32(32))
+	m._bpf_set_error(v2, i32(66336), v3+i32(32))
 l3:
 	v4 = i32(376)
 l4:
@@ -40452,7 +39979,7 @@ func (m *Module) _yy_fatal_error(v0 int32) {
 	v1 = m.___stack_pointer - i32(16)
 	m.___stack_pointer = v1
 	store32(m.memory[uint32(v1):], uint32(v0))
-	_ = m._fprintf(i32(2), i32(8222), v1)
+	_ = m._fprintf(i32(2), i32(72700), v1)
 	m._exit(i32(2))
 	panic("unreachable")
 }
@@ -40478,7 +40005,7 @@ func (m *Module) _pcap_restart(v0, v1 int32) {
 	}
 l0:
 	store32(m.memory[int64(uint32(v2))+16:], uint32(i32(0)))
-	v6 = int32(load32(m.memory[uint32(i32(62704)):]))
+	v6 = int32(load32(m.memory[uint32(i32(127184)):]))
 	m.memory[load32(m.memory[int64(uint32(v2))+4:])] = byte(i32(0))
 	m.memory[int64(load32(m.memory[int64(uint32(v2))+4:]))+1] = byte(i32(0))
 	store32(m.memory[int64(uint32(v2))+44:], uint32(i32(0)))
@@ -40522,7 +40049,7 @@ l1:
 	store32(m.memory[int64(uint32(v1))+36:], uint32(v2))
 	t10 := v1
 	store32(m.memory[int64(uint32(t10))+4:], load32(m.memory[uint32(v3):]))
-	store32(m.memory[uint32(i32(62704)):], uint32(v6))
+	store32(m.memory[uint32(i32(127184)):], uint32(v6))
 	t11 := v1
 	store32(m.memory[int64(uint32(t11))+28:], load32(m.memory[int64(uint32(v3))+16:]))
 	t12 := v1
@@ -40543,8 +40070,8 @@ func (m *Module) _stoulen(v0, v1, v2, v3 int32) int32 {
 	if int32(m.memory[uint32(v0)]) != i32(48) {
 	l3:
 		{
-			v7 = int32(m.memory[uint32(v0+v6)]) - i32(48)
-			if uint32(v7&i32(255)) > uint32(i32(9)) {
+			v7 = int32(m.memory[uint32(v0+v6)])
+			if uint32((v7-i32(48))&i32(255)) > uint32(i32(9)) {
 				v8 = i32(3)
 				goto l1
 			}
@@ -40552,18 +40079,18 @@ func (m *Module) _stoulen(v0, v1, v2, v3 int32) int32 {
 				if v4 != i32(0x19999999) {
 					goto l2
 				}
-				if uint32(v7) < uint32(i32(6)) {
+				if uint32(v7) < uint32(i32(54)) {
 					goto l2
 				}
 			}
 			store32(m.memory[int64(uint32(v5))+40:], uint32(v0))
 			store32(m.memory[int64(uint32(v5))+36:], uint32(v1))
-			store32(m.memory[int64(uint32(v5))+32:], uint32(i32(4413)))
-			m._bpf_set_error(v3, i32(1947), v5+i32(32))
+			store32(m.memory[int64(uint32(v5))+32:], uint32(i32(68925)))
+			m._bpf_set_error(v3, i32(66459), v5+i32(32))
 			v8 = i32(4)
 			goto l1
 		l2:
-			v4 = v7 + v4*i32(10)
+			v4 = v4*i32(10) + v7 - i32(48)
 			t0 := v1
 			v6 = v6 + i32(1)
 			if t0 != v6 {
@@ -40607,8 +40134,8 @@ func (m *Module) _stoulen(v0, v1, v2, v3 int32) int32 {
 			if uint32(v4) >= uint32(i32(0x10000000)) {
 				store32(m.memory[int64(uint32(v5))+24:], uint32(v0))
 				store32(m.memory[int64(uint32(v5))+20:], uint32(v1))
-				store32(m.memory[int64(uint32(v5))+16:], uint32(i32(4409)))
-				m._bpf_set_error(v3, i32(1947), v5+i32(16))
+				store32(m.memory[int64(uint32(v5))+16:], uint32(i32(68921)))
+				m._bpf_set_error(v3, i32(66459), v5+i32(16))
 				v8 = i32(4)
 				goto l1
 			}
@@ -40632,8 +40159,8 @@ l6:
 		if uint32(v4) >= uint32(i32(0x20000000)) {
 			store32(m.memory[int64(uint32(v5))+8:], uint32(v0))
 			store32(m.memory[int64(uint32(v5))+4:], uint32(v1))
-			store32(m.memory[uint32(v5):], uint32(i32(4348)))
-			m._bpf_set_error(v3, i32(1947), v5)
+			store32(m.memory[uint32(v5):], uint32(i32(68860)))
+			m._bpf_set_error(v3, i32(66459), v5)
 			v8 = i32(4)
 			goto l1
 		}
@@ -40734,7 +40261,7 @@ func (m *Module) _pcap__scan_buffer(v0, v1, v2 int32) int32 {
 l0:
 	return v3
 l1:
-	m._yy_fatal_error(i32(7390))
+	m._yy_fatal_error(i32(71868))
 	panic("unreachable")
 }
 func (m *Module) _pcap__scan_string(v0, v1 int32) int32 {
@@ -40764,9 +40291,9 @@ func (m *Module) _pcap__scan_string(v0, v1 int32) int32 {
 					goto l1
 				}
 			}
-		}
-		if v5 == 0 {
-			goto l0
+			if v5 == 0 {
+				goto l0
+			}
 		}
 		v0 = v0 + v2
 		v2 = v2 + v4
@@ -40783,17 +40310,17 @@ func (m *Module) _pcap__scan_string(v0, v1 int32) int32 {
 		}
 	l0:
 		store16(m.memory[uint32(v3+v4):], uint16(i32(0)))
-		v2 = m._pcap__scan_buffer(v4, v6, v1)
-		if v2 == 0 {
+		v0 = m._pcap__scan_buffer(v4, v6, v1)
+		if v0 == 0 {
 			goto l3
 		}
-		store32(m.memory[int64(uint32(v2))+20:], uint32(i32(1)))
-		return v2
+		store32(m.memory[int64(uint32(v0))+20:], uint32(i32(1)))
+		return v0
 	}
-	m._yy_fatal_error(i32(7273))
+	m._yy_fatal_error(i32(71751))
 	panic("unreachable")
 l3:
-	m._yy_fatal_error(i32(7314))
+	m._yy_fatal_error(i32(71792))
 	panic("unreachable")
 }
 func (m *Module) _pcap_set_extra(v0, v1 int32) {
@@ -40802,14 +40329,14 @@ func (m *Module) _pcap_set_extra(v0, v1 int32) {
 func (m *Module) _pcap_lex_init(v0 int32) int32 {
 	var v1 int32
 	if v0 == 0 {
-		store32(m.memory[uint32(i32(62704)):], uint32(i32(22)))
+		store32(m.memory[uint32(i32(127184)):], uint32(i32(22)))
 		return i32(1)
 	}
 	t0 := v0
 	v1 = m.Xmalloc(i32(96))
 	store32(m.memory[uint32(t0):], uint32(v1))
 	if v1 == 0 {
-		store32(m.memory[uint32(i32(62704)):], uint32(i32(12)))
+		store32(m.memory[uint32(i32(127184)):], uint32(i32(12)))
 		return i32(1)
 	}
 	memory_zero(m.memory, uint32(v1), uint32(i32(96)))
@@ -40981,10 +40508,10 @@ func _getprotobyname(v0 int32) int32 {
 	return i32(0)
 }
 func _ntohl(v0 int32) int32 {
-	return v0<<24 | v0&i32(0xff00)<<8 | (int32(uint32(v0)>>8)&i32(0xff00) | int32(uint32(v0)>>24))
+	return i32_rotr(v0, i32(24))&i32(0xff00ff) | i32_rotr(v0&i32(0xff00ff), i32(8))
 }
 func _htonl(v0 int32) int32 {
-	return v0<<24 | v0&i32(0xff00)<<8 | (int32(uint32(v0)>>8)&i32(0xff00) | int32(uint32(v0)>>24))
+	return i32_rotr(v0, i32(24))&i32(0xff00ff) | i32_rotr(v0&i32(0xff00ff), i32(8))
 }
 func _ntohs(v0 int32) int32 {
 	return (v0<<8 | int32(uint32(v0)>>8)) & i32(0xffff)
@@ -40996,6 +40523,7 @@ func (m *Module) _inet_pton(v0, v1, v2 int32) int32 {
 	var v6 int32
 	var v7 int32
 	var v8 int32
+	var v9 int32
 	v5 = m.___stack_pointer - i32(16)
 	{
 		{
@@ -41181,7 +40709,7 @@ func (m *Module) _inet_pton(v0, v1, v2 int32) int32 {
 			return p27
 		}
 	l2:
-		store32(m.memory[uint32(i32(62704)):], uint32(i32(97)))
+		store32(m.memory[uint32(i32(127184)):], uint32(i32(97)))
 		return i32(-1)
 	l1:
 		v3 = int32(m.memory[uint32(v1)])
@@ -41324,45 +40852,45 @@ func (m *Module) _inet_pton(v0, v1, v2 int32) int32 {
 				if v7 < i32(0) {
 					goto l13
 				}
-				v3 = (v0-v7)<<1 + i32(2)
-				if v3 != 0 {
-					v4 = v5 + v7<<1
-					memory_copy(m.memory, uint32(v4-v0<<1+i32(14)), uint32(v4), uint32(v3))
+				v3 = v5 + v7<<1
+				v4 = (v0-v7)<<1 + i32(2)
+				if v4 != 0 {
+					memory_copy(m.memory, uint32(v3-v0<<1+i32(14)), uint32(v3), uint32(v4))
 				}
 				if v0 > i32(6) {
 					goto l13
 				}
-				v0 = i32(7) - v0
-				p36 := v0
-				if v0 <= i32(1) {
+				v8 = i32(7) - v0
+				p36 := v8
+				if v8 <= i32(1) {
 					p36 = i32(1)
 				}
-				v8 = p36
-				v3 = v8 & i32(3)
-				v4 = i32(0)
-				if v0 >= i32(4) {
-					v8 = v8 & i32(0x7ffffffc)
-					v0 = v5 + v7<<1
+				v9 = p36
+				v4 = v9 & i32(7)
+				v0 = i32(0)
+				if v8 >= i32(8) {
+					v8 = v9 & i32(0x7ffffff8)
 				l14:
 					{
-						store64(m.memory[uint32(v0):], uint64(i64(0)))
-						v0 = v0 + i32(8)
+						store64(m.memory[uint32(v3):], uint64(i64(0)))
+						store64(m.memory[int64(uint32(v3))+8:], uint64(i64(0)))
+						v3 = v3 + i32(16)
 						t37 := v8
-						v4 = v4 + i32(4)
-						if t37 != v4 {
+						v0 = v0 + i32(8)
+						if t37 != v0 {
 							goto l14
 						}
 					}
+					if v4 == 0 {
+						goto l13
+					}
 				}
-				if v3 == 0 {
-					goto l13
-				}
-				v0 = v5 + (v4+v7)<<1
+				v0 = v5 + (v7<<1 + v0<<1)
 			l15:
 				store16(m.memory[uint32(v0):], uint16(i32(0)))
 				v0 = v0 + i32(2)
-				v3 = v3 - i32(1)
-				if v3 != 0 {
+				v4 = v4 - i32(1)
+				if v4 != 0 {
 					goto l15
 				}
 			}
@@ -41695,12 +41223,12 @@ func (m *Module) _pcap_datalink_val_to_description_or_dlt(v0 int32) int32 {
 	v1 = m.___stack_pointer - i32(16)
 	m.___stack_pointer = v1
 	store32(m.memory[uint32(v1):], uint32(v0))
-	_ = m._snprintf(i32(62720), i32(16), i32(6260), v1)
+	_ = m._snprintf(i32(127200), i32(16), i32(70772), v1)
 	m.___stack_pointer = v1 + i32(16)
-	return i32(62720)
+	return i32(127200)
 }
 func _pcap_strerror(v0 int32) int32 {
-	return i32(3004)
+	return i32(67516)
 }
 func __pcap_errbuf(v0 int32) int32 {
 	return v0 + i32(148)
@@ -41710,56 +41238,56 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 	var v6 int32
 	v6 = m.___stack_pointer - i32(16)
 	m.___stack_pointer = v6
-	m._pcap_freecode(i32(62736))
-	m.memory[uint32(i32(62752))] = byte(i32(0))
+	m._pcap_freecode(i32(127216))
+	m.memory[uint32(i32(127232))] = byte(i32(0))
 	var p0 int32
 	{
 		v1 = m._pcap_open_dummy(v0, v1)
 		if v1 == 0 {
-			_ = m._snprintf(i32(62752), i32(257), i32(1033), i32(0))
+			_ = m._snprintf(i32(127232), i32(257), i32(65545), i32(0))
 			p0 = i32(-1)
 			goto l0
 		}
-		store32(m.memory[uint32(i32(63012)):], uint32(v1))
-		t1 := m._pcap_compile(v1, i32(62736), v2, v3, v4)
-		store32(m.memory[uint32(i32(63012)):], uint32(i32(0)))
+		store32(m.memory[uint32(i32(127492)):], uint32(v1))
+		t1 := m._pcap_compile(v1, i32(127216), v2, v3, v4)
+		store32(m.memory[uint32(i32(127492)):], uint32(i32(0)))
 		if t1 != 0 {
 			t2 := v6
 			store32(m.memory[uint32(t2):], uint32(__pcap_errbuf(v1)))
-			_ = m._snprintf(i32(62752), i32(257), i32(2956), v6)
+			_ = m._snprintf(i32(127232), i32(257), i32(67468), v6)
 			m._pcap_close(v1)
 			v5 = i32(0)
 			p0 = i32(-1)
 			goto l0
 		}
 		m._pcap_close(v1)
-		v5 = int32(load32(m.memory[uint32(i32(62740)):]))
-		p0 = int32(load32(m.memory[uint32(i32(62736)):]))
+		v5 = int32(load32(m.memory[uint32(i32(127220)):]))
+		p0 = int32(load32(m.memory[uint32(i32(127216)):]))
 	}
 l0:
 	m.___stack_pointer = v6 + i32(16)
 	return p0, v5
 }
 func (m *Module) Xbpf_result_free() {
-	m._pcap_freecode(i32(62736))
+	m._pcap_freecode(i32(127216))
 }
 func (m *Module) Xbpf_errbuf() int32 {
 	var v0 int32
 	var v1 int32
-	v0 = i32(62752)
-	v1 = int32(load32(m.memory[uint32(i32(63012)):]))
+	v0 = i32(127232)
+	v1 = int32(load32(m.memory[uint32(i32(127492)):]))
 	if v1 == 0 {
 		goto l0
 	}
 	if int32(m.memory[uint32(__pcap_errbuf(v1))]) == 0 {
 		goto l0
 	}
-	v0 = __pcap_errbuf(int32(load32(m.memory[uint32(i32(63012)):])))
+	v0 = __pcap_errbuf(int32(load32(m.memory[uint32(i32(127492)):])))
 l0:
 	return v0
 }
 func (m *Module) _exit(v0 int32) {
-	m.__env_panic(i32(1718))
+	m.__env_panic(i32(66230))
 	panic("unreachable")
 }
 func _fwrite(v0, v1, v2, v3 int32) int32 {
@@ -41809,6 +41337,11 @@ func i64_shr_u(x, y int64) int64 {
 //go:nosplit
 func i32_rotl(x, y int32) int32 {
 	return int32(bits.RotateLeft32(uint32(x), int(y)))
+}
+
+//go:nosplit
+func i32_rotr(x, y int32) int32 {
+	return int32(bits.RotateLeft32(uint32(x), -int(y)))
 }
 
 //go:nosplit
