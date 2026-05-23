@@ -1,0 +1,11 @@
+.cache
+*.o
+*.out
+*.wasm
+*.txt
+grammar.*
+scanner.*
+libpcap
+cover
+compile_flags.txt
+compile_commands.json

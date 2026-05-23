@@ -1,0 +1,221 @@
+package pcapfilter
+
+import (
+	"context"
+	"encoding/binary"
+	"errors"
+	"net"
+	"net/netip"
+
+	bpf_wasm "github.com/pgaskin/go-pcapfilter/internal"
+	"golang.org/x/net/bpf"
+)
+
+//go:generate docker build --platform amd64 --progress plain --output . src
+//go:generate go run dlt.go
+
+// LinkType is an opaque DLT_ link-layer type constant. Use the DLT_*
+// constants defined in this package rather than raw integers.
+type LinkType int
+
+// LookupFunc resolves hostnames for "host name" expressions. It should return
+// all IPv4 and IPv6 addresses for the specified hostname. The first address
+// matching the family will be used.
+type LookupFunc func(name string) ([]netip.Addr, error)
+
+// EthersFunc looks up MAC addresses for "ether host name" expressions.
+type EthersFunc func(name string) (net.HardwareAddr, error)
+
+var (
+	DefaultLinkType = DLT_EN10MB
+	DefaultSnaplen  = 65535
+)
+
+// LookupDefaultResolver looks up a host using [net.DefaultResolver].
+func LookupDefaultResolver(host string) ([]netip.Addr, error) {
+	return net.DefaultResolver.LookupNetIP(context.Background(), "ip", host)
+}
+
+// Options contains compilation options for a filter expression.
+type Options struct {
+	// LinkType identifies the kind of packet the filter will be used for, which
+	// affects the offsets and the valid expressions. If zero, [DLT_EN10MB] is
+	// used, which is suitable for ethernet packet captures.
+	LinkType LinkType
+
+	// Snaplen is the maximum number of bytes to look at in each packet. If nil,
+	// 65535 is used.
+	Snaplen int
+
+	// Netmask, is the IPv4 netmask of the local network, used by "broadcast" in
+	// expressions. If zero, broadcast checks are skipped.
+	Netmask netip.Addr
+
+	// Optimize enables the BPF optimizer.
+	Optimize bool
+
+	// Lookup is the lookup function to use for host ip addresses. If nil,
+	// address lookup is disabled.
+	Lookup LookupFunc
+
+	// Ethers is the lookup function to use for hardware addresses. If nil,
+	// hardware address lookup is disabled.
+	Ethers EthersFunc
+}
+
+// Compile compiles a tcpdump filter expression to a BPF program.
+func Compile(filter string, opts *Options) (raw []bpf.RawInstruction, err error) {
+	if opts == nil {
+		opts = new(Options)
+	}
+	env := &env{
+		lookup: opts.Lookup,
+		ethers: opts.Ethers,
+	}
+	mod := bpf_wasm.New(env)
+	mod.X_initialize()
+
+	defer func() {
+		if r := recover(); r != nil {
+			if _, ok := r.(panicErr); ok {
+				// pcap sets errbuf before calling longjmp.
+				msg := env.cstr(uint32(mod.Xbpf_errbuf()))
+				if msg == "" {
+					msg = r.(panicErr).msg
+				}
+				err = errors.New(msg)
+			} else {
+				panic(r)
+			}
+		}
+	}()
+
+	ptr, free, err := env.mkcstr(filter)
+	if err != nil {
+		return nil, err
+	}
+	defer free()
+
+	linkType := int32(DefaultLinkType)
+	if opts.LinkType != 0 {
+		linkType = int32(opts.LinkType)
+	}
+
+	snaplen := int32(DefaultSnaplen)
+	if opts.Snaplen != 0 {
+		snaplen = int32(opts.Snaplen)
+	}
+
+	optimize := int32(0)
+	if opts.Optimize {
+		optimize = 1
+	}
+
+	netmask := uint32(bpf_wasm.PCAP_NETMASK_UNKNOWN)
+	if opts.Netmask.IsValid() && opts.Netmask.Is4() {
+		b := opts.Netmask.As4()
+		netmask = binary.BigEndian.Uint32(b[:])
+	}
+
+	rc := mod.Xbpf_compile(linkType, snaplen, ptr, optimize, int32(netmask))
+	if rc != 0 {
+		errPtr := mod.Xbpf_errbuf()
+		msg := env.cstr(uint32(errPtr))
+		return nil, errors.New(msg)
+	}
+
+	count := int(mod.Xbpf_result_count())
+	if count == 0 {
+		return nil, nil
+	}
+
+	insnsPtr := uint32(mod.Xbpf_result_insns())
+	buf := *mod.Xmemory().Slice()
+	raw = make([]bpf.RawInstruction, count)
+	for i := range raw {
+		tmp := buf[insnsPtr+uint32(i)*8:]
+		raw[i] = bpf.RawInstruction{
+			Op: binary.LittleEndian.Uint16(tmp),
+			Jt: tmp[2],
+			Jf: tmp[3],
+			K:  binary.LittleEndian.Uint32(tmp[4:]),
+		}
+	}
+
+	mod.Xbpf_result_free()
+	return raw, nil
+}
+
+type panicErr struct{ msg string }
+
+func (e panicErr) Error() string { return e.msg }
+
+type env struct {
+	mod    *bpf_wasm.Module
+	lookup func(host string) ([]netip.Addr, error)
+	ethers func(name string) (net.HardwareAddr, error)
+}
+
+func (env *env) Init(m any) {
+	env.mod = m.(*bpf_wasm.Module)
+}
+
+func (env *env) Xpanic(v0 int32) {
+	panic(panicErr{env.cstr(uint32(v0))})
+}
+
+func (env *env) Xresolve_host(hostnamePtr, family, outPtr int32) int32 {
+	if env.lookup == nil {
+		return -1
+	}
+	addrs, err := env.lookup(env.cstr(uint32(hostnamePtr)))
+	if err != nil || len(addrs) == 0 {
+		return -1
+	}
+	for _, addr := range addrs {
+		if family == 4 && addr.Is4() {
+			ip4 := addr.As4()
+			copy((*env.mod.Xmemory().Slice())[uint32(outPtr):], ip4[:])
+			return 0
+		}
+		if family == 6 && addr.Is6() {
+			ip6 := addr.As16()
+			copy((*env.mod.Xmemory().Slice())[uint32(outPtr):], ip6[:])
+			return 0
+		}
+	}
+	return -1
+}
+
+func (env *env) Xether_hostton(namePtr, outPtr int32) int32 {
+	if env.ethers == nil {
+		return -1
+	}
+	mac, err := env.ethers(env.cstr(uint32(namePtr)))
+	if err != nil || len(mac) != 6 {
+		return -1
+	}
+	copy((*env.mod.Xmemory().Slice())[uint32(outPtr):], mac)
+	return 0
+}
+
+func (env *env) mkcstr(s string) (int32, func(), error) {
+	b := []byte(s)
+	ptr := env.mod.Xmalloc(int32(len(b) + 1))
+	if ptr == 0 {
+		return 0, nil, errors.New("out of wasm memory")
+	}
+	mem := *env.mod.Xmemory().Slice()
+	copy(mem[uint32(ptr):], b)
+	mem[uint32(ptr)+uint32(len(b))] = 0
+	return ptr, func() { env.mod.Xfree(ptr) }, nil
+}
+
+func (env *env) cstr(ptr uint32) string {
+	buf := *env.mod.Xmemory().Slice()
+	end := ptr
+	for end < uint32(len(buf)) && buf[end] != 0 {
+		end++
+	}
+	return string(buf[ptr:end])
+}
