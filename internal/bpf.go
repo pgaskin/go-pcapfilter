@@ -24,7 +24,7 @@ func New(v0 Xenv) *Module {
 	m.t0 = make([]any, 19)
 	m.maxMem = 65536
 	m.memory = make([]byte, 0x20000)
-	m.elements = [][]any{{m.fn45, m.fn46, m.fn42, m.fn43, fn100, m.fn98, m.fn99, fn116, m.Xfree, m.Xfree, fn118, fn118, fn116, fn118, fn118, fn118, fn119, fn120}}
+	m.elements = [][]any{{m.fn45, m.fn46, m.fn42, m.fn43, fn101, m.fn99, m.fn100, fn117, m.Xfree, m.Xfree, fn119, fn119, fn117, fn119, fn119, fn119, fn120, fn121}}
 	copy(m.t0[i32(1):], m.elements[0])
 	copy(m.memory[uint32(i32(1024)):], data[0:59523])
 	m.g0 = i32(128480)
@@ -68,7 +68,7 @@ func (m *Module) fn7(v0, v1, v2 int32) {
 	m.g0 = v3
 	if int32(load32(m.memory[int64(uint32(v0))+8:])) == 0 {
 		store32(m.memory[int64(uint32(v3))+12:], uint32(v2))
-		m.fn102(int32(load32(m.memory[int64(uint32(v0))+4:]))+i32(148), v1, v2)
+		m.fn103(int32(load32(m.memory[int64(uint32(v0))+4:]))+i32(148), v1, v2)
 		store32(m.memory[int64(uint32(v0))+8:], uint32(i32(1)))
 	}
 	m.g0 = v3 + i32(16)
@@ -79,7 +79,7 @@ func (m *Module) fn8(v0, v1 int32) int32 {
 	v2 = m._strlen(v1) + i32(1)
 	v0 = m.fn9(t0, v2)
 	if v0 != 0 {
-		m.fn104(v0, v1, v2)
+		m.fn105(v0, v1, v2)
 	}
 	return v0
 }
@@ -113,7 +113,7 @@ func (m *Module) fn9(v0, v1 int32) int32 {
 				goto l0
 			}
 			store32(m.memory[int64(uint32(v0))+376:], uint32(v3))
-			v7 = m.fn107(i32(1), v5)
+			v7 = m.fn108(i32(1), v5)
 			t3 := v4
 			v1 = int32(load32(m.memory[int64(uint32(v0))+376:]))
 			v3 = v1 << 3
@@ -145,7 +145,7 @@ func (m *Module) fn10(v0, v1 int32) {
 	store32(m.memory[int64(uint32(v2))+8:], uint32(v1))
 	store32(m.memory[int64(uint32(v2))+4:], uint32(i32(6480)))
 	store32(m.memory[uint32(v2):], uint32(v0))
-	m.fn101(i32(60560), i32(256), i32(6163), v2)
+	m.fn102(i32(60560), i32(256), i32(6163), v2)
 	m.fn3(i32(60560))
 	panic("unreachable")
 }
@@ -154,7 +154,7 @@ func (m *Module) fn11(v0, v1, v2 int32) {
 	v3 = m.g0 - i32(16)
 	m.g0 = v3
 	store32(m.memory[int64(uint32(v3))+12:], uint32(v2))
-	m.fn102(int32(load32(m.memory[int64(uint32(v0))+4:]))+i32(148), v1, v2)
+	m.fn103(int32(load32(m.memory[int64(uint32(v0))+4:]))+i32(148), v1, v2)
 	m.fn10(i32(2987), i32(665))
 	panic("unreachable")
 }
@@ -6117,7 +6117,7 @@ func (m *Module) fn28(v0 int32) int32 {
 	store32(m.memory[uint32(i32(61072)):], uint32((v3+i32(1))&i32(3)))
 	store32(m.memory[uint32(v1):], uint32(i32(3501)))
 	store32(m.memory[int64(uint32(v1))+4:], uint32(v0))
-	m.fn101(v2, i32(64), i32(6856), v1)
+	m.fn102(v2, i32(64), i32(6856), v1)
 l0:
 	m.g0 = v1 + i32(16)
 	return v2
@@ -6718,7 +6718,7 @@ l3:
 l2:
 	v6 = m.g0 - i32(1040)
 	m.g0 = v6
-	m.fn104(v6, v1, i32(1024))
+	m.fn105(v6, v1, i32(1024))
 	v4 = i32(0)
 	{
 		p2 := i32(0)
@@ -6758,7 +6758,7 @@ func (m *Module) fn31(v0, v1, v2, v3 int32) int32 {
 	v4 = m.g0 - i32(32)
 	m.g0 = v4
 	{
-		v5 = m.fn113(v1, v2, v4+i32(28), v0)
+		v5 = m.fn114(v1, v2, v4+i32(28), v0)
 		if uint32(v5-i32(1)) >= uint32(i32(3)) {
 			switch v5 {
 			case 0:
@@ -6833,7 +6833,7 @@ func (m *Module) fn32(v0, v1, v2, v3, v4, v5 int32) int32 {
 	store64(m.memory[int64(uint32(v6))+40:], uint64(i64(0)))
 	store64(m.memory[int64(uint32(v6))+24:], uint64(i64(0x600000006)))
 	store64(m.memory[int64(uint32(v6))+16:], uint64(i64(0)))
-	v10 = m.fn114(v1, v6+i32(16), v6+i32(12))
+	v10 = m.fn115(v1, v6+i32(16), v6+i32(12))
 	v11 = int32(load32(m.memory[int64(uint32(v6))+12:]))
 	m.g0 = v6 + i32(48)
 	t1 := v0
@@ -6866,7 +6866,7 @@ func (m *Module) fn32(v0, v1, v2, v3, v4, v5 int32) int32 {
 				goto l2
 			}
 			if uint32(v7) > uint32(i32(1)) {
-				m.fn103(v8+i32(1664), v7, i32(4), i32(1))
+				m.fn104(v8+i32(1664), v7, i32(4), i32(1))
 				goto l3
 			}
 			if v7 != 0 {
@@ -6922,7 +6922,7 @@ l0:
 		}
 		v6 = i32(1)
 		if uint32(v7) > uint32(i32(1)) {
-			m.fn103(v8+i32(1664), v7, i32(16), i32(2))
+			m.fn104(v8+i32(1664), v7, i32(16), i32(2))
 			v6 = v7
 			goto l9
 		}
@@ -7006,7 +7006,7 @@ l0:
 l6:
 	v6 = int32(load32(m.memory[int64(uint32(v0))+56:]))
 l5:
-	m.fn115(v6)
+	m.fn116(v6)
 	store32(m.memory[int64(uint32(v0))+56:], uint32(i32(0)))
 	if v7 != 0 {
 		m.g0 = v8 + i32(3264)
@@ -7723,7 +7723,7 @@ func (m *Module) fn35(v0 int32) int32 {
 	store32(m.memory[uint32(i32(61072)):], uint32((v3+i32(1))&i32(3)))
 	store32(m.memory[uint32(v1):], uint32(i32(5613)))
 	store32(m.memory[int64(uint32(v1))+4:], uint32(v0))
-	m.fn101(v2, i32(64), i32(6856), v1)
+	m.fn102(v2, i32(64), i32(6856), v1)
 l0:
 	m.g0 = v1 + i32(16)
 	return v2
@@ -8490,7 +8490,7 @@ func (m *Module) fn40(v0 int32) int32 {
 	store32(m.memory[uint32(i32(61072)):], uint32((v3+i32(1))&i32(3)))
 	store32(m.memory[uint32(v1):], uint32(i32(3020)))
 	store32(m.memory[int64(uint32(v1))+4:], uint32(v0))
-	m.fn101(v2, i32(64), i32(6856), v1)
+	m.fn102(v2, i32(64), i32(6856), v1)
 l0:
 	m.g0 = v1 + i32(16)
 	return v2
@@ -9847,7 +9847,7 @@ func (m *Module) fn49(v0, v1, v2, v3, v4, v5, v6 int32) int32 {
 				store32(m.memory[int64(uint32(v7))+116:], uint32(v2))
 				t1 := v7
 				store32(m.memory[int64(uint32(t1))+1160:], uint32(i32_shl(int32(load32(m.memory[int64(uint32(v7))+1160:])), i32(32)-v3)))
-				m.fn101(v7+i32(128), i32(1024), i32(2914), v7+i32(112))
+				m.fn102(v7+i32(128), i32(1024), i32(2914), v7+i32(112))
 				goto l2
 			}
 			if uint32(v3) >= uint32(i32(33)) {
@@ -9856,7 +9856,7 @@ func (m *Module) fn49(v0, v1, v2, v3, v4, v5, v6 int32) int32 {
 			store32(m.memory[int64(uint32(v7))+80:], uint32(v1))
 			store32(m.memory[int64(uint32(v7))+84:], uint32(v3))
 			store32(m.memory[int64(uint32(v7))+1160:], uint32(i64_shl(i64(0xffffffff), int64(uint32(i32(32)-v3)))))
-			m.fn101(v7+i32(128), i32(1024), i32(1413), v7+i32(80))
+			m.fn102(v7+i32(128), i32(1024), i32(1413), v7+i32(80))
 		l2:
 			t2 := int32(load32(m.memory[int64(uint32(v7))+1164:]))
 			if t2&(int32(load32(m.memory[int64(uint32(v7))+1160:]))^i32(-1)) != 0 {
@@ -10119,7 +10119,7 @@ func (m *Module) fn50(v0, v1, v2, v3, v4, v5 int32) int32 {
 					var p21 int32
 					if v1 == 0 {
 						store32(m.memory[int64(uint32(v6))+144:], uint32(v2))
-						m.fn101(v6+i32(192), i32(1024), i32(1484), v6+i32(144))
+						m.fn102(v6+i32(192), i32(1024), i32(1484), v6+i32(144))
 						p21 = i32(0)
 						goto l18
 					}
@@ -10128,7 +10128,7 @@ func (m *Module) fn50(v0, v1, v2, v3, v4, v5 int32) int32 {
 						goto l19
 					}
 					store32(m.memory[int64(uint32(v6))+176:], uint32(v1))
-					m.fn101(v6+i32(192), i32(1024), i32(2956), v6+i32(176))
+					m.fn102(v6+i32(192), i32(1024), i32(2956), v6+i32(176))
 					p21 = i32(32) - v2
 				l18:
 					v8 = p21
@@ -10181,7 +10181,7 @@ func (m *Module) fn50(v0, v1, v2, v3, v4, v5 int32) int32 {
 									store32(m.memory[uint32(i32(61072)):], uint32((v8+i32(1))&i32(3)))
 									store32(m.memory[int64(uint32(v6))+128:], uint32(i32(5613)))
 									store32(m.memory[int64(uint32(v6))+132:], uint32(v2))
-									m.fn101(v1, i32(64), i32(6856), v6+i32(128))
+									m.fn102(v1, i32(64), i32(6856), v6+i32(128))
 								}
 								v2 = v4 & i32(255)
 								if uint32(v2) > uint32(i32(7)) {
@@ -11194,7 +11194,7 @@ func (m *Module) fn52(v0, v1, v2, v3, v4, v5 int32) int32 {
 	var v6, v7, v8 int32
 	v6 = m.g0 - i32(224)
 	m.g0 = v6
-	if m.fn117(v1, v6+i32(208)) == i32(1) {
+	if m.fn118(v1, v6+i32(208)) == i32(1) {
 		if uint32(v2) >= uint32(i32(129)) {
 			goto l0
 		}
@@ -11235,7 +11235,7 @@ func (m *Module) fn52(v0, v1, v2, v3, v4, v5 int32) int32 {
 			store32(m.memory[int64(uint32(v6))+52:], uint32(v2))
 			store32(m.memory[int64(uint32(v6))+48:], uint32(v1))
 			v1 = v6 + i32(128)
-			m.fn101(v1, i32(51), i32(1413), v6+i32(48))
+			m.fn102(v1, i32(51), i32(1413), v6+i32(48))
 			t4 := v6
 			store32(m.memory[int64(uint32(t4))+32:], uint32(m.fn35(v7)))
 			store32(m.memory[int64(uint32(v6))+36:], uint32(v1))
@@ -11275,7 +11275,7 @@ l4:
 	store32(m.memory[int64(uint32(v6))+84:], uint32(v2))
 	store32(m.memory[int64(uint32(v6))+80:], uint32(v1))
 	v1 = v6 + i32(128)
-	m.fn101(v1, i32(51), i32(1413), v6+i32(80))
+	m.fn102(v1, i32(51), i32(1413), v6+i32(80))
 	store32(m.memory[int64(uint32(v6))+64:], uint32(i32(1495)))
 	store32(m.memory[int64(uint32(v6))+68:], uint32(v1))
 	m.fn11(v0, i32(7682), v6-i32(-64))
@@ -11689,7 +11689,7 @@ func (m *Module) fn54(v0 int32) {
 	v1 = m.g0 - i32(16)
 	m.g0 = v1
 	store32(m.memory[uint32(v1):], uint32(v0))
-	m.fn101(i32(62640), i32(16), i32(6260), v1)
+	m.fn102(i32(62640), i32(16), i32(6260), v1)
 	m.g0 = v1 + i32(16)
 	m.g0 = v2 + i32(48)
 }
@@ -18490,7 +18490,7 @@ func (m *Module) fn75(v0, v1, v2, v3, v4 int32) int32 {
 	store32(m.memory[uint32(i32(61072)):], uint32((v7+i32(1))&i32(3)))
 	store32(m.memory[int64(uint32(v5))+64:], uint32(i32(5847)))
 	store32(m.memory[int64(uint32(v5))+68:], uint32(v1))
-	m.fn101(v6, i32(64), i32(6856), v5-i32(-64))
+	m.fn102(v6, i32(64), i32(6856), v5-i32(-64))
 l0:
 	if int32(load32(m.memory[int64(uint32(v0))+24:])) != i32(123) {
 		goto l1
@@ -18644,7 +18644,7 @@ func (m *Module) fn76(v0, v1 int32) int32 {
 	store32(m.memory[uint32(i32(61072)):], uint32((v3+i32(1))&i32(3)))
 	store32(m.memory[int64(uint32(v5))+32:], uint32(i32(5847)))
 	store32(m.memory[int64(uint32(v5))+36:], uint32(v1))
-	m.fn101(v2, i32(64), i32(6856), v5+i32(32))
+	m.fn102(v2, i32(64), i32(6856), v5+i32(32))
 l0:
 	if int32(load32(m.memory[int64(uint32(v0))+24:])) != i32(123) {
 		goto l1
@@ -19180,7 +19180,7 @@ func (m *Module) fn77(v0, v1, v2, v3, v4 int32) int32 {
 	store32(m.memory[uint32(i32(61072)):], uint32((v11+i32(1))&i32(3)))
 	store32(m.memory[int64(uint32(v5))+160:], uint32(i32(5835)))
 	store32(m.memory[int64(uint32(v5))+164:], uint32(v1))
-	m.fn101(v6, i32(64), i32(6856), v5+i32(160))
+	m.fn102(v6, i32(64), i32(6856), v5+i32(160))
 l0:
 	{
 		v11 = int32(load32(m.memory[int64(uint32(v0))+24:]))
@@ -19239,7 +19239,7 @@ l0:
 				store32(m.memory[uint32(i32(61072)):], uint32((v7+i32(1))&i32(3)))
 				store32(m.memory[int64(uint32(v5))+48:], uint32(i32(5835)))
 				store32(m.memory[int64(uint32(v5))+52:], uint32(v1))
-				m.fn101(v6, i32(64), i32(6856), v5+i32(48))
+				m.fn102(v6, i32(64), i32(6856), v5+i32(48))
 			}
 			if uint32(v2) >= uint32(i32(256)) {
 				goto l11
@@ -19293,7 +19293,7 @@ l0:
 			store32(m.memory[uint32(i32(61072)):], uint32((v7+i32(1))&i32(3)))
 			store32(m.memory[int64(uint32(v5))+80:], uint32(i32(5835)))
 			store32(m.memory[int64(uint32(v5))+84:], uint32(v1))
-			m.fn101(v6, i32(64), i32(6856), v5+i32(80))
+			m.fn102(v6, i32(64), i32(6856), v5+i32(80))
 		}
 		if uint32(v2) >= uint32(i32(0x4000)) {
 			goto l17
@@ -19311,7 +19311,7 @@ l0:
 			store32(m.memory[uint32(i32(61072)):], uint32((v7+i32(1))&i32(3)))
 			store32(m.memory[int64(uint32(v5))+112:], uint32(i32(5835)))
 			store32(m.memory[int64(uint32(v5))+116:], uint32(v1))
-			m.fn101(v6, i32(64), i32(6856), v5+i32(112))
+			m.fn102(v6, i32(64), i32(6856), v5+i32(112))
 		}
 		if uint32(v2) >= uint32(i32(0x4000)) {
 			goto l18
@@ -19329,7 +19329,7 @@ l0:
 			store32(m.memory[uint32(i32(61072)):], uint32((v8+i32(1))&i32(3)))
 			store32(m.memory[int64(uint32(v5))+144:], uint32(i32(5835)))
 			store32(m.memory[int64(uint32(v5))+148:], uint32(v1))
-			m.fn101(v6, i32(64), i32(6856), v5+i32(144))
+			m.fn102(v6, i32(64), i32(6856), v5+i32(144))
 		}
 		if uint32(v2) >= uint32(i32(16)) {
 			goto l19
@@ -19399,7 +19399,7 @@ func (m *Module) fn78(v0, v1, v2 int32) int32 {
 	{
 		var p2 int32
 		{
-			v4 = m.fn114(i32(0), v3+i32(32), v3+i32(28))
+			v4 = m.fn115(i32(0), v3+i32(32), v3+i32(28))
 			switch v4 + i32(11) {
 			case 0:
 				goto l0
@@ -19449,7 +19449,7 @@ func (m *Module) fn78(v0, v1, v2 int32) int32 {
 		p2 = (v0<<8 | int32(uint32(v0)>>8)) & i32(0xffff)
 	l5:
 		v2 = p2
-		m.fn115(int32(load32(m.memory[int64(uint32(v3))+28:])))
+		m.fn116(int32(load32(m.memory[int64(uint32(v3))+28:])))
 	}
 l2:
 	m.g0 = v3 - i32(-64)
@@ -19777,7 +19777,7 @@ func (m *Module) fn83(v0, v1 int32) {
 	m.g0 = v2
 	if int32(load32(m.memory[int64(uint32(v0))+4:])) != 0 {
 		store32(m.memory[int64(uint32(v2))+12:], uint32(i32(0)))
-		m.fn102(int32(load32(m.memory[int64(uint32(v0))+4:])), v1, i32(0))
+		m.fn103(int32(load32(m.memory[int64(uint32(v0))+4:])), v1, i32(0))
 	}
 	m.fn94(i32(2977), i32(2402))
 	panic("unreachable")
@@ -23355,7 +23355,7 @@ func (m *Module) fn92(v0, v1, v2 int32) int32 {
 				v7 = int32(load32(m.memory[int64(uint32(v2))+4:]))
 				goto l3
 			}
-			v12 = m.fn107(v6, i32(4))
+			v12 = m.fn108(v6, i32(4))
 			if v12 != 0 {
 				v7 = int32(load32(m.memory[int64(uint32(v2))+4:]))
 				if v7 == 0 {
@@ -23567,7 +23567,7 @@ func (m *Module) fn93(v0, v1, v2 int32) {
 	v3 = m.g0 - i32(16)
 	m.g0 = v3
 	store32(m.memory[int64(uint32(v3))+12:], uint32(v2))
-	m.fn102(int32(load32(m.memory[int64(uint32(v0))+4:])), v1, v2)
+	m.fn103(int32(load32(m.memory[int64(uint32(v0))+4:])), v1, v2)
 	m.fn94(i32(2966), i32(2905))
 	panic("unreachable")
 }
@@ -23578,7 +23578,7 @@ func (m *Module) fn94(v0, v1 int32) {
 	store32(m.memory[int64(uint32(v2))+8:], uint32(v1))
 	store32(m.memory[int64(uint32(v2))+4:], uint32(i32(6461)))
 	store32(m.memory[uint32(v2):], uint32(v0))
-	m.fn101(i32(62112), i32(256), i32(6163), v2)
+	m.fn102(i32(62112), i32(256), i32(6163), v2)
 	m.fn3(i32(62112))
 	panic("unreachable")
 }
@@ -23618,6 +23618,499 @@ l2:
 		}
 	}
 	return v4
+}
+func (m *Module) Xbpf_filter(v0, v1, v2, v3 int32) int32 {
+	var v4, v5, v6, v7, v8 int32
+	v8 = v1
+	v6 = v3
+	v3 = i32(0)
+	v7 = m.g0 + i32(-64)
+	m.g0 = v7
+	if v0 == 0 {
+		v1 = i32(-1)
+		goto l0
+	}
+	store64(m.memory[int64(uint32(v7))+56:], uint64(i64(0)))
+	store64(m.memory[int64(uint32(v7))+48:], uint64(i64(0)))
+	store64(m.memory[int64(uint32(v7))+40:], uint64(i64(0)))
+	store64(m.memory[int64(uint32(v7))+32:], uint64(i64(0)))
+	store64(m.memory[int64(uint32(v7))+24:], uint64(i64(0)))
+	store64(m.memory[int64(uint32(v7))+16:], uint64(i64(0)))
+	store64(m.memory[int64(uint32(v7))+8:], uint64(i64(0)))
+	store64(m.memory[uint32(v7):], uint64(i64(0)))
+	v5 = v0 - i32(8)
+	v0 = i32(0)
+l41:
+	v1 = v0
+	v4 = v5
+	v5 = v4 + i32(8)
+	v0 = v2
+	{
+		{
+			{
+				{
+					{
+						{
+							{
+								{
+									{
+										{
+											{
+												{
+													{
+														{
+															{
+																{
+																	{
+																		{
+																			{
+																				{
+																					{
+																						{
+																							{
+																								{
+																									{
+																										{
+																											{
+																												switch int32(load16(m.memory[int64(uint32(v4))+8:])) {
+																												case 0:
+																													goto l1
+																												case 1:
+																													goto l2
+																												case 2:
+																													goto l3
+																												case 3:
+																													goto l4
+																												case 4:
+																													goto l5
+																												case 5:
+																													goto l6
+																												case 6:
+																													goto l7
+																												case 7:
+																													goto l8
+																												case 12:
+																													goto l10
+																												case 20:
+																													goto l11
+																												case 21:
+																													goto l12
+																												case 22:
+																													goto l0
+																												case 28:
+																													goto l13
+																												case 29:
+																													goto l14
+																												case 32:
+																													goto l15
+																												case 36:
+																													goto l16
+																												case 37:
+																													goto l17
+																												case 40:
+																													goto l18
+																												case 44:
+																													goto l19
+																												case 45:
+																													goto l20
+																												case 48:
+																													goto l21
+																												case 52:
+																													goto l22
+																												case 53:
+																													goto l23
+																												case 60:
+																													goto l24
+																												case 61:
+																													goto l25
+																												case 64:
+																													goto l26
+																												case 68:
+																													goto l27
+																												case 69:
+																													goto l28
+																												case 72:
+																													goto l29
+																												case 76:
+																													goto l30
+																												case 77:
+																													goto l31
+																												case 80:
+																													goto l32
+																												case 84:
+																													goto l33
+																												case 92:
+																													goto l34
+																												case 96:
+																													goto l35
+																												case 97:
+																													goto l36
+																												case 100:
+																													goto l37
+																												case 108:
+																													goto l38
+																												case 116:
+																													goto l39
+																												case 124:
+																													goto l40
+																												case 128:
+																													goto l41
+																												case 129:
+																													goto l42
+																												case 132:
+																													goto l43
+																												case 135:
+																													goto l44
+																												case 148:
+																													goto l45
+																												case 156:
+																													goto l46
+																												case 164:
+																													goto l47
+																												case 172:
+																													goto l48
+																												case 177:
+																													goto l49
+																												default:
+																													goto l9
+																												}
+																											l9:
+																												panic("unreachable")
+																											l15:
+																												v1 = i32(0)
+																												t0 := v6
+																												v0 = int32(load32(m.memory[int64(uint32(v4))+12:]))
+																												if uint32(t0) < uint32(v0) {
+																													goto l0
+																												}
+																												if uint32(v6-v0) < uint32(i32(4)) {
+																													goto l0
+																												}
+																												v0 = int32(load32(m.memory[uint32(v0+v8):]))
+																												v0 = v0<<24 | v0&i32(0xff00)<<8 | (int32(uint32(v0)>>8)&i32(0xff00) | int32(uint32(v0)>>24))
+																												goto l41
+																											}
+																										l18:
+																											v1 = i32(0)
+																											t1 := v6
+																											v0 = int32(load32(m.memory[int64(uint32(v4))+12:]))
+																											if uint32(t1) < uint32(v0) {
+																												goto l0
+																											}
+																											if uint32(v6-v0) < uint32(i32(2)) {
+																												goto l0
+																											}
+																											v0 = v0 + v8
+																											t2 := int32(m.memory[uint32(v0)]) << 8
+																											v0 = t2 | int32(m.memory[int64(uint32(v0))+1])
+																											goto l41
+																										}
+																									l21:
+																										t3 := v6
+																										v0 = int32(load32(m.memory[int64(uint32(v4))+12:]))
+																										if uint32(t3) <= uint32(v0) {
+																											v1 = i32(0)
+																											goto l0
+																										}
+																										v0 = int32(m.memory[uint32(v0+v8)])
+																										goto l41
+																									}
+																								l42:
+																									v0 = v1
+																									v3 = v2
+																									goto l41
+																								l26:
+																									v1 = i32(0)
+																									t4 := v6
+																									v0 = int32(load32(m.memory[int64(uint32(v4))+12:]))
+																									if uint32(t4) < uint32(v0) {
+																										goto l0
+																									}
+																									if uint32(v3) > uint32(v6-v0) {
+																										goto l0
+																									}
+																									t5 := v6
+																									v0 = v0 + v3
+																									if uint32(t5-v0) < uint32(i32(4)) {
+																										goto l0
+																									}
+																									v0 = int32(load32(m.memory[uint32(v0+v8):]))
+																									v0 = v0<<24 | v0&i32(0xff00)<<8 | (int32(uint32(v0)>>8)&i32(0xff00) | int32(uint32(v0)>>24))
+																									goto l41
+																								}
+																							l29:
+																								v1 = i32(0)
+																								if uint32(v3) > uint32(v6) {
+																									goto l0
+																								}
+																								v0 = int32(load32(m.memory[int64(uint32(v4))+12:]))
+																								if uint32(v0) > uint32(v6-v3) {
+																									goto l0
+																								}
+																								t6 := v6
+																								v0 = v0 + v3
+																								if uint32(t6-v0) < uint32(i32(2)) {
+																									goto l0
+																								}
+																								v0 = v0 + v8
+																								t7 := int32(m.memory[uint32(v0)]) << 8
+																								v0 = t7 | int32(m.memory[int64(uint32(v0))+1])
+																								goto l41
+																							}
+																						l32:
+																							v1 = i32(0)
+																							t8 := v6
+																							v0 = int32(load32(m.memory[int64(uint32(v4))+12:]))
+																							if uint32(t8) <= uint32(v0) {
+																								goto l0
+																							}
+																							if uint32(v3) >= uint32(v6-v0) {
+																								goto l0
+																							}
+																							v0 = int32(m.memory[uint32(v3+v8+v0)])
+																							goto l41
+																						}
+																					l49:
+																						t9 := v6
+																						v0 = int32(load32(m.memory[int64(uint32(v4))+12:]))
+																						if uint32(t9) <= uint32(v0) {
+																							v1 = i32(0)
+																							goto l0
+																						}
+																						v3 = int32(m.memory[uint32(v0+v8)]) << 2 & i32(60)
+																						v0 = v1
+																						goto l41
+																					}
+																				l1:
+																					v0 = int32(load32(m.memory[int64(uint32(v4))+12:]))
+																					goto l41
+																				l2:
+																					v3 = int32(load32(m.memory[int64(uint32(v4))+12:]))
+																					v0 = v1
+																					goto l41
+																				l35:
+																					t10 := v7
+																					v0 = int32(load32(m.memory[uint32(t10+int32(load32(m.memory[int64(uint32(v4))+12:]))<<2):]))
+																					goto l41
+																				}
+																			l36:
+																				t11 := v7
+																				v3 = int32(load32(m.memory[uint32(t11+int32(load32(m.memory[int64(uint32(v4))+12:]))<<2):]))
+																				v0 = v1
+																				goto l41
+																			}
+																		l3:
+																			t12 := v7
+																			store32(m.memory[uint32(t12+int32(load32(m.memory[int64(uint32(v4))+12:]))<<2):], uint32(v1))
+																			v0 = v1
+																			goto l41
+																		}
+																	l4:
+																		t13 := v7
+																		store32(m.memory[uint32(t13+int32(load32(m.memory[int64(uint32(v4))+12:]))<<2):], uint32(v3))
+																		v0 = v1
+																		goto l41
+																	}
+																l6:
+																	t14 := v5
+																	v5 = t14 + int32(load32(m.memory[int64(uint32(v4))+12:]))<<3
+																	v0 = v1
+																	goto l41
+																}
+															l17:
+																t15 := v5
+																t16 := v4
+																t17 := v1
+																p18 := i32(11)
+																if uint32(t17) > load32(m.memory[int64(uint32(v4))+12:]) {
+																	p18 = i32(10)
+																}
+																v5 = t15 + int32(m.memory[uint32(t16+p18)])<<3
+																v0 = v1
+																goto l41
+															}
+														l23:
+															t19 := v5
+															t20 := v4
+															t21 := v1
+															p22 := i32(10)
+															if uint32(t21) < load32(m.memory[int64(uint32(v4))+12:]) {
+																p22 = i32(11)
+															}
+															v5 = t19 + int32(m.memory[uint32(t20+p22)])<<3
+															v0 = v1
+															goto l41
+														}
+													l12:
+														t23 := v5
+														t24 := v4
+														t25 := v1
+														p26 := i32(11)
+														if t25 == int32(load32(m.memory[int64(uint32(v4))+12:])) {
+															p26 = i32(10)
+														}
+														v5 = t23 + int32(m.memory[uint32(t24+p26)])<<3
+														v0 = v1
+														goto l41
+													}
+												l28:
+													t27 := v5
+													t28 := v4
+													p29 := i32(11)
+													if int32(load32(m.memory[int64(uint32(v4))+12:]))&v1 != 0 {
+														p29 = i32(10)
+													}
+													v5 = t27 + int32(m.memory[uint32(t28+p29)])<<3
+													v0 = v1
+													goto l41
+												}
+											l20:
+												t31 := v5
+												t32 := v4
+												p30 := i32(11)
+												if uint32(v1) > uint32(v3) {
+													p30 = i32(10)
+												}
+												v5 = t31 + int32(m.memory[uint32(t32+p30)])<<3
+												v0 = v1
+												goto l41
+											}
+										l25:
+											t34 := v5
+											t35 := v4
+											p33 := i32(10)
+											if uint32(v1) < uint32(v3) {
+												p33 = i32(11)
+											}
+											v5 = t34 + int32(m.memory[uint32(t35+p33)])<<3
+											v0 = v1
+											goto l41
+										}
+									l14:
+										t37 := v5
+										t38 := v4
+										p36 := i32(11)
+										if v1 == v3 {
+											p36 = i32(10)
+										}
+										v5 = t37 + int32(m.memory[uint32(t38+p36)])<<3
+										v0 = v1
+										goto l41
+									}
+								l31:
+									t40 := v5
+									t41 := v4
+									p39 := i32(11)
+									if v1&v3 != 0 {
+										p39 = i32(10)
+									}
+									v5 = t40 + int32(m.memory[uint32(t41+p39)])<<3
+									v0 = v1
+									goto l41
+								}
+							l10:
+								v0 = v1 + v3
+								goto l41
+							l13:
+								v0 = v1 - v3
+								goto l41
+							l19:
+								v0 = v1 * v3
+								goto l41
+							l24:
+								if v3 == 0 {
+									v1 = i32(0)
+									goto l0
+								}
+								v0 = int32(uint32(v1) / uint32(v3))
+								goto l41
+							l46:
+								if v3 == 0 {
+									v1 = i32(0)
+									goto l0
+								}
+								v0 = int32(uint32(v1) % uint32(v3))
+								goto l41
+							l34:
+								v0 = v1 & v3
+								goto l41
+							l30:
+								v0 = v1 | v3
+								goto l41
+							l48:
+								v0 = v1 ^ v3
+								goto l41
+							l38:
+								p42 := i32(0)
+								if uint32(v3) < uint32(i32(32)) {
+									p42 = i32_shl(v1, v3)
+								}
+								v0 = p42
+								goto l41
+							}
+						l40:
+							p43 := i32(0)
+							if uint32(v3) < uint32(i32(32)) {
+								p43 = i32_shr_u(v1, v3)
+							}
+							v0 = p43
+							goto l41
+						}
+					l5:
+						v0 = int32(load32(m.memory[int64(uint32(v4))+12:])) + v1
+						goto l41
+					l11:
+						t44 := v1
+						v0 = t44 - int32(load32(m.memory[int64(uint32(v4))+12:]))
+						goto l41
+					}
+				l16:
+					v0 = int32(load32(m.memory[int64(uint32(v4))+12:])) * v1
+					goto l41
+				l22:
+					t45 := v1
+					v0 = int32(uint32(t45) / load32(m.memory[int64(uint32(v4))+12:]))
+					goto l41
+				}
+			l45:
+				t46 := v1
+				v0 = int32(uint32(t46) % load32(m.memory[int64(uint32(v4))+12:]))
+				goto l41
+			}
+		l33:
+			v0 = int32(load32(m.memory[int64(uint32(v4))+12:])) & v1
+			goto l41
+		l27:
+			v0 = int32(load32(m.memory[int64(uint32(v4))+12:])) | v1
+			goto l41
+		l47:
+			v0 = int32(load32(m.memory[int64(uint32(v4))+12:])) ^ v1
+			goto l41
+		l37:
+			t47 := v1
+			v0 = i32_shl(t47, int32(load32(m.memory[int64(uint32(v4))+12:])))
+			goto l41
+		}
+	l39:
+		t48 := v1
+		v0 = i32_shr_u(t48, int32(load32(m.memory[int64(uint32(v4))+12:])))
+		goto l41
+	}
+l43:
+	v0 = i32(0) - v1
+	goto l41
+l8:
+	v0 = v1
+	v3 = v0
+	goto l41
+l44:
+	v0 = v3
+	goto l41
+l7:
+	v1 = int32(load32(m.memory[int64(uint32(v4))+12:]))
+l0:
+	m.g0 = v7 - i32(-64)
+	return v1
 }
 func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 	var v2, v3, v4, v5 int32
@@ -23760,21 +24253,21 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 																													l8:
 																														store32(m.memory[int64(uint32(v2))+64:], uint32(v5))
 																														v4 = v2 + i32(544)
-																														m.fn101(v4, i32(64), i32(1252), v2-i32(-64))
+																														m.fn102(v4, i32(64), i32(1252), v2-i32(-64))
 																														v3 = i32(3368)
 																														goto l12
 																													l6:
 																														t0 := v2
 																														store32(m.memory[int64(uint32(t0))+80:], load32(m.memory[int64(uint32(v0))+4:]))
 																														v4 = v2 + i32(544)
-																														m.fn101(v4, i32(64), i32(6200), v2+i32(80))
+																														m.fn102(v4, i32(64), i32(6200), v2+i32(80))
 																														goto l12
 																													}
 																												l15:
 																													t1 := v2
 																													store32(m.memory[int64(uint32(t1))+96:], load32(m.memory[int64(uint32(v0))+4:]))
 																													v4 = v2 + i32(544)
-																													m.fn101(v4, i32(64), i32(6549), v2+i32(96))
+																													m.fn102(v4, i32(64), i32(6549), v2+i32(96))
 																													v3 = i32(5979)
 																													goto l12
 																												}
@@ -23782,7 +24275,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 																												t2 := v2
 																												store32(m.memory[int64(uint32(t2))+112:], load32(m.memory[int64(uint32(v0))+4:]))
 																												v4 = v2 + i32(544)
-																												m.fn101(v4, i32(64), i32(6549), v2+i32(112))
+																												m.fn102(v4, i32(64), i32(6549), v2+i32(112))
 																												v3 = i32(5217)
 																												goto l12
 																											}
@@ -23790,7 +24283,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 																											t3 := v2
 																											store32(m.memory[int64(uint32(t3))+128:], load32(m.memory[int64(uint32(v0))+4:]))
 																											v4 = v2 + i32(544)
-																											m.fn101(v4, i32(64), i32(6549), v2+i32(128))
+																											m.fn102(v4, i32(64), i32(6549), v2+i32(128))
 																											v3 = i32(6515)
 																											goto l12
 																										}
@@ -23806,7 +24299,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 																										t4 := v2
 																										store32(m.memory[int64(uint32(t4))+144:], load32(m.memory[int64(uint32(v0))+4:]))
 																										v4 = v2 + i32(544)
-																										m.fn101(v4, i32(64), i32(6554), v2+i32(144))
+																										m.fn102(v4, i32(64), i32(6554), v2+i32(144))
 																										v3 = i32(5979)
 																										goto l12
 																									}
@@ -23814,7 +24307,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 																									t5 := v2
 																									store32(m.memory[int64(uint32(t5))+160:], load32(m.memory[int64(uint32(v0))+4:]))
 																									v4 = v2 + i32(544)
-																									m.fn101(v4, i32(64), i32(6554), v2+i32(160))
+																									m.fn102(v4, i32(64), i32(6554), v2+i32(160))
 																									v3 = i32(5217)
 																									goto l12
 																								}
@@ -23822,7 +24315,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 																								t6 := v2
 																								store32(m.memory[int64(uint32(t6))+176:], load32(m.memory[int64(uint32(v0))+4:]))
 																								v4 = v2 + i32(544)
-																								m.fn101(v4, i32(64), i32(6554), v2+i32(176))
+																								m.fn102(v4, i32(64), i32(6554), v2+i32(176))
 																								v3 = i32(6515)
 																								goto l12
 																							}
@@ -23830,7 +24323,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 																							t7 := v2
 																							store32(m.memory[int64(uint32(t7))+192:], load32(m.memory[int64(uint32(v0))+4:]))
 																							v4 = v2 + i32(544)
-																							m.fn101(v4, i32(64), i32(1215), v2+i32(192))
+																							m.fn102(v4, i32(64), i32(1215), v2+i32(192))
 																							v3 = i32(5979)
 																							goto l12
 																						}
@@ -23838,7 +24331,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 																						t8 := v2
 																						store32(m.memory[int64(uint32(t8))+208:], load32(m.memory[int64(uint32(v0))+4:]))
 																						v4 = v2 + i32(544)
-																						m.fn101(v4, i32(64), i32(1215), v2+i32(208))
+																						m.fn102(v4, i32(64), i32(1215), v2+i32(208))
 																						v3 = i32(1138)
 																						goto l12
 																					}
@@ -23846,7 +24339,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 																					t9 := v2
 																					store32(m.memory[int64(uint32(t9))+224:], load32(m.memory[int64(uint32(v0))+4:]))
 																					v4 = v2 + i32(544)
-																					m.fn101(v4, i32(64), i32(7180), v2+i32(224))
+																					m.fn102(v4, i32(64), i32(7180), v2+i32(224))
 																					v3 = i32(6498)
 																					goto l12
 																				}
@@ -23854,7 +24347,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 																				t10 := v2
 																				store32(m.memory[int64(uint32(t10))+240:], load32(m.memory[int64(uint32(v0))+4:]))
 																				v4 = v2 + i32(544)
-																				m.fn101(v4, i32(64), i32(6548), v2+i32(240))
+																				m.fn102(v4, i32(64), i32(6548), v2+i32(240))
 																				v3 = i32(5979)
 																				goto l12
 																			}
@@ -23862,7 +24355,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 																			t11 := v2
 																			store32(m.memory[int64(uint32(t11))+256:], load32(m.memory[int64(uint32(v0))+4:]))
 																			v4 = v2 + i32(544)
-																			m.fn101(v4, i32(64), i32(6548), v2+i32(256))
+																			m.fn102(v4, i32(64), i32(6548), v2+i32(256))
 																			v3 = i32(1138)
 																			goto l12
 																		}
@@ -23870,7 +24363,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 																		t12 := v2
 																		store32(m.memory[int64(uint32(t12))+272:], load32(m.memory[int64(uint32(v0))+4:]))
 																		v4 = v2 + i32(544)
-																		m.fn101(v4, i32(64), i32(6548), v2+i32(272))
+																		m.fn102(v4, i32(64), i32(6548), v2+i32(272))
 																		v3 = i32(1545)
 																		goto l12
 																	}
@@ -23878,7 +24371,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 																	t13 := v2
 																	store32(m.memory[int64(uint32(t13))+288:], load32(m.memory[int64(uint32(v0))+4:]))
 																	v4 = v2 + i32(544)
-																	m.fn101(v4, i32(64), i32(6548), v2+i32(288))
+																	m.fn102(v4, i32(64), i32(6548), v2+i32(288))
 																	v3 = i32(1122)
 																	goto l12
 																}
@@ -23887,7 +24380,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 																t15 := v1
 																store32(m.memory[int64(uint32(t14))+304:], uint32(t15+int32(load32(m.memory[int64(uint32(v0))+4:]))+i32(1)))
 																v4 = v2 + i32(544)
-																m.fn101(v4, i32(64), i32(6381), v2+i32(304))
+																m.fn102(v4, i32(64), i32(6381), v2+i32(304))
 																v3 = i32(6538)
 																goto l12
 															}
@@ -23895,7 +24388,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 															t16 := v2
 															store32(m.memory[int64(uint32(t16))+320:], load32(m.memory[int64(uint32(v0))+4:]))
 															v4 = v2 + i32(544)
-															m.fn101(v4, i32(64), i32(1215), v2+i32(320))
+															m.fn102(v4, i32(64), i32(1215), v2+i32(320))
 															v3 = i32(1865)
 															goto l12
 														}
@@ -23903,7 +24396,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 														t17 := v2
 														store32(m.memory[int64(uint32(t17))+336:], load32(m.memory[int64(uint32(v0))+4:]))
 														v4 = v2 + i32(544)
-														m.fn101(v4, i32(64), i32(1215), v2+i32(336))
+														m.fn102(v4, i32(64), i32(1215), v2+i32(336))
 														v3 = i32(5831)
 														goto l12
 													}
@@ -23911,7 +24404,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 													t18 := v2
 													store32(m.memory[int64(uint32(t18))+352:], load32(m.memory[int64(uint32(v0))+4:]))
 													v4 = v2 + i32(544)
-													m.fn101(v4, i32(64), i32(1215), v2+i32(352))
+													m.fn102(v4, i32(64), i32(1215), v2+i32(352))
 													v3 = i32(3154)
 													goto l12
 												}
@@ -23919,7 +24412,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 												t19 := v2
 												store32(m.memory[int64(uint32(t19))+368:], load32(m.memory[int64(uint32(v0))+4:]))
 												v4 = v2 + i32(544)
-												m.fn101(v4, i32(64), i32(1215), v2+i32(368))
+												m.fn102(v4, i32(64), i32(1215), v2+i32(368))
 												v3 = i32(1869)
 												goto l12
 											}
@@ -23983,7 +24476,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 											t20 := v2
 											store32(m.memory[int64(uint32(t20))+384:], load32(m.memory[int64(uint32(v0))+4:]))
 											v4 = v2 + i32(544)
-											m.fn101(v4, i32(64), i32(6200), v2+i32(384))
+											m.fn102(v4, i32(64), i32(6200), v2+i32(384))
 											v3 = i32(6159)
 											goto l12
 										}
@@ -23991,7 +24484,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 										t21 := v2
 										store32(m.memory[int64(uint32(t21))+400:], load32(m.memory[int64(uint32(v0))+4:]))
 										v4 = v2 + i32(544)
-										m.fn101(v4, i32(64), i32(6200), v2+i32(400))
+										m.fn102(v4, i32(64), i32(6200), v2+i32(400))
 										v3 = i32(6503)
 										goto l12
 									}
@@ -23999,7 +24492,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 									t22 := v2
 									store32(m.memory[int64(uint32(t22))+416:], load32(m.memory[int64(uint32(v0))+4:]))
 									v4 = v2 + i32(544)
-									m.fn101(v4, i32(64), i32(6200), v2+i32(416))
+									m.fn102(v4, i32(64), i32(6200), v2+i32(416))
 									v3 = i32(4134)
 									goto l12
 								}
@@ -24007,7 +24500,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 								t23 := v2
 								store32(m.memory[int64(uint32(t23))+432:], load32(m.memory[int64(uint32(v0))+4:]))
 								v4 = v2 + i32(544)
-								m.fn101(v4, i32(64), i32(6200), v2+i32(432))
+								m.fn102(v4, i32(64), i32(6200), v2+i32(432))
 								v3 = i32(1306)
 								goto l12
 							}
@@ -24015,7 +24508,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 							t24 := v2
 							store32(m.memory[int64(uint32(t24))+448:], load32(m.memory[int64(uint32(v0))+4:]))
 							v4 = v2 + i32(544)
-							m.fn101(v4, i32(64), i32(6200), v2+i32(448))
+							m.fn102(v4, i32(64), i32(6200), v2+i32(448))
 							v3 = i32(5859)
 							goto l12
 						}
@@ -24023,7 +24516,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 						t25 := v2
 						store32(m.memory[int64(uint32(t25))+464:], load32(m.memory[int64(uint32(v0))+4:]))
 						v4 = v2 + i32(544)
-						m.fn101(v4, i32(64), i32(1215), v2+i32(464))
+						m.fn102(v4, i32(64), i32(1215), v2+i32(464))
 						v3 = i32(5959)
 						goto l12
 					}
@@ -24031,7 +24524,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 					t26 := v2
 					store32(m.memory[int64(uint32(t26))+480:], load32(m.memory[int64(uint32(v0))+4:]))
 					v4 = v2 + i32(544)
-					m.fn101(v4, i32(64), i32(1215), v2+i32(480))
+					m.fn102(v4, i32(64), i32(1215), v2+i32(480))
 					v3 = i32(3007)
 					goto l12
 				}
@@ -24039,7 +24532,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 				t27 := v2
 				store32(m.memory[int64(uint32(t27))+496:], load32(m.memory[int64(uint32(v0))+4:]))
 				v4 = v2 + i32(544)
-				m.fn101(v4, i32(64), i32(1215), v2+i32(496))
+				m.fn102(v4, i32(64), i32(1215), v2+i32(496))
 				v3 = i32(2962)
 				goto l12
 			}
@@ -24047,7 +24540,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 			t28 := v2
 			store32(m.memory[int64(uint32(t28))+512:], load32(m.memory[int64(uint32(v0))+4:]))
 			v4 = v2 + i32(544)
-			m.fn101(v4, i32(64), i32(6200), v2+i32(512))
+			m.fn102(v4, i32(64), i32(6200), v2+i32(512))
 			v3 = i32(5209)
 			goto l12
 		}
@@ -24055,7 +24548,7 @@ func (m *Module) Xbpf_image(v0, v1 int32) int32 {
 		t29 := v2
 		store32(m.memory[int64(uint32(t29))+528:], load32(m.memory[int64(uint32(v0))+4:]))
 		v4 = v2 + i32(544)
-		m.fn101(v4, i32(64), i32(6200), v2+i32(528))
+		m.fn102(v4, i32(64), i32(6200), v2+i32(528))
 		v3 = i32(5205)
 		goto l12
 	}
@@ -24086,25 +24579,25 @@ l12:
 		store32(m.memory[int64(uint32(v2))+40:], uint32(v4))
 		store32(m.memory[int64(uint32(v2))+36:], uint32(v3))
 		store32(m.memory[int64(uint32(v2))+44:], uint32(v1+v5))
-		m.fn101(i32(62368), i32(256), i32(6204), v2+i32(32))
+		m.fn102(i32(62368), i32(256), i32(6204), v2+i32(32))
 		goto l51
 	}
 l50:
 	if int32(m.memory[uint32(v4)]) == 0 {
 		store32(m.memory[int64(uint32(v2))+4:], uint32(v3))
 		store32(m.memory[uint32(v2):], uint32(v1))
-		m.fn101(i32(62368), i32(256), i32(2735), v2)
+		m.fn102(i32(62368), i32(256), i32(2735), v2)
 		goto l51
 	}
 	store32(m.memory[int64(uint32(v2))+24:], uint32(v4))
 	store32(m.memory[int64(uint32(v2))+20:], uint32(v3))
 	store32(m.memory[int64(uint32(v2))+16:], uint32(v1))
-	m.fn101(i32(62368), i32(256), i32(2825), v2+i32(16))
+	m.fn102(i32(62368), i32(256), i32(2825), v2+i32(16))
 l51:
 	m.g0 = v2 + i32(608)
 	return i32(62368)
 }
-func (m *Module) fn97(v0, v1, v2, v3, v4 int32) {
+func (m *Module) fn98(v0, v1, v2, v3, v4 int32) {
 	var v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27 int32
 	var v28, v29 int64
 	v10 = m.g0 - i32(528)
@@ -25905,12 +26398,12 @@ l127:
 l77:
 	m.g0 = v10 + i32(528)
 }
-func (m *Module) fn98(v0, v1, v2 int32) int32 {
+func (m *Module) fn99(v0, v1, v2 int32) int32 {
 	t0 := v1
 	store32(m.memory[int64(uint32(t0))+8:], uint32(int32(load32(m.memory[int64(uint32(v1))+8:]))+v2))
 	return v1 + i32(12)
 }
-func (m *Module) fn99(v0, v1, v2 int32) int32 {
+func (m *Module) fn100(v0, v1, v2 int32) int32 {
 	var v3, v4 int32
 	t0 := v1
 	store32(m.memory[int64(uint32(t0))+8:], uint32(int32(load32(m.memory[int64(uint32(v1))+8:]))+v2))
@@ -25951,10 +26444,10 @@ func (m *Module) fn99(v0, v1, v2 int32) int32 {
 	}
 	return v1 + i32(12)
 }
-func fn100(v0, v1, v2 int32) int32 {
+func fn101(v0, v1, v2 int32) int32 {
 	return v0
 }
-func (m *Module) fn101(v0, v1, v2, v3 int32) {
+func (m *Module) fn102(v0, v1, v2, v3 int32) {
 	var v4 int32
 	v4 = m.g0 - i32(528)
 	m.g0 = v4
@@ -25967,7 +26460,7 @@ func (m *Module) fn101(v0, v1, v2, v3 int32) {
 			goto l0
 		}
 		store32(m.memory[int64(uint32(v4))+12:], uint32(i32(0)))
-		m.fn97(i32(6), v4+i32(4), v4+i32(16), v2, v3)
+		m.fn98(i32(6), v4+i32(4), v4+i32(16), v2, v3)
 		goto l1
 	l0:
 		store32(m.memory[int64(uint32(v4))+12:], uint32(i32(0)))
@@ -25998,7 +26491,7 @@ func (m *Module) fn101(v0, v1, v2, v3 int32) {
 			p0 = p3
 		}
 	l4:
-		m.fn97(i32(7), t1, p0, v2, v3)
+		m.fn98(i32(7), t1, p0, v2, v3)
 		t4 := v0
 		v2 = int32(load32(m.memory[int64(uint32(v4))+4:])) - v0
 		t5 := v2
@@ -26013,7 +26506,7 @@ l1:
 	_ = int32(load32(m.memory[int64(uint32(v4))+12:]))
 	m.g0 = v4 + i32(528)
 }
-func (m *Module) fn102(v0, v1, v2 int32) {
+func (m *Module) fn103(v0, v1, v2 int32) {
 	var v3 int32
 	v3 = m.g0 - i32(528)
 	m.g0 = v3
@@ -26024,7 +26517,7 @@ l0:
 	store32(m.memory[int64(uint32(v3))+12:], uint32(i32(0)))
 	store32(m.memory[int64(uint32(v3))+4:], uint32(v0))
 	store32(m.memory[int64(uint32(v3))+8:], uint32(i32(256)))
-	m.fn97(i32(7), v3+i32(4), v3+i32(16), v1, v2)
+	m.fn98(i32(7), v3+i32(4), v3+i32(16), v1, v2)
 	t0 := v0
 	v1 = int32(load32(m.memory[int64(uint32(v3))+4:])) - v0
 	p1 := v1
@@ -26035,7 +26528,7 @@ l0:
 	_ = int32(load32(m.memory[int64(uint32(v3))+12:]))
 	m.g0 = v3 + i32(528)
 }
-func (m *Module) fn103(v0, v1, v2, v3 int32) {
+func (m *Module) fn104(v0, v1, v2, v3 int32) {
 	var v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15 int32
 	if uint32(v1) >= uint32(i32(2)) {
 		v12 = v1 * v2
@@ -26140,7 +26633,7 @@ func (m *Module) fn103(v0, v1, v2, v3 int32) {
 		}
 	}
 }
-func (m *Module) fn104(v0, v1, v2 int32) {
+func (m *Module) fn105(v0, v1, v2 int32) {
 	var v3 int32
 	v3 = m._strlen(v1)
 	if v2 != 0 {
@@ -26204,7 +26697,7 @@ l0:
 	store32(m.memory[uint32(i32(60544)):], uint32(v0+v2))
 	return v0
 }
-func (m *Module) fn107(v0, v1 int32) int32 {
+func (m *Module) fn108(v0, v1 int32) int32 {
 	var v2, v3, v4, v5, v6 int32
 	var v7 int64
 	v7 = int64(uint32(v0)) * int64(uint32(v1))
@@ -26257,7 +26750,7 @@ l1:
 l0:
 	return v2
 }
-func (m *Module) fn108(v0, v1 int32) int32 {
+func (m *Module) fn109(v0, v1 int32) int32 {
 	var v2, v3, v4, v5, v6, v7, v8, v9 int32
 	if v0 == 0 {
 		if v1 == 0 {
@@ -26370,7 +26863,7 @@ l2:
 l4:
 	return v2
 }
-func (m *Module) fn109(v0, v1 int32) int32 {
+func (m *Module) fn110(v0, v1 int32) int32 {
 	var v2, v3 int32
 	v3 = i32(-1)
 	v2 = int32(load32(m.memory[int64(uint32(v1))+4:]))
@@ -26378,7 +26871,7 @@ func (m *Module) fn109(v0, v1 int32) int32 {
 		goto l0
 	}
 l1:
-	if m.fn121(v2, v0) != 0 {
+	if m.fn122(v2, v0) != 0 {
 		v2 = v1
 		v1 = v2 + i32(8)
 		v2 = int32(load32(m.memory[int64(uint32(v2))+12:]))
@@ -26395,7 +26888,7 @@ l1:
 l0:
 	return v3
 }
-func (m *Module) fn110(v0 int32) {
+func (m *Module) fn111(v0 int32) {
 	var v1, v2 int32
 	{
 		v1 = int32(load32(m.memory[int64(uint32(v0))+20:]))
@@ -26416,7 +26909,7 @@ func (m *Module) fn110(v0 int32) {
 			t2 := v0
 			t3 := v1
 			v2 = v2 + i32(8)
-			v1 = m.fn108(t3, v2<<2)
+			v1 = m.fn109(t3, v2<<2)
 			store32(m.memory[int64(uint32(t2))+20:], uint32(v1))
 			if v1 == 0 {
 				goto l1
@@ -26432,13 +26925,13 @@ func (m *Module) fn110(v0 int32) {
 		return
 	}
 l0:
-	m.fn112(i32(7396))
+	m.fn113(i32(7396))
 	panic("unreachable")
 l1:
-	m.fn112(i32(7396))
+	m.fn113(i32(7396))
 	panic("unreachable")
 }
-func (m *Module) fn111(v0, v1 int32) int32 {
+func (m *Module) fn112(v0, v1 int32) int32 {
 	var v2, v3, v4, v5 int32
 	v2 = m.Xmalloc(i32(48))
 	if v2 != 0 {
@@ -26493,13 +26986,13 @@ func (m *Module) fn111(v0, v1 int32) int32 {
 		store32(m.memory[uint32(p1+v2):], uint32(v4))
 		return v2
 	}
-	m.fn112(i32(7352))
+	m.fn113(i32(7352))
 	panic("unreachable")
 l0:
-	m.fn112(i32(7352))
+	m.fn113(i32(7352))
 	panic("unreachable")
 }
-func (m *Module) fn112(v0 int32) {
+func (m *Module) fn113(v0 int32) {
 	var v1 int32
 	v1 = m.g0 - i32(16)
 	m.g0 = v1
@@ -26507,12 +27000,12 @@ func (m *Module) fn112(v0 int32) {
 	v0 = m.g0 - i32(528)
 	m.g0 = v0
 	store32(m.memory[int64(uint32(v0))+12:], uint32(v1))
-	m.fn97(i32(5), i32(2), v0+i32(16), i32(8142), v1)
+	m.fn98(i32(5), i32(2), v0+i32(16), i32(8142), v1)
 	m.g0 = v0 + i32(528)
 	m.fn3(i32(1718))
 	panic("unreachable")
 }
-func (m *Module) fn113(v0, v1, v2, v3 int32) int32 {
+func (m *Module) fn114(v0, v1, v2, v3 int32) int32 {
 	var v4, v5, v6, v7, v8, v9 int32
 	v4 = m.g0 - i32(48)
 	m.g0 = v4
@@ -26628,7 +27121,7 @@ l1:
 	m.g0 = v4 + i32(48)
 	return v8
 }
-func (m *Module) fn114(v0, v1, v2 int32) int32 {
+func (m *Module) fn115(v0, v1, v2 int32) int32 {
 	var v3, v4, v5, v6 int32
 	v4 = m.g0 - i32(16)
 	m.g0 = v4
@@ -26657,8 +27150,8 @@ func (m *Module) fn114(v0, v1, v2 int32) int32 {
 				p1 = t3
 				goto l1
 			}
-			v3 = m.fn107(i32(1), i32(32))
-			v5 = m.fn107(i32(1), i32(16))
+			v3 = m.fn108(i32(1), i32(32))
+			v5 = m.fn108(i32(1), i32(16))
 			{
 				if v3 == 0 {
 					goto l2
@@ -26689,8 +27182,8 @@ func (m *Module) fn114(v0, v1, v2 int32) int32 {
 		if m.fn5(v0, i32(6), v4) != 0 {
 			goto l3
 		}
-		v0 = m.fn107(i32(1), i32(32))
-		v1 = m.fn107(i32(1), i32(32))
+		v0 = m.fn108(i32(1), i32(32))
+		v1 = m.fn108(i32(1), i32(32))
 		{
 			if v0 == 0 {
 				goto l3
@@ -26721,7 +27214,7 @@ func (m *Module) fn114(v0, v1, v2 int32) int32 {
 	m.g0 = v4 + i32(16)
 	return p0
 }
-func (m *Module) fn115(v0 int32) {
+func (m *Module) fn116(v0 int32) {
 	if v0 != 0 {
 	l0:
 		_ = int32(load32(m.memory[int64(uint32(v0))+20:]))
@@ -26731,10 +27224,10 @@ func (m *Module) fn115(v0 int32) {
 		}
 	}
 }
-func fn116(v0 int32) int32 {
+func fn117(v0 int32) int32 {
 	panic("unreachable")
 }
-func (m *Module) fn117(v0, v1 int32) int32 {
+func (m *Module) fn118(v0, v1 int32) int32 {
 	var v2, v3, v4, v5, v6, v7, v8 int32
 	v4 = int32(m.memory[uint32(v0)])
 	if v4 == i32(58) {
@@ -27139,16 +27632,16 @@ func (m *Module) fn117(v0, v1 int32) int32 {
 l8:
 	return v7
 }
-func fn118(v0, v1 int32) int32 {
+func fn119(v0, v1 int32) int32 {
 	return i32(-1)
 }
-func fn119(v0, v1, v2 int32) int32 {
+func fn120(v0, v1, v2 int32) int32 {
 	return i32(-1)
 }
-func fn120(v0, v1, v2, v3 int32) int32 {
+func fn121(v0, v1, v2, v3 int32) int32 {
 	panic("unreachable")
 }
-func (m *Module) fn121(v0, v1 int32) int32 {
+func (m *Module) fn122(v0, v1 int32) int32 {
 	var v2, v3 int32
 l1:
 	{
@@ -27194,7 +27687,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 	m.memory[uint32(i32(62672))] = byte(i32(0))
 	var p0 int32
 	{
-		v19 = m.fn107(i32(1), i32(512))
+		v19 = m.fn108(i32(1), i32(512))
 		if v19 != 0 {
 			store32(m.memory[int64(uint32(v19))+460:], uint32(i32(8)))
 			store32(m.memory[int64(uint32(v19))+116:], uint32(i32(0)))
@@ -27214,7 +27707,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 			store32(m.memory[int64(uint32(v19))+76:], uint32(i32(1)))
 		}
 		if v19 == 0 {
-			m.fn101(i32(62672), i32(257), i32(1033), i32(0))
+			m.fn102(i32(62672), i32(257), i32(1033), i32(0))
 			p0 = i32(-1)
 			goto l0
 		}
@@ -27227,7 +27720,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 		{
 			{
 				if int32(load32(m.memory[int64(uint32(v19))+76:])) == 0 {
-					m.fn101(v19+i32(148), i32(256), i32(5773), i32(0))
+					m.fn102(v19+i32(148), i32(256), i32(5773), i32(0))
 					v1 = i32(-1)
 					goto l1
 				}
@@ -27247,7 +27740,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 				store64(m.memory[int64(uint32(v11))+216:], uint64(i64(0)))
 				memory_zero(m.memory, uint32(v11+i32(284)), uint32(i32(132)))
 				t2 := v11
-				v0 = m.fn107(i32(1), i32(1024))
+				v0 = m.fn108(i32(1), i32(1024))
 				store32(m.memory[int64(uint32(t2))+288:], uint32(v0))
 				{
 					if v0 == 0 {
@@ -27268,7 +27761,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 					v0 = p4
 					store32(m.memory[int64(uint32(t3))+56:], uint32(v0))
 					if v0 == 0 {
-						m.fn101(v19+i32(148), i32(256), i32(2038), i32(0))
+						m.fn102(v19+i32(148), i32(256), i32(2038), i32(0))
 						v1 = i32(-1)
 						goto l2
 					}
@@ -27297,14 +27790,14 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 						m.g0 = v0
 						store32(m.memory[int64(uint32(v0))+12:], uint32(i32(0)))
 						v1 = v19 + i32(148)
-						m.fn102(v1, i32(3028), i32(0))
+						m.fn103(v1, i32(3028), i32(0))
 						v2 = m._strlen(v1)
 						if uint32(v2+i32(3)) <= uint32(i32(256)) {
 							v1 = v1 + v2
 							m.memory[int64(uint32(v1))+2] = byte(i32(0))
 							store16(m.memory[uint32(v1):], uint16(i32(8250)))
 							store32(m.memory[uint32(v0):], uint32(i32(3004)))
-							m.fn101(v1+i32(2), i32(254)-v2, i32(2956), v0)
+							m.fn102(v1+i32(2), i32(254)-v2, i32(2956), v0)
 						}
 						m.g0 = v0 + i32(16)
 						v1 = i32(-1)
@@ -27384,7 +27877,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 									store64(m.memory[int64(uint32(v7))+24:], uint64(i64(0x100000000)))
 									store32(m.memory[int64(uint32(v7))+16:], uint32(v4))
 									store32(m.memory[uint32(v7):], uint32(i32(0)))
-									m.fn110(v3)
+									m.fn111(v3)
 									v0 = int32(load32(m.memory[int64(uint32(v3))+20:]))
 									t14 := v0
 									v1 = int32(load32(m.memory[int64(uint32(v3))+12:]))
@@ -27419,7 +27912,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 								goto l9
 							}
 						l8:
-							m.fn112(i32(7310))
+							m.fn113(i32(7310))
 							panic("unreachable")
 						l9:
 							v0 = p12
@@ -27431,11 +27924,11 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 							p7 = t20
 							goto l11
 						}
-						m.fn112(i32(7193))
+						m.fn113(i32(7193))
 						panic("unreachable")
 					}
 				l10:
-					m.fn112(i32(7234))
+					m.fn113(i32(7234))
 					panic("unreachable")
 				l11:
 					v27 = p7
@@ -27922,8 +28415,8 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																	goto l75
 																}
 															}
-															m.fn110(v12)
-															v6 = m.fn111(int32(load32(m.memory[int64(uint32(v12))+4:])), v12)
+															m.fn111(v12)
+															v6 = m.fn112(int32(load32(m.memory[int64(uint32(v12))+4:])), v12)
 															t34 := int32(load32(m.memory[int64(uint32(v12))+20:]))
 															store32(m.memory[uint32(t34+int32(load32(m.memory[int64(uint32(v12))+12:]))<<2):], uint32(v6))
 														}
@@ -28749,7 +29242,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																										v0 = i32(292)
 																										{
 																											t48 := v2
-																											switch m.fn113(t48, m._strlen(v2), v7, v3) - i32(1) {
+																											switch m.fn114(t48, m._strlen(v2), v7, v3) - i32(1) {
 																											case 0:
 																												goto l269
 																											case 1:
@@ -28789,7 +29282,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																									goto l268
 																								}
 																							l201:
-																								v2 = m.fn117(int32(load32(m.memory[int64(uint32(v12))+80:])), v10+i32(32))
+																								v2 = m.fn118(int32(load32(m.memory[int64(uint32(v12))+80:])), v10+i32(32))
 																								v0 = int32(load32(m.memory[int64(uint32(v12))+80:]))
 																								v1 = int32(load32(m.memory[uint32(v12):]))
 																								var p51 int32
@@ -29260,7 +29753,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																						v6 = p79
 																						store32(m.memory[int64(uint32(t80))+12:], uint32(v6))
 																						t81 := v2
-																						v2 = m.fn108(v3, v6+i32(2))
+																						v2 = m.fn109(v3, v6+i32(2))
 																						store32(m.memory[int64(uint32(t81))+4:], uint32(v2))
 																						if v2 == 0 {
 																							goto l286
@@ -29291,7 +29784,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																				goto l288
 																			}
 																		l266:
-																			m.fn112(i32(5863))
+																			m.fn113(i32(5863))
 																			panic("unreachable")
 																		l79:
 																			p43 = i32(258)
@@ -29316,7 +29809,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																			goto l289
 																		}
 																	l279:
-																		m.fn112(i32(6054))
+																		m.fn113(i32(6054))
 																		panic("unreachable")
 																	l288:
 																		t84 := int32(load32(m.memory[int64(uint32(v12))+20:]))
@@ -29341,8 +29834,8 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																					goto l291
 																				}
 																			}
-																			m.fn110(v12)
-																			v6 = m.fn111(int32(load32(m.memory[int64(uint32(v12))+4:])), v12)
+																			m.fn111(v12)
+																			v6 = m.fn112(int32(load32(m.memory[int64(uint32(v12))+4:])), v12)
 																			t86 := int32(load32(m.memory[int64(uint32(v12))+20:]))
 																			store32(m.memory[uint32(t86+int32(load32(m.memory[int64(uint32(v12))+12:]))<<2):], uint32(v6))
 																		}
@@ -29415,7 +29908,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																		}
 																		t99 := int32(load32(m.memory[int64(uint32(v2))+4:]))
 																		v1 = v14 + v6>>1
-																		v6 = m.fn108(t99, v1)
+																		v6 = m.fn109(t99, v1)
 																		t100 := int32(load32(m.memory[int64(uint32(v12))+20:]))
 																		v2 = int32(load32(m.memory[uint32(t100+int32(load32(m.memory[int64(uint32(v12))+12:]))<<2):]))
 																		store32(m.memory[int64(uint32(v2))+4:], uint32(v6))
@@ -29552,10 +30045,10 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 														l295:
 															panic("unreachable")
 														l294:
-															m.fn112(i32(7264))
+															m.fn113(i32(7264))
 															panic("unreachable")
 														l286:
-															m.fn112(i32(1262))
+															m.fn113(i32(1262))
 															panic("unreachable")
 														l281:
 															store32(m.memory[int64(uint32(v12))+36:], uint32(v1))
@@ -31386,7 +31879,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																																																																																																v7 = i32(-1)
 																																																																																																																{
 																																																																																																																	{
-																																																																																																																		switch m.fn114(i32(0), v1+i32(16), v1+i32(12)) + i32(8) {
+																																																																																																																		switch m.fn115(i32(0), v1+i32(16), v1+i32(12)) + i32(8) {
 																																																																																																																		case 0, 6:
 																																																																																																																			goto l609
 																																																																																																																		case 8:
@@ -31422,7 +31915,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																																																																																																		p181 = (v2<<8 | int32(uint32(v2)>>8)) & i32(0xffff)
 																																																																																																																	l612:
 																																																																																																																		v7 = p181
-																																																																																																																		m.fn115(int32(load32(m.memory[int64(uint32(v1))+12:])))
+																																																																																																																		m.fn116(int32(load32(m.memory[int64(uint32(v1))+12:])))
 																																																																																																																	}
 																																																																																																																l609:
 																																																																																																																	store64(m.memory[int64(uint32(v1))+40:], uint64(i64(0)))
@@ -31431,7 +31924,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																																																																																																	store64(m.memory[int64(uint32(v1))+16:], uint64(i64(0)))
 																																																																																																																	v2 = i32(0)
 																																																																																																																	{
-																																																																																																																		switch m.fn114(i32(0), v1+i32(16), v1+i32(12)) + i32(8) {
+																																																																																																																		switch m.fn115(i32(0), v1+i32(16), v1+i32(12)) + i32(8) {
 																																																																																																																		case 0, 6:
 																																																																																																																			goto l615
 																																																																																																																		case 8:
@@ -31467,7 +31960,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																																																																																																		p182 = (v2<<8 | int32(uint32(v2)>>8)) & i32(0xffff)
 																																																																																																																	l617:
 																																																																																																																		v6 = p182
-																																																																																																																		m.fn115(int32(load32(m.memory[int64(uint32(v1))+12:])))
+																																																																																																																		m.fn116(int32(load32(m.memory[int64(uint32(v1))+12:])))
 																																																																																																																	}
 																																																																																																																l615:
 																																																																																																																	v2 = i32(0)
@@ -34106,7 +34599,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																																																														store32(m.memory[uint32(i32(61072)):], uint32((v2+i32(1))&i32(3)))
 																																																																														store32(m.memory[int64(uint32(v3))+32:], uint32(i32(5847)))
 																																																																														store32(m.memory[int64(uint32(v3))+36:], uint32(v1))
-																																																																														m.fn101(v0, i32(64), i32(6856), v3+i32(32))
+																																																																														m.fn102(v0, i32(64), i32(6856), v3+i32(32))
 																																																																													l810:
 																																																																														{
 																																																																															if int32(load32(m.memory[int64(uint32(v5))+24:])) != i32(123) {
@@ -35310,7 +35803,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																																																													store32(m.memory[uint32(i32(61072)):], uint32((v2+i32(1))&i32(3)))
 																																																																													store32(m.memory[int64(uint32(v6))+32:], uint32(i32(5835)))
 																																																																													store32(m.memory[int64(uint32(v6))+36:], uint32(v1))
-																																																																													m.fn101(v0, i32(64), i32(6856), v6+i32(32))
+																																																																													m.fn102(v0, i32(64), i32(6856), v6+i32(32))
 																																																																												l862:
 																																																																													{
 																																																																														v2 = int32(load32(m.memory[int64(uint32(v5))+24:]))
@@ -37837,31 +38330,31 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																													goto l73
 																																												}
 																																												var p746 int32
-																																												if m.fn121(i32(6530), v0) == 0 {
+																																												if m.fn122(i32(6530), v0) == 0 {
 																																													p746 = i32(0)
 																																													goto l996
 																																												}
 																																												_ = i32(0)
 																																												_ = i32(0)
-																																												if m.fn121(i32(1861), v0) == 0 {
+																																												if m.fn122(i32(1861), v0) == 0 {
 																																													p746 = i32(1)
 																																													goto l996
 																																												}
 																																												_ = i32(1)
 																																												_ = i32(1)
-																																												if m.fn121(i32(1707), v0) == 0 {
+																																												if m.fn122(i32(1707), v0) == 0 {
 																																													p746 = i32(2)
 																																													goto l996
 																																												}
 																																												_ = i32(2)
 																																												_ = i32(2)
-																																												if m.fn121(i32(4138), v0) == 0 {
+																																												if m.fn122(i32(4138), v0) == 0 {
 																																													p746 = i32(3)
 																																													goto l996
 																																												}
 																																												_ = i32(3)
 																																												_ = i32(3)
-																																												if m.fn121(i32(4142), v0) != 0 {
+																																												if m.fn122(i32(4142), v0) != 0 {
 																																													goto l997
 																																												}
 																																												p746 = i32(4)
@@ -37910,7 +38403,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																											v13 = i32(15952)
 																																										l999:
 																																											t747 := v8
-																																											v0 = m.fn109(v0, v13)
+																																											v0 = m.fn110(v0, v13)
 																																											store32(m.memory[int64(uint32(t747))+156:], uint32(v0))
 																																											if v0 != i32(-1) {
 																																												goto l309
@@ -37930,7 +38423,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																										v6 = i32(3123)
 																																										v13 = i32(15708)
 																																									l1003:
-																																										if m.fn121(v6, v0) != 0 {
+																																										if m.fn122(v6, v0) != 0 {
 																																											v6 = int32(load32(m.memory[uint32(v13):]))
 																																											v13 = v13 + i32(8)
 																																											v10 = v10 + i32(1)
@@ -37948,34 +38441,34 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																										v6 = i32(15144)
 																																										v13 = i32(15872)
 																																										v0 = int32(load32(m.memory[uint32(v9):]))
-																																										if m.fn121(i32(3108), v0) == 0 {
+																																										if m.fn122(i32(3108), v0) == 0 {
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(6545), v0) == 0 {
+																																										if m.fn122(i32(6545), v0) == 0 {
 																																											v10 = i32(1)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(4235), v0) == 0 {
+																																										if m.fn122(i32(4235), v0) == 0 {
 																																											v10 = i32(2)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(1943), v0) == 0 {
+																																										if m.fn122(i32(1943), v0) == 0 {
 																																											v10 = i32(3)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(2071), v0) == 0 {
+																																										if m.fn122(i32(2071), v0) == 0 {
 																																											v10 = i32(4)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(4723), v0) == 0 {
+																																										if m.fn122(i32(4723), v0) == 0 {
 																																											v10 = i32(5)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(5952), v0) == 0 {
+																																										if m.fn122(i32(5952), v0) == 0 {
 																																											v10 = i32(6)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(4716), v0) == 0 {
+																																										if m.fn122(i32(4716), v0) == 0 {
 																																											v10 = i32(7)
 																																											goto l1005
 																																										}
@@ -37983,62 +38476,62 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																										v6 = i32(15152)
 																																										v13 = i32(15952)
 																																										v0 = int32(load32(m.memory[uint32(v9):]))
-																																										if m.fn121(i32(6530), v0) == 0 {
+																																										if m.fn122(i32(6530), v0) == 0 {
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(4704), v0) == 0 {
+																																										if m.fn122(i32(4704), v0) == 0 {
 																																											v10 = i32(1)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(4296), v0) == 0 {
+																																										if m.fn122(i32(4296), v0) == 0 {
 																																											v10 = i32(2)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(4263), v0) == 0 {
+																																										if m.fn122(i32(4263), v0) == 0 {
 																																											v10 = i32(3)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(4230), v0) == 0 {
+																																										if m.fn122(i32(4230), v0) == 0 {
 																																											v10 = i32(4)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(4709), v0) == 0 {
+																																										if m.fn122(i32(4709), v0) == 0 {
 																																											v10 = i32(5)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(4301), v0) == 0 {
+																																										if m.fn122(i32(4301), v0) == 0 {
 																																											v10 = i32(6)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(4268), v0) == 0 {
+																																										if m.fn122(i32(4268), v0) == 0 {
 																																											v10 = i32(7)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(6526), v0) == 0 {
+																																										if m.fn122(i32(6526), v0) == 0 {
 																																											v10 = i32(8)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(4700), v0) == 0 {
+																																										if m.fn122(i32(4700), v0) == 0 {
 																																											v10 = i32(9)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(4292), v0) == 0 {
+																																										if m.fn122(i32(4292), v0) == 0 {
 																																											v10 = i32(10)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(4259), v0) == 0 {
+																																										if m.fn122(i32(4259), v0) == 0 {
 																																											v10 = i32(11)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(2611), v0) == 0 {
+																																										if m.fn122(i32(2611), v0) == 0 {
 																																											v10 = i32(12)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(4280), v0) == 0 {
+																																										if m.fn122(i32(4280), v0) == 0 {
 																																											v10 = i32(13)
 																																											goto l1005
 																																										}
-																																										if m.fn121(i32(4243), v0) == 0 {
+																																										if m.fn122(i32(4243), v0) == 0 {
 																																											v10 = i32(14)
 																																											goto l1005
 																																										}
@@ -38062,7 +38555,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																									if v0 == 0 {
 																																										goto l73
 																																									}
-																																									if m.fn121(v0, i32(4745)) == 0 {
+																																									if m.fn122(v0, i32(4745)) == 0 {
 																																										t751 := v8
 																																										var p750 int32
 																																										v7 = m.fn17(v5)
@@ -38179,7 +38672,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																										}
 																																										goto l73
 																																									}
-																																									if m.fn121(int32(load32(m.memory[uint32(v9):])), i32(2957)) == 0 {
+																																									if m.fn122(int32(load32(m.memory[uint32(v9):])), i32(2957)) == 0 {
 																																										t769 := v8
 																																										var p768 int32
 																																										v3 = m.fn17(v5)
@@ -38291,7 +38784,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																										}
 																																										goto l73
 																																									}
-																																									if m.fn121(int32(load32(m.memory[uint32(v9):])), i32(1485)) == 0 {
+																																									if m.fn122(int32(load32(m.memory[uint32(v9):])), i32(1485)) == 0 {
 																																										t785 := v8
 																																										var p784 int32
 																																										v3 = m.fn17(v5)
@@ -38403,7 +38896,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																										}
 																																										goto l73
 																																									}
-																																									v0 = m.fn109(int32(load32(m.memory[uint32(v9):])), i32(15168))
+																																									v0 = m.fn110(int32(load32(m.memory[uint32(v9):])), i32(15168))
 																																									if v0 != i32(-1) {
 																																										t800 := v8
 																																										v0 = m.fn24(v5, v0)
@@ -38413,7 +38906,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																										}
 																																										goto l73
 																																									}
-																																									v13 = m.fn109(int32(load32(m.memory[uint32(v9):])), i32(15200))
+																																									v13 = m.fn110(int32(load32(m.memory[uint32(v9):])), i32(15200))
 																																									if v13 == i32(-1) {
 																																										t801 := v8
 																																										store32(m.memory[int64(uint32(t801))+80:], load32(m.memory[uint32(v9):]))
@@ -38557,19 +39050,19 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																							if v0 == 0 {
 																																								goto l73
 																																							}
-																																							if m.fn121(v0, i32(2723)) == 0 {
+																																							if m.fn122(v0, i32(2723)) == 0 {
 																																								store32(m.memory[int64(uint32(v8))+156:], uint32(i32(0)))
 																																								goto l309
 																																							}
-																																							if m.fn121(int32(load32(m.memory[uint32(v9):])), i32(2718)) == 0 {
+																																							if m.fn122(int32(load32(m.memory[uint32(v9):])), i32(2718)) == 0 {
 																																								store32(m.memory[int64(uint32(v8))+156:], uint32(i32(1)))
 																																								goto l309
 																																							}
-																																							if m.fn121(int32(load32(m.memory[uint32(v9):])), i32(2728)) == 0 {
+																																							if m.fn122(int32(load32(m.memory[uint32(v9):])), i32(2728)) == 0 {
 																																								store32(m.memory[int64(uint32(v8))+156:], uint32(i32(2)))
 																																								goto l309
 																																							}
-																																							if m.fn121(int32(load32(m.memory[uint32(v9):])), i32(2716)) == 0 {
+																																							if m.fn122(int32(load32(m.memory[uint32(v9):])), i32(2716)) == 0 {
 																																								store32(m.memory[int64(uint32(v8))+156:], uint32(i32(3)))
 																																								goto l309
 																																							}
@@ -38587,91 +39080,91 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																							goto l73
 																																						}
 																																						var p820 int32
-																																						if m.fn121(i32(5230), v0) == 0 {
+																																						if m.fn122(i32(5230), v0) == 0 {
 																																							p820 = i32(0)
 																																							goto l1031
 																																						}
 																																						_ = i32(0)
 																																						_ = i32(0)
-																																						if m.fn121(i32(1874), v0) == 0 {
+																																						if m.fn122(i32(1874), v0) == 0 {
 																																							p820 = i32(1)
 																																							goto l1031
 																																						}
 																																						_ = i32(1)
 																																						_ = i32(1)
-																																						if m.fn121(i32(1698), v0) == 0 {
+																																						if m.fn122(i32(1698), v0) == 0 {
 																																							p820 = i32(2)
 																																							goto l1031
 																																						}
 																																						_ = i32(2)
 																																						_ = i32(2)
-																																						if m.fn121(i32(1658), v0) == 0 {
+																																						if m.fn122(i32(1658), v0) == 0 {
 																																							p820 = i32(3)
 																																							goto l1031
 																																						}
 																																						_ = i32(3)
 																																						_ = i32(3)
-																																						if m.fn121(i32(5302), v0) == 0 {
+																																						if m.fn122(i32(5302), v0) == 0 {
 																																							p820 = i32(4)
 																																							goto l1031
 																																						}
 																																						_ = i32(4)
 																																						_ = i32(4)
-																																						if m.fn121(i32(1040), v0) == 0 {
+																																						if m.fn122(i32(1040), v0) == 0 {
 																																							p820 = i32(5)
 																																							goto l1031
 																																						}
 																																						_ = i32(5)
 																																						_ = i32(5)
-																																						if m.fn121(i32(3393), v0) == 0 {
+																																						if m.fn122(i32(3393), v0) == 0 {
 																																							p820 = i32(6)
 																																							goto l1031
 																																						}
 																																						_ = i32(6)
 																																						_ = i32(6)
-																																						if m.fn121(i32(3595), v0) == 0 {
+																																						if m.fn122(i32(3595), v0) == 0 {
 																																							p820 = i32(7)
 																																							goto l1031
 																																						}
 																																						_ = i32(7)
 																																						_ = i32(7)
-																																						if m.fn121(i32(3606), v0) == 0 {
+																																						if m.fn122(i32(3606), v0) == 0 {
 																																							p820 = i32(8)
 																																							goto l1031
 																																						}
 																																						_ = i32(8)
 																																						_ = i32(8)
-																																						if m.fn121(i32(4106), v0) == 0 {
+																																						if m.fn122(i32(4106), v0) == 0 {
 																																							p820 = i32(9)
 																																							goto l1031
 																																						}
 																																						_ = i32(9)
 																																						_ = i32(9)
-																																						if m.fn121(i32(5221), v0) == 0 {
+																																						if m.fn122(i32(5221), v0) == 0 {
 																																							p820 = i32(10)
 																																							goto l1031
 																																						}
 																																						_ = i32(10)
 																																						_ = i32(10)
-																																						if m.fn121(i32(1664), v0) == 0 {
+																																						if m.fn122(i32(1664), v0) == 0 {
 																																							p820 = i32(11)
 																																							goto l1031
 																																						}
 																																						_ = i32(11)
 																																						_ = i32(11)
-																																						if m.fn121(i32(1734), v0) == 0 {
+																																						if m.fn122(i32(1734), v0) == 0 {
 																																							p820 = i32(12)
 																																							goto l1031
 																																						}
 																																						_ = i32(12)
 																																						_ = i32(12)
-																																						if m.fn121(i32(1746), v0) == 0 {
+																																						if m.fn122(i32(1746), v0) == 0 {
 																																							p820 = i32(13)
 																																							goto l1031
 																																						}
 																																						_ = i32(13)
 																																						_ = i32(13)
-																																						if m.fn121(i32(1024), v0) != 0 {
+																																						if m.fn122(i32(1024), v0) != 0 {
 																																							goto l1032
 																																						}
 																																						p820 = i32(14)
@@ -38690,79 +39183,79 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 																																						goto l73
 																																					}
 																																					var p821 int32
-																																					if m.fn121(i32(2460), v0) == 0 {
+																																					if m.fn122(i32(2460), v0) == 0 {
 																																						p821 = i32(0)
 																																						goto l1033
 																																					}
 																																					_ = i32(0)
 																																					_ = i32(0)
-																																					if m.fn121(i32(1677), v0) == 0 {
+																																					if m.fn122(i32(1677), v0) == 0 {
 																																						p821 = i32(1)
 																																						goto l1033
 																																					}
 																																					_ = i32(1)
 																																					_ = i32(1)
-																																					if m.fn121(i32(3319), v0) == 0 {
+																																					if m.fn122(i32(3319), v0) == 0 {
 																																						p821 = i32(2)
 																																						goto l1033
 																																					}
 																																					_ = i32(2)
 																																					_ = i32(2)
-																																					if m.fn121(i32(4685), v0) == 0 {
+																																					if m.fn122(i32(4685), v0) == 0 {
 																																						p821 = i32(3)
 																																						goto l1033
 																																					}
 																																					_ = i32(3)
 																																					_ = i32(3)
-																																					if m.fn121(i32(6509), v0) == 0 {
+																																					if m.fn122(i32(6509), v0) == 0 {
 																																						p821 = i32(4)
 																																						goto l1033
 																																					}
 																																					_ = i32(4)
 																																					_ = i32(4)
-																																					if m.fn121(i32(6507), v0) == 0 {
+																																					if m.fn122(i32(6507), v0) == 0 {
 																																						p821 = i32(5)
 																																						goto l1033
 																																					}
 																																					_ = i32(5)
 																																					_ = i32(5)
-																																					if m.fn121(i32(1935), v0) == 0 {
+																																					if m.fn122(i32(1935), v0) == 0 {
 																																						p821 = i32(6)
 																																						goto l1033
 																																					}
 																																					_ = i32(6)
 																																					_ = i32(6)
-																																					if m.fn121(i32(1925), v0) == 0 {
+																																					if m.fn122(i32(1925), v0) == 0 {
 																																						p821 = i32(7)
 																																						goto l1033
 																																					}
 																																					_ = i32(7)
 																																					_ = i32(7)
-																																					if m.fn121(i32(1933), v0) == 0 {
+																																					if m.fn122(i32(1933), v0) == 0 {
 																																						p821 = i32(8)
 																																						goto l1033
 																																					}
 																																					_ = i32(8)
 																																					_ = i32(8)
-																																					if m.fn121(i32(1931), v0) == 0 {
+																																					if m.fn122(i32(1931), v0) == 0 {
 																																						p821 = i32(9)
 																																						goto l1033
 																																					}
 																																					_ = i32(9)
 																																					_ = i32(9)
-																																					if m.fn121(i32(3104), v0) == 0 {
+																																					if m.fn122(i32(3104), v0) == 0 {
 																																						p821 = i32(10)
 																																						goto l1033
 																																					}
 																																					_ = i32(10)
 																																					_ = i32(10)
-																																					if m.fn121(i32(3102), v0) == 0 {
+																																					if m.fn122(i32(3102), v0) == 0 {
 																																						p821 = i32(11)
 																																						goto l1033
 																																					}
 																																					_ = i32(11)
 																																					_ = i32(11)
-																																					if m.fn121(i32(3310), v0) != 0 {
+																																					if m.fn122(i32(3310), v0) != 0 {
 																																						goto l1034
 																																					}
 																																					p821 = i32(12)
@@ -39424,7 +39917,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 							if v0 == 0 {
 								goto l70
 							}
-							m.fn115(v0)
+							m.fn116(v0)
 							goto l70
 						}
 						v14 = int32(load32(m.memory[int64(uint32(v11))+48:]))
@@ -39460,7 +39953,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 							t904 := v7
 							t905 := v5
 							v6 = m.fn81(t905, int32(load32(m.memory[uint32(v5):])))
-							v2 = m.fn107(v6, i32(4))
+							v2 = m.fn108(v6, i32(4))
 							store32(m.memory[int64(uint32(t904))+32:], uint32(v2))
 							{
 								t907 := v7
@@ -39483,13 +39976,13 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 										goto l1053
 									}
 									t912 := v7
-									v18 = m.fn107(v0, i32(4))
+									v18 = m.fn108(v0, i32(4))
 									store32(m.memory[int64(uint32(t912))+40:], uint32(v18))
 									if v18 == 0 {
 										goto l1054
 									}
 									t913 := v7
-									v2 = m.fn107(v21, i32(4))
+									v2 = m.fn108(v21, i32(4))
 									store32(m.memory[int64(uint32(t913))+52:], uint32(v2))
 									if v2 == 0 {
 										goto l1054
@@ -39681,11 +40174,11 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 								v0 = p906
 								store32(m.memory[int64(uint32(t907))+928:], uint32(v0))
 								t924 := v7
-								v2 = m.fn107(v0, i32(8))
+								v2 = m.fn108(v0, i32(8))
 								store32(m.memory[int64(uint32(t924))+932:], uint32(v2))
 								if v2 != 0 {
 									t925 := v7
-									v0 = m.fn107(v0, i32(20))
+									v0 = m.fn108(v0, i32(20))
 									store32(m.memory[int64(uint32(t925))+936:], uint32(v0))
 									if v0 != 0 {
 										v0 = v7 + i32(12)
@@ -39949,7 +40442,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 									goto l1051
 								}
 							}
-							m.fn101(v12, i32(256), i32(2007), i32(0))
+							m.fn102(v12, i32(256), i32(2007), i32(0))
 							goto l70
 						}
 					l1051:
@@ -39975,7 +40468,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 										v3 = v1 << 3
 										v0 = m.Xmalloc(v3)
 										if v0 == 0 {
-											m.fn101(v7, i32(256), i32(6426), i32(0))
+											m.fn102(v7, i32(256), i32(6426), i32(0))
 											goto l1086
 										}
 										if v3 != 0 {
@@ -40119,7 +40612,7 @@ func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
 		store32(m.memory[uint32(i32(62932)):], uint32(i32(0)))
 		if p1 != 0 {
 			store32(m.memory[uint32(v31):], uint32(v19+i32(148)))
-			m.fn101(i32(62672), i32(257), i32(2956), v31)
+			m.fn102(i32(62672), i32(257), i32(2956), v31)
 			p0 = i32(-1)
 			goto l0
 		}

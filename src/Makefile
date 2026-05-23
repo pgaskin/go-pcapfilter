@@ -35,6 +35,7 @@ LDFLAGS := \
 	-Wl,--export=bpf_compile \
 	-Wl,--export=bpf_result_free \
 	-Wl,--export=bpf_errbuf \
+	-Wl,--export=bpf_filter \
 	-Wl,--export=bpf_image \
 	-Wl,--export=malloc \
 	-Wl,--export=free \

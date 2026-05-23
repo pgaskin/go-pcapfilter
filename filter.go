@@ -22,10 +22,12 @@ type LinkType int
 // Program is a compiled filter. It is safe for concurrent use, but contains a
 // mutex.
 type Program struct {
-	mu  sync.Mutex
-	env *env
-	n   int32
-	ptr int32
+	mu      sync.Mutex
+	env     *env
+	n       int32
+	ptr     int32
+	pkt     int32
+	snaplen int32
 }
 
 // RawInstruction is a raw BPF virtual machine instruction.
@@ -148,10 +150,17 @@ func Compile(filter string, opts *Options) (p *Program, err error) {
 	}
 	// don't bpf_result_free it
 
+	pkt := mod.Xmalloc(snaplen)
+	if pkt == 0 {
+		return nil, errors.New("out of wasm memory")
+	}
+
 	return &Program{
-		env: env,
-		n:   n,
-		ptr: ptr,
+		env:     env,
+		n:       n,
+		ptr:     ptr,
+		pkt:     pkt,
+		snaplen: snaplen,
 	}, nil
 }
 
@@ -188,6 +197,15 @@ func (p *Program) String() string {
 		b.WriteString(p.env.cstr(uint32(p.env.mod.Xbpf_image(p.ptr+i*8, i))))
 	}
 	return b.String()
+}
+
+// Match returns true if pkt matches the compiled filter.
+func (p *Program) Match(pkt []byte) bool {
+	p.mu.Lock()
+	defer p.mu.Unlock()
+
+	n := copy((*p.env.mod.Xmemory().Slice())[p.pkt:], pkt[:min(len(pkt), int(p.snaplen))])
+	return p.env.mod.Xbpf_filter(p.ptr, p.pkt, int32(len(pkt)), int32(n)) != 0
 }
 
 type panicErr struct{ msg string }
