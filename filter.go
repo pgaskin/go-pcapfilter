@@ -174,6 +174,14 @@ func (p *Program) MarshalBinary() ([]byte, error) {
 }
 
 // Instructions returns the raw BPF instructions for the filter.
+//
+// If needed, you can convert it to a []golang.org/x/net/bpf.RawInstruction with:
+//
+//	func toNetBPF(raw []pcapfilter.RawInstruction) []bpf.RawInstruction {
+//		// SAFETY: bpf.RawInstruction and bpf.RawInstruction are the same memory layout
+//		// (the cast below is enforced by the compiler)
+//		return unsafe.Slice((*bpf.RawInstruction)(unsafe.SliceData(raw)), len(raw))
+//	}
 func (p *Program) Instructions() []RawInstruction {
 	p.mu.Lock()
 	defer p.mu.Unlock()
