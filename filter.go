@@ -6,6 +6,7 @@ import (
 	"errors"
 	"net"
 	"net/netip"
+	"slices"
 	"strings"
 	"sync"
 
@@ -162,6 +163,14 @@ func Compile(filter string, opts *Options) (p *Program, err error) {
 		pkt:     pkt,
 		snaplen: snaplen,
 	}, nil
+}
+
+// MarshalBinary returns the raw BPF instructions for the filter.
+func (p *Program) MarshalBinary() ([]byte, error) {
+	p.mu.Lock()
+	defer p.mu.Unlock()
+
+	return slices.Clone((*p.env.mod.Xmemory().Slice())[p.ptr : p.ptr+p.n*8]), nil
 }
 
 // Instructions returns the raw BPF instructions for the filter.
