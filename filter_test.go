@@ -7,8 +7,6 @@ import (
 	"net/netip"
 	"strings"
 	"testing"
-
-	"golang.org/x/net/bpf"
 )
 
 var (
@@ -177,12 +175,6 @@ func mkfilter(t *testing.T, filter string, opts *Options) *Program {
 	}
 	t.Logf("filter %q\n%s", filter, p)
 
-	raw := p.Instructions()
-
-	tmp := make([]bpf.RawInstruction, len(raw))
-	for i, inst := range raw {
-		tmp[i] = bpf.RawInstruction(inst)
-	}
 	return p
 }
 
