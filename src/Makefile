@@ -1,6 +1,7 @@
 MAKEFLAGS += -r
 
 WASM2GO_VERSION := v0.4.6
+LIBPCAP_VERSION := $(shell cut -c1-10 libpcap/COMMIT)
 
 CC       := wasm32-wasip1-clang
 GO       := $(if $(GOROOT),$(GOROOT)/bin/,)go
@@ -12,7 +13,14 @@ LIBC_GEN := $(GO) run github.com/ncruces/wasm2go/libc-gen@$(WASM2GO_VERSION)
 
 OUTDIR := ../internal/
 
+# llvm-dwarfdump src/bpf.wasm | grep 'DW_TAG_compile_unit' -A5 | grep -E 'DW_AT_(comp_dir|name)'
+
 CFLAGS := \
+	-g \
+	-ffile-prefix-map== \
+	-ffile-prefix-map=libc=github.com/ncruces/wasm2go@$(WASM2GO_VERSION)/libc-gen/c \
+	-ffile-prefix-map=libpcap=github.com/the-tcpdump-group/libpcap@$(LIBPCAP_VERSION) \
+	-ffile-compilation-dir=. \
 	-isystemlibc \
 	-isystem. \
 	-Ilibpcap \
@@ -39,10 +47,14 @@ LDFLAGS := \
 	-Wl,--export=bpf_image \
 	-Wl,--export=malloc \
 	-Wl,--export=free \
-	-Wl,--export=__stack_pointer \
 	-Wl,--import-undefined \
-	-Wl,--no-entry \
-	-Wl,--strip-debug
+	-Wl,--no-entry
+
+OPTFLAGS := \
+	-g \
+	-O3 \
+	--enable-multivalue \
+	--low-memory-unused
 
 SRCS := \
 	libc/libc.c \
@@ -81,7 +93,6 @@ download:
 
 $(OUTDIR)bpf.go: bpf.opt.wasm $(OUTDIR)libc.go
 	CGO_ENABLED=0 $(WASM2GO) -embed -provided $(OUTDIR)libc.go -o $@ $<
-	sed -i 's/^package .*/package bpf_wasm/' $@
 
 $(OUTDIR)libc.go: bpf.opt.wasm
 	CGO_ENABLED=0 $(LIBC_GEN) -wasm $< -pkg bpf_wasm -o $@
@@ -136,7 +147,7 @@ bpf.wasm: $(OBJS)
 	$(CC) $(LDFLAGS) -o $@ $^
 
 bpf.opt.wasm: bpf.wasm
-	$(WASM_OPT) $< -o $@ -O3 --enable-multivalue --low-memory-unused --gufa --converge
+	$(WASM_OPT) $(OPTFLAGS) -o $@ $<
 
 grammar.c grammar.h: grammar.y
 	$(YACC) -p pcap_ -o grammar.c -d grammar.y
