@@ -1,7 +1,6 @@
 package pcapfilter
 
 import (
-	"context"
 	"encoding/binary"
 	"errors"
 	"net"
@@ -76,6 +75,12 @@ type Options struct {
 // LookupFunc resolves hostnames for "host name" expressions. It should return
 // all IPv4 and IPv6 addresses for the specified hostname. The first address
 // matching the family will be used.
+//
+// For example, to use the default resolver:
+//
+//	func LookupDefaultResolver(host string) ([]netip.Addr, error) {
+//		return net.DefaultResolver.LookupNetIP(context.Background(), "ip", host)
+//	}
 type LookupFunc func(name string) ([]netip.Addr, error)
 
 // EthersFunc looks up MAC addresses for "ether host name" expressions.
@@ -85,11 +90,6 @@ var (
 	DefaultLinkType = DLT_EN10MB
 	DefaultSnaplen  = 65535
 )
-
-// LookupDefaultResolver looks up a host using [net.DefaultResolver].
-func LookupDefaultResolver(host string) ([]netip.Addr, error) {
-	return net.DefaultResolver.LookupNetIP(context.Background(), "ip", host)
-}
 
 // Compile compiles a tcpdump filter expression to a BPF program.
 func Compile(filter string, opts *Options) (p *Program, err error) {
