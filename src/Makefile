@@ -35,6 +35,7 @@ LDFLAGS := \
 	-Wl,--export=bpf_compile \
 	-Wl,--export=bpf_result_free \
 	-Wl,--export=bpf_errbuf \
+	-Wl,--export=bpf_image \
 	-Wl,--export=malloc \
 	-Wl,--export=free \
 	-Wl,--export=__stack_pointer \
@@ -49,6 +50,7 @@ SRCS := \
 	libpcap/optimize.c \
 	libpcap/nametoaddr.c \
 	libpcap/bpf_filter.c \
+	libpcap/bpf_image.c \
 	libpcap/fmtutils.c \
 	grammar.c \
 	scanner.c \

@@ -6,6 +6,7 @@ import (
 	"errors"
 	"net"
 	"net/netip"
+	"strings"
 	"sync"
 
 	bpf_wasm "github.com/pgaskin/go-pcapfilter/internal"
@@ -171,6 +172,22 @@ func (p *Program) Instructions() []RawInstruction {
 		}
 	}
 	return raw
+}
+
+// String returns a multi-line disassembly of the program.
+func (p *Program) String() string {
+	p.mu.Lock()
+	defer p.mu.Unlock()
+
+	var b strings.Builder
+	for i := range p.n {
+		if i > 0 {
+			b.WriteByte('\n')
+		}
+		// bpf_image doesn't allocate memory (it uses a static buffer)
+		b.WriteString(p.env.cstr(uint32(p.env.mod.Xbpf_image(p.ptr+i*8, i))))
+	}
+	return b.String()
 }
 
 type panicErr struct{ msg string }

@@ -3,7 +3,6 @@ package pcapfilter
 import (
 	"encoding/binary"
 	"errors"
-	"fmt"
 	"net"
 	"net/netip"
 	"strings"
@@ -176,6 +175,7 @@ func mkfilter(t *testing.T, filter string, opts *Options) *bpf.VM {
 	if err != nil {
 		t.Fatalf("Compile(%q): %v", filter, err)
 	}
+	t.Logf("filter %q\n%s", filter, p)
 
 	raw := p.Instructions()
 
@@ -188,16 +188,6 @@ func mkfilter(t *testing.T, filter string, opts *Options) *bpf.VM {
 	if !ok {
 		t.Fatalf("Disassemble: failed to decode all instructions")
 	}
-
-	var b strings.Builder
-	fmt.Fprintf(&b, "filter %q → %d instructions:\n", filter, len(raw))
-	for i, insn := range raw {
-		fmt.Fprintf(&b,
-			"  %3d: op=%04x jt=%02x jf=%02x k=%08x  %-20T %+v\n",
-			i, insn.Op, insn.Jt, insn.Jf, insn.K, insts[i], insts[i],
-		)
-	}
-	t.Log(b.String())
 
 	vm, err := bpf.NewVM(insts)
 	if err != nil {
