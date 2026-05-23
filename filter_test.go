@@ -172,12 +172,19 @@ func TestCompileError(t *testing.T) {
 func mkfilter(t *testing.T, filter string, opts *Options) *bpf.VM {
 	t.Helper()
 
-	raw, err := Compile(filter, opts)
+	p, err := Compile(filter, opts)
 	if err != nil {
 		t.Fatalf("Compile(%q): %v", filter, err)
 	}
 
-	insts, ok := bpf.Disassemble(raw)
+	raw := p.Instructions()
+
+	tmp := make([]bpf.RawInstruction, len(raw))
+	for i, inst := range raw {
+		tmp[i] = bpf.RawInstruction(inst)
+	}
+
+	insts, ok := bpf.Disassemble(tmp)
 	if !ok {
 		t.Fatalf("Disassemble: failed to decode all instructions")
 	}
