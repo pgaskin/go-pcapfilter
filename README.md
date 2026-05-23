@@ -12,4 +12,4 @@ It can be used with libraries like [github.com/gopacket/gopacket/afpacket](https
 
 The wasm2go blob is fully [reproducible](./src/Dockerfile) and [verified](https://github.com/pgaskin/go-pcapfilter/attestations).
 
-To have working IDE integration while working on the bindings, use `bear -- make -C src distclean download all CC=/path/to/wasi-sdk/bin/wasm32-wasip1-clang` to download the libpcap source and generate the `compile_commands.json`.
+To have working IDE integration while working on the bindings, use `bear -- make -C src distclean download all CC=/path/to/wasi-sdk/bin/wasm32-wasip1-clang WASM_OPT=/path/to/binaryen/bin/wasm-opt` to download the libpcap source and generate the `compile_commands.json`.

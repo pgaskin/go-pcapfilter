@@ -5,6 +5,7 @@
 *.txt
 grammar.*
 scanner.*
+libc
 libpcap
 cover
 compile_flags.txt

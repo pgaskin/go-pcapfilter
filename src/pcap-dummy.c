@@ -100,8 +100,8 @@ const char *pcap_datalink_val_to_description_or_dlt(int dlt) {
     snprintf(buf, sizeof(buf), "DLT %d", dlt);
     return buf;
 }
-const char *pcap_strerror(int errnum) {
-    return strerror(errnum);
+const char *pcap_strerror(unused int errnum) {
+    return "error";
 }
 
 const char *_pcap_errbuf(pcap_t *pcap) {

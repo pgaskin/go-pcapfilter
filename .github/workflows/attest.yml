@@ -24,4 +24,6 @@ jobs:
         with:
           subject-path: |
             internal/bpf.go
+            internal/bpf.dat
+            internal/libc.go
             internal/const.go

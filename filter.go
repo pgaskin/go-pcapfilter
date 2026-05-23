@@ -73,7 +73,6 @@ func Compile(filter string, opts *Options) (raw []bpf.RawInstruction, err error)
 		ethers: opts.Ethers,
 	}
 	mod := bpf_wasm.New(env)
-	mod.X_initialize()
 
 	defer func() {
 		if r := recover(); r != nil {
@@ -117,23 +116,17 @@ func Compile(filter string, opts *Options) (raw []bpf.RawInstruction, err error)
 		netmask = binary.BigEndian.Uint32(b[:])
 	}
 
-	rc := mod.Xbpf_compile(linkType, snaplen, ptr, optimize, int32(netmask))
-	if rc != 0 {
-		errPtr := mod.Xbpf_errbuf()
-		msg := env.cstr(uint32(errPtr))
+	count, insnsPtr := mod.Xbpf_compile(linkType, snaplen, ptr, optimize, int32(netmask))
+	if count < 0 {
+		msg := env.cstr(uint32(mod.Xbpf_errbuf()))
 		return nil, errors.New(msg)
 	}
+	defer mod.Xbpf_result_free()
 
-	count := int(mod.Xbpf_result_count())
-	if count == 0 {
-		return nil, nil
-	}
-
-	insnsPtr := uint32(mod.Xbpf_result_insns())
 	buf := *mod.Xmemory().Slice()
 	raw = make([]bpf.RawInstruction, count)
 	for i := range raw {
-		tmp := buf[insnsPtr+uint32(i)*8:]
+		tmp := buf[uint32(insnsPtr)+uint32(i)*8:]
 		raw[i] = bpf.RawInstruction{
 			Op: binary.LittleEndian.Uint16(tmp),
 			Jt: tmp[2],
@@ -141,8 +134,6 @@ func Compile(filter string, opts *Options) (raw []bpf.RawInstruction, err error)
 			K:  binary.LittleEndian.Uint32(tmp[4:]),
 		}
 	}
-
-	mod.Xbpf_result_free()
 	return raw, nil
 }
 
