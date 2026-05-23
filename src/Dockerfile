@@ -37,10 +37,11 @@ RUN cd /src && ./configure --prefix=/opt/bison && make -j$(nproc) && make instal
 
 FROM base AS wasm2go-version
 COPY --link Makefile /
-RUN grep -oE 'WASM2GO_VERSION\s*:=\s*v[0-9.]+' /Makefile | grep -oE 'v[0-9.]+' > /wasm2go-version.txt
+RUN grep -oE 'WASM2GO_VERSION\s*:=\s*[a-f0-9v.]+' /Makefile | grep -oE '[a-f0-9v.]+$' > /wasm2go-version.txt
 
 FROM base AS wasm2go
 COPY --link --from=wasm2go-version /wasm2go-version.txt /
+ENV GOPROXY=direct GONOSUMDB=github.com/ncruces/wasm2go GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=url.https://github.com/pgaskin/wasm2go.insteadOf GIT_CONFIG_VALUE_0=https://github.com/ncruces/wasm2go
 RUN GOBIN=/ go install -trimpath -v github.com/ncruces/wasm2go@$(cat /wasm2go-version.txt)
 RUN GOBIN=/ go install -trimpath -v github.com/ncruces/wasm2go/libc-gen@$(cat /wasm2go-version.txt)
 

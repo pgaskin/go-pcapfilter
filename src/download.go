@@ -90,5 +90,8 @@ func run() error {
 			return fmt.Errorf("write %s: %w", dst, err)
 		}
 	}
+	if err := os.WriteFile(filepath.Join(Dest, "COMMIT"), []byte(Commit), 0666); err != nil {
+		return fmt.Errorf("write commit: %w", err)
+	}
 	return nil
 }
