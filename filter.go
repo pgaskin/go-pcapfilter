@@ -6,9 +6,11 @@ import (
 	"errors"
 	"net"
 	"net/netip"
+	"slices"
+	"strings"
+	"sync"
 
 	bpf_wasm "github.com/pgaskin/go-pcapfilter/internal"
-	"golang.org/x/net/bpf"
 )
 
 //go:generate docker build --platform amd64 --progress plain --output . src
@@ -18,22 +20,30 @@ import (
 // constants defined in this package rather than raw integers.
 type LinkType int
 
-// LookupFunc resolves hostnames for "host name" expressions. It should return
-// all IPv4 and IPv6 addresses for the specified hostname. The first address
-// matching the family will be used.
-type LookupFunc func(name string) ([]netip.Addr, error)
+// Program is a compiled filter. It is safe for concurrent use, but contains a
+// mutex.
+type Program struct {
+	mu      sync.Mutex
+	env     *env
+	n       int32
+	ptr     int32
+	pkt     int32
+	snaplen int32
+}
 
-// EthersFunc looks up MAC addresses for "ether host name" expressions.
-type EthersFunc func(name string) (net.HardwareAddr, error)
-
-var (
-	DefaultLinkType = DLT_EN10MB
-	DefaultSnaplen  = 65535
-)
-
-// LookupDefaultResolver looks up a host using [net.DefaultResolver].
-func LookupDefaultResolver(host string) ([]netip.Addr, error) {
-	return net.DefaultResolver.LookupNetIP(context.Background(), "ip", host)
+// RawInstruction is a raw BPF virtual machine instruction.
+//
+// This is the same as golang.org/x/net/bpf.RawInstruction, and can be cast
+// directly to it.
+type RawInstruction struct {
+	// Operation to execute.
+	Op uint16
+	// For conditional jump instructions, the number of instructions
+	// to skip if the condition is true/false.
+	Jt uint8
+	Jf uint8
+	// Constant parameter. The meaning depends on the Op.
+	K uint32
 }
 
 // Options contains compilation options for a filter expression.
@@ -63,8 +73,26 @@ type Options struct {
 	Ethers EthersFunc
 }
 
+// LookupFunc resolves hostnames for "host name" expressions. It should return
+// all IPv4 and IPv6 addresses for the specified hostname. The first address
+// matching the family will be used.
+type LookupFunc func(name string) ([]netip.Addr, error)
+
+// EthersFunc looks up MAC addresses for "ether host name" expressions.
+type EthersFunc func(name string) (net.HardwareAddr, error)
+
+var (
+	DefaultLinkType = DLT_EN10MB
+	DefaultSnaplen  = 65535
+)
+
+// LookupDefaultResolver looks up a host using [net.DefaultResolver].
+func LookupDefaultResolver(host string) ([]netip.Addr, error) {
+	return net.DefaultResolver.LookupNetIP(context.Background(), "ip", host)
+}
+
 // Compile compiles a tcpdump filter expression to a BPF program.
-func Compile(filter string, opts *Options) (raw []bpf.RawInstruction, err error) {
+func Compile(filter string, opts *Options) (p *Program, err error) {
 	if opts == nil {
 		opts = new(Options)
 	}
@@ -116,25 +144,85 @@ func Compile(filter string, opts *Options) (raw []bpf.RawInstruction, err error)
 		netmask = binary.BigEndian.Uint32(b[:])
 	}
 
-	count, insnsPtr := mod.Xbpf_compile(linkType, snaplen, ptr, optimize, int32(netmask))
-	if count < 0 {
+	n, ptr := mod.Xbpf_compile(linkType, snaplen, ptr, optimize, int32(netmask))
+	if n < 0 {
 		msg := env.cstr(uint32(mod.Xbpf_errbuf()))
 		return nil, errors.New(msg)
 	}
-	defer mod.Xbpf_result_free()
+	// don't bpf_result_free it
 
-	buf := *mod.Xmemory().Slice()
-	raw = make([]bpf.RawInstruction, count)
-	for i := range raw {
-		tmp := buf[uint32(insnsPtr)+uint32(i)*8:]
-		raw[i] = bpf.RawInstruction{
+	pkt := mod.Xmalloc(snaplen)
+	if pkt == 0 {
+		return nil, errors.New("out of wasm memory")
+	}
+
+	return &Program{
+		env:     env,
+		n:       n,
+		ptr:     ptr,
+		pkt:     pkt,
+		snaplen: snaplen,
+	}, nil
+}
+
+// MarshalBinary returns the raw BPF instructions for the filter.
+func (p *Program) MarshalBinary() ([]byte, error) {
+	p.mu.Lock()
+	defer p.mu.Unlock()
+
+	return slices.Clone((*p.env.mod.Xmemory().Slice())[p.ptr : p.ptr+p.n*8]), nil
+}
+
+// Instructions returns the raw BPF instructions for the filter.
+//
+// If needed, you can convert it to a []golang.org/x/net/bpf.RawInstruction with:
+//
+//	func toNetBPF(raw []pcapfilter.RawInstruction) []bpf.RawInstruction {
+//		// SAFETY: bpf.RawInstruction and bpf.RawInstruction are the same memory layout
+//		// (the cast below is enforced by the compiler)
+//		return unsafe.Slice((*bpf.RawInstruction)(unsafe.SliceData(raw)), len(raw))
+//	}
+func (p *Program) Instructions() []RawInstruction {
+	p.mu.Lock()
+	defer p.mu.Unlock()
+
+	raw := make([]RawInstruction, p.n)
+	buf := *p.env.mod.Xmemory().Slice()
+	for i := range p.n {
+		tmp := buf[p.ptr+i*8:]
+		raw[i] = RawInstruction{
 			Op: binary.LittleEndian.Uint16(tmp),
 			Jt: tmp[2],
 			Jf: tmp[3],
 			K:  binary.LittleEndian.Uint32(tmp[4:]),
 		}
 	}
-	return raw, nil
+	return raw
+}
+
+// String returns a multi-line disassembly of the program.
+func (p *Program) String() string {
+	p.mu.Lock()
+	defer p.mu.Unlock()
+
+	var b strings.Builder
+	for i := range p.n {
+		if i > 0 {
+			b.WriteByte('\n')
+		}
+		// bpf_image doesn't allocate memory (it uses a static buffer)
+		b.WriteString(p.env.cstr(uint32(p.env.mod.Xbpf_image(p.ptr+i*8, i))))
+	}
+	return b.String()
+}
+
+// Match returns true if pkt matches the compiled filter.
+func (p *Program) Match(pkt []byte) bool {
+	p.mu.Lock()
+	defer p.mu.Unlock()
+
+	n := copy((*p.env.mod.Xmemory().Slice())[p.pkt:], pkt[:min(len(pkt), int(p.snaplen))])
+	return p.env.mod.Xbpf_filter(p.ptr, p.pkt, int32(len(pkt)), int32(n)) != 0
 }
 
 type panicErr struct{ msg string }

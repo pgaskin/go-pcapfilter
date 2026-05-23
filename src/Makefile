@@ -1,6 +1,7 @@
 MAKEFLAGS += -r
 
 WASM2GO_VERSION := aa221aadeb257d5fd7b7c5cf5ed6f6b0357a05b9
+LIBPCAP_VERSION := $(shell cut -c1-10 libpcap/COMMIT)
 
 CC       := wasm32-wasip1-clang
 GO       := $(if $(GOROOT),$(GOROOT)/bin/,)go
@@ -11,8 +12,6 @@ WASM2GO_ENV := GOPROXY=direct GONOSUMDB=github.com/ncruces/wasm2go GIT_CONFIG_CO
 WASM2GO  := $(WASM2GO_ENV) $(GO) run github.com/ncruces/wasm2go@$(WASM2GO_VERSION)
 LIBC_GEN := $(WASM2GO_ENV) $(GO) run github.com/ncruces/wasm2go/libc-gen@$(WASM2GO_VERSION)
 
-LIBPCAP_COMMIT := $(shell cut -c1-10 libpcap/COMMIT)
-
 OUTDIR := ../internal/
 
 # llvm-dwarfdump src/bpf.wasm | grep 'DW_TAG_compile_unit' -A5 | grep -E 'DW_AT_(comp_dir|name)'
@@ -21,7 +20,7 @@ CFLAGS := \
 	-g \
 	-ffile-prefix-map== \
 	-ffile-prefix-map=libc=github.com/ncruces/wasm2go@$(WASM2GO_VERSION)/libc-gen/c \
-	-ffile-prefix-map=libpcap=github.com/the-tcpdump-group/libpcap@$(LIBPCAP_COMMIT) \
+	-ffile-prefix-map=libpcap=github.com/the-tcpdump-group/libpcap@$(LIBPCAP_VERSION) \
 	-ffile-compilation-dir=. \
 	-isystemlibc \
 	-isystem. \
@@ -45,11 +44,18 @@ LDFLAGS := \
 	-Wl,--export=bpf_compile \
 	-Wl,--export=bpf_result_free \
 	-Wl,--export=bpf_errbuf \
+	-Wl,--export=bpf_filter \
+	-Wl,--export=bpf_image \
 	-Wl,--export=malloc \
 	-Wl,--export=free \
-	-Wl,--export=__stack_pointer \
 	-Wl,--import-undefined \
 	-Wl,--no-entry
+
+OPTFLAGS := \
+	-g \
+	-O3 \
+	--enable-multivalue \
+	--low-memory-unused
 
 SRCS := \
 	libc/libc.c \
@@ -58,6 +64,7 @@ SRCS := \
 	libpcap/optimize.c \
 	libpcap/nametoaddr.c \
 	libpcap/bpf_filter.c \
+	libpcap/bpf_image.c \
 	libpcap/fmtutils.c \
 	grammar.c \
 	scanner.c \
@@ -85,9 +92,8 @@ distclean: clean
 download:
 	CGO_ENABLED=0 $(GO) run ./download.go
 
-$(OUTDIR)bpf.go: bpf.wasm $(OUTDIR)libc.go
+$(OUTDIR)bpf.go: bpf.opt.wasm $(OUTDIR)libc.go
 	CGO_ENABLED=0 $(WASM2GO) -dwarfline -embed -provided $(OUTDIR)libc.go -o $@ $<
-	sed -i 's/^package .*/package bpf_wasm/' $@
 
 $(OUTDIR)libc.go: bpf.opt.wasm
 	CGO_ENABLED=0 $(LIBC_GEN) -wasm $< -pkg bpf_wasm -o $@
@@ -142,7 +148,7 @@ bpf.wasm: $(OBJS)
 	$(CC) $(LDFLAGS) -o $@ $^
 
 bpf.opt.wasm: bpf.wasm
-	$(WASM_OPT) $< -g -o $@ -O3 --enable-multivalue --low-memory-unused --gufa --converge
+	$(WASM_OPT) $(OPTFLAGS) -o $@ $<
 
 grammar.c grammar.h: grammar.y
 	$(YACC) -p pcap_ -o grammar.c -d grammar.y

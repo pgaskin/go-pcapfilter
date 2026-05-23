@@ -3,13 +3,10 @@ package pcapfilter
 import (
 	"encoding/binary"
 	"errors"
-	"fmt"
 	"net"
 	"net/netip"
 	"strings"
 	"testing"
-
-	"golang.org/x/net/bpf"
 )
 
 var (
@@ -86,12 +83,12 @@ func TestMatch(t *testing.T) {
 		},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
-			vm := mkfilter(t, tc.filter, nil)
+			p := mkfilter(t, tc.filter, nil)
 			for _, pkt := range tc.match {
-				test(t, vm, pkt, true)
+				test(t, p, pkt, true)
 			}
 			for _, pkt := range tc.nomatch {
-				test(t, vm, pkt, false)
+				test(t, p, pkt, false)
 			}
 		})
 	}
@@ -107,10 +104,10 @@ func TestLookup(t *testing.T) {
 		},
 	}
 
-	vm := mkfilter(t, "host test", opts)
-	test(t, vm, tcp4(hw1, hw2, ip4, ip2, 1, 2), true) // src matches
-	test(t, vm, tcp4(hw1, hw2, ip2, ip4, 1, 2), true) // dst matches
-	test(t, vm, tcp4(hw1, hw2, ip2, ip3, 1, 2), false)
+	p := mkfilter(t, "host test", opts)
+	test(t, p, tcp4(hw1, hw2, ip4, ip2, 1, 2), true) // src matches
+	test(t, p, tcp4(hw1, hw2, ip2, ip4, 1, 2), true) // dst matches
+	test(t, p, tcp4(hw1, hw2, ip2, ip3, 1, 2), false)
 
 	_, err := Compile("host unknown", opts)
 	if err == nil {
@@ -128,19 +125,19 @@ func TestEthers(t *testing.T) {
 		},
 	}
 
-	vm := mkfilter(t, "ether host test", opts)
+	p := mkfilter(t, "ether host test", opts)
 
 	pkt1 := make([]byte, 14+20)
 	copy(pkt1[0:6], hw1)
 	binary.BigEndian.PutUint16(pkt1[12:], 0x0800)
 	pkt1[14] = 0x45
-	test(t, vm, pkt1, true)
+	test(t, p, pkt1, true)
 
 	pkt2 := make([]byte, 14+20)
 	copy(pkt2[0:6], hw2)
 	binary.BigEndian.PutUint16(pkt2[12:], 0x0800)
 	pkt2[14] = 0x45
-	test(t, vm, pkt2, false)
+	test(t, p, pkt2, false)
 }
 
 func TestCompileError(t *testing.T) {
@@ -169,49 +166,27 @@ func TestCompileError(t *testing.T) {
 	}
 }
 
-func mkfilter(t *testing.T, filter string, opts *Options) *bpf.VM {
+func mkfilter(t *testing.T, filter string, opts *Options) *Program {
 	t.Helper()
 
-	raw, err := Compile(filter, opts)
+	p, err := Compile(filter, opts)
 	if err != nil {
 		t.Fatalf("Compile(%q): %v", filter, err)
 	}
+	t.Logf("filter %q\n%s", filter, p)
 
-	insts, ok := bpf.Disassemble(raw)
-	if !ok {
-		t.Fatalf("Disassemble: failed to decode all instructions")
-	}
-
-	var b strings.Builder
-	fmt.Fprintf(&b, "filter %q → %d instructions:\n", filter, len(raw))
-	for i, insn := range raw {
-		fmt.Fprintf(&b,
-			"  %3d: op=%04x jt=%02x jf=%02x k=%08x  %-20T %+v\n",
-			i, insn.Op, insn.Jt, insn.Jf, insn.K, insts[i], insts[i],
-		)
-	}
-	t.Log(b.String())
-
-	vm, err := bpf.NewVM(insts)
-	if err != nil {
-		t.Fatalf("NewVM: %v", err)
-	}
-	return vm
+	return p
 }
 
-func test(t *testing.T, vm *bpf.VM, pkt []byte, match bool) {
+func test(t *testing.T, p *Program, pkt []byte, match bool) {
 	t.Helper()
-	n, err := vm.Run(pkt)
-	if err != nil {
-		t.Fatalf("Run: %v", err)
-	}
-	if n != 0 {
+	if p.Match(pkt) {
 		if !match {
-			t.Errorf("expected no match, got match (%d)", n)
+			t.Errorf("expected no match, got match")
 		}
 	} else {
 		if match {
-			t.Errorf("expected match, got no match (%d)", n)
+			t.Errorf("expected match, got no match")
 		}
 	}
 }
