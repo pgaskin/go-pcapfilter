@@ -1,6 +1,6 @@
 MAKEFLAGS += -r
 
-WASM2GO_VERSION := v0.4.6
+WASM2GO_VERSION := e6aa75a04444ac3582e6752c79a5e806565f8c20
 LIBPCAP_VERSION := $(shell cut -c1-10 libpcap/COMMIT)
 
 CC       := wasm32-wasip1-clang

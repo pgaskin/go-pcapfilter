@@ -37,7 +37,7 @@ RUN cd /src && ./configure --prefix=/opt/bison && make -j$(nproc) && make instal
 
 FROM base AS wasm2go-version
 COPY --link Makefile /
-RUN grep -oE 'WASM2GO_VERSION\s*:=\s*v[0-9.]+' /Makefile | grep -oE 'v[0-9.]+' > /wasm2go-version.txt
+RUN grep -oE 'WASM2GO_VERSION\s*:=\s*[a-fv0-9.]+$' /Makefile | grep -oE '[a-fv0-9.]+$' > /wasm2go-version.txt
 
 FROM base AS wasm2go
 COPY --link --from=wasm2go-version /wasm2go-version.txt /

@@ -4,8 +4,11 @@ package bpf_wasm
 
 import "bytes"
 
-func (m *Module) _strlen(s int32) int32 {
-	return int32(bytes.IndexByte(m.memory[uint32(s):], 0))
+func (m *Module) _memcmp(s1, s2, n int32) int32 {
+	e1, e2 := s1+n, s2+n
+	b1 := m.memory[uint32(s1):uint32(e1)]
+	b2 := m.memory[uint32(s2):uint32(e2)]
+	return int32(bytes.Compare(b1, b2))
 }
 
 func (m *Module) _strchr(s, c int32) int32 {
@@ -25,11 +28,8 @@ func (m *Module) _strcmp(s1, s2 int32) int32 {
 	}
 	return int32(bytes.Compare(b1[:sz], b2[:sz]))
 }
-func (m *Module) _memcmp(s1, s2, n int32) int32 {
-	e1, e2 := s1+n, s2+n
-	b1 := m.memory[uint32(s1):uint32(e1)]
-	b2 := m.memory[uint32(s2):uint32(e2)]
-	return int32(bytes.Compare(b1, b2))
+func (m *Module) _strlen(s int32) int32 {
+	return int32(bytes.IndexByte(m.memory[uint32(s):], 0))
 }
 
 func (m *Module) _strchrnul(s, c int32) int32 {
