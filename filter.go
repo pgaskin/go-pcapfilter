@@ -165,12 +165,11 @@ func Compile(filter string, opts *Options) (p *Program, err error) {
 	}, nil
 }
 
-// MarshalBinary returns the raw BPF instructions for the filter.
-func (p *Program) MarshalBinary() ([]byte, error) {
+// Bytes returns a copy of the raw BPF instructions for the filter.
+func (p *Program) Bytes() []byte {
 	p.mu.Lock()
 	defer p.mu.Unlock()
-
-	return slices.Clone((*p.env.mod.Xmemory().Slice())[p.ptr : p.ptr+p.n*8]), nil
+	return slices.Clone((*p.env.mod.Xmemory().Slice())[p.ptr : p.ptr+p.n*8])
 }
 
 // Instructions returns the raw BPF instructions for the filter.

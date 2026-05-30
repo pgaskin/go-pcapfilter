@@ -71,8 +71,7 @@ func main() {
 	}
 
 	if *raw {
-		b, _ := p.MarshalBinary() // never fails
-		_, err = os.Stdout.Write(b)
+		_, err = os.Stdout.Write(p.Bytes())
 	} else {
 		_, err = os.Stdout.WriteString(p.String() + "\n")
 	}
