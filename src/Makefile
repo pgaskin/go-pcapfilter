@@ -92,7 +92,7 @@ download:
 	CGO_ENABLED=0 $(GO) run ./download.go
 
 $(OUTDIR)bpf.go: bpf.opt.wasm $(OUTDIR)libc.go
-	CGO_ENABLED=0 $(WASM2GO) -embed -provided $(OUTDIR)libc.go -o $@ $<
+	CGO_ENABLED=0 $(WASM2GO) -dwarfline -embed -provided $(OUTDIR)libc.go -o $@ $<
 
 $(OUTDIR)libc.go: bpf.opt.wasm
 	CGO_ENABLED=0 $(LIBC_GEN) -wasm $< -pkg bpf_wasm -o $@
