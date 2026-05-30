@@ -39,8 +39,13 @@ func main() {
 		os.Exit(2)
 	}
 
-	var linkType pcapfilter.LinkType
-	if err := linkType.UnmarshalText([]byte(*dltName)); err != nil {
+	linkType, ok := pcapfilter.LookupLinkType(*dltName)
+	if !ok {
+		if n, err := strconv.ParseInt(*dltName, 0, 0); err == nil {
+			linkType, ok = pcapfilter.LinkType(n), true
+		}
+	}
+	if !ok {
 		fmt.Fprintf(os.Stderr, "error: invalid link type %q\n", *dltName)
 		os.Exit(2)
 	}

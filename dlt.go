@@ -47,8 +47,6 @@ func run() error {
 	b.WriteString("package pcapfilter\n\n")
 	b.WriteString("import (\n")
 	for _, imp := range []string{
-		"fmt",
-		"strconv",
 		"strings",
 		"",
 		"github.com/pgaskin/go-pcapfilter/internal",
@@ -66,20 +64,15 @@ func run() error {
 	}
 	b.WriteString(")\n\n")
 
-	b.WriteString(`// UnmarshalText parses a link-layer type by name (e.g. "EN10MB" or "DLT_EN10MB") or integer.` + "\n")
-	b.WriteString(`func (t *LinkType) UnmarshalText(buf []byte) error {` + "\n")
-	b.WriteString(`switch strings.TrimPrefix(strings.ToUpper(string(buf)), "DLT_") {` + "\n")
+	b.WriteString(`// LookupLinkType gets a link-layer type by name (e.g. "EN10MB" or "DLT_EN10MB") case-insensitively.` + "\n")
+	b.WriteString(`func LookupLinkType(name string) (LinkType, bool) {` + "\n")
+	b.WriteString(`switch strings.TrimPrefix(strings.ToUpper(name), "DLT_") {` + "\n")
 	for _, name := range names {
 		fmt.Fprintf(&b, "case %q:\n", strings.ToUpper(strings.TrimPrefix(name, "DLT_")))
-		fmt.Fprintf(&b, "*t = %s\n", name)
-		b.WriteString(`return nil` + "\n")
+		fmt.Fprintf(&b, "return %s, true\n", name)
 	}
 	b.WriteString(`default:` + "\n")
-	b.WriteString(`if n, err := strconv.ParseInt(string(buf), 0, 0); err == nil {` + "\n")
-	b.WriteString(`*t = LinkType(n)` + "\n")
-	b.WriteString(`return nil` + "\n")
-	b.WriteString(`}` + "\n")
-	b.WriteString(`return fmt.Errorf("invalid link type %q", buf)` + "\n")
+	b.WriteString(`return 0, false` + "\n")
 	b.WriteString(`}` + "\n")
 	b.WriteString(`}` + "\n")
 

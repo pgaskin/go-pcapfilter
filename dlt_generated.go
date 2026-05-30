@@ -3,8 +3,6 @@
 package pcapfilter
 
 import (
-	"fmt"
-	"strconv"
 	"strings"
 
 	"github.com/pgaskin/go-pcapfilter/internal"
@@ -231,668 +229,446 @@ const (
 	DLT_DEBUG_ONLY                 = LinkType(bpf_wasm.DLT_DEBUG_ONLY)
 )
 
-// UnmarshalText parses a link-layer type by name (e.g. "EN10MB" or "DLT_EN10MB") or integer.
-func (t *LinkType) UnmarshalText(buf []byte) error {
-	switch strings.TrimPrefix(strings.ToUpper(string(buf)), "DLT_") {
+// LookupLinkType gets a link-layer type by name (e.g. "EN10MB" or "DLT_EN10MB") case-insensitively.
+func LookupLinkType(name string) (LinkType, bool) {
+	switch strings.TrimPrefix(strings.ToUpper(name), "DLT_") {
 	case "NULL":
-		*t = DLT_NULL
-		return nil
+		return DLT_NULL, true
 	case "EN10MB":
-		*t = DLT_EN10MB
-		return nil
+		return DLT_EN10MB, true
 	case "EN3MB":
-		*t = DLT_EN3MB
-		return nil
+		return DLT_EN3MB, true
 	case "AX25":
-		*t = DLT_AX25
-		return nil
+		return DLT_AX25, true
 	case "PRONET":
-		*t = DLT_PRONET
-		return nil
+		return DLT_PRONET, true
 	case "CHAOS":
-		*t = DLT_CHAOS
-		return nil
+		return DLT_CHAOS, true
 	case "IEEE802":
-		*t = DLT_IEEE802
-		return nil
+		return DLT_IEEE802, true
 	case "ARCNET":
-		*t = DLT_ARCNET
-		return nil
+		return DLT_ARCNET, true
 	case "SLIP":
-		*t = DLT_SLIP
-		return nil
+		return DLT_SLIP, true
 	case "PPP":
-		*t = DLT_PPP
-		return nil
+		return DLT_PPP, true
 	case "FDDI":
-		*t = DLT_FDDI
-		return nil
+		return DLT_FDDI, true
 	case "ATM_RFC1483":
-		*t = DLT_ATM_RFC1483
-		return nil
+		return DLT_ATM_RFC1483, true
 	case "RAW":
-		*t = DLT_RAW
-		return nil
+		return DLT_RAW, true
 	case "SLIP_BSDOS":
-		*t = DLT_SLIP_BSDOS
-		return nil
+		return DLT_SLIP_BSDOS, true
 	case "PPP_BSDOS":
-		*t = DLT_PPP_BSDOS
-		return nil
+		return DLT_PPP_BSDOS, true
 	case "ATM_CLIP":
-		*t = DLT_ATM_CLIP
-		return nil
+		return DLT_ATM_CLIP, true
 	case "REDBACK_SMARTEDGE":
-		*t = DLT_REDBACK_SMARTEDGE
-		return nil
+		return DLT_REDBACK_SMARTEDGE, true
 	case "PPP_SERIAL":
-		*t = DLT_PPP_SERIAL
-		return nil
+		return DLT_PPP_SERIAL, true
 	case "PPP_ETHER":
-		*t = DLT_PPP_ETHER
-		return nil
+		return DLT_PPP_ETHER, true
 	case "SYMANTEC_FIREWALL":
-		*t = DLT_SYMANTEC_FIREWALL
-		return nil
+		return DLT_SYMANTEC_FIREWALL, true
 	case "C_HDLC":
-		*t = DLT_C_HDLC
-		return nil
+		return DLT_C_HDLC, true
 	case "IEEE802_11":
-		*t = DLT_IEEE802_11
-		return nil
+		return DLT_IEEE802_11, true
 	case "FRELAY":
-		*t = DLT_FRELAY
-		return nil
+		return DLT_FRELAY, true
 	case "LOOP":
-		*t = DLT_LOOP
-		return nil
+		return DLT_LOOP, true
 	case "ENC":
-		*t = DLT_ENC
-		return nil
+		return DLT_ENC, true
 	case "HDLC":
-		*t = DLT_HDLC
-		return nil
+		return DLT_HDLC, true
 	case "LINUX_SLL":
-		*t = DLT_LINUX_SLL
-		return nil
+		return DLT_LINUX_SLL, true
 	case "LTALK":
-		*t = DLT_LTALK
-		return nil
+		return DLT_LTALK, true
 	case "ECONET":
-		*t = DLT_ECONET
-		return nil
+		return DLT_ECONET, true
 	case "IPFILTER":
-		*t = DLT_IPFILTER
-		return nil
+		return DLT_IPFILTER, true
 	case "PFLOG":
-		*t = DLT_PFLOG
-		return nil
+		return DLT_PFLOG, true
 	case "CISCO_IOS":
-		*t = DLT_CISCO_IOS
-		return nil
+		return DLT_CISCO_IOS, true
 	case "PRISM_HEADER":
-		*t = DLT_PRISM_HEADER
-		return nil
+		return DLT_PRISM_HEADER, true
 	case "AIRONET_HEADER":
-		*t = DLT_AIRONET_HEADER
-		return nil
+		return DLT_AIRONET_HEADER, true
 	case "HHDLC":
-		*t = DLT_HHDLC
-		return nil
+		return DLT_HHDLC, true
 	case "IP_OVER_FC":
-		*t = DLT_IP_OVER_FC
-		return nil
+		return DLT_IP_OVER_FC, true
 	case "SUNATM":
-		*t = DLT_SUNATM
-		return nil
+		return DLT_SUNATM, true
 	case "RIO":
-		*t = DLT_RIO
-		return nil
+		return DLT_RIO, true
 	case "PCI_EXP":
-		*t = DLT_PCI_EXP
-		return nil
+		return DLT_PCI_EXP, true
 	case "AURORA":
-		*t = DLT_AURORA
-		return nil
+		return DLT_AURORA, true
 	case "IEEE802_11_RADIO":
-		*t = DLT_IEEE802_11_RADIO
-		return nil
+		return DLT_IEEE802_11_RADIO, true
 	case "TZSP":
-		*t = DLT_TZSP
-		return nil
+		return DLT_TZSP, true
 	case "ARCNET_LINUX":
-		*t = DLT_ARCNET_LINUX
-		return nil
+		return DLT_ARCNET_LINUX, true
 	case "JUNIPER_MLPPP":
-		*t = DLT_JUNIPER_MLPPP
-		return nil
+		return DLT_JUNIPER_MLPPP, true
 	case "JUNIPER_MLFR":
-		*t = DLT_JUNIPER_MLFR
-		return nil
+		return DLT_JUNIPER_MLFR, true
 	case "JUNIPER_ES":
-		*t = DLT_JUNIPER_ES
-		return nil
+		return DLT_JUNIPER_ES, true
 	case "JUNIPER_GGSN":
-		*t = DLT_JUNIPER_GGSN
-		return nil
+		return DLT_JUNIPER_GGSN, true
 	case "JUNIPER_MFR":
-		*t = DLT_JUNIPER_MFR
-		return nil
+		return DLT_JUNIPER_MFR, true
 	case "JUNIPER_ATM2":
-		*t = DLT_JUNIPER_ATM2
-		return nil
+		return DLT_JUNIPER_ATM2, true
 	case "JUNIPER_SERVICES":
-		*t = DLT_JUNIPER_SERVICES
-		return nil
+		return DLT_JUNIPER_SERVICES, true
 	case "JUNIPER_ATM1":
-		*t = DLT_JUNIPER_ATM1
-		return nil
+		return DLT_JUNIPER_ATM1, true
 	case "APPLE_IP_OVER_IEEE1394":
-		*t = DLT_APPLE_IP_OVER_IEEE1394
-		return nil
+		return DLT_APPLE_IP_OVER_IEEE1394, true
 	case "MTP2_WITH_PHDR":
-		*t = DLT_MTP2_WITH_PHDR
-		return nil
+		return DLT_MTP2_WITH_PHDR, true
 	case "MTP2":
-		*t = DLT_MTP2
-		return nil
+		return DLT_MTP2, true
 	case "MTP3":
-		*t = DLT_MTP3
-		return nil
+		return DLT_MTP3, true
 	case "SCCP":
-		*t = DLT_SCCP
-		return nil
+		return DLT_SCCP, true
 	case "DOCSIS":
-		*t = DLT_DOCSIS
-		return nil
+		return DLT_DOCSIS, true
 	case "LINUX_IRDA":
-		*t = DLT_LINUX_IRDA
-		return nil
+		return DLT_LINUX_IRDA, true
 	case "IBM_SP":
-		*t = DLT_IBM_SP
-		return nil
+		return DLT_IBM_SP, true
 	case "IBM_SN":
-		*t = DLT_IBM_SN
-		return nil
+		return DLT_IBM_SN, true
 	case "USER0":
-		*t = DLT_USER0
-		return nil
+		return DLT_USER0, true
 	case "USER1":
-		*t = DLT_USER1
-		return nil
+		return DLT_USER1, true
 	case "USER2":
-		*t = DLT_USER2
-		return nil
+		return DLT_USER2, true
 	case "USER3":
-		*t = DLT_USER3
-		return nil
+		return DLT_USER3, true
 	case "USER4":
-		*t = DLT_USER4
-		return nil
+		return DLT_USER4, true
 	case "USER5":
-		*t = DLT_USER5
-		return nil
+		return DLT_USER5, true
 	case "USER6":
-		*t = DLT_USER6
-		return nil
+		return DLT_USER6, true
 	case "USER7":
-		*t = DLT_USER7
-		return nil
+		return DLT_USER7, true
 	case "USER8":
-		*t = DLT_USER8
-		return nil
+		return DLT_USER8, true
 	case "USER9":
-		*t = DLT_USER9
-		return nil
+		return DLT_USER9, true
 	case "USER10":
-		*t = DLT_USER10
-		return nil
+		return DLT_USER10, true
 	case "USER11":
-		*t = DLT_USER11
-		return nil
+		return DLT_USER11, true
 	case "USER12":
-		*t = DLT_USER12
-		return nil
+		return DLT_USER12, true
 	case "USER13":
-		*t = DLT_USER13
-		return nil
+		return DLT_USER13, true
 	case "USER14":
-		*t = DLT_USER14
-		return nil
+		return DLT_USER14, true
 	case "USER15":
-		*t = DLT_USER15
-		return nil
+		return DLT_USER15, true
 	case "IEEE802_11_RADIO_AVS":
-		*t = DLT_IEEE802_11_RADIO_AVS
-		return nil
+		return DLT_IEEE802_11_RADIO_AVS, true
 	case "JUNIPER_MONITOR":
-		*t = DLT_JUNIPER_MONITOR
-		return nil
+		return DLT_JUNIPER_MONITOR, true
 	case "BACNET_MS_TP":
-		*t = DLT_BACNET_MS_TP
-		return nil
+		return DLT_BACNET_MS_TP, true
 	case "PPP_PPPD":
-		*t = DLT_PPP_PPPD
-		return nil
+		return DLT_PPP_PPPD, true
 	case "JUNIPER_PPPOE":
-		*t = DLT_JUNIPER_PPPOE
-		return nil
+		return DLT_JUNIPER_PPPOE, true
 	case "JUNIPER_PPPOE_ATM":
-		*t = DLT_JUNIPER_PPPOE_ATM
-		return nil
+		return DLT_JUNIPER_PPPOE_ATM, true
 	case "GPRS_LLC":
-		*t = DLT_GPRS_LLC
-		return nil
+		return DLT_GPRS_LLC, true
 	case "GPF_T":
-		*t = DLT_GPF_T
-		return nil
+		return DLT_GPF_T, true
 	case "GPF_F":
-		*t = DLT_GPF_F
-		return nil
+		return DLT_GPF_F, true
 	case "GCOM_T1E1":
-		*t = DLT_GCOM_T1E1
-		return nil
+		return DLT_GCOM_T1E1, true
 	case "GCOM_SERIAL":
-		*t = DLT_GCOM_SERIAL
-		return nil
+		return DLT_GCOM_SERIAL, true
 	case "JUNIPER_PIC_PEER":
-		*t = DLT_JUNIPER_PIC_PEER
-		return nil
+		return DLT_JUNIPER_PIC_PEER, true
 	case "ERF_ETH":
-		*t = DLT_ERF_ETH
-		return nil
+		return DLT_ERF_ETH, true
 	case "ERF_POS":
-		*t = DLT_ERF_POS
-		return nil
+		return DLT_ERF_POS, true
 	case "LINUX_LAPD":
-		*t = DLT_LINUX_LAPD
-		return nil
+		return DLT_LINUX_LAPD, true
 	case "JUNIPER_ETHER":
-		*t = DLT_JUNIPER_ETHER
-		return nil
+		return DLT_JUNIPER_ETHER, true
 	case "JUNIPER_PPP":
-		*t = DLT_JUNIPER_PPP
-		return nil
+		return DLT_JUNIPER_PPP, true
 	case "JUNIPER_FRELAY":
-		*t = DLT_JUNIPER_FRELAY
-		return nil
+		return DLT_JUNIPER_FRELAY, true
 	case "JUNIPER_CHDLC":
-		*t = DLT_JUNIPER_CHDLC
-		return nil
+		return DLT_JUNIPER_CHDLC, true
 	case "MFR":
-		*t = DLT_MFR
-		return nil
+		return DLT_MFR, true
 	case "JUNIPER_VP":
-		*t = DLT_JUNIPER_VP
-		return nil
+		return DLT_JUNIPER_VP, true
 	case "A429":
-		*t = DLT_A429
-		return nil
+		return DLT_A429, true
 	case "A653_ICM":
-		*t = DLT_A653_ICM
-		return nil
+		return DLT_A653_ICM, true
 	case "USB":
-		*t = DLT_USB
-		return nil
+		return DLT_USB, true
 	case "USB_FREEBSD":
-		*t = DLT_USB_FREEBSD
-		return nil
+		return DLT_USB_FREEBSD, true
 	case "BLUETOOTH_HCI_H4":
-		*t = DLT_BLUETOOTH_HCI_H4
-		return nil
+		return DLT_BLUETOOTH_HCI_H4, true
 	case "IEEE802_16_MAC_CPS":
-		*t = DLT_IEEE802_16_MAC_CPS
-		return nil
+		return DLT_IEEE802_16_MAC_CPS, true
 	case "USB_LINUX":
-		*t = DLT_USB_LINUX
-		return nil
+		return DLT_USB_LINUX, true
 	case "CAN20B":
-		*t = DLT_CAN20B
-		return nil
+		return DLT_CAN20B, true
 	case "IEEE802_15_4_LINUX":
-		*t = DLT_IEEE802_15_4_LINUX
-		return nil
+		return DLT_IEEE802_15_4_LINUX, true
 	case "PPI":
-		*t = DLT_PPI
-		return nil
+		return DLT_PPI, true
 	case "IEEE802_16_MAC_CPS_RADIO":
-		*t = DLT_IEEE802_16_MAC_CPS_RADIO
-		return nil
+		return DLT_IEEE802_16_MAC_CPS_RADIO, true
 	case "JUNIPER_ISM":
-		*t = DLT_JUNIPER_ISM
-		return nil
+		return DLT_JUNIPER_ISM, true
 	case "IEEE802_15_4_WITHFCS":
-		*t = DLT_IEEE802_15_4_WITHFCS
-		return nil
+		return DLT_IEEE802_15_4_WITHFCS, true
 	case "SITA":
-		*t = DLT_SITA
-		return nil
+		return DLT_SITA, true
 	case "ERF":
-		*t = DLT_ERF
-		return nil
+		return DLT_ERF, true
 	case "RAIF1":
-		*t = DLT_RAIF1
-		return nil
+		return DLT_RAIF1, true
 	case "IPMB_KONTRON":
-		*t = DLT_IPMB_KONTRON
-		return nil
+		return DLT_IPMB_KONTRON, true
 	case "JUNIPER_ST":
-		*t = DLT_JUNIPER_ST
-		return nil
+		return DLT_JUNIPER_ST, true
 	case "BLUETOOTH_HCI_H4_WITH_PHDR":
-		*t = DLT_BLUETOOTH_HCI_H4_WITH_PHDR
-		return nil
+		return DLT_BLUETOOTH_HCI_H4_WITH_PHDR, true
 	case "AX25_KISS":
-		*t = DLT_AX25_KISS
-		return nil
+		return DLT_AX25_KISS, true
 	case "LAPD":
-		*t = DLT_LAPD
-		return nil
+		return DLT_LAPD, true
 	case "PPP_WITH_DIR":
-		*t = DLT_PPP_WITH_DIR
-		return nil
+		return DLT_PPP_WITH_DIR, true
 	case "C_HDLC_WITH_DIR":
-		*t = DLT_C_HDLC_WITH_DIR
-		return nil
+		return DLT_C_HDLC_WITH_DIR, true
 	case "FRELAY_WITH_DIR":
-		*t = DLT_FRELAY_WITH_DIR
-		return nil
+		return DLT_FRELAY_WITH_DIR, true
 	case "LAPB_WITH_DIR":
-		*t = DLT_LAPB_WITH_DIR
-		return nil
+		return DLT_LAPB_WITH_DIR, true
 	case "I2C_LINUX":
-		*t = DLT_I2C_LINUX
-		return nil
+		return DLT_I2C_LINUX, true
 	case "IPMB_LINUX":
-		*t = DLT_IPMB_LINUX
-		return nil
+		return DLT_IPMB_LINUX, true
 	case "FLEXRAY":
-		*t = DLT_FLEXRAY
-		return nil
+		return DLT_FLEXRAY, true
 	case "MOST":
-		*t = DLT_MOST
-		return nil
+		return DLT_MOST, true
 	case "LIN":
-		*t = DLT_LIN
-		return nil
+		return DLT_LIN, true
 	case "X2E_SERIAL":
-		*t = DLT_X2E_SERIAL
-		return nil
+		return DLT_X2E_SERIAL, true
 	case "X2E_XORAYA":
-		*t = DLT_X2E_XORAYA
-		return nil
+		return DLT_X2E_XORAYA, true
 	case "IEEE802_15_4_NONASK_PHY":
-		*t = DLT_IEEE802_15_4_NONASK_PHY
-		return nil
+		return DLT_IEEE802_15_4_NONASK_PHY, true
 	case "LINUX_EVDEV":
-		*t = DLT_LINUX_EVDEV
-		return nil
+		return DLT_LINUX_EVDEV, true
 	case "GSMTAP_UM":
-		*t = DLT_GSMTAP_UM
-		return nil
+		return DLT_GSMTAP_UM, true
 	case "GSMTAP_ABIS":
-		*t = DLT_GSMTAP_ABIS
-		return nil
+		return DLT_GSMTAP_ABIS, true
 	case "MPLS":
-		*t = DLT_MPLS
-		return nil
+		return DLT_MPLS, true
 	case "USB_LINUX_MMAPPED":
-		*t = DLT_USB_LINUX_MMAPPED
-		return nil
+		return DLT_USB_LINUX_MMAPPED, true
 	case "DECT":
-		*t = DLT_DECT
-		return nil
+		return DLT_DECT, true
 	case "AOS":
-		*t = DLT_AOS
-		return nil
+		return DLT_AOS, true
 	case "WIHART":
-		*t = DLT_WIHART
-		return nil
+		return DLT_WIHART, true
 	case "FC_2":
-		*t = DLT_FC_2
-		return nil
+		return DLT_FC_2, true
 	case "FC_2_WITH_FRAME_DELIMS":
-		*t = DLT_FC_2_WITH_FRAME_DELIMS
-		return nil
+		return DLT_FC_2_WITH_FRAME_DELIMS, true
 	case "IPNET":
-		*t = DLT_IPNET
-		return nil
+		return DLT_IPNET, true
 	case "CAN_SOCKETCAN":
-		*t = DLT_CAN_SOCKETCAN
-		return nil
+		return DLT_CAN_SOCKETCAN, true
 	case "IPV4":
-		*t = DLT_IPV4
-		return nil
+		return DLT_IPV4, true
 	case "IPV6":
-		*t = DLT_IPV6
-		return nil
+		return DLT_IPV6, true
 	case "IEEE802_15_4_NOFCS":
-		*t = DLT_IEEE802_15_4_NOFCS
-		return nil
+		return DLT_IEEE802_15_4_NOFCS, true
 	case "DBUS":
-		*t = DLT_DBUS
-		return nil
+		return DLT_DBUS, true
 	case "JUNIPER_VS":
-		*t = DLT_JUNIPER_VS
-		return nil
+		return DLT_JUNIPER_VS, true
 	case "JUNIPER_SRX_E2E":
-		*t = DLT_JUNIPER_SRX_E2E
-		return nil
+		return DLT_JUNIPER_SRX_E2E, true
 	case "JUNIPER_FIBRECHANNEL":
-		*t = DLT_JUNIPER_FIBRECHANNEL
-		return nil
+		return DLT_JUNIPER_FIBRECHANNEL, true
 	case "DVB_CI":
-		*t = DLT_DVB_CI
-		return nil
+		return DLT_DVB_CI, true
 	case "MUX27010":
-		*t = DLT_MUX27010
-		return nil
+		return DLT_MUX27010, true
 	case "STANAG_5066_D_PDU":
-		*t = DLT_STANAG_5066_D_PDU
-		return nil
+		return DLT_STANAG_5066_D_PDU, true
 	case "JUNIPER_ATM_CEMIC":
-		*t = DLT_JUNIPER_ATM_CEMIC
-		return nil
+		return DLT_JUNIPER_ATM_CEMIC, true
 	case "NFLOG":
-		*t = DLT_NFLOG
-		return nil
+		return DLT_NFLOG, true
 	case "NETANALYZER":
-		*t = DLT_NETANALYZER
-		return nil
+		return DLT_NETANALYZER, true
 	case "NETANALYZER_TRANSPARENT":
-		*t = DLT_NETANALYZER_TRANSPARENT
-		return nil
+		return DLT_NETANALYZER_TRANSPARENT, true
 	case "IPOIB":
-		*t = DLT_IPOIB
-		return nil
+		return DLT_IPOIB, true
 	case "MPEG_2_TS":
-		*t = DLT_MPEG_2_TS
-		return nil
+		return DLT_MPEG_2_TS, true
 	case "NG40":
-		*t = DLT_NG40
-		return nil
+		return DLT_NG40, true
 	case "NFC_LLCP":
-		*t = DLT_NFC_LLCP
-		return nil
+		return DLT_NFC_LLCP, true
 	case "PFSYNC":
-		*t = DLT_PFSYNC
-		return nil
+		return DLT_PFSYNC, true
 	case "INFINIBAND":
-		*t = DLT_INFINIBAND
-		return nil
+		return DLT_INFINIBAND, true
 	case "SCTP":
-		*t = DLT_SCTP
-		return nil
+		return DLT_SCTP, true
 	case "USBPCAP":
-		*t = DLT_USBPCAP
-		return nil
+		return DLT_USBPCAP, true
 	case "RTAC_SERIAL":
-		*t = DLT_RTAC_SERIAL
-		return nil
+		return DLT_RTAC_SERIAL, true
 	case "BLUETOOTH_LE_LL":
-		*t = DLT_BLUETOOTH_LE_LL
-		return nil
+		return DLT_BLUETOOTH_LE_LL, true
 	case "WIRESHARK_UPPER_PDU":
-		*t = DLT_WIRESHARK_UPPER_PDU
-		return nil
+		return DLT_WIRESHARK_UPPER_PDU, true
 	case "NETLINK":
-		*t = DLT_NETLINK
-		return nil
+		return DLT_NETLINK, true
 	case "BLUETOOTH_LINUX_MONITOR":
-		*t = DLT_BLUETOOTH_LINUX_MONITOR
-		return nil
+		return DLT_BLUETOOTH_LINUX_MONITOR, true
 	case "BLUETOOTH_BREDR_BB":
-		*t = DLT_BLUETOOTH_BREDR_BB
-		return nil
+		return DLT_BLUETOOTH_BREDR_BB, true
 	case "BLUETOOTH_LE_LL_WITH_PHDR":
-		*t = DLT_BLUETOOTH_LE_LL_WITH_PHDR
-		return nil
+		return DLT_BLUETOOTH_LE_LL_WITH_PHDR, true
 	case "PROFIBUS_DL":
-		*t = DLT_PROFIBUS_DL
-		return nil
+		return DLT_PROFIBUS_DL, true
 	case "PKTAP":
-		*t = DLT_PKTAP
-		return nil
+		return DLT_PKTAP, true
 	case "EPON":
-		*t = DLT_EPON
-		return nil
+		return DLT_EPON, true
 	case "IPMI_HPM_2":
-		*t = DLT_IPMI_HPM_2
-		return nil
+		return DLT_IPMI_HPM_2, true
 	case "ZWAVE_R1_R2":
-		*t = DLT_ZWAVE_R1_R2
-		return nil
+		return DLT_ZWAVE_R1_R2, true
 	case "ZWAVE_R3":
-		*t = DLT_ZWAVE_R3
-		return nil
+		return DLT_ZWAVE_R3, true
 	case "WATTSTOPPER_DLM":
-		*t = DLT_WATTSTOPPER_DLM
-		return nil
+		return DLT_WATTSTOPPER_DLM, true
 	case "ISO_14443":
-		*t = DLT_ISO_14443
-		return nil
+		return DLT_ISO_14443, true
 	case "RDS":
-		*t = DLT_RDS
-		return nil
+		return DLT_RDS, true
 	case "USB_DARWIN":
-		*t = DLT_USB_DARWIN
-		return nil
+		return DLT_USB_DARWIN, true
 	case "OPENFLOW":
-		*t = DLT_OPENFLOW
-		return nil
+		return DLT_OPENFLOW, true
 	case "SDLC":
-		*t = DLT_SDLC
-		return nil
+		return DLT_SDLC, true
 	case "TI_LLN_SNIFFER":
-		*t = DLT_TI_LLN_SNIFFER
-		return nil
+		return DLT_TI_LLN_SNIFFER, true
 	case "LORATAP":
-		*t = DLT_LORATAP
-		return nil
+		return DLT_LORATAP, true
 	case "VSOCK":
-		*t = DLT_VSOCK
-		return nil
+		return DLT_VSOCK, true
 	case "NORDIC_BLE":
-		*t = DLT_NORDIC_BLE
-		return nil
+		return DLT_NORDIC_BLE, true
 	case "DOCSIS31_XRA31":
-		*t = DLT_DOCSIS31_XRA31
-		return nil
+		return DLT_DOCSIS31_XRA31, true
 	case "ETHERNET_MPACKET":
-		*t = DLT_ETHERNET_MPACKET
-		return nil
+		return DLT_ETHERNET_MPACKET, true
 	case "DISPLAYPORT_AUX":
-		*t = DLT_DISPLAYPORT_AUX
-		return nil
+		return DLT_DISPLAYPORT_AUX, true
 	case "LINUX_SLL2":
-		*t = DLT_LINUX_SLL2
-		return nil
+		return DLT_LINUX_SLL2, true
 	case "SERCOS_MONITOR":
-		*t = DLT_SERCOS_MONITOR
-		return nil
+		return DLT_SERCOS_MONITOR, true
 	case "OPENVIZSLA":
-		*t = DLT_OPENVIZSLA
-		return nil
+		return DLT_OPENVIZSLA, true
 	case "EBHSCR":
-		*t = DLT_EBHSCR
-		return nil
+		return DLT_EBHSCR, true
 	case "VPP_DISPATCH":
-		*t = DLT_VPP_DISPATCH
-		return nil
+		return DLT_VPP_DISPATCH, true
 	case "DSA_TAG_BRCM":
-		*t = DLT_DSA_TAG_BRCM
-		return nil
+		return DLT_DSA_TAG_BRCM, true
 	case "DSA_TAG_BRCM_PREPEND":
-		*t = DLT_DSA_TAG_BRCM_PREPEND
-		return nil
+		return DLT_DSA_TAG_BRCM_PREPEND, true
 	case "IEEE802_15_4_TAP":
-		*t = DLT_IEEE802_15_4_TAP
-		return nil
+		return DLT_IEEE802_15_4_TAP, true
 	case "DSA_TAG_DSA":
-		*t = DLT_DSA_TAG_DSA
-		return nil
+		return DLT_DSA_TAG_DSA, true
 	case "DSA_TAG_EDSA":
-		*t = DLT_DSA_TAG_EDSA
-		return nil
+		return DLT_DSA_TAG_EDSA, true
 	case "ELEE":
-		*t = DLT_ELEE
-		return nil
+		return DLT_ELEE, true
 	case "Z_WAVE_SERIAL":
-		*t = DLT_Z_WAVE_SERIAL
-		return nil
+		return DLT_Z_WAVE_SERIAL, true
 	case "USB_2_0":
-		*t = DLT_USB_2_0
-		return nil
+		return DLT_USB_2_0, true
 	case "ATSC_ALP":
-		*t = DLT_ATSC_ALP
-		return nil
+		return DLT_ATSC_ALP, true
 	case "ETW":
-		*t = DLT_ETW
-		return nil
+		return DLT_ETW, true
 	case "NETANALYZER_NG":
-		*t = DLT_NETANALYZER_NG
-		return nil
+		return DLT_NETANALYZER_NG, true
 	case "ZBOSS_NCP":
-		*t = DLT_ZBOSS_NCP
-		return nil
+		return DLT_ZBOSS_NCP, true
 	case "USB_2_0_LOW_SPEED":
-		*t = DLT_USB_2_0_LOW_SPEED
-		return nil
+		return DLT_USB_2_0_LOW_SPEED, true
 	case "USB_2_0_FULL_SPEED":
-		*t = DLT_USB_2_0_FULL_SPEED
-		return nil
+		return DLT_USB_2_0_FULL_SPEED, true
 	case "USB_2_0_HIGH_SPEED":
-		*t = DLT_USB_2_0_HIGH_SPEED
-		return nil
+		return DLT_USB_2_0_HIGH_SPEED, true
 	case "AUERSWALD_LOG":
-		*t = DLT_AUERSWALD_LOG
-		return nil
+		return DLT_AUERSWALD_LOG, true
 	case "ZWAVE_TAP":
-		*t = DLT_ZWAVE_TAP
-		return nil
+		return DLT_ZWAVE_TAP, true
 	case "SILABS_DEBUG_CHANNEL":
-		*t = DLT_SILABS_DEBUG_CHANNEL
-		return nil
+		return DLT_SILABS_DEBUG_CHANNEL, true
 	case "FIRA_UCI":
-		*t = DLT_FIRA_UCI
-		return nil
+		return DLT_FIRA_UCI, true
 	case "MDB":
-		*t = DLT_MDB
-		return nil
+		return DLT_MDB, true
 	case "DECT_NR":
-		*t = DLT_DECT_NR
-		return nil
+		return DLT_DECT_NR, true
 	case "EDK2_MM":
-		*t = DLT_EDK2_MM
-		return nil
+		return DLT_EDK2_MM, true
 	case "DEBUG_ONLY":
-		*t = DLT_DEBUG_ONLY
-		return nil
+		return DLT_DEBUG_ONLY, true
 	default:
-		if n, err := strconv.ParseInt(string(buf), 0, 0); err == nil {
-			*t = LinkType(n)
-			return nil
-		}
-		return fmt.Errorf("invalid link type %q", buf)
+		return 0, false
 	}
 }
