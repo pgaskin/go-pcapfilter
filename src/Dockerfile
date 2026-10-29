@@ -1,4 +1,4 @@
-FROM golang:1.25-trixie AS base
+FROM golang:1.26-trixie AS base
 
 ARG WASI_SDK_VERSION=33
 ARG BINARYEN_VERSION=129
