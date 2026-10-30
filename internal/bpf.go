@@ -104,7 +104,7 @@
 /*line :940*/	var p1 int32
 /*line :940*/	{
 /*line :940*/		{
-/*line :942:28*/			v5 = (v1 + i32(3)) & i32(-4)
+/*line :944:18*/			v5 = (v1 + i32(3)) & i32(-4)
 /*line :944:33*/			t2 := v5
 /*line :944:33*/			v6 = v0 + i32(248)
 /*line :944:33*/			t3 := int32(load32(m.memory, uint64(uint32(v0))+376))
@@ -118,7 +118,7 @@
 /*line :961:60*/				v2 = t6
 /*line :944:8*/				goto l0
 /*line :944:8*/			}
-/*line :945:25*/			if uint32(v1) >= uint32(i32(15)) {
+/*line :944:8*/			if uint32(v1) >= uint32(i32(15)) {
 /*line :946:4*/				store32(m.memory, uint32(v3), uint32(i32(16)))
 /*line :946:4*/				m._bpf_set_error(v0, i32(67167), v3)
 /*line :957:7*/				p1 = i32(0)
@@ -137,8 +137,8 @@
 /*line :916:40*/			t7 := m._calloc(i32(1), v4)
 /*line :916:40*/			v2 = t7
 /*line :916:25*/			t8 := int32(load32(m.memory, uint64(uint32(v0))+376))
-/*line :916:25*/			t9 := v6
-/*line :916:25*/			v1 = t8
+/*line :916:2*/			t9 := v6
+/*line :916:2*/			v1 = t8
 /*line :916:38*/			v7 = t9 + v1<<3
 /*line :916:38*/			store32(m.memory, uint64(uint32(v7))+4, uint32(v2))
 /*line :917:42*/			if v2 == 0 {
@@ -238,7 +238,7 @@
 /*line :1969:28*/			t16 := v5
 /*line :1969:28*/			v4 = t15
 /*line :1969:28*/			store32(m.memory, uint64(uint32(t16))+84, uint32(v4))
-/*line :1969:28*/			v6 = i32(-1)
+/*line :1972:35*/			v6 = i32(-1)
 /*line :1972:35*/			store32(m.memory, uint64(uint32(v5))+144, uint32(i32(-1)))
 /*line :1971:43*/			store64(m.memory, uint64(uint32(v5))+136, uint64(i64(0)))
 /*line :1974:23*/			store32(m.memory, uint64(uint32(v5))+80, uint32(v4))
@@ -807,7 +807,7 @@
 /*line :1592:1*/	return v4
 /*line bpf.go:808:1*/}
 /*line :809:1*/func (m *Module) _gen_retblk(v0, v1 int32) int32 {
-/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:970:6*/	t0 := m._newchunk_nolongjmp(v0, i32(212))
+/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:1592:1*/	t0 := m._newchunk_nolongjmp(v0, i32(212))
 /*line :971:8*/	v0 = t0
 /*line :971:8*/	if v0 == 0 {
 /*line :972:3*/		m.__pcap_longjmp_at(i32(69165), i32(972))
@@ -924,7 +924,7 @@
 /*line :4017:18*/														{
 /*line :4017:18*/															{
 /*line :4017:18*/																t14 := int32(load32(m.memory, uint64(uint32(v0))+32))
-/*line :4017:18*/																v2 = t14
+/*line :4017:2*/																v2 = t14
 /*line :4017:2*/																switch v2 - i32(119) {
 /*line :4017:2*/																case 0:
 /*line :4017:2*/																	goto l4
@@ -1055,7 +1055,7 @@
 /*line :3605:25*/														store32(m.memory, uint64(uint32(v3))+8, uint32(v8))
 /*line :7621:11*/														store32(m.memory, uint64(uint32(v4))+16, uint32(v8))
 /*line :3612:50*/														t28 := int32(load32(m.memory, uint64(uint32(v0))+68))
-/*line :3612:50*/														v2 = t28
+/*line :8169:16*/														v2 = t28
 /*line :8169:16*/														if uint32(v2) > uint32(i32(15)) {
 /*line :8169:16*/															goto l17
 /*line :8169:16*/														}
@@ -1113,7 +1113,7 @@
 /*line :1033:11*/													store32(m.memory, uint64(uint32(v5))+12, uint32(i32(4)))
 /*line :1024:12*/													store32(m.memory, uint32(v5), uint32(i32(32)))
 /*line :3650:57*/													t36 := int32(load32(m.memory, uint64(uint32(v0))+68))
-/*line :3650:57*/													v2 = t36
+/*line :8169:16*/													v2 = t36
 /*line :8169:16*/													if uint32(v2) > uint32(i32(15)) {
 /*line :8169:16*/														goto l21
 /*line :8169:16*/													}
@@ -1240,7 +1240,7 @@
 /*line :7619:2*/												}
 /*line :7621:11*/												store32(m.memory, uint64(uint32(v4))+16, uint32(v3))
 /*line :3701:57*/												t52 := int32(load32(m.memory, uint64(uint32(v0))+68))
-/*line :3701:57*/												v2 = t52
+/*line :8169:16*/												v2 = t52
 /*line :8169:16*/												if uint32(v2) > uint32(i32(15)) {
 /*line :8169:16*/													goto l28
 /*line :8169:16*/												}
@@ -1363,7 +1363,7 @@
 /*line :7619:2*/											}
 /*line :7621:11*/											store32(m.memory, uint64(uint32(v4))+16, uint32(v3))
 /*line :3759:57*/											t67 := int32(load32(m.memory, uint64(uint32(v0))+68))
-/*line :3759:57*/											v2 = t67
+/*line :8169:16*/											v2 = t67
 /*line :8169:16*/											if uint32(v2) > uint32(i32(15)) {
 /*line :8169:16*/												goto l35
 /*line :8169:16*/											}
@@ -1493,7 +1493,7 @@
 /*line :7619:2*/								}
 /*line :7621:11*/								store32(m.memory, uint64(uint32(v4))+16, uint32(v3))
 /*line :3513:56*/								t83 := int32(load32(m.memory, uint64(uint32(v0))+104))
-/*line :3513:56*/								v2 = t83
+/*line :8169:16*/								v2 = t83
 /*line :8169:16*/								if uint32(v2) > uint32(i32(15)) {
 /*line :8169:16*/									goto l47
 /*line :8169:16*/								}
@@ -1631,11 +1631,11 @@
 /*line :7619:2*/					}
 /*line :7621:11*/					store32(m.memory, uint64(uint32(v4))+16, uint32(v3))
 /*line :3839:54*/					t97 := int32(load32(m.memory, uint64(uint32(v0))+104))
-/*line :3839:54*/					v2 = t97
+/*line :8169:16*/					v2 = t97
 /*line :8169:16*/					if uint32(v2) > uint32(i32(15)) {
 /*line :8169:16*/						goto l53
 /*line :8169:16*/					}
-/*line :8169:54*/					v9 = v0 + i32(180)
+/*line :8169:46*/					v9 = v0 + i32(180)
 /*line :8169:46*/					t98 := int32(load32(m.memory, uint32(v9+v2<<2)))
 /*line :8169:41*/					if t98 == 0 {
 /*line :8169:41*/						goto l53
@@ -1735,7 +1735,7 @@
 /*line :7619:2*/					}
 /*line :7621:11*/					store32(m.memory, uint64(uint32(v4))+16, uint32(v3))
 /*line :3876:66*/					t109 := int32(load32(m.memory, uint64(uint32(v0))+104))
-/*line :3876:66*/					v2 = t109
+/*line :8169:16*/					v2 = t109
 /*line :8169:16*/					if uint32(v2) > uint32(i32(15)) {
 /*line :8169:16*/						goto l59
 /*line :8169:16*/					}
@@ -1781,7 +1781,7 @@
 /*line :7619:2*/					}
 /*line :7621:11*/					store32(m.memory, uint64(uint32(v4))+16, uint32(v6))
 /*line :3879:54*/					t115 := int32(load32(m.memory, uint64(uint32(v0))+104))
-/*line :3879:54*/					v2 = t115
+/*line :8169:16*/					v2 = t115
 /*line :8169:16*/					if uint32(v2) > uint32(i32(15)) {
 /*line :8169:16*/						goto l62
 /*line :8169:16*/					}
@@ -1961,7 +1961,7 @@
 /*line :7619:2*/						}
 /*line :7621:11*/						store32(m.memory, uint64(uint32(v4))+16, uint32(v3))
 /*line :3976:56*/						t136 := int32(load32(m.memory, uint64(uint32(v0))+104))
-/*line :3976:56*/						v2 = t136
+/*line :8169:16*/						v2 = t136
 /*line :8169:16*/						if uint32(v2) > uint32(i32(15)) {
 /*line :8169:16*/							goto l72
 /*line :8169:16*/						}
@@ -2024,7 +2024,7 @@
 /*line :7619:2*/						}
 /*line :7621:11*/						store32(m.memory, uint64(uint32(v4))+16, uint32(v10))
 /*line :3980:55*/						t144 := int32(load32(m.memory, uint64(uint32(v0))+104))
-/*line :3980:55*/						v2 = t144
+/*line :8169:16*/						v2 = t144
 /*line :8169:16*/						if uint32(v2) > uint32(i32(15)) {
 /*line :8169:16*/							goto l76
 /*line :8169:16*/						}
@@ -2144,11 +2144,11 @@
 /*line :1033:11*/				store32(m.memory, uint64(uint32(v5))+12, uint32(i32(0)))
 /*line :1024:12*/				store32(m.memory, uint32(v5), uint32(i32(0)))
 /*line :4077:55*/				t168 := int32(load32(m.memory, uint64(uint32(v0))+104))
-/*line :4077:55*/				v2 = t168
+/*line :8169:16*/				v2 = t168
 /*line :8169:16*/				if uint32(v2) > uint32(i32(15)) {
 /*line :8169:16*/					goto l83
 /*line :8169:16*/				}
-/*line :8169:54*/				v6 = v0 + i32(180)
+/*line :8169:46*/				v6 = v0 + i32(180)
 /*line :8169:46*/				t169 := int32(load32(m.memory, uint32(v6+v2<<2)))
 /*line :8169:41*/				if t169 == 0 {
 /*line :8169:41*/					goto l83
@@ -2172,7 +2172,7 @@
 /*line :7619:2*/				}
 /*line :7621:11*/				store32(m.memory, uint64(uint32(v4))+16, uint32(v3))
 /*line :4078:57*/				t172 := int32(load32(m.memory, uint64(uint32(v0))+116))
-/*line :4078:57*/				v2 = t172
+/*line :8169:16*/				v2 = t172
 /*line :8169:16*/				if uint32(v2) > uint32(i32(15)) {
 /*line :8169:16*/					goto l85
 /*line :8169:16*/				}
@@ -2241,7 +2241,7 @@
 /*line :1909:11*/			store32(m.memory, uint64(uint32(v4))+4, uint32(v2))
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v4))+96, uint32(v4))
 /*line :1013:10*/			t181 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1013:10*/			v2 = t181
+/*line :1731:18*/			v2 = t181
 /*line :1731:18*/			if v2 == i32(2) {
 /*line :1731:18*/				v1 = v4
 /*line :1740:18*/				goto l88
@@ -2254,8 +2254,8 @@
 /*line :1734:18*/			if v2 == i32(2) {
 /*line :1734:18*/				goto l88
 /*line :1734:18*/			}
-/*line :1740:18*/			if v2 == i32(1) {
-/*line :1740:18*/				v1 = v4
+/*line :1734:18*/			if v2 == i32(1) {
+/*line :1734:18*/				v1 = v4
 /*line :1740:18*/				goto l88
 /*line :1740:18*/			}
 /*line :1744:20*/			t183 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -2450,7 +2450,7 @@
 /*line :2450:1*/func (m *Module) _gen_cmp(v0, v1, v2, v3, v4 int32) int32 {
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:1951:6*/	t0 := m._gen_load_a(v0, v1, v2, v3)
 /*line :1951:6*/	v3 = t0
-/*line :970:6*/	t1 := m._newchunk_nolongjmp(v0, i32(212))
+/*line :1951:6*/	t1 := m._newchunk_nolongjmp(v0, i32(212))
 /*line :971:8*/	v0 = t1
 /*line :971:8*/	if v0 == 0 {
 /*line :972:3*/		m.__pcap_longjmp_at(i32(69165), i32(972))
@@ -2464,15 +2464,15 @@
 /*line bpf.go:2464:1*/}
 /*line :2465:1*/func (m *Module) _gen_load_a(v0, v1, v2, v3 int32) int32 {
 /*line :2466:1*/	var v4 int32
-/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:2692*/	{
-/*line :2692*/		{
-/*line :2692*/			{
-/*line :2692*/				{
-/*line :2692*/					{
-/*line :2692*/						{
-/*line :2692*/							{
-/*line :2692*/								{
-/*line :2692*/									{
+/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:2708:2*/	{
+/*line :2708:2*/		{
+/*line :2708:2*/			{
+/*line :2708:2*/				{
+/*line :2708:2*/					{
+/*line :2708:2*/						{
+/*line :2708:2*/							{
+/*line :2708:2*/								{
+/*line :2708:2*/									{
 /*line :2708:2*/										switch v1 - i32(1) {
 /*line :2708:2*/										case 0:
 /*line :2708:2*/											goto l0
@@ -2563,7 +2563,7 @@
 /*line :2563:1*/	var v3 int32
 /*line :2564:1*/	var v4 int32
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:2779:2*/	t0 := int32(load32(m.memory, uint64(uint32(v0))+208))
-/*line :2779:2*/	v2 = t0
+/*line :1731:18*/	v2 = t0
 /*line :1731:18*/	if v2 == i32(2) {
 /*line :1751:1*/		return v0
 /*line :1751:1*/	}
@@ -2576,7 +2576,7 @@
 /*line :1734:18*/		if v2 == i32(2) {
 /*line :1734:18*/			goto l0
 /*line :1734:18*/		}
-/*line :1740:18*/		if v2 == i32(1) {
+/*line :1734:18*/		if v2 == i32(1) {
 /*line :1751:1*/			return v0
 /*line :1751:1*/		}
 /*line :1744:20*/		t2 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -2649,7 +2649,7 @@
 /*line :2649:1*/	var v5 int32
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:1757:10*/	{
 /*line :1757:10*/		t0 := int32(load32(m.memory, uint64(uint32(v0))+208))
-/*line :1757:10*/		v2 = t0
+/*line :1757:18*/		v2 = t0
 /*line :1757:18*/		if v2 == i32(2) {
 /*line :1757:18*/			goto l0
 /*line :1757:18*/		}
@@ -2766,7 +2766,7 @@
 /*line :4697:2*/						{
 /*line :4697:2*/							{
 /*line :4697:2*/								t0 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :4697:2*/								v1 = t0
+/*line :4621:2*/								v1 = t0
 /*line :4621:2*/								if v1 <= i32(104) {
 /*line :4621:2*/									switch v1 - i32(1) {
 /*line :4621:2*/									case 0:
@@ -2927,7 +2927,7 @@
 /*line :1013:10*/							v1 = i32(2)
 /*line :1783:9*/							{
 /*line :1783:9*/								t18 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1783:9*/								v0 = t18
+/*line :1783:17*/								v0 = t18
 /*line :1783:17*/								switch v0 - i32(1) {
 /*line :1783:17*/								case 0:
 /*line :1783:17*/									goto l16
@@ -2944,7 +2944,7 @@
 /*line :1783:17*/							v0 = v1
 /*line :1783:17*/						l18:
 /*line :1783:17*/							t19 := int32(load32(m.memory, uint64(uint32(v2))+208))
-/*line :1783:17*/							v1 = t19
+/*line :1731:18*/							v1 = t19
 /*line :1731:18*/							if v1 == i32(2) {
 /*line :4685:1*/								return v2
 /*line :4685:1*/							}
@@ -2954,7 +2954,7 @@
 /*line :1734:18*/							if v0 == i32(2) {
 /*line :1734:18*/								goto l19
 /*line :1734:18*/							}
-/*line :1740:18*/							if v0 == i32(1) {
+/*line :1734:18*/							if v0 == i32(1) {
 /*line :4685:1*/								return v2
 /*line :4685:1*/							}
 /*line :4685:1*/							v1 = v2
@@ -3169,7 +3169,7 @@
 /*line :4106:6*/			goto l0
 /*line :4106:6*/		}
 /*line :4106:6*/		t2 := int32(load32(m.memory, uint64(uint32(v1))+8))
-/*line :4106:6*/		v3 = t2
+/*line :4107:16*/		v3 = t2
 /*line :4107:16*/		if v3 == i32(-1) {
 /*line :4107:16*/			v3 = v0 + i32(180)
 /*line :4107:16*/			t3 := int32(load32(m.memory, uint64(uint32(v0))+244))
@@ -3369,7 +3369,7 @@
 /*line :1013:10*/		v1 = i32(2)
 /*line :1783:9*/		{
 /*line :1783:9*/			t9 := int32(load32(m.memory, uint64(uint32(v2))+208))
-/*line :1783:9*/			v0 = t9
+/*line :1783:17*/			v0 = t9
 /*line :1783:17*/			switch v0 - i32(1) {
 /*line :1783:17*/			case 0:
 /*line :1783:17*/				goto l3
@@ -3386,7 +3386,7 @@
 /*line :1783:17*/		v0 = v1
 /*line :1783:17*/	l5:
 /*line :1783:17*/		t10 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1783:17*/		v1 = t10
+/*line :1731:18*/		v1 = t10
 /*line :1731:18*/		if v1 == i32(2) {
 /*line :4725:2*/			return v4
 /*line :4725:2*/		}
@@ -3397,7 +3397,7 @@
 /*line :1734:18*/			if v0 == i32(2) {
 /*line :1734:18*/				goto l6
 /*line :1734:18*/			}
-/*line :1740:18*/			if v0 == i32(1) {
+/*line :1734:18*/			if v0 == i32(1) {
 /*line :4725:2*/				return v4
 /*line :4725:2*/			}
 /*line :4725:2*/			v1 = v4
@@ -3471,7 +3471,7 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:2607*/	t0 := m.___stack_pointer
 /*line :2607*/	v5 = t0 - i32(16)
 /*line :2607*/	m.___stack_pointer = v5
-/*line :2607*/	{
+/*line :2608:2*/	{
 /*line :2608:2*/		if uint32(v3) > uint32(i32(16)) {
 /*line :2608:2*/			goto l0
 /*line :2608:2*/		}
@@ -3703,7 +3703,7 @@
 /*line :1909:11*/		store32(m.memory, uint64(uint32(v2))+4, uint32(v5))
 /*line :1013:10*/		store32(m.memory, uint64(uint32(v2))+96, uint32(v2))
 /*line :1013:10*/		t8 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1013:10*/		v1 = t8
+/*line :1731:18*/		v1 = t8
 /*line :1731:18*/		if v1 == i32(2) {
 /*line :4751:2*/			return v4
 /*line :4751:2*/		}
@@ -3716,7 +3716,7 @@
 /*line :1734:18*/			if v1 == i32(2) {
 /*line :1734:18*/				goto l4
 /*line :1734:18*/			}
-/*line :1740:18*/			if v1 == i32(1) {
+/*line :1734:18*/			if v1 == i32(1) {
 /*line :4751:2*/				return v4
 /*line :4751:2*/			}
 /*line :4751:2*/			v1 = v4
@@ -3834,7 +3834,7 @@
 /*line :3834:1*/func (m *Module) _gen_ncmp(v0, v1, v2, v3, v4, v5, v6, v7 int32) int32 {
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:1951:6*/	t0 := m._gen_load_a(v0, v1, v2, v3)
 /*line :1951:6*/	v2 = t0
-/*line :1951:6*/	{
+/*line :1953:11*/	{
 /*line :1953:11*/		if v4 != i32(-1) {
 /*line :970:6*/			t1 := m._newchunk_nolongjmp(v0, i32(20))
 /*line :971:8*/			v1 = t1
@@ -3971,7 +3971,7 @@
 /*line :1909:11*/		store32(m.memory, uint64(uint32(v2))+4, uint32(v5))
 /*line :1013:10*/		store32(m.memory, uint64(uint32(v2))+96, uint32(v2))
 /*line :1013:10*/		t8 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1013:10*/		v1 = t8
+/*line :1731:18*/		v1 = t8
 /*line :1731:18*/		if v1 == i32(2) {
 /*line :4777:2*/			return v4
 /*line :4777:2*/		}
@@ -3984,7 +3984,7 @@
 /*line :1734:18*/			if v1 == i32(2) {
 /*line :1734:18*/				goto l4
 /*line :1734:18*/			}
-/*line :1740:18*/			if v1 == i32(1) {
+/*line :1734:18*/			if v1 == i32(1) {
 /*line :4777:2*/				return v4
 /*line :4777:2*/			}
 /*line :4777:2*/			v1 = v4
@@ -4121,7 +4121,7 @@
 /*line :1909:11*/		store32(m.memory, uint64(uint32(v3))+4, uint32(v6))
 /*line :1013:10*/		store32(m.memory, uint64(uint32(v3))+96, uint32(v3))
 /*line :1013:10*/		t8 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1013:10*/		v2 = t8
+/*line :1731:18*/		v2 = t8
 /*line :1731:18*/		if v2 == i32(2) {
 /*line :4802:2*/			return v5
 /*line :4802:2*/		}
@@ -4134,7 +4134,7 @@
 /*line :1734:18*/			if v2 == i32(2) {
 /*line :1734:18*/				goto l4
 /*line :1734:18*/			}
-/*line :1740:18*/			if v2 == i32(1) {
+/*line :1734:18*/			if v2 == i32(1) {
 /*line :4802:2*/				return v5
 /*line :4802:2*/			}
 /*line :4802:2*/			v2 = v5
@@ -4271,7 +4271,7 @@
 /*line :1909:11*/		store32(m.memory, uint64(uint32(v3))+4, uint32(v6))
 /*line :1013:10*/		store32(m.memory, uint64(uint32(v3))+96, uint32(v3))
 /*line :1013:10*/		t8 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1013:10*/		v2 = t8
+/*line :1731:18*/		v2 = t8
 /*line :1731:18*/		if v2 == i32(2) {
 /*line :4827:2*/			return v5
 /*line :4827:2*/		}
@@ -4284,7 +4284,7 @@
 /*line :1734:18*/			if v2 == i32(2) {
 /*line :1734:18*/				goto l4
 /*line :1734:18*/			}
-/*line :1740:18*/			if v2 == i32(1) {
+/*line :1734:18*/			if v2 == i32(1) {
 /*line :4827:2*/				return v5
 /*line :4827:2*/			}
 /*line :4827:2*/			v2 = v5
@@ -4366,23 +4366,23 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:6034*/	t0 := m.___stack_pointer
 /*line :6034*/	v7 = t0 - i32(80)
 /*line :6034*/	m.___stack_pointer = v7
-/*line :6034*/	{
-/*line :6034*/		{
-/*line :6034*/			{
-/*line :6034*/				{
-/*line :6034*/					{
-/*line :6034*/						{
-/*line :6034*/							{
-/*line :6034*/								{
-/*line :6034*/									{
-/*line :6034*/										{
-/*line :6034*/											{
-/*line :6034*/												{
-/*line :6034*/													{
-/*line :6034*/														{
-/*line :6034*/															{
-/*line :6034*/																{
-/*line :6034*/																	{
+/*line :6038:2*/	{
+/*line :6038:2*/		{
+/*line :6038:2*/			{
+/*line :6038:2*/				{
+/*line :6038:2*/					{
+/*line :6038:2*/						{
+/*line :6038:2*/							{
+/*line :6038:2*/								{
+/*line :6038:2*/									{
+/*line :6038:2*/										{
+/*line :6038:2*/											{
+/*line :6038:2*/												{
+/*line :6038:2*/													{
+/*line :6038:2*/														{
+/*line :6038:2*/															{
+/*line :6038:2*/																{
+/*line :6038:2*/																	{
 /*line :6038:2*/																		switch v1 - i32(2) {
 /*line :6038:2*/																		case 0, 1, 2, 9, 10, 11, 12, 13, 14, 15, 21:
 /*line :6038:2*/																			goto l0
@@ -4466,7 +4466,7 @@
 /*line :6096:8*/													v1 = t12
 /*line :1757:10*/													{
 /*line :1757:10*/														t13 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1757:10*/														v2 = t13
+/*line :1757:18*/														v2 = t13
 /*line :1757:18*/														if v2 == i32(2) {
 /*line :1757:18*/															goto l19
 /*line :1757:18*/														}
@@ -4537,7 +4537,7 @@
 /*line :1774:11*/														store32(m.memory, uint64(uint32(v1))+96, uint32(t29))
 /*line :1774:11*/													}
 /*line :1774:11*/												l19:
-/*line :1774:11*/													{
+/*line :6098:8*/													{
 /*line :6098:8*/														t30 := m._gen_proto(v0, i32(18), i32(26))
 /*line :1757:10*/														v3 = t30
 /*line :1757:10*/														t31 := int32(load32(m.memory, uint64(uint32(v3))+208))
@@ -4612,11 +4612,11 @@
 /*line :1774:11*/														store32(m.memory, uint64(uint32(v1))+96, uint32(t47))
 /*line :1774:11*/													}
 /*line :1774:11*/												l22:
-/*line :1774:11*/													{
+/*line :6100:8*/													{
 /*line :6100:8*/														t48 := m._gen_proto(v0, i32(24), i32(26))
 /*line :1757:10*/														v3 = t48
 /*line :1757:10*/														t49 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1757:10*/														v2 = t49
+/*line :1757:18*/														v2 = t49
 /*line :1757:18*/														if v2 == i32(2) {
 /*line :1757:18*/															goto l25
 /*line :1757:18*/														}
@@ -4768,7 +4768,7 @@
 /*line :6107:8*/												v1 = t85
 /*line :1757:10*/												{
 /*line :1757:10*/													t86 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1757:10*/													v2 = t86
+/*line :1757:18*/													v2 = t86
 /*line :1757:18*/													if v2 == i32(2) {
 /*line :1757:18*/														goto l30
 /*line :1757:18*/													}
@@ -4839,7 +4839,7 @@
 /*line :1774:11*/													store32(m.memory, uint64(uint32(v1))+96, uint32(t102))
 /*line :1774:11*/												}
 /*line :1774:11*/											l30:
-/*line :1774:11*/												{
+/*line :6109:8*/												{
 /*line :6109:8*/													t103 := m._gen_proto(v0, i32(20), i32(26))
 /*line :1757:10*/													v3 = t103
 /*line :1757:10*/													t104 := int32(load32(m.memory, uint64(uint32(v3))+208))
@@ -4914,11 +4914,11 @@
 /*line :1774:11*/													store32(m.memory, uint64(uint32(v1))+96, uint32(t120))
 /*line :1774:11*/												}
 /*line :1774:11*/											l33:
-/*line :1774:11*/												{
+/*line :6111:8*/												{
 /*line :6111:8*/													t121 := m._gen_proto(v0, i32(25), i32(26))
 /*line :1757:10*/													v3 = t121
 /*line :1757:10*/													t122 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1757:10*/													v2 = t122
+/*line :1757:18*/													v2 = t122
 /*line :1757:18*/													if v2 == i32(2) {
 /*line :1757:18*/														goto l36
 /*line :1757:18*/													}
@@ -5070,7 +5070,7 @@
 /*line :6118:8*/											v1 = t158
 /*line :1757:10*/											{
 /*line :1757:10*/												t159 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1757:10*/												v2 = t159
+/*line :1757:18*/												v2 = t159
 /*line :1757:18*/												if v2 == i32(2) {
 /*line :1757:18*/													goto l41
 /*line :1757:18*/												}
@@ -5221,7 +5221,7 @@
 /*line :6125:8*/										t195 := m._gen_proto(v0, i32(20), i32(26))
 /*line :6125:8*/										v1 = t195
 /*line :1757:10*/										t196 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1757:10*/										v0 = t196
+/*line :1757:18*/										v0 = t196
 /*line :1757:18*/										if v0 == i32(2) {
 /*line :1757:18*/											goto l15
 /*line :1757:18*/										}
@@ -5299,7 +5299,7 @@
 /*line :6130:8*/									v1 = t214
 /*line :1757:10*/									{
 /*line :1757:10*/										t215 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1757:10*/										v2 = t215
+/*line :1757:18*/										v2 = t215
 /*line :1757:18*/										if v2 == i32(2) {
 /*line :1757:18*/											goto l48
 /*line :1757:18*/										}
@@ -5448,7 +5448,7 @@
 /*line :6134:8*/									t250 := m._gen_proto(v0, i32(27), i32(26))
 /*line :1757:10*/									v4 = t250
 /*line :1757:10*/									t251 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1757:10*/									v0 = t251
+/*line :1757:18*/									v0 = t251
 /*line :1757:18*/									if v0 == i32(2) {
 /*line :1757:18*/										goto l15
 /*line :1757:18*/									}
@@ -5525,7 +5525,7 @@
 /*line :6139:8*/								t269 := m._gen_proto(v0, i32(25), i32(26))
 /*line :6139:8*/								v1 = t269
 /*line :1757:10*/								t270 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1757:10*/								v0 = t270
+/*line :1757:18*/								v0 = t270
 /*line :1757:18*/								if v0 == i32(2) {
 /*line :1757:18*/									goto l15
 /*line :1757:18*/								}
@@ -5602,7 +5602,7 @@
 /*line :6144:8*/							t288 := m._gen_proto(v0, i32(27), i32(26))
 /*line :6144:8*/							v1 = t288
 /*line :1757:10*/							t289 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1757:10*/							v0 = t289
+/*line :1757:18*/							v0 = t289
 /*line :1757:18*/							if v0 == i32(2) {
 /*line :1757:18*/								goto l15
 /*line :1757:18*/							}
@@ -5754,7 +5754,7 @@
 /*line :6805:8*/								v6 = t2
 /*line :1731:10*/								{
 /*line :1731:10*/									t3 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1731:10*/									v2 = t3
+/*line :1731:18*/									v2 = t3
 /*line :1731:18*/									if v2 == i32(2) {
 /*line :1731:18*/										v6 = v5
 /*line :1740:18*/										goto l8
@@ -5767,8 +5767,8 @@
 /*line :1734:18*/									if v2 == i32(2) {
 /*line :1734:18*/										goto l8
 /*line :1734:18*/									}
-/*line :1740:18*/									if v2 == i32(1) {
-/*line :1740:18*/										v6 = v5
+/*line :1734:18*/									if v2 == i32(1) {
+/*line :1734:18*/										v6 = v5
 /*line :1740:18*/										goto l8
 /*line :1740:18*/									}
 /*line :1744:20*/									t5 := int32(load32(m.memory, uint64(uint32(v6))+96))
@@ -5880,7 +5880,7 @@
 /*line :1013:10*/								store32(m.memory, uint64(uint32(v2))+96, uint32(v2))
 /*line :1731:10*/								{
 /*line :1731:10*/									t31 := int32(load32(m.memory, uint64(uint32(v9))+208))
-/*line :1731:10*/									v4 = t31
+/*line :1731:18*/									v4 = t31
 /*line :1731:18*/									if v4 == i32(2) {
 /*line :1731:18*/										v2 = v9
 /*line :1740:18*/										goto l14
@@ -5893,8 +5893,8 @@
 /*line :1734:18*/									if v4 == i32(2) {
 /*line :1734:18*/										goto l14
 /*line :1734:18*/									}
-/*line :1740:18*/									if v4 == i32(1) {
-/*line :1740:18*/										v2 = v9
+/*line :1734:18*/									if v4 == i32(1) {
+/*line :1734:18*/										v2 = v9
 /*line :1740:18*/										goto l14
 /*line :1740:18*/									}
 /*line :1740:18*/									v4 = v9
@@ -6033,7 +6033,7 @@
 /*line :1774:11*/							l17:
 /*line :1731:10*/								{
 /*line :1731:10*/									t68 := int32(load32(m.memory, uint64(uint32(v8))+208))
-/*line :1731:10*/									v0 = t68
+/*line :1731:18*/									v0 = t68
 /*line :1731:18*/									if v0 == i32(2) {
 /*line :1731:18*/										v2 = v8
 /*line :1740:18*/										goto l20
@@ -6046,8 +6046,8 @@
 /*line :1734:18*/									if v0 == i32(2) {
 /*line :1734:18*/										goto l20
 /*line :1734:18*/									}
-/*line :1740:18*/									if v0 == i32(1) {
-/*line :1740:18*/										v2 = v8
+/*line :1734:18*/									if v0 == i32(1) {
+/*line :1734:18*/										v2 = v8
 /*line :1740:18*/										goto l20
 /*line :1740:18*/									}
 /*line :1744:20*/									t70 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -6192,7 +6192,7 @@
 /*line :6805:8*/							t106 := m._gen_ip_proto(v0, v1)
 /*line :6805:8*/							v2 = t106
 /*line :6805:8*/							t107 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :6805:8*/							v0 = t107
+/*line :1731:18*/							v0 = t107
 /*line :1731:18*/							if v0 == i32(2) {
 /*line :1731:18*/								v2 = v3
 /*line :1740:18*/								goto l23
@@ -6205,8 +6205,8 @@
 /*line :1734:18*/							if v0 == i32(2) {
 /*line :1734:18*/								goto l23
 /*line :1734:18*/							}
-/*line :1740:18*/							if v0 == i32(1) {
-/*line :1740:18*/								v2 = v3
+/*line :1734:18*/							if v0 == i32(1) {
+/*line :1734:18*/								v2 = v3
 /*line :1740:18*/								goto l23
 /*line :1740:18*/							}
 /*line :1744:20*/							t109 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -6322,7 +6322,7 @@
 /*line :1013:10*/						store32(m.memory, uint64(uint32(v2))+96, uint32(v2))
 /*line :1731:10*/						{
 /*line :1731:10*/							t135 := int32(load32(m.memory, uint64(uint32(v8))+208))
-/*line :1731:10*/							v4 = t135
+/*line :1731:18*/							v4 = t135
 /*line :1731:18*/							if v4 == i32(2) {
 /*line :1731:18*/								v2 = v8
 /*line :1740:18*/								goto l32
@@ -6335,8 +6335,8 @@
 /*line :1734:18*/							if v4 == i32(2) {
 /*line :1734:18*/								goto l32
 /*line :1734:18*/							}
-/*line :1740:18*/							if v4 == i32(1) {
-/*line :1740:18*/								v2 = v8
+/*line :1734:18*/							if v4 == i32(1) {
+/*line :1734:18*/								v2 = v8
 /*line :1740:18*/								goto l32
 /*line :1740:18*/							}
 /*line :1740:18*/							v4 = v8
@@ -6474,7 +6474,7 @@
 /*line :1774:11*/						}
 /*line :1774:11*/					l35:
 /*line :1774:11*/						t172 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1774:11*/						v0 = t172
+/*line :1731:18*/						v0 = t172
 /*line :1731:18*/						if v0 == i32(2) {
 /*line :1731:18*/							v2 = v5
 /*line :1740:18*/							goto l23
@@ -6487,8 +6487,8 @@
 /*line :1734:18*/						if v0 == i32(2) {
 /*line :1734:18*/							goto l23
 /*line :1734:18*/						}
-/*line :1740:18*/						if v0 == i32(1) {
-/*line :1740:18*/							v2 = v5
+/*line :1734:18*/						if v0 == i32(1) {
+/*line :1734:18*/							v2 = v5
 /*line :1740:18*/							goto l23
 /*line :1740:18*/						}
 /*line :1744:20*/						t174 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -6620,7 +6620,7 @@
 /*line :1909:11*/						store32(m.memory, uint64(uint32(v2))+4, uint32(v6))
 /*line :1013:10*/						store32(m.memory, uint64(uint32(v2))+96, uint32(v2))
 /*line :1013:10*/						t201 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1013:10*/						v0 = t201
+/*line :1731:18*/						v0 = t201
 /*line :1731:18*/						if v0 == i32(2) {
 /*line :1731:18*/							v2 = v5
 /*line :1740:18*/							goto l23
@@ -6633,8 +6633,8 @@
 /*line :1734:18*/						if v0 == i32(2) {
 /*line :1734:18*/							goto l23
 /*line :1734:18*/						}
-/*line :1740:18*/						if v0 == i32(1) {
-/*line :1740:18*/							v2 = v5
+/*line :1734:18*/						if v0 == i32(1) {
+/*line :1734:18*/							v2 = v5
 /*line :1740:18*/							goto l23
 /*line :1740:18*/						}
 /*line :1740:18*/						v0 = v5
@@ -6742,7 +6742,7 @@
 /*line :1909:11*/					store32(m.memory, uint64(uint32(v2))+4, uint32(v6))
 /*line :1013:10*/					store32(m.memory, uint64(uint32(v2))+96, uint32(v2))
 /*line :1013:10*/					t227 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1013:10*/					v0 = t227
+/*line :1731:18*/					v0 = t227
 /*line :1731:18*/					if v0 == i32(2) {
 /*line :1731:18*/						v2 = v5
 /*line :1740:18*/						goto l23
@@ -6755,8 +6755,8 @@
 /*line :1734:18*/					if v0 == i32(2) {
 /*line :1734:18*/						goto l23
 /*line :1734:18*/					}
-/*line :1740:18*/					if v0 == i32(1) {
-/*line :1740:18*/						v2 = v5
+/*line :1734:18*/					if v0 == i32(1) {
+/*line :1734:18*/						v2 = v5
 /*line :1740:18*/						goto l23
 /*line :1740:18*/					}
 /*line :1740:18*/					v0 = v5
@@ -6892,7 +6892,7 @@
 /*line :1909:11*/				store32(m.memory, uint64(uint32(v2))+4, uint32(v6))
 /*line :1013:10*/				store32(m.memory, uint64(uint32(v2))+96, uint32(v2))
 /*line :1013:10*/				t258 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1013:10*/				v0 = t258
+/*line :1731:18*/				v0 = t258
 /*line :1731:18*/				if v0 == i32(2) {
 /*line :1731:18*/					v2 = v5
 /*line :1740:18*/					goto l23
@@ -6905,8 +6905,8 @@
 /*line :1734:18*/				if v0 == i32(2) {
 /*line :1734:18*/					goto l23
 /*line :1734:18*/				}
-/*line :1740:18*/				if v0 == i32(1) {
-/*line :1740:18*/					v2 = v5
+/*line :1734:18*/				if v0 == i32(1) {
+/*line :1734:18*/					v2 = v5
 /*line :1740:18*/					goto l23
 /*line :1740:18*/				}
 /*line :1740:18*/				v0 = v5
@@ -7032,7 +7032,7 @@
 /*line :4248:14*/	{
 /*line :4248:14*/		t1 := int32(load32(m.memory, uint64(uint32(v0))+44))
 /*line :4248:14*/		if t1 != 0 {
-/*line :4248:14*/			{
+/*line :5526:2*/			{
 /*line :5526:2*/				if v1 != i32(34525) {
 /*line :5526:2*/					if v1 != i32(2048) {
 /*line :5526:2*/						goto l0
@@ -7042,7 +7042,7 @@
 /*line :5530:8*/					t3 := m._gen_ip_version(v0, i32(6), i32(4))
 /*line :5530:8*/					v2 = t3
 /*line :5530:8*/					t4 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :5530:8*/					v1 = t4
+/*line :1731:18*/					v1 = t4
 /*line :1731:18*/					if v1 == i32(2) {
 /*line :1731:18*/						v2 = v3
 /*line :1740:18*/						goto l1
@@ -7055,8 +7055,8 @@
 /*line :1734:18*/					if v1 == i32(2) {
 /*line :1734:18*/						goto l1
 /*line :1734:18*/					}
-/*line :1740:18*/					if v1 == i32(1) {
-/*line :1740:18*/						v2 = v3
+/*line :1734:18*/					if v1 == i32(1) {
+/*line :1734:18*/						v2 = v3
 /*line :1740:18*/						goto l1
 /*line :1740:18*/					}
 /*line :1744:20*/					t6 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -7125,7 +7125,7 @@
 /*line :5535:8*/				t25 := m._gen_ip_version(v0, i32(6), i32(6))
 /*line :5535:8*/				v2 = t25
 /*line :5535:8*/				t26 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :5535:8*/				v1 = t26
+/*line :1731:18*/				v1 = t26
 /*line :1731:18*/				if v1 == i32(2) {
 /*line :1731:18*/					v2 = v3
 /*line :1740:18*/					goto l1
@@ -7138,8 +7138,8 @@
 /*line :1734:18*/				if v1 == i32(2) {
 /*line :1734:18*/					goto l1
 /*line :1734:18*/				}
-/*line :1740:18*/				if v1 == i32(1) {
-/*line :1740:18*/					v2 = v3
+/*line :1734:18*/				if v1 == i32(1) {
+/*line :1734:18*/					v2 = v3
 /*line :1740:18*/					goto l1
 /*line :1740:18*/				}
 /*line :1744:20*/				t28 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -7279,11 +7279,11 @@
 /*line :4261:9*/																							t48 := m._gen_prevlinkhdr_check(v0)
 /*line :4261:9*/																							v8 = t48
 /*line :4261:9*/																						}
-/*line :4261:9*/																						{
-/*line :4261:9*/																							{
-/*line :4261:9*/																								{
-/*line :4261:9*/																									{
-/*line :4261:9*/																										{
+/*line :2878:2*/																						{
+/*line :2878:2*/																							{
+/*line :2878:2*/																								{
+/*line :2878:2*/																									{
+/*line :2878:2*/																										{
 /*line :2878:2*/																											if v1 <= i32(239) {
 /*line :2878:2*/																												if v1 == i32(6) {
 /*line :2878:2*/																													goto l26
@@ -7477,7 +7477,7 @@
 /*line :1909:11*/																										store32(m.memory, uint64(uint32(v2))+4, uint32(v7))
 /*line :1013:10*/																										store32(m.memory, uint64(uint32(v2))+96, uint32(v2))
 /*line :1013:10*/																										t75 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1013:10*/																										v1 = t75
+/*line :1731:18*/																										v1 = t75
 /*line :1731:18*/																										if v1 == i32(2) {
 /*line :1731:18*/																											v2 = v3
 /*line :1740:18*/																											goto l43
@@ -7490,8 +7490,8 @@
 /*line :1734:18*/																										if v1 == i32(2) {
 /*line :1734:18*/																											goto l43
 /*line :1734:18*/																										}
-/*line :1740:18*/																										if v1 == i32(1) {
-/*line :1740:18*/																											v2 = v3
+/*line :1734:18*/																										if v1 == i32(1) {
+/*line :1734:18*/																											v2 = v3
 /*line :1740:18*/																											goto l43
 /*line :1740:18*/																										}
 /*line :1740:18*/																										v1 = v3
@@ -7613,7 +7613,7 @@
 /*line :1013:10*/																									store32(m.memory, uint64(uint32(v2))+96, uint32(v2))
 /*line :1757:10*/																									{
 /*line :1757:10*/																										t100 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1757:10*/																										v1 = t100
+/*line :1757:18*/																										v1 = t100
 /*line :1757:18*/																										if v1 == i32(2) {
 /*line :1757:18*/																											goto l48
 /*line :1757:18*/																										}
@@ -7944,7 +7944,7 @@
 /*line :1909:11*/																									store32(m.memory, uint64(uint32(v4))+4, uint32(v5))
 /*line :1013:10*/																									store32(m.memory, uint64(uint32(v4))+96, uint32(v4))
 /*line :1757:10*/																									t167 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1757:10*/																									v1 = t167
+/*line :1757:18*/																									v1 = t167
 /*line :1757:18*/																									if v1 == i32(2) {
 /*line :1757:18*/																										goto l43
 /*line :1757:18*/																									}
@@ -8066,7 +8066,7 @@
 /*line :4610:9*/																								v2 = t189
 /*line :1731:10*/																								{
 /*line :1731:10*/																									t190 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1731:10*/																									v4 = t190
+/*line :1731:18*/																									v4 = t190
 /*line :1731:18*/																									if v4 == i32(2) {
 /*line :1731:18*/																										v2 = v3
 /*line :1740:18*/																										goto l72
@@ -8079,8 +8079,8 @@
 /*line :1734:18*/																									if v4 == i32(2) {
 /*line :1734:18*/																										goto l72
 /*line :1734:18*/																									}
-/*line :1740:18*/																									if v4 == i32(1) {
-/*line :1740:18*/																										v2 = v3
+/*line :1734:18*/																									if v4 == i32(1) {
+/*line :1734:18*/																										v2 = v3
 /*line :1740:18*/																										goto l72
 /*line :1740:18*/																									}
 /*line :1744:20*/																									t192 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -8186,7 +8186,7 @@
 /*line :1909:11*/																								store32(m.memory, uint64(uint32(v0))+4, uint32(v7))
 /*line :1013:10*/																								store32(m.memory, uint64(uint32(v0))+96, uint32(v0))
 /*line :1757:10*/																								t215 := int32(load32(m.memory, uint64(uint32(v0))+208))
-/*line :1757:10*/																								v1 = t215
+/*line :1757:18*/																								v1 = t215
 /*line :1757:18*/																								if v1 == i32(2) {
 /*line :1757:18*/																									goto l43
 /*line :1757:18*/																								}
@@ -8258,7 +8258,7 @@
 /*line :1775:2*/																								goto l43
 /*line :1775:2*/																							}
 /*line :1775:2*/																						l27:
-/*line :3006:16*/																							if uint32(v1) <= uint32(i32(1500)) {
+/*line :1775:2*/																							if uint32(v1) <= uint32(i32(1500)) {
 /*line :1298:10*/																								if uint32(v1) >= uint32(i32(256)) {
 /*line :1298:10*/																									goto l79
 /*line :1298:10*/																								}
@@ -8371,7 +8371,7 @@
 /*line :1909:11*/																								store32(m.memory, uint64(uint32(v2))+4, uint32(v7))
 /*line :1013:10*/																								store32(m.memory, uint64(uint32(v2))+96, uint32(v2))
 /*line :1013:10*/																								t247 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1013:10*/																								v1 = t247
+/*line :1731:18*/																								v1 = t247
 /*line :1731:18*/																								if v1 == i32(2) {
 /*line :1731:18*/																									v2 = v3
 /*line :1740:18*/																									goto l43
@@ -8384,8 +8384,8 @@
 /*line :1734:18*/																								if v1 == i32(2) {
 /*line :1734:18*/																									goto l43
 /*line :1734:18*/																								}
-/*line :1740:18*/																								if v1 == i32(1) {
-/*line :1740:18*/																									v2 = v3
+/*line :1734:18*/																								if v1 == i32(1) {
+/*line :1734:18*/																									v2 = v3
 /*line :1740:18*/																									goto l43
 /*line :1740:18*/																								}
 /*line :1740:18*/																								v1 = v3
@@ -8576,7 +8576,7 @@
 /*line :4298:8*/																				t282 := m._gen_llc_linktype(v0, v1)
 /*line :4298:8*/																				v2 = t282
 /*line :4298:8*/																				t283 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :4298:8*/																				v1 = t283
+/*line :1731:18*/																				v1 = t283
 /*line :1731:18*/																				if v1 == i32(2) {
 /*line :1731:18*/																					v2 = v4
 /*line :1740:18*/																					goto l1
@@ -8589,8 +8589,8 @@
 /*line :1734:18*/																				if v1 == i32(2) {
 /*line :1734:18*/																					goto l1
 /*line :1734:18*/																				}
-/*line :1740:18*/																				if v1 == i32(1) {
-/*line :1740:18*/																					v2 = v4
+/*line :1734:18*/																				if v1 == i32(1) {
+/*line :1734:18*/																					v2 = v4
 /*line :1740:18*/																					goto l1
 /*line :1740:18*/																				}
 /*line :1744:20*/																				t285 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -8667,7 +8667,7 @@
 /*line :4336:10*/																		goto l1
 /*line :4336:10*/																	}
 /*line :4336:10*/																l11:
-/*line :4336:10*/																	{
+/*line :4348:3*/																	{
 /*line :4348:3*/																		if v1 != i32(34525) {
 /*line :4348:3*/																			if v1 != i32(2048) {
 /*line :4348:3*/																				goto l98
@@ -8686,7 +8686,7 @@
 /*line :4521:4*/																	goto l1
 /*line :4521:4*/																}
 /*line :4521:4*/															l24:
-/*line :4365:16*/																if v1 == i32(2048) {
+/*line :4521:4*/																if v1 == i32(2048) {
 /*line :4366:11*/																	t310 := m._gen_true(v0)
 /*line :4366:11*/																	v2 = t310
 /*line :4521:4*/																	goto l1
@@ -8696,7 +8696,7 @@
 /*line :4521:4*/																goto l1
 /*line :4521:4*/															}
 /*line :4521:4*/														l25:
-/*line :4376:16*/															if v1 == i32(34525) {
+/*line :4521:4*/															if v1 == i32(34525) {
 /*line :4377:11*/																t312 := m._gen_true(v0)
 /*line :4377:11*/																v2 = t312
 /*line :4521:4*/																goto l1
@@ -8706,8 +8706,8 @@
 /*line :4521:4*/															goto l1
 /*line :4521:4*/														}
 /*line :4521:4*/													l12:
-/*line :4521:4*/														var p314 int32
-/*line :4521:4*/														{
+/*line :4136:2*/														var p314 int32
+/*line :4136:2*/														{
 /*line :4136:2*/															if v1 <= i32(2047) {
 /*line :4136:2*/																if v1 <= i32(253) {
 /*line :4136:2*/																	if v1 == i32(66) {
@@ -8728,8 +8728,8 @@
 /*line :4151:3*/																p314 = i32(37)
 /*line :4151:3*/																goto l101
 /*line :4151:3*/															}
-/*line :4136:2*/															if v1 <= i32(32922) {
-/*line :4136:2*/																v8 = i32(33)
+/*line :4151:3*/															if v1 <= i32(32922) {
+/*line :4151:3*/																v8 = i32(33)
 /*line :4136:2*/																t315 := v8
 /*line :4136:2*/																if v1 == i32(2048) {
 /*line :4136:2*/																	p314 = t315
@@ -8815,7 +8815,7 @@
 /*line :4558:3*/														goto l1
 /*line :4558:3*/													}
 /*line :4558:3*/												l13:
-/*line :4400:3*/													if v1 == i32(2048) {
+/*line :4558:3*/													if v1 == i32(2048) {
 /*line :4407:9*/														t322 := m._gen_cmp(v0, i32(5), i32(0), i32(8), i32(33))
 /*line :4408:9*/														t323 := m._gen_cmp(v0, i32(5), i32(0), i32(8), i32(45))
 /*line :4409:9*/														t324 := m._gen_or(t322, t323)
@@ -8840,10 +8840,10 @@
 /*line :4431:11*/											goto l1
 /*line :4431:11*/										}
 /*line :4431:11*/									l10:
-/*line :4431:11*/										{
-/*line :4431:11*/											{
-/*line :4431:11*/												{
-/*line :4431:11*/													{
+/*line :4461:3*/										{
+/*line :4461:3*/											{
+/*line :4461:3*/												{
+/*line :4461:3*/													{
 /*line :4461:3*/														if v1 <= i32(32922) {
 /*line :4461:3*/															switch v1 - i32(2048) {
 /*line :4461:3*/															case 0:
@@ -8890,7 +8890,7 @@
 /*line :4483:4*/										goto l1
 /*line :4483:4*/									}
 /*line :4483:4*/								l18:
-/*line :4489:3*/									if v1 == i32(32923) {
+/*line :4483:4*/									if v1 == i32(32923) {
 /*line :4491:11*/										t336 := m._gen_true(v0)
 /*line :4491:11*/										v2 = t336
 /*line :4521:4*/										goto l1
@@ -8900,7 +8900,7 @@
 /*line :4521:4*/									goto l1
 /*line :4521:4*/								}
 /*line :4521:4*/							l16:
-/*line :4521:4*/								{
+/*line :4498:3*/								{
 /*line :4498:3*/									if v1 != i32(254) {
 /*line :4498:3*/										if v1 != i32(34525) {
 /*line :4498:3*/											if v1 != i32(2048) {
@@ -9059,8 +9059,8 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:1094*/	t0 := m.___stack_pointer
 /*line :1094*/	v1 = t0 - i32(16)
 /*line :1094*/	m.___stack_pointer = v1
-/*line :1094*/	{
-/*line :1094*/		{
+/*line :1081:9*/	{
+/*line :1081:9*/		{
 /*line :1081:16*/			if uint32(v0) > uint32(i32(39)) {
 /*line :1081:16*/				goto l0
 /*line :1081:16*/			}
@@ -9073,7 +9073,7 @@
 /*line :1081:16*/		}
 /*line :1081:16*/	l0:
 /*line :1084:18*/		t2 := int32(load32(m.memory, uint32(i32(125968))))
-/*line :1084:18*/		v3 = t2
+/*line :1084:14*/		v3 = t2
 /*line :1084:18*/		v2 = v3<<6 + i32(125712)
 /*line :1086:9*/		m.memory[uint32(v2)] = byte(i32(0))
 /*line :1085:6*/		store32(m.memory, uint32(i32(125968)), uint32((v3+i32(1))&i32(3)))
@@ -9101,7 +9101,7 @@
 /*line :7155*/			{
 /*line :7155*/				{
 /*line :7155*/					{
-/*line :7155*/						v8 = v3 & i32(255)
+/*line :7169:14*/						v8 = v3 & i32(255)
 /*line :7169:14*/						if v8 != i32(12) {
 /*line :7169:14*/							{
 /*line :7169:14*/								{
@@ -9137,8 +9137,8 @@
 /*line :7186:12*/																goto l8
 /*line :7186:12*/															}
 /*line :7186:12*/															v1 = i32(-1)
-/*line :7190:15*/															if uint32(v2) <= uint32(i32(0xffffff)) {
-/*line :7190:15*/															l9:
+/*line :7186:12*/															if uint32(v2) <= uint32(i32(0xffffff)) {
+/*line :7186:12*/															l9:
 /*line :7192:9*/																v1 = v1 << 8
 /*line :7191:9*/																v2 = v2 << 8
 /*line :7190:3*/																if uint32(v2-i32(1)) < uint32(i32(0xffffff)) {
@@ -9161,7 +9161,7 @@
 /*line :7200:4*/														goto l10
 /*line :7200:4*/													}
 /*line :7200:4*/												l2:
-/*line :1327:2*/													v2 = v3 & i32(255)
+/*line :7200:4*/													v2 = v3 & i32(255)
 /*line :1327:2*/													var p5 int32
 /*line :1327:2*/													if uint32(v2-i32(5)) >= uint32(i32(3)) {
 /*line :1327:2*/														p5 = 1
@@ -9177,8 +9177,8 @@
 /*line :7208:49*/													if t6 == 0 {
 /*line :7208:49*/														goto l13
 /*line :7208:49*/													}
-/*line :7208:49*/													{
-/*line :7208:49*/														{
+/*line :7210:13*/													{
+/*line :7210:13*/														{
 /*line :7210:13*/															switch v3&i32(255) - i32(5) {
 /*line :7210:13*/															case 0:
 /*line :7210:13*/																goto l14
@@ -9191,7 +9191,7 @@
 /*line :7210:13*/															}
 /*line :7210:13*/														l16:
 /*line :7210:13*/															t7 := int32(load32(m.memory, uint64(uint32(v6))+440))
-/*line :7210:13*/															v2 = t7
+/*line :7211:19*/															v2 = t7
 /*line :7211:19*/															if v2 != i32(132) {
 /*line :7211:19*/																if v2 != i32(6) {
 /*line :7211:19*/																	v2 = i32(17)
@@ -9207,7 +9207,7 @@
 /*line :7214:5*/														}
 /*line :7214:5*/													l15:
 /*line :7214:5*/														t8 := int32(load32(m.memory, uint64(uint32(v6))+440))
-/*line :7214:5*/														v2 = t8
+/*line :7220:19*/														v2 = t8
 /*line :7220:19*/														if v2 != i32(132) {
 /*line :7220:19*/															if v2 != i32(17) {
 /*line :7220:19*/																v2 = i32(6)
@@ -9244,7 +9244,7 @@
 /*line :7234:5*/													panic("unreachable")
 /*line :7234:5*/												}
 /*line :7234:5*/											l6:
-/*line :1327:2*/												v2 = v3 & i32(255)
+/*line :7234:5*/												v2 = v3 & i32(255)
 /*line :1327:2*/												var p11 int32
 /*line :1327:2*/												if uint32(v2-i32(5)) >= uint32(i32(3)) {
 /*line :1327:2*/													p11 = 1
@@ -9297,7 +9297,7 @@
 /*line :7260:13*/													goto l29
 /*line :7260:13*/												}
 /*line :7260:13*/											l28:
-/*line :7261:19*/												if v8 != i32(132) {
+/*line :7260:13*/												if v8 != i32(132) {
 /*line :7261:19*/													if v8 != i32(6) {
 /*line :7261:19*/														v8 = i32(17)
 /*line :7261:19*/														goto l29
@@ -9310,7 +9310,7 @@
 /*line :7264:5*/												m._bpf_error(v0, i32(67700), v6+i32(336))
 /*line :7264:5*/												panic("unreachable")
 /*line :7264:5*/											l27:
-/*line :7270:19*/												if v8 != i32(132) {
+/*line :7264:5*/												if v8 != i32(132) {
 /*line :7270:19*/													if v8 != i32(17) {
 /*line :7270:19*/														v8 = i32(6)
 /*line :7270:19*/														goto l29
@@ -9343,7 +9343,7 @@
 /*line :7282:5*/												panic("unreachable")
 /*line :7282:5*/											}
 /*line :7282:5*/										l3:
-/*line :6008:2*/											v2 = v3 & i32(255)
+/*line :7282:5*/											v2 = v3 & i32(255)
 /*line :6008:2*/											var p21 int32
 /*line :6008:2*/											if uint32(v2-i32(2)) >= uint32(i32(3)) {
 /*line :6008:2*/												p21 = 1
@@ -9381,8 +9381,8 @@
 /*line :1734:18*/											if v1 == i32(2) {
 /*line :1734:18*/												goto l10
 /*line :1734:18*/											}
-/*line :1740:18*/											if v1 == i32(1) {
-/*line :1740:18*/												v2 = v4
+/*line :1734:18*/											if v1 == i32(1) {
+/*line :1734:18*/												v2 = v4
 /*line :1740:18*/												goto l10
 /*line :1740:18*/											}
 /*line :1744:20*/											t28 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -9548,15 +9548,15 @@
 /*line :1298:10*/			if uint32(v10) >= uint32(i32(65536)) {
 /*line :1298:10*/				goto l38
 /*line :1298:10*/			}
-/*line :1298:10*/			{
-/*line :1298:10*/				{
-/*line :1298:10*/					{
-/*line :1298:10*/						{
-/*line :1298:10*/							{
-/*line :1298:10*/								{
-/*line :1298:10*/									{
-/*line :1298:10*/										{
-/*line :1298:10*/											{
+/*line :6386:2*/			{
+/*line :6386:2*/				{
+/*line :6386:2*/					{
+/*line :6386:2*/						{
+/*line :6386:2*/							{
+/*line :6386:2*/								{
+/*line :6386:2*/									{
+/*line :6386:2*/										{
+/*line :6386:2*/											{
 /*line :6386:2*/												v2 = v4 & i32(255)
 /*line :6386:2*/												switch v2 {
 /*line :6386:2*/												case 0, 3:
@@ -9577,7 +9577,7 @@
 /*line :6397:8*/												v4 = t59
 /*line :1731:10*/												{
 /*line :1731:10*/													t60 := int32(load32(m.memory, uint64(uint32(v7))+208))
-/*line :1731:10*/													v2 = t60
+/*line :6397:8*/													v2 = t60
 /*line :1731:18*/													if v2 == i32(2) {
 /*line :1731:18*/														v4 = v7
 /*line :1740:18*/														goto l44
@@ -9590,8 +9590,8 @@
 /*line :1734:18*/													if v2 == i32(2) {
 /*line :1734:18*/														goto l44
 /*line :1734:18*/													}
-/*line :1740:18*/													if v2 == i32(1) {
-/*line :1740:18*/														v4 = v7
+/*line :1734:18*/													if v2 == i32(1) {
+/*line :1734:18*/														v4 = v7
 /*line :1740:18*/														goto l44
 /*line :1740:18*/													}
 /*line :1744:20*/													t62 := int32(load32(m.memory, uint64(uint32(v4))+96))
@@ -9676,7 +9676,7 @@
 /*line :6404:8*/											v11 = t85
 /*line :1757:10*/											{
 /*line :1757:10*/												t86 := int32(load32(m.memory, uint64(uint32(v7))+208))
-/*line :1757:10*/												v2 = t86
+/*line :6404:8*/												v2 = t86
 /*line :1757:18*/												if v2 == i32(2) {
 /*line :1757:18*/													goto l49
 /*line :1757:18*/												}
@@ -9795,8 +9795,8 @@
 /*line :1734:18*/					if v1 == i32(2) {
 /*line :1734:18*/						goto l48
 /*line :1734:18*/					}
-/*line :1740:18*/					if v1 == i32(1) {
-/*line :1740:18*/						v3 = v7
+/*line :1734:18*/					if v1 == i32(1) {
+/*line :1734:18*/						v3 = v7
 /*line :1740:18*/						goto l48
 /*line :1740:18*/					}
 /*line :1744:20*/					t112 := int32(load32(m.memory, uint64(uint32(v3))+96))
@@ -9866,7 +9866,7 @@
 /*line :6455:8*/				t131 := m._gen_portrangeatom6(v0, i32(2), v9, v10)
 /*line :6455:8*/				v3 = t131
 /*line :1757:10*/				t132 := int32(load32(m.memory, uint64(uint32(v7))+208))
-/*line :1757:10*/				v1 = t132
+/*line :6455:8*/				v1 = t132
 /*line :1757:18*/				if v1 == i32(2) {
 /*line :1757:18*/					goto l48
 /*line :1757:18*/				}
@@ -9940,7 +9940,7 @@
 /*line :6464:9*/			t149 := m._gen_port6_common(v0, v8, v3)
 /*line :1757:10*/			v4 = t149
 /*line :1757:10*/			t150 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1757:10*/			v1 = t150
+/*line :1757:18*/			v1 = t150
 /*line :1757:18*/			if v1 == i32(2) {
 /*line :1757:18*/				goto l10
 /*line :1757:18*/			}
@@ -10026,7 +10026,7 @@
 /*line :1299:3*/		store32(m.memory, uint64(uint32(v6))+440, uint32(v2))
 /*line :1299:3*/	l17:
 /*line :7247:7*/		t167 := int32(load32(m.memory, uint64(uint32(v6))+444))
-/*line :7247:7*/		v2 = t167
+/*line :7247:12*/		v2 = t167
 /*line :7247:12*/		if v2 < i32(0) {
 /*line :7247:12*/			goto l61
 /*line :7247:12*/		}
@@ -10044,7 +10044,7 @@
 /*line :7254:8*/		t174 := m._gen_port6(v0, t172, t173, v1, i32(3))
 /*line :1757:10*/		v4 = t174
 /*line :1757:10*/		t175 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1757:10*/		v1 = t175
+/*line :1757:18*/		v1 = t175
 /*line :1757:18*/		if v1 == i32(2) {
 /*line :1757:18*/			goto l10
 /*line :1757:18*/		}
@@ -10140,7 +10140,7 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:5549*/	t0 := m.___stack_pointer
 /*line :5549*/	v13 = t0 - i32(32)
 /*line :5549*/	m.___stack_pointer = v13
-/*line :5549*/	{
+/*line :1306:2*/	{
 /*line :1306:2*/		if uint32(v5) < uint32(i32(5)) {
 /*line :1306:2*/			v14 = i32(16)
 /*line :1306:2*/			v10 = i32(12)
@@ -10245,7 +10245,7 @@
 /*line :5573:9*/						t21 := m._gen_host(v0, v1, v2, v3, i32(4), v5, v6, v7)
 /*line :5573:9*/						v9 = t21
 /*line :1757:10*/						t22 := int32(load32(m.memory, uint64(uint32(v10))+208))
-/*line :1757:10*/						v5 = t22
+/*line :1757:18*/						v5 = t22
 /*line :1757:18*/						if v5 == i32(2) {
 /*line :1757:18*/							goto l5
 /*line :1757:18*/						}
@@ -10657,7 +10657,7 @@
 /*line :1783:17*/				}
 /*line :1783:17*/			l27:
 /*line :1783:17*/				t110 := int32(load32(m.memory, uint64(uint32(v12))+208))
-/*line :1783:17*/				v5 = t110
+/*line :1731:18*/				v5 = t110
 /*line :1731:18*/				if v5 == i32(2) {
 /*line :1731:18*/					v9 = v12
 /*line :1740:18*/					goto l5
@@ -10670,8 +10670,8 @@
 /*line :1734:18*/				if v5 == i32(2) {
 /*line :1734:18*/					goto l5
 /*line :1734:18*/				}
-/*line :1740:18*/				if v5 == i32(1) {
-/*line :1740:18*/					v9 = v12
+/*line :1734:18*/				if v5 == i32(1) {
+/*line :1734:18*/					v9 = v12
 /*line :1740:18*/					goto l5
 /*line :1740:18*/				}
 /*line :1744:20*/				t112 := int32(load32(m.memory, uint64(uint32(v9))+96))
@@ -10760,7 +10760,7 @@
 /*line :5933:34*/	{
 /*line :5933:34*/		{
 /*line :5933:34*/			t1 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :5933:34*/			v4 = t1
+/*line :5825:2*/			v4 = t1
 /*line :5825:2*/			if v4 <= i32(191) {
 /*line :5825:2*/				v6 = v4 - i32(105)
 /*line :5825:2*/				if uint32(v6) <= uint32(i32(22)) {
@@ -10834,7 +10834,7 @@
 /*line :6995:8*/	{
 /*line :6995:8*/		{
 /*line :6995:8*/			t1 := m._stoulen(v1, v2, v5+i32(44), v0)
-/*line :6995:8*/			v4 = t1
+/*line :6996:2*/			v4 = t1
 /*line :6996:2*/			if uint32(v4-i32(1)) >= uint32(i32(3)) {
 /*line :6996:2*/				switch v4 {
 /*line :6996:2*/				case 0:
@@ -10855,7 +10855,7 @@
 /*line :7015:3*/			}
 /*line :7016:20*/			m.memory[uint32(v2+v4)] = byte(i32(0))
 /*line :7017:14*/			t3 := m._nametoport(v0, v4, i32(6))
-/*line :7017:14*/			v2 = t3
+/*line :7018:16*/			v2 = t3
 /*line :7018:16*/			if v2 == i32(-2) {
 /*line :7018:16*/				goto l4
 /*line :7018:16*/			}
@@ -10864,7 +10864,7 @@
 /*line :7028:16*/			if v1 == i32(-2) {
 /*line :7028:16*/				goto l5
 /*line :7028:16*/			}
-/*line :7044:16*/			if v2 >= i32(0) {
+/*line :7028:16*/			if v2 >= i32(0) {
 /*line :7045:8*/				store32(m.memory, uint64(uint32(v5))+44, uint32(v2))
 /*line :7047:17*/				t6 := v3
 /*line :7047:17*/				p5 := i32(6)
@@ -10960,7 +10960,7 @@
 /*line :5713:3*/						goto l2
 /*line :5713:3*/					}
 /*line :5713:3*/				}
-/*line :5726:13*/				if uint32(v6) > uint32(i32(1)) {
+/*line :5713:3*/				if uint32(v6) > uint32(i32(1)) {
 /*line :5727:4*/					m._qsort(v8+i32(1664), v6, i32(4), i32(1))
 /*line :5727:4*/					goto l3
 /*line :5727:4*/				}
@@ -10987,7 +10987,7 @@
 /*line :5767:23*/		v7 = t10
 /*line :5767:23*/	}
 /*line :5767:23*/l0:
-/*line :5767:23*/	{
+/*line :5741:22*/	{
 /*line :5741:22*/		if uint32((v3-i32(5))&i32(255)) > uint32(i32(252)) {
 /*line :5741:22*/			v6 = v9
 /*line :5741:22*/			goto l5
@@ -11025,7 +11025,7 @@
 /*line :5744:3*/					goto l8
 /*line :5744:3*/				}
 /*line :5744:3*/			}
-/*line :5744:3*/			v7 = i32(1)
+/*line :5757:13*/			v7 = i32(1)
 /*line :5757:13*/			if uint32(v6) > uint32(i32(1)) {
 /*line :5758:4*/				m._qsort(v8+i32(1664), v6, i32(16), i32(2))
 /*line :5758:4*/				v7 = v6
@@ -11047,7 +11047,7 @@
 /*line :5761:8*/				goto l6
 /*line :5761:8*/			}
 /*line :1757:10*/			t18 := int32(load32(m.memory, uint64(uint32(v9))+208))
-/*line :1757:10*/			v7 = t18
+/*line :1757:18*/			v7 = t18
 /*line :1757:18*/			if v7 == i32(2) {
 /*line :1757:18*/				goto l6
 /*line :1757:18*/			}
@@ -11163,7 +11163,7 @@
 /*line :6486:2*/						}
 /*line :6486:2*/					l1:
 /*line :6496:7*/						t1 := m._pcap_nametoeproto(v1)
-/*line :6496:7*/						v4 = t1
+/*line :6497:9*/						v4 = t1
 /*line :6497:9*/						if v4 != i32(-1) {
 /*line :6497:9*/							goto l4
 /*line :6497:9*/						}
@@ -11502,8 +11502,8 @@
 /*line :8151:36*/			store32(m.memory, uint32(v6), uint32(i32(1)))
 /*line :8152:19*/			t42 := int32(load32(m.memory, uint64(uint32(v0))+244))
 /*line :8152:19*/			v11 = t42
-/*line :8152:19*/			var p43 int32
-/*line :8152:19*/			{
+/*line :6617:12*/			var p43 int32
+/*line :6617:12*/			{
 /*line :6617:12*/				if v2 != i32(17) {
 /*line :6617:12*/					v15 = v4 + i32(128)
 /*line :6617:12*/					v8 = i32(16)
@@ -11827,7 +11827,7 @@
 /*line :8169:41*/			}
 /*line :8181:40*/			store32(m.memory, uint32(v2), uint32(i32(0)))
 /*line :8181:40*/			t99 := int32(load32(m.memory, uint64(uint32(v13))+208))
-/*line :8181:40*/			v5 = t99
+/*line :1731:18*/			v5 = t99
 /*line :1731:18*/			if v5 == i32(2) {
 /*line :1731:18*/				v3 = v13
 /*line :1740:18*/				goto l5
@@ -11840,8 +11840,8 @@
 /*line :1734:18*/			if v5 == i32(2) {
 /*line :1734:18*/				goto l5
 /*line :1734:18*/			}
-/*line :1740:18*/			if v5 == i32(1) {
-/*line :1740:18*/				v3 = v13
+/*line :1734:18*/			if v5 == i32(1) {
+/*line :1734:18*/				v3 = v13
 /*line :1740:18*/				goto l5
 /*line :1740:18*/			}
 /*line :1740:18*/			v5 = v13
@@ -11959,8 +11959,8 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:1161*/	t0 := m.___stack_pointer
 /*line :1161*/	v1 = t0 - i32(16)
 /*line :1161*/	m.___stack_pointer = v1
-/*line :1161*/	{
-/*line :1161*/		{
+/*line :1081:9*/	{
+/*line :1081:9*/		{
 /*line :1081:16*/			if uint32(v0) > uint32(i32(7)) {
 /*line :1081:16*/				goto l0
 /*line :1081:16*/			}
@@ -11973,7 +11973,7 @@
 /*line :1081:16*/		}
 /*line :1081:16*/	l0:
 /*line :1084:18*/		t2 := int32(load32(m.memory, uint32(i32(125968))))
-/*line :1084:18*/		v3 = t2
+/*line :1084:14*/		v3 = t2
 /*line :1084:18*/		v2 = v3<<6 + i32(125712)
 /*line :1086:9*/		m.memory[uint32(v2)] = byte(i32(0))
 /*line :1085:6*/		store32(m.memory, uint32(i32(125968)), uint32((v3+i32(1))&i32(3)))
@@ -12005,15 +12005,15 @@
 /*line :2770:56*/	v4 = t2
 /*line :2770:32*/	t3 := int32(load32(m.memory, uint64(uint32(v0))+100))
 /*line :2770:32*/	v5 = t3
-/*line :970:6*/	t4 := m._newchunk_nolongjmp(v0, i32(20))
+/*line :2770:32*/	t4 := m._newchunk_nolongjmp(v0, i32(20))
 /*line :971:8*/	v6 = t4
 /*line :971:8*/	if v6 != 0 {
 /*line :971:8*/		{
-/*line :971:8*/			p5 := v3
-/*line :971:8*/			if uint32(v2) < uint32(v3) {
-/*line :971:8*/				p5 = v2
-/*line :971:8*/			}
-/*line :971:8*/			v8 = p5
+/*line :6374*/			p5 := v3
+/*line :6374*/			if uint32(v2) < uint32(v3) {
+/*line :6374*/				p5 = v2
+/*line :6374*/			}
+/*line :6374*/			v8 = p5
 /*line :1024:12*/			store32(m.memory, uint32(v6), uint32(i32(72)))
 /*line :1033:11*/			store32(m.memory, uint64(uint32(v6))+12, uint32(v1+v5+v4))
 /*line :1033:11*/			v4 = v7
@@ -12047,11 +12047,11 @@
 /*line :971:8*/			if v7 == 0 {
 /*line :971:8*/				goto l1
 /*line :971:8*/			}
-/*line :971:8*/			p12 := v3
-/*line :971:8*/			if uint32(v2) > uint32(v3) {
-/*line :971:8*/				p12 = v2
-/*line :971:8*/			}
-/*line :971:8*/			v2 = p12
+/*line :6375*/			p12 := v3
+/*line :6375*/			if uint32(v2) > uint32(v3) {
+/*line :6375*/				p12 = v2
+/*line :6375*/			}
+/*line :6375*/			v2 = p12
 /*line :1024:12*/			store32(m.memory, uint32(v7), uint32(i32(72)))
 /*line :1033:11*/			store32(m.memory, uint64(uint32(v7))+12, uint32(v1+v5+v4))
 /*line :1033:11*/			v4 = v8
@@ -12084,7 +12084,7 @@
 /*line :1013:10*/			v4 = i32(2)
 /*line :1783:9*/			{
 /*line :1783:9*/				t18 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1783:9*/				v0 = t18
+/*line :1783:17*/				v0 = t18
 /*line :1783:17*/				switch v0 - i32(1) {
 /*line :1783:17*/				case 0:
 /*line :1783:17*/					goto l3
@@ -12101,7 +12101,7 @@
 /*line :1783:17*/			v0 = v4
 /*line :1783:17*/		l5:
 /*line :1783:17*/			t19 := int32(load32(m.memory, uint64(uint32(v6))+208))
-/*line :1783:17*/			v4 = t19
+/*line :1731:18*/			v4 = t19
 /*line :1731:18*/			if v4 == i32(2) {
 /*line :6378:1*/				return v6
 /*line :6378:1*/			}
@@ -12112,7 +12112,7 @@
 /*line :1734:18*/				if v0 == i32(2) {
 /*line :1734:18*/					goto l6
 /*line :1734:18*/				}
-/*line :1740:18*/				if v0 == i32(1) {
+/*line :1734:18*/				if v0 == i32(1) {
 /*line :6378:1*/					return v6
 /*line :6378:1*/				}
 /*line :6378:1*/				v4 = v6
@@ -12191,9 +12191,9 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:6244*/	t0 := m.___stack_pointer
 /*line :6244*/	v7 = t0 - i32(16)
 /*line :6244*/	m.___stack_pointer = v7
-/*line :6244*/	{
-/*line :6244*/		{
-/*line :6244*/			{
+/*line :6275:2*/	{
+/*line :6275:2*/		{
+/*line :6275:2*/			{
 /*line :6275:2*/				switch v1 + i32(1) {
 /*line :6275:2*/				case 0:
 /*line :6275:2*/					goto l0
@@ -12216,11 +12216,11 @@
 /*line :6280:3*/		l0:
 /*line :6283:9*/			t2 := m._gen_ip_proto(v0, i32(132))
 /*line :6283:9*/			v5 = t2
-/*line :6283:9*/			{
+/*line :6284:16*/			{
 /*line :6284:16*/				t3 := m._gen_ip_proto(v0, i32(17))
 /*line :1757:10*/				v3 = t3
 /*line :1757:10*/				t4 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1757:10*/				v1 = t4
+/*line :1757:18*/				v1 = t4
 /*line :1757:18*/				if v1 == i32(2) {
 /*line :1757:18*/					goto l5
 /*line :1757:18*/				}
@@ -12369,7 +12369,7 @@
 /*line :6292:7*/		v4 = t39
 /*line :1731:10*/		{
 /*line :1731:10*/			t40 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1731:10*/			v1 = t40
+/*line :1731:18*/			v1 = t40
 /*line :1731:18*/			if v1 == i32(2) {
 /*line :1731:18*/				v4 = v5
 /*line :1740:18*/				goto l10
@@ -12382,8 +12382,8 @@
 /*line :1734:18*/			if v1 == i32(2) {
 /*line :1734:18*/				goto l10
 /*line :1734:18*/			}
-/*line :1740:18*/			if v1 == i32(1) {
-/*line :1740:18*/				v4 = v5
+/*line :1734:18*/			if v1 == i32(1) {
+/*line :1734:18*/				v4 = v5
 /*line :1740:18*/				goto l10
 /*line :1740:18*/			}
 /*line :1744:20*/			t42 := int32(load32(m.memory, uint64(uint32(v4))+96))
@@ -12462,8 +12462,8 @@
 /*line :1734:18*/			if v1 == i32(2) {
 /*line :1734:18*/				goto l13
 /*line :1734:18*/			}
-/*line :1740:18*/			if v1 == i32(1) {
-/*line :1740:18*/				v2 = v4
+/*line :1734:18*/			if v1 == i32(1) {
+/*line :1734:18*/				v2 = v4
 /*line :1740:18*/				goto l13
 /*line :1740:18*/			}
 /*line :1744:20*/			t62 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -12527,11 +12527,11 @@
 /*line :1749:11*/			store32(m.memory, uint64(uint32(v2))+96, uint32(t79))
 /*line :1749:11*/		}
 /*line :1749:11*/	l13:
-/*line :1749:11*/		{
+/*line :6296:17*/		{
 /*line :6296:17*/			t80 := m._gen_linktype(v0, i32(2048))
 /*line :1731:10*/			v0 = t80
 /*line :1731:10*/			t81 := int32(load32(m.memory, uint64(uint32(v0))+208))
-/*line :1731:10*/			v1 = t81
+/*line :1731:18*/			v1 = t81
 /*line :1731:18*/			if v1 == i32(2) {
 /*line :1731:18*/				v2 = v0
 /*line :1740:18*/				goto l16
@@ -12544,8 +12544,8 @@
 /*line :1734:18*/			if v1 == i32(2) {
 /*line :1734:18*/				goto l16
 /*line :1734:18*/			}
-/*line :1740:18*/			if v1 == i32(1) {
-/*line :1740:18*/				v2 = v0
+/*line :1734:18*/			if v1 == i32(1) {
+/*line :1734:18*/				v2 = v0
 /*line :1740:18*/				goto l16
 /*line :1740:18*/			}
 /*line :1744:20*/			t83 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -12737,7 +12737,7 @@
 /*line :1013:10*/		v1 = i32(2)
 /*line :1783:9*/		{
 /*line :1783:9*/			t21 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1783:9*/			v0 = t21
+/*line :1783:17*/			v0 = t21
 /*line :1783:17*/			switch v0 - i32(1) {
 /*line :1783:17*/			case 0:
 /*line :1783:17*/				goto l5
@@ -12754,7 +12754,7 @@
 /*line :1783:17*/		v0 = v1
 /*line :1783:17*/	l7:
 /*line :1783:17*/		t22 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1783:17*/		v1 = t22
+/*line :1731:18*/		v1 = t22
 /*line :1731:18*/		if v1 == i32(2) {
 /*line :6429:1*/			return v4
 /*line :6429:1*/		}
@@ -12765,7 +12765,7 @@
 /*line :1734:18*/			if v0 == i32(2) {
 /*line :1734:18*/				goto l8
 /*line :1734:18*/			}
-/*line :1740:18*/			if v0 == i32(1) {
+/*line :1734:18*/			if v0 == i32(1) {
 /*line :6429:1*/				return v4
 /*line :6429:1*/			}
 /*line :6429:1*/			v1 = v4
@@ -12840,8 +12840,8 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:1142*/	t0 := m.___stack_pointer
 /*line :1142*/	v1 = t0 - i32(16)
 /*line :1142*/	m.___stack_pointer = v1
-/*line :1142*/	{
-/*line :1142*/		{
+/*line :1081:9*/	{
+/*line :1081:9*/		{
 /*line :1081:16*/			if uint32(v0) > uint32(i32(10)) {
 /*line :1081:16*/				goto l0
 /*line :1081:16*/			}
@@ -12854,7 +12854,7 @@
 /*line :1081:16*/		}
 /*line :1081:16*/	l0:
 /*line :1084:18*/		t2 := int32(load32(m.memory, uint32(i32(125968))))
-/*line :1084:18*/		v3 = t2
+/*line :1084:14*/		v3 = t2
 /*line :1084:18*/		v2 = v3<<6 + i32(125712)
 /*line :1086:9*/		m.memory[uint32(v2)] = byte(i32(0))
 /*line :1085:6*/		store32(m.memory, uint32(i32(125968)), uint32((v3+i32(1))&i32(3)))
@@ -12876,8 +12876,8 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:6337*/	t0 := m.___stack_pointer
 /*line :6337*/	v7 = t0 - i32(16)
 /*line :6337*/	m.___stack_pointer = v7
-/*line :6337*/	{
-/*line :6337*/		{
+/*line :6341:2*/	{
+/*line :6341:2*/		{
 /*line :6341:2*/			switch v1 + i32(1) {
 /*line :6341:2*/			case 0:
 /*line :6341:2*/				goto l0
@@ -12900,11 +12900,11 @@
 /*line :6346:3*/	l0:
 /*line :6350:9*/		t2 := m._gen_ip6_proto(v0, i32(132))
 /*line :6350:9*/		v3 = t2
-/*line :6350:9*/		{
+/*line :6351:16*/		{
 /*line :6351:16*/			t3 := m._gen_ip6_proto(v0, i32(17))
 /*line :1757:10*/			v4 = t3
 /*line :1757:10*/			t4 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1757:10*/			v1 = t4
+/*line :1757:18*/			v1 = t4
 /*line :1757:18*/			if v1 == i32(2) {
 /*line :1757:18*/				goto l5
 /*line :1757:18*/			}
@@ -13051,7 +13051,7 @@
 /*line :1774:11*/l4:
 /*line :1731:10*/	{
 /*line :1731:10*/		t39 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1731:10*/		v1 = t39
+/*line :1731:18*/		v1 = t39
 /*line :1731:18*/		if v1 == i32(2) {
 /*line :1731:18*/			v2 = v3
 /*line :1740:18*/			goto l10
@@ -13064,8 +13064,8 @@
 /*line :1734:18*/		if v1 == i32(2) {
 /*line :1734:18*/			goto l10
 /*line :1734:18*/		}
-/*line :1740:18*/		if v1 == i32(1) {
-/*line :1740:18*/			v2 = v3
+/*line :1734:18*/		if v1 == i32(1) {
+/*line :1734:18*/			v2 = v3
 /*line :1740:18*/			goto l10
 /*line :1740:18*/		}
 /*line :1744:20*/		t41 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -13129,7 +13129,7 @@
 /*line :1749:11*/		store32(m.memory, uint64(uint32(v2))+96, uint32(t58))
 /*line :1749:11*/	}
 /*line :1749:11*/l10:
-/*line :1749:11*/	{
+/*line :6361:17*/	{
 /*line :6361:17*/		t59 := m._gen_linktype(v0, i32(34525))
 /*line :1731:10*/		v3 = t59
 /*line :1731:10*/		t60 := int32(load32(m.memory, uint64(uint32(v3))+208))
@@ -13146,8 +13146,8 @@
 /*line :1734:18*/		if v1 == i32(2) {
 /*line :1734:18*/			goto l13
 /*line :1734:18*/		}
-/*line :1740:18*/		if v1 == i32(1) {
-/*line :1740:18*/			v2 = v3
+/*line :1734:18*/		if v1 == i32(1) {
+/*line :1734:18*/			v2 = v3
 /*line :1740:18*/			goto l13
 /*line :1740:18*/		}
 /*line :1744:20*/		t62 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -13269,8 +13269,8 @@
 /*line :1734:18*/					if v1 == i32(2) {
 /*line :1734:18*/						goto l5
 /*line :1734:18*/					}
-/*line :1740:18*/					if v1 == i32(1) {
-/*line :1740:18*/						v4 = v5
+/*line :1734:18*/					if v1 == i32(1) {
+/*line :1734:18*/						v4 = v5
 /*line :1740:18*/						goto l5
 /*line :1740:18*/					}
 /*line :1744:20*/					t6 := int32(load32(m.memory, uint64(uint32(v4))+96))
@@ -13340,7 +13340,7 @@
 /*line :6230:8*/				t25 := m._gen_portatom(v0, i32(2), v1)
 /*line :6230:8*/				v4 = t25
 /*line :1757:10*/				t26 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1757:10*/				v1 = t26
+/*line :6230:8*/				v1 = t26
 /*line :1757:18*/				if v1 == i32(2) {
 /*line :1757:18*/					goto l5
 /*line :1757:18*/				}
@@ -13478,8 +13478,8 @@
 /*line :1734:18*/					if v1 == i32(2) {
 /*line :1734:18*/						goto l5
 /*line :1734:18*/					}
-/*line :1740:18*/					if v1 == i32(1) {
-/*line :1740:18*/						v4 = v5
+/*line :1734:18*/					if v1 == i32(1) {
+/*line :1734:18*/						v4 = v5
 /*line :1740:18*/						goto l5
 /*line :1740:18*/					}
 /*line :1744:20*/					t6 := int32(load32(m.memory, uint64(uint32(v4))+96))
@@ -13549,7 +13549,7 @@
 /*line :6323:8*/				t25 := m._gen_portatom6(v0, i32(2), v1)
 /*line :6323:8*/				v4 = t25
 /*line :1757:10*/				t26 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1757:10*/				v1 = t26
+/*line :6323:8*/				v1 = t26
 /*line :1757:18*/				if v1 == i32(2) {
 /*line :1757:18*/					goto l5
 /*line :1757:18*/				}
@@ -13653,7 +13653,7 @@
 /*line :5856:18*/				{
 /*line :5856:18*/					{
 /*line :5856:18*/						t1 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :5856:18*/						v5 = t1
+/*line :5856:2*/						v5 = t1
 /*line :5856:2*/						if v5 <= i32(191) {
 /*line :5856:2*/							v7 = i32(2)
 /*line :5856:2*/							switch v5 - i32(105) {
@@ -13695,7 +13695,7 @@
 /*line :5856:2*/					}
 /*line :5856:2*/				l6:
 /*line :5867:29*/					t2 := int32(load32(m.memory, uint64(uint32(v0))+52))
-/*line :5867:29*/					v5 = t2
+/*line :5868:19*/					v5 = t2
 /*line :5868:19*/					v7 = v5 + i32(1)
 /*line :5867:19*/					v4 = v5 + i32(7)
 /*line :5869:3*/					goto l5
@@ -13722,7 +13722,7 @@
 /*line :5862:8*/				v6 = t3
 /*line :5862:8*/			}
 /*line :5862:8*/		l5:
-/*line :1306:2*/			if uint32(v2) < uint32(i32(5)) {
+/*line :5862:8*/			if uint32(v2) < uint32(i32(5)) {
 /*line :5903:2*/				{
 /*line :5903:2*/					{
 /*line :5903:2*/						{
@@ -13753,7 +13753,7 @@
 /*line :5912:8*/						t7 := m._gen_bcmp(v0, i32(1), v7, i32(6), v1)
 /*line :5912:8*/						v2 = t7
 /*line :5912:8*/						t8 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :5912:8*/						v0 = t8
+/*line :1731:18*/						v0 = t8
 /*line :1731:18*/						if v0 == i32(2) {
 /*line :1731:18*/							v2 = v4
 /*line :1740:18*/							goto l13
@@ -13766,8 +13766,8 @@
 /*line :1734:18*/						if v0 == i32(2) {
 /*line :1734:18*/							goto l13
 /*line :1734:18*/						}
-/*line :1740:18*/						if v0 == i32(1) {
-/*line :1740:18*/							v2 = v4
+/*line :1734:18*/						if v0 == i32(1) {
+/*line :1734:18*/							v2 = v4
 /*line :1740:18*/							goto l13
 /*line :1740:18*/						}
 /*line :1744:20*/						t10 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -13837,7 +13837,7 @@
 /*line :5918:8*/					t29 := m._gen_bcmp(v0, i32(1), v7, i32(6), v1)
 /*line :5918:8*/					v2 = t29
 /*line :1757:10*/					t30 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1757:10*/					v0 = t30
+/*line :1757:18*/					v0 = t30
 /*line :1757:18*/					if v0 == i32(2) {
 /*line :1757:18*/						goto l13
 /*line :1757:18*/					}
@@ -13912,7 +13912,7 @@
 /*line :5926:9*/					goto l18
 /*line :5926:9*/				}
 /*line :5926:9*/				t47 := int32(load32(m.memory, uint64(uint32(v6))+208))
-/*line :5926:9*/				v0 = t47
+/*line :1731:18*/				v0 = t47
 /*line :1731:18*/				if v0 == i32(2) {
 /*line :1731:18*/					v2 = v6
 /*line :1740:18*/					goto l18
@@ -13925,8 +13925,8 @@
 /*line :1734:18*/				if v0 == i32(2) {
 /*line :1734:18*/					goto l18
 /*line :1734:18*/				}
-/*line :1740:18*/				if v0 == i32(1) {
-/*line :1740:18*/					v2 = v6
+/*line :1734:18*/				if v0 == i32(1) {
+/*line :1734:18*/					v2 = v6
 /*line :1740:18*/					goto l18
 /*line :1740:18*/				}
 /*line :1744:20*/				t49 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -14034,7 +14034,7 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:5629*/	t0 := m.___stack_pointer
 /*line :5629*/	v10 = t0 - i32(32)
 /*line :5629*/	m.___stack_pointer = v10
-/*line :5629*/	{
+/*line :1306:2*/	{
 /*line :1306:2*/		if uint32(v5) < uint32(i32(5)) {
 /*line :5633:25*/			{
 /*line :5633:25*/				switch v4 {
@@ -14187,7 +14187,7 @@
 /*line :1783:17*/		l9:
 /*line :1731:10*/			{
 /*line :1731:10*/				t29 := int32(load32(m.memory, uint64(uint32(v9))+208))
-/*line :1731:10*/				v4 = t29
+/*line :1731:18*/				v4 = t29
 /*line :1731:18*/				if v4 == i32(2) {
 /*line :1731:18*/					v8 = v9
 /*line :1740:18*/					goto l12
@@ -14200,8 +14200,8 @@
 /*line :1734:18*/				if v4 == i32(2) {
 /*line :1734:18*/					goto l12
 /*line :1734:18*/				}
-/*line :1740:18*/				if v4 == i32(1) {
-/*line :1740:18*/					v8 = v9
+/*line :1734:18*/				if v4 == i32(1) {
+/*line :1734:18*/					v8 = v9
 /*line :1740:18*/					goto l12
 /*line :1740:18*/				}
 /*line :1744:20*/				t31 := int32(load32(m.memory, uint64(uint32(v8))+96))
@@ -14291,7 +14291,7 @@
 /*line :2770:56*/	v3 = t1
 /*line :2770:32*/	t2 := int32(load32(m.memory, uint64(uint32(v0))+100))
 /*line :2770:32*/	v6 = t2
-/*line :2770:32*/	{
+/*line :970:6*/	{
 /*line :970:6*/		t3 := m._newchunk_nolongjmp(v0, i32(20))
 /*line :971:8*/		v4 = t3
 /*line :971:8*/		if v4 != 0 {
@@ -14549,7 +14549,7 @@
 /*line :7332*/	{
 /*line :7344:14*/		if v5&i32(255) != i32(12) {
 /*line :7354:9*/			t1 := m._pcapint_atoin(v1, v8+i32(1164))
-/*line :7354:9*/			v9 = t1
+/*line :7355:11*/			v9 = t1
 /*line :7355:11*/			if v9 < i32(0) {
 /*line :7355:11*/				goto l0
 /*line :7355:11*/			}
@@ -14557,7 +14557,7 @@
 /*line :7358:4*/			store32(m.memory, uint64(uint32(v8))+1164, uint32(i32_shl(t2, i32(32)-v9)))
 /*line :7361:9*/			if v2 != 0 {
 /*line :7362:10*/				t3 := m._pcapint_atoin(v2, v8+i32(1160))
-/*line :7362:10*/				v3 = t3
+/*line :7363:12*/				v3 = t3
 /*line :7363:12*/				if v3 < i32(0) {
 /*line :7363:12*/					goto l1
 /*line :7363:12*/				}
@@ -14639,7 +14639,7 @@
 /*line :7393*/			{
 /*line :7393*/				{
 /*line :7393*/					{
-/*line :7393*/						v8 = v4 & i32(255)
+/*line :7405:14*/						v8 = v4 & i32(255)
 /*line :7405:14*/						if v8 == i32(12) {
 /*line :1306:2*/							if uint32(v5&i32(255)) >= uint32(i32(5)) {
 /*line :1306:2*/								goto l0
@@ -14661,7 +14661,7 @@
 /*line :5818:21*/							t4 := m._gen_dnhostop(v0, t3, v5&i32(255))
 /*line :5818:21*/							v4 = t4
 /*line :5818:21*/							t5 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :5818:21*/							v2 = t5
+/*line :1731:18*/							v2 = t5
 /*line :1731:18*/							if v2 == i32(2) {
 /*line :1731:18*/								v4 = v3
 /*line :1740:18*/								goto l4
@@ -14674,8 +14674,8 @@
 /*line :1734:18*/							if v2 == i32(2) {
 /*line :1734:18*/								goto l4
 /*line :1734:18*/							}
-/*line :1740:18*/							if v2 == i32(1) {
-/*line :1740:18*/								v4 = v3
+/*line :1734:18*/							if v2 == i32(1) {
+/*line :1734:18*/								v4 = v3
 /*line :1740:18*/								goto l4
 /*line :1740:18*/							}
 /*line :1744:20*/							t7 := int32(load32(m.memory, uint64(uint32(v4))+96))
@@ -14748,7 +14748,7 @@
 /*line :7418:2*/								goto l7
 /*line :7418:2*/							}
 /*line :7424:10*/							t27 := m._pcapint_atoin(v1, v7+i32(1212))
-/*line :7424:10*/							v2 = t27
+/*line :7425:12*/							v2 = t27
 /*line :7425:12*/							if v2 < i32(0) {
 /*line :7425:12*/								goto l8
 /*line :7425:12*/							}
@@ -14810,7 +14810,7 @@
 /*line :1327:2*/										goto l19
 /*line :1327:2*/									}
 /*line :7461:40*/									t30 := int32(load32(m.memory, uint64(uint32(v7))+1212))
-/*line :7461:40*/									v2 = t30
+/*line :1298:10*/									v2 = t30
 /*line :1298:10*/									if uint32(v2) >= uint32(i32(65536)) {
 /*line :1298:10*/										goto l20
 /*line :1298:10*/									}
@@ -15041,8 +15041,8 @@
 /*line :1734:18*/					if v3 == i32(2) {
 /*line :1734:18*/						goto l5
 /*line :1734:18*/					}
-/*line :1740:18*/					if v3 == i32(1) {
-/*line :1740:18*/						v6 = v4
+/*line :1734:18*/					if v3 == i32(1) {
+/*line :1734:18*/						v6 = v4
 /*line :1740:18*/						goto l5
 /*line :1740:18*/					}
 /*line :1744:20*/					t5 := int32(load32(m.memory, uint64(uint32(v6))+96))
@@ -15112,7 +15112,7 @@
 /*line :5428:8*/				t24 := m._gen_dnhostop(v0, v1, i32(2))
 /*line :5428:8*/				v6 = t24
 /*line :1757:10*/				t25 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1757:10*/				v3 = t25
+/*line :5428:8*/				v3 = t25
 /*line :1757:18*/				if v3 == i32(2) {
 /*line :1757:18*/					goto l5
 /*line :1757:18*/				}
@@ -15303,7 +15303,7 @@
 /*line :1013:10*/		store32(m.memory, uint64(uint32(v6))+96, uint32(v6))
 /*line :1731:10*/		{
 /*line :1731:10*/			t59 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1731:10*/			v3 = t59
+/*line :1731:18*/			v3 = t59
 /*line :1731:18*/			if v3 == i32(2) {
 /*line :1731:18*/				v6 = v4
 /*line :1740:18*/				goto l16
@@ -15316,8 +15316,8 @@
 /*line :1734:18*/			if v3 == i32(2) {
 /*line :1734:18*/				goto l16
 /*line :1734:18*/			}
-/*line :1740:18*/			if v3 == i32(1) {
-/*line :1740:18*/				v6 = v4
+/*line :1734:18*/			if v3 == i32(1) {
+/*line :1734:18*/				v6 = v4
 /*line :1740:18*/				goto l16
 /*line :1740:18*/			}
 /*line :1740:18*/			v3 = v4
@@ -15483,7 +15483,7 @@
 /*line :1013:10*/		store32(m.memory, uint64(uint32(v5))+96, uint32(v5))
 /*line :1731:10*/		{
 /*line :1731:10*/			t92 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1731:10*/			v3 = t92
+/*line :1731:18*/			v3 = t92
 /*line :1731:18*/			if v3 == i32(2) {
 /*line :1731:18*/				v5 = v4
 /*line :1740:18*/				goto l24
@@ -15496,8 +15496,8 @@
 /*line :1734:18*/			if v3 == i32(2) {
 /*line :1734:18*/				goto l24
 /*line :1734:18*/			}
-/*line :1740:18*/			if v3 == i32(1) {
-/*line :1740:18*/				v5 = v4
+/*line :1734:18*/			if v3 == i32(1) {
+/*line :1734:18*/				v5 = v4
 /*line :1740:18*/				goto l24
 /*line :1740:18*/			}
 /*line :1740:18*/			v3 = v4
@@ -15632,7 +15632,7 @@
 /*line :1774:11*/			store32(m.memory, uint64(uint32(v6))+96, uint32(t127))
 /*line :1774:11*/		}
 /*line :1774:11*/	l27:
-/*line :1774:11*/		{
+/*line :5476:10*/		{
 /*line :5476:10*/			if v2 == i32(2) {
 /*line :2735:7*/				t128 := m._gen_abs_offset_varpart(v0, v8)
 /*line :2735:7*/				v1 = t128
@@ -15800,7 +15800,7 @@
 /*line :1909:11*/			store32(m.memory, uint64(uint32(v5))+4, uint32(v7))
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v5))+96, uint32(v5))
 /*line :1013:10*/			t150 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1013:10*/			v3 = t150
+/*line :1731:18*/			v3 = t150
 /*line :1731:18*/			if v3 == i32(2) {
 /*line :1731:18*/				v5 = v4
 /*line :1740:18*/				goto l33
@@ -15813,8 +15813,8 @@
 /*line :1734:18*/			if v3 == i32(2) {
 /*line :1734:18*/				goto l33
 /*line :1734:18*/			}
-/*line :1740:18*/			if v3 == i32(1) {
-/*line :1740:18*/				v5 = v4
+/*line :1734:18*/			if v3 == i32(1) {
+/*line :1734:18*/				v5 = v4
 /*line :1740:18*/				goto l33
 /*line :1740:18*/			}
 /*line :1740:18*/			v3 = v4
@@ -15878,7 +15878,7 @@
 /*line :1749:11*/	l33:
 /*line :1757:10*/		{
 /*line :1757:10*/			t169 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1757:10*/			v3 = t169
+/*line :1757:18*/			v3 = t169
 /*line :1757:18*/			if v3 == i32(2) {
 /*line :1757:18*/				goto l41
 /*line :1757:18*/			}
@@ -16117,7 +16117,7 @@
 /*line :1909:11*/			store32(m.memory, uint64(uint32(v0))+4, uint32(v2))
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v0))+96, uint32(v0))
 /*line :1013:10*/			t208 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1013:10*/			v3 = t208
+/*line :1731:18*/			v3 = t208
 /*line :1731:18*/			if v3 == i32(2) {
 /*line :1731:18*/				v0 = v4
 /*line :1740:18*/				goto l47
@@ -16130,8 +16130,8 @@
 /*line :1734:18*/			if v3 == i32(2) {
 /*line :1734:18*/				goto l47
 /*line :1734:18*/			}
-/*line :1740:18*/			if v3 == i32(1) {
-/*line :1740:18*/				v0 = v4
+/*line :1734:18*/			if v3 == i32(1) {
+/*line :1734:18*/				v0 = v4
 /*line :1740:18*/				goto l47
 /*line :1740:18*/			}
 /*line :1740:18*/			v3 = v4
@@ -16194,7 +16194,7 @@
 /*line :1749:11*/		}
 /*line :1749:11*/	l47:
 /*line :1757:10*/		t227 := int32(load32(m.memory, uint64(uint32(v0))+208))
-/*line :1757:10*/		v3 = t227
+/*line :1757:18*/		v3 = t227
 /*line :1757:18*/		if v3 == i32(2) {
 /*line :1757:18*/			goto l5
 /*line :1757:18*/		}
@@ -16278,7 +16278,7 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:7490*/	t0 := m.___stack_pointer
 /*line :7490*/	v7 = t0 - i32(224)
 /*line :7490*/	m.___stack_pointer = v7
-/*line :7490*/	{
+/*line :7507:11*/	{
 /*line :7507:11*/		t1 := m._inet_pton(i32(2), v1, v7+i32(208))
 /*line :7507:8*/		if t1 == i32(1) {
 /*line :7510:14*/			if uint32(v2) >= uint32(i32(129)) {
@@ -16290,9 +16290,9 @@
 /*line :7513:2*/			if v8 != 0 {
 /*line :7513:2*/				memory_fill(m.memory, uint32(v7+i32(192)), i32(255), uint32(v8))
 /*line :7513:2*/			}
-/*line :7514:14*/			v9 = v2 & i32(7)
-/*line :7514:14*/			if v9 != 0 {
-/*line :7515:29*/				m.memory[uint32(v7+i32(192)+v8)] = byte(i32_shl(i32(255), i32(8)-v9))
+/*line :7513:2*/			v9 = v2 & i32(7)
+/*line :7513:2*/			if v9 != 0 {
+/*line :7515:29*/				m.memory[uint32(v7+i32(192)+v8)] = byte(i32_shr_u(i32(0xff00), v9))
 /*line :7515:29*/			}
 /*line :7519:2*/			t2 := int32(load32(m.memory, uint64(uint32(v7))+208))
 /*line :7520:2*/			t3 := int32(load32(m.memory, uint64(uint32(v7))+192))
@@ -16314,7 +16314,7 @@
 /*line :7522:21*/			if t8&(t9^i32(-1)) != 0 {
 /*line :7522:21*/				goto l1
 /*line :7522:21*/			}
-/*line :7527:10*/			v8 = v3 & i32(255)
+/*line :7527:2*/			v8 = v3 & i32(255)
 /*line :7527:2*/			if uint32(v8) >= uint32(i32(2)) {
 /*line :7527:2*/				if v8 == i32(2) {
 /*line :7527:2*/					goto l2
@@ -16541,8 +16541,8 @@
 /*line :1734:18*/					if v3 == i32(2) {
 /*line :1734:18*/						goto l10
 /*line :1734:18*/					}
-/*line :1740:18*/					if v3 == i32(1) {
-/*line :1740:18*/						v2 = v4
+/*line :1734:18*/					if v3 == i32(1) {
+/*line :1734:18*/						v2 = v4
 /*line :1740:18*/						goto l10
 /*line :1740:18*/					}
 /*line :1744:20*/					t36 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -16836,7 +16836,7 @@
 /*line :7565:27*/		}
 /*line :7567:34*/		{
 /*line :7567:34*/			t1 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :7567:34*/			v2 = t1
+/*line :5825:2*/			v2 = t1
 /*line :5825:2*/			if v2 <= i32(191) {
 /*line :5825:2*/				v3 = v2 - i32(105)
 /*line :5825:2*/				if uint32(v3) <= uint32(i32(22)) {
@@ -16952,11 +16952,11 @@
 /*line :4179*/		t1 := int32(load32(m.memory, uint64(uint32(v0))+124))
 /*line :4179*/		if t1 != 0 {
 /*line :9744:48*/			t2 := int32(load32(m.memory, uint64(uint32(v0))+68))
-/*line :9744:48*/			v1 = t2
+/*line :8169:16*/			v1 = t2
 /*line :8169:16*/			if uint32(v1) > uint32(i32(15)) {
 /*line :8169:16*/				goto l0
 /*line :8169:16*/			}
-/*line :8169:54*/			v3 = v0 + i32(180)
+/*line :8169:46*/			v3 = v0 + i32(180)
 /*line :8169:46*/			t3 := int32(load32(m.memory, uint32(v3+v1<<2)))
 /*line :8169:41*/			if t3 == 0 {
 /*line :8169:41*/				goto l0
@@ -16969,7 +16969,7 @@
 /*line :1033:11*/			store32(m.memory, uint64(uint32(v2))+12, uint32(v1))
 /*line :1024:12*/			store32(m.memory, uint32(v2), uint32(i32(96)))
 /*line :9745:55*/			t5 := int32(load32(m.memory, uint64(uint32(v0))+104))
-/*line :9745:55*/			v1 = t5
+/*line :8169:16*/			v1 = t5
 /*line :8169:16*/			if uint32(v1) > uint32(i32(15)) {
 /*line :8169:16*/				goto l2
 /*line :8169:16*/			}
@@ -17243,7 +17243,7 @@
 /*line :1876:2*/				}
 /*line :1876:2*/			}
 /*line :1876:2*/		}
-/*line :1876:2*/		{
+/*line :1884:14*/		{
 /*line :1884:14*/			if uint32(v3) <= uint32(i32(1)) {
 /*line :1884:14*/				v6 = v8
 /*line :1740:18*/				goto l6
@@ -17270,7 +17270,7 @@
 /*line :1889:7*/				goto l6
 /*line :1889:7*/			}
 /*line :1889:7*/			t32 := int32(load32(m.memory, uint64(uint32(v8))+208))
-/*line :1889:7*/			v5 = t32
+/*line :1731:18*/			v5 = t32
 /*line :1731:18*/			if v5 == i32(2) {
 /*line :1731:18*/				v6 = v8
 /*line :1740:18*/				goto l6
@@ -17283,8 +17283,8 @@
 /*line :1734:18*/			if v5 == i32(2) {
 /*line :1734:18*/				goto l6
 /*line :1734:18*/			}
-/*line :1740:18*/			if v5 == i32(1) {
-/*line :1740:18*/				v6 = v8
+/*line :1734:18*/			if v5 == i32(1) {
+/*line :1734:18*/				v6 = v8
 /*line :1740:18*/				goto l6
 /*line :1740:18*/			}
 /*line :1740:18*/			v5 = v8
@@ -17368,7 +17368,7 @@
 /*line :1894:7*/				goto l9
 /*line :1894:7*/			}
 /*line :1894:7*/			t54 := int32(load32(m.memory, uint64(uint32(v6))+208))
-/*line :1894:7*/			v7 = t54
+/*line :1731:18*/			v7 = t54
 /*line :1731:18*/			if v7 == i32(2) {
 /*line :1731:18*/				v5 = v6
 /*line :1740:18*/				goto l9
@@ -17381,8 +17381,8 @@
 /*line :1734:18*/			if v7 == i32(2) {
 /*line :1734:18*/				goto l9
 /*line :1734:18*/			}
-/*line :1740:18*/			if v7 == i32(1) {
-/*line :1740:18*/				v5 = v6
+/*line :1734:18*/			if v7 == i32(1) {
+/*line :1734:18*/				v5 = v6
 /*line :1740:18*/				goto l9
 /*line :1740:18*/			}
 /*line :1740:18*/			v7 = v6
@@ -17551,7 +17551,7 @@
 /*line :5062:8*/											v2 = t7
 /*line :1731:10*/											{
 /*line :1731:10*/												t8 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1731:10*/												v3 = t8
+/*line :1731:18*/												v3 = t8
 /*line :1731:18*/												if v3 == i32(2) {
 /*line :1731:18*/													v2 = v4
 /*line :1740:18*/													goto l14
@@ -17564,8 +17564,8 @@
 /*line :1734:18*/												if v3 == i32(2) {
 /*line :1734:18*/													goto l14
 /*line :1734:18*/												}
-/*line :1740:18*/												if v3 == i32(1) {
-/*line :1740:18*/													v2 = v4
+/*line :1734:18*/												if v3 == i32(1) {
+/*line :1734:18*/													v2 = v4
 /*line :1740:18*/													goto l14
 /*line :1740:18*/												}
 /*line :1744:20*/												t10 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -17698,7 +17698,7 @@
 /*line :5075:8*/											v6 = t37
 /*line :1731:10*/											{
 /*line :1731:10*/												t38 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1731:10*/												v3 = t38
+/*line :1731:18*/												v3 = t38
 /*line :1731:18*/												if v3 == i32(2) {
 /*line :1731:18*/													v6 = v4
 /*line :1740:18*/													goto l22
@@ -17711,8 +17711,8 @@
 /*line :1734:18*/												if v3 == i32(2) {
 /*line :1734:18*/													goto l22
 /*line :1734:18*/												}
-/*line :1740:18*/												if v3 == i32(1) {
-/*line :1740:18*/													v6 = v4
+/*line :1734:18*/												if v3 == i32(1) {
+/*line :1734:18*/													v6 = v4
 /*line :1740:18*/													goto l22
 /*line :1740:18*/												}
 /*line :1744:20*/												t40 := int32(load32(m.memory, uint64(uint32(v6))+96))
@@ -17892,7 +17892,7 @@
 /*line :1013:10*/											store32(m.memory, uint64(uint32(v4))+96, uint32(v4))
 /*line :1731:10*/											{
 /*line :1731:10*/												t80 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1731:10*/												v3 = t80
+/*line :1908:9*/												v3 = t80
 /*line :1731:18*/												if v3 == i32(2) {
 /*line :1731:18*/													v2 = v4
 /*line :1740:18*/													goto l30
@@ -17905,8 +17905,8 @@
 /*line :1734:18*/												if v3 == i32(2) {
 /*line :1734:18*/													goto l30
 /*line :1734:18*/												}
-/*line :1740:18*/												if v3 == i32(1) {
-/*line :1740:18*/													v2 = v4
+/*line :1734:18*/												if v3 == i32(1) {
+/*line :1734:18*/													v2 = v4
 /*line :1740:18*/													goto l30
 /*line :1740:18*/												}
 /*line :1744:20*/												t82 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -18039,7 +18039,7 @@
 /*line :5102:8*/											v6 = t109
 /*line :1731:10*/											{
 /*line :1731:10*/												t110 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1731:10*/												v3 = t110
+/*line :1731:18*/												v3 = t110
 /*line :1731:18*/												if v3 == i32(2) {
 /*line :1731:18*/													v6 = v4
 /*line :1740:18*/													goto l38
@@ -18052,8 +18052,8 @@
 /*line :1734:18*/												if v3 == i32(2) {
 /*line :1734:18*/													goto l38
 /*line :1734:18*/												}
-/*line :1740:18*/												if v3 == i32(1) {
-/*line :1740:18*/													v6 = v4
+/*line :1734:18*/												if v3 == i32(1) {
+/*line :1734:18*/													v6 = v4
 /*line :1740:18*/													goto l38
 /*line :1740:18*/												}
 /*line :1744:20*/												t112 := int32(load32(m.memory, uint64(uint32(v6))+96))
@@ -18233,7 +18233,7 @@
 /*line :1013:10*/											store32(m.memory, uint64(uint32(v4))+96, uint32(v4))
 /*line :1731:10*/											{
 /*line :1731:10*/												t152 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1731:10*/												v3 = t152
+/*line :1731:18*/												v3 = t152
 /*line :1731:18*/												if v3 == i32(2) {
 /*line :1731:18*/													v2 = v4
 /*line :1740:18*/													goto l46
@@ -18246,8 +18246,8 @@
 /*line :1734:18*/												if v3 == i32(2) {
 /*line :1734:18*/													goto l46
 /*line :1734:18*/												}
-/*line :1740:18*/												if v3 == i32(1) {
-/*line :1740:18*/													v2 = v4
+/*line :1734:18*/												if v3 == i32(1) {
+/*line :1734:18*/													v2 = v4
 /*line :1740:18*/													goto l46
 /*line :1740:18*/												}
 /*line :1744:20*/												t154 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -18380,7 +18380,7 @@
 /*line :5135:8*/											v5 = t181
 /*line :1731:10*/											{
 /*line :1731:10*/												t182 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1731:10*/												v3 = t182
+/*line :1731:18*/												v3 = t182
 /*line :1731:18*/												if v3 == i32(2) {
 /*line :1731:18*/													v5 = v4
 /*line :1740:18*/													goto l54
@@ -18393,8 +18393,8 @@
 /*line :1734:18*/												if v3 == i32(2) {
 /*line :1734:18*/													goto l54
 /*line :1734:18*/												}
-/*line :1740:18*/												if v3 == i32(1) {
-/*line :1740:18*/													v5 = v4
+/*line :1734:18*/												if v3 == i32(1) {
+/*line :1734:18*/													v5 = v4
 /*line :1740:18*/													goto l54
 /*line :1740:18*/												}
 /*line :1744:20*/												t184 := int32(load32(m.memory, uint64(uint32(v5))+96))
@@ -18719,7 +18719,7 @@
 /*line :5190:8*/										v2 = t252
 /*line :1731:10*/										{
 /*line :1731:10*/											t253 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1731:10*/											v3 = t253
+/*line :1731:18*/											v3 = t253
 /*line :1731:18*/											if v3 == i32(2) {
 /*line :1731:18*/												v2 = v4
 /*line :1740:18*/												goto l72
@@ -18732,8 +18732,8 @@
 /*line :1734:18*/											if v3 == i32(2) {
 /*line :1734:18*/												goto l72
 /*line :1734:18*/											}
-/*line :1740:18*/											if v3 == i32(1) {
-/*line :1740:18*/												v2 = v4
+/*line :1734:18*/											if v3 == i32(1) {
+/*line :1734:18*/												v2 = v4
 /*line :1740:18*/												goto l72
 /*line :1740:18*/											}
 /*line :1744:20*/											t255 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -18866,7 +18866,7 @@
 /*line :5203:8*/										v6 = t282
 /*line :1731:10*/										{
 /*line :1731:10*/											t283 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1731:10*/											v3 = t283
+/*line :1731:18*/											v3 = t283
 /*line :1731:18*/											if v3 == i32(2) {
 /*line :1731:18*/												v6 = v4
 /*line :1740:18*/												goto l80
@@ -18879,8 +18879,8 @@
 /*line :1734:18*/											if v3 == i32(2) {
 /*line :1734:18*/												goto l80
 /*line :1734:18*/											}
-/*line :1740:18*/											if v3 == i32(1) {
-/*line :1740:18*/												v6 = v4
+/*line :1734:18*/											if v3 == i32(1) {
+/*line :1734:18*/												v6 = v4
 /*line :1740:18*/												goto l80
 /*line :1740:18*/											}
 /*line :1744:20*/											t285 := int32(load32(m.memory, uint64(uint32(v6))+96))
@@ -19060,7 +19060,7 @@
 /*line :1013:10*/										store32(m.memory, uint64(uint32(v4))+96, uint32(v4))
 /*line :1731:10*/										{
 /*line :1731:10*/											t325 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1731:10*/											v3 = t325
+/*line :1731:18*/											v3 = t325
 /*line :1731:18*/											if v3 == i32(2) {
 /*line :1731:18*/												v2 = v4
 /*line :1740:18*/												goto l88
@@ -19073,8 +19073,8 @@
 /*line :1734:18*/											if v3 == i32(2) {
 /*line :1734:18*/												goto l88
 /*line :1734:18*/											}
-/*line :1740:18*/											if v3 == i32(1) {
-/*line :1740:18*/												v2 = v4
+/*line :1734:18*/											if v3 == i32(1) {
+/*line :1734:18*/												v2 = v4
 /*line :1740:18*/												goto l88
 /*line :1740:18*/											}
 /*line :1744:20*/											t327 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -19207,7 +19207,7 @@
 /*line :5235:8*/										v5 = t354
 /*line :1731:10*/										{
 /*line :1731:10*/											t355 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1731:10*/											v3 = t355
+/*line :1731:18*/											v3 = t355
 /*line :1731:18*/											if v3 == i32(2) {
 /*line :1731:18*/												v5 = v4
 /*line :1740:18*/												goto l96
@@ -19220,8 +19220,8 @@
 /*line :1734:18*/											if v3 == i32(2) {
 /*line :1734:18*/												goto l96
 /*line :1734:18*/											}
-/*line :1740:18*/											if v3 == i32(1) {
-/*line :1740:18*/												v5 = v4
+/*line :1734:18*/											if v3 == i32(1) {
+/*line :1734:18*/												v5 = v4
 /*line :1740:18*/												goto l96
 /*line :1740:18*/											}
 /*line :1744:20*/											t357 := int32(load32(m.memory, uint64(uint32(v5))+96))
@@ -19513,8 +19513,8 @@
 /*line :1734:18*/									if v0 == i32(2) {
 /*line :1734:18*/										goto l65
 /*line :1734:18*/									}
-/*line :1740:18*/									if v0 == i32(1) {
-/*line :1740:18*/										v2 = v4
+/*line :1734:18*/									if v0 == i32(1) {
+/*line :1734:18*/										v2 = v4
 /*line :1740:18*/										goto l65
 /*line :1740:18*/									}
 /*line :1744:20*/									t423 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -19584,7 +19584,7 @@
 /*line :5270:8*/								t442 := m._gen_wlanhostop(v0, v1, i32(2))
 /*line :5270:8*/								v2 = t442
 /*line :1757:10*/								t443 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1757:10*/								v0 = t443
+/*line :5270:8*/								v0 = t443
 /*line :1757:18*/								if v0 == i32(2) {
 /*line :1757:18*/									goto l65
 /*line :1757:18*/								}
@@ -19669,7 +19669,7 @@
 /*line :1856:9*/						v4 = t463
 /*line :1731:10*/						{
 /*line :1731:10*/							t464 := int32(load32(m.memory, uint64(uint32(v7))+208))
-/*line :1731:10*/							v2 = t464
+/*line :1731:18*/							v2 = t464
 /*line :1731:18*/							if v2 == i32(2) {
 /*line :1731:18*/								v4 = v7
 /*line :1740:18*/								goto l115
@@ -19682,8 +19682,8 @@
 /*line :1734:18*/							if v2 == i32(2) {
 /*line :1734:18*/								goto l115
 /*line :1734:18*/							}
-/*line :1740:18*/							if v2 == i32(1) {
-/*line :1740:18*/								v4 = v7
+/*line :1734:18*/							if v2 == i32(1) {
+/*line :1734:18*/								v4 = v7
 /*line :1740:18*/								goto l115
 /*line :1740:18*/							}
 /*line :1744:20*/							t466 := int32(load32(m.memory, uint64(uint32(v4))+96))
@@ -19823,7 +19823,7 @@
 /*line :5291:8*/						t501 := m._gen_bcmp(v0, i32(1), i32(10), i32(6), v1)
 /*line :5291:8*/						v2 = t501
 /*line :5291:8*/						t502 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :5291:8*/						v0 = t502
+/*line :1731:18*/						v0 = t502
 /*line :1731:18*/						if v0 == i32(2) {
 /*line :1731:18*/							v2 = v4
 /*line :1740:18*/							goto l65
@@ -19836,8 +19836,8 @@
 /*line :1734:18*/						if v0 == i32(2) {
 /*line :1734:18*/							goto l65
 /*line :1734:18*/						}
-/*line :1740:18*/						if v0 == i32(1) {
-/*line :1740:18*/							v2 = v4
+/*line :1734:18*/						if v0 == i32(1) {
+/*line :1734:18*/							v2 = v4
 /*line :1740:18*/							goto l65
 /*line :1740:18*/						}
 /*line :1744:20*/						t504 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -19907,7 +19907,7 @@
 /*line :5300:8*/					t523 := m._gen_bcmp(v0, i32(1), i32(16), i32(6), v1)
 /*line :5300:8*/					v2 = t523
 /*line :5300:8*/					t524 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :5300:8*/					v0 = t524
+/*line :1731:18*/					v0 = t524
 /*line :1731:18*/					if v0 == i32(2) {
 /*line :1731:18*/						v2 = v4
 /*line :1740:18*/						goto l65
@@ -19920,8 +19920,8 @@
 /*line :1734:18*/					if v0 == i32(2) {
 /*line :1734:18*/						goto l65
 /*line :1734:18*/					}
-/*line :1740:18*/					if v0 == i32(1) {
-/*line :1740:18*/						v2 = v4
+/*line :1734:18*/					if v0 == i32(1) {
+/*line :1734:18*/						v2 = v4
 /*line :1740:18*/						goto l65
 /*line :1740:18*/					}
 /*line :1744:20*/					t526 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -20048,7 +20048,7 @@
 /*line :5312:8*/				t551 := m._gen_bcmp(v0, i32(1), i32(24), i32(6), v1)
 /*line :5312:8*/				v2 = t551
 /*line :5312:8*/				t552 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :5312:8*/				v0 = t552
+/*line :1731:18*/				v0 = t552
 /*line :1731:18*/				if v0 == i32(2) {
 /*line :1731:18*/					v2 = v3
 /*line :1740:18*/					goto l65
@@ -20061,8 +20061,8 @@
 /*line :1734:18*/				if v0 == i32(2) {
 /*line :1734:18*/					goto l65
 /*line :1734:18*/				}
-/*line :1740:18*/				if v0 == i32(1) {
-/*line :1740:18*/					v2 = v3
+/*line :1734:18*/				if v0 == i32(1) {
+/*line :1734:18*/					v2 = v3
 /*line :1740:18*/					goto l65
 /*line :1740:18*/				}
 /*line :1744:20*/				t554 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -20171,7 +20171,7 @@
 /*line :5332:8*/			t577 := m._gen_bcmp(v0, i32(1), i32(4), i32(6), v1)
 /*line :5332:8*/			v2 = t577
 /*line :5332:8*/			t578 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :5332:8*/			v0 = t578
+/*line :1731:18*/			v0 = t578
 /*line :1731:18*/			if v0 == i32(2) {
 /*line :1731:18*/				v2 = v3
 /*line :1740:18*/				goto l65
@@ -20184,8 +20184,8 @@
 /*line :1734:18*/			if v0 == i32(2) {
 /*line :1734:18*/				goto l65
 /*line :1734:18*/			}
-/*line :1740:18*/			if v0 == i32(1) {
-/*line :1740:18*/				v2 = v3
+/*line :1734:18*/			if v0 == i32(1) {
+/*line :1734:18*/				v2 = v3
 /*line :1740:18*/				goto l65
 /*line :1740:18*/			}
 /*line :1744:20*/			t580 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -20258,7 +20258,7 @@
 /*line :1856:9*/		v5 = t600
 /*line :1731:10*/		{
 /*line :1731:10*/			t601 := int32(load32(m.memory, uint64(uint32(v7))+208))
-/*line :1731:10*/			v2 = t601
+/*line :1731:18*/			v2 = t601
 /*line :1731:18*/			if v2 == i32(2) {
 /*line :1731:18*/				v5 = v7
 /*line :1740:18*/				goto l134
@@ -20271,8 +20271,8 @@
 /*line :1734:18*/			if v2 == i32(2) {
 /*line :1734:18*/				goto l134
 /*line :1734:18*/			}
-/*line :1740:18*/			if v2 == i32(1) {
-/*line :1740:18*/				v5 = v7
+/*line :1734:18*/			if v2 == i32(1) {
+/*line :1734:18*/				v5 = v7
 /*line :1740:18*/				goto l134
 /*line :1740:18*/			}
 /*line :1744:20*/			t603 := int32(load32(m.memory, uint64(uint32(v5))+96))
@@ -20452,7 +20452,7 @@
 /*line :1013:10*/		store32(m.memory, uint64(uint32(v3))+96, uint32(v3))
 /*line :1731:10*/		{
 /*line :1731:10*/			t643 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1731:10*/			v2 = t643
+/*line :1731:18*/			v2 = t643
 /*line :1731:18*/			if v2 == i32(2) {
 /*line :1731:18*/				v5 = v3
 /*line :1740:18*/				goto l142
@@ -20465,8 +20465,8 @@
 /*line :1734:18*/			if v2 == i32(2) {
 /*line :1734:18*/				goto l142
 /*line :1734:18*/			}
-/*line :1740:18*/			if v2 == i32(1) {
-/*line :1740:18*/				v5 = v3
+/*line :1734:18*/			if v2 == i32(1) {
+/*line :1734:18*/				v5 = v3
 /*line :1740:18*/				goto l142
 /*line :1740:18*/			}
 /*line :1744:20*/			t645 := int32(load32(m.memory, uint64(uint32(v5))+96))
@@ -20546,8 +20546,8 @@
 /*line :1734:18*/		if v0 == i32(2) {
 /*line :1734:18*/			goto l65
 /*line :1734:18*/		}
-/*line :1740:18*/		if v0 == i32(1) {
-/*line :1740:18*/			v2 = v5
+/*line :1734:18*/		if v0 == i32(1) {
+/*line :1734:18*/			v2 = v5
 /*line :1740:18*/			goto l65
 /*line :1740:18*/		}
 /*line :1744:20*/		t666 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -20639,7 +20639,7 @@
 /*line :7584*/	m.___stack_pointer = v6
 /*line :7584*/	{
 /*line :7584*/		{
-/*line :7584*/			v7 = v4 & i32(255)
+/*line :1306:2*/			v7 = v4 & i32(255)
 /*line :1306:2*/			if uint32(v7) < uint32(i32(5)) {
 /*line :7595:23*/				if uint32(v2&i32(255)) >= uint32(i32(2)) {
 /*line :7595:23*/					goto l0
@@ -20690,7 +20690,7 @@
 /*line :5949*/	{
 /*line :5952:18*/		{
 /*line :5952:18*/			t1 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :5952:18*/			v6 = t1
+/*line :5952:2*/			v6 = t1
 /*line :5952:2*/			if v6 == i32(7) {
 /*line :5952:2*/				goto l0
 /*line :5952:2*/			}
@@ -20894,7 +20894,7 @@
 /*line :1909:11*/				store32(m.memory, uint64(uint32(v4))+4, uint32(v3))
 /*line :1013:10*/				store32(m.memory, uint64(uint32(v4))+96, uint32(v4))
 /*line :1013:10*/				t23 := int32(load32(m.memory, uint64(uint32(v2))+208))
-/*line :1013:10*/				v0 = t23
+/*line :1731:18*/				v0 = t23
 /*line :1731:18*/				if v0 == i32(2) {
 /*line :1731:18*/					v4 = v2
 /*line :1740:18*/					goto l10
@@ -20907,8 +20907,8 @@
 /*line :1734:18*/				if v0 == i32(2) {
 /*line :1734:18*/					goto l10
 /*line :1734:18*/				}
-/*line :1740:18*/				if v0 == i32(1) {
-/*line :1740:18*/					v4 = v2
+/*line :1734:18*/				if v0 == i32(1) {
+/*line :1734:18*/					v4 = v2
 /*line :1740:18*/					goto l10
 /*line :1740:18*/				}
 /*line :1740:18*/				v0 = v2
@@ -21056,7 +21056,7 @@
 /*line :1909:11*/			store32(m.memory, uint64(uint32(v4))+4, uint32(v3))
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v4))+96, uint32(v4))
 /*line :1757:10*/			t53 := int32(load32(m.memory, uint64(uint32(v2))+208))
-/*line :1757:10*/			v0 = t53
+/*line :1757:18*/			v0 = t53
 /*line :1757:18*/			if v0 == i32(2) {
 /*line :1757:18*/				goto l10
 /*line :1757:18*/			}
@@ -21221,7 +21221,7 @@
 /*line :7693:3*/										l9:
 /*line :7703:15*/											{
 /*line :7703:15*/												t2 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :7703:15*/												v1 = t2
+/*line :7703:52*/												v1 = t2
 /*line :7703:52*/												switch v1 - i32(119) {
 /*line :7703:52*/												case 0, 8:
 /*line :7703:52*/													goto l10
@@ -21254,7 +21254,7 @@
 /*line :7853:18*/											v5 = t8
 /*line :1731:10*/											{
 /*line :1731:10*/												t9 := int32(load32(m.memory, uint64(uint32(v6))+208))
-/*line :1731:10*/												v1 = t9
+/*line :1731:18*/												v1 = t9
 /*line :1731:18*/												if v1 == i32(2) {
 /*line :1731:18*/													v5 = v6
 /*line :1740:18*/													goto l14
@@ -21267,8 +21267,8 @@
 /*line :1734:18*/												if v1 == i32(2) {
 /*line :1734:18*/													goto l14
 /*line :1734:18*/												}
-/*line :1740:18*/												if v1 == i32(1) {
-/*line :1740:18*/													v5 = v6
+/*line :1734:18*/												if v1 == i32(1) {
+/*line :1734:18*/													v5 = v6
 /*line :1740:18*/													goto l14
 /*line :1740:18*/												}
 /*line :1744:20*/												t11 := int32(load32(m.memory, uint64(uint32(v5))+96))
@@ -21349,8 +21349,8 @@
 /*line :1734:18*/											if v1 == i32(2) {
 /*line :1734:18*/												goto l17
 /*line :1734:18*/											}
-/*line :1740:18*/											if v1 == i32(1) {
-/*line :1740:18*/												v4 = v5
+/*line :1734:18*/											if v1 == i32(1) {
+/*line :1734:18*/												v4 = v5
 /*line :1740:18*/												goto l17
 /*line :1740:18*/											}
 /*line :1744:20*/											t32 := int32(load32(m.memory, uint64(uint32(v4))+96))
@@ -21421,7 +21421,7 @@
 /*line :7873:18*/										v4 = t51
 /*line :1731:10*/										{
 /*line :1731:10*/											t52 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1731:10*/											v1 = t52
+/*line :1731:18*/											v1 = t52
 /*line :1731:18*/											if v1 == i32(2) {
 /*line :1731:18*/												v4 = v5
 /*line :1740:18*/												goto l20
@@ -21434,8 +21434,8 @@
 /*line :1734:18*/											if v1 == i32(2) {
 /*line :1734:18*/												goto l20
 /*line :1734:18*/											}
-/*line :1740:18*/											if v1 == i32(1) {
-/*line :1740:18*/												v4 = v5
+/*line :1734:18*/											if v1 == i32(1) {
+/*line :1734:18*/												v4 = v5
 /*line :1740:18*/												goto l20
 /*line :1740:18*/											}
 /*line :1744:20*/											t54 := int32(load32(m.memory, uint64(uint32(v4))+96))
@@ -21526,7 +21526,7 @@
 /*line :7897:13*/										goto l24
 /*line :7897:13*/									}
 /*line :7897:13*/									t80 := int32(load32(m.memory, uint64(uint32(v6))+208))
-/*line :7897:13*/									v1 = t80
+/*line :1731:18*/									v1 = t80
 /*line :1731:18*/									if v1 == i32(2) {
 /*line :7897:11*/										store32(m.memory, uint32(v2), uint32(v6))
 /*line :7897:3*/										goto l23
@@ -21539,7 +21539,7 @@
 /*line :1734:18*/									if v1 == i32(2) {
 /*line :1734:18*/										goto l24
 /*line :1734:18*/									}
-/*line :1740:18*/									if v1 == i32(1) {
+/*line :1734:18*/									if v1 == i32(1) {
 /*line :7897:11*/										store32(m.memory, uint32(v2), uint32(v6))
 /*line :7897:3*/										goto l23
 /*line :7897:3*/									}
@@ -21743,11 +21743,11 @@
 /*line :7619:2*/			}
 /*line :7621:11*/			store32(m.memory, uint64(uint32(v3))+16, uint32(v8))
 /*line :8220:22*/			t118 := int32(load32(m.memory, uint32(v6)))
-/*line :8220:22*/			v1 = t118
+/*line :8169:16*/			v1 = t118
 /*line :8169:16*/			if uint32(v1) > uint32(i32(15)) {
 /*line :8169:16*/				goto l38
 /*line :8169:16*/			}
-/*line :8181:10*/			v3 = v0 + i32(180)
+/*line :8169:46*/			v3 = v0 + i32(180)
 /*line :8169:46*/			v4 = v3 + v1<<2
 /*line :8169:46*/			t119 := int32(load32(m.memory, uint32(v4)))
 /*line :8169:41*/			if t119 == 0 {
@@ -21798,8 +21798,8 @@
 /*line :8169:41*/			if t129 == 0 {
 /*line :8169:41*/				goto l41
 /*line :8169:41*/			}
-/*line :8169:41*/			t130 := int32(load32(m.memory, uint32(v10)))
-/*line :8169:41*/			v1 = t130
+/*line :7909*/			t130 := int32(load32(m.memory, uint32(v10)))
+/*line :7909*/			v1 = t130
 /*line :970:6*/			t131 := m._newchunk_nolongjmp(v0, i32(20))
 /*line :971:8*/			v0 = t131
 /*line :971:8*/			if v0 == 0 {
@@ -21944,11 +21944,11 @@
 /*line :7959*/	m.___stack_pointer = v7
 /*line :7648:35*/	{
 /*line :7648:35*/		t1 := int32(load32(m.memory, uint64(uint32(v3))+8))
-/*line :7648:35*/		v5 = t1
+/*line :8169:16*/		v5 = t1
 /*line :8169:16*/		if uint32(v5) > uint32(i32(15)) {
 /*line :8169:16*/			goto l0
 /*line :8169:16*/		}
-/*line :8169:54*/		v10 = v0 + i32(180)
+/*line :8169:46*/		v10 = v0 + i32(180)
 /*line :8169:46*/		t2 := int32(load32(m.memory, uint32(v10+v5<<2)))
 /*line :8169:41*/		if t2 == 0 {
 /*line :8169:41*/			goto l0
@@ -21961,7 +21961,7 @@
 /*line :1033:11*/		store32(m.memory, uint64(uint32(v8))+12, uint32(v5))
 /*line :1024:12*/		store32(m.memory, uint32(v8), uint32(i32(97)))
 /*line :7654:34*/		t4 := int32(load32(m.memory, uint64(uint32(v2))+8))
-/*line :7654:34*/		v5 = t4
+/*line :8169:16*/		v5 = t4
 /*line :8169:16*/		if uint32(v5) > uint32(i32(15)) {
 /*line :8169:16*/			goto l2
 /*line :8169:16*/		}
@@ -22051,7 +22051,7 @@
 /*line :1783:17*/		}
 /*line :1783:17*/	l6:
 /*line :8220:22*/		t17 := int32(load32(m.memory, uint64(uint32(v2))+8))
-/*line :8220:22*/		v6 = t17
+/*line :8169:16*/		v6 = t17
 /*line :8169:16*/		if uint32(v6) > uint32(i32(15)) {
 /*line :8169:16*/			goto l9
 /*line :8169:16*/		}
@@ -22063,7 +22063,7 @@
 /*line :8181:40*/		store32(m.memory, uint32(v8), uint32(i32(0)))
 /*line :8221:11*/		store32(m.memory, uint64(uint32(v2))+8, uint32(i32(-1)))
 /*line :8220:22*/		t19 := int32(load32(m.memory, uint64(uint32(v3))+8))
-/*line :8220:22*/		v6 = t19
+/*line :8169:16*/		v6 = t19
 /*line :8169:16*/		if uint32(v6) > uint32(i32(15)) {
 /*line :8169:16*/			goto l10
 /*line :8169:16*/		}
@@ -22081,7 +22081,7 @@
 /*line :7949:6*/				goto l11
 /*line :7949:6*/			}
 /*line :7949:6*/			t22 := int32(load32(m.memory, uint64(uint32(v0))+208))
-/*line :7949:6*/			v6 = t22
+/*line :1731:18*/			v6 = t22
 /*line :1731:18*/			if v6 == i32(2) {
 /*line :1731:18*/				v5 = v0
 /*line :1740:18*/				goto l11
@@ -22094,8 +22094,8 @@
 /*line :1734:18*/			if v6 == i32(2) {
 /*line :1734:18*/				goto l11
 /*line :1734:18*/			}
-/*line :1740:18*/			if v6 == i32(1) {
-/*line :1740:18*/				v5 = v0
+/*line :1734:18*/			if v6 == i32(1) {
+/*line :1734:18*/				v5 = v0
 /*line :1740:18*/				goto l11
 /*line :1740:18*/			}
 /*line :1740:18*/			v6 = v0
@@ -22164,7 +22164,7 @@
 /*line :7951:6*/				goto l14
 /*line :7951:6*/			}
 /*line :7951:6*/			t42 := int32(load32(m.memory, uint64(uint32(v0))+208))
-/*line :7951:6*/			v6 = t42
+/*line :1731:18*/			v6 = t42
 /*line :1731:18*/			if v6 == i32(2) {
 /*line :1731:18*/				v5 = v0
 /*line :1740:18*/				goto l14
@@ -22177,8 +22177,8 @@
 /*line :1734:18*/			if v6 == i32(2) {
 /*line :1734:18*/				goto l14
 /*line :1734:18*/			}
-/*line :1740:18*/			if v6 == i32(1) {
-/*line :1740:18*/				v5 = v0
+/*line :1734:18*/			if v6 == i32(1) {
+/*line :1734:18*/				v5 = v0
 /*line :1740:18*/				goto l14
 /*line :1740:18*/			}
 /*line :1744:20*/			t44 := int32(load32(m.memory, uint64(uint32(v5))+96))
@@ -22284,7 +22284,7 @@
 /*line :7972*/	v4 = t0 - i32(16)
 /*line :7972*/	m.___stack_pointer = v4
 /*line :7972*/	{
-/*line :970:6*/		t1 := m._newchunk_nolongjmp(v0, i32(12))
+/*line :7972*/		t1 := m._newchunk_nolongjmp(v0, i32(12))
 /*line :971:8*/		v5 = t1
 /*line :971:8*/		if v5 != 0 {
 /*line :8193:13*/			store32(m.memory, uint64(uint32(v5))+8, uint32(i32(-1)))
@@ -22331,7 +22331,7 @@
 /*line :7982:7*/			store32(m.memory, uint64(uint32(v5))+4, uint32(v1))
 /*line :1024:12*/			store32(m.memory, uint32(v1), uint32(i32(128)))
 /*line :7983:41*/			t11 := int32(load32(m.memory, uint64(uint32(v5))+8))
-/*line :7983:41*/			v3 = t11
+/*line :8169:16*/			v3 = t11
 /*line :8169:16*/			if uint32(v3) > uint32(i32(15)) {
 /*line :8169:16*/				goto l3
 /*line :8169:16*/			}
@@ -22382,7 +22382,7 @@
 /*line :7999*/	v5 = t0 - i32(16)
 /*line :7999*/	m.___stack_pointer = v5
 /*line :7999*/	{
-/*line :970:6*/		t1 := m._newchunk_nolongjmp(v0, i32(12))
+/*line :7999*/		t1 := m._newchunk_nolongjmp(v0, i32(12))
 /*line :971:8*/		v6 = t1
 /*line :971:8*/		if v6 != 0 {
 /*line :8193:13*/			store32(m.memory, uint64(uint32(v6))+8, uint32(i32(-1)))
@@ -22430,7 +22430,7 @@
 /*line :1024:12*/			store32(m.memory, uint32(v2), uint32(i32(0)))
 /*line :7992:7*/			store32(m.memory, uint64(uint32(v6))+4, uint32(v2))
 /*line :7993:41*/			t11 := int32(load32(m.memory, uint64(uint32(v6))+8))
-/*line :7993:41*/			v4 = t11
+/*line :8169:16*/			v4 = t11
 /*line :8169:16*/			if uint32(v4) > uint32(i32(15)) {
 /*line :8169:16*/				goto l3
 /*line :8169:16*/			}
@@ -22506,11 +22506,11 @@
 /*line :8047:2*/		}
 /*line :8047:2*/	l0:
 /*line :7654:34*/		t7 := int32(load32(m.memory, uint64(uint32(v1))+8))
-/*line :7654:34*/		v2 = t7
+/*line :8169:16*/		v2 = t7
 /*line :8169:16*/		if uint32(v2) > uint32(i32(15)) {
 /*line :8169:16*/			goto l2
 /*line :8169:16*/		}
-/*line :8169:54*/		v6 = v0 + i32(180)
+/*line :8169:46*/		v6 = v0 + i32(180)
 /*line :8169:46*/		t8 := int32(load32(m.memory, uint32(v6+v2<<2)))
 /*line :8169:41*/		if t8 == 0 {
 /*line :8169:41*/			goto l2
@@ -22551,7 +22551,7 @@
 /*line :7619:2*/		}
 /*line :7621:11*/		store32(m.memory, uint64(uint32(v2))+16, uint32(v5))
 /*line :8057:42*/		t14 := int32(load32(m.memory, uint64(uint32(v1))+8))
-/*line :8057:42*/		v2 = t14
+/*line :8169:16*/		v2 = t14
 /*line :8169:16*/		if uint32(v2) > uint32(i32(15)) {
 /*line :8169:16*/			goto l6
 /*line :8169:16*/		}
@@ -22559,8 +22559,8 @@
 /*line :8169:41*/		if t15 == 0 {
 /*line :8169:41*/			goto l6
 /*line :8169:41*/		}
-/*line :8169:41*/		t16 := int32(load32(m.memory, uint64(uint32(v1))+4))
-/*line :8169:41*/		v3 = t16
+/*line :8057*/		t16 := int32(load32(m.memory, uint64(uint32(v1))+4))
+/*line :8057*/		v3 = t16
 /*line :970:6*/		t17 := m._newchunk_nolongjmp(v0, i32(20))
 /*line :971:8*/		v0 = t17
 /*line :971:8*/		if v0 == 0 {
@@ -22629,9 +22629,9 @@
 /*line :8094:6*/			if t5 != 0 {
 /*line :8094:6*/				goto l0
 /*line :8094:6*/			}
-/*line :8094:6*/			{
-/*line :8094:6*/				{
-/*line :8095:3*/					switch i32_rotl(v1-i32(48), i32(28)) {
+/*line :8095:3*/			{
+/*line :8095:3*/				{
+/*line :8095:3*/					switch i32_rotl(v1, i32(28)) - i32(3) {
 /*line :8095:3*/					case 0:
 /*line :8095:3*/						goto l1
 /*line :8095:3*/					case 3, 4:
@@ -22665,11 +22665,11 @@
 /*line :8106:19*/		}
 /*line :8106:19*/	l0:
 /*line :7648:35*/		t9 := int32(load32(m.memory, uint64(uint32(v3))+8))
-/*line :7648:35*/		v4 = t9
+/*line :8169:16*/		v4 = t9
 /*line :8169:16*/		if uint32(v4) > uint32(i32(15)) {
 /*line :8169:16*/			goto l5
 /*line :8169:16*/		}
-/*line :8169:54*/		v7 = v0 + i32(180)
+/*line :8169:46*/		v7 = v0 + i32(180)
 /*line :8169:46*/		t10 := int32(load32(m.memory, uint32(v7+v4<<2)))
 /*line :8169:41*/		if t10 == 0 {
 /*line :8169:41*/			goto l5
@@ -22682,7 +22682,7 @@
 /*line :1033:11*/		store32(m.memory, uint64(uint32(v6))+12, uint32(v4))
 /*line :1024:12*/		store32(m.memory, uint32(v6), uint32(i32(97)))
 /*line :7654:34*/		t12 := int32(load32(m.memory, uint64(uint32(v2))+8))
-/*line :7654:34*/		v4 = t12
+/*line :8169:16*/		v4 = t12
 /*line :8169:16*/		if uint32(v4) > uint32(i32(15)) {
 /*line :8169:16*/			goto l7
 /*line :8169:16*/		}
@@ -22752,7 +22752,7 @@
 /*line :7619:2*/		}
 /*line :7621:11*/		store32(m.memory, uint64(uint32(v6))+16, uint32(v8))
 /*line :8220:22*/		t22 := int32(load32(m.memory, uint64(uint32(v2))+8))
-/*line :8220:22*/		v4 = t22
+/*line :8169:16*/		v4 = t22
 /*line :8169:16*/		if uint32(v4) > uint32(i32(15)) {
 /*line :8169:16*/			goto l12
 /*line :8169:16*/		}
@@ -22764,7 +22764,7 @@
 /*line :8181:40*/		store32(m.memory, uint32(v6), uint32(i32(0)))
 /*line :8221:11*/		store32(m.memory, uint64(uint32(v2))+8, uint32(i32(-1)))
 /*line :8220:22*/		t24 := int32(load32(m.memory, uint64(uint32(v3))+8))
-/*line :8220:22*/		v4 = t24
+/*line :8169:16*/		v4 = t24
 /*line :8169:16*/		if uint32(v4) > uint32(i32(15)) {
 /*line :8169:16*/			goto l13
 /*line :8169:16*/		}
@@ -22776,7 +22776,7 @@
 /*line :8181:40*/		store32(m.memory, uint32(v6), uint32(i32(0)))
 /*line :8221:11*/		store32(m.memory, uint64(uint32(v3))+8, uint32(i32(-1)))
 /*line :8204:9*/		t26 := int32(load32(m.memory, uint64(uint32(v2))+8))
-/*line :8204:9*/		v4 = t26
+/*line :8221:11*/		v4 = t26
 /*line :8204:15*/		if v4 != i32(-1) {
 /*line :8204:15*/			goto l14
 /*line :8204:15*/		}
@@ -22886,7 +22886,7 @@
 /*line bpf.go:22886:1*/}
 /*line :22887:1*/func (m *Module) _gen_greater(v0, v1 int32) int32 {
 /*line :22888:1*/	var v2 int32
-/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:8232*/	{
+/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:970:6*/	{
 /*line :970:6*/		t0 := m._newchunk_nolongjmp(v0, i32(20))
 /*line :971:8*/		v2 = t0
 /*line :971:8*/		if v2 != 0 {
@@ -22911,7 +22911,7 @@
 /*line bpf.go:22911:1*/}
 /*line :22912:1*/func (m *Module) _gen_less(v0, v1 int32) int32 {
 /*line :22913:1*/	var v2 int32
-/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:8248*/	{
+/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:970:6*/	{
 /*line :970:6*/		t0 := m._newchunk_nolongjmp(v0, i32(20))
 /*line :971:8*/		v2 = t0
 /*line :971:8*/		if v2 != 0 {
@@ -22965,13 +22965,13 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:8265*/	t0 := m.___stack_pointer
 /*line :8265*/	v6 = t0 - i32(32)
 /*line :8265*/	m.___stack_pointer = v6
-/*line :1298:10*/	if uint32(v3) < uint32(i32(256)) {
-/*line :1298:10*/		{
-/*line :1298:10*/			{
-/*line :1298:10*/				{
-/*line :1298:10*/					{
-/*line :1298:10*/						{
-/*line :1298:10*/							{
+/*line :8265*/	if uint32(v3) < uint32(i32(256)) {
+/*line :8278:2*/		{
+/*line :8278:2*/			{
+/*line :8278:2*/				{
+/*line :8278:2*/					{
+/*line :8278:2*/						{
+/*line :8278:2*/							{
 /*line :8278:2*/								switch v1 - i32(38) {
 /*line :8278:2*/								case 0:
 /*line :8278:2*/									goto l0
@@ -23269,9 +23269,9 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:8309*/	t0 := m.___stack_pointer
 /*line :8309*/	v6 = t0 - i32(16)
 /*line :8309*/	m.___stack_pointer = v6
-/*line :8309*/	{
-/*line :8309*/		{
-/*line :8309*/			{
+/*line :8321:2*/	{
+/*line :8321:2*/		{
+/*line :8321:2*/			{
 /*line :8321:2*/				if uint32(v1) >= uint32(i32(2)) {
 /*line :8321:2*/					if v1 == i32(2) {
 /*line :8321:2*/						goto l0
@@ -23285,7 +23285,7 @@
 /*line :8353:2*/				}
 /*line :8325:19*/				{
 /*line :8325:19*/					t2 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :8325:19*/					v1 = t2
+/*line :8325:3*/					v1 = t2
 /*line :8325:3*/					if v1 != i32(7) {
 /*line :8325:3*/						if v1 == i32(165) {
 /*line :8325:3*/							goto l1
@@ -23319,7 +23319,7 @@
 /*line :8349:8*/			v1 = t10
 /*line :1757:10*/			{
 /*line :1757:10*/				t11 := int32(load32(m.memory, uint64(uint32(v2))+208))
-/*line :1757:10*/				v0 = t11
+/*line :1757:18*/				v0 = t11
 /*line :1757:18*/				if v0 == i32(2) {
 /*line :1757:18*/					goto l5
 /*line :1757:18*/				}
@@ -23404,8 +23404,8 @@
 /*line :1734:18*/			if v0 == i32(2) {
 /*line :1734:18*/				goto l3
 /*line :1734:18*/			}
-/*line :1740:18*/			if v0 == i32(1) {
-/*line :1740:18*/				v1 = v3
+/*line :1734:18*/			if v0 == i32(1) {
+/*line :1734:18*/				v1 = v3
 /*line :1740:18*/				goto l3
 /*line :1740:18*/			}
 /*line :1744:20*/			t30 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -23596,10 +23596,10 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:4844*/	t0 := m.___stack_pointer
 /*line :4844*/	v5 = t0 - i32(48)
 /*line :4844*/	m.___stack_pointer = v5
-/*line :4844*/	{
-/*line :4844*/		{
-/*line :4844*/			{
-/*line :4844*/				{
+/*line :4848:2*/	{
+/*line :4848:2*/		{
+/*line :4848:2*/			{
+/*line :4848:2*/				{
 /*line :4848:2*/					if v1 <= i32(239) {
 /*line :4848:2*/						if v1 == i32(6) {
 /*line :4848:2*/							goto l0
@@ -23708,7 +23708,7 @@
 /*line :4848:2*/				goto l10
 /*line :4848:2*/			}
 /*line :4848:2*/		l1:
-/*line :4885:16*/			if uint32(v1) <= uint32(i32(1500)) {
+/*line :4848:2*/			if uint32(v1) <= uint32(i32(1500)) {
 /*line :1298:10*/				if uint32(v1) >= uint32(i32(256)) {
 /*line :1298:10*/					goto l11
 /*line :1298:10*/				}
@@ -23841,7 +23841,7 @@
 /*line :3339*/			{
 /*line :3339*/				{
 /*line :3339*/					{
-/*line :3342:2*/						if v1 <= i32(239) {
+/*line :3339*/						if v1 <= i32(239) {
 /*line :3342:2*/							if v1 == i32(6) {
 /*line :3342:2*/								goto l0
 /*line :3342:2*/							}
@@ -24008,7 +24008,7 @@
 /*line :1909:11*/					store32(m.memory, uint64(uint32(v3))+4, uint32(v6))
 /*line :1013:10*/					store32(m.memory, uint64(uint32(v3))+96, uint32(v3))
 /*line :1013:10*/					t22 := int32(load32(m.memory, uint64(uint32(v2))+208))
-/*line :1013:10*/					v0 = t22
+/*line :1731:18*/					v0 = t22
 /*line :1731:18*/					if v0 == i32(2) {
 /*line :1731:18*/						v3 = v2
 /*line :1740:18*/						goto l14
@@ -24021,8 +24021,8 @@
 /*line :1734:18*/					if v0 == i32(2) {
 /*line :1734:18*/						goto l14
 /*line :1734:18*/					}
-/*line :1740:18*/					if v0 == i32(1) {
-/*line :1740:18*/						v3 = v2
+/*line :1734:18*/					if v0 == i32(1) {
+/*line :1734:18*/						v3 = v2
 /*line :1740:18*/						goto l14
 /*line :1740:18*/					}
 /*line :1740:18*/					v0 = v2
@@ -24222,7 +24222,7 @@
 /*line :1013:10*/				store32(m.memory, uint64(uint32(v1))+96, uint32(v1))
 /*line :1731:10*/				{
 /*line :1731:10*/					t66 := int32(load32(m.memory, uint64(uint32(v1))+208))
-/*line :1731:10*/					v4 = t66
+/*line :1731:18*/					v4 = t66
 /*line :1731:18*/					if v4 == i32(2) {
 /*line :1731:18*/						v3 = v1
 /*line :1740:18*/						goto l22
@@ -24235,8 +24235,8 @@
 /*line :1734:18*/					if v4 == i32(2) {
 /*line :1734:18*/						goto l22
 /*line :1734:18*/					}
-/*line :1740:18*/					if v4 == i32(1) {
-/*line :1740:18*/						v3 = v1
+/*line :1734:18*/					if v4 == i32(1) {
+/*line :1734:18*/						v3 = v1
 /*line :1740:18*/						goto l22
 /*line :1740:18*/					}
 /*line :1744:20*/					t68 := int32(load32(m.memory, uint64(uint32(v3))+96))
@@ -24343,7 +24343,7 @@
 /*line :1013:10*/				store32(m.memory, uint64(uint32(v1))+96, uint32(v1))
 /*line :1757:10*/				{
 /*line :1757:10*/					t91 := int32(load32(m.memory, uint64(uint32(v1))+208))
-/*line :1757:10*/					v4 = t91
+/*line :1757:18*/					v4 = t91
 /*line :1757:18*/					if v4 == i32(2) {
 /*line :1757:18*/						goto l27
 /*line :1757:18*/					}
@@ -24456,7 +24456,7 @@
 /*line :1909:11*/				store32(m.memory, uint64(uint32(v1))+4, uint32(v5))
 /*line :1013:10*/				store32(m.memory, uint64(uint32(v1))+96, uint32(v1))
 /*line :1757:10*/				t113 := int32(load32(m.memory, uint64(uint32(v1))+208))
-/*line :1757:10*/				v0 = t113
+/*line :1757:18*/				v0 = t113
 /*line :1757:18*/				if v0 == i32(2) {
 /*line :1757:18*/					goto l14
 /*line :1757:18*/				}
@@ -24554,7 +24554,7 @@
 /*line :4610:9*/			v3 = t131
 /*line :1731:10*/			{
 /*line :1731:10*/				t132 := int32(load32(m.memory, uint64(uint32(v2))+208))
-/*line :1731:10*/				v4 = t132
+/*line :1731:18*/				v4 = t132
 /*line :1731:18*/				if v4 == i32(2) {
 /*line :1731:18*/					v3 = v2
 /*line :1740:18*/					goto l35
@@ -24567,8 +24567,8 @@
 /*line :1734:18*/				if v4 == i32(2) {
 /*line :1734:18*/					goto l35
 /*line :1734:18*/				}
-/*line :1740:18*/				if v4 == i32(1) {
-/*line :1740:18*/					v3 = v2
+/*line :1734:18*/				if v4 == i32(1) {
+/*line :1734:18*/					v3 = v2
 /*line :1740:18*/					goto l35
 /*line :1740:18*/				}
 /*line :1744:20*/				t134 := int32(load32(m.memory, uint64(uint32(v3))+96))
@@ -24674,7 +24674,7 @@
 /*line :1909:11*/			store32(m.memory, uint64(uint32(v4))+4, uint32(v6))
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v4))+96, uint32(v4))
 /*line :1757:10*/			t157 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1757:10*/			v0 = t157
+/*line :1757:18*/			v0 = t157
 /*line :1757:18*/			if v0 == i32(2) {
 /*line :1757:18*/				goto l14
 /*line :1757:18*/			}
@@ -24746,7 +24746,7 @@
 /*line :1775:2*/			goto l14
 /*line :1775:2*/		}
 /*line :1775:2*/	l1:
-/*line :3451:16*/		if uint32(v1) <= uint32(i32(1500)) {
+/*line :1775:2*/		if uint32(v1) <= uint32(i32(1500)) {
 /*line :1298:10*/			if uint32(v1) >= uint32(i32(256)) {
 /*line :1298:10*/				goto l42
 /*line :1298:10*/			}
@@ -24834,7 +24834,7 @@
 /*line :1909:11*/			store32(m.memory, uint64(uint32(v3))+4, uint32(v6))
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v3))+96, uint32(v3))
 /*line :1013:10*/			t185 := int32(load32(m.memory, uint64(uint32(v2))+208))
-/*line :1013:10*/			v0 = t185
+/*line :1731:18*/			v0 = t185
 /*line :1731:18*/			if v0 == i32(2) {
 /*line :1731:18*/				v3 = v2
 /*line :1740:18*/				goto l14
@@ -24847,8 +24847,8 @@
 /*line :1734:18*/			if v0 == i32(2) {
 /*line :1734:18*/				goto l14
 /*line :1734:18*/			}
-/*line :1740:18*/			if v0 == i32(1) {
-/*line :1740:18*/				v3 = v2
+/*line :1734:18*/			if v0 == i32(1) {
+/*line :1734:18*/				v3 = v2
 /*line :1740:18*/				goto l14
 /*line :1740:18*/			}
 /*line :1740:18*/			v0 = v2
@@ -24976,7 +24976,7 @@
 /*line bpf.go:24976:1*/}
 /*line :24977:1*/func (m *Module) _gen_false(v0 int32) int32 {
 /*line :24978:1*/	var v1 int32
-/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:2860*/	{
+/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:970:6*/	{
 /*line :970:6*/		t0 := m._newchunk_nolongjmp(v0, i32(20))
 /*line :971:8*/		v1 = t0
 /*line :971:8*/		if v1 != 0 {
@@ -25003,7 +25003,7 @@
 /*line bpf.go:25003:1*/}
 /*line :25004:1*/func (m *Module) _gen_true(v0 int32) int32 {
 /*line :25005:1*/	var v1 int32
-/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:2854*/	{
+/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:970:6*/	{
 /*line :970:6*/		t0 := m._newchunk_nolongjmp(v0, i32(20))
 /*line :971:8*/		v1 = t0
 /*line :971:8*/		if v1 != 0 {
@@ -25034,8 +25034,8 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:4135*/	t0 := m.___stack_pointer
 /*line :4135*/	v2 = t0 - i32(16)
 /*line :4135*/	m.___stack_pointer = v2
-/*line :4135*/	{
-/*line :4135*/		var p1 int32
+/*line :4136:2*/	{
+/*line :4136:2*/		var p1 int32
 /*line :4136:2*/		if v1 <= i32(2047) {
 /*line :4136:2*/			if v1 <= i32(253) {
 /*line :4136:2*/				if v1 == i32(66) {
@@ -25056,8 +25056,8 @@
 /*line :4151:3*/			p1 = i32(37)
 /*line :4151:3*/			goto l2
 /*line :4151:3*/		}
-/*line :4136:2*/		if v1 <= i32(32922) {
-/*line :4136:2*/			v3 = i32(33)
+/*line :4151:3*/		if v1 <= i32(32922) {
+/*line :4151:3*/			v3 = i32(33)
 /*line :4136:2*/			t2 := v3
 /*line :4136:2*/			if v1 == i32(2048) {
 /*line :4136:2*/				p1 = t2
@@ -25146,7 +25146,7 @@
 /*line :3286:18*/				{
 /*line :3286:18*/					{
 /*line :3286:18*/						t6 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :3286:18*/						v5 = t6
+/*line :3286:2*/						v5 = t6
 /*line :3286:2*/						switch v5 - i32(108) {
 /*line :3286:2*/						case 0:
 /*line :3286:2*/							goto l4
@@ -25175,7 +25175,7 @@
 /*line :3292:8*/					t14 := m._gen_bsd_af_linktype_offline(t11, i32(0), i32(0), t12, p13)
 /*line :3292:8*/					v1 = t14
 /*line :1757:10*/					t15 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1757:10*/					v0 = t15
+/*line :1757:18*/					v0 = t15
 /*line :1757:18*/					if v0 == i32(2) {
 /*line :1757:18*/						goto l1
 /*line :1757:18*/					}
@@ -25284,7 +25284,7 @@
 /*line :3205:1*/	}
 /*line :3205:1*/	{
 /*line :3205:1*/		{
-/*line :3070:2*/			if v1 != i32(34525) {
+/*line :3205:1*/			if v1 != i32(34525) {
 /*line :3070:2*/				if v1 != i32(2048) {
 /*line :3070:2*/					goto l0
 /*line :3070:2*/				}
@@ -25402,9 +25402,9 @@
 /*line :25402:1*/	var v2 int32
 /*line :25403:1*/	var v3 int32
 /*line :25404:1*/	var v4 int32
-/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:3311*/	{
-/*line :3311*/		{
-/*line :3312:2*/			if v1 != i32(34525) {
+/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:3205:1*/	{
+/*line :3205:1*/		{
+/*line :3205:1*/			if v1 != i32(34525) {
 /*line :3312:2*/				if v1 != i32(2048) {
 /*line :3312:2*/					goto l0
 /*line :3312:2*/				}
@@ -25551,7 +25551,7 @@
 /*line :8388:19*/									{
 /*line :8388:19*/										{
 /*line :8388:19*/											t1 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :8388:19*/											v1 = t1
+/*line :8388:3*/											v1 = t1
 /*line :8388:3*/											if v1 <= i32(191) {
 /*line :8388:3*/												switch v1 - i32(105) {
 /*line :8388:3*/												case 0, 14, 22, 58:
@@ -25605,7 +25605,7 @@
 /*line :8401:11*/										goto l13
 /*line :8401:11*/									}
 /*line :8401:11*/									t5 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :8401:11*/									v0 = t5
+/*line :1731:18*/									v0 = t5
 /*line :1731:18*/									if v0 == i32(2) {
 /*line :1731:18*/										v1 = v3
 /*line :1740:18*/										goto l13
@@ -25618,8 +25618,8 @@
 /*line :1734:18*/									if v0 == i32(2) {
 /*line :1734:18*/										goto l13
 /*line :1734:18*/									}
-/*line :1740:18*/									if v0 == i32(1) {
-/*line :1740:18*/										v1 = v3
+/*line :1734:18*/									if v0 == i32(1) {
+/*line :1734:18*/										v1 = v3
 /*line :1740:18*/										goto l13
 /*line :1740:18*/									}
 /*line :1744:20*/									t7 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -25769,7 +25769,7 @@
 /*line :1909:11*/					store32(m.memory, uint64(uint32(v1))+4, uint32(v4))
 /*line :1013:10*/					store32(m.memory, uint64(uint32(v1))+96, uint32(v1))
 /*line :1013:10*/					t37 := int32(load32(m.memory, uint64(uint32(v6))+208))
-/*line :1013:10*/					v0 = t37
+/*line :1731:18*/					v0 = t37
 /*line :1731:18*/					if v0 == i32(2) {
 /*line :1731:18*/						v1 = v6
 /*line :1740:18*/						goto l13
@@ -25782,8 +25782,8 @@
 /*line :1734:18*/					if v0 == i32(2) {
 /*line :1734:18*/						goto l13
 /*line :1734:18*/					}
-/*line :1740:18*/					if v0 == i32(1) {
-/*line :1740:18*/						v1 = v6
+/*line :1734:18*/					if v0 == i32(1) {
+/*line :1734:18*/						v1 = v6
 /*line :1740:18*/						goto l13
 /*line :1740:18*/					}
 /*line :1740:18*/					v0 = v6
@@ -25891,7 +25891,7 @@
 /*line :1909:11*/				store32(m.memory, uint64(uint32(v1))+4, uint32(v4))
 /*line :1013:10*/				store32(m.memory, uint64(uint32(v1))+96, uint32(v1))
 /*line :1013:10*/				t63 := int32(load32(m.memory, uint64(uint32(v6))+208))
-/*line :1013:10*/				v0 = t63
+/*line :1731:18*/				v0 = t63
 /*line :1731:18*/				if v0 == i32(2) {
 /*line :1731:18*/					v1 = v6
 /*line :1740:18*/					goto l13
@@ -25904,8 +25904,8 @@
 /*line :1734:18*/				if v0 == i32(2) {
 /*line :1734:18*/					goto l13
 /*line :1734:18*/				}
-/*line :1740:18*/				if v0 == i32(1) {
-/*line :1740:18*/					v1 = v6
+/*line :1734:18*/				if v0 == i32(1) {
+/*line :1734:18*/					v1 = v6
 /*line :1740:18*/					goto l13
 /*line :1740:18*/				}
 /*line :1740:18*/				v0 = v6
@@ -26023,7 +26023,7 @@
 /*line :8445:9*/		v1 = t89
 /*line :1731:10*/		{
 /*line :1731:10*/			t90 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1731:10*/			v2 = t90
+/*line :1731:18*/			v2 = t90
 /*line :1731:18*/			if v2 == i32(2) {
 /*line :1731:18*/				v1 = v3
 /*line :1740:18*/				goto l28
@@ -26036,8 +26036,8 @@
 /*line :1734:18*/			if v2 == i32(2) {
 /*line :1734:18*/				goto l28
 /*line :1734:18*/			}
-/*line :1740:18*/			if v2 == i32(1) {
-/*line :1740:18*/				v1 = v3
+/*line :1734:18*/			if v2 == i32(1) {
+/*line :1734:18*/				v1 = v3
 /*line :1740:18*/				goto l28
 /*line :1740:18*/			}
 /*line :1744:20*/			t92 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -26170,7 +26170,7 @@
 /*line :8458:9*/		v5 = t119
 /*line :1731:10*/		{
 /*line :1731:10*/			t120 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1731:10*/			v2 = t120
+/*line :1731:18*/			v2 = t120
 /*line :1731:18*/			if v2 == i32(2) {
 /*line :1731:18*/				v5 = v3
 /*line :1740:18*/				goto l36
@@ -26183,8 +26183,8 @@
 /*line :1734:18*/			if v2 == i32(2) {
 /*line :1734:18*/				goto l36
 /*line :1734:18*/			}
-/*line :1740:18*/			if v2 == i32(1) {
-/*line :1740:18*/				v5 = v3
+/*line :1734:18*/			if v2 == i32(1) {
+/*line :1734:18*/				v5 = v3
 /*line :1740:18*/				goto l36
 /*line :1740:18*/			}
 /*line :1744:20*/			t122 := int32(load32(m.memory, uint64(uint32(v5))+96))
@@ -26364,7 +26364,7 @@
 /*line :1013:10*/		store32(m.memory, uint64(uint32(v3))+96, uint32(v3))
 /*line :1731:10*/		{
 /*line :1731:10*/			t162 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1731:10*/			v2 = t162
+/*line :1731:18*/			v2 = t162
 /*line :1731:18*/			if v2 == i32(2) {
 /*line :1731:18*/				v1 = v3
 /*line :1740:18*/				goto l44
@@ -26377,8 +26377,8 @@
 /*line :1734:18*/			if v2 == i32(2) {
 /*line :1734:18*/				goto l44
 /*line :1734:18*/			}
-/*line :1740:18*/			if v2 == i32(1) {
-/*line :1740:18*/				v1 = v3
+/*line :1734:18*/			if v2 == i32(1) {
+/*line :1734:18*/				v1 = v3
 /*line :1740:18*/				goto l44
 /*line :1740:18*/			}
 /*line :1744:20*/			t164 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -26511,7 +26511,7 @@
 /*line :8490:9*/		v5 = t191
 /*line :1731:10*/		{
 /*line :1731:10*/			t192 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1731:10*/			v2 = t192
+/*line :1731:18*/			v2 = t192
 /*line :1731:18*/			if v2 == i32(2) {
 /*line :1731:18*/				v5 = v3
 /*line :1740:18*/				goto l52
@@ -26524,8 +26524,8 @@
 /*line :1734:18*/			if v2 == i32(2) {
 /*line :1734:18*/				goto l52
 /*line :1734:18*/			}
-/*line :1740:18*/			if v2 == i32(1) {
-/*line :1740:18*/				v5 = v3
+/*line :1734:18*/			if v2 == i32(1) {
+/*line :1734:18*/				v5 = v3
 /*line :1740:18*/				goto l52
 /*line :1740:18*/			}
 /*line :1744:20*/			t194 := int32(load32(m.memory, uint64(uint32(v5))+96))
@@ -27760,7 +27760,7 @@
 /*line :27760:1*/	var v4 int32
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:8856:18*/	{
 /*line :8856:18*/		t0 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :8856:18*/		v3 = t0
+/*line :8856:2*/		v3 = t0
 /*line :8856:2*/		v4 = v3 - i32(105)
 /*line :8856:2*/		var p2 int32
 /*line :8856:2*/		if uint32(v4) <= uint32(i32(22)) {
@@ -27794,7 +27794,7 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:8863:3*/	{
 /*line :8863:3*/		{
 /*line :8863:3*/			t0 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :8863:3*/			v2 = t0
+/*line :8881:2*/			v2 = t0
 /*line :8881:2*/			v4 = v2 - i32(105)
 /*line :8881:2*/			var p2 int32
 /*line :8881:2*/			if uint32(v4) <= uint32(i32(22)) {
@@ -27891,7 +27891,7 @@
 /*line :9076:14*/		if t0 == 0 {
 /*line :9110:18*/			{
 /*line :9110:18*/				t1 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :9110:18*/				v3 = t1
+/*line :9110:2*/				v3 = t1
 /*line :9110:2*/				if v3 <= i32(162) {
 /*line :9110:2*/					v4 = v3 - i32(105)
 /*line :9110:2*/					if uint32(v4) <= uint32(i32(22)) {
@@ -27955,7 +27955,7 @@
 /*line :8904:7*/	v6 = t2
 /*line :1757:10*/	{
 /*line :1757:10*/		t3 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1757:10*/		v3 = t3
+/*line :1757:18*/		v3 = t3
 /*line :1757:18*/		if v3 == i32(2) {
 /*line :1757:18*/			goto l0
 /*line :1757:18*/		}
@@ -28171,7 +28171,7 @@
 /*line :1909:11*/			store32(m.memory, uint64(uint32(v4))+4, uint32(v6))
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v4))+96, uint32(v4))
 /*line :1013:10*/			t46 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1013:10*/			v3 = t46
+/*line :1731:18*/			v3 = t46
 /*line :1731:18*/			if v3 == i32(2) {
 /*line :1731:18*/				v4 = v5
 /*line :1740:18*/				goto l6
@@ -28184,8 +28184,8 @@
 /*line :1734:18*/			if v3 == i32(2) {
 /*line :1734:18*/				goto l6
 /*line :1734:18*/			}
-/*line :1740:18*/			if v3 == i32(1) {
-/*line :1740:18*/				v4 = v5
+/*line :1734:18*/			if v3 == i32(1) {
+/*line :1734:18*/				v4 = v5
 /*line :1740:18*/				goto l6
 /*line :1740:18*/			}
 /*line :1740:18*/			v3 = v5
@@ -28306,7 +28306,7 @@
 /*line :9194:19*/		{
 /*line :9194:19*/			{
 /*line :9194:19*/				t7 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :9194:19*/				v3 = t7
+/*line :9194:3*/				v3 = t7
 /*line :9194:3*/				if v3 <= i32(239) {
 /*line :9194:3*/					switch v3 - i32(1) {
 /*line :9194:3*/					case 0:
@@ -28423,7 +28423,7 @@
 /*line :1909:11*/			store32(m.memory, uint64(uint32(v3))+4, uint32(v6))
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v3))+96, uint32(v3))
 /*line :1013:10*/			t18 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1013:10*/			v2 = t18
+/*line :1731:18*/			v2 = t18
 /*line :1731:18*/			if v2 == i32(2) {
 /*line :1731:18*/				v3 = v5
 /*line :1740:18*/				goto l8
@@ -28436,8 +28436,8 @@
 /*line :1734:18*/			if v2 == i32(2) {
 /*line :1734:18*/				goto l8
 /*line :1734:18*/			}
-/*line :1740:18*/			if v2 == i32(1) {
-/*line :1740:18*/				v3 = v5
+/*line :1734:18*/			if v2 == i32(1) {
+/*line :1734:18*/				v3 = v5
 /*line :1740:18*/				goto l8
 /*line :1740:18*/			}
 /*line :1740:18*/			v2 = v5
@@ -28586,7 +28586,7 @@
 /*line :1909:11*/			store32(m.memory, uint64(uint32(v3))+4, uint32(v6))
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v3))+96, uint32(v3))
 /*line :1013:10*/			t8 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1013:10*/			v2 = t8
+/*line :1731:18*/			v2 = t8
 /*line :1731:18*/			if v2 == i32(2) {
 /*line :1731:18*/				v3 = v5
 /*line :1740:18*/				goto l0
@@ -28599,8 +28599,8 @@
 /*line :1734:18*/			if v2 == i32(2) {
 /*line :1734:18*/				goto l0
 /*line :1734:18*/			}
-/*line :1740:18*/			if v2 == i32(1) {
-/*line :1740:18*/				v3 = v5
+/*line :1734:18*/			if v2 == i32(1) {
+/*line :1734:18*/				v3 = v5
 /*line :1740:18*/				goto l0
 /*line :1740:18*/			}
 /*line :1740:18*/			v2 = v5
@@ -28668,8 +28668,8 @@
 /*line :9334:2*/		store32(m.memory, uint64(uint32(v0))+60, uint32(t28))
 /*line :9335:49*/		t29 := int32(load32(m.memory, uint64(uint32(v0))+172))
 /*line :9335:25*/		t30 := int32(load32(m.memory, uint64(uint32(v0))+100))
-/*line :9335:39*/		t31 := v0
-/*line :9335:39*/		v2 = t29 + t30
+/*line :9335:56*/		t31 := v0
+/*line :9335:56*/		v2 = t29 + t30
 /*line :9334:2*/		store32(m.memory, uint64(uint32(t31))+64, uint32(v2+i32(6)))
 /*line :9334:2*/		store32(m.memory, uint64(uint32(v0))+124, uint32(i32(0)))
 /*line :9334:2*/		t32 := int32(load32(m.memory, uint64(uint32(v0))+24))
@@ -28718,7 +28718,7 @@
 /*line :9388:6*/	t2 := m._gen_loadx_iphdrlen(v0)
 /*line :9388:6*/	v9 = t2
 /*line :9388:6*/	{
-/*line :970:6*/		t3 := m._newchunk_nolongjmp(v0, i32(20))
+/*line :9388:6*/		t3 := m._newchunk_nolongjmp(v0, i32(20))
 /*line :971:8*/		v6 = t3
 /*line :971:8*/		if v6 != 0 {
 /*line :1024:12*/			store32(m.memory, uint32(v6), uint32(i32(135)))
@@ -28743,7 +28743,7 @@
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v7))+96, uint32(v7))
 /*line :1731:10*/			{
 /*line :1731:10*/				t6 := int32(load32(m.memory, uint64(uint32(v4))+208))
-/*line :1731:10*/				v5 = t6
+/*line :1731:18*/				v5 = t6
 /*line :1731:18*/				if v5 == i32(2) {
 /*line :1731:18*/					v7 = v4
 /*line :1740:18*/					goto l2
@@ -28756,8 +28756,8 @@
 /*line :1734:18*/				if v5 == i32(2) {
 /*line :1734:18*/					goto l2
 /*line :1734:18*/				}
-/*line :1740:18*/				if v5 == i32(1) {
-/*line :1740:18*/					v7 = v4
+/*line :1734:18*/				if v5 == i32(1) {
+/*line :1734:18*/					v7 = v4
 /*line :1740:18*/					goto l2
 /*line :1740:18*/				}
 /*line :1740:18*/				v5 = v4
@@ -28895,7 +28895,7 @@
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v6))+96, uint32(v6))
 /*line :1731:10*/			{
 /*line :1731:10*/				t34 := int32(load32(m.memory, uint64(uint32(v1))+208))
-/*line :1731:10*/				v5 = t34
+/*line :1731:18*/				v5 = t34
 /*line :1731:18*/				if v5 == i32(2) {
 /*line :1731:18*/					v6 = v1
 /*line :1740:18*/					goto l9
@@ -28908,8 +28908,8 @@
 /*line :1734:18*/				if v5 == i32(2) {
 /*line :1734:18*/					goto l9
 /*line :1734:18*/				}
-/*line :1740:18*/				if v5 == i32(1) {
-/*line :1740:18*/					v6 = v1
+/*line :1734:18*/				if v5 == i32(1) {
+/*line :1734:18*/					v6 = v1
 /*line :1740:18*/					goto l9
 /*line :1740:18*/				}
 /*line :1740:18*/				v5 = v1
@@ -29259,7 +29259,7 @@
 /*line :7619:2*/			}
 /*line :7621:11*/			store32(m.memory, uint64(uint32(v4))+16, uint32(v2))
 /*line :9497:56*/			t99 := int32(load32(m.memory, uint64(uint32(v0))+68))
-/*line :9497:56*/			v3 = t99
+/*line :8169:16*/			v3 = t99
 /*line :8169:16*/			if uint32(v3) > uint32(i32(15)) {
 /*line :8169:16*/				goto l29
 /*line :8169:16*/			}
@@ -29340,7 +29340,7 @@
 /*line :7619:2*/			}
 /*line :7621:11*/			store32(m.memory, uint64(uint32(v4))+16, uint32(v2))
 /*line :9513:56*/			t109 := int32(load32(m.memory, uint64(uint32(v0))+116))
-/*line :9513:56*/			v3 = t109
+/*line :8169:16*/			v3 = t109
 /*line :8169:16*/			if uint32(v3) > uint32(i32(15)) {
 /*line :8169:16*/				goto l34
 /*line :8169:16*/			}
@@ -29495,7 +29495,7 @@
 /*line :9558:19*/			store32(m.memory, uint64(uint32(v0))+124, uint32(i32(1)))
 /*line :1757:10*/			{
 /*line :1757:10*/				t132 := int32(load32(m.memory, uint64(uint32(v7))+208))
-/*line :1757:10*/				v0 = t132
+/*line :1757:18*/				v0 = t132
 /*line :1757:18*/				if v0 == i32(2) {
 /*line :1757:18*/					goto l43
 /*line :1757:18*/				}
@@ -29698,7 +29698,7 @@
 /*line :1951:6*/	t2 := m._gen_load_a(v0, v2, i32(8), i32(16))
 /*line :1951:6*/	v8 = t2
 /*line :1951:6*/	{
-/*line :970:6*/		t3 := m._newchunk_nolongjmp(v0, i32(20))
+/*line :1951:6*/		t3 := m._newchunk_nolongjmp(v0, i32(20))
 /*line :971:8*/		v5 = t3
 /*line :971:8*/		if v5 != 0 {
 /*line :1033:11*/			store32(m.memory, uint64(uint32(v5))+12, uint32(i32(192)))
@@ -29725,7 +29725,7 @@
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v5))+96, uint32(v5))
 /*line :1731:10*/			{
 /*line :1731:10*/				t6 := int32(load32(m.memory, uint64(uint32(v7))+208))
-/*line :1731:10*/				v1 = t6
+/*line :1731:18*/				v1 = t6
 /*line :1731:18*/				if v1 == i32(2) {
 /*line :1731:18*/					v5 = v7
 /*line :1740:18*/					goto l2
@@ -29738,8 +29738,8 @@
 /*line :1734:18*/				if v1 == i32(2) {
 /*line :1734:18*/					goto l2
 /*line :1734:18*/				}
-/*line :1740:18*/				if v1 == i32(1) {
-/*line :1740:18*/					v5 = v7
+/*line :1734:18*/				if v1 == i32(1) {
+/*line :1734:18*/					v5 = v7
 /*line :1740:18*/					goto l2
 /*line :1740:18*/				}
 /*line :1740:18*/				v1 = v7
@@ -29840,7 +29840,7 @@
 /*line :1909:11*/				store32(m.memory, uint64(uint32(v6))+4, uint32(v8))
 /*line :1013:10*/				store32(m.memory, uint64(uint32(v6))+96, uint32(v6))
 /*line :1013:10*/				t29 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1013:10*/				v1 = t29
+/*line :1731:18*/				v1 = t29
 /*line :1731:18*/				if v1 == i32(2) {
 /*line :1731:18*/					v6 = v5
 /*line :1740:18*/					goto l5
@@ -29853,8 +29853,8 @@
 /*line :1734:18*/				if v1 == i32(2) {
 /*line :1734:18*/					goto l5
 /*line :1734:18*/				}
-/*line :1740:18*/				if v1 == i32(1) {
-/*line :1740:18*/					v6 = v5
+/*line :1734:18*/				if v1 == i32(1) {
+/*line :1734:18*/					v6 = v5
 /*line :1740:18*/					goto l5
 /*line :1740:18*/				}
 /*line :1740:18*/				v1 = v5
@@ -29948,7 +29948,7 @@
 /*line :9603:6*/	t2 := m._gen_loadx_iphdrlen(v0)
 /*line :9603:6*/	v6 = t2
 /*line :9603:6*/	{
-/*line :970:6*/		t3 := m._newchunk_nolongjmp(v0, i32(20))
+/*line :9603:6*/		t3 := m._newchunk_nolongjmp(v0, i32(20))
 /*line :971:8*/		v7 = t3
 /*line :971:8*/		if v7 != 0 {
 /*line :1024:12*/			store32(m.memory, uint32(v7), uint32(i32(135)))
@@ -29973,7 +29973,7 @@
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v7))+96, uint32(v7))
 /*line :1731:10*/			{
 /*line :1731:10*/				t6 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1731:10*/				v4 = t6
+/*line :1731:18*/				v4 = t6
 /*line :1731:18*/				if v4 == i32(2) {
 /*line :1731:18*/					v7 = v5
 /*line :1740:18*/					goto l2
@@ -29986,8 +29986,8 @@
 /*line :1734:18*/				if v4 == i32(2) {
 /*line :1734:18*/					goto l2
 /*line :1734:18*/				}
-/*line :1740:18*/				if v4 == i32(1) {
-/*line :1740:18*/					v7 = v5
+/*line :1734:18*/				if v4 == i32(1) {
+/*line :1734:18*/					v7 = v5
 /*line :1740:18*/					goto l2
 /*line :1740:18*/				}
 /*line :1740:18*/				v4 = v5
@@ -30125,7 +30125,7 @@
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v1))+96, uint32(v1))
 /*line :1731:10*/			{
 /*line :1731:10*/				t34 := int32(load32(m.memory, uint64(uint32(v6))+208))
-/*line :1731:10*/				v4 = t34
+/*line :1731:18*/				v4 = t34
 /*line :1731:18*/				if v4 == i32(2) {
 /*line :1731:18*/					v1 = v6
 /*line :1740:18*/					goto l9
@@ -30138,8 +30138,8 @@
 /*line :1734:18*/				if v4 == i32(2) {
 /*line :1734:18*/					goto l9
 /*line :1734:18*/				}
-/*line :1740:18*/				if v4 == i32(1) {
-/*line :1740:18*/					v1 = v6
+/*line :1734:18*/				if v4 == i32(1) {
+/*line :1734:18*/					v1 = v6
 /*line :1740:18*/					goto l9
 /*line :1740:18*/				}
 /*line :1740:18*/				v4 = v6
@@ -30509,7 +30509,7 @@
 /*line :9725:19*/			store32(m.memory, uint64(uint32(v0))+124, uint32(i32(1)))
 /*line :1757:10*/			{
 /*line :1757:10*/				t106 := int32(load32(m.memory, uint64(uint32(v7))+208))
-/*line :1757:10*/				v0 = t106
+/*line :1757:18*/				v0 = t106
 /*line :1757:18*/				if v0 == i32(2) {
 /*line :1757:18*/					goto l30
 /*line :1757:18*/				}
@@ -30700,7 +30700,7 @@
 /*line :1951:6*/	t2 := m._gen_load_a(v0, v2, i32(8), i32(16))
 /*line :1951:6*/	v1 = t2
 /*line :1951:6*/	{
-/*line :970:6*/		t3 := m._newchunk_nolongjmp(v0, i32(212))
+/*line :1951:6*/		t3 := m._newchunk_nolongjmp(v0, i32(212))
 /*line :971:8*/		v5 = t3
 /*line :971:8*/		if v5 != 0 {
 /*line :1012:12*/			store32(m.memory, uint64(uint32(v5))+8, uint32(i32(21)))
@@ -30722,8 +30722,8 @@
 /*line :1734:18*/				if v1 == i32(2) {
 /*line :1734:18*/					goto l0
 /*line :1734:18*/				}
-/*line :1740:18*/				if v1 == i32(1) {
-/*line :1740:18*/					v5 = v7
+/*line :1734:18*/				if v1 == i32(1) {
+/*line :1734:18*/					v5 = v7
 /*line :1740:18*/					goto l0
 /*line :1740:18*/				}
 /*line :1740:18*/				v1 = v7
@@ -30824,7 +30824,7 @@
 /*line :1909:11*/				store32(m.memory, uint64(uint32(v6))+4, uint32(v2))
 /*line :1013:10*/				store32(m.memory, uint64(uint32(v6))+96, uint32(v6))
 /*line :1013:10*/				t27 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1013:10*/				v1 = t27
+/*line :1731:18*/				v1 = t27
 /*line :1731:18*/				if v1 == i32(2) {
 /*line :1731:18*/					v6 = v5
 /*line :1740:18*/					goto l3
@@ -30837,8 +30837,8 @@
 /*line :1734:18*/				if v1 == i32(2) {
 /*line :1734:18*/					goto l3
 /*line :1734:18*/				}
-/*line :1740:18*/				if v1 == i32(1) {
-/*line :1740:18*/					v6 = v5
+/*line :1734:18*/				if v1 == i32(1) {
+/*line :1734:18*/					v6 = v5
 /*line :1740:18*/					goto l3
 /*line :1740:18*/				}
 /*line :1740:18*/				v1 = v5
@@ -30928,7 +30928,7 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:9755*/	t0 := m.___stack_pointer
 /*line :9755*/	v6 = t0 - i32(80)
 /*line :9755*/	m.___stack_pointer = v6
-/*line :9755*/	{
+/*line :1081:9*/	{
 /*line :1081:9*/		if uint32(v1) <= uint32(i32(71)) {
 /*line :1081:19*/			t1 := int32(load32(m.memory, uint64(uint32(v1<<2))+74320))
 /*line :1081:16*/			v8 = t1
@@ -30937,7 +30937,7 @@
 /*line :1081:16*/			}
 /*line :1081:16*/		}
 /*line :1084:18*/		t2 := int32(load32(m.memory, uint32(i32(125968))))
-/*line :1084:18*/		v5 = t2
+/*line :1084:14*/		v5 = t2
 /*line :1084:18*/		v8 = v5<<6 + i32(125712)
 /*line :1086:9*/		m.memory[uint32(v8)] = byte(i32(0))
 /*line :1085:6*/		store32(m.memory, uint32(i32(125968)), uint32((v5+i32(1))&i32(3)))
@@ -30956,7 +30956,7 @@
 /*line :1269:23*/			goto l1
 /*line :1269:23*/		}
 /*line :1270:14*/		t6 := int32(load32(m.memory, uint64(uint32(v0))+132))
-/*line :1270:14*/		v5 = t6
+/*line :1270:22*/		v5 = t6
 /*line :1270:40*/		if v5 == i32(-1) {
 /*line :1270:40*/			goto l1
 /*line :1270:40*/		}
@@ -30973,8 +30973,8 @@
 /*line :1272:42*/		if t9 == i32(-1) {
 /*line :1272:42*/			goto l1
 /*line :1272:42*/		}
-/*line :1272:42*/		{
-/*line :1272:42*/			{
+/*line :9758:2*/		{
+/*line :9758:2*/			{
 /*line :9758:2*/				switch v1 - i32(51) {
 /*line :9758:2*/				case 0:
 /*line :9758:2*/					goto l2
@@ -31167,7 +31167,7 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:9820*/	t0 := m.___stack_pointer
 /*line :9820*/	v5 = t0 - i32(48)
 /*line :9820*/	m.___stack_pointer = v5
-/*line :9820*/	{
+/*line :1081:9*/	{
 /*line :1081:9*/		if uint32(v1) <= uint32(i32(71)) {
 /*line :1081:19*/			t1 := int32(load32(m.memory, uint64(uint32(v1<<2))+74320))
 /*line :1081:16*/			v3 = t1
@@ -31176,7 +31176,7 @@
 /*line :1081:16*/			}
 /*line :1081:16*/		}
 /*line :1084:18*/		t2 := int32(load32(m.memory, uint32(i32(125968))))
-/*line :1084:18*/		v4 = t2
+/*line :1084:14*/		v4 = t2
 /*line :1084:18*/		v3 = v4<<6 + i32(125712)
 /*line :1086:9*/		m.memory[uint32(v3)] = byte(i32(0))
 /*line :1085:6*/		store32(m.memory, uint32(i32(125968)), uint32((v4+i32(1))&i32(3)))
@@ -31210,13 +31210,13 @@
 /*line :1272:42*/		if t9 == i32(-1) {
 /*line :1272:42*/			goto l1
 /*line :1272:42*/		}
-/*line :1272:42*/		{
-/*line :1272:42*/			{
-/*line :1272:42*/				{
-/*line :1272:42*/					{
-/*line :1272:42*/						{
-/*line :1272:42*/							{
-/*line :1272:42*/								{
+/*line :9832:2*/		{
+/*line :9832:2*/			{
+/*line :9832:2*/				{
+/*line :9832:2*/					{
+/*line :9832:2*/						{
+/*line :9832:2*/							{
+/*line :9832:2*/								{
 /*line :9832:2*/									switch v1 - i32(22) {
 /*line :9832:2*/									case 0:
 /*line :9832:2*/										goto l2
@@ -31241,7 +31241,7 @@
 /*line :9784:9*/									t11 := m._gen_atmfield_code_internal(v0, i32(52), i32(1), i32(16), i32(0))
 /*line :9784:9*/									v1 = t11
 /*line :9784:9*/									t12 := int32(load32(m.memory, uint64(uint32(v2))+208))
-/*line :9784:9*/									v0 = t12
+/*line :1731:18*/									v0 = t12
 /*line :1731:18*/									if v0 == i32(2) {
 /*line :1731:18*/										v1 = v2
 /*line :1740:18*/										goto l10
@@ -31254,8 +31254,8 @@
 /*line :1734:18*/									if v0 == i32(2) {
 /*line :1734:18*/										goto l10
 /*line :1734:18*/									}
-/*line :1740:18*/									if v0 == i32(1) {
-/*line :1740:18*/										v1 = v2
+/*line :1734:18*/									if v0 == i32(1) {
+/*line :1734:18*/										v1 = v2
 /*line :1740:18*/										goto l10
 /*line :1740:18*/									}
 /*line :1744:20*/									t14 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -31338,8 +31338,8 @@
 /*line :1734:18*/								if v0 == i32(2) {
 /*line :1734:18*/									goto l10
 /*line :1734:18*/								}
-/*line :1740:18*/								if v0 == i32(1) {
-/*line :1740:18*/									v1 = v2
+/*line :1734:18*/								if v0 == i32(1) {
+/*line :1734:18*/									v1 = v2
 /*line :1740:18*/									goto l10
 /*line :1740:18*/								}
 /*line :1744:20*/								t36 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -31409,7 +31409,7 @@
 /*line :9784:9*/							t55 := m._gen_atmfield_code_internal(v0, i32(52), i32(3), i32(16), i32(0))
 /*line :9784:9*/							v1 = t55
 /*line :9784:9*/							t56 := int32(load32(m.memory, uint64(uint32(v2))+208))
-/*line :9784:9*/							v0 = t56
+/*line :1731:18*/							v0 = t56
 /*line :1731:18*/							if v0 == i32(2) {
 /*line :1731:18*/								v1 = v2
 /*line :1740:18*/								goto l10
@@ -31422,8 +31422,8 @@
 /*line :1734:18*/							if v0 == i32(2) {
 /*line :1734:18*/								goto l10
 /*line :1734:18*/							}
-/*line :1740:18*/							if v0 == i32(1) {
-/*line :1740:18*/								v1 = v2
+/*line :1734:18*/							if v0 == i32(1) {
+/*line :1734:18*/								v1 = v2
 /*line :1740:18*/								goto l10
 /*line :1740:18*/							}
 /*line :1744:20*/							t58 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -31493,7 +31493,7 @@
 /*line :9784:9*/						t77 := m._gen_atmfield_code_internal(v0, i32(52), i32(4), i32(16), i32(0))
 /*line :9784:9*/						v1 = t77
 /*line :9784:9*/						t78 := int32(load32(m.memory, uint64(uint32(v2))+208))
-/*line :9784:9*/						v0 = t78
+/*line :1731:18*/						v0 = t78
 /*line :1731:18*/						if v0 == i32(2) {
 /*line :1731:18*/							v1 = v2
 /*line :1740:18*/							goto l10
@@ -31506,8 +31506,8 @@
 /*line :1734:18*/						if v0 == i32(2) {
 /*line :1734:18*/							goto l10
 /*line :1734:18*/						}
-/*line :1740:18*/						if v0 == i32(1) {
-/*line :1740:18*/							v1 = v2
+/*line :1734:18*/						if v0 == i32(1) {
+/*line :1734:18*/							v1 = v2
 /*line :1740:18*/							goto l10
 /*line :1740:18*/						}
 /*line :1744:20*/						t80 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -31577,7 +31577,7 @@
 /*line :9784:9*/					t99 := m._gen_atmfield_code_internal(v0, i32(52), i32(5), i32(16), i32(0))
 /*line :9784:9*/					v1 = t99
 /*line :9784:9*/					t100 := int32(load32(m.memory, uint64(uint32(v2))+208))
-/*line :9784:9*/					v0 = t100
+/*line :1731:18*/					v0 = t100
 /*line :1731:18*/					if v0 == i32(2) {
 /*line :1731:18*/						v1 = v2
 /*line :1740:18*/						goto l10
@@ -31590,8 +31590,8 @@
 /*line :1734:18*/					if v0 == i32(2) {
 /*line :1734:18*/						goto l10
 /*line :1734:18*/					}
-/*line :1740:18*/					if v0 == i32(1) {
-/*line :1740:18*/						v1 = v2
+/*line :1734:18*/					if v0 == i32(1) {
+/*line :1734:18*/						v1 = v2
 /*line :1740:18*/						goto l10
 /*line :1740:18*/					}
 /*line :1744:20*/					t102 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -31661,7 +31661,7 @@
 /*line :9784:9*/				t121 := m._gen_atmfield_code_internal(v0, i32(52), i32(16), i32(16), i32(0))
 /*line :9784:9*/				v1 = t121
 /*line :9784:9*/				t122 := int32(load32(m.memory, uint64(uint32(v2))+208))
-/*line :9784:9*/				v0 = t122
+/*line :1731:18*/				v0 = t122
 /*line :1731:18*/				if v0 == i32(2) {
 /*line :1731:18*/					v1 = v2
 /*line :1740:18*/					goto l10
@@ -31674,8 +31674,8 @@
 /*line :1734:18*/				if v0 == i32(2) {
 /*line :1734:18*/					goto l10
 /*line :1734:18*/				}
-/*line :1740:18*/				if v0 == i32(1) {
-/*line :1740:18*/					v1 = v2
+/*line :1734:18*/				if v0 == i32(1) {
+/*line :1734:18*/					v1 = v2
 /*line :1740:18*/					goto l10
 /*line :1740:18*/				}
 /*line :1744:20*/				t124 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -31762,8 +31762,8 @@
 /*line :9882:3*/			store32(m.memory, uint64(uint32(v0))+80, uint32(v3))
 /*line :9882:3*/			store32(m.memory, uint64(uint32(v0))+24, uint32(i32(1)))
 /*line :9883:15*/			t146 := int32(load32(m.memory, uint64(uint32(v0))+168))
-/*line :9883:15*/			t147 := v0
-/*line :9883:15*/			v3 = t146
+/*line :9883:27*/			t147 := v0
+/*line :9883:27*/			v3 = t146
 /*line :9882:3*/			store32(m.memory, uint64(uint32(t147))+64, uint32(v3+i32(2)))
 /*line :9885:38*/			store32(m.memory, uint64(uint32(v0))+112, uint32(v3+i32(14)))
 /*line :9886:36*/			store32(m.memory, uint64(uint32(v0))+100, uint32(v3+i32(16)))
@@ -31786,8 +31786,8 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:9905*/	t0 := m.___stack_pointer
 /*line :9905*/	v5 = t0 - i32(48)
 /*line :9905*/	m.___stack_pointer = v5
-/*line :9905*/	{
-/*line :9905*/		{
+/*line :1081:9*/	{
+/*line :1081:9*/		{
 /*line :1081:16*/			if uint32(v1) > uint32(i32(27)) {
 /*line :1081:16*/				goto l0
 /*line :1081:16*/			}
@@ -31800,7 +31800,7 @@
 /*line :1081:16*/		}
 /*line :1081:16*/	l0:
 /*line :1084:18*/		t2 := int32(load32(m.memory, uint32(i32(125968))))
-/*line :1084:18*/		v3 = t2
+/*line :1084:14*/		v3 = t2
 /*line :1084:18*/		v2 = v3<<6 + i32(125712)
 /*line :1086:9*/		m.memory[uint32(v2)] = byte(i32(0))
 /*line :1085:6*/		store32(m.memory, uint32(i32(125968)), uint32((v3+i32(1))&i32(3)))
@@ -31811,7 +31811,7 @@
 /*line :1087:2*/l1:
 /*line :1280:18*/	{
 /*line :1280:18*/		t4 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :1280:18*/		v3 = t4
+/*line :1280:2*/		v3 = t4
 /*line :1280:2*/		var p5 int32
 /*line :1280:2*/		if uint32(v3-i32(139)) >= uint32(i32(2)) {
 /*line :1280:2*/			p5 = 1
@@ -31839,12 +31839,12 @@
 /*line :1287:41*/		if t10 == i32(-1) {
 /*line :1287:41*/			goto l2
 /*line :1287:41*/		}
-/*line :1287:41*/		{
-/*line :1287:41*/			{
-/*line :1287:41*/				{
-/*line :1287:41*/					{
-/*line :1287:41*/						{
-/*line :1287:41*/							{
+/*line :9917:2*/		{
+/*line :9917:2*/			{
+/*line :9917:2*/				{
+/*line :9917:2*/					{
+/*line :9917:2*/						{
+/*line :9917:2*/							{
 /*line :9917:2*/								switch v1 - i32(22) {
 /*line :9917:2*/								case 0:
 /*line :9917:2*/									goto l3
@@ -31939,7 +31939,7 @@
 /*line :1909:11*/							store32(m.memory, uint64(uint32(v0))+4, uint32(v4))
 /*line :1013:10*/							store32(m.memory, uint64(uint32(v0))+96, uint32(v0))
 /*line :1013:10*/							t23 := int32(load32(m.memory, uint64(uint32(v0))+208))
-/*line :1013:10*/							v1 = t23
+/*line :1731:18*/							v1 = t23
 /*line :1731:18*/							if v1 == i32(2) {
 /*line :1731:18*/								v2 = v0
 /*line :1740:18*/								goto l14
@@ -31952,8 +31952,8 @@
 /*line :1734:18*/							if v1 == i32(2) {
 /*line :1734:18*/								goto l14
 /*line :1734:18*/							}
-/*line :1740:18*/							if v1 == i32(1) {
-/*line :1740:18*/								v2 = v0
+/*line :1734:18*/							if v1 == i32(1) {
+/*line :1734:18*/								v2 = v0
 /*line :1740:18*/								goto l14
 /*line :1740:18*/							}
 /*line :1744:20*/							t25 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -32132,7 +32132,7 @@
 /*line :1909:11*/				store32(m.memory, uint64(uint32(v0))+4, uint32(v4))
 /*line :1013:10*/				store32(m.memory, uint64(uint32(v0))+96, uint32(v0))
 /*line :1013:10*/				t60 := int32(load32(m.memory, uint64(uint32(v0))+208))
-/*line :1013:10*/				v1 = t60
+/*line :1731:18*/				v1 = t60
 /*line :1731:18*/				if v1 == i32(2) {
 /*line :1731:18*/					v2 = v0
 /*line :1740:18*/					goto l14
@@ -32145,8 +32145,8 @@
 /*line :1734:18*/				if v1 == i32(2) {
 /*line :1734:18*/					goto l14
 /*line :1734:18*/				}
-/*line :1740:18*/				if v1 == i32(1) {
-/*line :1740:18*/					v2 = v0
+/*line :1734:18*/				if v1 == i32(1) {
+/*line :1734:18*/					v2 = v0
 /*line :1740:18*/					goto l14
 /*line :1740:18*/				}
 /*line :1744:20*/				t62 := int32(load32(m.memory, uint64(uint32(v2))+96))
@@ -32286,8 +32286,8 @@
 /*line :9972:23*/	v10 = t3
 /*line :9971:23*/	t4 := int32(load32(m.memory, uint64(uint32(v0))+152))
 /*line :9971:23*/	v11 = t4
-/*line :9971:23*/	{
-/*line :9971:23*/		{
+/*line :1081:9*/	{
+/*line :1081:9*/		{
 /*line :1081:16*/			if uint32(v1) > uint32(i32(27)) {
 /*line :1081:16*/				goto l0
 /*line :1081:16*/			}
@@ -32300,7 +32300,7 @@
 /*line :1081:16*/		}
 /*line :1081:16*/	l0:
 /*line :1084:18*/		t6 := int32(load32(m.memory, uint32(i32(125968))))
-/*line :1084:18*/		v7 = t6
+/*line :1084:14*/		v7 = t6
 /*line :1084:18*/		v6 = v7<<6 + i32(125712)
 /*line :1086:9*/		m.memory[uint32(v6)] = byte(i32(0))
 /*line :1085:6*/		store32(m.memory, uint32(i32(125968)), uint32((v7+i32(1))&i32(3)))
@@ -32311,7 +32311,7 @@
 /*line :1087:2*/l1:
 /*line :1280:18*/	{
 /*line :1280:18*/		t8 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :1280:18*/		v7 = t8
+/*line :1280:2*/		v7 = t8
 /*line :1280:2*/		var p9 int32
 /*line :1280:2*/		if uint32(v7-i32(139)) >= uint32(i32(2)) {
 /*line :1280:2*/			p9 = 1
@@ -32339,10 +32339,10 @@
 /*line :1287:41*/		if t14 == i32(-1) {
 /*line :1287:41*/			goto l2
 /*line :1287:41*/		}
-/*line :1287:41*/		{
-/*line :1287:41*/			{
-/*line :1287:41*/				{
-/*line :1287:41*/					{
+/*line :9978:2*/		{
+/*line :9978:2*/			{
+/*line :9978:2*/				{
+/*line :9978:2*/					{
 /*line :9978:2*/						switch v1 - i32(1) {
 /*line :9978:2*/						case 0:
 /*line :9978:2*/							goto l3
@@ -32366,14 +32366,14 @@
 /*line :9978:2*/					l7:
 /*line :9988:14*/						v11 = v11 + i32(3)
 /*line :9988:14*/					l3:
-/*line :9988:14*/						{
+/*line :1081:19*/						{
 /*line :1081:19*/							if i32_shl(i32(1), v1)&i32(4193793) == 0 {
 /*line :1081*/								t15 := int32(load32(m.memory, uint64(uint32(v1<<2))+74608))
 /*line :1081*/								v6 = t15
 /*line :1081:16*/								goto l12
 /*line :1081:16*/							}
 /*line :1084:18*/							t16 := int32(load32(m.memory, uint32(i32(125968))))
-/*line :1084:18*/							v7 = t16
+/*line :1084:14*/							v7 = t16
 /*line :1084:18*/							v6 = v7<<6 + i32(125712)
 /*line :1086:9*/							m.memory[uint32(v6)] = byte(i32(0))
 /*line :1085:6*/							store32(m.memory, uint32(i32(125968)), uint32((v7+i32(1))&i32(3)))
@@ -32432,14 +32432,14 @@
 /*line :1787:2*/				l8:
 /*line :10027:14*/					v10 = v10 + i32(3)
 /*line :10027:14*/				l4:
-/*line :10027:14*/					{
+/*line :1081:19*/					{
 /*line :1081:19*/						if i32_shl(i32(1), v1)&i32(4193793) == 0 {
 /*line :1081*/							t24 := int32(load32(m.memory, uint64(uint32(v1<<2))+74608))
 /*line :1081*/							v6 = t24
 /*line :1081:16*/							goto l19
 /*line :1081:16*/						}
 /*line :1084:18*/						t25 := int32(load32(m.memory, uint32(i32(125968))))
-/*line :1084:18*/						v7 = t25
+/*line :1084:14*/						v7 = t25
 /*line :1084:18*/						v6 = v7<<6 + i32(125712)
 /*line :1086:9*/						m.memory[uint32(v6)] = byte(i32(0))
 /*line :1085:6*/						store32(m.memory, uint32(i32(125968)), uint32((v7+i32(1))&i32(3)))
@@ -32451,26 +32451,26 @@
 /*line :1298:10*/					if uint32(v2) >= uint32(i32(0x4000)) {
 /*line :1298:10*/						goto l20
 /*line :1298:10*/					}
-/*line :10034:28*/					t27 := v0
-/*line :10034:28*/					t28 := v10
-/*line :10034:28*/					t29 := v3
-/*line :10034:28*/					t30 := v4
-/*line :10034:28*/					v1 = v2 << 14
-/*line :10032:10*/					t31 := m._gen_ncmp(t27, i32(0), t28, i32(0), i32(0xc0ff0f), t29, t30, i32_rotr(v1&i32(0xff0000), i32(8))|i32_rotr(v1, i32(24))&i32(0xc0007f))
+/*line :10034:7*/					t27 := v0
+/*line :10034:7*/					t28 := v10
+/*line :10034:7*/					t29 := v3
+/*line :10034:7*/					t30 := v4
+/*line :10034:7*/					v1 = v2 << 14
+/*line :10032:10*/					t31 := m._gen_ncmp(t27, i32(0), t28, i32(0), i32(0xc0ff0f), t29, t30, int32(uint32((v1^i32_rotr(v1, i32(16)))&i32(-0xff0100))>>8)^i32_rotr(v1, i32(8)))
 /*line :10032:10*/					v0 = t31
 /*line :10032:3*/					goto l16
 /*line :10032:3*/				}
 /*line :10032:3*/			l9:
 /*line :10037:14*/				v9 = v9 + i32(3)
 /*line :10037:14*/			l5:
-/*line :10037:14*/				{
+/*line :1081:19*/				{
 /*line :1081:19*/					if i32_shl(i32(1), v1)&i32(4193793) == 0 {
 /*line :1081*/						t32 := int32(load32(m.memory, uint64(uint32(v1<<2))+74608))
 /*line :1081*/						v6 = t32
 /*line :1081:16*/						goto l21
 /*line :1081:16*/					}
 /*line :1084:18*/					t33 := int32(load32(m.memory, uint32(i32(125968))))
-/*line :1084:18*/					v7 = t33
+/*line :1084:14*/					v7 = t33
 /*line :1084:18*/					v6 = v7<<6 + i32(125712)
 /*line :1086:9*/					m.memory[uint32(v6)] = byte(i32(0))
 /*line :1085:6*/					store32(m.memory, uint32(i32(125968)), uint32((v7+i32(1))&i32(3)))
@@ -32489,14 +32489,14 @@
 /*line :10042:3*/		l10:
 /*line :10047:14*/			v8 = v8 + i32(3)
 /*line :10047:14*/		l6:
-/*line :10047:14*/			{
+/*line :1081:19*/			{
 /*line :1081:19*/				if i32_shl(i32(1), v1)&i32(4193793) == 0 {
 /*line :1081*/					t36 := int32(load32(m.memory, uint64(uint32(v1<<2))+74608))
 /*line :1081*/					v6 = t36
 /*line :1081:16*/					goto l23
 /*line :1081:16*/				}
 /*line :1084:18*/				t37 := int32(load32(m.memory, uint32(i32(125968))))
-/*line :1084:18*/				v7 = t37
+/*line :1084:14*/				v7 = t37
 /*line :1084:18*/				v6 = v7<<6 + i32(125712)
 /*line :1086:9*/				m.memory[uint32(v6)] = byte(i32(0))
 /*line :1085:6*/				store32(m.memory, uint32(i32(125968)), uint32((v7+i32(1))&i32(3)))
@@ -32566,7 +32566,7 @@
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:10089*/	t0 := m.___stack_pointer
 /*line :10089*/	v7 = t0 - i32(48)
 /*line :10089*/	m.___stack_pointer = v7
-/*line :10089*/	{
+/*line :1081:9*/	{
 /*line :1081:9*/		if uint32(v1) <= uint32(i32(71)) {
 /*line :1081:19*/			t1 := int32(load32(m.memory, uint64(uint32(v1<<2))+74320))
 /*line :1081:16*/			v2 = t1
@@ -32575,7 +32575,7 @@
 /*line :1081:16*/			}
 /*line :1081:16*/		}
 /*line :1084:18*/		t2 := int32(load32(m.memory, uint32(i32(125968))))
-/*line :1084:18*/		v4 = t2
+/*line :1084:14*/		v4 = t2
 /*line :1084:18*/		v2 = v4<<6 + i32(125712)
 /*line :1086:9*/		m.memory[uint32(v2)] = byte(i32(0))
 /*line :1085:6*/		store32(m.memory, uint32(i32(125968)), uint32((v4+i32(1))&i32(3)))
@@ -32609,10 +32609,10 @@
 /*line :1272:42*/		if t9 == i32(-1) {
 /*line :1272:42*/			goto l1
 /*line :1272:42*/		}
-/*line :1272:42*/		{
-/*line :1272:42*/			{
-/*line :1272:42*/				{
-/*line :1272:42*/					{
+/*line :10101:2*/		{
+/*line :10101:2*/			{
+/*line :10101:2*/				{
+/*line :10101:2*/					{
 /*line :10101:2*/						switch v1 - i32(28) {
 /*line :10101:2*/						case 0:
 /*line :10101:2*/							goto l2
@@ -32637,7 +32637,7 @@
 /*line :9784:9*/						v1 = t11
 /*line :1757:10*/						{
 /*line :1757:10*/							t12 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1757:10*/							v2 = t12
+/*line :1757:18*/							v2 = t12
 /*line :1757:18*/							if v2 == i32(2) {
 /*line :1757:18*/								goto l8
 /*line :1757:18*/							}
@@ -32708,7 +32708,7 @@
 /*line :1774:11*/							store32(m.memory, uint64(uint32(v1))+96, uint32(t28))
 /*line :1774:11*/						}
 /*line :1774:11*/					l8:
-/*line :9778:9*/						t29 := m._gen_atmfield_code_internal(v0, i32(51), i32(0), i32(16), i32(0))
+/*line :1774:11*/						t29 := m._gen_atmfield_code_internal(v0, i32(51), i32(0), i32(16), i32(0))
 /*line :1731:10*/						v5 = t29
 /*line :1731:10*/						t30 := int32(load32(m.memory, uint64(uint32(v5))+208))
 /*line :1731:10*/						v0 = t30
@@ -32724,8 +32724,8 @@
 /*line :1734:18*/						if v0 == i32(2) {
 /*line :1734:18*/							goto l11
 /*line :1734:18*/						}
-/*line :1740:18*/						if v0 == i32(1) {
-/*line :1740:18*/							v1 = v5
+/*line :1734:18*/						if v0 == i32(1) {
+/*line :1734:18*/							v1 = v5
 /*line :1740:18*/							goto l11
 /*line :1740:18*/						}
 /*line :1744:20*/						t32 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -32796,7 +32796,7 @@
 /*line :9784:9*/					v1 = t51
 /*line :1757:10*/					{
 /*line :1757:10*/						t52 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1757:10*/						v2 = t52
+/*line :1757:18*/						v2 = t52
 /*line :1757:18*/						if v2 == i32(2) {
 /*line :1757:18*/							goto l14
 /*line :1757:18*/						}
@@ -32867,7 +32867,7 @@
 /*line :1774:11*/						store32(m.memory, uint64(uint32(v1))+96, uint32(t68))
 /*line :1774:11*/					}
 /*line :1774:11*/				l14:
-/*line :9778:9*/					t69 := m._gen_atmfield_code_internal(v0, i32(51), i32(0), i32(16), i32(0))
+/*line :1774:11*/					t69 := m._gen_atmfield_code_internal(v0, i32(51), i32(0), i32(16), i32(0))
 /*line :1731:10*/					v5 = t69
 /*line :1731:10*/					t70 := int32(load32(m.memory, uint64(uint32(v5))+208))
 /*line :1731:10*/					v0 = t70
@@ -32883,8 +32883,8 @@
 /*line :1734:18*/					if v0 == i32(2) {
 /*line :1734:18*/						goto l11
 /*line :1734:18*/					}
-/*line :1740:18*/					if v0 == i32(1) {
-/*line :1740:18*/						v1 = v5
+/*line :1734:18*/					if v0 == i32(1) {
+/*line :1734:18*/						v1 = v5
 /*line :1740:18*/						goto l11
 /*line :1740:18*/					}
 /*line :1744:20*/					t72 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -33026,7 +33026,7 @@
 /*line :1774:11*/					store32(m.memory, uint64(uint32(v1))+96, uint32(t108))
 /*line :1774:11*/				}
 /*line :1774:11*/			l19:
-/*line :1774:11*/				{
+/*line :10127:8*/				{
 /*line :10127:8*/					t109 := m._gen_msg_abbrev(v0, i32(7))
 /*line :1757:10*/					v3 = t109
 /*line :1757:10*/					t110 := int32(load32(m.memory, uint64(uint32(v3))+208))
@@ -33101,11 +33101,11 @@
 /*line :1774:11*/					store32(m.memory, uint64(uint32(v1))+96, uint32(t126))
 /*line :1774:11*/				}
 /*line :1774:11*/			l22:
-/*line :1774:11*/				{
+/*line :10129:8*/				{
 /*line :10129:8*/					t127 := m._gen_msg_abbrev(v0, i32(15))
 /*line :1757:10*/					v3 = t127
 /*line :1757:10*/					t128 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1757:10*/					v2 = t128
+/*line :1757:18*/					v2 = t128
 /*line :1757:18*/					if v2 == i32(2) {
 /*line :1757:18*/						goto l25
 /*line :1757:18*/					}
@@ -33176,7 +33176,7 @@
 /*line :1774:11*/					store32(m.memory, uint64(uint32(v1))+96, uint32(t144))
 /*line :1774:11*/				}
 /*line :1774:11*/			l25:
-/*line :1774:11*/				{
+/*line :10131:8*/				{
 /*line :10131:8*/					t145 := m._gen_msg_abbrev(v0, i32(77))
 /*line :1757:10*/					v3 = t145
 /*line :1757:10*/					t146 := int32(load32(m.memory, uint64(uint32(v3))+208))
@@ -33251,11 +33251,11 @@
 /*line :1774:11*/					store32(m.memory, uint64(uint32(v1))+96, uint32(t162))
 /*line :1774:11*/				}
 /*line :1774:11*/			l28:
-/*line :1774:11*/				{
+/*line :10133:8*/				{
 /*line :10133:8*/					t163 := m._gen_msg_abbrev(v0, i32(90))
 /*line :1757:10*/					v3 = t163
 /*line :1757:10*/					t164 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1757:10*/					v2 = t164
+/*line :1757:18*/					v2 = t164
 /*line :1757:18*/					if v2 == i32(2) {
 /*line :1757:18*/						goto l31
 /*line :1757:18*/					}
@@ -33326,7 +33326,7 @@
 /*line :1774:11*/					store32(m.memory, uint64(uint32(v1))+96, uint32(t180))
 /*line :1774:11*/				}
 /*line :1774:11*/			l31:
-/*line :10135:8*/				t181 := m._gen_atmtype_abbrev(v0, i32(26))
+/*line :1774:11*/				t181 := m._gen_atmtype_abbrev(v0, i32(26))
 /*line :1731:10*/				v5 = t181
 /*line :1731:10*/				t182 := int32(load32(m.memory, uint64(uint32(v5))+208))
 /*line :1731:10*/				v0 = t182
@@ -33342,8 +33342,8 @@
 /*line :1734:18*/				if v0 == i32(2) {
 /*line :1734:18*/					goto l11
 /*line :1734:18*/				}
-/*line :1740:18*/				if v0 == i32(1) {
-/*line :1740:18*/					v1 = v5
+/*line :1734:18*/				if v0 == i32(1) {
+/*line :1734:18*/					v1 = v5
 /*line :1740:18*/					goto l11
 /*line :1740:18*/				}
 /*line :1744:20*/				t184 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -33485,7 +33485,7 @@
 /*line :1774:11*/				store32(m.memory, uint64(uint32(v1))+96, uint32(t220))
 /*line :1774:11*/			}
 /*line :1774:11*/		l36:
-/*line :1774:11*/			{
+/*line :10142:8*/			{
 /*line :10142:8*/				t221 := m._gen_msg_abbrev(v0, i32(7))
 /*line :1757:10*/				v3 = t221
 /*line :1757:10*/				t222 := int32(load32(m.memory, uint64(uint32(v3))+208))
@@ -33560,11 +33560,11 @@
 /*line :1774:11*/				store32(m.memory, uint64(uint32(v1))+96, uint32(t238))
 /*line :1774:11*/			}
 /*line :1774:11*/		l39:
-/*line :1774:11*/			{
+/*line :10144:8*/			{
 /*line :10144:8*/				t239 := m._gen_msg_abbrev(v0, i32(77))
 /*line :1757:10*/				v3 = t239
 /*line :1757:10*/				t240 := int32(load32(m.memory, uint64(uint32(v3))+208))
-/*line :1757:10*/				v2 = t240
+/*line :1757:18*/				v2 = t240
 /*line :1757:18*/				if v2 == i32(2) {
 /*line :1757:18*/					goto l42
 /*line :1757:18*/				}
@@ -33635,7 +33635,7 @@
 /*line :1774:11*/				store32(m.memory, uint64(uint32(v1))+96, uint32(t256))
 /*line :1774:11*/			}
 /*line :1774:11*/		l42:
-/*line :1774:11*/			{
+/*line :10146:8*/			{
 /*line :10146:8*/				t257 := m._gen_msg_abbrev(v0, i32(90))
 /*line :1757:10*/				v3 = t257
 /*line :1757:10*/				t258 := int32(load32(m.memory, uint64(uint32(v3))+208))
@@ -33710,10 +33710,10 @@
 /*line :1774:11*/				store32(m.memory, uint64(uint32(v1))+96, uint32(t274))
 /*line :1774:11*/			}
 /*line :1774:11*/		l45:
-/*line :10148:8*/			t275 := m._gen_atmtype_abbrev(v0, i32(22))
+/*line :1774:11*/			t275 := m._gen_atmtype_abbrev(v0, i32(22))
 /*line :1731:10*/			v5 = t275
 /*line :1731:10*/			t276 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1731:10*/			v0 = t276
+/*line :1731:18*/			v0 = t276
 /*line :1731:18*/			if v0 == i32(2) {
 /*line :1731:18*/				v1 = v5
 /*line :1740:18*/				goto l11
@@ -33726,8 +33726,8 @@
 /*line :1734:18*/			if v0 == i32(2) {
 /*line :1734:18*/				goto l11
 /*line :1734:18*/			}
-/*line :1740:18*/			if v0 == i32(1) {
-/*line :1740:18*/				v1 = v5
+/*line :1734:18*/			if v0 == i32(1) {
+/*line :1734:18*/				v1 = v5
 /*line :1740:18*/				goto l11
 /*line :1740:18*/			}
 /*line :1744:20*/			t278 := int32(load32(m.memory, uint64(uint32(v1))+96))
@@ -33884,7 +33884,7 @@
 /*line :6902:20*/				{
 /*line :6902:20*/					{
 /*line :6904:10*/						t4 := m._getaddrinfo(i32(0), v1, v3+i32(32), v3+i32(28))
-/*line :6904:10*/						v4 = t4
+/*line :6905:12*/						v4 = t4
 /*line :6905:12*/						switch v4 + i32(11) {
 /*line :6905:12*/						case 0:
 /*line :6905:12*/							goto l0
@@ -33965,7 +33965,7 @@
 /*line :3155*/		{
 /*line :3155*/			{
 /*line :3155*/				t1 := int32(load32(m.memory, uint64(uint32(v0))+24))
-/*line :3155*/				v2 = t1
+/*line :3156:2*/				v2 = t1
 /*line :3156:2*/				switch v2 - i32(108) {
 /*line :3156:2*/				case 0:
 /*line :3156:2*/					goto l0
@@ -34084,9 +34084,9 @@
 /*line :34084:1*/	var v7 int32
 /*line :34085:1*/	var v8 int32
 /*line :34086:1*/	var v9 int32
-/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:3093*/	{
-/*line :3093*/		{
-/*line :3096:2*/			if v3 != i32(34525) {
+/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/gencode.c:972:3*/	{
+/*line :972:3*/		{
+/*line :972:3*/			if v3 != i32(34525) {
 /*line :3096:2*/				if v3 != i32(2048) {
 /*line :3096:2*/					goto l0
 /*line :3096:2*/				}
@@ -34150,7 +34150,7 @@
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v3))+96, uint32(v3))
 /*line :1757:10*/			{
 /*line :1757:10*/				t20 := int32(load32(m.memory, uint64(uint32(v6))+208))
-/*line :1757:10*/				v5 = t20
+/*line :1757:18*/				v5 = t20
 /*line :1757:18*/				if v5 == i32(2) {
 /*line :1757:18*/					goto l3
 /*line :1757:18*/				}
@@ -34238,7 +34238,7 @@
 /*line :1908:9*/			store32(m.memory, uint64(uint32(t41))+20, uint32(p40))
 /*line :1013:10*/			store32(m.memory, uint64(uint32(v5))+96, uint32(v5))
 /*line :1757:10*/			t42 := int32(load32(m.memory, uint64(uint32(v5))+208))
-/*line :1757:10*/			v0 = t42
+/*line :1757:18*/			v0 = t42
 /*line :1757:18*/			if v0 == i32(2) {
 /*line :1757:18*/				goto l6
 /*line :1757:18*/			}
@@ -34411,7 +34411,7 @@
 /*line :2609:38*/			if int32(int64(uint64(v14)>>32)) != 0 {
 /*line :2609:38*/				goto l1
 /*line :2609:38*/			}
-/*line :2609:38*/			v5 = int32(v14)
+/*line :2622:38*/			v5 = int32(v14)
 /*line :2623:21*/			v2 = v5 << 3
 /*line :2623:21*/			t18 := int32(uint32(v2) / uint32(v5))
 /*line :2623:32*/			if t18 != i32(8) {
@@ -34421,7 +34421,7 @@
 /*line :2633:37*/			if int32(int64(uint64(v14)>>32)) != 0 {
 /*line :2633:37*/				goto l1
 /*line :2633:37*/			}
-/*line :2633:37*/			v6 = int32(v14)
+/*line :2641:33*/			v6 = int32(v14)
 /*line :2642:19*/			v1 = v6 << 2
 /*line :2642:19*/			t19 := int32(uint32(v1) / uint32(v6))
 /*line :2642:29*/			if t19 != i32(4) {
@@ -36582,7 +36582,7 @@
 /*line :757:3*/																				goto l59
 /*line :757:3*/																			l103:
 /*line :757:3*/																				{
-/*line :1279:23*/																					switch int32(uint32(v4-i32(32)) >> 4) {
+/*line :1279:23*/																					switch int32(uint32(v4)>>4) - i32(2) {
 /*line :1279:23*/																					case 0, 3:
 /*line :1279:23*/																						goto l104
 /*line :1279:23*/																					case 1:
@@ -37832,7 +37832,7 @@
 /*line :1142:40*/									{
 /*line :1142:40*/										{
 /*line :1142:40*/											{
-/*line :1143:3*/												switch int32(uint32(v4&i32(240)-i32(16)) >> 4) {
+/*line :1143:3*/												switch int32(uint32(v4)>>4)&i32(15) - i32(1) {
 /*line :1143:3*/												case 0:
 /*line :1143:3*/													goto l178
 /*line :1143:3*/												case 1:
@@ -38653,7 +38653,7 @@
 /*line :417:2*/	}
 /*line :417:2*/l3:
 /*line :417:2*/	t5 := int32(load32(m.memory, uint64(uint32(v1))+36))
-/*line :417:2*/	v7 = t5
+/*line :423:34*/	v7 = t5
 /*line :423:34*/	if v7 >= i32(0) {
 /*line :423:34*/		t6 := int32(load32(m.memory, uint64(uint32(v0))+40))
 /*line :423:34*/		v8 = t6
@@ -38926,13 +38926,13 @@
 /*line :38926:1*/	var v5 int32
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/optimize.c:519:13*/	{
 /*line :519:13*/		t0 := int32(load32(m.memory, uint32(v1)))
-/*line :519:13*/		v4 = t0
+/*line :521:8*/		v4 = t0
 /*line :521:8*/		if v4 == i32(-1) {
 /*line :521:8*/			goto l0
 /*line :521:8*/		}
 /*line :521:8*/		v3 = i32(16)
-/*line :521:8*/		{
-/*line :521:8*/			{
+/*line :524:10*/		{
+/*line :524:10*/			{
 /*line :524:2*/				v5 = v4 & i32(7)
 /*line :524:2*/				switch v5 - i32(2) {
 /*line :524:2*/				case 0:
@@ -38974,7 +38974,7 @@
 /*line :535:10*/				goto l9
 /*line :535:10*/			}
 /*line :536:39*/			t2 := int32(load32(m.memory, uint64(uint32(v1))+12))
-/*line :536:39*/			v3 = t2
+/*line :1414:11*/			v3 = t2
 /*line :1414:11*/			if v3 < i32(0) {
 /*line :1414:11*/				goto l9
 /*line :1414:11*/			}
@@ -39020,16 +39020,16 @@
 /*line :592:3*/			}
 /*line :592:3*/		l12:
 /*line :589:13*/			t4 := int32(load32(m.memory, uint64(uint32(v1))+12))
-/*line :589:13*/			v3 = t4
+/*line :1423:11*/			v3 = t4
 /*line :1423:11*/			if v3 < i32(0) {
 /*line :1423:11*/				goto l0
 /*line :1423:11*/			}
 /*line :1423:11*/		}
 /*line :1423:11*/	l10:
-/*line :1424:7*/		v4 = v2 + v3<<2
-/*line :1424:7*/		t5 := int32(load32(m.memory, uint32(v4)))
-/*line :1424:7*/		v2 = t5
-/*line :1424:7*/		if v2 != 0 {
+/*line :1423:11*/		v4 = v2 + v3<<2
+/*line :1423:11*/		t5 := int32(load32(m.memory, uint32(v4)))
+/*line :1423:11*/		v2 = t5
+/*line :1423:11*/		if v2 != 0 {
 /*line :1425:20*/			store64(m.memory, uint64(uint32(v0))+8, uint64(i64(0x100000000)))
 /*line :1426:21*/			store32(m.memory, uint32(v2), uint32(i32(-1)))
 /*line :1426:21*/		}
@@ -39416,7 +39416,7 @@
 /*line :2744:6*/					v10 = t18
 /*line :2744:6*/					goto l4
 /*line :2744:6*/				}
-/*line :2745:29*/				t19 := m._calloc(v6, i32(4))
+/*line :2744:6*/				t19 := m._calloc(v6, i32(4))
 /*line :2746:7*/				v7 = t19
 /*line :2746:7*/				if v7 != 0 {
 /*line :2746:7*/					t20 := int32(load32(m.memory, uint64(uint32(v2))+4))
@@ -39565,7 +39565,7 @@
 /*line :2851:16*/			t38 := int32(load32(m.memory, uint64(uint32(v1))+40))
 /*line :2851:29*/			t39 := int32(load32(m.memory, uint64(uint32(v2))+40))
 /*line :2851:44*/			v1 = t39 + v6 ^ i32(-1)
-/*line :2851:44*/			v4 = t38 + v1
+/*line :2852:11*/			v4 = t38 + v1
 /*line :2852:11*/			if uint32(v4) < uint32(i32(256)) {
 /*line :2852:11*/				goto l17
 /*line :2852:11*/			}
@@ -39596,7 +39596,7 @@
 /*line :2865:15*/		v8 = p17
 /*line :2865:15*/		t41 := int32(load32(m.memory, uint64(uint32(v2))+84))
 /*line :2866:16*/		t42 := int32(load32(m.memory, uint64(uint32(t41))+40))
-/*line :2866:44*/		v1 = t42 + v1
+/*line :2867:11*/		v1 = t42 + v1
 /*line :2867:11*/		if uint32(v1) >= uint32(i32(256)) {
 /*line :2867:11*/			t43 := int32(load32(m.memory, uint64(uint32(v2))+32))
 /*line :2867:11*/			if t43 == 0 {
@@ -39825,9 +39825,9 @@
 /*line :402:3*/			m._freeaddrinfo(t18)
 /*line :402:3*/		}
 /*line :402:3*/	l6:
-/*line :402:3*/		v4 = i32(0)
-/*line :402:3*/		t20 := v2
-/*line :402:3*/		var p19 int32
+/*line :411:15*/		v4 = i32(0)
+/*line :411:15*/		t20 := v2
+/*line :411:15*/		var p19 int32
 /*line :411:15*/		if v7 >= i32(0) {
 /*line :412:9*/			store32(m.memory, uint32(v1), uint32(v7))
 /*line :414:16*/			p21 := i32(6)
@@ -39979,213 +39979,128 @@
 /*line :697:2*/		if v2 == 0 {
 /*line :697:2*/			goto l0
 /*line :697:2*/		}
-/*line :698:3*/		t2 := v1
-/*line :698:3*/		var p1 int32
-/*line :698:3*/	l9:
-/*line :698:3*/		{
-/*line :698:3*/			var p3 int32
-/*line :698:3*/			{
-/*line :698:3*/				{
-/*line :698:3*/					{
-/*line :698:3*/						{
-/*line :698:3*/							{
-/*line :698:3*/								switch v3 - i32(1) {
-/*line :698:3*/								case 0:
-/*line :698:3*/									goto l1
-/*line :698:3*/								case 1:
-/*line :698:3*/									goto l2
-/*line :698:3*/								case 2:
-/*line :698:3*/									goto l3
-/*line :698:3*/								case 3:
-/*line :698:3*/									goto l0
-/*line :698:3*/								default:
-/*line :698:3*/									goto l4
-/*line :698:3*/								}
-/*line :698:3*/							l2:
-/*line :720:8*/								v3 = (v2 - i32(48)) & i32(255)
-/*line :720:8*/								if uint32(v3) > uint32(i32(9)) {
-/*line :720:8*/									goto l5
-/*line :720:8*/								}
-/*line :697:9*/								t4 := int32(m.memory[uint64(uint32(v0))+1])
-/*line :697:2*/								v2 = t4
-/*line :697:2*/								if v2 == 0 {
-/*line :697:2*/									goto l6
-/*line :697:2*/								}
-/*line :697:2*/								v0 = v0 + i32(1)
-/*line :697:2*/								v5 = v3
-/*line :697:2*/							}
-/*line :697:2*/						l3:
-/*line :728:8*/							if uint32((v2-i32(48))&i32(255)) > uint32(i32(9)) {
-/*line :728:8*/								goto l5
-/*line :728:8*/							}
-/*line :729:27*/							v5 = v5*i32(10) + v2&i32(255) - i32(48)
-/*line :730:14*/							p5 := i32(4)
-/*line :730:14*/							if uint32(v5) < uint32(i32(1024)) {
-/*line :730:14*/								p5 = i32(3)
-/*line :730:14*/							}
-/*line :730:14*/							p3 = p5
-/*line :730:14*/							goto l7
-/*line :730:14*/						}
-/*line :730:14*/					l4:
-/*line :700:8*/						v2 = (v2 - i32(48)) & i32(255)
-/*line :700:8*/						t6 := v2
-/*line :700:8*/						t7 := v4
-/*line :700:8*/						var p8 int32
-/*line :700:8*/						if uint32(v2) < uint32(i32(10)) {
-/*line :700:8*/							p8 = 1
-/*line :700:8*/						}
-/*line :700:8*/						v2 = p8
-/*line :700:8*/						p9 := t7
-/*line :700:8*/						if v2 != 0 {
-/*line :700:8*/							p9 = t6
-/*line :700:8*/						}
-/*line :700:8*/						v4 = p9
-/*line :700:8*/						p10 := i32(4)
-/*line :700:8*/						if v2 != 0 {
-/*line :700:8*/							p10 = i32(1)
-/*line :700:8*/						}
-/*line :700:8*/						p3 = p10
-/*line :700:8*/						goto l7
-/*line :700:8*/					}
-/*line :700:8*/				l1:
-/*line :708:11*/					if v2&i32(255) == i32(46) {
-/*line :708:11*/						p3 = i32(2)
-/*line :708:11*/						goto l7
-/*line :708:11*/					}
-/*line :712:8*/					if uint32((v2-i32(48))&i32(255)) > uint32(i32(9)) {
-/*line :712:8*/						goto l5
-/*line :712:8*/					}
-/*line :713:27*/					v4 = int32(int8(v2)) + v4*i32(10) - i32(48)
-/*line :714:14*/					p11 := i32(4)
-/*line :714:14*/					if uint32(v4) < uint32(i32(64)) {
-/*line :714:14*/						p11 = i32(1)
-/*line :714:14*/					}
-/*line :714:14*/					p3 = p11
-/*line :714:14*/					goto l7
+/*line :700:8*/		v3 = (v2 - i32(48)) & i32(255)
+/*line :700:8*/		if uint32(v3) > uint32(i32(9)) {
+/*line :700:8*/			goto l0
+/*line :700:8*/		}
+/*line :703:5*/		v2 = v0 + i32(3)
+/*line :703:5*/	l1:
+/*line :703:5*/		{
+/*line :697:9*/			t1 := int32(m.memory[uint32(v2-i32(2))])
+/*line :697:9*/			v0 = t1
+/*line :697:9*/			if v0 == 0 {
+/*line :697:9*/				goto l0
+/*line :697:9*/			}
+/*line :708:11*/			if v0 != i32(46) {
+/*line :712:8*/				if uint32((v0-i32(48))&i32(255)) > uint32(i32(9)) {
+/*line :712:8*/					goto l0
+/*line :712:8*/				}
+/*line :714:14*/				v2 = v2 + i32(1)
+/*line :713:27*/				v3 = int32(int8(v0)) + v3*i32(10) - i32(48)
+/*line :714:14*/				if uint32(v3) < uint32(i32(64)) {
+/*line :714:14*/					goto l1
 /*line :714:14*/				}
-/*line :714:14*/			l6:
-/*line :748:39*/				t12 := v4<<10 | v3
-/*line :748:39*/				p1 = t12
-/*line :748:39*/				goto l8
-/*line :748:39*/			}
-/*line :748:39*/		l5:
-/*line :748:39*/			p3 = i32(4)
-/*line :748:39*/		l7:
-/*line :748:39*/			v3 = p3
-/*line :748:39*/			v2 = v0
-/*line :738:4*/			v0 = v2 + i32(1)
-/*line :697:9*/			t13 := int32(m.memory[uint64(uint32(v2))+1])
-/*line :697:2*/			v2 = t13
-/*line :697:2*/			if v2 != 0 {
-/*line :697:2*/				goto l9
+/*line :714:14*/				goto l0
+/*line :714:14*/			}
+/*line :714:14*/		}
+/*line :697:9*/		t2 := int32(m.memory[uint32(v2-i32(1))])
+/*line :697:2*/		v0 = t2
+/*line :697:2*/		if v0 == 0 {
+/*line :697:2*/			goto l0
+/*line :697:2*/		}
+/*line :720:8*/		v4 = (v0 - i32(48)) & i32(255)
+/*line :720:8*/		if uint32(v4) > uint32(i32(9)) {
+/*line :720:8*/			goto l0
+/*line :720:8*/		}
+/*line :720:8*/	l2:
+/*line :720:8*/		{
+/*line :720:8*/			t3 := int32(m.memory[uint32(v2)])
+/*line :697:2*/			v0 = t3
+/*line :697:2*/			if v0 != 0 {
+/*line :728:8*/				if uint32((v0-i32(48))&i32(255)) > uint32(i32(9)) {
+/*line :728:8*/					goto l0
+/*line :728:8*/				}
+/*line :730:14*/				v2 = v2 + i32(1)
+/*line :729:27*/				v4 = v4*i32(10) + v0 - i32(48)
+/*line :730:14*/				if uint32(v4) < uint32(i32(1024)) {
+/*line :730:14*/					goto l2
+/*line :730:14*/				}
+/*line :730:14*/				goto l0
 /*line :697:2*/			}
 /*line :697:2*/		}
-/*line :744:16*/		if v3 != i32(3) {
-/*line :744:16*/			goto l0
-/*line :744:16*/		}
-/*line :744:16*/		p1 = v4<<10 | v5
-/*line :744:16*/	l8:
-/*line :744:16*/		v2 = p1
-/*line :744:16*/		store16(m.memory, uint32(t2), uint16(v2))
-/*line :750:1*/		return i32(1)
-/*line :750:1*/	}
-/*line :750:1*/l0:
-/*line :750:1*/	return i32(0)
-/*line bpf.go:40094:1*/}
-/*line :40095:1*/func (m *Module) _pcapint_atoan(v0, v1 int32) int32 {
-/*line :40096:1*/	var v2 int32
-/*line :40097:1*/	var v3 int32
-/*line :40098:1*/	var v4 int32
-/*line :40099:1*/	var v5 int32
-/*line :40100:1*/	var v6 int32
-/*line :40101:1*/	var v7 int32
-/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/nametoaddr.c:750:1*/	t0 := int32(m.memory[uint32(v0)])
-/*line :776:2*/	v2 = t0
-/*line :776:2*/	if v2 == 0 {
-/*line :776:2*/		return i32(0)
-/*line :776:2*/	}
-/*line :776:2*/	v6 = v0 + i32(1)
-/*line :776:2*/l7:
-/*line :776:2*/	{
-/*line :776:2*/		v0 = v6
-/*line :777:3*/		switch v3 - i32(1) {
-/*line :777:3*/		case 0:
-/*line :777:3*/			goto l0
-/*line :777:3*/		case 1:
-/*line :777:3*/			goto l1
-/*line :777:3*/		case 2:
-/*line :777:3*/			goto l2
-/*line :777:3*/		default:
-/*line :777:3*/			goto l3
-/*line :777:3*/		}
-/*line :777:3*/	l3:
-/*line :777:3*/		v5 = i32(1)
-/*line :777:3*/		v3 = i32(1)
-/*line :777:3*/		if v2 == i32(36) {
-/*line :777:3*/			goto l4
-/*line :777:3*/		}
-/*line :777:3*/		goto l2
-/*line :777:3*/	l0:
-/*line :777:3*/		v3 = i32(2)
-/*line :777:3*/		v5 = i32(0)
-/*line :784:10*/		v4 = v2 - i32(48)
-/*line :784:10*/		if uint32(v4&i32(255)) < uint32(i32(10)) {
-/*line :784:10*/			goto l4
+/*line :748:8*/		store16(m.memory, uint32(v1), uint16(v3<<10|v4))
+/*line :748:8*/		v5 = i32(1)
+/*line :748:8*/	}
+/*line :748:8*/l0:
+/*line :750:1*/	return v5
+/*line bpf.go:40036:1*/}
+/*line :40037:1*/func (m *Module) _pcapint_atoan(v0, v1 int32) int32 {
+/*line :40038:1*/	var v2 int32
+/*line :40039:1*/	var v3 int32
+/*line :40040:1*/	var v4 int32
+/*line :40041:1*/	var v5 int32
+/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/nametoaddr.c:776:9*/	{
+/*line :776:9*/		t0 := int32(m.memory[uint32(v0)])
+/*line :776:2*/		if t0 != i32(36) {
+/*line :776:2*/			goto l0
+/*line :776:2*/		}
+/*line :776:9*/		t1 := int32(m.memory[uint64(uint32(v0))+1])
+/*line :776:9*/		v2 = t1
+/*line :776:9*/		if v2 == 0 {
+/*line :776:9*/			goto l0
+/*line :776:9*/		}
+/*line :784:10*/		v3 = v2 - i32(48)
+/*line :784:10*/		if uint32(v3&i32(255)) < uint32(i32(10)) {
+/*line :784:10*/			goto l1
 /*line :784:10*/		}
 /*line :784:10*/		if uint32((v2-i32(65))&i32(255)) >= uint32(i32(6)) {
 /*line :784:10*/			if uint32((v2-i32(97))&i32(255)) > uint32(i32(5)) {
-/*line :784:10*/				return i32(0)
+/*line :784:10*/				goto l0
 /*line :784:10*/			}
-/*line :629:27*/			v4 = v2 - i32(87)
-/*line :629:27*/			goto l5
-/*line :629:27*/		}
-/*line :631:27*/		v4 = v2 - i32(55)
-/*line :631:3*/		goto l4
-/*line :631:3*/	l1:
-/*line :790:10*/		v3 = v2 - i32(48)
-/*line :790:10*/		if uint32(v3&i32(255)) < uint32(i32(10)) {
-/*line :790:10*/			goto l6
-/*line :790:10*/		}
-/*line :790:10*/		if uint32((v2-i32(65))&i32(255)) >= uint32(i32(6)) {
-/*line :790:10*/			if uint32((v2-i32(97))&i32(255)) > uint32(i32(5)) {
-/*line :790:10*/				goto l2
-/*line :790:10*/			}
 /*line :629:27*/			v3 = v2 - i32(87)
-/*line :629:3*/			goto l6
+/*line :629:3*/			goto l1
 /*line :629:3*/		}
 /*line :631:27*/		v3 = v2 - i32(55)
-/*line :631:27*/	l6:
-/*line :793:8*/		v4 = v3 | v4<<4
-/*line :793:8*/		v3 = i32(3)
-/*line :793:8*/	l5:
-/*line :793:8*/		v5 = i32(0)
-/*line :793:8*/	l4:
-/*line :776:2*/		v6 = v0 + i32(1)
-/*line :776:9*/		t1 := int32(m.memory[uint32(v0)])
-/*line :776:2*/		v2 = t1
+/*line :631:27*/	l1:
+/*line :631:27*/		t2 := int32(m.memory[uint64(uint32(v0))+2])
+/*line :776:2*/		v2 = t2
 /*line :776:2*/		if v2 != 0 {
-/*line :776:2*/			goto l7
+/*line :790:10*/			v4 = v2 - i32(48)
+/*line :790:10*/			if uint32(v4&i32(255)) < uint32(i32(10)) {
+/*line :790:10*/				goto l2
+/*line :790:10*/			}
+/*line :790:10*/			if uint32((v2-i32(65))&i32(255)) >= uint32(i32(6)) {
+/*line :790:10*/				if uint32((v2-i32(97))&i32(255)) > uint32(i32(5)) {
+/*line :790:10*/					goto l0
+/*line :790:10*/				}
+/*line :629:27*/				v4 = v2 - i32(87)
+/*line :629:3*/				goto l2
+/*line :629:3*/			}
+/*line :631:27*/			v4 = v2 - i32(55)
+/*line :631:27*/		l2:
+/*line :776:9*/			t3 := int32(m.memory[uint64(uint32(v0))+3])
+/*line :776:2*/			if t3 != 0 {
+/*line :776:2*/				goto l0
+/*line :776:2*/			}
+/*line :776:2*/			v3 = v4 | v3<<4
 /*line :776:2*/		}
-/*line :776:2*/	}
-/*line :801:24*/	if v5 != 0 {
-/*line :801:24*/		goto l2
-/*line :801:24*/	}
-/*line :802:9*/	m.memory[uint32(v1)] = byte(v4)
-/*line :802:9*/	v7 = i32(1)
-/*line :802:9*/l2:
-/*line :808:1*/	return v7
-/*line bpf.go:40177:1*/}
-/*line :40178:1*/func (m *Module) _pcapint_atomac48(v0, v1 int32) int32 {
-/*line :40179:1*/	var v2 int32
-/*line :40180:1*/	var v3 int32
-/*line :40181:1*/	var v4 int32
-/*line :40182:1*/	var v5 int32
-/*line :40183:1*/	var v6 int32
-/*line :40184:1*/	var v7 int32
-/*line :40185:1*/	var v8 int32
-/*line :40186:1*/	var v9 int32
-/*line :40187:1*/	var v10 int32
-/*line :40188:1*/	var v11 int32
+/*line :802:9*/		m.memory[uint32(v1)] = byte(v3)
+/*line :802:9*/		v5 = i32(1)
+/*line :802:9*/	}
+/*line :802:9*/l0:
+/*line :808:1*/	return v5
+/*line bpf.go:40092:1*/}
+/*line :40093:1*/func (m *Module) _pcapint_atomac48(v0, v1 int32) int32 {
+/*line :40094:1*/	var v2 int32
+/*line :40095:1*/	var v3 int32
+/*line :40096:1*/	var v4 int32
+/*line :40097:1*/	var v5 int32
+/*line :40098:1*/	var v6 int32
+/*line :40099:1*/	var v7 int32
+/*line :40100:1*/	var v8 int32
+/*line :40101:1*/	var v9 int32
+/*line :40102:1*/	var v10 int32
+/*line :40103:1*/	var v11 int32
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/nametoaddr.c:1148:11*/	if v0 == 0 {
 /*line :1148:11*/		goto l0
 /*line :1148:11*/	}
@@ -40197,7 +40112,7 @@
 /*line :814:22*/			}
 /*line :815:20*/			{
 /*line :815:20*/				t1 := int32(m.memory[uint32(v0)])
-/*line :815:20*/				v2 = t1
+/*line :815:6*/				v2 = t1
 /*line :815:6*/				v4 = v2 - i32(48)
 /*line :815:6*/				if uint32(v4&i32(255)) < uint32(i32(10)) {
 /*line :815:6*/					goto l2
@@ -40227,7 +40142,7 @@
 /*line :816:6*/		l3:
 /*line :817:20*/			{
 /*line :817:20*/				t3 := int32(m.memory[uint64(uint32(v0))+2])
-/*line :817:20*/				v5 = t3
+/*line :817:6*/				v5 = t3
 /*line :817:6*/				if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
 /*line :817:6*/					goto l4
 /*line :817:6*/				}
@@ -40255,7 +40170,7 @@
 /*line :818:6*/		l5:
 /*line :819:20*/			{
 /*line :819:20*/				t5 := int32(m.memory[uint64(uint32(v0))+4])
-/*line :819:20*/				v5 = t5
+/*line :819:6*/				v5 = t5
 /*line :819:6*/				if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
 /*line :819:6*/					goto l6
 /*line :819:6*/				}
@@ -40283,7 +40198,7 @@
 /*line :820:6*/		l7:
 /*line :821:20*/			{
 /*line :821:20*/				t7 := int32(m.memory[uint64(uint32(v0))+6])
-/*line :821:20*/				v5 = t7
+/*line :821:6*/				v5 = t7
 /*line :821:6*/				if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
 /*line :821:6*/					goto l8
 /*line :821:6*/				}
@@ -40311,7 +40226,7 @@
 /*line :822:6*/		l9:
 /*line :823:20*/			{
 /*line :823:20*/				t9 := int32(m.memory[uint64(uint32(v0))+8])
-/*line :823:20*/				v5 = t9
+/*line :823:6*/				v5 = t9
 /*line :823:6*/				if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
 /*line :823:6*/					goto l10
 /*line :823:6*/				}
@@ -40339,7 +40254,7 @@
 /*line :824:6*/		l11:
 /*line :825:20*/			{
 /*line :825:20*/				t11 := int32(m.memory[uint64(uint32(v0))+10])
-/*line :825:20*/				v5 = t11
+/*line :825:6*/				v5 = t11
 /*line :825:6*/				if uint32((v5-i32(48))&i32(255)) < uint32(i32(10)) {
 /*line :825:6*/					goto l12
 /*line :825:6*/				}
@@ -40368,7 +40283,7 @@
 /*line :626:15*/			if uint32(v2&i32(255)) < uint32(i32(58)) {
 /*line :626:15*/				goto l14
 /*line :626:15*/			}
-/*line :628:20*/			if uint32((v2-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/			if uint32((v2-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/				v4 = v2 - i32(87)
 /*line :629:3*/				goto l14
 /*line :629:3*/			}
@@ -40378,7 +40293,7 @@
 /*line :626:15*/			if uint32(v3&i32(255)) < uint32(i32(58)) {
 /*line :626:15*/				goto l15
 /*line :626:15*/			}
-/*line :628:20*/			if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/			if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/				v6 = v3 - i32(87)
 /*line :629:3*/				goto l15
 /*line :629:3*/			}
@@ -40387,12 +40302,12 @@
 /*line :827:11*/			m.memory[uint32(v1)] = byte(v2 | v6)
 /*line :828:27*/			{
 /*line :828:27*/				t13 := int32(m.memory[uint64(uint32(v0))+2])
-/*line :828:27*/				v3 = t13
+/*line :626:15*/				v3 = t13
 /*line :626:15*/				v2 = v3 - i32(48)
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l16
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v3 - i32(87)
 /*line :629:3*/					goto l16
 /*line :629:3*/				}
@@ -40407,7 +40322,7 @@
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l17
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v4 - i32(87)
 /*line :629:3*/					goto l17
 /*line :629:3*/				}
@@ -40417,12 +40332,12 @@
 /*line :828:11*/			m.memory[uint64(uint32(v1))+1] = byte(v2 | v3)
 /*line :829:27*/			{
 /*line :829:27*/				t15 := int32(m.memory[uint64(uint32(v0))+4])
-/*line :829:27*/				v3 = t15
+/*line :626:15*/				v3 = t15
 /*line :626:15*/				v2 = v3 - i32(48)
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l18
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v3 - i32(87)
 /*line :629:3*/					goto l18
 /*line :629:3*/				}
@@ -40437,7 +40352,7 @@
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l19
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v4 - i32(87)
 /*line :629:3*/					goto l19
 /*line :629:3*/				}
@@ -40447,12 +40362,12 @@
 /*line :829:11*/			m.memory[uint64(uint32(v1))+2] = byte(v2 | v3)
 /*line :830:27*/			{
 /*line :830:27*/				t17 := int32(m.memory[uint64(uint32(v0))+6])
-/*line :830:27*/				v3 = t17
+/*line :626:15*/				v3 = t17
 /*line :626:15*/				v2 = v3 - i32(48)
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l20
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v3 - i32(87)
 /*line :629:3*/					goto l20
 /*line :629:3*/				}
@@ -40467,7 +40382,7 @@
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l21
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v4 - i32(87)
 /*line :629:3*/					goto l21
 /*line :629:3*/				}
@@ -40477,12 +40392,12 @@
 /*line :830:11*/			m.memory[uint64(uint32(v1))+3] = byte(v2 | v3)
 /*line :831:27*/			{
 /*line :831:27*/				t19 := int32(m.memory[uint64(uint32(v0))+8])
-/*line :831:27*/				v3 = t19
+/*line :626:15*/				v3 = t19
 /*line :626:15*/				v2 = v3 - i32(48)
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l22
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v3 - i32(87)
 /*line :629:3*/					goto l22
 /*line :629:3*/				}
@@ -40497,7 +40412,7 @@
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l23
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v4 - i32(87)
 /*line :629:3*/					goto l23
 /*line :629:3*/				}
@@ -40507,12 +40422,12 @@
 /*line :831:11*/			m.memory[uint64(uint32(v1))+4] = byte(v2 | v3)
 /*line :832:27*/			{
 /*line :832:27*/				t21 := int32(m.memory[uint64(uint32(v0))+10])
-/*line :832:27*/				v3 = t21
+/*line :626:15*/				v3 = t21
 /*line :626:15*/				v2 = v3 - i32(48)
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l24
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v3 - i32(87)
 /*line :629:3*/					goto l24
 /*line :629:3*/				}
@@ -40525,7 +40440,7 @@
 /*line :832:34*/			v0 = t22
 /*line :626:15*/			v3 = v0 - i32(48)
 /*line :626:15*/			if uint32(v3&i32(255)) >= uint32(i32(10)) {
-/*line :628:20*/				if uint32((v0-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v0-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :832:39*/					v6 = v0 - i32(87) | v2
 /*line :1149:45*/					goto l25
 /*line :1149:45*/				}
@@ -40571,7 +40486,7 @@
 /*line :845:6*/		l28:
 /*line :846:20*/			{
 /*line :846:20*/				t27 := int32(m.memory[uint64(uint32(v0))+2])
-/*line :846:20*/				v4 = t27
+/*line :846:6*/				v4 = t27
 /*line :846:6*/				if uint32((v4-i32(48))&i32(255)) < uint32(i32(10)) {
 /*line :846:6*/					goto l29
 /*line :846:6*/				}
@@ -40603,7 +40518,7 @@
 /*line :848:18*/			}
 /*line :849:20*/			{
 /*line :849:20*/				t30 := int32(m.memory[uint64(uint32(v0))+5])
-/*line :849:20*/				v4 = t30
+/*line :849:6*/				v4 = t30
 /*line :849:6*/				if uint32((v4-i32(48))&i32(255)) < uint32(i32(10)) {
 /*line :849:6*/					goto l31
 /*line :849:6*/				}
@@ -40631,7 +40546,7 @@
 /*line :850:6*/		l32:
 /*line :851:20*/			{
 /*line :851:20*/				t32 := int32(m.memory[uint64(uint32(v0))+7])
-/*line :851:20*/				v4 = t32
+/*line :851:6*/				v4 = t32
 /*line :851:6*/				if uint32((v4-i32(48))&i32(255)) < uint32(i32(10)) {
 /*line :851:6*/					goto l33
 /*line :851:6*/				}
@@ -40663,7 +40578,7 @@
 /*line :853:18*/			}
 /*line :854:20*/			{
 /*line :854:20*/				t35 := int32(m.memory[uint64(uint32(v0))+10])
-/*line :854:20*/				v4 = t35
+/*line :854:6*/				v4 = t35
 /*line :854:6*/				if uint32((v4-i32(48))&i32(255)) < uint32(i32(10)) {
 /*line :854:6*/					goto l35
 /*line :854:6*/				}
@@ -40691,7 +40606,7 @@
 /*line :855:6*/		l36:
 /*line :856:20*/			{
 /*line :856:20*/				t37 := int32(m.memory[uint64(uint32(v0))+12])
-/*line :856:20*/				v4 = t37
+/*line :856:6*/				v4 = t37
 /*line :856:6*/				if uint32((v4-i32(48))&i32(255)) < uint32(i32(10)) {
 /*line :856:6*/					goto l37
 /*line :856:6*/				}
@@ -40720,7 +40635,7 @@
 /*line :626:15*/			if uint32(v2&i32(255)) < uint32(i32(58)) {
 /*line :626:15*/				goto l39
 /*line :626:15*/			}
-/*line :628:20*/			if uint32((v2-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/			if uint32((v2-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/				v6 = v2 - i32(87)
 /*line :629:3*/				goto l39
 /*line :629:3*/			}
@@ -40730,7 +40645,7 @@
 /*line :626:15*/			if uint32(v3&i32(255)) < uint32(i32(58)) {
 /*line :626:15*/				goto l40
 /*line :626:15*/			}
-/*line :628:20*/			if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/			if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/				v7 = v3 - i32(87)
 /*line :629:3*/				goto l40
 /*line :629:3*/			}
@@ -40739,12 +40654,12 @@
 /*line :858:11*/			m.memory[uint32(v1)] = byte(v2 | v7)
 /*line :859:27*/			{
 /*line :859:27*/				t39 := int32(m.memory[uint64(uint32(v0))+2])
-/*line :859:27*/				v3 = t39
+/*line :626:15*/				v3 = t39
 /*line :626:15*/				v2 = v3 - i32(48)
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l41
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v3 - i32(87)
 /*line :629:3*/					goto l41
 /*line :629:3*/				}
@@ -40759,7 +40674,7 @@
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l42
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v4 - i32(87)
 /*line :629:3*/					goto l42
 /*line :629:3*/				}
@@ -40769,12 +40684,12 @@
 /*line :859:11*/			m.memory[uint64(uint32(v1))+1] = byte(v2 | v3)
 /*line :860:27*/			{
 /*line :860:27*/				t41 := int32(m.memory[uint64(uint32(v0))+5])
-/*line :860:27*/				v3 = t41
+/*line :626:15*/				v3 = t41
 /*line :626:15*/				v2 = v3 - i32(48)
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l43
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v3 - i32(87)
 /*line :629:3*/					goto l43
 /*line :629:3*/				}
@@ -40789,7 +40704,7 @@
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l44
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v4 - i32(87)
 /*line :629:3*/					goto l44
 /*line :629:3*/				}
@@ -40799,12 +40714,12 @@
 /*line :860:11*/			m.memory[uint64(uint32(v1))+2] = byte(v2 | v3)
 /*line :861:27*/			{
 /*line :861:27*/				t43 := int32(m.memory[uint64(uint32(v0))+7])
-/*line :861:27*/				v3 = t43
+/*line :626:15*/				v3 = t43
 /*line :626:15*/				v2 = v3 - i32(48)
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l45
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v3 - i32(87)
 /*line :629:3*/					goto l45
 /*line :629:3*/				}
@@ -40819,7 +40734,7 @@
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l46
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v4 - i32(87)
 /*line :629:3*/					goto l46
 /*line :629:3*/				}
@@ -40829,12 +40744,12 @@
 /*line :861:11*/			m.memory[uint64(uint32(v1))+3] = byte(v2 | v3)
 /*line :862:27*/			{
 /*line :862:27*/				t45 := int32(m.memory[uint64(uint32(v0))+10])
-/*line :862:27*/				v3 = t45
+/*line :626:15*/				v3 = t45
 /*line :626:15*/				v2 = v3 - i32(48)
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l47
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v3 - i32(87)
 /*line :629:3*/					goto l47
 /*line :629:3*/				}
@@ -40849,7 +40764,7 @@
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l48
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v4-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v4 - i32(87)
 /*line :629:3*/					goto l48
 /*line :629:3*/				}
@@ -40859,12 +40774,12 @@
 /*line :862:11*/			m.memory[uint64(uint32(v1))+4] = byte(v2 | v3)
 /*line :863:27*/			{
 /*line :863:27*/				t47 := int32(m.memory[uint64(uint32(v0))+12])
-/*line :863:27*/				v3 = t47
+/*line :626:15*/				v3 = t47
 /*line :626:15*/				v2 = v3 - i32(48)
 /*line :626:15*/				if uint32(v2&i32(255)) < uint32(i32(10)) {
 /*line :626:15*/					goto l49
 /*line :626:15*/				}
-/*line :628:20*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v3-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :629:27*/					v2 = v3 - i32(87)
 /*line :629:3*/					goto l49
 /*line :629:3*/				}
@@ -40877,7 +40792,7 @@
 /*line :863:34*/			v0 = t48
 /*line :626:15*/			v3 = v0 - i32(48)
 /*line :626:15*/			if uint32(v3&i32(255)) >= uint32(i32(10)) {
-/*line :628:20*/				if uint32((v0-i32(97))&i32(255)) <= uint32(i32(5)) {
+/*line :626:15*/				if uint32((v0-i32(97))&i32(255)) <= uint32(i32(5)) {
 /*line :863:39*/					v6 = v0 - i32(87) | v2
 /*line :1150:45*/					goto l25
 /*line :1150:45*/				}
@@ -41217,10 +41132,10 @@
 /*line :1136:3*/	v7 = i32(1)
 /*line :1136:3*/l0:
 /*line :1148:2*/	return v7
-/*line bpf.go:41220:1*/}
-/*line :41221:1*/func (m *Module) _pcap_ether_hostton(v0 int32) int32 {
-/*line :41222:1*/	var v1 int32
-/*line :41223:1*/	var v2 int32
+/*line bpf.go:41135:1*/}
+/*line :41136:1*/func (m *Module) _pcap_ether_hostton(v0 int32) int32 {
+/*line :41137:1*/	var v1 int32
+/*line :41138:1*/	var v2 int32
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/nametoaddr.c:1219*/	t0 := m.___stack_pointer
 /*line :1219*/	v1 = t0 - i32(1040)
 /*line :1219*/	m.___stack_pointer = v1
@@ -41245,33 +41160,33 @@
 /*line :1232:4*/l0:
 /*line :1234:2*/	m.___stack_pointer = v1 + i32(1040)
 /*line :1234:2*/	return v0
-/*line bpf.go:41248:1*/}
-/*line :41249:1*/func (m *Module) _pcapint_filter_with_aux_data(v0, v1, v2, v3, v4, v5 int32) int32 {
-/*line :41250:1*/	var v6 int32
-/*line :41251:1*/	var v7 int32
-/*line :41252:1*/	var v8 int32
-/*line :41253:1*/	var v9 int32
-/*line :41254:1*/	var v10 int32
-/*line :41255:1*/	var v11 int32
-/*line :41256:1*/	var v12 int32
-/*line :41257:1*/	var v13 int32
-/*line :41258:1*/	var v14 int32
+/*line bpf.go:41163:1*/}
+/*line :41164:1*/func (m *Module) _pcapint_filter_with_aux_data(v0, v1, v2, v3, v4, v5 int32) int32 {
+/*line :41165:1*/	var v6 int32
+/*line :41166:1*/	var v7 int32
+/*line :41167:1*/	var v8 int32
+/*line :41168:1*/	var v9 int32
+/*line :41169:1*/	var v10 int32
+/*line :41170:1*/	var v11 int32
+/*line :41171:1*/	var v12 int32
+/*line :41172:1*/	var v13 int32
+/*line :41173:1*/	var v14 int32
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/bpf_filter.c:108*/	if v0 == 0 {
 /*line :108*/		return i32(-1)
 /*line :108*/	}
-/*line :119:18*/	if uint32(v1-i32(3060001)) < uint32(i32(-3060000)) {
-/*line :119:18*/		return i32(0)
-/*line :119:18*/	}
-/*line :119:18*/	t0 := m.___stack_pointer
-/*line :119:18*/	v11 = t0 + i32(-64)
-/*line :140:11*/	store64(m.memory, uint64(uint32(v11))+56, uint64(i64(0)))
-/*line :140:11*/	store64(m.memory, uint64(uint32(v11))+48, uint64(i64(0)))
-/*line :140:11*/	store64(m.memory, uint64(uint32(v11))+40, uint64(i64(0)))
-/*line :140:11*/	store64(m.memory, uint64(uint32(v11))+32, uint64(i64(0)))
-/*line :140:11*/	store64(m.memory, uint64(uint32(v11))+24, uint64(i64(0)))
-/*line :140:11*/	store64(m.memory, uint64(uint32(v11))+16, uint64(i64(0)))
-/*line :140:11*/	store64(m.memory, uint64(uint32(v11))+8, uint64(i64(0)))
-/*line :140:11*/	store64(m.memory, uint32(v11), uint64(i64(0)))
+/*line :108*/	if uint32(v1-i32(3060001)) < uint32(i32(-3060000)) {
+/*line :108*/		return i32(0)
+/*line :108*/	}
+/*line :108*/	t0 := m.___stack_pointer
+/*line :108*/	v11 = t0 + i32(-64)
+/*line :108*/	store64(m.memory, uint64(uint32(v11))+56, uint64(i64(0)))
+/*line :108*/	store64(m.memory, uint64(uint32(v11))+48, uint64(i64(0)))
+/*line :108*/	store64(m.memory, uint64(uint32(v11))+40, uint64(i64(0)))
+/*line :108*/	store64(m.memory, uint64(uint32(v11))+32, uint64(i64(0)))
+/*line :108*/	store64(m.memory, uint64(uint32(v11))+24, uint64(i64(0)))
+/*line :108*/	store64(m.memory, uint64(uint32(v11))+16, uint64(i64(0)))
+/*line :108*/	store64(m.memory, uint64(uint32(v11))+8, uint64(i64(0)))
+/*line :108*/	store64(m.memory, uint32(v11), uint64(i64(0)))
 /*line :143:2*/	v8 = v0 - i32(8)
 /*line :134:36*/	v14 = v0 + v1<<3
 /*line :134:36*/	v10 = v0
@@ -41435,7 +41350,7 @@
 /*line :160:19*/																																					}
 /*line :163:8*/																																					t5 := int32(load32(m.memory, uint32(v2+v6)))
 /*line :163:8*/																																					v6 = t5
-/*line :163:8*/																																					v6 = i32_rotr(v6&i32(0xff00ff), i32(8)) | i32_rotr(v6, i32(24))&i32(0xff00ff)
+/*line :163:8*/																																					v6 = int32(uint32((v6^i32_rotr(v6, i32(16)))&i32(-0xff0100))>>8) ^ i32_rotr(v6, i32(8))
 /*line :163:8*/																																					goto l41
 /*line :163:8*/																																				}
 /*line :163:8*/																																			l18:
@@ -41485,7 +41400,7 @@
 /*line :218:23*/																																		}
 /*line :222:8*/																																		t15 := int32(load32(m.memory, uint32(v2+v6)))
 /*line :222:8*/																																		v6 = t15
-/*line :222:8*/																																		v6 = i32_rotr(v6&i32(0xff00ff), i32(8)) | i32_rotr(v6, i32(24))&i32(0xff00ff)
+/*line :222:8*/																																		v6 = int32(uint32((v6^i32_rotr(v6, i32(16)))&i32(-0xff0100))>>8) ^ i32_rotr(v6, i32(8))
 /*line :223:4*/																																		goto l41
 /*line :223:4*/																																	}
 /*line :223:4*/																																l29:
@@ -41546,7 +41461,7 @@
 /*line :365:4*/																												}
 /*line :365:4*/																											l35:
 /*line :259:12*/																												t27 := int32(load32(m.memory, uint64(uint32(v8))+12))
-/*line :259:12*/																												v6 = t27
+/*line :259:14*/																												v6 = t27
 /*line :259:14*/																												if uint32(v6) > uint32(i32(15)) {
 /*line :259:14*/																													goto l8
 /*line :259:14*/																												}
@@ -41556,7 +41471,7 @@
 /*line :262:4*/																											}
 /*line :262:4*/																										l36:
 /*line :265:12*/																											t29 := int32(load32(m.memory, uint64(uint32(v8))+12))
-/*line :265:12*/																											v6 = t29
+/*line :265:14*/																											v6 = t29
 /*line :265:14*/																											if uint32(v6) > uint32(i32(15)) {
 /*line :265:14*/																												goto l8
 /*line :265:14*/																											}
@@ -41567,7 +41482,7 @@
 /*line :365:4*/																										}
 /*line :365:4*/																									l2:
 /*line :271:12*/																										t31 := int32(load32(m.memory, uint64(uint32(v8))+12))
-/*line :271:12*/																										v6 = t31
+/*line :271:14*/																										v6 = t31
 /*line :271:14*/																										if uint32(v6) > uint32(i32(15)) {
 /*line :271:14*/																											goto l8
 /*line :271:14*/																										}
@@ -41577,7 +41492,7 @@
 /*line :365:4*/																									}
 /*line :365:4*/																								l3:
 /*line :277:12*/																									t32 := int32(load32(m.memory, uint64(uint32(v8))+12))
-/*line :277:12*/																									v6 = t32
+/*line :277:14*/																									v6 = t32
 /*line :277:14*/																									if uint32(v6) > uint32(i32(15)) {
 /*line :277:14*/																										goto l8
 /*line :277:14*/																									}
@@ -41591,7 +41506,7 @@
 /*line :315:44*/																								if uint32(v6+(v10-v0)>>3+i32(1)) >= uint32(v1) {
 /*line :315:44*/																									goto l8
 /*line :315:44*/																								}
-/*line :325:25*/																								if v6 < i32(0) {
+/*line :315:44*/																								if v6 < i32(0) {
 /*line :325:56*/																									if v6 == i32(-1) {
 /*line :325:56*/																										goto l8
 /*line :325:56*/																									}
@@ -41841,20 +41756,20 @@
 /*line :470:4*/	goto l8
 /*line :470:4*/l41:
 /*line :470:4*/	v7 = v6
-/*line :470:4*/	v8 = v10
+/*line :145:3*/	v8 = v10
 /*line :146:10*/	v10 = v8 + i32(8)
 /*line :146:10*/	if uint32(v10) < uint32(v14) {
 /*line :146:10*/		goto l50
 /*line :146:10*/	}
 /*line :146:10*/l8:
 /*line :473:1*/	return v13
-/*line bpf.go:41851:1*/}
-/*line :41852:1*/func (m *Module) Xpcapint_filter(v0, v1, v2, v3, v4 int32) int32 {
+/*line bpf.go:41766:1*/}
+/*line :41767:1*/func (m *Module) Xpcapint_filter(v0, v1, v2, v3, v4 int32) int32 {
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/bpf_filter.c:479:9*/	t0 := m._pcapint_filter_with_aux_data(v0, v1, v2, v3, v4, v4)
 /*line :479:2*/	return t0
-/*line bpf.go:41855:1*/}
-/*line :41856:1*/func (m *Module) _pcapint_valid_insn(v0 int32) int32 {
-/*line :41857:1*/	var v1 int32
+/*line bpf.go:41770:1*/}
+/*line :41771:1*/func (m *Module) _pcapint_valid_insn(v0 int32) int32 {
+/*line :41772:1*/	var v1 int32
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/bpf_filter.c:488*/	v1 = i32(1)
 /*line :494:16*/	{
 /*line :494:16*/		{
@@ -41902,13 +41817,13 @@
 /*line :557:1*/	v1 = i32(0)
 /*line :557:1*/l0:
 /*line :557:1*/	return v1
-/*line bpf.go:41905:1*/}
-/*line :41906:1*/func (m *Module) _pcapint_validate_filter(v0, v1 int32) int32 {
-/*line :41907:1*/	var v2 int32
-/*line :41908:1*/	var v3 int32
-/*line :41909:1*/	var v4 int32
-/*line :41910:1*/	var v5 int32
-/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/bpf_filter.c:569*/	{
+/*line bpf.go:41820:1*/}
+/*line :41821:1*/func (m *Module) _pcapint_validate_filter(v0, v1 int32) int32 {
+/*line :41822:1*/	var v2 int32
+/*line :41823:1*/	var v3 int32
+/*line :41824:1*/	var v4 int32
+/*line :41825:1*/	var v5 int32
+/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/bpf_filter.c:575:14*/	{
 /*line :575:14*/		if uint32(v1-i32(3060001)) < uint32(i32(-3060000)) {
 /*line :575:14*/			goto l0
 /*line :575:14*/		}
@@ -41966,12 +41881,12 @@
 /*line :650:36*/	}
 /*line :650:36*/l0:
 /*line :651:1*/	return v5
-/*line bpf.go:41969:1*/}
-/*line :41970:1*/func (m *Module) Xbpf_image(v0, v1 int32) int32 {
-/*line :41971:1*/	var v2 int32
-/*line :41972:1*/	var v3 int32
-/*line :41973:1*/	var v4 int32
-/*line :41974:1*/	var v5 int32
+/*line bpf.go:41884:1*/}
+/*line :41885:1*/func (m *Module) Xbpf_image(v0, v1 int32) int32 {
+/*line :41886:1*/	var v2 int32
+/*line :41887:1*/	var v3 int32
+/*line :41888:1*/	var v4 int32
+/*line :41889:1*/	var v5 int32
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/bpf_image.c:131*/	t0 := m.___stack_pointer
 /*line :131*/	v2 = t0 - i32(608)
 /*line :131*/	m.___stack_pointer = v2
@@ -42426,7 +42341,7 @@
 /*line :419:19*/	{
 /*line :419:19*/		{
 /*line :419:19*/			t62 := int32(load16(m.memory, uint32(v0)))
-/*line :419:19*/			v5 = t62
+/*line :419:6*/			v5 = t62
 /*line :419:36*/			if v5&i32(7) != i32(5) {
 /*line :419:36*/				goto l50
 /*line :419:36*/			}
@@ -42468,19 +42383,19 @@
 /*line :428:9*/	v0 = p61
 /*line :432:2*/	m.___stack_pointer = v2 + i32(608)
 /*line :432:2*/	return i32(127264)
-/*line bpf.go:42471:1*/}
-/*line :42472:1*/func (m *Module) _pcapint_fmt_errmsg_for_errno(v0, v1, v2, v3, v4 int32) {
-/*line :42473:1*/	var v5 int32
+/*line bpf.go:42386:1*/}
+/*line :42387:1*/func (m *Module) _pcapint_fmt_errmsg_for_errno(v0, v1, v2, v3, v4 int32) {
+/*line :42388:1*/	var v5 int32
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/fmtutils.c:269*/	t0 := m.___stack_pointer
 /*line :269*/	v5 = t0 - i32(16)
 /*line :269*/	m.___stack_pointer = v5
 /*line :272:2*/	store32(m.memory, uint64(uint32(v5))+12, uint32(v4))
 /*line :285:8*/	_ = m._vsnprintf(v0, v1, v3, v4)
 /*line :292:17*/	t2 := m._strlen(v0)
-/*line :292:17*/	t3 := v1
-/*line :292:17*/	v4 = t2
+/*line :292:13*/	t3 := v1
+/*line :292:13*/	v4 = t2
 /*line :292:13*/	if uint32(t3) >= uint32(v4+i32(3)) {
-/*line :296:13*/		v0 = v0 + v4
+/*line :300:5*/		v0 = v0 + v4
 /*line :300:5*/		m.memory[uint64(uint32(v0))+2] = byte(i32(0))
 /*line :298:7*/		store16(m.memory, uint32(v0), uint16(i32(8250)))
 /*line :340:41*/		t4 := _pcap_strerror(v2)
@@ -42488,31 +42403,31 @@
 /*line :340:2*/		_ = m._snprintf(v0+i32(2), v1-v4-i32(2), i32(67476), v5)
 /*line :340:2*/	}
 /*line :275:1*/	m.___stack_pointer = v5 + i32(16)
-/*line bpf.go:42491:1*/}
-/*line :42492:1*/func (m *Module) _stbsp_vsprintfcb(v0, v1, v2, v3, v4 int32) int32 {
-/*line :42493:1*/	var v5 int32
-/*line :42494:1*/	var v6 int32
-/*line :42495:1*/	var v7 int32
-/*line :42496:1*/	var v8 int32
-/*line :42497:1*/	var v9 int32
-/*line :42498:1*/	var v10 int32
-/*line :42499:1*/	var v11 int32
-/*line :42500:1*/	var v12 int32
-/*line :42501:1*/	var v13 int32
-/*line :42502:1*/	var v14 int32
-/*line :42503:1*/	var v15 int32
-/*line :42504:1*/	var v16 int32
-/*line :42505:1*/	var v17 int32
-/*line :42506:1*/	var v18 int64
-/*line :42507:1*/	var v19 int32
-/*line :42508:1*/	var v20 int32
-/*line :42509:1*/	var v21 int32
-/*line :42510:1*/	var v22 int64
-/*line :42511:1*/	var v23 int32
-/*line :42512:1*/	var v24 int32
-/*line :42513:1*/	var v25 int32
-/*line :42514:1*/	var v26 int32
-/*line :42515:1*/	var v27 int32
+/*line bpf.go:42406:1*/}
+/*line :42407:1*/func (m *Module) _stbsp_vsprintfcb(v0, v1, v2, v3, v4 int32) int32 {
+/*line :42408:1*/	var v5 int32
+/*line :42409:1*/	var v6 int32
+/*line :42410:1*/	var v7 int32
+/*line :42411:1*/	var v8 int32
+/*line :42412:1*/	var v9 int32
+/*line :42413:1*/	var v10 int32
+/*line :42414:1*/	var v11 int32
+/*line :42415:1*/	var v12 int32
+/*line :42416:1*/	var v13 int32
+/*line :42417:1*/	var v14 int32
+/*line :42418:1*/	var v15 int32
+/*line :42419:1*/	var v16 int64
+/*line :42420:1*/	var v17 int32
+/*line :42421:1*/	var v18 int32
+/*line :42422:1*/	var v19 int32
+/*line :42423:1*/	var v20 int32
+/*line :42424:1*/	var v21 int32
+/*line :42425:1*/	var v22 int64
+/*line :42426:1*/	var v23 int32
+/*line :42427:1*/	var v24 int32
+/*line :42428:1*/	var v25 int32
+/*line :42429:1*/	var v26 int32
+/*line :42430:1*/	var v27 int32
 /*line ../src/libc/stb_sprintf.h:350*/	t0 := m.___stack_pointer
 /*line :350*/	v10 = t0 - i32(528)
 /*line :350*/	m.___stack_pointer = v10
@@ -42522,9 +42437,9 @@
 /*line :359:4*/	v27 = v10 + i32(1)
 /*line :359:4*/	v23 = v10 + i32(528)
 /*line :359:4*/	v25 = v10 + i32(9)
-/*line :359:4*/	v13 = v2
+/*line :359:4*/	v12 = v2
 /*line :359:4*/	{
-/*line :359:4*/	l126:
+/*line :359:4*/	l125:
 /*line :359:4*/		{
 /*line :359:4*/			{
 /*line :359:4*/				{
@@ -42541,7 +42456,7 @@
 /*line :411:49*/						if t3&v6 != 0 {
 /*line :411:49*/							goto l0
 /*line :411:49*/						}
-/*line :411:49*/						v8 = v13 - v2 + i32(512)
+/*line :411:49*/						v8 = v12 - v2 + i32(512)
 /*line :411:49*/					l2:
 /*line :411:49*/						{
 /*line :413:34*/							if v6&(v5-i32(16843009)) != 0 {
@@ -42644,11 +42559,11 @@
 /*line :493:13*/					var p9 int32
 /*line :493:13*/					{
 /*line :500:16*/						if v3&i32(255) != i32(42) {
-/*line :500:16*/							v19 = i32(0)
+/*line :500:16*/							v18 = i32(0)
 /*line :504:31*/							if uint32((v3-i32(48))&i32(255)) <= uint32(i32(9)) {
 /*line :504:31*/							l15:
 /*line :504:31*/								{
-/*line :505:33*/									v19 = v19*i32(10) + v3&i32(255) - i32(48)
+/*line :505:33*/									v18 = v18*i32(10) + v3&i32(255) - i32(48)
 /*line :504:18*/									v5 = v5 + i32(1)
 /*line :504:18*/									t10 := int32(m.memory[uint32(v5)])
 /*line :504:18*/									v3 = t10
@@ -42666,27 +42581,27 @@
 /*line :510:11*/						t12 := int32(m.memory[uint64(uint32(v5))+1])
 /*line :510:11*/						v3 = t12
 /*line :501:15*/						t13 := int32(load32(m.memory, uint32(v4)))
-/*line :501:15*/						v19 = t13
+/*line :501:15*/						v18 = t13
 /*line :502:10*/						p9 = v5 + i32(1)
 /*line :502:10*/					}
 /*line :502:10*/				l16:
 /*line :502:10*/					v6 = p9
 /*line :502:10*/					{
 /*line :510:16*/						if v3&i32(255) != i32(46) {
-/*line :510:16*/							v14 = i32(-1)
+/*line :510:16*/							v13 = i32(-1)
 /*line :510:16*/							goto l17
 /*line :510:16*/						}
 /*line :510:16*/						t14 := int32(m.memory[uint64(uint32(v6))+1])
 /*line :510:16*/						v3 = t14
 /*line :512:19*/						if v3 != i32(42) {
 /*line :512:19*/							v6 = v6 + i32(1)
-/*line :512:19*/							v14 = i32(0)
+/*line :512:19*/							v13 = i32(0)
 /*line :517:34*/							if uint32((v3-i32(48))&i32(255)) > uint32(i32(9)) {
 /*line :517:34*/								goto l17
 /*line :517:34*/							}
 /*line :517:34*/						l18:
 /*line :517:34*/							{
-/*line :518:36*/								v14 = v14*i32(10) + v3&i32(255) - i32(48)
+/*line :518:36*/								v13 = v13*i32(10) + v3&i32(255) - i32(48)
 /*line :517:21*/								v6 = v6 + i32(1)
 /*line :517:21*/								t15 := int32(m.memory[uint32(v6)])
 /*line :517:21*/								v3 = t15
@@ -42699,7 +42614,7 @@
 /*line :525:15*/						t16 := int32(m.memory[uint64(uint32(v6))+2])
 /*line :525:15*/						v3 = t16
 /*line :513:18*/						t17 := int32(load32(m.memory, uint32(v7)))
-/*line :513:18*/						v14 = t17
+/*line :513:18*/						v13 = t17
 /*line :514:13*/						v6 = v6 + i32(2)
 /*line :513:18*/						v7 = v7 + i32(4)
 /*line :513:18*/					}
@@ -42821,52 +42736,49 @@
 /*line :572:7*/																			goto l29
 /*line :572:7*/																		}
 /*line :572:7*/																	l36:
-/*line :594:39*/																		p28 := v14
-/*line :594:39*/																		if v14 < i32(0) {
-/*line :594:39*/																			p28 = i32(-1)
-/*line :594:39*/																		}
-/*line :594:39*/																		v15 = p28
-/*line :594:39*/																		t29 := int32(load32(m.memory, uint32(v7)))
-/*line :594:39*/																		v5 = t29
-/*line :590:16*/																		p30 := i32(68730)
+/*line :594:39*/																		v11 = v13 | v13>>31
+/*line :594:39*/																		t28 := int32(load32(m.memory, uint32(v7)))
+/*line :594:39*/																		v5 = t28
+/*line :590:16*/																		p29 := i32(68730)
 /*line :590:16*/																		if v5 != 0 {
-/*line :590:16*/																			p30 = v5
+/*line :590:16*/																			p29 = v5
 /*line :590:16*/																		}
-/*line :590:16*/																		v5 = p30
+/*line :590:16*/																		v5 = p29
 /*line :315:31*/																		if v5&i32(3) == 0 {
-/*line :315:31*/																			v12 = v5
+/*line :315:31*/																			v14 = v5
 /*line :315:31*/																			goto l37
 /*line :315:31*/																		}
-/*line :314:4*/																		v3 = v5 + v15
-/*line :314:4*/																		if v14 == 0 {
-/*line :314:4*/																			v12 = v3
+/*line :314:4*/																		v6 = v5 + v11
+/*line :314:4*/																		if v13 == 0 {
+/*line :314:4*/																			v3 = v6
 /*line :318:18*/																			goto l38
 /*line :318:18*/																		}
-/*line :318:18*/																		t31 := int32(m.memory[uint32(v5)])
-/*line :318:18*/																		if t31 == 0 {
-/*line :318:18*/																			v12 = v5
+/*line :318:18*/																		t30 := int32(m.memory[uint32(v5)])
+/*line :318:18*/																		if t30 == 0 {
+/*line :318:18*/																			v3 = v5
 /*line :318:18*/																			goto l38
 /*line :318:18*/																		}
-/*line :322:7*/																		v6 = v15 - i32(1)
-/*line :321:7*/																		v12 = v5 + i32(1)
-/*line :315:36*/																		if v12&i32(3) != 0 {
+/*line :322:7*/																		v9 = v11 - i32(1)
+/*line :321:7*/																		v3 = v5 + i32(1)
+/*line :315:36*/																		if v3&i32(3) != 0 {
 /*line :315:36*/																			goto l39
 /*line :315:36*/																		}
-/*line :315:36*/																		v15 = v6
+/*line :315:36*/																		v11 = v9
+/*line :315:36*/																		v14 = v3
 /*line :315:36*/																		goto l37
 /*line :315:36*/																	}
 /*line :315:36*/																l31:
-/*line :606:21*/																	t32 := int32(load32(m.memory, uint32(v7)))
-/*line :606:21*/																	v5 = t32
+/*line :606:21*/																	t31 := int32(load32(m.memory, uint32(v7)))
+/*line :606:21*/																	v5 = t31
 /*line :606:21*/																	v11 = i32(0)
 /*line :608:18*/																	m.memory[uint64(uint32(v10))+8] = byte(i32(0))
 /*line :606:13*/																	m.memory[uint64(uint32(v10))+527] = byte(v5)
 /*line :609:18*/																	m.memory[uint32(v10)] = byte(i32(0))
 /*line :606:21*/																	v4 = v7 + i32(4)
-/*line :606:21*/																	v16 = i32(1)
+/*line :606:21*/																	v14 = i32(1)
 /*line :606:21*/																	v6 = i32(0)
 /*line :606:21*/																	v5 = v21
-/*line :606:21*/																	v14 = i32(0)
+/*line :606:21*/																	v13 = i32(0)
 /*line :1029:20*/																	p26 = i32(0)
 /*line :1029:20*/																	goto l40
 /*line :1029:20*/																}
@@ -42874,35 +42786,35 @@
 /*line :1029:20*/																v11 = i32(0)
 /*line :633:18*/																m.memory[uint32(v10)] = byte(i32(0))
 /*line :632:18*/																m.memory[uint64(uint32(v10))+8] = byte(i32(0))
-/*line :632:18*/																v16 = i32(8)
+/*line :632:18*/																v14 = i32(8)
 /*line :632:18*/																v5 = i32(66432)
-/*line :629:10*/																t33 := (v7+i32(7))&i32(-8) + i32(8)
-/*line :629:10*/																p27 = t33
+/*line :629:10*/																t32 := (v7+i32(7))&i32(-8) + i32(8)
+/*line :629:10*/																p27 = t32
 /*line :629:10*/																goto l41
 /*line :629:10*/															}
 /*line :629:10*/														l28:
 /*line :981:18*/															m.memory[uint64(uint32(v10))+8] = byte(i32(0))
-/*line :980:14*/															var p34 int32
+/*line :980:14*/															var p33 int32
 /*line :980:14*/															if v3 == i32(66) {
-/*line :980:14*/																p34 = 1
+/*line :980:14*/																p33 = 1
 /*line :980:14*/															}
-/*line :980:14*/															v5 = p34
-/*line :980:14*/															p35 := i32(75104)
+/*line :980:14*/															v5 = p33
+/*line :980:14*/															p34 := i32(75104)
 /*line :980:14*/															if v5 != 0 {
-/*line :980:14*/																p35 = i32(75136)
+/*line :980:14*/																p34 = i32(75136)
 /*line :980:14*/															}
-/*line :980:14*/															v9 = p35
+/*line :980:14*/															v9 = p34
 /*line :980:14*/															v3 = i32(384)
 /*line :982:17*/															if v8&i32(8) == 0 {
 /*line :982:17*/																goto l42
 /*line :982:17*/															}
 /*line :983:21*/															store16(m.memory, uint64(uint32(v10))+8, uint16(i32(12290)))
-/*line :985:23*/															t37 := v10
-/*line :985:23*/															p36 := i32(98)
-/*line :985:23*/															if v5 != 0 {
-/*line :985:23*/																p36 = i32(66)
-/*line :985:23*/															}
-/*line :985:21*/															m.memory[uint64(uint32(t37))+10] = byte(p36)
+/*line :980:14*/															t36 := v10
+/*line :980:14*/															p35 := i32(98)
+/*line :980:14*/															if v5 != 0 {
+/*line :980:14*/																p35 = i32(66)
+/*line :980:14*/															}
+/*line :985:21*/															m.memory[uint64(uint32(t36))+10] = byte(p35)
 /*line :986:10*/															goto l42
 /*line :986:10*/														}
 /*line :986:10*/													l34:
@@ -42916,75 +42828,75 @@
 /*line :996:10*/														goto l42
 /*line :996:10*/													l35:
 /*line :1003:13*/														v8 = v8 & i32(-17)
-/*line :1003:13*/														v14 = i32(8)
+/*line :1003:13*/														v13 = i32(8)
 /*line :1003:13*/													l30:
 /*line :1010:18*/														m.memory[uint64(uint32(v10))+8] = byte(i32(0))
-/*line :1008:14*/														var p38 int32
+/*line :1008:14*/														var p37 int32
 /*line :1008:14*/														if v3 == i32(88) {
-/*line :1008:14*/															p38 = 1
+/*line :1008:14*/															p37 = 1
 /*line :1008:14*/														}
-/*line :1008:14*/														v5 = p38
-/*line :1008:14*/														p39 := i32(75104)
+/*line :1008:14*/														v5 = p37
+/*line :1008:14*/														p38 := i32(75104)
 /*line :1008:14*/														if v5 != 0 {
-/*line :1008:14*/															p39 = i32(75136)
+/*line :1008:14*/															p38 = i32(75136)
 /*line :1008:14*/														}
-/*line :1008:14*/														v9 = p39
+/*line :1008:14*/														v9 = p38
 /*line :1008:14*/														v3 = i32(1088)
 /*line :1011:17*/														if v8&i32(8) == 0 {
 /*line :1011:17*/															goto l42
 /*line :1011:17*/														}
 /*line :1012:21*/														store16(m.memory, uint64(uint32(v10))+8, uint16(i32(12290)))
-/*line :1014:23*/														t41 := v10
-/*line :1014:23*/														p40 := i32(120)
-/*line :1014:23*/														if v5 != 0 {
-/*line :1014:23*/															p40 = i32(88)
-/*line :1014:23*/														}
-/*line :1014:21*/														m.memory[uint64(uint32(t41))+10] = byte(p40)
+/*line :1008:14*/														t40 := v10
+/*line :1008:14*/														p39 := i32(120)
+/*line :1008:14*/														if v5 != 0 {
+/*line :1008:14*/															p39 = i32(88)
+/*line :1008:14*/														}
+/*line :1014:21*/														m.memory[uint64(uint32(t40))+10] = byte(p39)
 /*line :1014:21*/													}
 /*line :1014:21*/												l42:
-/*line :1014:21*/													var p42 int64
+/*line :1014:21*/													var p41 int64
 /*line :1014:21*/													{
 /*line :1018:17*/														if v8&i32(32) != 0 {
 /*line :1019:19*/															v5 = (v7 + i32(7)) & i32(-8)
 /*line :1019:19*/															v4 = v5 + i32(8)
-/*line :1019:19*/															t43 := int64(load64(m.memory, uint32(v5)))
-/*line :1019:13*/															p42 = t43
+/*line :1019:19*/															t42 := int64(load64(m.memory, uint32(v5)))
+/*line :1019:13*/															p41 = t42
 /*line :1019:13*/															goto l43
 /*line :1019:13*/														}
 /*line :1021:19*/														v4 = v7 + i32(4)
-/*line :1021:19*/														t44 := int64(load32(m.memory, uint32(v7)))
-/*line :1021:19*/														p42 = t44
+/*line :1021:19*/														t43 := int64(load32(m.memory, uint32(v7)))
+/*line :1021:19*/														p41 = t43
 /*line :1021:19*/													}
 /*line :1021:19*/												l43:
-/*line :1021:19*/													v18 = p42
+/*line :1021:19*/													v16 = p41
 /*line :1026:18*/													m.memory[uint32(v10)] = byte(i32(0))
-/*line :1027:18*/													if v18 != i64(0) {
+/*line :1027:18*/													if v16 != i64(0) {
 /*line :1027:18*/														goto l44
 /*line :1027:18*/													}
 /*line :1027:18*/													v11 = i32(0)
 /*line :1028:21*/													m.memory[uint64(uint32(v10))+8] = byte(i32(0))
-/*line :1029:20*/													if v14 != 0 {
+/*line :1029:20*/													if v13 != 0 {
 /*line :1029:20*/														goto l44
 /*line :1029:20*/													}
 /*line :1029:20*/													v6 = i32(0)
-/*line :1029:20*/													v16 = i32(0)
-/*line :1029:20*/													v5 = v23
 /*line :1029:20*/													v14 = i32(0)
+/*line :1029:20*/													v5 = v23
+/*line :1029:20*/													v13 = i32(0)
 /*line :1029:20*/													p26 = i32(0)
 /*line :1029:20*/													goto l40
 /*line :1029:20*/												l44:
-/*line :1037:45*/													t45 := v10
-/*line :1037:45*/													t46 := v9
-/*line :1037:45*/													t47 := int32(v18)
+/*line :1037:45*/													t44 := v10
+/*line :1037:45*/													t45 := v9
+/*line :1037:45*/													t46 := int32(v16)
 /*line :1037:45*/													v5 = int32(uint32(v3) >> 8)
-/*line :1037:45*/													t48 := int32(m.memory[uint32(t46+t47&(i32_shl(i32(-1), v5)^i32(-1)))])
-/*line :1037:18*/													m.memory[uint64(uint32(t45))+527] = byte(t48)
-/*line :1038:17*/													v18 = i64_shr_u(v18, int64(uint32(v5)))
-/*line :1039:25*/													if v18 != i64(0) {
+/*line :1037:45*/													t47 := int32(m.memory[uint32(t45+t46&(i32_shl(i32(-1), v5)^i32(-1)))])
+/*line :1037:18*/													m.memory[uint64(uint32(t44))+527] = byte(t47)
+/*line :1038:17*/													v16 = i64_shr_u(v16, int64(uint32(v5)))
+/*line :1039:25*/													if v16 != i64(0) {
 /*line :1039:25*/														goto l45
 /*line :1039:25*/													}
-/*line :1039:25*/													v16 = i32(1)
-/*line :1039:25*/													if v14 >= i32(2) {
+/*line :1039:25*/													v14 = i32(1)
+/*line :1039:25*/													if v13 >= i32(2) {
 /*line :1039:25*/														goto l45
 /*line :1039:25*/													}
 /*line :1039:25*/													v5 = v21
@@ -43006,154 +42918,154 @@
 /*line :1043:29*/																goto l47
 /*line :1043:29*/															}
 /*line :1045:20*/															v6 = v6 - i32(2)
-/*line :1045:26*/															t49 := int32(m.memory[uint32(i32(125432))])
-/*line :1045:24*/															m.memory[uint32(v6)] = byte(t49)
+/*line :1045:26*/															t48 := int32(m.memory[uint32(i32(125432))])
+/*line :1045:24*/															m.memory[uint32(v6)] = byte(t48)
 /*line :1044:21*/															v3 = v3 & i32(-16)
 /*line :1044:21*/														}
 /*line :1044:21*/													l47:
 /*line :1037:14*/														v5 = v6 - i32(1)
-/*line :1037:45*/														t50 := v5
-/*line :1037:45*/														t51 := v9
-/*line :1037:45*/														t52 := int32(v18)
+/*line :1037:45*/														t49 := v5
+/*line :1037:45*/														t50 := v9
+/*line :1037:45*/														t51 := int32(v16)
 /*line :1037:45*/														v7 = int32(uint32(v3) >> 8)
-/*line :1037:20*/														t53 := int32(m.memory[uint32(t51+t52&(i32_shl(i32(-1), v7)^i32(-1)))])
-/*line :1037:18*/														m.memory[uint32(t50)] = byte(t53)
-/*line :1037:18*/														v16 = v23 - v5
-/*line :1038:17*/														v18 = i64_shr_u(v18, int64(uint32(v7)))
-/*line :1039:25*/														if v18 != i64(0) {
+/*line :1037:20*/														t52 := int32(m.memory[uint32(t50+t51&(i32_shl(i32(-1), v7)^i32(-1)))])
+/*line :1037:18*/														m.memory[uint32(t49)] = byte(t52)
+/*line :1037:18*/														v14 = v23 - v5
+/*line :1038:17*/														v16 = i64_shr_u(v16, int64(uint32(v7)))
+/*line :1039:25*/														if v16 != i64(0) {
 /*line :1039:25*/															goto l48
 /*line :1039:25*/														}
-/*line :1039:25*/														if v14 > v16 {
+/*line :1039:25*/														if v13 > v14 {
 /*line :1039:25*/															goto l48
 /*line :1039:25*/														}
 /*line :1039:25*/													}
 /*line :1039:25*/												l46:
-/*line :1150:29*/													t54 := int32(int8(m.memory[uint32(v10)]))
-/*line :1150:29*/													v11 = t54
-/*line :1150:19*/													t55 := int32(m.memory[uint64(uint32(v10))+8])
-/*line :1150:19*/													v6 = t55
-/*line :1054:10*/													t56 := v16 + v3<<20&i32(0xf000000)
-/*line :1054:10*/													p26 = t56
+/*line :1150:29*/													t53 := int32(int8(m.memory[uint32(v10)]))
+/*line :1150:29*/													v11 = t53
+/*line :1150:19*/													t54 := int32(m.memory[uint64(uint32(v10))+8])
+/*line :1150:19*/													v6 = t54
+/*line :1054:10*/													t55 := v14 + v3<<20&i32(0xf000000)
+/*line :1054:10*/													p26 = t55
 /*line :1054:10*/													goto l40
 /*line :1054:10*/												}
 /*line :1054:10*/											l32:
-/*line :1054:10*/												var p57 int32
+/*line :1054:10*/												var p56 int32
 /*line :1054:10*/												{
 /*line :1060:17*/													if v8&i32(32) != 0 {
-/*line :1061:32*/														t58 := v8 | i32(128)
-/*line :1061:32*/														t59 := v8
-/*line :1061:32*/														var p60 int32
+/*line :1061:32*/														t57 := v8 | i32(128)
+/*line :1061:32*/														t58 := v8
+/*line :1061:32*/														var p59 int32
 /*line :1061:32*/														if v3 != i32(117) {
-/*line :1061:32*/															p60 = 1
+/*line :1061:32*/															p59 = 1
 /*line :1061:32*/														}
 /*line :1061:32*/														v5 = (v7 + i32(7)) & i32(-8)
-/*line :1061:32*/														t61 := int64(load64(m.memory, uint32(v5)))
-/*line :1061:32*/														v18 = t61
-/*line :1063:31*/														var p62 int32
-/*line :1063:31*/														if v18 < i64(0) {
-/*line :1063:31*/															p62 = 1
+/*line :1061:32*/														t60 := int64(load64(m.memory, uint32(v5)))
+/*line :1061:32*/														v16 = t60
+/*line :1063:31*/														var p61 int32
+/*line :1063:31*/														if v16 < i64(0) {
+/*line :1063:31*/															p61 = 1
 /*line :1063:31*/														}
-/*line :1063:31*/														v3 = p60 & p62
-/*line :1063:31*/														p63 := t59
+/*line :1063:31*/														v3 = p59 & p61
+/*line :1063:31*/														p62 := t58
 /*line :1063:31*/														if v3 != 0 {
-/*line :1063:31*/															p63 = t58
+/*line :1063:31*/															p62 = t57
 /*line :1063:31*/														}
-/*line :1063:31*/														v8 = p63
-/*line :1063:31*/														p64 := v18
+/*line :1063:31*/														v8 = p62
+/*line :1063:31*/														p63 := v16
 /*line :1063:31*/														if v3 != 0 {
-/*line :1063:31*/															p64 = i64(0) - v18
+/*line :1063:31*/															p63 = i64(0) - v16
 /*line :1063:31*/														}
-/*line :1063:31*/														v18 = p64
-/*line :1067:10*/														t65 := v5 + i32(8)
-/*line :1067:10*/														p57 = t65
+/*line :1063:31*/														v16 = p63
+/*line :1067:10*/														t64 := v5 + i32(8)
+/*line :1067:10*/														p56 = t64
 /*line :1067:10*/														goto l49
 /*line :1067:10*/													}
-/*line :1068:30*/													t66 := int32(load32(m.memory, uint32(v7)))
-/*line :1068:30*/													t67 := v8 | i32(128)
-/*line :1068:30*/													t68 := v8
-/*line :1068:30*/													var p69 int32
+/*line :1068:30*/													t65 := int32(load32(m.memory, uint32(v7)))
+/*line :1068:30*/													t66 := v8 | i32(128)
+/*line :1068:30*/													t67 := v8
+/*line :1068:30*/													var p68 int32
 /*line :1068:30*/													if v3 != i32(117) {
-/*line :1068:30*/														p69 = 1
+/*line :1068:30*/														p68 = 1
 /*line :1068:30*/													}
-/*line :1068:30*/													v5 = t66
-/*line :1070:31*/													var p70 int32
+/*line :1068:30*/													v5 = t65
+/*line :1070:31*/													var p69 int32
 /*line :1070:31*/													if v5 < i32(0) {
-/*line :1070:31*/														p70 = 1
+/*line :1070:31*/														p69 = 1
 /*line :1070:31*/													}
-/*line :1070:31*/													v3 = p69 & p70
-/*line :1070:31*/													p71 := t68
+/*line :1070:31*/													v3 = p68 & p69
+/*line :1070:31*/													p70 := t67
 /*line :1070:31*/													if v3 != 0 {
-/*line :1070:31*/														p71 = t67
+/*line :1070:31*/														p70 = t66
 /*line :1070:31*/													}
-/*line :1070:31*/													v8 = p71
-/*line :1070:31*/													p72 := v5
+/*line :1070:31*/													v8 = p70
+/*line :1070:31*/													p71 := v5
 /*line :1070:31*/													if v3 != 0 {
-/*line :1070:31*/														p72 = i32(0) - v5
+/*line :1070:31*/														p71 = i32(0) - v5
 /*line :1070:31*/													}
-/*line :1070:31*/													v18 = int64(uint32(p72))
-/*line :1068:30*/													p57 = v7 + i32(4)
+/*line :1070:31*/													v16 = int64(uint32(p71))
+/*line :1068:30*/													p56 = v7 + i32(4)
 /*line :1068:30*/												}
 /*line :1068:30*/											l49:
-/*line :1068:30*/												v4 = p57
-/*line :1068:30*/												v16 = v8 & i32(64)
+/*line :1068:30*/												v4 = p56
+/*line :1068:30*/												v14 = v8 & i32(64)
 /*line :1068:30*/												v6 = i32(0)
-/*line :1068:30*/												t73 := int32(m.memory[uint32(i32(125432))])
-/*line :1068:30*/												v12 = t73
+/*line :1068:30*/												t72 := int32(m.memory[uint32(i32(125432))])
+/*line :1068:30*/												v17 = t72
 /*line :1068:30*/												v5 = i32(512)
 /*line :1068:30*/											l55:
 /*line :1068:30*/												v22 = i64(0)
 /*line :1068:30*/												v7 = v5 + v10 + i32(8)
-/*line :1094:21*/												if uint64(v18) >= uint64(i64(100000000)) {
-/*line :1096:20*/													t74 := int64(uint64(v18) / uint64(i64(100000000)))
-/*line :1096:20*/													t75 := v18
-/*line :1096:20*/													v22 = t74
-/*line :1095:40*/													v18 = t75 - v22*i64(100000000)
+/*line :1094:21*/												if uint64(v16) >= uint64(i64(100000000)) {
+/*line :1096:20*/													t73 := int64(uint64(v16) / uint64(i64(100000000)))
+/*line :1096:20*/													t74 := v16
+/*line :1096:20*/													v22 = t73
+/*line :1095:40*/													v16 = t74 - v22*i64(100000000)
 /*line :1095:40*/												}
-/*line :1095:40*/												v3 = int32(v18)
-/*line :1101:45*/												if v16 == 0 {
+/*line :1095:40*/												v3 = int32(v16)
+/*line :1101:45*/												if v14 == 0 {
 /*line :1105:21*/												l50:
 /*line :1105:21*/													{
-/*line :1105:21*/														t76 := int32(uint32(v3) / uint32(i32(100)))
-/*line :1105:21*/														t77 := v5 + v26
-/*line :1105:21*/														t78 := v3
-/*line :1105:21*/														v9 = t76
-/*line :1104:41*/														t79 := int32(load16(m.memory, uint64(uint32((t78-v9*i32(100))<<1))+75158))
-/*line :1104:39*/														store16(m.memory, uint32(t77), uint16(t79))
+/*line :1105:21*/														t75 := int32(uint32(v3) / uint32(i32(100)))
+/*line :1105:21*/														t76 := v5 + v26
+/*line :1105:21*/														t77 := v3
+/*line :1105:21*/														v9 = t75
+/*line :1104:41*/														t78 := int32(load16(m.memory, uint64(uint32((t77-v9*i32(100))<<1))+75158))
+/*line :1104:39*/														store16(m.memory, uint32(t76), uint16(t78))
 /*line :1103:21*/														v5 = v5 - i32(2)
-/*line :1106:16*/														var p80 int32
+/*line :1106:16*/														var p79 int32
 /*line :1106:16*/														if uint32(v3) < uint32(i32(100)) {
-/*line :1106:16*/															p80 = 1
+/*line :1106:16*/															p79 = 1
 /*line :1106:16*/														}
 /*line :1106:16*/														v3 = v9
-/*line :1106:16*/														if p80 == 0 {
+/*line :1106:16*/														if p79 == 0 {
 /*line :1106:16*/															goto l50
 /*line :1106:16*/														}
 /*line :1106:16*/														goto l51
 /*line :1101:45*/													}
 /*line :1101:45*/												}
-/*line :1108:13*/												if v18 == 0 {
+/*line :1108:13*/												if v16 == 0 {
 /*line :1108:13*/													goto l51
 /*line :1108:13*/												}
 /*line :1108:13*/											l53:
 /*line :1108:13*/												{
-/*line :1108:13*/													var p81 int32
+/*line :1108:13*/													var p80 int32
 /*line :1108:13*/													{
 /*line :1109:56*/														if v6 == i32(3) {
-/*line :1111:24*/															m.memory[uint32(v5+v24)] = byte(v12)
+/*line :1111:24*/															m.memory[uint32(v5+v24)] = byte(v17)
 /*line :1112:19*/															v7 = v7 - i32(1)
-/*line :1113:16*/															p81 = i32(0)
+/*line :1113:16*/															p80 = i32(0)
 /*line :1113:16*/															goto l52
 /*line :1113:16*/														}
-/*line :1115:21*/														t82 := int32(uint32(v3) / uint32(i32(10)))
-/*line :1115:21*/														t83 := v5 + v24
-/*line :1115:21*/														t84 := v3
-/*line :1115:21*/														v9 = t82
-/*line :1114:24*/														m.memory[uint32(t83)] = byte(t84 - v9*i32(10) | i32(48))
+/*line :1115:21*/														t81 := int32(uint32(v3) / uint32(i32(10)))
+/*line :1115:21*/														t82 := v5 + v24
+/*line :1115:21*/														t83 := v3
+/*line :1115:21*/														v9 = t81
+/*line :1114:24*/														m.memory[uint32(t82)] = byte(t83 - v9*i32(10) | i32(48))
 /*line :1114:24*/														v3 = v9
-/*line :1109:53*/														p81 = v6 + i32(1)
+/*line :1109:53*/														p80 = v6 + i32(1)
 /*line :1109:53*/													}
 /*line :1109:53*/												l52:
-/*line :1109:53*/													v6 = p81
+/*line :1109:53*/													v6 = p80
 /*line :1108:13*/													v5 = v5 - i32(1)
 /*line :1108:13*/													if v3 != 0 {
 /*line :1108:13*/														goto l53
@@ -43164,12 +43076,12 @@
 /*line :1118:21*/												if v22 == 0 {
 /*line :1118:21*/													goto l54
 /*line :1118:21*/												}
-/*line :1118:21*/												v18 = v22
+/*line :1118:21*/												v16 = v22
 /*line :1123:13*/												if v3 == v7 {
 /*line :1123:13*/													goto l55
 /*line :1123:13*/												}
 /*line :1124:48*/											l58:
-/*line :1124:48*/												if v16 != 0 {
+/*line :1124:48*/												if v14 != 0 {
 /*line :1124:48*/													if v6 == i32(3) {
 /*line :1124:48*/														goto l56
 /*line :1124:48*/													}
@@ -43178,7 +43090,7 @@
 /*line :1129:24*/												m.memory[uint64(uint32(v5+v10))+15] = byte(i32(48))
 /*line :1129:24*/												goto l57
 /*line :1129:24*/											l56:
-/*line :1126:24*/												m.memory[uint64(uint32(v5+v10))+15] = byte(v12)
+/*line :1126:24*/												m.memory[uint64(uint32(v5+v10))+15] = byte(v17)
 /*line :1127:19*/												v7 = v7 - i32(1)
 /*line :1127:19*/												v6 = i32(0)
 /*line :1127:19*/											l57:
@@ -43189,8 +43101,8 @@
 /*line :1123:13*/												goto l55
 /*line :1123:13*/											}
 /*line :1123:13*/										l33:
-/*line :617:19*/											t85 := int32(load32(m.memory, uint32(v7)))
-/*line :618:13*/											store32(m.memory, uint32(t85), uint32(v17-v13+v2))
+/*line :617:19*/											t84 := int32(load32(m.memory, uint32(v7)))
+/*line :618:13*/											store32(m.memory, uint32(t84), uint32(v15-v12+v2))
 /*line :617:19*/											v4 = v7 + i32(4)
 /*line :617:19*/											goto l59
 /*line :617:19*/										}
@@ -43199,552 +43111,546 @@
 /*line :1337:18*/										m.memory[uint64(uint32(v10))+8] = byte(i32(0))
 /*line :1334:13*/										m.memory[uint64(uint32(v10))+527] = byte(v5)
 /*line :1338:18*/										m.memory[uint32(v10)] = byte(i32(0))
-/*line :1338:18*/										v16 = i32(1)
+/*line :1338:18*/										v14 = i32(1)
 /*line :1338:18*/										v11 = i32(0)
 /*line :1338:18*/										v5 = v21
 /*line :1338:18*/										v8 = i32(0)
-/*line :1338:18*/										v14 = i32(0)
-/*line :1338:18*/										v19 = i32(0)
+/*line :1338:18*/										v13 = i32(0)
+/*line :1338:18*/										v18 = i32(0)
 /*line :1338:18*/										v4 = v7
 /*line :1342:10*/										p26 = i32(0)
 /*line :1342:10*/										goto l40
 /*line :1342:10*/									l54:
 /*line :1133:18*/										m.memory[uint32(v10)] = byte(i32(0))
 /*line :296:12*/										m.memory[uint64(uint32(v10))+8] = byte(i32(0))
-/*line :1119:21*/										t86 := int32(m.memory[uint32(v3)])
-/*line :1119:34*/										t87 := v5
+/*line :1119:21*/										t85 := int32(m.memory[uint32(v3)])
+/*line :1119:34*/										t86 := v5
+/*line :1119:34*/										var p87 int32
+/*line :1119:34*/										if t85 == i32(48) {
+/*line :1119:34*/											p87 = 1
+/*line :1119:34*/										}
 /*line :1119:34*/										var p88 int32
-/*line :1119:34*/										if t86 == i32(48) {
+/*line :1119:34*/										if v5 != i32(512) {
 /*line :1119:34*/											p88 = 1
 /*line :1119:34*/										}
+/*line :1119:34*/										v3 = t86 + p87&p88
 /*line :1119:34*/										var p89 int32
-/*line :1119:34*/										if v5 != i32(512) {
-/*line :1119:34*/											p89 = 1
-/*line :1119:34*/										}
-/*line :1119:34*/										v3 = t87 + p88&p89
-/*line :1119:34*/										var p90 int32
 /*line :1119:34*/										{
-/*line :1119:34*/											t92 := v10
-/*line :1119:34*/											var p91 int32
+/*line :1119:34*/											t91 := v10
+/*line :1119:34*/											var p90 int32
 /*line :1119:34*/											{
 /*line :297:11*/												if v8&i32(128) != 0 {
-/*line :297:11*/													p91 = i32(45)
+/*line :297:11*/													p90 = i32(45)
 /*line :297:11*/													goto l60
 /*line :297:11*/												}
 /*line :300:18*/												if v8&i32(4) != 0 {
-/*line :300:18*/													p91 = i32(32)
+/*line :300:18*/													p90 = i32(32)
 /*line :300:18*/													goto l60
 /*line :300:18*/												}
 /*line :300:18*/												v6 = i32(0)
-/*line :303:18*/												t93 := v6
+/*line :303:18*/												t92 := v6
 /*line :303:18*/												if v8&i32(2) == 0 {
-/*line :303:18*/													p90 = t93
+/*line :303:18*/													p89 = t92
 /*line :303:18*/													goto l61
 /*line :303:18*/												}
-/*line :303:18*/												p91 = i32(43)
+/*line :303:18*/												p90 = i32(43)
 /*line :303:18*/											}
 /*line :303:18*/										l60:
-/*line :303:18*/											v5 = p91
-/*line :303:18*/											m.memory[uint64(uint32(t92))+9] = byte(v5)
+/*line :303:18*/											v5 = p90
+/*line :303:18*/											m.memory[uint64(uint32(t91))+9] = byte(v5)
 /*line :303:18*/											m.memory[uint64(uint32(v10))+8] = byte(i32(1))
-/*line :303:18*/											p90 = i32(1)
+/*line :303:18*/											p89 = i32(1)
 /*line :303:18*/										}
 /*line :303:18*/									l61:
-/*line :303:18*/										v6 = p90
+/*line :303:18*/										v6 = p89
 /*line :303:18*/										v5 = v10 + i32(16) + v3
 /*line :303:18*/										v11 = i32(0)
-/*line :1143:17*/										p94 := i32(0)
-/*line :1143:17*/										if v14 > i32(0) {
-/*line :1143:17*/											p94 = v14
+/*line :1143:17*/										p93 := i32(0)
+/*line :1143:17*/										if v13 > i32(0) {
+/*line :1143:17*/											p93 = v13
 /*line :1143:17*/										}
-/*line :1143:17*/										v14 = p94
-/*line :1138:16*/										var p95 int32
+/*line :1143:17*/										v13 = p93
+/*line :1138:16*/										var p94 int32
 /*line :1138:16*/										if v3 != i32(512) {
-/*line :1138:16*/											p95 = i32(512) - v3
+/*line :1138:16*/											p94 = i32(512) - v3
 /*line :1138:16*/										} else {
 /*line :1139:14*/											v5 = v5 - i32(1)
 /*line :1139:18*/											m.memory[uint32(v5)] = byte(i32(48))
-/*line :1139:18*/											p95 = i32(1)
+/*line :1139:18*/											p94 = i32(1)
 /*line :1139:18*/										}
-/*line :1139:18*/										v16 = p95
-/*line :1142:17*/										t96 := v16 + i32(0x3000000)
-/*line :1142:17*/										p26 = t96
+/*line :1139:18*/										v14 = p94
+/*line :1142:17*/										t95 := v14 + i32(0x3000000)
+/*line :1142:17*/										p26 = t95
 /*line :1142:17*/										goto l40
 /*line :1142:17*/									}
 /*line :1142:17*/								l39:
-/*line :1142:17*/									if v6 == 0 {
-/*line :1142:17*/										v12 = v3
+/*line :1142:17*/									if v9 == 0 {
+/*line :1142:17*/										v3 = v6
 /*line :318:18*/										goto l38
 /*line :318:18*/									}
-/*line :318:21*/									t97 := int32(m.memory[uint32(v12)])
+/*line :318:21*/									t96 := int32(m.memory[uint32(v3)])
+/*line :318:18*/									if t96 == 0 {
+/*line :318:18*/										goto l38
+/*line :318:18*/									}
+/*line :322:7*/									v9 = v11 - i32(2)
+/*line :321:7*/									v3 = v5 + i32(2)
+/*line :315:31*/									if v3&i32(3) == 0 {
+/*line :315:31*/										v11 = v9
+/*line :315:31*/										v14 = v3
+/*line :315:36*/										goto l37
+/*line :315:36*/									}
+/*line :315:36*/									if v9 == 0 {
+/*line :315:36*/										v3 = v6
+/*line :318:18*/										goto l38
+/*line :318:18*/									}
+/*line :318:21*/									t97 := int32(m.memory[uint32(v3)])
 /*line :318:18*/									if t97 == 0 {
 /*line :318:18*/										goto l38
 /*line :318:18*/									}
-/*line :322:7*/									v6 = v15 - i32(2)
-/*line :321:7*/									v12 = v5 + i32(2)
-/*line :315:31*/									if v12&i32(3) == 0 {
-/*line :315:31*/										v15 = v6
+/*line :322:7*/									v9 = v11 - i32(3)
+/*line :321:7*/									v3 = v5 + i32(3)
+/*line :315:31*/									if v3&i32(3) == 0 {
+/*line :315:31*/										v11 = v9
+/*line :315:31*/										v14 = v3
 /*line :315:36*/										goto l37
 /*line :315:36*/									}
-/*line :315:36*/									if v6 == 0 {
-/*line :315:36*/										v12 = v3
+/*line :315:36*/									if v9 == 0 {
+/*line :315:36*/										v3 = v6
 /*line :318:18*/										goto l38
 /*line :318:18*/									}
-/*line :318:21*/									t98 := int32(m.memory[uint32(v12)])
+/*line :318:21*/									t98 := int32(m.memory[uint32(v3)])
 /*line :318:18*/									if t98 == 0 {
 /*line :318:18*/										goto l38
 /*line :318:18*/									}
-/*line :322:7*/									v6 = v15 - i32(3)
-/*line :321:7*/									v12 = v5 + i32(3)
-/*line :315:31*/									if v12&i32(3) == 0 {
-/*line :315:31*/										v15 = v6
+/*line :322:7*/									v11 = v11 - i32(4)
+/*line :321:7*/									v14 = v5 + i32(4)
+/*line :315:36*/									if v14&i32(3) == 0 {
 /*line :315:36*/										goto l37
 /*line :315:36*/									}
-/*line :315:36*/									if v6 == 0 {
-/*line :315:36*/										v12 = v3
-/*line :318:18*/										goto l38
+/*line :318:18*/									p99 := v6
+/*line :318:18*/									if v11 != 0 {
+/*line :318:18*/										p99 = v14
 /*line :318:18*/									}
-/*line :318:21*/									t99 := int32(m.memory[uint32(v12)])
-/*line :318:18*/									if t99 == 0 {
-/*line :318:18*/										goto l38
-/*line :318:18*/									}
-/*line :322:7*/									v15 = v15 - i32(4)
-/*line :321:7*/									v12 = v5 + i32(4)
-/*line :315:36*/									if v12&i32(3) == 0 {
-/*line :315:36*/										goto l37
-/*line :315:36*/									}
-/*line :318:18*/									p100 := v3
-/*line :318:18*/									if v15 != 0 {
-/*line :318:18*/										p100 = v12
-/*line :318:18*/									}
-/*line :318:18*/									v12 = p100
+/*line :318:18*/									v3 = p99
 /*line :318:18*/									goto l38
 /*line :318:18*/								}
 /*line :318:18*/							l37:
-/*line :318:18*/								v9 = v15
-/*line :318:18*/								v11 = v12
-/*line :311:17*/							l63:
-/*line :311:17*/								{
-/*line :311:17*/									v3 = v11
-/*line :311:17*/									v6 = v9
-/*line :330:17*/									if uint32(v6) < uint32(i32(4)) {
-/*line :330:17*/										goto l62
-/*line :330:17*/									}
-/*line :333:35*/									v9 = v6 - i32(4)
-/*line :333:35*/									v11 = v3 + i32(4)
-/*line :331:25*/									t101 := int32(load32(m.memory, uint32(v3)))
-/*line :333:35*/									v16 = t101
-/*line :333:35*/									if (i32(16843008)-v16|v16)&i32(-2139062144) == i32(-2139062144) {
-/*line :333:35*/										goto l63
-/*line :333:35*/									}
-/*line :333:35*/									goto l64
-/*line :333:35*/								}
-/*line :333:35*/							l62:
-/*line :341:17*/								if v6 != 0 {
-/*line :341:17*/									goto l64
-/*line :341:17*/								}
-/*line :341:17*/								v12 = v3
-/*line :341:17*/								goto l38
-/*line :341:17*/							l64:
-/*line :341:4*/								t102 := v12 + v15
-/*line :341:4*/								v9 = i32(0)
-/*line :341:20*/							l65:
+/*line :318:18*/								v3 = v14
+/*line :318:18*/								v6 = v11
+/*line :330:17*/								if uint32(v6) >= uint32(i32(4)) {
+/*line :330:17*/								l63:
+/*line :330:17*/									{
+/*line :331:25*/										t100 := int32(load32(m.memory, uint32(v3)))
+/*line :333:35*/										v9 = t100
+/*line :333:35*/										if (i32(16843008)-v9|v9)&i32(-2139062144) != i32(-2139062144) {
+/*line :333:35*/											goto l62
+/*line :333:35*/										}
+/*line :333:35*/										v3 = v3 + i32(4)
+/*line :333:35*/										v6 = v6 - i32(4)
+/*line :330:4*/										if uint32(v6) >= uint32(i32(4)) {
+/*line :330:4*/											goto l63
+/*line :330:4*/										}
+/*line :330:4*/									}
+/*line :330:4*/								}
+/*line :330:4*/								if v6 == 0 {
+/*line :330:4*/									goto l38
+/*line :330:4*/								}
+/*line :330:4*/							l62:
+/*line :341:20*/							l64:
+/*line :341:20*/								t101 := v11 + v14
 /*line :341:20*/								{
-/*line :341:20*/									v12 = v3 + v9
-/*line :341:20*/									t103 := int32(m.memory[uint32(v12)])
-/*line :341:20*/									if t103 == 0 {
-/*line :341:20*/										goto l38
-/*line :341:20*/									}
-/*line :341:11*/									t104 := v6
-/*line :341:11*/									v9 = v9 + i32(1)
-/*line :341:11*/									if t104 != v9 {
-/*line :341:11*/										goto l65
-/*line :341:11*/									}
-/*line :341:11*/								}
-/*line :341:11*/								v12 = t102
-/*line :341:11*/							}
-/*line :341:11*/						l38:
-/*line :341:11*/							v11 = i32(0)
+/*line :341:20*/									t102 := int32(m.memory[uint32(v3)])
+/*line :341:4*/									if t102 == 0 {
+/*line :341:4*/										goto l38
+/*line :341:4*/									}
+/*line :342:7*/									v3 = v3 + i32(1)
+/*line :341:17*/									v6 = v6 - i32(1)
+/*line :341:17*/									if v6 != 0 {
+/*line :341:17*/										goto l64
+/*line :341:17*/									}
+/*line :341:17*/								}
+/*line :341:17*/								v3 = t101
+/*line :341:17*/							}
+/*line :341:17*/						l38:
+/*line :341:17*/							v11 = i32(0)
 /*line :596:18*/							m.memory[uint32(v10)] = byte(i32(0))
 /*line :595:18*/							m.memory[uint64(uint32(v10))+8] = byte(i32(0))
-/*line :595:18*/							v16 = v12 - v5
+/*line :595:18*/							v14 = v3 - v5
 /*line :595:18*/							p27 = v7 + i32(4)
 /*line :595:18*/						l41:
 /*line :595:18*/							v4 = p27
 /*line :595:18*/							v6 = i32(0)
-/*line :595:18*/							v14 = i32(0)
+/*line :595:18*/							v13 = i32(0)
 /*line :595:18*/							p26 = i32(0)
 /*line :595:18*/						}
 /*line :595:18*/					l40:
-/*line :595:18*/						v15 = p26
-/*line :1148:17*/						t106 := v19
-/*line :1148:17*/						p105 := v16
-/*line :1148:17*/						if v14 > v16 {
-/*line :1148:17*/							p105 = v14
+/*line :595:18*/						v19 = p26
+/*line :1148:17*/						t104 := v18
+/*line :1148:17*/						p103 := v14
+/*line :1148:17*/						if v13 > v14 {
+/*line :1148:17*/							p103 = v13
 /*line :1148:17*/						}
-/*line :1150:19*/						v7 = p105
+/*line :1150:19*/						v7 = p103
 /*line :1151:17*/						v3 = v7 + int32(int8(v6)) + v11
-/*line :1151:17*/						p107 := v3
-/*line :1151:17*/						if v3 < v19 {
-/*line :1151:17*/							p107 = t106
+/*line :1151:17*/						p105 := v3
+/*line :1151:17*/						if v3 < v18 {
+/*line :1151:17*/							p105 = t104
 /*line :1151:17*/						}
-/*line :1153:13*/						v12 = p107 - v3
-/*line :1154:13*/						v14 = v7 - v16
+/*line :1153:13*/						v17 = p105 - v3
+/*line :1154:13*/						v13 = v7 - v14
 /*line :1154:13*/						{
 /*line :1157:37*/							if v8&i32(1) != 0 {
-/*line :1157:37*/								goto l66
+/*line :1157:37*/								goto l65
 /*line :1157:37*/							}
 /*line :1158:20*/							if v8&i32(16) == 0 {
 /*line :1158:20*/								v8 = i32(0)
-/*line :1158:20*/								goto l66
+/*line :1158:20*/								goto l65
 /*line :1158:20*/							}
-/*line :1160:21*/							p108 := v14
-/*line :1160:21*/							if v12 > v14 {
-/*line :1160:21*/								p108 = v12
+/*line :1160:21*/							p106 := v13
+/*line :1160:21*/							if v13 < v17 {
+/*line :1160:21*/								p106 = v17
 /*line :1160:21*/							}
-/*line :1160:21*/							v14 = p108
-/*line :1160:21*/							v12 = i32(0)
+/*line :1160:21*/							v13 = p106
+/*line :1160:21*/							v17 = i32(0)
 /*line :1160:21*/						}
-/*line :1160:21*/					l66:
-/*line :1168:17*/						if i32(0)-v14 != v12 {
+/*line :1160:21*/					l65:
+/*line :1168:17*/						if i32(0)-v13 != v17 {
 /*line :1168:17*/							{
 /*line :1173:40*/								if v8&i32(1) != 0 {
-/*line :1173:40*/									goto l67
+/*line :1173:40*/									goto l66
 /*line :1173:40*/								}
-/*line :1173:40*/								if v12 <= i32(0) {
-/*line :1173:40*/									goto l67
+/*line :1173:40*/								if v17 <= i32(0) {
+/*line :1173:40*/									goto l66
 /*line :1173:40*/								}
-/*line :1175:19*/							l78:
+/*line :1175:19*/							l77:
 /*line :1175:19*/								{
-/*line :1175:19*/									t109 := v12
-/*line :1175:19*/									v3 = v13 - v2 + i32(512)
-/*line :1175:19*/									p110 := v3
-/*line :1175:19*/									if v3 > v12 {
-/*line :1175:19*/										p110 = t109
+/*line :1175:19*/									t107 := v17
+/*line :1175:19*/									v3 = v12 - v2 + i32(512)
+/*line :1175:19*/									p108 := v3
+/*line :1175:19*/									if v3 > v17 {
+/*line :1175:19*/										p108 = t107
 /*line :1175:19*/									}
-/*line :1175:19*/									p111 := v12
+/*line :1175:19*/									p109 := v17
 /*line :1175:19*/									if v0 != 0 {
-/*line :1175:19*/										p111 = p110
+/*line :1175:19*/										p109 = p108
 /*line :1175:19*/									}
-/*line :1177:19*/									v9 = p111
-/*line :1177:19*/									p112 := i32(0)
+/*line :1177:19*/									v9 = p109
+/*line :1177:19*/									p110 := i32(0)
 /*line :1177:19*/									if v2&i32(3) != 0 {
-/*line :1177:19*/										p112 = v9
+/*line :1177:19*/										p110 = v9
 /*line :1177:19*/									}
-/*line :1177:19*/									if p112 == 0 {
+/*line :1177:19*/									if p110 == 0 {
 /*line :1177:19*/										v6 = v9
 /*line :1177:19*/										v3 = v2
-/*line :1177:19*/										goto l68
+/*line :1177:19*/										goto l67
 /*line :1177:19*/									}
 /*line :1180:28*/									m.memory[uint32(v2)] = byte(i32(32))
 /*line :1180:25*/									v3 = v2 + i32(1)
 /*line :1177:19*/									v6 = v9 - i32(1)
 /*line :1177:19*/									if v6 == 0 {
-/*line :1177:19*/										goto l68
+/*line :1177:19*/										goto l67
 /*line :1177:19*/									}
 /*line :1177:19*/									if v3&i32(3) == 0 {
-/*line :1177:19*/										goto l68
+/*line :1177:19*/										goto l67
 /*line :1177:19*/									}
 /*line :1180:28*/									m.memory[uint64(uint32(v2))+1] = byte(i32(32))
 /*line :1180:25*/									v3 = v2 + i32(2)
 /*line :1177:19*/									v6 = v9 - i32(2)
 /*line :1177:19*/									if v6 == 0 {
-/*line :1177:19*/										goto l68
+/*line :1177:19*/										goto l67
 /*line :1177:19*/									}
 /*line :1177:19*/									if v3&i32(3) == 0 {
-/*line :1177:19*/										goto l68
+/*line :1177:19*/										goto l67
 /*line :1177:19*/									}
 /*line :1180:28*/									m.memory[uint64(uint32(v2))+2] = byte(i32(32))
 /*line :1180:25*/									v3 = v2 + i32(3)
 /*line :1177:19*/									v6 = v9 - i32(3)
 /*line :1177:19*/									if v6 == 0 {
-/*line :1177:19*/										goto l68
+/*line :1177:19*/										goto l67
 /*line :1177:19*/									}
 /*line :1177:19*/									if v3&i32(3) == 0 {
-/*line :1177:19*/										goto l68
+/*line :1177:19*/										goto l67
 /*line :1177:19*/									}
 /*line :1180:28*/									m.memory[uint64(uint32(v2))+3] = byte(i32(32))
 /*line :1181:22*/									v6 = v9 - i32(4)
 /*line :1180:25*/									v3 = v2 + i32(4)
 /*line :1180:25*/								}
-/*line :1180:25*/							l68:
+/*line :1180:25*/							l67:
 /*line :1183:28*/								if v6 < i32(4) {
 /*line :1183:28*/									v7 = v6
-/*line :1183:19*/									goto l69
+/*line :1183:19*/									goto l68
 /*line :1183:19*/								}
 /*line :1183:19*/								v11 = v6 - i32(4)
-/*line :1183:19*/								if v11&i32(28) != i32(28) {
-/*line :1183:19*/									t113 := v6
-/*line :1183:19*/									v2 = (int32(uint32(v11)>>2) + i32(1)) & i32(7)
-/*line :1183:19*/									v6 = t113 - v2<<2
-/*line :1183:19*/								l70:
+/*line :1183:19*/								v2 = (int32(uint32(v11)>>2) + i32(1)) & i32(7)
+/*line :1183:19*/								if v2 != 0 {
+/*line :1183:19*/									v6 = v6 - v2<<2
+/*line :1183:19*/								l69:
 /*line :1184:43*/									store32(m.memory, uint32(v3), uint32(i32(538976288)))
 /*line :1185:25*/									v3 = v3 + i32(4)
 /*line :1183:19*/									v2 = v2 - i32(1)
 /*line :1183:19*/									if v2 != 0 {
-/*line :1183:19*/										goto l70
+/*line :1183:19*/										goto l69
 /*line :1183:19*/									}
 /*line :1183:19*/									v7 = v6
 /*line :1183:19*/								}
 /*line :1183:19*/								if uint32(v11) < uint32(i32(28)) {
-/*line :1183:19*/									goto l69
+/*line :1183:19*/									goto l68
 /*line :1183:19*/								}
-/*line :1183:19*/							l71:
+/*line :1183:19*/							l70:
 /*line :1183:19*/								{
 /*line :1184:43*/									store64(m.memory, uint32(v3), uint64(i64(2314885530818453536)))
 /*line :1184:43*/									store64(m.memory, uint64(uint32(v3))+24, uint64(i64(2314885530818453536)))
 /*line :1184:43*/									store64(m.memory, uint64(uint32(v3))+16, uint64(i64(2314885530818453536)))
 /*line :1184:43*/									store64(m.memory, uint64(uint32(v3))+8, uint64(i64(2314885530818453536)))
 /*line :1185:25*/									v3 = v3 + i32(32)
-/*line :1186:24*/									var p114 int32
+/*line :1186:24*/									var p111 int32
 /*line :1186:24*/									if v6 > i32(35) {
-/*line :1186:24*/										p114 = 1
+/*line :1186:24*/										p111 = 1
 /*line :1186:24*/									}
 /*line :1186:24*/									v7 = v6 - i32(32)
 /*line :1186:24*/									v6 = v7
-/*line :1186:24*/									if p114 != 0 {
-/*line :1186:24*/										goto l71
+/*line :1186:24*/									if p111 != 0 {
+/*line :1186:24*/										goto l70
 /*line :1186:24*/									}
 /*line :1183:19*/								}
-/*line :1183:19*/							l69:
+/*line :1183:19*/							l68:
 /*line :1183:19*/								if v7 == 0 {
-/*line :1183:19*/									goto l72
+/*line :1183:19*/									goto l71
 /*line :1183:19*/								}
 /*line :1188:19*/								v2 = v7 & i32(7)
 /*line :1188:19*/								if v2 == 0 {
 /*line :1188:19*/									v6 = v7
-/*line :1188:19*/									goto l73
+/*line :1188:19*/									goto l72
 /*line :1188:19*/								}
 /*line :1188:19*/								v6 = v7 & i32(-8)
-/*line :1188:19*/							l74:
+/*line :1188:19*/							l73:
 /*line :1189:28*/								m.memory[uint32(v3)] = byte(i32(32))
 /*line :1189:25*/								v3 = v3 + i32(1)
 /*line :1188:19*/								v2 = v2 - i32(1)
 /*line :1188:19*/								if v2 != 0 {
-/*line :1188:19*/									goto l74
+/*line :1188:19*/									goto l73
 /*line :1188:19*/								}
-/*line :1188:19*/							l73:
+/*line :1188:19*/							l72:
 /*line :1188:19*/								if uint32(v7) < uint32(i32(8)) {
-/*line :1188:19*/									goto l72
+/*line :1188:19*/									goto l71
 /*line :1188:19*/								}
-/*line :1188:19*/							l75:
+/*line :1188:19*/							l74:
 /*line :1189:28*/								store64(m.memory, uint32(v3), uint64(i64(2314885530818453536)))
 /*line :1189:25*/								v3 = v3 + i32(8)
 /*line :1188:19*/								v6 = v6 - i32(8)
 /*line :1188:19*/								if v6 != 0 {
-/*line :1188:19*/									goto l75
+/*line :1188:19*/									goto l74
 /*line :1188:19*/								}
-/*line :1188:19*/							l72:
+/*line :1188:19*/							l71:
 /*line :1192:19*/								{
 /*line :1192:19*/									if v0 == 0 {
 /*line :1192:19*/										v2 = v3
-/*line :1192:19*/										goto l76
+/*line :1192:19*/										goto l75
 /*line :1192:19*/									}
-/*line :1192:19*/									v2 = v3 - v13
+/*line :1192:19*/									v2 = v3 - v12
 /*line :1192:19*/									if v2 < i32(511) {
 /*line :1192:19*/										v2 = v3
+/*line :1192:19*/										goto l75
+/*line :1192:19*/									}
+/*line :1192:19*/									v15 = v2 + v15
+/*line :1192:19*/									t112 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v2)
+/*line :1192:19*/									v2 = t112
+/*line :1192:19*/									if v2 == 0 {
 /*line :1192:19*/										goto l76
 /*line :1192:19*/									}
-/*line :1192:19*/									v17 = v2 + v17
-/*line :1192:19*/									t115 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v2)
-/*line :1192:19*/									v2 = t115
-/*line :1192:19*/									if v2 == 0 {
-/*line :1192:19*/										goto l77
-/*line :1192:19*/									}
-/*line :1192:19*/									v13 = v2
+/*line :1192:19*/									v12 = v2
 /*line :1192:19*/								}
-/*line :1192:19*/							l76:
-/*line :1192:19*/								v12 = v12 - v9
-/*line :1174:16*/								if v12 > i32(0) {
-/*line :1174:16*/									goto l78
+/*line :1192:19*/							l75:
+/*line :1192:19*/								v17 = v17 - v9
+/*line :1174:16*/								if v17 > i32(0) {
+/*line :1174:16*/									goto l77
 /*line :1174:16*/								}
-/*line :1197:20*/								t116 := int32(m.memory[uint64(uint32(v10))+8])
-/*line :1197:20*/								v6 = t116
+/*line :1197:20*/								t113 := int32(m.memory[uint64(uint32(v10))+8])
+/*line :1197:20*/								v6 = t113
 /*line :1197:20*/							}
-/*line :1197:20*/						l67:
+/*line :1197:20*/						l66:
 /*line :1197:13*/							if v6&i32(255) != 0 {
 /*line :1197:13*/								v3 = v25
-/*line :1198:16*/							l84:
+/*line :1198:16*/							l83:
 /*line :1198:16*/								{
-/*line :1198:39*/									t117 := v10
-/*line :1198:39*/									t118 := v6
-/*line :1198:39*/									v9 = v13 - v2 + i32(512)
-/*line :1198:16*/									t119 := v9
+/*line :1198:39*/									t114 := v10
+/*line :1198:39*/									t115 := v6
+/*line :1198:39*/									v9 = v12 - v2 + i32(512)
+/*line :1198:16*/									t116 := v9
 /*line :1198:16*/									v7 = int32(int8(v6))
-/*line :1198:16*/									p120 := v7
+/*line :1198:16*/									p117 := v7
 /*line :1198:16*/									if v7 > v9 {
-/*line :1198:16*/										p120 = t119
+/*line :1198:16*/										p117 = t116
 /*line :1198:16*/									}
-/*line :1198:16*/									p121 := v7
+/*line :1198:16*/									p118 := v7
 /*line :1198:16*/									if v0 != 0 {
-/*line :1198:16*/										p121 = p120
+/*line :1198:16*/										p118 = p117
 /*line :1198:16*/									}
-/*line :1199:24*/									v9 = p121
-/*line :1199:24*/									m.memory[uint64(uint32(t117))+8] = byte(t118 - v9)
+/*line :1199:24*/									v9 = p118
+/*line :1199:24*/									m.memory[uint64(uint32(t114))+8] = byte(t115 - v9)
 /*line :1200:16*/									if v9 == 0 {
-/*line :1200:16*/										goto l79
+/*line :1200:16*/										goto l78
 /*line :1200:16*/									}
 /*line :1200:16*/									v6 = v9 & i32(7)
 /*line :1200:16*/									if v6 == 0 {
 /*line :1200:16*/										v7 = v9
-/*line :1200:16*/										goto l80
+/*line :1200:16*/										goto l79
 /*line :1200:16*/									}
 /*line :1200:16*/									v7 = v9 & i32(-8)
-/*line :1201:27*/								l81:
+/*line :1201:27*/								l80:
 /*line :1201:27*/									{
-/*line :1201:27*/										t122 := int32(m.memory[uint32(v3)])
-/*line :1201:25*/										m.memory[uint32(v2)] = byte(t122)
+/*line :1201:27*/										t119 := int32(m.memory[uint32(v3)])
+/*line :1201:25*/										m.memory[uint32(v2)] = byte(t119)
 /*line :1201:22*/										v2 = v2 + i32(1)
 /*line :1201:30*/										v3 = v3 + i32(1)
 /*line :1200:16*/										v6 = v6 - i32(1)
 /*line :1200:16*/										if v6 != 0 {
-/*line :1200:16*/											goto l81
+/*line :1200:16*/											goto l80
 /*line :1200:16*/										}
 /*line :1200:16*/									}
-/*line :1200:16*/								l80:
+/*line :1200:16*/								l79:
 /*line :1200:16*/									if uint32(v9) < uint32(i32(8)) {
-/*line :1200:16*/										goto l79
+/*line :1200:16*/										goto l78
 /*line :1200:16*/									}
-/*line :1201:27*/								l82:
+/*line :1201:27*/								l81:
 /*line :1201:27*/									{
-/*line :1201:27*/										t123 := int32(m.memory[uint32(v3)])
-/*line :1201:25*/										m.memory[uint32(v2)] = byte(t123)
-/*line :1201:27*/										t124 := int32(m.memory[uint64(uint32(v3))+1])
-/*line :1201:25*/										m.memory[uint64(uint32(v2))+1] = byte(t124)
-/*line :1201:27*/										t125 := int32(m.memory[uint64(uint32(v3))+2])
-/*line :1201:25*/										m.memory[uint64(uint32(v2))+2] = byte(t125)
-/*line :1201:27*/										t126 := int32(m.memory[uint64(uint32(v3))+3])
-/*line :1201:25*/										m.memory[uint64(uint32(v2))+3] = byte(t126)
-/*line :1201:27*/										t127 := int32(m.memory[uint64(uint32(v3))+4])
-/*line :1201:25*/										m.memory[uint64(uint32(v2))+4] = byte(t127)
-/*line :1201:27*/										t128 := int32(m.memory[uint64(uint32(v3))+5])
-/*line :1201:25*/										m.memory[uint64(uint32(v2))+5] = byte(t128)
-/*line :1201:27*/										t129 := int32(m.memory[uint64(uint32(v3))+6])
-/*line :1201:25*/										m.memory[uint64(uint32(v2))+6] = byte(t129)
-/*line :1201:27*/										t130 := int32(m.memory[uint64(uint32(v3))+7])
-/*line :1201:25*/										m.memory[uint64(uint32(v2))+7] = byte(t130)
+/*line :1201:27*/										t120 := int32(m.memory[uint32(v3)])
+/*line :1201:25*/										m.memory[uint32(v2)] = byte(t120)
+/*line :1201:27*/										t121 := int32(m.memory[uint64(uint32(v3))+1])
+/*line :1201:25*/										m.memory[uint64(uint32(v2))+1] = byte(t121)
+/*line :1201:27*/										t122 := int32(m.memory[uint64(uint32(v3))+2])
+/*line :1201:25*/										m.memory[uint64(uint32(v2))+2] = byte(t122)
+/*line :1201:27*/										t123 := int32(m.memory[uint64(uint32(v3))+3])
+/*line :1201:25*/										m.memory[uint64(uint32(v2))+3] = byte(t123)
+/*line :1201:27*/										t124 := int32(m.memory[uint64(uint32(v3))+4])
+/*line :1201:25*/										m.memory[uint64(uint32(v2))+4] = byte(t124)
+/*line :1201:27*/										t125 := int32(m.memory[uint64(uint32(v3))+5])
+/*line :1201:25*/										m.memory[uint64(uint32(v2))+5] = byte(t125)
+/*line :1201:27*/										t126 := int32(m.memory[uint64(uint32(v3))+6])
+/*line :1201:25*/										m.memory[uint64(uint32(v2))+6] = byte(t126)
+/*line :1201:27*/										t127 := int32(m.memory[uint64(uint32(v3))+7])
+/*line :1201:25*/										m.memory[uint64(uint32(v2))+7] = byte(t127)
 /*line :1201:22*/										v2 = v2 + i32(8)
 /*line :1201:30*/										v3 = v3 + i32(8)
 /*line :1200:16*/										v7 = v7 - i32(8)
 /*line :1200:16*/										if v7 != 0 {
-/*line :1200:16*/											goto l82
+/*line :1200:16*/											goto l81
 /*line :1200:16*/										}
 /*line :1200:16*/									}
-/*line :1200:16*/								l79:
+/*line :1200:16*/								l78:
 /*line :1204:16*/									{
 /*line :1204:16*/										if v0 == 0 {
-/*line :1204:16*/											goto l83
+/*line :1204:16*/											goto l82
 /*line :1204:16*/										}
-/*line :1204:16*/										v6 = v2 - v13
+/*line :1204:16*/										v6 = v2 - v12
 /*line :1204:16*/										if v6 < i32(511) {
-/*line :1204:16*/											goto l83
+/*line :1204:16*/											goto l82
 /*line :1204:16*/										}
-/*line :1204:16*/										v17 = v6 + v17
-/*line :1204:16*/										t131 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v6)
-/*line :1204:16*/										v2 = t131
+/*line :1204:16*/										v15 = v6 + v15
+/*line :1204:16*/										t128 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v6)
+/*line :1204:16*/										v2 = t128
 /*line :1204:16*/										if v2 == 0 {
-/*line :1204:16*/											goto l77
+/*line :1204:16*/											goto l76
 /*line :1204:16*/										}
-/*line :1204:16*/										v13 = v2
+/*line :1204:16*/										v12 = v2
 /*line :1204:16*/									}
-/*line :1204:16*/								l83:
-/*line :1197:20*/									t132 := int32(m.memory[uint64(uint32(v10))+8])
-/*line :1197:13*/									v6 = t132
+/*line :1204:16*/								l82:
+/*line :1197:20*/									t129 := int32(m.memory[uint64(uint32(v10))+8])
+/*line :1197:13*/									v6 = t129
 /*line :1197:13*/									if v6 != 0 {
-/*line :1197:13*/										goto l84
+/*line :1197:13*/										goto l83
 /*line :1197:13*/									}
 /*line :1197:13*/								}
 /*line :1197:13*/							}
-/*line :1208:20*/							v19 = int32(uint32(v15) >> 24)
+/*line :1208:20*/							v18 = int32(uint32(v19) >> 24)
 /*line :1208:20*/							v6 = i32(0)
 /*line :1210:18*/							v7 = v8 & i32(64)
 /*line :1210:18*/							if v7 != 0 {
-/*line :1210:80*/								t133 := int32(uint32(v14+v15&i32(0xffffff)) % uint32(v19+i32(1)))
-/*line :1210:67*/								v6 = v19 - t133
+/*line :1210:80*/								t130 := int32(uint32(v13+v19&i32(0xffffff)) % uint32(v18+i32(1)))
+/*line :1210:67*/								v6 = v18 - t130
 /*line :1210:67*/							}
-/*line :1211:13*/							if v14 <= i32(0) {
-/*line :1211:13*/								goto l85
+/*line :1211:13*/							if v13 <= i32(0) {
+/*line :1211:13*/								goto l84
 /*line :1211:13*/							}
-/*line :1212:16*/						l93:
+/*line :1212:16*/						l92:
 /*line :1212:16*/							{
-/*line :1212:16*/								t134 := v14
-/*line :1212:16*/								v3 = v13 - v2 + i32(512)
-/*line :1212:16*/								p135 := v3
-/*line :1212:16*/								if v3 > v14 {
-/*line :1212:16*/									p135 = t134
+/*line :1212:16*/								t131 := v13
+/*line :1212:16*/								v3 = v12 - v2 + i32(512)
+/*line :1212:16*/								p132 := v3
+/*line :1212:16*/								if v3 > v13 {
+/*line :1212:16*/									p132 = t131
 /*line :1212:16*/								}
-/*line :1212:16*/								p136 := v14
+/*line :1212:16*/								p133 := v13
 /*line :1212:16*/								if v0 != 0 {
-/*line :1212:16*/									p136 = p135
+/*line :1212:16*/									p133 = p132
 /*line :1212:16*/								}
-/*line :1212:16*/								v15 = p136
+/*line :1212:16*/								v19 = p133
 /*line :1214:48*/								if v7 != 0 {
-/*line :1214:48*/									v11 = v15
+/*line :1214:48*/									v11 = v19
 /*line :1214:48*/									v3 = v2
-/*line :1214:48*/									goto l86
+/*line :1214:48*/									goto l85
 /*line :1214:48*/								}
 /*line :1215:19*/								{
-/*line :1215:19*/									p137 := i32(0)
+/*line :1215:19*/									p134 := i32(0)
 /*line :1215:19*/									if v2&i32(3) != 0 {
-/*line :1215:19*/										p137 = v15
+/*line :1215:19*/										p134 = v19
 /*line :1215:19*/									}
-/*line :1215:19*/									if p137 == 0 {
-/*line :1215:19*/										v11 = v15
+/*line :1215:19*/									if p134 == 0 {
+/*line :1215:19*/										v11 = v19
 /*line :1215:19*/										v3 = v2
-/*line :1215:19*/										goto l87
+/*line :1215:19*/										goto l86
 /*line :1215:19*/									}
 /*line :1218:28*/									m.memory[uint32(v2)] = byte(i32(48))
 /*line :1218:25*/									v3 = v2 + i32(1)
-/*line :1215:19*/									v11 = v15 - i32(1)
+/*line :1215:19*/									v11 = v19 - i32(1)
 /*line :1215:19*/									if v11 == 0 {
-/*line :1215:19*/										goto l87
+/*line :1215:19*/										goto l86
 /*line :1215:19*/									}
 /*line :1215:19*/									if v3&i32(3) == 0 {
-/*line :1215:19*/										goto l87
+/*line :1215:19*/										goto l86
 /*line :1215:19*/									}
 /*line :1218:28*/									m.memory[uint64(uint32(v2))+1] = byte(i32(48))
 /*line :1218:25*/									v3 = v2 + i32(2)
-/*line :1215:19*/									v11 = v15 - i32(2)
+/*line :1215:19*/									v11 = v19 - i32(2)
 /*line :1215:19*/									if v11 == 0 {
-/*line :1215:19*/										goto l87
+/*line :1215:19*/										goto l86
 /*line :1215:19*/									}
 /*line :1215:19*/									if v3&i32(3) == 0 {
-/*line :1215:19*/										goto l87
+/*line :1215:19*/										goto l86
 /*line :1215:19*/									}
 /*line :1218:28*/									m.memory[uint64(uint32(v2))+2] = byte(i32(48))
 /*line :1218:25*/									v3 = v2 + i32(3)
-/*line :1215:19*/									v11 = v15 - i32(3)
+/*line :1215:19*/									v11 = v19 - i32(3)
 /*line :1215:19*/									if v11 == 0 {
-/*line :1215:19*/										goto l87
+/*line :1215:19*/										goto l86
 /*line :1215:19*/									}
 /*line :1215:19*/									if v3&i32(3) == 0 {
-/*line :1215:19*/										goto l87
+/*line :1215:19*/										goto l86
 /*line :1215:19*/									}
 /*line :1218:28*/									m.memory[uint64(uint32(v2))+3] = byte(i32(48))
-/*line :1219:22*/									v11 = v15 - i32(4)
+/*line :1219:22*/									v11 = v19 - i32(4)
 /*line :1218:25*/									v3 = v2 + i32(4)
 /*line :1218:25*/								}
-/*line :1218:25*/							l87:
+/*line :1218:25*/							l86:
 /*line :1221:19*/								if v11 < i32(4) {
-/*line :1221:19*/									goto l86
+/*line :1221:19*/									goto l85
 /*line :1221:19*/								}
 /*line :1221:19*/								v9 = v11 - i32(4)
-/*line :1221:19*/								if v9&i32(28) != i32(28) {
-/*line :1221:19*/									t138 := v11
-/*line :1221:19*/									v2 = (int32(uint32(v9)>>2) + i32(1)) & i32(7)
-/*line :1221:19*/									v11 = t138 - v2<<2
-/*line :1221:19*/								l88:
+/*line :1221:19*/								v2 = (int32(uint32(v9)>>2) + i32(1)) & i32(7)
+/*line :1221:19*/								if v2 != 0 {
+/*line :1221:19*/									v11 = v11 - v2<<2
+/*line :1221:19*/								l87:
 /*line :1222:43*/									store32(m.memory, uint32(v3), uint32(i32(808464432)))
 /*line :1223:25*/									v3 = v3 + i32(4)
 /*line :1221:19*/									v2 = v2 - i32(1)
 /*line :1221:19*/									if v2 != 0 {
-/*line :1221:19*/										goto l88
+/*line :1221:19*/										goto l87
 /*line :1221:19*/									}
 /*line :1221:19*/								}
 /*line :1221:19*/								if uint32(v9) < uint32(i32(28)) {
-/*line :1221:19*/									goto l86
+/*line :1221:19*/									goto l85
 /*line :1221:19*/								}
-/*line :1221:19*/							l89:
+/*line :1221:19*/							l88:
 /*line :1222:43*/								store64(m.memory, uint32(v3), uint64(i64(3472328296227680304)))
 /*line :1222:43*/								store64(m.memory, uint64(uint32(v3))+24, uint64(i64(3472328296227680304)))
 /*line :1222:43*/								store64(m.memory, uint64(uint32(v3))+16, uint64(i64(3472328296227680304)))
@@ -43753,680 +43659,676 @@
 /*line :1224:24*/								v11 = v2 - i32(32)
 /*line :1223:25*/								v3 = v3 + i32(32)
 /*line :1221:28*/								if v2 > i32(35) {
-/*line :1221:28*/									goto l89
+/*line :1221:28*/									goto l88
 /*line :1221:28*/								}
-/*line :1221:19*/							l86:
+/*line :1221:19*/							l85:
 /*line :1221:19*/								{
 /*line :1221:19*/									if v11 == 0 {
-/*line :1221:19*/										goto l90
+/*line :1221:19*/										goto l89
 /*line :1221:19*/									}
-/*line :1227:16*/									var p139 int32
+/*line :1227:16*/									var p135 int32
 /*line :1227:16*/									if v11&i32(1) != 0 {
 /*line :1227:16*/										v2 = i32(48)
 /*line :1227:16*/										if v7 != 0 {
-/*line :1228:51*/											t140 := v6 + i32(1)
-/*line :1228:51*/											var p141 int32
-/*line :1228:51*/											if v6 == v19 {
-/*line :1228:51*/												p141 = 1
+/*line :1228:51*/											t136 := v6 + i32(1)
+/*line :1228:51*/											var p137 int32
+/*line :1228:51*/											if v6 == v18 {
+/*line :1228:51*/												p137 = 1
 /*line :1228:51*/											}
-/*line :1228:51*/											v2 = p141
-/*line :1228:51*/											p142 := t140
+/*line :1228:51*/											v2 = p137
+/*line :1228:51*/											p138 := t136
 /*line :1228:51*/											if v2 != 0 {
-/*line :1228:51*/												p142 = i32(0)
+/*line :1228:51*/												p138 = i32(0)
 /*line :1228:51*/											}
-/*line :1228:51*/											v6 = p142
-/*line :1228:51*/											t143 := int32(m.memory[uint32(i32(125432))])
-/*line :1228:51*/											p144 := i32(48)
+/*line :1228:51*/											v6 = p138
+/*line :1228:51*/											t139 := int32(m.memory[uint32(i32(125432))])
+/*line :1228:51*/											p140 := i32(48)
 /*line :1228:51*/											if v2 != 0 {
-/*line :1228:51*/												p144 = t143
+/*line :1228:51*/												p140 = t139
 /*line :1228:51*/											}
-/*line :1228:51*/											v2 = p144
+/*line :1228:51*/											v2 = p140
 /*line :1228:51*/										}
 /*line :1228:51*/										m.memory[uint32(v3)] = byte(v2)
 /*line :1228:51*/										v3 = v3 + i32(1)
-/*line :1233:19*/										p139 = v11 - i32(1)
+/*line :1233:19*/										p135 = v11 - i32(1)
 /*line :1233:19*/									} else {
-/*line :1233:19*/										p139 = v11
+/*line :1233:19*/										p135 = v11
 /*line :1233:19*/									}
-/*line :1233:19*/									v9 = p139
+/*line :1233:19*/									v9 = p135
 /*line :1227:16*/									if v11 == i32(1) {
-/*line :1227:16*/										goto l90
+/*line :1227:16*/										goto l89
 /*line :1227:16*/									}
-/*line :1227:16*/								l91:
+/*line :1227:16*/								l90:
 /*line :1227:16*/									{
 /*line :1227:16*/										v2 = i32(48)
-/*line :1227:16*/										t146 := v3
-/*line :1227:16*/										var p145 int32
+/*line :1227:16*/										t142 := v3
+/*line :1227:16*/										var p141 int32
 /*line :1227:16*/										if v7 != 0 {
-/*line :1228:51*/											t147 := v6 + i32(1)
-/*line :1228:51*/											var p148 int32
-/*line :1228:51*/											if v6 == v19 {
-/*line :1228:51*/												p148 = 1
+/*line :1228:51*/											t143 := v6 + i32(1)
+/*line :1228:51*/											var p144 int32
+/*line :1228:51*/											if v6 == v18 {
+/*line :1228:51*/												p144 = 1
 /*line :1228:51*/											}
-/*line :1228:51*/											v11 = p148
-/*line :1228:51*/											p149 := t147
+/*line :1228:51*/											v11 = p144
+/*line :1228:51*/											p145 := t143
 /*line :1228:51*/											if v11 != 0 {
-/*line :1228:51*/												p149 = i32(0)
+/*line :1228:51*/												p145 = i32(0)
 /*line :1228:51*/											}
-/*line :1228:51*/											v6 = p149
-/*line :1228:51*/											t150 := int32(m.memory[uint32(i32(125432))])
-/*line :1228:51*/											p151 := i32(48)
+/*line :1228:51*/											v6 = p145
+/*line :1228:51*/											t146 := int32(m.memory[uint32(i32(125432))])
+/*line :1228:51*/											p147 := i32(48)
 /*line :1228:51*/											if v11 != 0 {
-/*line :1228:51*/												p151 = t150
+/*line :1228:51*/												p147 = t146
 /*line :1228:51*/											}
-/*line :1228:51*/											p145 = p151
+/*line :1228:51*/											p141 = p147
 /*line :1228:51*/										} else {
-/*line :1228:51*/											p145 = i32(48)
+/*line :1228:51*/											p141 = i32(48)
 /*line :1228:51*/										}
-/*line :1228:51*/										v11 = p145
-/*line :1228:51*/										m.memory[uint32(t146)] = byte(v11)
+/*line :1228:51*/										v11 = p141
+/*line :1228:51*/										m.memory[uint32(t142)] = byte(v11)
 /*line :1228:51*/										if v7 != 0 {
-/*line :1228:51*/											t152 := v6 + i32(1)
-/*line :1228:51*/											var p153 int32
-/*line :1228:51*/											if v6 == v19 {
-/*line :1228:51*/												p153 = 1
+/*line :1228:51*/											t148 := v6 + i32(1)
+/*line :1228:51*/											var p149 int32
+/*line :1228:51*/											if v6 == v18 {
+/*line :1228:51*/												p149 = 1
 /*line :1228:51*/											}
-/*line :1228:51*/											v2 = p153
-/*line :1228:51*/											p154 := t152
+/*line :1228:51*/											v2 = p149
+/*line :1228:51*/											p150 := t148
 /*line :1228:51*/											if v2 != 0 {
-/*line :1228:51*/												p154 = i32(0)
+/*line :1228:51*/												p150 = i32(0)
 /*line :1228:51*/											}
-/*line :1228:51*/											v6 = p154
-/*line :1228:51*/											t155 := int32(m.memory[uint32(i32(125432))])
-/*line :1228:51*/											p156 := i32(48)
+/*line :1228:51*/											v6 = p150
+/*line :1228:51*/											t151 := int32(m.memory[uint32(i32(125432))])
+/*line :1228:51*/											p152 := i32(48)
 /*line :1228:51*/											if v2 != 0 {
-/*line :1228:51*/												p156 = t155
+/*line :1228:51*/												p152 = t151
 /*line :1228:51*/											}
-/*line :1228:51*/											v2 = p156
+/*line :1228:51*/											v2 = p152
 /*line :1228:51*/										}
 /*line :1228:51*/										m.memory[uint64(uint32(v3))+1] = byte(v2)
 /*line :1228:51*/										v3 = v3 + i32(2)
 /*line :1227:16*/										v9 = v9 - i32(2)
 /*line :1227:16*/										if v9 != 0 {
-/*line :1227:16*/											goto l91
+/*line :1227:16*/											goto l90
 /*line :1227:16*/										}
 /*line :1227:16*/									}
 /*line :1227:16*/								}
-/*line :1227:16*/							l90:
+/*line :1227:16*/							l89:
 /*line :1235:16*/								{
 /*line :1235:16*/									if v0 == 0 {
 /*line :1235:16*/										v2 = v3
-/*line :1235:16*/										goto l92
+/*line :1235:16*/										goto l91
 /*line :1235:16*/									}
-/*line :1235:16*/									v2 = v3 - v13
+/*line :1235:16*/									v2 = v3 - v12
 /*line :1235:16*/									if v2 < i32(511) {
 /*line :1235:16*/										v2 = v3
-/*line :1235:16*/										goto l92
+/*line :1235:16*/										goto l91
 /*line :1235:16*/									}
-/*line :1235:16*/									v17 = v2 + v17
-/*line :1235:16*/									t157 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v2)
-/*line :1235:16*/									v2 = t157
+/*line :1235:16*/									v15 = v2 + v15
+/*line :1235:16*/									t153 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v2)
+/*line :1235:16*/									v2 = t153
 /*line :1235:16*/									if v2 == 0 {
-/*line :1235:16*/										goto l77
+/*line :1235:16*/										goto l76
 /*line :1235:16*/									}
-/*line :1235:16*/									v13 = v2
+/*line :1235:16*/									v12 = v2
 /*line :1235:16*/								}
-/*line :1235:16*/							l92:
-/*line :1235:16*/								v14 = v14 - v15
-/*line :1211:13*/								if v14 > i32(0) {
-/*line :1211:13*/									goto l93
+/*line :1235:16*/							l91:
+/*line :1235:16*/								v13 = v13 - v19
+/*line :1211:13*/								if v13 > i32(0) {
+/*line :1211:13*/									goto l92
 /*line :1211:13*/								}
 /*line :1211:13*/							}
-/*line :1241:17*/							t158 := int32(m.memory[uint64(uint32(v10))+8])
-/*line :1241:17*/							v6 = t158
+/*line :1241:17*/							t154 := int32(m.memory[uint64(uint32(v10))+8])
+/*line :1241:17*/							v6 = t154
 /*line :1241:17*/						}
 /*line :1241:10*/						if v6&i32(255) == 0 {
-/*line :1241:10*/							goto l85
+/*line :1241:10*/							goto l84
 /*line :1241:10*/						}
 /*line :1241:10*/						v3 = v25
-/*line :1243:13*/					l99:
+/*line :1243:13*/					l98:
 /*line :1243:13*/						{
-/*line :1243:36*/							t159 := v10
-/*line :1243:36*/							t160 := v6
-/*line :1243:36*/							v9 = v13 - v2 + i32(512)
-/*line :1243:13*/							t161 := v9
+/*line :1243:36*/							t155 := v10
+/*line :1243:36*/							t156 := v6
+/*line :1243:36*/							v9 = v12 - v2 + i32(512)
+/*line :1243:13*/							t157 := v9
 /*line :1243:13*/							v7 = int32(int8(v6))
-/*line :1243:13*/							p162 := v7
+/*line :1243:13*/							p158 := v7
 /*line :1243:13*/							if v7 > v9 {
-/*line :1243:13*/								p162 = t161
+/*line :1243:13*/								p158 = t157
 /*line :1243:13*/							}
-/*line :1243:13*/							p163 := v7
+/*line :1243:13*/							p159 := v7
 /*line :1243:13*/							if v0 != 0 {
-/*line :1243:13*/								p163 = p162
+/*line :1243:13*/								p159 = p158
 /*line :1243:13*/							}
-/*line :1244:21*/							v9 = p163
-/*line :1244:21*/							m.memory[uint64(uint32(t159))+8] = byte(t160 - v9)
+/*line :1244:21*/							v9 = p159
+/*line :1244:21*/							m.memory[uint64(uint32(t155))+8] = byte(t156 - v9)
 /*line :1245:13*/							if v9 == 0 {
-/*line :1245:13*/								goto l94
+/*line :1245:13*/								goto l93
 /*line :1245:13*/							}
 /*line :1245:13*/							v6 = v9 & i32(7)
 /*line :1245:13*/							if v6 == 0 {
 /*line :1245:13*/								v7 = v9
-/*line :1245:13*/								goto l95
+/*line :1245:13*/								goto l94
 /*line :1245:13*/							}
 /*line :1245:13*/							v7 = v9 & i32(-8)
-/*line :1246:24*/						l96:
+/*line :1246:24*/						l95:
 /*line :1246:24*/							{
-/*line :1246:24*/								t164 := int32(m.memory[uint32(v3)])
-/*line :1246:22*/								m.memory[uint32(v2)] = byte(t164)
+/*line :1246:24*/								t160 := int32(m.memory[uint32(v3)])
+/*line :1246:22*/								m.memory[uint32(v2)] = byte(t160)
 /*line :1246:19*/								v2 = v2 + i32(1)
 /*line :1246:27*/								v3 = v3 + i32(1)
 /*line :1245:13*/								v6 = v6 - i32(1)
 /*line :1245:13*/								if v6 != 0 {
-/*line :1245:13*/									goto l96
+/*line :1245:13*/									goto l95
 /*line :1245:13*/								}
 /*line :1245:13*/							}
-/*line :1245:13*/						l95:
+/*line :1245:13*/						l94:
 /*line :1245:13*/							if uint32(v9) < uint32(i32(8)) {
-/*line :1245:13*/								goto l94
+/*line :1245:13*/								goto l93
 /*line :1245:13*/							}
-/*line :1246:24*/						l97:
+/*line :1246:24*/						l96:
 /*line :1246:24*/							{
-/*line :1246:24*/								t165 := int32(m.memory[uint32(v3)])
-/*line :1246:22*/								m.memory[uint32(v2)] = byte(t165)
-/*line :1246:24*/								t166 := int32(m.memory[uint64(uint32(v3))+1])
-/*line :1246:22*/								m.memory[uint64(uint32(v2))+1] = byte(t166)
-/*line :1246:24*/								t167 := int32(m.memory[uint64(uint32(v3))+2])
-/*line :1246:22*/								m.memory[uint64(uint32(v2))+2] = byte(t167)
-/*line :1246:24*/								t168 := int32(m.memory[uint64(uint32(v3))+3])
-/*line :1246:22*/								m.memory[uint64(uint32(v2))+3] = byte(t168)
-/*line :1246:24*/								t169 := int32(m.memory[uint64(uint32(v3))+4])
-/*line :1246:22*/								m.memory[uint64(uint32(v2))+4] = byte(t169)
-/*line :1246:24*/								t170 := int32(m.memory[uint64(uint32(v3))+5])
-/*line :1246:22*/								m.memory[uint64(uint32(v2))+5] = byte(t170)
-/*line :1246:24*/								t171 := int32(m.memory[uint64(uint32(v3))+6])
-/*line :1246:22*/								m.memory[uint64(uint32(v2))+6] = byte(t171)
-/*line :1246:24*/								t172 := int32(m.memory[uint64(uint32(v3))+7])
-/*line :1246:22*/								m.memory[uint64(uint32(v2))+7] = byte(t172)
+/*line :1246:24*/								t161 := int32(m.memory[uint32(v3)])
+/*line :1246:22*/								m.memory[uint32(v2)] = byte(t161)
+/*line :1246:24*/								t162 := int32(m.memory[uint64(uint32(v3))+1])
+/*line :1246:22*/								m.memory[uint64(uint32(v2))+1] = byte(t162)
+/*line :1246:24*/								t163 := int32(m.memory[uint64(uint32(v3))+2])
+/*line :1246:22*/								m.memory[uint64(uint32(v2))+2] = byte(t163)
+/*line :1246:24*/								t164 := int32(m.memory[uint64(uint32(v3))+3])
+/*line :1246:22*/								m.memory[uint64(uint32(v2))+3] = byte(t164)
+/*line :1246:24*/								t165 := int32(m.memory[uint64(uint32(v3))+4])
+/*line :1246:22*/								m.memory[uint64(uint32(v2))+4] = byte(t165)
+/*line :1246:24*/								t166 := int32(m.memory[uint64(uint32(v3))+5])
+/*line :1246:22*/								m.memory[uint64(uint32(v2))+5] = byte(t166)
+/*line :1246:24*/								t167 := int32(m.memory[uint64(uint32(v3))+6])
+/*line :1246:22*/								m.memory[uint64(uint32(v2))+6] = byte(t167)
+/*line :1246:24*/								t168 := int32(m.memory[uint64(uint32(v3))+7])
+/*line :1246:22*/								m.memory[uint64(uint32(v2))+7] = byte(t168)
 /*line :1246:19*/								v2 = v2 + i32(8)
 /*line :1246:27*/								v3 = v3 + i32(8)
 /*line :1245:13*/								v7 = v7 - i32(8)
 /*line :1245:13*/								if v7 != 0 {
-/*line :1245:13*/									goto l97
+/*line :1245:13*/									goto l96
 /*line :1245:13*/								}
 /*line :1245:13*/							}
-/*line :1245:13*/						l94:
+/*line :1245:13*/						l93:
 /*line :1249:13*/							{
 /*line :1249:13*/								if v0 == 0 {
-/*line :1249:13*/									goto l98
+/*line :1249:13*/									goto l97
 /*line :1249:13*/								}
-/*line :1249:13*/								v6 = v2 - v13
+/*line :1249:13*/								v6 = v2 - v12
 /*line :1249:13*/								if v6 < i32(511) {
-/*line :1249:13*/									goto l98
+/*line :1249:13*/									goto l97
 /*line :1249:13*/								}
-/*line :1249:13*/								v17 = v6 + v17
-/*line :1249:13*/								t173 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v6)
-/*line :1249:13*/								v2 = t173
+/*line :1249:13*/								v15 = v6 + v15
+/*line :1249:13*/								t169 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v6)
+/*line :1249:13*/								v2 = t169
 /*line :1249:13*/								if v2 == 0 {
-/*line :1249:13*/									goto l77
+/*line :1249:13*/									goto l76
 /*line :1249:13*/								}
-/*line :1249:13*/								v13 = v2
+/*line :1249:13*/								v12 = v2
 /*line :1249:13*/							}
-/*line :1249:13*/						l98:
-/*line :1241:17*/							t174 := int32(m.memory[uint64(uint32(v10))+8])
-/*line :1241:10*/							v6 = t174
+/*line :1249:13*/						l97:
+/*line :1241:17*/							t170 := int32(m.memory[uint64(uint32(v10))+8])
+/*line :1241:10*/							v6 = t170
 /*line :1241:10*/							if v6 != 0 {
-/*line :1241:10*/								goto l99
+/*line :1241:10*/								goto l98
 /*line :1241:10*/							}
 /*line :1241:10*/						}
-/*line :1241:10*/					l85:
-/*line :1241:10*/						if v16 != 0 {
-/*line :1256:13*/						l109:
+/*line :1241:10*/					l84:
+/*line :1241:10*/						if v14 != 0 {
+/*line :1256:13*/						l108:
 /*line :1256:13*/							{
-/*line :1256:13*/								t175 := v16
-/*line :1256:13*/								v3 = v13 - v2 + i32(512)
-/*line :1256:13*/								p176 := v3
-/*line :1256:13*/								if v3 > v16 {
-/*line :1256:13*/									p176 = t175
+/*line :1256:13*/								t171 := v14
+/*line :1256:13*/								v3 = v12 - v2 + i32(512)
+/*line :1256:13*/								p172 := v3
+/*line :1256:13*/								if v3 > v14 {
+/*line :1256:13*/									p172 = t171
 /*line :1256:13*/								}
-/*line :1256:13*/								p177 := v16
+/*line :1256:13*/								p173 := v14
 /*line :1256:13*/								if v0 != 0 {
-/*line :1256:13*/									p177 = p176
+/*line :1256:13*/									p173 = p172
 /*line :1256:13*/								}
-/*line :1256:13*/								v9 = p177
+/*line :1256:13*/								v9 = p173
 /*line :1258:39*/								if v9 < i32(4) {
 /*line :1258:39*/									v7 = v9
+/*line :1258:30*/									goto l99
+/*line :1258:30*/								}
+/*line :1258:30*/								v11 = v9 - i32(4)
+/*line :1258:30*/								v6 = (int32(uint32(v11)>>2) + i32(1)) & i32(7)
+/*line :1258:30*/								if v6 == 0 {
+/*line :1258:30*/									v3 = v9
 /*line :1258:30*/									goto l100
 /*line :1258:30*/								}
-/*line :1258:30*/								{
-/*line :1258:30*/									v11 = v9 - i32(4)
-/*line :1258:30*/									if v11&i32(28) == i32(28) {
-/*line :1258:30*/										v3 = v9
+/*line :1258:30*/								v3 = v9 - v6<<2
+/*line :1259:48*/							l101:
+/*line :1259:48*/								{
+/*line :1259:48*/									t174 := int32(load32(m.memory, uint32(v5)))
+/*line :1259:46*/									store32(m.memory, uint32(v2), uint32(t174))
+/*line :1261:18*/									v5 = v5 + i32(4)
+/*line :1260:19*/									v2 = v2 + i32(4)
+/*line :1258:30*/									v6 = v6 - i32(1)
+/*line :1258:30*/									if v6 != 0 {
 /*line :1258:30*/										goto l101
 /*line :1258:30*/									}
-/*line :1258:30*/									t178 := v9
-/*line :1258:30*/									v6 = (int32(uint32(v11)>>2) + i32(1)) & i32(7)
-/*line :1258:30*/									v3 = t178 - v6<<2
-/*line :1259:48*/								l102:
-/*line :1259:48*/									{
-/*line :1259:48*/										t179 := int32(load32(m.memory, uint32(v5)))
-/*line :1259:46*/										store32(m.memory, uint32(v2), uint32(t179))
-/*line :1261:18*/										v5 = v5 + i32(4)
-/*line :1260:19*/										v2 = v2 + i32(4)
-/*line :1258:30*/										v6 = v6 - i32(1)
-/*line :1258:30*/										if v6 != 0 {
-/*line :1258:30*/											goto l102
-/*line :1258:30*/										}
-/*line :1258:30*/									}
-/*line :1258:30*/									v7 = v3
 /*line :1258:30*/								}
-/*line :1258:30*/							l101:
+/*line :1258:30*/								v7 = v3
+/*line :1258:30*/							l100:
 /*line :1258:30*/								if uint32(v11) < uint32(i32(28)) {
-/*line :1258:30*/									goto l100
+/*line :1258:30*/									goto l99
 /*line :1258:30*/								}
-/*line :1259:48*/							l103:
+/*line :1259:48*/							l102:
 /*line :1259:48*/								{
-/*line :1259:48*/									t180 := int32(load32(m.memory, uint32(v5)))
-/*line :1259:46*/									store32(m.memory, uint32(v2), uint32(t180))
-/*line :1259:48*/									t181 := int32(load32(m.memory, uint64(uint32(v5))+4))
-/*line :1259:46*/									store32(m.memory, uint64(uint32(v2))+4, uint32(t181))
-/*line :1259:48*/									t182 := int32(load32(m.memory, uint64(uint32(v5))+8))
-/*line :1259:46*/									store32(m.memory, uint64(uint32(v2))+8, uint32(t182))
-/*line :1259:48*/									t183 := int32(load32(m.memory, uint64(uint32(v5))+12))
-/*line :1259:46*/									store32(m.memory, uint64(uint32(v2))+12, uint32(t183))
-/*line :1259:48*/									t184 := int32(load32(m.memory, uint64(uint32(v5))+16))
-/*line :1259:46*/									store32(m.memory, uint64(uint32(v2))+16, uint32(t184))
-/*line :1259:48*/									t185 := int32(load32(m.memory, uint64(uint32(v5))+20))
-/*line :1259:46*/									store32(m.memory, uint64(uint32(v2))+20, uint32(t185))
-/*line :1259:48*/									t186 := int32(load32(m.memory, uint64(uint32(v5))+24))
-/*line :1259:46*/									store32(m.memory, uint64(uint32(v2))+24, uint32(t186))
-/*line :1259:48*/									t187 := int32(load32(m.memory, uint64(uint32(v5))+28))
-/*line :1259:46*/									store32(m.memory, uint64(uint32(v2))+28, uint32(t187))
+/*line :1259:48*/									t175 := int32(load32(m.memory, uint32(v5)))
+/*line :1259:46*/									store32(m.memory, uint32(v2), uint32(t175))
+/*line :1259:48*/									t176 := int32(load32(m.memory, uint64(uint32(v5))+4))
+/*line :1259:46*/									store32(m.memory, uint64(uint32(v2))+4, uint32(t176))
+/*line :1259:48*/									t177 := int32(load32(m.memory, uint64(uint32(v5))+8))
+/*line :1259:46*/									store32(m.memory, uint64(uint32(v2))+8, uint32(t177))
+/*line :1259:48*/									t178 := int32(load32(m.memory, uint64(uint32(v5))+12))
+/*line :1259:46*/									store32(m.memory, uint64(uint32(v2))+12, uint32(t178))
+/*line :1259:48*/									t179 := int32(load32(m.memory, uint64(uint32(v5))+16))
+/*line :1259:46*/									store32(m.memory, uint64(uint32(v2))+16, uint32(t179))
+/*line :1259:48*/									t180 := int32(load32(m.memory, uint64(uint32(v5))+20))
+/*line :1259:46*/									store32(m.memory, uint64(uint32(v2))+20, uint32(t180))
+/*line :1259:48*/									t181 := int32(load32(m.memory, uint64(uint32(v5))+24))
+/*line :1259:46*/									store32(m.memory, uint64(uint32(v2))+24, uint32(t181))
+/*line :1259:48*/									t182 := int32(load32(m.memory, uint64(uint32(v5))+28))
+/*line :1259:46*/									store32(m.memory, uint64(uint32(v2))+28, uint32(t182))
 /*line :1261:18*/									v5 = v5 + i32(32)
 /*line :1260:19*/									v2 = v2 + i32(32)
-/*line :1262:18*/									var p188 int32
+/*line :1262:18*/									var p183 int32
 /*line :1262:18*/									if v3 > i32(35) {
-/*line :1262:18*/										p188 = 1
+/*line :1262:18*/										p183 = 1
 /*line :1262:18*/									}
 /*line :1262:18*/									v7 = v3 - i32(32)
 /*line :1262:18*/									v3 = v7
-/*line :1262:18*/									if p188 != 0 {
-/*line :1262:18*/										goto l103
+/*line :1262:18*/									if p183 != 0 {
+/*line :1262:18*/										goto l102
 /*line :1262:18*/									}
 /*line :1258:30*/								}
 /*line :1258:30*/							}
-/*line :1258:30*/						l100:
+/*line :1258:30*/						l99:
 /*line :1264:13*/							if v7 == 0 {
-/*line :1264:13*/								goto l104
+/*line :1264:13*/								goto l103
 /*line :1264:13*/							}
 /*line :1264:13*/							v3 = v7 & i32(7)
 /*line :1264:13*/							if v3 == 0 {
 /*line :1264:13*/								v6 = v7
-/*line :1264:13*/								goto l105
+/*line :1264:13*/								goto l104
 /*line :1264:13*/							}
 /*line :1264:13*/							v6 = v7 & i32(-8)
-/*line :1265:24*/						l106:
+/*line :1265:24*/						l105:
 /*line :1265:24*/							{
-/*line :1265:24*/								t189 := int32(m.memory[uint32(v5)])
-/*line :1265:22*/								m.memory[uint32(v2)] = byte(t189)
+/*line :1265:24*/								t184 := int32(m.memory[uint32(v5)])
+/*line :1265:22*/								m.memory[uint32(v2)] = byte(t184)
 /*line :1265:19*/								v2 = v2 + i32(1)
 /*line :1265:26*/								v5 = v5 + i32(1)
 /*line :1264:13*/								v3 = v3 - i32(1)
 /*line :1264:13*/								if v3 != 0 {
-/*line :1264:13*/									goto l106
+/*line :1264:13*/									goto l105
 /*line :1264:13*/								}
 /*line :1264:13*/							}
-/*line :1264:13*/						l105:
+/*line :1264:13*/						l104:
 /*line :1264:13*/							if uint32(v7) < uint32(i32(8)) {
-/*line :1264:13*/								goto l104
+/*line :1264:13*/								goto l103
 /*line :1264:13*/							}
-/*line :1265:24*/						l107:
+/*line :1265:24*/						l106:
 /*line :1265:24*/							{
-/*line :1265:24*/								t190 := int32(m.memory[uint32(v5)])
-/*line :1265:22*/								m.memory[uint32(v2)] = byte(t190)
-/*line :1265:24*/								t191 := int32(m.memory[uint64(uint32(v5))+1])
-/*line :1265:22*/								m.memory[uint64(uint32(v2))+1] = byte(t191)
-/*line :1265:24*/								t192 := int32(m.memory[uint64(uint32(v5))+2])
-/*line :1265:22*/								m.memory[uint64(uint32(v2))+2] = byte(t192)
-/*line :1265:24*/								t193 := int32(m.memory[uint64(uint32(v5))+3])
-/*line :1265:22*/								m.memory[uint64(uint32(v2))+3] = byte(t193)
-/*line :1265:24*/								t194 := int32(m.memory[uint64(uint32(v5))+4])
-/*line :1265:22*/								m.memory[uint64(uint32(v2))+4] = byte(t194)
-/*line :1265:24*/								t195 := int32(m.memory[uint64(uint32(v5))+5])
-/*line :1265:22*/								m.memory[uint64(uint32(v2))+5] = byte(t195)
-/*line :1265:24*/								t196 := int32(m.memory[uint64(uint32(v5))+6])
-/*line :1265:22*/								m.memory[uint64(uint32(v2))+6] = byte(t196)
-/*line :1265:24*/								t197 := int32(m.memory[uint64(uint32(v5))+7])
-/*line :1265:22*/								m.memory[uint64(uint32(v2))+7] = byte(t197)
+/*line :1265:24*/								t185 := int32(m.memory[uint32(v5)])
+/*line :1265:22*/								m.memory[uint32(v2)] = byte(t185)
+/*line :1265:24*/								t186 := int32(m.memory[uint64(uint32(v5))+1])
+/*line :1265:22*/								m.memory[uint64(uint32(v2))+1] = byte(t186)
+/*line :1265:24*/								t187 := int32(m.memory[uint64(uint32(v5))+2])
+/*line :1265:22*/								m.memory[uint64(uint32(v2))+2] = byte(t187)
+/*line :1265:24*/								t188 := int32(m.memory[uint64(uint32(v5))+3])
+/*line :1265:22*/								m.memory[uint64(uint32(v2))+3] = byte(t188)
+/*line :1265:24*/								t189 := int32(m.memory[uint64(uint32(v5))+4])
+/*line :1265:22*/								m.memory[uint64(uint32(v2))+4] = byte(t189)
+/*line :1265:24*/								t190 := int32(m.memory[uint64(uint32(v5))+5])
+/*line :1265:22*/								m.memory[uint64(uint32(v2))+5] = byte(t190)
+/*line :1265:24*/								t191 := int32(m.memory[uint64(uint32(v5))+6])
+/*line :1265:22*/								m.memory[uint64(uint32(v2))+6] = byte(t191)
+/*line :1265:24*/								t192 := int32(m.memory[uint64(uint32(v5))+7])
+/*line :1265:22*/								m.memory[uint64(uint32(v2))+7] = byte(t192)
 /*line :1265:19*/								v2 = v2 + i32(8)
 /*line :1265:26*/								v5 = v5 + i32(8)
 /*line :1264:13*/								v6 = v6 - i32(8)
 /*line :1264:13*/								if v6 != 0 {
-/*line :1264:13*/									goto l107
+/*line :1264:13*/									goto l106
 /*line :1264:13*/								}
 /*line :1264:13*/							}
-/*line :1264:13*/						l104:
+/*line :1264:13*/						l103:
 /*line :1268:13*/							{
 /*line :1268:13*/								if v0 == 0 {
-/*line :1268:13*/									goto l108
+/*line :1268:13*/									goto l107
 /*line :1268:13*/								}
-/*line :1268:13*/								v3 = v2 - v13
+/*line :1268:13*/								v3 = v2 - v12
 /*line :1268:13*/								if v3 < i32(511) {
-/*line :1268:13*/									goto l108
+/*line :1268:13*/									goto l107
 /*line :1268:13*/								}
-/*line :1268:13*/								v17 = v3 + v17
-/*line :1268:13*/								t198 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v3)
-/*line :1268:13*/								v2 = t198
+/*line :1268:13*/								v15 = v3 + v15
+/*line :1268:13*/								t193 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v3)
+/*line :1268:13*/								v2 = t193
 /*line :1268:13*/								if v2 == 0 {
-/*line :1268:13*/									goto l77
+/*line :1268:13*/									goto l76
 /*line :1268:13*/								}
-/*line :1268:13*/								v13 = v2
+/*line :1268:13*/								v12 = v2
 /*line :1268:13*/							}
-/*line :1268:13*/						l108:
-/*line :1254:10*/							v16 = v16 - v9
-/*line :1254:10*/							if v16 != 0 {
-/*line :1254:10*/								goto l109
+/*line :1268:13*/						l107:
+/*line :1254:10*/							v14 = v14 - v9
+/*line :1254:10*/							if v14 != 0 {
+/*line :1254:10*/								goto l108
 /*line :1254:10*/							}
 /*line :1254:10*/						}
-/*line :1254:10*/						t199 := int32(m.memory[uint32(v10)])
-/*line :1296:10*/						v3 = t199
+/*line :1254:10*/						t194 := int32(m.memory[uint32(v10)])
+/*line :1296:10*/						v3 = t194
 /*line :1296:10*/						if v3 != 0 {
 /*line :1296:10*/							v5 = v27
-/*line :1298:13*/						l115:
+/*line :1298:13*/						l114:
 /*line :1298:13*/							{
-/*line :1298:36*/								t200 := v10
-/*line :1298:36*/								t201 := v3
-/*line :1298:36*/								v7 = v13 - v2 + i32(512)
-/*line :1298:13*/								t202 := v7
+/*line :1298:36*/								t195 := v10
+/*line :1298:36*/								t196 := v3
+/*line :1298:36*/								v7 = v12 - v2 + i32(512)
+/*line :1298:13*/								t197 := v7
 /*line :1298:13*/								v6 = int32(int8(v3))
-/*line :1298:13*/								p203 := v6
+/*line :1298:13*/								p198 := v6
 /*line :1298:13*/								if v6 > v7 {
-/*line :1298:13*/									p203 = t202
+/*line :1298:13*/									p198 = t197
 /*line :1298:13*/								}
-/*line :1298:13*/								p204 := v6
+/*line :1298:13*/								p199 := v6
 /*line :1298:13*/								if v0 != 0 {
-/*line :1298:13*/									p204 = p203
+/*line :1298:13*/									p199 = p198
 /*line :1298:13*/								}
-/*line :1299:21*/								v7 = p204
-/*line :1299:21*/								m.memory[uint32(t200)] = byte(t201 - v7)
+/*line :1299:21*/								v7 = p199
+/*line :1299:21*/								m.memory[uint32(t195)] = byte(t196 - v7)
 /*line :1300:13*/								if v7 == 0 {
-/*line :1300:13*/									goto l110
+/*line :1300:13*/									goto l109
 /*line :1300:13*/								}
 /*line :1300:13*/								v3 = v7 & i32(7)
 /*line :1300:13*/								if v3 == 0 {
 /*line :1300:13*/									v6 = v7
-/*line :1300:13*/									goto l111
+/*line :1300:13*/									goto l110
 /*line :1300:13*/								}
 /*line :1300:13*/								v6 = v7 & i32(-8)
-/*line :1301:24*/							l112:
+/*line :1301:24*/							l111:
 /*line :1301:24*/								{
-/*line :1301:24*/									t205 := int32(m.memory[uint32(v5)])
-/*line :1301:22*/									m.memory[uint32(v2)] = byte(t205)
+/*line :1301:24*/									t200 := int32(m.memory[uint32(v5)])
+/*line :1301:22*/									m.memory[uint32(v2)] = byte(t200)
 /*line :1301:19*/									v2 = v2 + i32(1)
 /*line :1301:27*/									v5 = v5 + i32(1)
 /*line :1300:13*/									v3 = v3 - i32(1)
 /*line :1300:13*/									if v3 != 0 {
-/*line :1300:13*/										goto l112
+/*line :1300:13*/										goto l111
 /*line :1300:13*/									}
 /*line :1300:13*/								}
-/*line :1300:13*/							l111:
+/*line :1300:13*/							l110:
 /*line :1300:13*/								if uint32(v7) < uint32(i32(8)) {
-/*line :1300:13*/									goto l110
+/*line :1300:13*/									goto l109
 /*line :1300:13*/								}
-/*line :1301:24*/							l113:
+/*line :1301:24*/							l112:
 /*line :1301:24*/								{
-/*line :1301:24*/									t206 := int32(m.memory[uint32(v5)])
-/*line :1301:22*/									m.memory[uint32(v2)] = byte(t206)
-/*line :1301:24*/									t207 := int32(m.memory[uint64(uint32(v5))+1])
-/*line :1301:22*/									m.memory[uint64(uint32(v2))+1] = byte(t207)
-/*line :1301:24*/									t208 := int32(m.memory[uint64(uint32(v5))+2])
-/*line :1301:22*/									m.memory[uint64(uint32(v2))+2] = byte(t208)
-/*line :1301:24*/									t209 := int32(m.memory[uint64(uint32(v5))+3])
-/*line :1301:22*/									m.memory[uint64(uint32(v2))+3] = byte(t209)
-/*line :1301:24*/									t210 := int32(m.memory[uint64(uint32(v5))+4])
-/*line :1301:22*/									m.memory[uint64(uint32(v2))+4] = byte(t210)
-/*line :1301:24*/									t211 := int32(m.memory[uint64(uint32(v5))+5])
-/*line :1301:22*/									m.memory[uint64(uint32(v2))+5] = byte(t211)
-/*line :1301:24*/									t212 := int32(m.memory[uint64(uint32(v5))+6])
-/*line :1301:22*/									m.memory[uint64(uint32(v2))+6] = byte(t212)
-/*line :1301:24*/									t213 := int32(m.memory[uint64(uint32(v5))+7])
-/*line :1301:22*/									m.memory[uint64(uint32(v2))+7] = byte(t213)
+/*line :1301:24*/									t201 := int32(m.memory[uint32(v5)])
+/*line :1301:22*/									m.memory[uint32(v2)] = byte(t201)
+/*line :1301:24*/									t202 := int32(m.memory[uint64(uint32(v5))+1])
+/*line :1301:22*/									m.memory[uint64(uint32(v2))+1] = byte(t202)
+/*line :1301:24*/									t203 := int32(m.memory[uint64(uint32(v5))+2])
+/*line :1301:22*/									m.memory[uint64(uint32(v2))+2] = byte(t203)
+/*line :1301:24*/									t204 := int32(m.memory[uint64(uint32(v5))+3])
+/*line :1301:22*/									m.memory[uint64(uint32(v2))+3] = byte(t204)
+/*line :1301:24*/									t205 := int32(m.memory[uint64(uint32(v5))+4])
+/*line :1301:22*/									m.memory[uint64(uint32(v2))+4] = byte(t205)
+/*line :1301:24*/									t206 := int32(m.memory[uint64(uint32(v5))+5])
+/*line :1301:22*/									m.memory[uint64(uint32(v2))+5] = byte(t206)
+/*line :1301:24*/									t207 := int32(m.memory[uint64(uint32(v5))+6])
+/*line :1301:22*/									m.memory[uint64(uint32(v2))+6] = byte(t207)
+/*line :1301:24*/									t208 := int32(m.memory[uint64(uint32(v5))+7])
+/*line :1301:22*/									m.memory[uint64(uint32(v2))+7] = byte(t208)
 /*line :1301:19*/									v2 = v2 + i32(8)
 /*line :1301:27*/									v5 = v5 + i32(8)
 /*line :1300:13*/									v6 = v6 - i32(8)
 /*line :1300:13*/									if v6 != 0 {
-/*line :1300:13*/										goto l113
+/*line :1300:13*/										goto l112
 /*line :1300:13*/									}
 /*line :1300:13*/								}
-/*line :1300:13*/							l110:
+/*line :1300:13*/							l109:
 /*line :1304:13*/								{
 /*line :1304:13*/									if v0 == 0 {
-/*line :1304:13*/										goto l114
+/*line :1304:13*/										goto l113
 /*line :1304:13*/									}
-/*line :1304:13*/									v3 = v2 - v13
+/*line :1304:13*/									v3 = v2 - v12
 /*line :1304:13*/									if v3 < i32(511) {
-/*line :1304:13*/										goto l114
+/*line :1304:13*/										goto l113
 /*line :1304:13*/									}
-/*line :1304:13*/									v17 = v3 + v17
-/*line :1304:13*/									t214 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v3)
-/*line :1304:13*/									v2 = t214
+/*line :1304:13*/									v15 = v3 + v15
+/*line :1304:13*/									t209 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v3)
+/*line :1304:13*/									v2 = t209
 /*line :1304:13*/									if v2 == 0 {
-/*line :1304:13*/										goto l77
+/*line :1304:13*/										goto l76
 /*line :1304:13*/									}
-/*line :1304:13*/									v13 = v2
+/*line :1304:13*/									v12 = v2
 /*line :1304:13*/								}
-/*line :1304:13*/							l114:
-/*line :1296:17*/								t215 := int32(m.memory[uint32(v10)])
-/*line :1296:10*/								v3 = t215
+/*line :1304:13*/							l113:
+/*line :1296:17*/								t210 := int32(m.memory[uint32(v10)])
+/*line :1296:10*/								v3 = t210
 /*line :1296:10*/								if v3 != 0 {
-/*line :1296:10*/									goto l115
+/*line :1296:10*/									goto l114
 /*line :1296:10*/								}
 /*line :1296:10*/							}
 /*line :1296:10*/						}
 /*line :1308:17*/						if v8&i32(1) == 0 {
 /*line :1308:17*/							goto l59
 /*line :1308:17*/						}
-/*line :1308:17*/						if v12 <= i32(0) {
+/*line :1308:17*/						if v17 <= i32(0) {
 /*line :1308:17*/							goto l59
 /*line :1308:17*/						}
-/*line :1312:19*/					l125:
+/*line :1312:19*/					l124:
 /*line :1312:19*/						{
-/*line :1312:19*/							t216 := v12
-/*line :1312:19*/							v5 = v13 - v2 + i32(512)
-/*line :1312:19*/							p217 := v5
-/*line :1312:19*/							if v5 > v12 {
-/*line :1312:19*/								p217 = t216
+/*line :1312:19*/							t211 := v17
+/*line :1312:19*/							v5 = v12 - v2 + i32(512)
+/*line :1312:19*/							p212 := v5
+/*line :1312:19*/							if v5 > v17 {
+/*line :1312:19*/								p212 = t211
 /*line :1312:19*/							}
-/*line :1312:19*/							p218 := v12
+/*line :1312:19*/							p213 := v17
 /*line :1312:19*/							if v0 != 0 {
-/*line :1312:19*/								p218 = p217
+/*line :1312:19*/								p213 = p212
 /*line :1312:19*/							}
-/*line :1314:19*/							v6 = p218
-/*line :1314:19*/							p219 := i32(0)
+/*line :1314:19*/							v6 = p213
+/*line :1314:19*/							p214 := i32(0)
 /*line :1314:19*/							if v2&i32(3) != 0 {
-/*line :1314:19*/								p219 = v6
+/*line :1314:19*/								p214 = v6
 /*line :1314:19*/							}
-/*line :1314:19*/							if p219 == 0 {
+/*line :1314:19*/							if p214 == 0 {
 /*line :1314:19*/								v5 = v2
 /*line :1314:19*/								v3 = v6
-/*line :1314:19*/								goto l116
+/*line :1314:19*/								goto l115
 /*line :1314:19*/							}
 /*line :1317:28*/							m.memory[uint32(v2)] = byte(i32(32))
 /*line :1317:25*/							v5 = v2 + i32(1)
 /*line :1314:19*/							v3 = v6 - i32(1)
 /*line :1314:19*/							if v3 == 0 {
-/*line :1314:19*/								goto l116
+/*line :1314:19*/								goto l115
 /*line :1314:19*/							}
 /*line :1314:19*/							if v5&i32(3) == 0 {
-/*line :1314:19*/								goto l116
+/*line :1314:19*/								goto l115
 /*line :1314:19*/							}
 /*line :1317:28*/							m.memory[uint64(uint32(v2))+1] = byte(i32(32))
 /*line :1317:25*/							v5 = v2 + i32(2)
 /*line :1314:19*/							v3 = v6 - i32(2)
 /*line :1314:19*/							if v3 == 0 {
-/*line :1314:19*/								goto l116
+/*line :1314:19*/								goto l115
 /*line :1314:19*/							}
 /*line :1314:19*/							if v5&i32(3) == 0 {
-/*line :1314:19*/								goto l116
+/*line :1314:19*/								goto l115
 /*line :1314:19*/							}
 /*line :1317:28*/							m.memory[uint64(uint32(v2))+2] = byte(i32(32))
 /*line :1317:25*/							v5 = v2 + i32(3)
 /*line :1314:19*/							v3 = v6 - i32(3)
 /*line :1314:19*/							if v3 == 0 {
-/*line :1314:19*/								goto l116
+/*line :1314:19*/								goto l115
 /*line :1314:19*/							}
 /*line :1314:19*/							if v5&i32(3) == 0 {
-/*line :1314:19*/								goto l116
+/*line :1314:19*/								goto l115
 /*line :1314:19*/							}
 /*line :1317:28*/							m.memory[uint64(uint32(v2))+3] = byte(i32(32))
 /*line :1318:22*/							v3 = v6 - i32(4)
 /*line :1317:25*/							v5 = v2 + i32(4)
 /*line :1317:25*/						}
-/*line :1317:25*/					l116:
+/*line :1317:25*/					l115:
 /*line :1320:28*/						if v3 < i32(4) {
 /*line :1320:28*/							v8 = v3
-/*line :1320:19*/							goto l117
+/*line :1320:19*/							goto l116
 /*line :1320:19*/						}
 /*line :1320:19*/						v7 = v3 - i32(4)
-/*line :1320:19*/						if v7&i32(28) != i32(28) {
-/*line :1320:19*/							t220 := v3
-/*line :1320:19*/							v2 = (int32(uint32(v7)>>2) + i32(1)) & i32(7)
-/*line :1320:19*/							v3 = t220 - v2<<2
-/*line :1320:19*/						l118:
+/*line :1320:19*/						v2 = (int32(uint32(v7)>>2) + i32(1)) & i32(7)
+/*line :1320:19*/						if v2 != 0 {
+/*line :1320:19*/							v3 = v3 - v2<<2
+/*line :1320:19*/						l117:
 /*line :1321:43*/							store32(m.memory, uint32(v5), uint32(i32(538976288)))
 /*line :1322:25*/							v5 = v5 + i32(4)
 /*line :1320:19*/							v2 = v2 - i32(1)
 /*line :1320:19*/							if v2 != 0 {
-/*line :1320:19*/								goto l118
+/*line :1320:19*/								goto l117
 /*line :1320:19*/							}
 /*line :1320:19*/							v8 = v3
 /*line :1320:19*/						}
 /*line :1320:19*/						if uint32(v7) < uint32(i32(28)) {
-/*line :1320:19*/							goto l117
+/*line :1320:19*/							goto l116
 /*line :1320:19*/						}
-/*line :1320:19*/					l119:
+/*line :1320:19*/					l118:
 /*line :1320:19*/						{
 /*line :1321:43*/							store64(m.memory, uint32(v5), uint64(i64(2314885530818453536)))
 /*line :1321:43*/							store64(m.memory, uint64(uint32(v5))+24, uint64(i64(2314885530818453536)))
 /*line :1321:43*/							store64(m.memory, uint64(uint32(v5))+16, uint64(i64(2314885530818453536)))
 /*line :1321:43*/							store64(m.memory, uint64(uint32(v5))+8, uint64(i64(2314885530818453536)))
 /*line :1322:25*/							v5 = v5 + i32(32)
-/*line :1323:24*/							var p221 int32
+/*line :1323:24*/							var p215 int32
 /*line :1323:24*/							if v3 > i32(35) {
-/*line :1323:24*/								p221 = 1
+/*line :1323:24*/								p215 = 1
 /*line :1323:24*/							}
 /*line :1323:24*/							v8 = v3 - i32(32)
 /*line :1323:24*/							v3 = v8
-/*line :1323:24*/							if p221 != 0 {
-/*line :1323:24*/								goto l119
+/*line :1323:24*/							if p215 != 0 {
+/*line :1323:24*/								goto l118
 /*line :1323:24*/							}
 /*line :1320:19*/						}
-/*line :1320:19*/					l117:
+/*line :1320:19*/					l116:
 /*line :1320:19*/						if v8 == 0 {
 /*line :1320:19*/							v2 = v5
-/*line :1325:19*/							goto l120
+/*line :1325:19*/							goto l119
 /*line :1325:19*/						}
 /*line :1325:19*/						v2 = v8 & i32(7)
 /*line :1325:19*/						if v2 == 0 {
 /*line :1325:19*/							v3 = v8
-/*line :1325:19*/							goto l121
+/*line :1325:19*/							goto l120
 /*line :1325:19*/						}
 /*line :1325:19*/						v3 = v8 & i32(-8)
-/*line :1325:19*/					l122:
+/*line :1325:19*/					l121:
 /*line :1326:28*/						m.memory[uint32(v5)] = byte(i32(32))
 /*line :1326:25*/						v5 = v5 + i32(1)
 /*line :1325:19*/						v2 = v2 - i32(1)
 /*line :1325:19*/						if v2 != 0 {
-/*line :1325:19*/							goto l122
+/*line :1325:19*/							goto l121
 /*line :1325:19*/						}
 /*line :1325:19*/						v2 = v5
-/*line :1325:19*/					l121:
+/*line :1325:19*/					l120:
 /*line :1325:19*/						if uint32(v8) < uint32(i32(8)) {
-/*line :1325:19*/							goto l120
+/*line :1325:19*/							goto l119
 /*line :1325:19*/						}
-/*line :1325:19*/					l123:
+/*line :1325:19*/					l122:
 /*line :1326:28*/						store64(m.memory, uint32(v5), uint64(i64(2314885530818453536)))
 /*line :1326:25*/						v5 = v5 + i32(8)
 /*line :1326:25*/						v2 = v5
 /*line :1325:19*/						v3 = v3 - i32(8)
 /*line :1325:19*/						if v3 != 0 {
-/*line :1325:19*/							goto l123
+/*line :1325:19*/							goto l122
 /*line :1325:19*/						}
-/*line :1325:19*/					l120:
+/*line :1325:19*/					l119:
 /*line :1327:19*/						{
 /*line :1327:19*/							if v0 == 0 {
-/*line :1327:19*/								goto l124
+/*line :1327:19*/								goto l123
 /*line :1327:19*/							}
-/*line :1327:19*/							v5 = v2 - v13
+/*line :1327:19*/							v5 = v2 - v12
 /*line :1327:19*/							if v5 < i32(511) {
-/*line :1327:19*/								goto l124
+/*line :1327:19*/								goto l123
 /*line :1327:19*/							}
-/*line :1327:19*/							v17 = v5 + v17
-/*line :1327:19*/							t222 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v5)
-/*line :1327:19*/							v2 = t222
+/*line :1327:19*/							v15 = v5 + v15
+/*line :1327:19*/							t216 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v5)
+/*line :1327:19*/							v2 = t216
 /*line :1327:19*/							if v2 == 0 {
-/*line :1327:19*/								goto l77
+/*line :1327:19*/								goto l76
 /*line :1327:19*/							}
-/*line :1327:19*/							v13 = v2
+/*line :1327:19*/							v12 = v2
 /*line :1327:19*/						}
-/*line :1327:19*/					l124:
-/*line :1310:16*/						v12 = v12 - v6
-/*line :1310:16*/						if v12 != 0 {
-/*line :1310:16*/							goto l125
+/*line :1327:19*/					l123:
+/*line :1310:16*/						v17 = v17 - v6
+/*line :1310:16*/						if v17 != 0 {
+/*line :1310:16*/							goto l124
 /*line :1310:16*/						}
 /*line :1310:16*/					}
 /*line :1310:16*/				l59:
 /*line :1344:7*/					v3 = v20 + i32(1)
-/*line :1344:7*/					goto l126
+/*line :1344:7*/					goto l125
 /*line :1344:7*/				}
 /*line :1344:7*/			l1:
 /*line :398:22*/				if v5&i32(255) == 0 {
-/*line :398:22*/					goto l127
+/*line :398:22*/					goto l126
 /*line :398:22*/				}
 /*line :400:13*/				if v0 == 0 {
-/*line :400:13*/					goto l128
+/*line :400:13*/					goto l127
 /*line :400:13*/				}
-/*line :400:13*/				v8 = v2 - v13
+/*line :400:13*/				v8 = v2 - v12
 /*line :400:13*/				if v8 < i32(511) {
-/*line :400:13*/					goto l128
+/*line :400:13*/					goto l127
 /*line :400:13*/				}
-/*line :400:13*/				v17 = v8 + v17
-/*line :400:13*/				t223 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v8)
-/*line :400:13*/				v2 = t223
+/*line :400:13*/				v15 = v8 + v15
+/*line :400:13*/				t217 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v8)
+/*line :400:13*/				v2 = t217
 /*line :400:13*/				if v2 != 0 {
-/*line :400:13*/					goto l129
+/*line :400:13*/					goto l128
 /*line :400:13*/				}
 /*line :400:13*/			}
-/*line :400:13*/		l77:
+/*line :400:13*/		l76:
 /*line :400:13*/			v2 = i32(0)
-/*line :400:13*/			v13 = i32(0)
-/*line :400:13*/			goto l130
-/*line :400:13*/		l129:
-/*line :401:21*/			t224 := int32(m.memory[uint32(v3)])
-/*line :401:21*/			v5 = t224
-/*line :401:21*/			v13 = v2
+/*line :400:13*/			v12 = i32(0)
+/*line :400:13*/			goto l129
+/*line :400:13*/		l128:
+/*line :401:21*/			t218 := int32(m.memory[uint32(v3)])
+/*line :401:21*/			v5 = t218
+/*line :401:21*/			v12 = v2
 /*line :401:21*/		}
-/*line :401:21*/	l128:
+/*line :401:21*/	l127:
 /*line :401:19*/		m.memory[uint32(v2)] = byte(v5)
 /*line :402:13*/		v3 = v3 + i32(1)
 /*line :401:16*/		v2 = v2 + i32(1)
-/*line :393:10*/		goto l126
-/*line :398:22*/	l127:
+/*line :393:10*/		goto l125
+/*line :398:22*/	l126:
 /*line :398:22*/		if v0 == 0 {
 /*line :1349:11*/			m.memory[uint32(v2)] = byte(i32(0))
-/*line :1349:7*/			goto l130
+/*line :1349:7*/			goto l129
 /*line :1349:7*/		}
-/*line :1351:7*/		v5 = v2 - v13
+/*line :1351:7*/		v5 = v2 - v12
 /*line :1351:7*/		if v5 <= i32(0) {
-/*line :1351:7*/			goto l130
+/*line :1351:7*/			goto l129
 /*line :1351:7*/		}
-/*line :1351:7*/		v17 = v5 + v17
-/*line :1351:7*/		t225 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v13, v1, v5)
-/*line :1351:7*/		v2 = t225
-/*line :1351:7*/		v13 = v2
+/*line :1351:7*/		v15 = v5 + v15
+/*line :1351:7*/		t219 := m.t0[uint(v0)].(func(int32, int32, int32) int32)(v12, v1, v5)
+/*line :1351:7*/		v2 = t219
+/*line :1351:7*/		v12 = v2
 /*line :1351:7*/	}
-/*line :1351:7*/l130:
+/*line :1351:7*/l129:
 /*line :1355:1*/	m.___stack_pointer = v10 + i32(528)
-/*line :1355:1*/	return v2 + v17 - v13
-/*line bpf.go:44421:1*/}
-/*line :44422:1*/func (m *Module) _stbsp__count_clamp_callback(v0, v1, v2 int32) int32 {
+/*line :1355:1*/	return v2 + v15 - v12
+/*line bpf.go:44323:1*/}
+/*line :44324:1*/func (m *Module) _stbsp__count_clamp_callback(v0, v1, v2 int32) int32 {
 /*line ../src/libc/stb_sprintf.h:1426:14*/	t0 := int32(load32(m.memory, uint64(uint32(v1))+8))
 /*line :1426:14*/	store32(m.memory, uint64(uint32(v1))+8, uint32(t0+v2))
 /*line :1427:4*/	return v1 + i32(12)
-/*line bpf.go:44426:1*/}
-/*line :44427:1*/func (m *Module) _stbsp__clamp_callback(v0, v1, v2 int32) int32 {
-/*line :44428:1*/	var v3 int32
-/*line :44429:1*/	var v4 int32
+/*line bpf.go:44328:1*/}
+/*line :44329:1*/func (m *Module) _stbsp__clamp_callback(v0, v1, v2 int32) int32 {
+/*line :44330:1*/	var v3 int32
+/*line :44331:1*/	var v4 int32
 /*line ../src/libc/stb_sprintf.h:1396:14*/	t0 := int32(load32(m.memory, uint64(uint32(v1))+8))
 /*line :1396:14*/	store32(m.memory, uint64(uint32(v1))+8, uint32(t0+v2))
 /*line :1396:14*/	t1 := int32(load32(m.memory, uint64(uint32(v1))+4))
@@ -44462,28 +44364,28 @@
 /*line :1413:16*/		store32(m.memory, uint64(uint32(t8))+4, uint32(v3))
 /*line :1412:14*/		store32(m.memory, uint32(v1), uint32(v2+v4))
 /*line :1412:14*/	}
-/*line :1416:17*/	if v3 <= i32(0) {
+/*line :1412:14*/	if v3 <= i32(0) {
 /*line :1419:1*/		return v1 + i32(12)
 /*line :1419:1*/	}
-/*line :1418:21*/	if uint32(v3) >= uint32(i32(512)) {
+/*line :1419:1*/	if uint32(v3) >= uint32(i32(512)) {
 /*line :1418:46*/		t9 := int32(load32(m.memory, uint32(v1)))
 /*line :1419:1*/		return t9
 /*line :1419:1*/	}
 /*line :1419:1*/	return v1 + i32(12)
-/*line bpf.go:44473:1*/}
-/*line :44474:1*/func _tolower(v0 int32) int32 {
+/*line bpf.go:44375:1*/}
+/*line :44376:1*/func _tolower(v0 int32) int32 {
 /*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/ctype.c:17:30*/	p0 := v0
 /*line :17:30*/	if uint32(v0-i32(65)) < uint32(i32(26)) {
 /*line :17:30*/		p0 = v0 | i32(32)
 /*line :17:30*/	}
 /*line :17:23*/	return p0
-/*line bpf.go:44480:1*/}
-/*line :44481:1*/func (m *Module) _vfprintf_cb(v0, v1, v2 int32) int32 {
+/*line bpf.go:44382:1*/}
+/*line :44383:1*/func (m *Module) _vfprintf_cb(v0, v1, v2 int32) int32 {
 /*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/stdio.c:49:3*/	_ = _fwrite(v0, i32(1), v2, v1)
 /*line :50:3*/	return v0
-/*line bpf.go:44484:1*/}
-/*line :44485:1*/func (m *Module) _fprintf(v0, v1, v2 int32) int32 {
-/*line :44486:1*/	var v3 int32
+/*line bpf.go:44386:1*/}
+/*line :44387:1*/func (m *Module) _fprintf(v0, v1, v2 int32) int32 {
+/*line :44388:1*/	var v3 int32
 /*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/stdio.c:16*/	t0 := m.___stack_pointer
 /*line :16*/	v3 = t0 - i32(528)
 /*line :16*/	m.___stack_pointer = v3
@@ -44491,9 +44393,9 @@
 /*line :55:10*/	t1 := m._stbsp_vsprintfcb(i32(5), v0, v3+i32(16), v1, v2)
 /*line :21:3*/	m.___stack_pointer = v3 + i32(528)
 /*line :21:3*/	return t1
-/*line bpf.go:44494:1*/}
-/*line :44495:1*/func (m *Module) _snprintf(v0, v1, v2, v3 int32) int32 {
-/*line :44496:1*/	var v4 int32
+/*line bpf.go:44396:1*/}
+/*line :44397:1*/func (m *Module) _snprintf(v0, v1, v2, v3 int32) int32 {
+/*line :44398:1*/	var v4 int32
 /*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/stdio.c:33*/	t0 := m.___stack_pointer
 /*line :33*/	v4 = t0 - i32(528)
 /*line :33*/	m.___stack_pointer = v4
@@ -44512,10 +44414,10 @@
 /*line :1396:14*/		store32(m.memory, uint64(uint32(v4))+12, uint32(i32(0)))
 /*line :1444:13*/		store32(m.memory, uint64(uint32(v4))+4, uint32(v0))
 /*line :1445:15*/		store32(m.memory, uint64(uint32(v4))+8, uint32(v1))
-/*line :1448:7*/		t3 := v4 + i32(4)
-/*line :1448:7*/		var p2 int32
-/*line :1448:7*/		{
-/*line :1448:7*/			{
+/*line :1401:8*/		t3 := v4 + i32(4)
+/*line :1401:8*/		var p2 int32
+/*line :1401:8*/		{
+/*line :1401:8*/			{
 /*line :1401:8*/				if v1 < i32(0) {
 /*line :1413:16*/					store32(m.memory, uint64(uint32(v4))+8, uint32(i32(0)))
 /*line :1412:14*/					store32(m.memory, uint64(uint32(v4))+4, uint32(v1))
@@ -44553,9 +44455,9 @@
 /*line :1457:13*/	t11 := int32(load32(m.memory, uint64(uint32(v4))+12))
 /*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/stdio.c:39:3*/	m.___stack_pointer = v4 + i32(528)
 /*line :39:3*/	return t11
-/*line bpf.go:44556:1*/}
-/*line :44557:1*/func (m *Module) _vsnprintf(v0, v1, v2, v3 int32) int32 {
-/*line :44558:1*/	var v4 int32
+/*line bpf.go:44458:1*/}
+/*line :44459:1*/func (m *Module) _vsnprintf(v0, v1, v2, v3 int32) int32 {
+/*line :44460:1*/	var v4 int32
 /*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/stdio.c:63*/	t0 := m.___stack_pointer
 /*line :63*/	v4 = t0 - i32(528)
 /*line :63*/	m.___stack_pointer = v4
@@ -44573,10 +44475,10 @@
 /*line :1396:14*/		store32(m.memory, uint64(uint32(v4))+12, uint32(i32(0)))
 /*line :1444:13*/		store32(m.memory, uint64(uint32(v4))+4, uint32(v0))
 /*line :1445:15*/		store32(m.memory, uint64(uint32(v4))+8, uint32(v1))
-/*line :1448:7*/		t3 := v4 + i32(4)
-/*line :1448:7*/		var p2 int32
-/*line :1448:7*/		{
-/*line :1448:7*/			{
+/*line :1401:8*/		t3 := v4 + i32(4)
+/*line :1401:8*/		var p2 int32
+/*line :1401:8*/		{
+/*line :1401:8*/			{
 /*line :1401:8*/				if v1 < i32(0) {
 /*line :1413:16*/					store32(m.memory, uint64(uint32(v4))+8, uint32(i32(0)))
 /*line :1412:14*/					store32(m.memory, uint64(uint32(v4))+4, uint32(v1))
@@ -44614,26 +44516,26 @@
 /*line :1457:13*/	t11 := int32(load32(m.memory, uint64(uint32(v4))+12))
 /*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/stdio.c:64:3*/	m.___stack_pointer = v4 + i32(528)
 /*line :64:3*/	return t11
-/*line bpf.go:44617:1*/}
-/*line :44618:1*/func _abort() {
+/*line bpf.go:44519:1*/}
+/*line :44520:1*/func _abort() {
 /*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/stdlib.c:3:52*/	panic("unreachable")
-/*line bpf.go:44620:1*/}
-/*line :44621:1*/func (m *Module) _qsort(v0, v1, v2, v3 int32) {
-/*line :44622:1*/	var v4 int32
-/*line :44623:1*/	var v5 int32
-/*line :44624:1*/	var v6 int32
-/*line :44625:1*/	var v7 int32
-/*line :44626:1*/	var v8 int32
-/*line :44627:1*/	var v9 int32
-/*line :44628:1*/	var v10 int32
-/*line :44629:1*/	var v11 int32
-/*line :44630:1*/	var v12 int32
-/*line :44631:1*/	var v13 int32
-/*line :44632:1*/	var v14 int32
-/*line :44633:1*/	var v15 int32
-/*line :44634:1*/	var v16 int32
-/*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/stdlib.c:51:14*/	if uint32(v1) >= uint32(i32(2)) {
-/*line :51:14*/		v13 = v1 * v2
+/*line bpf.go:44522:1*/}
+/*line :44523:1*/func (m *Module) _qsort(v0, v1, v2, v3 int32) {
+/*line :44524:1*/	var v4 int32
+/*line :44525:1*/	var v5 int32
+/*line :44526:1*/	var v6 int32
+/*line :44527:1*/	var v7 int32
+/*line :44528:1*/	var v8 int32
+/*line :44529:1*/	var v9 int32
+/*line :44530:1*/	var v10 int32
+/*line :44531:1*/	var v11 int32
+/*line :44532:1*/	var v12 int32
+/*line :44533:1*/	var v13 int32
+/*line :44534:1*/	var v14 int32
+/*line :44535:1*/	var v15 int32
+/*line :44536:1*/	var v16 int32
+/*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/stdlib.c:3:52*/	if uint32(v1) >= uint32(i32(2)) {
+/*line :3:52*/		v13 = v1 * v2
 /*line :51:3*/		v14 = v2 & i32(-4)
 /*line :51:3*/		v12 = v2 & i32(3)
 /*line :51:3*/		var p0 int32
@@ -44749,9 +44651,9 @@
 /*line :51:3*/			}
 /*line :51:3*/		}
 /*line :51:3*/	}
-/*line bpf.go:44752:1*/}
-/*line :44753:1*/func (m *Module) _strlcpy(v0, v1, v2 int32) int32 {
-/*line :44754:1*/	var v3 int32
+/*line bpf.go:44654:1*/}
+/*line :44655:1*/func (m *Module) _strlcpy(v0, v1, v2 int32) int32 {
+/*line :44656:1*/	var v3 int32
 /*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/string.c:115:17*/	t0 := m._strlen(v1)
 /*line :115:17*/	v3 = t0
 /*line :115:17*/	if v2 != 0 {
@@ -44767,8 +44669,8 @@
 /*line :119:10*/		m.memory[uint32(v0+v2)] = byte(i32(0))
 /*line :119:10*/	}
 /*line :121:3*/	return v3
-/*line bpf.go:44770:1*/}
-/*line :44771:1*/func (m *Module) Xfree(v0 int32) {
+/*line bpf.go:44672:1*/}
+/*line :44673:1*/func (m *Module) Xfree(v0 int32) {
 /*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/malloc_bump.c:24:19*/	{
 /*line :24:19*/		if v0 == 0 {
 /*line :24:19*/			goto l0
@@ -44781,18 +44683,18 @@
 /*line :26:19*/		store32(m.memory, uint32(i32(127524)), uint32(i32(0)))
 /*line :26:19*/	}
 /*line :26:19*/l0:
-/*line bpf.go:44784:1*/}
-/*line :44785:1*/func (m *Module) Xmalloc(v0 int32) int32 {
-/*line :44786:1*/	var v1 int32
-/*line :44787:1*/	var v2 int32
-/*line :44788:1*/	var v3 int32
-/*line :44789:1*/	var v4 int32
-/*line :44790:1*/	var v5 int32
-/*line :44791:1*/	var v6 int32
-/*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/malloc_bump.c:37:17*/	if v0 <= i32(0) {
-/*line :37:17*/		return i32(0)
-/*line :37:17*/	}
-/*line :37:17*/	{
+/*line bpf.go:44686:1*/}
+/*line :44687:1*/func (m *Module) Xmalloc(v0 int32) int32 {
+/*line :44688:1*/	var v1 int32
+/*line :44689:1*/	var v2 int32
+/*line :44690:1*/	var v3 int32
+/*line :44691:1*/	var v4 int32
+/*line :44692:1*/	var v5 int32
+/*line :44693:1*/	var v6 int32
+/*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/malloc_bump.c:29:1*/	if v0 <= i32(0) {
+/*line :29:1*/		return i32(0)
+/*line :29:1*/	}
+/*line :38:10*/	{
 /*line :38:10*/		v2 = (v0 + i32(15)) & i32(-16)
 /*line :38:10*/		t0 := int32(load32(m.memory, uint32(i32(125440))))
 /*line :38:10*/		t1 := v2
@@ -44836,21 +44738,21 @@
 /*line :60:17*/	store32(m.memory, uint32(i32(127524)), uint32(v0))
 /*line :59:17*/	store32(m.memory, uint32(i32(125436)), uint32(v0+v2))
 /*line :62:1*/	return v0
-/*line bpf.go:44839:1*/}
-/*line :44840:1*/func (m *Module) _realloc(v0, v1 int32) int32 {
-/*line :44841:1*/	var v2 int32
-/*line :44842:1*/	var v3 int32
-/*line :44843:1*/	var v4 int32
-/*line :44844:1*/	var v5 int32
-/*line :44845:1*/	var v6 int32
-/*line :44846:1*/	var v7 int32
-/*line :44847:1*/	var v8 int32
-/*line :44848:1*/	var v9 int32
+/*line bpf.go:44741:1*/}
+/*line :44742:1*/func (m *Module) _realloc(v0, v1 int32) int32 {
+/*line :44743:1*/	var v2 int32
+/*line :44744:1*/	var v3 int32
+/*line :44745:1*/	var v4 int32
+/*line :44746:1*/	var v5 int32
+/*line :44747:1*/	var v6 int32
+/*line :44748:1*/	var v7 int32
+/*line :44749:1*/	var v8 int32
+/*line :44750:1*/	var v9 int32
 /*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/malloc_bump.c:62:1*/	if v0 == 0 {
-/*line :37:17*/		if v1 <= i32(0) {
-/*line :37:17*/			return i32(0)
-/*line :37:17*/		}
-/*line :37:17*/		{
+/*line :62:1*/		if v1 <= i32(0) {
+/*line :62:1*/			return i32(0)
+/*line :62:1*/		}
+/*line :38:10*/		{
 /*line :38:10*/			v2 = (v1 + i32(15)) & i32(-16)
 /*line :38:10*/			t0 := int32(load32(m.memory, uint32(i32(125440))))
 /*line :38:10*/			t1 := v2
@@ -44925,7 +44827,7 @@
 /*line :37:17*/		if v1 <= i32(0) {
 /*line :37:17*/			goto l4
 /*line :37:17*/		}
-/*line :37:17*/		{
+/*line :38:10*/		{
 /*line :38:10*/			v5 = (v1 + i32(15)) & i32(-16)
 /*line :38:10*/			t10 := int32(load32(m.memory, uint32(i32(125440))))
 /*line :42:34*/			t11 := v5
@@ -44988,23 +44890,23 @@
 /*line :105:5*/	}
 /*line :105:5*/l2:
 /*line :108:1*/	return v2
-/*line bpf.go:44991:1*/}
-/*line :44992:1*/func (m *Module) _calloc(v0, v1 int32) int32 {
-/*line :44993:1*/	var v2 int32
-/*line :44994:1*/	var v3 int32
-/*line :44995:1*/	var v4 int32
-/*line :44996:1*/	var v5 int32
-/*line :44997:1*/	var v6 int64
-/*line :44998:1*/	var v7 int32
+/*line bpf.go:44893:1*/}
+/*line :44894:1*/func (m *Module) _calloc(v0, v1 int32) int32 {
+/*line :44895:1*/	var v2 int32
+/*line :44896:1*/	var v3 int32
+/*line :44897:1*/	var v4 int32
+/*line :44898:1*/	var v5 int32
+/*line :44899:1*/	var v6 int64
+/*line :44900:1*/	var v7 int32
 /*line ../src/github.com/ncruces/wasm2go@3acef445bce9927a8e9a9534533ca0a025c94784/libc-gen/c/malloc_bump.c:112:7*/	v6 = int64(uint32(v0)) * int64(uint32(v1))
 /*line :112:7*/	if int32(int64(uint64(v6)>>32)) != 0 {
 /*line :112:7*/		goto l0
 /*line :112:7*/	}
-/*line :112:7*/	v1 = int32(v6)
+/*line :37:17*/	v1 = int32(v6)
 /*line :37:17*/	if v1 <= i32(0) {
 /*line :37:17*/		goto l0
 /*line :37:17*/	}
-/*line :37:17*/	{
+/*line :38:10*/	{
 /*line :38:10*/		v0 = (v1 + i32(15)) & i32(-16)
 /*line :38:10*/		t0 := int32(load32(m.memory, uint32(i32(125440))))
 /*line :38:10*/		t1 := v0
@@ -45049,24 +44951,24 @@
 /*line :59:17*/	store32(m.memory, uint32(i32(125436)), uint32(v0+v2))
 /*line :59:17*/l0:
 /*line :115:1*/	return v2
-/*line bpf.go:45052:1*/}
-/*line :45053:1*/func (m *Module) _pcap_parse(v0, v1 int32) int32 {
-/*line :45054:1*/	var v2 int32
-/*line :45055:1*/	var v3 int32
-/*line :45056:1*/	var v4 int32
-/*line :45057:1*/	var v5 int32
-/*line :45058:1*/	var v6 int32
-/*line :45059:1*/	var v7 int32
-/*line :45060:1*/	var v8 int32
-/*line :45061:1*/	var v9 int32
-/*line :45062:1*/	var v10 int32
-/*line :45063:1*/	var v11 int32
-/*line :45064:1*/	var v12 int32
-/*line :45065:1*/	var v13 int32
-/*line :45066:1*/	var v14 int32
-/*line :45067:1*/	var v15 int32
-/*line :45068:1*/	var v16 int32
-/*line :45069:1*/	var v17 int32
+/*line bpf.go:44954:1*/}
+/*line :44955:1*/func (m *Module) _pcap_parse(v0, v1 int32) int32 {
+/*line :44956:1*/	var v2 int32
+/*line :44957:1*/	var v3 int32
+/*line :44958:1*/	var v4 int32
+/*line :44959:1*/	var v5 int32
+/*line :44960:1*/	var v6 int32
+/*line :44961:1*/	var v7 int32
+/*line :44962:1*/	var v8 int32
+/*line :44963:1*/	var v9 int32
+/*line :44964:1*/	var v10 int32
+/*line :44965:1*/	var v11 int32
+/*line :44966:1*/	var v12 int32
+/*line :44967:1*/	var v13 int32
+/*line :44968:1*/	var v14 int32
+/*line :44969:1*/	var v15 int32
+/*line :44970:1*/	var v16 int32
+/*line :44971:1*/	var v17 int32
 /*line ../src/grammar.c:1639*/	t0 := m.___stack_pointer
 /*line :1639*/	v7 = t0 - i32(3776)
 /*line :1639*/	m.___stack_pointer = v7
@@ -45719,8 +45621,8 @@
 /*line :1948:5*/																																																																																																												l17:
 /*line ../src/grammar.y:447:100*/																																																																																																													t45 := int32(load32(m.memory, uint32(v3)))
 /*line :448:42*/																																																																																																													t46 := int32(load32(m.memory, uint32(v3-i32(16))))
-/*line :448:42*/																																																																																																													t47 := v1
-/*line :448:42*/																																																																																																													v2 = t46
+/*line :448:24*/																																																																																																													t47 := v1
+/*line :448:24*/																																																																																																													v2 = t46
 /*line :447:66*/																																																																																																													t48 := m._gen_ncode(t47, i32(0), t45, v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
 /*line :447:35*/																																																																																																													v6 = t48
 /*line :447:35*/																																																																																																													if v6 != 0 {
@@ -45748,9 +45650,9 @@
 /*line :451:35*/																																																																																																												goto l2
 /*line :451:35*/																																																																																																											}
 /*line :451:159*/																																																																																																											t54 := int32(load32(m.memory, uint32(v3-i32(16))))
-/*line :451:159*/																																																																																																											t55 := v1
-/*line :451:159*/																																																																																																											t56 := v4
-/*line :451:159*/																																																																																																											v2 = t54
+/*line :451:141*/																																																																																																											t55 := v1
+/*line :451:141*/																																																																																																											t56 := v4
+/*line :451:141*/																																																																																																											v2 = t54
 /*line :451:95*/																																																																																																											t57 := m._gen_scode(t55, t56, v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
 /*line :451:64*/																																																																																																											v6 = t57
 /*line :451:64*/																																																																																																											if v6 != 0 {
@@ -45765,9 +45667,9 @@
 /*line :453:7*/																																																																																																										if v4 == 0 {
 /*line :453:7*/																																																																																																											goto l2
 /*line :453:7*/																																																																																																										}
-/*line :453:7*/																																																																																																										{
+/*line :455:24*/																																																																																																										{
 /*line :455:39*/																																																																																																											t59 := int32(load32(m.memory, uint32(v3-i32(48))))
-/*line :455:39*/																																																																																																											v2 = t59
+/*line :456:30*/																																																																																																											v2 = t59
 /*line :456:30*/																																																																																																											switch v2&i32(255) - i32(3) {
 /*line :456:30*/																																																																																																											case 0:
 /*line :456:30*/																																																																																																												goto l177
@@ -45814,9 +45716,9 @@
 /*line :473:7*/																																																																																																									if v6 == 0 {
 /*line :473:7*/																																																																																																										goto l2
 /*line :473:7*/																																																																																																									}
-/*line :473:7*/																																																																																																									{
+/*line :475:24*/																																																																																																									{
 /*line :475:39*/																																																																																																										t64 := int32(load32(m.memory, uint32(v3-i32(48))))
-/*line :475:39*/																																																																																																										v2 = t64
+/*line :476:30*/																																																																																																										v2 = t64
 /*line :476:30*/																																																																																																										switch v2&i32(255) - i32(3) {
 /*line :476:30*/																																																																																																										case 0:
 /*line :476:30*/																																																																																																											goto l182
@@ -45857,9 +45759,9 @@
 /*line :492:7*/																																																																																																								if v4 == 0 {
 /*line :492:7*/																																																																																																									goto l2
 /*line :492:7*/																																																																																																								}
-/*line :492:7*/																																																																																																								{
+/*line :494:24*/																																																																																																								{
 /*line :494:39*/																																																																																																									t67 := int32(load32(m.memory, uint32(v3-i32(16))))
-/*line :494:39*/																																																																																																									v2 = t67
+/*line :495:30*/																																																																																																									v2 = t67
 /*line :495:30*/																																																																																																									switch v2&i32(255) - i32(3) {
 /*line :495:30*/																																																																																																									case 0:
 /*line :495:30*/																																																																																																										goto l187
@@ -45900,9 +45802,9 @@
 /*line :511:7*/																																																																																																							if v4 == 0 {
 /*line :511:7*/																																																																																																								goto l2
 /*line :511:7*/																																																																																																							}
-/*line :511:7*/																																																																																																							{
+/*line :513:24*/																																																																																																							{
 /*line :513:39*/																																																																																																								t70 := int32(load32(m.memory, uint32(v3-i32(48))))
-/*line :513:39*/																																																																																																								v2 = t70
+/*line :514:30*/																																																																																																								v2 = t70
 /*line :514:30*/																																																																																																								switch v2&i32(255) - i32(3) {
 /*line :514:30*/																																																																																																								case 0:
 /*line :514:30*/																																																																																																									goto l192
@@ -45944,9 +45846,9 @@
 /*line :530:7*/																																																																																																						if v4 == 0 {
 /*line :530:7*/																																																																																																							goto l2
 /*line :530:7*/																																																																																																						}
-/*line :530:7*/																																																																																																						{
+/*line :532:24*/																																																																																																						{
 /*line :532:39*/																																																																																																							t74 := int32(load32(m.memory, uint32(v3-i32(16))))
-/*line :532:39*/																																																																																																							v2 = t74
+/*line :533:30*/																																																																																																							v2 = t74
 /*line :533:30*/																																																																																																							switch v2&i32(255) - i32(3) {
 /*line :533:30*/																																																																																																							case 0:
 /*line :533:30*/																																																																																																								goto l197
@@ -45988,9 +45890,9 @@
 /*line :548:35*/																																																																																																						goto l2
 /*line :548:35*/																																																																																																					}
 /*line :548:159*/																																																																																																					t77 := int32(load32(m.memory, uint32(v3-i32(16))))
-/*line :548:159*/																																																																																																					t78 := v1
-/*line :548:159*/																																																																																																					t79 := v4
-/*line :548:159*/																																																																																																					v2 = t77
+/*line :548:141*/																																																																																																					t78 := v1
+/*line :548:141*/																																																																																																					t79 := v4
+/*line :548:141*/																																																																																																					v2 = t77
 /*line :548:95*/																																																																																																					t80 := m._gen_ecode(t78, t79, v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
 /*line :548:64*/																																																																																																					v6 = t80
 /*line :548:64*/																																																																																																					if v6 != 0 {
@@ -46006,9 +45908,9 @@
 /*line :549:35*/																																																																																																					goto l2
 /*line :549:35*/																																																																																																				}
 /*line :549:159*/																																																																																																				t82 := int32(load32(m.memory, uint32(v3-i32(16))))
-/*line :549:159*/																																																																																																				t83 := v1
-/*line :549:159*/																																																																																																				t84 := v4
-/*line :549:159*/																																																																																																				v2 = t82
+/*line :549:141*/																																																																																																				t83 := v1
+/*line :549:141*/																																																																																																				t84 := v4
+/*line :549:141*/																																																																																																				v2 = t82
 /*line :549:95*/																																																																																																				t85 := m._gen_acode(t83, t84, v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
 /*line :549:64*/																																																																																																				v6 = t85
 /*line :549:64*/																																																																																																				if v6 != 0 {
@@ -46055,8 +45957,8 @@
 /*line :558:52*/																																																																																														l32:
 /*line :560:100*/																																																																																															t100 := int32(load32(m.memory, uint32(v3)))
 /*line :561:42*/																																																																																															t101 := int32(load32(m.memory, uint32(v3-i32(16))))
-/*line :561:42*/																																																																																															t102 := v1
-/*line :561:42*/																																																																																															v2 = t101
+/*line :561:24*/																																																																																															t102 := v1
+/*line :561:24*/																																																																																															v2 = t101
 /*line :560:66*/																																																																																															t103 := m._gen_ncode(t102, i32(0), t100, v2, int32(uint32(v2)>>8), int32(uint32(v2)>>16), int32(uint32(v2)>>24))
 /*line :560:35*/																																																																																															v6 = t103
 /*line :560:35*/																																																																																															if v6 != 0 {
@@ -46620,7 +46522,7 @@
 /*line :3423:19*/																																															}
 /*line :3423:19*/																																														l120:
 /*line ../src/grammar.y:709:50*/																																															t194 := int32(load32(m.memory, uint32(v3)))
-/*line :709:50*/																																															v2 = t194
+/*line :709:53*/																																															v2 = t194
 /*line :709:83*/																																															if v2&i32(-13) == 0 {
 /*line :709:83*/																																																goto l9
 /*line :709:83*/																																															}
@@ -46672,7 +46574,7 @@
 /*line :239:18*/																																													}
 /*line :239:18*/																																												l122:
 /*line :724:50*/																																													t203 := int32(load32(m.memory, uint32(v3)))
-/*line :724:50*/																																													v2 = t203
+/*line :724:53*/																																													v2 = t203
 /*line :724:86*/																																													if v2&i32(-241) == 0 {
 /*line :724:86*/																																														goto l9
 /*line :724:86*/																																													}
@@ -46713,7 +46615,7 @@
 /*line :737:7*/																																											l205:
 /*line :737:7*/																																												t206 := int32(load32(m.memory, uint64(uint32(v4))+4))
 /*line :745:19*/																																												t207 := m._str2tok(v2, t206)
-/*line :745:19*/																																												v2 = t207
+/*line :746:21*/																																												v2 = t207
 /*line :746:21*/																																												if v2 != i32(-1) {
 /*line :746:21*/																																													goto l9
 /*line :746:21*/																																												}
@@ -46739,7 +46641,7 @@
 /*line :231:22*/																																													t211 := int32(load32(m.memory, uint32(v4)))
 /*line :231:22*/																																													v5 = t211
 /*line :231:24*/																																													v4 = v4 + i32(8)
-/*line :231:34*/																																													v2 = v2 + i32(1)
+/*line :231:24*/																																													v2 = v2 + i32(1)
 /*line :231:2*/																																													if v2 != i32(20) {
 /*line :231:2*/																																														goto l209
 /*line :231:2*/																																													}
@@ -46923,7 +46825,7 @@
 /*line :777:6*/																																									}
 /*line :777:6*/																																									t247 := int32(load32(m.memory, uint32(v3)))
 /*line :781:16*/																																									t248 := m._str2tok(t247, i32(80064))
-/*line :781:16*/																																									v4 = t248
+/*line :782:18*/																																									v4 = t248
 /*line :782:18*/																																									if v4 != i32(-1) {
 /*line :783:37*/																																										t249 := m._gen_llc_s_subtype(v1, v4)
 /*line :783:7*/																																										v2 = t249
@@ -46959,7 +46861,7 @@
 /*line :3423:19*/																																							}
 /*line :3423:19*/																																						l128:
 /*line ../src/grammar.y:798:50*/																																							t255 := int32(load32(m.memory, uint32(v3)))
-/*line :798:50*/																																							v2 = t255
+/*line :798:82*/																																							v2 = t255
 /*line :798:82*/																																							if uint32(v2) < uint32(i32(4)) {
 /*line :798:82*/																																								goto l9
 /*line :798:82*/																																							}
@@ -47404,9 +47306,9 @@
 /*line ../src/grammar.c:3347:5*/																goto l9
 /*line :3347:5*/															}
 /*line :3347:5*/														l161:
-/*line :3347:5*/															v5 = i32(1)
-/*line ../src/grammar.y:886:45*/															t351 := int32(load32(m.memory, uint32(v3-i32(12))))
-/*line :886:45*/															v12 = t351
+/*line ../src/grammar.y:887:40*/															v5 = i32(1)
+/*line :886:45*/															t351 := int32(load32(m.memory, uint32(v3-i32(12))))
+/*line :887:40*/															v12 = t351
 /*line :887:40*/															if uint32(v12-i32(51)) > uint32(i32(1)) {
 /*line :887:40*/																goto l9
 /*line :887:40*/															}
@@ -47481,7 +47383,7 @@
 /*line :3347:5*/										}
 /*line :3347:5*/									l174:
 /*line ../src/grammar.y:919:46*/										t366 := int32(load32(m.memory, uint32(v3-i32(8))))
-/*line :919:46*/										v10 = t366
+/*line :920:41*/										v10 = t366
 /*line :920:41*/										if uint32(v10-i32(1)) > uint32(i32(7)) {
 /*line :920:41*/											goto l9
 /*line :920:41*/										}
@@ -47553,7 +47455,7 @@
 /*line :3564:1*/			return v5
 /*line :3564:1*/		l211:
 /*line ../src/grammar.y:239:16*/			t376 := int32(load32(m.memory, uint32(v4+v2<<3)))
-/*line :239:16*/			v4 = t376
+/*line :239:18*/			v4 = t376
 /*line :239:18*/			if v4 == i32(-1) {
 /*line :240:5*/				_abort()
 /*line :240:5*/				panic("unreachable")
@@ -47576,7 +47478,7 @@
 /*line :3400:21*/			t380 := v2
 /*line :3400:21*/			v4 = (t379 - i32(142)) << 1
 /*line :3400:21*/			t381 := int32(int16(load16(m.memory, uint32(v4+i32(80400)))))
-/*line :3400:36*/			v9 = t380 + t381
+/*line :3401:25*/			v9 = t380 + t381
 /*line :3401:25*/			if uint32(v9) > uint32(i32(773)) {
 /*line :3401:25*/				goto l217
 /*line :3401:25*/			}
@@ -47595,11 +47497,11 @@
 /*line :3403:18*/l5:
 /*line :3403:18*/	v11 = v11 + i32(2)
 /*line :3403:18*/	goto l218
-/*line bpf.go:47598:1*/}
-/*line :47599:1*/func (m *Module) _str2tok(v0, v1 int32) int32 {
-/*line :47600:1*/	var v2 int32
-/*line :47601:1*/	var v3 int32
-/*line :47602:1*/	var _ int32
+/*line bpf.go:47500:1*/}
+/*line :47501:1*/func (m *Module) _str2tok(v0, v1 int32) int32 {
+/*line :47502:1*/	var v2 int32
+/*line :47503:1*/	var v3 int32
+/*line :47504:1*/	var _ int32
 /*line ../src/grammar.y:228*/	v2 = i32(-1)
 /*line :231:22*/	{
 /*line :231:22*/		t0 := int32(load32(m.memory, uint64(uint32(v1))+4))
@@ -47622,7 +47524,7 @@
 /*line :232:42*/			}
 /*line :232:42*/		}
 /*line :239:16*/		t4 := int32(load32(m.memory, uint32(v1)))
-/*line :239:16*/		v2 = t4
+/*line :239:18*/		v2 = t4
 /*line :239:18*/		if v2 != i32(-1) {
 /*line :239:18*/			goto l0
 /*line :239:18*/		}
@@ -47631,18 +47533,18 @@
 /*line :240:5*/	}
 /*line :240:5*/l0:
 /*line :245:1*/	return v2
-/*line bpf.go:47634:1*/}
-/*line :47635:1*/func (m *Module) _pcap_lex(v0, v1 int32) int32 {
-/*line :47636:1*/	var v2 int32
-/*line :47637:1*/	var v3 int32
-/*line :47638:1*/	var v4 int32
-/*line :47639:1*/	var v5 int32
-/*line :47640:1*/	var v6 int32
-/*line :47641:1*/	var v7 int32
-/*line :47642:1*/	var v8 int32
-/*line :47643:1*/	var v9 int32
-/*line :47644:1*/	var v10 int32
-/*line :47645:1*/	var v11 int32
+/*line bpf.go:47536:1*/}
+/*line :47537:1*/func (m *Module) _pcap_lex(v0, v1 int32) int32 {
+/*line :47538:1*/	var v2 int32
+/*line :47539:1*/	var v3 int32
+/*line :47540:1*/	var v4 int32
+/*line :47541:1*/	var v5 int32
+/*line :47542:1*/	var v6 int32
+/*line :47543:1*/	var v7 int32
+/*line :47544:1*/	var v8 int32
+/*line :47545:1*/	var v9 int32
+/*line :47546:1*/	var v10 int32
+/*line :47547:1*/	var v11 int32
 /*line ../src/scanner.c:3416*/	t0 := m.___stack_pointer
 /*line :3416*/	v9 = t0 - i32(48)
 /*line :3416*/	m.___stack_pointer = v9
@@ -47693,66 +47595,65 @@
 /*line :3457:16*/l114:
 /*line :3457:16*/	{
 /*line :3457:16*/		t16 := int32(load32(m.memory, uint64(uint32(v1))+36))
-/*line :3460:17*/		v6 = t16
+/*line :3460:17*/		v8 = t16
 /*line :3460:17*/		t17 := int32(m.memory[uint64(uint32(v1))+24])
-/*line :3460:10*/		m.memory[uint32(v6)] = byte(t17)
+/*line :3460:10*/		m.memory[uint32(v8)] = byte(t17)
 /*line :3467:27*/		t18 := int32(load32(m.memory, uint64(uint32(v1))+44))
 /*line :3467:27*/		v0 = t18
-/*line :3467:27*/		v4 = v6
+/*line :3467:27*/		v6 = v8
 /*line :3471:37*/	l2:
 /*line :3471:37*/		{
-/*line :3471:37*/			t19 := int32(m.memory[uint32(v4)])
+/*line :3471:37*/			t19 := int32(m.memory[uint32(v6)])
 /*line :3471:19*/			t20 := int32(m.memory[uint64(uint32(t19))+81216])
 /*line :3471:19*/			v2 = t20
-/*line :3472:9*/			v5 = v0 << 1
-/*line :3472:9*/			t21 := int32(load16(m.memory, uint32(v5+i32(81472))))
+/*line :3472:9*/			v3 = v0 << 1
+/*line :3472:9*/			t21 := int32(load16(m.memory, uint32(v3+i32(81472))))
 /*line :3472:9*/			if t21 != 0 {
-/*line :3475:33*/				store32(m.memory, uint64(uint32(v1))+68, uint32(v4))
+/*line :3475:33*/				store32(m.memory, uint64(uint32(v1))+68, uint32(v6))
 /*line :3474:34*/				store32(m.memory, uint64(uint32(v1))+64, uint32(v0))
 /*line :3474:34*/			}
-/*line :3477:19*/			t22 := int32(int16(load16(m.memory, uint32(v5+i32(100640)))))
-/*line :3477:45*/			v3 = t22 + v2
-/*line :3477:12*/			t23 := int32(int16(load16(m.memory, uint32(v3<<1+i32(85056)))))
+/*line :3477:19*/			t22 := int32(int16(load16(m.memory, uint32(v3+i32(100640)))))
+/*line :3477:45*/			v4 = t22 + v2
+/*line :3477:12*/			t23 := int32(int16(load16(m.memory, uint32(v4<<1+i32(85056)))))
 /*line :3477:53*/			if t23 != v0 {
-/*line :3477:53*/				v5 = v2
+/*line :3477:53*/				v3 = v2
 /*line :3477:53*/			l1:
 /*line :3477:53*/				{
 /*line :3479:30*/					t24 := int32(int16(load16(m.memory, uint32(v0<<1+i32(105152)))))
 /*line :3479:30*/					v0 = t24
 /*line :3479:30*/					if v0 >= i32(1789) {
-/*line :3481:13*/						t25 := int32(m.memory[uint64(uint32(v5))+109664])
+/*line :3481:13*/						t25 := int32(m.memory[uint64(uint32(v3))+109664])
 /*line :3481:13*/						v2 = t25
 /*line :3481:13*/					}
-/*line :3477:45*/					v5 = v2 & i32(255)
+/*line :3477:45*/					v3 = v2 & i32(255)
 /*line :3477:19*/					t26 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
-/*line :3477:19*/					v3 = v5 + t26
-/*line :3477:12*/					t27 := int32(load16(m.memory, uint32(v3<<1+i32(85056))))
+/*line :3477:19*/					v4 = v3 + t26
+/*line :3477:12*/					t27 := int32(load16(m.memory, uint32(v4<<1+i32(85056))))
 /*line :3477:4*/					if t27 != v0&i32(0xffff) {
 /*line :3477:4*/						goto l1
 /*line :3477:4*/					}
 /*line :3477:4*/				}
 /*line :3477:4*/			}
-/*line :3484:4*/			v4 = v4 + i32(1)
-/*line :3483:23*/			t28 := int32(int16(load16(m.memory, uint32(v3<<1+i32(109728)))))
+/*line :3484:4*/			v6 = v6 + i32(1)
+/*line :3483:23*/			t28 := int32(int16(load16(m.memory, uint32(v4<<1+i32(109728)))))
 /*line :3483:23*/			v0 = t28
 /*line :3485:4*/			if v0 != i32(1788) {
 /*line :3485:4*/				goto l2
 /*line :3485:4*/			}
-/*line :3485:4*/			v7 = v6
 /*line :3485:4*/		l192:
 /*line :3485:4*/			{
 /*line :3485:4*/				t29 := int32(load32(m.memory, uint64(uint32(v1))+64))
 /*line :3485:4*/				v0 = t29
 /*line :3485:4*/				t30 := int32(load32(m.memory, uint64(uint32(v1))+68))
-/*line :3485:4*/				v5 = t30
-/*line :3493:3*/			l227:
+/*line :3485:4*/				v3 = t30
+/*line :3493:3*/			l225:
 /*line :3493:3*/				{
-/*line :3493:3*/					store32(m.memory, uint64(uint32(v1))+80, uint32(v7))
-/*line :3493:3*/					store32(m.memory, uint64(uint32(v1))+32, uint32(v5-v7))
-/*line :3493:3*/					t31 := int32(m.memory[uint32(v5)])
+/*line :3493:3*/					store32(m.memory, uint64(uint32(v1))+80, uint32(v8))
+/*line :3493:3*/					store32(m.memory, uint64(uint32(v1))+32, uint32(v3-v8))
+/*line :3493:3*/					t31 := int32(m.memory[uint32(v3)])
 /*line :3493:3*/					m.memory[uint64(uint32(v1))+24] = byte(t31)
-/*line :3493:3*/					m.memory[uint32(v5)] = byte(i32(0))
-/*line :3493:3*/					store32(m.memory, uint64(uint32(v1))+36, uint32(v5))
+/*line :3493:3*/					m.memory[uint32(v3)] = byte(i32(0))
+/*line :3493:3*/					store32(m.memory, uint64(uint32(v1))+36, uint32(v3))
 /*line :3491:12*/					t32 := int32(int16(load16(m.memory, uint32(v0<<1+i32(81472)))))
 /*line :3491:12*/					v0 = t32
 /*line :3497:3*/				l230:
@@ -47761,11 +47662,11 @@
 /*line :3497:3*/							{
 /*line :3497:3*/								{
 /*line :3497:3*/									{
-/*line :3497:3*/										var p33 int32
 /*line :3497:3*/										{
 /*line :3497:3*/											{
 /*line :3497:3*/												{
 /*line :3497:3*/													{
+/*line :3497:3*/														var p33 int32
 /*line :3497:3*/														{
 /*line :3497:3*/															{
 /*line :3497:3*/																{
@@ -47831,1784 +47732,1842 @@
 /*line :3497:3*/																																																																												{
 /*line :3497:3*/																																																																													{
 /*line :3497:3*/																																																																														{
-/*line :3497:3*/																																																																															switch v0 {
-/*line :3497:3*/																																																																															case 0:
-/*line :3497:3*/																																																																																goto l3
-/*line :3497:3*/																																																																															case 1:
-/*line :3497:3*/																																																																																goto l4
-/*line :3497:3*/																																																																															case 2:
-/*line :3497:3*/																																																																																goto l5
-/*line :3497:3*/																																																																															case 3, 4:
-/*line :3497:3*/																																																																																goto l6
-/*line :3497:3*/																																																																															case 5:
-/*line :3497:3*/																																																																																goto l7
-/*line :3497:3*/																																																																															case 6:
-/*line :3497:3*/																																																																																goto l8
-/*line :3497:3*/																																																																															case 7:
-/*line :3497:3*/																																																																																goto l9
-/*line :3497:3*/																																																																															case 8:
-/*line :3497:3*/																																																																																goto l10
-/*line :3497:3*/																																																																															case 9:
-/*line :3497:3*/																																																																																goto l11
-/*line :3497:3*/																																																																															case 10:
-/*line :3497:3*/																																																																																goto l12
-/*line :3497:3*/																																																																															case 11:
-/*line :3497:3*/																																																																																goto l13
-/*line :3497:3*/																																																																															case 12:
-/*line :3497:3*/																																																																																goto l14
-/*line :3497:3*/																																																																															case 13:
-/*line :3497:3*/																																																																																goto l15
-/*line :3497:3*/																																																																															case 14:
-/*line :3497:3*/																																																																																goto l16
-/*line :3497:3*/																																																																															case 15:
-/*line :3497:3*/																																																																																goto l17
-/*line :3497:3*/																																																																															case 16:
-/*line :3497:3*/																																																																																goto l18
-/*line :3497:3*/																																																																															case 17:
-/*line :3497:3*/																																																																																goto l19
-/*line :3497:3*/																																																																															case 18:
-/*line :3497:3*/																																																																																goto l20
-/*line :3497:3*/																																																																															case 19:
-/*line :3497:3*/																																																																																goto l21
-/*line :3497:3*/																																																																															case 20:
-/*line :3497:3*/																																																																																goto l22
-/*line :3497:3*/																																																																															case 21:
-/*line :3497:3*/																																																																																goto l23
-/*line :3497:3*/																																																																															case 22:
-/*line :3497:3*/																																																																																goto l24
-/*line :3497:3*/																																																																															case 23:
-/*line :3497:3*/																																																																																goto l25
-/*line :3497:3*/																																																																															case 24:
-/*line :3497:3*/																																																																																goto l26
-/*line :3497:3*/																																																																															case 25:
-/*line :3497:3*/																																																																																goto l27
-/*line :3497:3*/																																																																															case 26:
-/*line :3497:3*/																																																																																goto l28
-/*line :3497:3*/																																																																															case 27:
-/*line :3497:3*/																																																																																goto l29
-/*line :3497:3*/																																																																															case 28:
-/*line :3497:3*/																																																																																goto l30
-/*line :3497:3*/																																																																															case 29:
-/*line :3497:3*/																																																																																goto l31
-/*line :3497:3*/																																																																															case 30, 31:
-/*line :3497:3*/																																																																																goto l32
-/*line :3497:3*/																																																																															case 32, 33:
-/*line :3497:3*/																																																																																goto l33
-/*line :3497:3*/																																																																															case 34:
-/*line :3497:3*/																																																																																goto l34
-/*line :3497:3*/																																																																															case 35:
-/*line :3497:3*/																																																																																goto l35
-/*line :3497:3*/																																																																															case 36:
-/*line :3497:3*/																																																																																goto l36
-/*line :3497:3*/																																																																															case 37:
-/*line :3497:3*/																																																																																goto l37
-/*line :3497:3*/																																																																															case 38:
-/*line :3497:3*/																																																																																goto l38
-/*line :3497:3*/																																																																															case 39:
-/*line :3497:3*/																																																																																goto l39
-/*line :3497:3*/																																																																															case 40:
-/*line :3497:3*/																																																																																goto l40
-/*line :3497:3*/																																																																															case 41:
-/*line :3497:3*/																																																																																goto l41
-/*line :3497:3*/																																																																															case 42:
-/*line :3497:3*/																																																																																goto l42
-/*line :3497:3*/																																																																															case 43:
-/*line :3497:3*/																																																																																goto l43
-/*line :3497:3*/																																																																															case 44:
-/*line :3497:3*/																																																																																goto l44
-/*line :3497:3*/																																																																															case 45:
-/*line :3497:3*/																																																																																goto l45
-/*line :3497:3*/																																																																															case 46:
-/*line :3497:3*/																																																																																goto l46
-/*line :3497:3*/																																																																															case 47:
-/*line :3497:3*/																																																																																goto l47
-/*line :3497:3*/																																																																															case 48:
-/*line :3497:3*/																																																																																goto l48
-/*line :3497:3*/																																																																															case 49:
-/*line :3497:3*/																																																																																goto l49
-/*line :3497:3*/																																																																															case 50:
-/*line :3497:3*/																																																																																goto l50
-/*line :3497:3*/																																																																															case 51:
-/*line :3497:3*/																																																																																goto l51
-/*line :3497:3*/																																																																															case 52:
-/*line :3497:3*/																																																																																goto l52
-/*line :3497:3*/																																																																															case 53:
-/*line :3497:3*/																																																																																goto l53
-/*line :3497:3*/																																																																															case 54:
-/*line :3497:3*/																																																																																goto l54
-/*line :3497:3*/																																																																															case 55:
-/*line :3497:3*/																																																																																goto l55
-/*line :3497:3*/																																																																															case 56:
-/*line :3497:3*/																																																																																goto l56
-/*line :3497:3*/																																																																															case 57:
-/*line :3497:3*/																																																																																goto l57
-/*line :3497:3*/																																																																															case 58:
-/*line :3497:3*/																																																																																goto l58
-/*line :3497:3*/																																																																															case 59:
-/*line :3497:3*/																																																																																goto l59
-/*line :3497:3*/																																																																															case 60:
-/*line :3497:3*/																																																																																goto l60
-/*line :3497:3*/																																																																															case 61:
-/*line :3497:3*/																																																																																goto l61
-/*line :3497:3*/																																																																															case 62:
-/*line :3497:3*/																																																																																goto l62
-/*line :3497:3*/																																																																															case 63:
-/*line :3497:3*/																																																																																goto l63
-/*line :3497:3*/																																																																															case 64:
-/*line :3497:3*/																																																																																goto l64
-/*line :3497:3*/																																																																															case 65:
-/*line :3497:3*/																																																																																goto l65
-/*line :3497:3*/																																																																															case 66:
-/*line :3497:3*/																																																																																goto l66
-/*line :3497:3*/																																																																															case 67:
-/*line :3497:3*/																																																																																goto l67
-/*line :3497:3*/																																																																															case 68:
-/*line :3497:3*/																																																																																goto l68
-/*line :3497:3*/																																																																															case 69:
-/*line :3497:3*/																																																																																goto l69
-/*line :3497:3*/																																																																															case 70:
-/*line :3497:3*/																																																																																goto l70
-/*line :3497:3*/																																																																															case 71:
-/*line :3497:3*/																																																																																goto l71
-/*line :3497:3*/																																																																															case 72:
-/*line :3497:3*/																																																																																goto l72
-/*line :3497:3*/																																																																															case 73:
-/*line :3497:3*/																																																																																goto l73
-/*line :3497:3*/																																																																															case 74:
-/*line :3497:3*/																																																																																goto l74
-/*line :3497:3*/																																																																															case 75:
-/*line :3497:3*/																																																																																goto l75
-/*line :3497:3*/																																																																															case 76:
-/*line :3497:3*/																																																																																goto l76
-/*line :3497:3*/																																																																															case 77:
-/*line :3497:3*/																																																																																goto l77
-/*line :3497:3*/																																																																															case 78:
-/*line :3497:3*/																																																																																goto l78
-/*line :3497:3*/																																																																															case 79:
-/*line :3497:3*/																																																																																goto l79
-/*line :3497:3*/																																																																															case 80:
-/*line :3497:3*/																																																																																goto l80
-/*line :3497:3*/																																																																															case 81:
-/*line :3497:3*/																																																																																goto l81
-/*line :3497:3*/																																																																															case 82:
-/*line :3497:3*/																																																																																goto l82
-/*line :3497:3*/																																																																															case 83:
-/*line :3497:3*/																																																																																goto l83
-/*line :3497:3*/																																																																															case 84:
-/*line :3497:3*/																																																																																goto l84
-/*line :3497:3*/																																																																															case 85:
-/*line :3497:3*/																																																																																goto l85
-/*line :3497:3*/																																																																															case 86:
-/*line :3497:3*/																																																																																goto l86
-/*line :3497:3*/																																																																															case 87:
-/*line :3497:3*/																																																																																goto l87
-/*line :3497:3*/																																																																															case 88:
-/*line :3497:3*/																																																																																goto l88
-/*line :3497:3*/																																																																															case 89:
-/*line :3497:3*/																																																																																goto l89
-/*line :3497:3*/																																																																															case 90:
-/*line :3497:3*/																																																																																goto l90
-/*line :3497:3*/																																																																															case 91:
-/*line :3497:3*/																																																																																goto l91
-/*line :3497:3*/																																																																															case 92:
-/*line :3497:3*/																																																																																goto l92
-/*line :3497:3*/																																																																															case 93:
-/*line :3497:3*/																																																																																goto l93
-/*line :3497:3*/																																																																															case 94:
-/*line :3497:3*/																																																																																goto l94
-/*line :3497:3*/																																																																															case 95:
-/*line :3497:3*/																																																																																goto l95
-/*line :3497:3*/																																																																															case 96:
-/*line :3497:3*/																																																																																goto l96
-/*line :3497:3*/																																																																															case 97:
-/*line :3497:3*/																																																																																goto l97
-/*line :3497:3*/																																																																															case 98:
-/*line :3497:3*/																																																																																goto l98
-/*line :3497:3*/																																																																															case 99:
-/*line :3497:3*/																																																																																goto l99
-/*line :3497:3*/																																																																															case 100:
-/*line :3497:3*/																																																																																goto l100
-/*line :3497:3*/																																																																															case 101, 102:
-/*line :3497:3*/																																																																																goto l101
-/*line :3497:3*/																																																																															case 103:
-/*line :3497:3*/																																																																																goto l102
-/*line :3497:3*/																																																																															case 104:
-/*line :3497:3*/																																																																																goto l103
-/*line :3497:3*/																																																																															case 105:
-/*line :3497:3*/																																																																																goto l104
-/*line :3497:3*/																																																																															case 106:
-/*line :3497:3*/																																																																																goto l105
-/*line :3497:3*/																																																																															case 107:
-/*line :3497:3*/																																																																																goto l106
-/*line :3497:3*/																																																																															case 108:
-/*line :3497:3*/																																																																																goto l107
-/*line :3497:3*/																																																																															case 109:
-/*line :3497:3*/																																																																																goto l108
-/*line :3497:3*/																																																																															case 110:
-/*line :3497:3*/																																																																																goto l109
-/*line :3497:3*/																																																																															case 111:
-/*line :3497:3*/																																																																																goto l110
-/*line :3497:3*/																																																																															case 112:
-/*line :3497:3*/																																																																																goto l111
-/*line :3497:3*/																																																																															case 113:
-/*line :3497:3*/																																																																																goto l112
-/*line :3497:3*/																																																																															case 114:
-/*line :3497:3*/																																																																																goto l113
-/*line :3497:3*/																																																																															case 115:
-/*line :3497:3*/																																																																																goto l114
-/*line :3497:3*/																																																																															case 116:
-/*line :3497:3*/																																																																																goto l115
-/*line :3497:3*/																																																																															case 117:
-/*line :3497:3*/																																																																																goto l116
-/*line :3497:3*/																																																																															case 118:
-/*line :3497:3*/																																																																																goto l117
-/*line :3497:3*/																																																																															case 119:
-/*line :3497:3*/																																																																																goto l118
-/*line :3497:3*/																																																																															case 120:
-/*line :3497:3*/																																																																																goto l119
-/*line :3497:3*/																																																																															case 121:
-/*line :3497:3*/																																																																																goto l120
-/*line :3497:3*/																																																																															case 122:
-/*line :3497:3*/																																																																																goto l121
-/*line :3497:3*/																																																																															case 123:
-/*line :3497:3*/																																																																																goto l122
-/*line :3497:3*/																																																																															case 124:
-/*line :3497:3*/																																																																																goto l123
-/*line :3497:3*/																																																																															case 125:
-/*line :3497:3*/																																																																																goto l124
-/*line :3497:3*/																																																																															case 126:
-/*line :3497:3*/																																																																																goto l125
-/*line :3497:3*/																																																																															case 127:
-/*line :3497:3*/																																																																																goto l126
-/*line :3497:3*/																																																																															case 128:
-/*line :3497:3*/																																																																																goto l127
-/*line :3497:3*/																																																																															case 129:
-/*line :3497:3*/																																																																																goto l128
-/*line :3497:3*/																																																																															case 130:
-/*line :3497:3*/																																																																																goto l129
-/*line :3497:3*/																																																																															case 131:
-/*line :3497:3*/																																																																																goto l130
-/*line :3497:3*/																																																																															case 132:
-/*line :3497:3*/																																																																																goto l131
-/*line :3497:3*/																																																																															case 133:
-/*line :3497:3*/																																																																																goto l132
-/*line :3497:3*/																																																																															case 134:
-/*line :3497:3*/																																																																																goto l133
-/*line :3497:3*/																																																																															case 135:
-/*line :3497:3*/																																																																																goto l134
-/*line :3497:3*/																																																																															case 136:
-/*line :3497:3*/																																																																																goto l135
-/*line :3497:3*/																																																																															case 137:
-/*line :3497:3*/																																																																																goto l136
-/*line :3497:3*/																																																																															case 138:
-/*line :3497:3*/																																																																																goto l137
-/*line :3497:3*/																																																																															case 139:
-/*line :3497:3*/																																																																																goto l138
-/*line :3497:3*/																																																																															case 140:
-/*line :3497:3*/																																																																																goto l139
-/*line :3497:3*/																																																																															case 141:
-/*line :3497:3*/																																																																																goto l140
-/*line :3497:3*/																																																																															case 142:
-/*line :3497:3*/																																																																																goto l141
-/*line :3497:3*/																																																																															case 143:
-/*line :3497:3*/																																																																																goto l142
-/*line :3497:3*/																																																																															case 144:
-/*line :3497:3*/																																																																																goto l143
-/*line :3497:3*/																																																																															case 145:
-/*line :3497:3*/																																																																																goto l144
-/*line :3497:3*/																																																																															case 146:
-/*line :3497:3*/																																																																																goto l145
-/*line :3497:3*/																																																																															case 147:
-/*line :3497:3*/																																																																																goto l146
-/*line :3497:3*/																																																																															case 148:
-/*line :3497:3*/																																																																																goto l147
-/*line :3497:3*/																																																																															case 149:
-/*line :3497:3*/																																																																																goto l148
-/*line :3497:3*/																																																																															case 150:
-/*line :3497:3*/																																																																																goto l149
-/*line :3497:3*/																																																																															case 151:
-/*line :3497:3*/																																																																																goto l150
-/*line :3497:3*/																																																																															case 152:
-/*line :3497:3*/																																																																																goto l151
-/*line :3497:3*/																																																																															case 153:
-/*line :3497:3*/																																																																																goto l152
-/*line :3497:3*/																																																																															case 154:
-/*line :3497:3*/																																																																																goto l153
-/*line :3497:3*/																																																																															case 155:
-/*line :3497:3*/																																																																																goto l154
-/*line :3497:3*/																																																																															case 156:
-/*line :3497:3*/																																																																																goto l155
-/*line :3497:3*/																																																																															case 157:
-/*line :3497:3*/																																																																																goto l156
-/*line :3497:3*/																																																																															case 158:
-/*line :3497:3*/																																																																																goto l157
-/*line :3497:3*/																																																																															case 159:
-/*line :3497:3*/																																																																																goto l158
-/*line :3497:3*/																																																																															case 160:
-/*line :3497:3*/																																																																																goto l159
-/*line :3497:3*/																																																																															case 161:
-/*line :3497:3*/																																																																																goto l160
-/*line :3497:3*/																																																																															case 162:
-/*line :3497:3*/																																																																																goto l161
-/*line :3497:3*/																																																																															case 163:
-/*line :3497:3*/																																																																																goto l162
-/*line :3497:3*/																																																																															case 164:
-/*line :3497:3*/																																																																																goto l163
-/*line :3497:3*/																																																																															case 165:
-/*line :3497:3*/																																																																																goto l164
-/*line :3497:3*/																																																																															case 166:
-/*line :3497:3*/																																																																																goto l165
-/*line :3497:3*/																																																																															case 167:
-/*line :3497:3*/																																																																																goto l166
-/*line :3497:3*/																																																																															case 168:
-/*line :3497:3*/																																																																																goto l167
-/*line :3497:3*/																																																																															case 169:
-/*line :3497:3*/																																																																																goto l168
-/*line :3497:3*/																																																																															case 170:
-/*line :3497:3*/																																																																																goto l169
-/*line :3497:3*/																																																																															case 171:
-/*line :3497:3*/																																																																																goto l170
-/*line :3497:3*/																																																																															case 172:
-/*line :3497:3*/																																																																																goto l171
-/*line :3497:3*/																																																																															case 173:
-/*line :3497:3*/																																																																																goto l172
-/*line :3497:3*/																																																																															case 174:
-/*line :3497:3*/																																																																																goto l173
-/*line :3497:3*/																																																																															case 175:
-/*line :3497:3*/																																																																																goto l174
-/*line :3497:3*/																																																																															case 176:
-/*line :3497:3*/																																																																																goto l175
-/*line :3497:3*/																																																																															case 177:
-/*line :3497:3*/																																																																																goto l176
-/*line :3497:3*/																																																																															case 178:
-/*line :3497:3*/																																																																																goto l177
-/*line :3497:3*/																																																																															case 179:
-/*line :3497:3*/																																																																																goto l178
-/*line :3497:3*/																																																																															case 180:
-/*line :3497:3*/																																																																																goto l179
-/*line :3497:3*/																																																																															case 181:
-/*line :3497:3*/																																																																																goto l180
-/*line :3497:3*/																																																																															case 182:
-/*line :3497:3*/																																																																																goto l181
-/*line :3497:3*/																																																																															case 183:
-/*line :3497:3*/																																																																																goto l182
-/*line :3497:3*/																																																																															case 184:
-/*line :3497:3*/																																																																																goto l183
-/*line :3497:3*/																																																																															case 185:
-/*line :3497:3*/																																																																																goto l184
-/*line :3497:3*/																																																																															case 186:
-/*line :3497:3*/																																																																																goto l185
-/*line :3497:3*/																																																																															case 187:
-/*line :3497:3*/																																																																																goto l186
-/*line :3497:3*/																																																																															case 188:
-/*line :3497:3*/																																																																																goto l187
-/*line :3497:3*/																																																																															case 189:
-/*line :3497:3*/																																																																																goto l188
-/*line :3497:3*/																																																																															case 190:
-/*line :3497:3*/																																																																																goto l189
-/*line :3497:3*/																																																																															case 191:
-/*line :3497:3*/																																																																																goto l190
-/*line :3497:3*/																																																																															default:
-/*line :3497:3*/																																																																																goto l191
-/*line :3497:3*/																																																																															}
-/*line :3497:3*/																																																																														l3:
-/*line :3501:18*/																																																																															t34 := int32(m.memory[uint64(uint32(v1))+24])
-/*line :3501:11*/																																																																															m.memory[uint32(v5)] = byte(t34)
-/*line :3504:4*/																																																																															goto l192
-/*line :3504:4*/																																																																														}
-/*line :3504:4*/																																																																													l10:
-/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/scanner.l:257:1*/																																																																														p33 = i32(274)
-/*line :257:1*/																																																																														goto l193
-/*line :257:1*/																																																																													l11:
-/*line :258:1*/																																																																														p33 = i32(275)
-/*line :258:1*/																																																																														goto l193
-/*line :258:1*/																																																																													l12:
-/*line :259:1*/																																																																														p33 = i32(276)
-/*line :259:1*/																																																																														goto l193
-/*line :259:1*/																																																																													l13:
-/*line :260:1*/																																																																														p33 = i32(277)
-/*line :260:1*/																																																																														goto l193
-/*line :260:1*/																																																																													l14:
-/*line :261:1*/																																																																														p33 = i32(278)
-/*line :261:1*/																																																																														goto l193
-/*line :261:1*/																																																																													l15:
-/*line :262:1*/																																																																														p33 = i32(279)
-/*line :262:1*/																																																																														goto l193
-/*line :262:1*/																																																																													l16:
-/*line :263:1*/																																																																														p33 = i32(280)
-/*line :263:1*/																																																																														goto l193
-/*line :263:1*/																																																																													l17:
-/*line :264:1*/																																																																														p33 = i32(281)
-/*line :264:1*/																																																																														goto l193
-/*line :264:1*/																																																																													l18:
-/*line :265:1*/																																																																														p33 = i32(282)
-/*line :265:1*/																																																																														goto l193
-/*line :265:1*/																																																																													l19:
-/*line :266:1*/																																																																														p33 = i32(361)
-/*line :266:1*/																																																																														goto l193
-/*line :266:1*/																																																																													l20:
-/*line :268:1*/																																																																														p33 = i32(323)
-/*line :268:1*/																																																																														goto l193
-/*line :268:1*/																																																																													l21:
-/*line :269:1*/																																																																														p33 = i32(324)
-/*line :269:1*/																																																																														goto l193
-/*line :269:1*/																																																																													l22:
-/*line :270:1*/																																																																														p33 = i32(325)
-/*line :270:1*/																																																																														goto l193
-/*line :270:1*/																																																																													l23:
-/*line :271:1*/																																																																														p33 = i32(326)
-/*line :271:1*/																																																																														goto l193
-/*line :271:1*/																																																																													l24:
-/*line :273:1*/																																																																														p33 = i32(283)
-/*line :273:1*/																																																																														goto l193
-/*line :273:1*/																																																																													l25:
-/*line :274:1*/																																																																														p33 = i32(284)
-/*line :274:1*/																																																																														goto l193
-/*line :274:1*/																																																																													l26:
-/*line :275:1*/																																																																														p33 = i32(285)
-/*line :275:1*/																																																																														goto l193
-/*line :275:1*/																																																																													l27:
-/*line :276:1*/																																																																														p33 = i32(286)
-/*line :276:1*/																																																																														goto l193
-/*line :276:1*/																																																																													l28:
-/*line :277:1*/																																																																														p33 = i32(287)
-/*line :277:1*/																																																																														goto l193
-/*line :277:1*/																																																																													l29:
-/*line :278:1*/																																																																														p33 = i32(288)
-/*line :278:1*/																																																																														goto l193
-/*line :278:1*/																																																																													l30:
-/*line :279:1*/																																																																														p33 = i32(289)
-/*line :279:1*/																																																																														goto l193
-/*line :279:1*/																																																																													l31:
-/*line :281:1*/																																																																														p33 = i32(333)
-/*line :281:1*/																																																																														goto l193
-/*line :281:1*/																																																																													l32:
-/*line :282:1*/																																																																														p33 = i32(334)
-/*line :282:1*/																																																																														goto l193
-/*line :282:1*/																																																																													l33:
-/*line :284:1*/																																																																														p33 = i32(336)
-/*line :284:1*/																																																																														goto l193
-/*line :284:1*/																																																																													l34:
-/*line :286:1*/																																																																														p33 = i32(337)
-/*line :286:1*/																																																																														goto l193
-/*line :286:1*/																																																																													l35:
-/*line :287:1*/																																																																														p33 = i32(338)
-/*line :287:1*/																																																																														goto l193
-/*line :287:1*/																																																																													l36:
-/*line :288:1*/																																																																														p33 = i32(339)
-/*line :288:1*/																																																																														goto l193
-/*line :288:1*/																																																																													l37:
-/*line :289:1*/																																																																														p33 = i32(340)
-/*line :289:1*/																																																																														goto l193
-/*line :289:1*/																																																																													l38:
-/*line :290:1*/																																																																														p33 = i32(341)
-/*line :290:1*/																																																																														goto l193
-/*line :290:1*/																																																																													l39:
-/*line :291:1*/																																																																														p33 = i32(342)
-/*line :291:1*/																																																																														goto l193
-/*line :291:1*/																																																																													l40:
-/*line :292:1*/																																																																														p33 = i32(343)
-/*line :292:1*/																																																																														goto l193
-/*line :292:1*/																																																																													l41:
-/*line :294:1*/																																																																														p33 = i32(335)
-/*line :294:1*/																																																																														goto l193
-/*line :294:1*/																																																																													l42:
-/*line :296:1*/																																																																														p33 = i32(344)
-/*line :296:1*/																																																																														goto l193
-/*line :296:1*/																																																																													l43:
-/*line :298:1*/																																																																														p33 = i32(345)
-/*line :298:1*/																																																																														goto l193
-/*line :298:1*/																																																																													l44:
-/*line :300:1*/																																																																														p33 = i32(346)
-/*line :300:1*/																																																																														goto l193
-/*line :300:1*/																																																																													l45:
-/*line :302:1*/																																																																														p33 = i32(260)
-/*line :302:1*/																																																																														goto l193
-/*line :302:1*/																																																																													l46:
-/*line :303:1*/																																																																														p33 = i32(262)
-/*line :303:1*/																																																																														goto l193
-/*line :303:1*/																																																																													l47:
-/*line :304:1*/																																																																														p33 = i32(263)
-/*line :304:1*/																																																																														goto l193
-/*line :304:1*/																																																																													l48:
-/*line :305:1*/																																																																														p33 = i32(264)
-/*line :305:1*/																																																																														goto l193
-/*line :305:1*/																																																																													l49:
-/*line :306:1*/																																																																														p33 = i32(265)
-/*line :306:1*/																																																																														goto l193
-/*line :306:1*/																																																																													l50:
-/*line :307:1*/																																																																														p33 = i32(268)
-/*line :307:1*/																																																																														goto l193
-/*line :307:1*/																																																																													l51:
-/*line :308:1*/																																																																														p33 = i32(269)
-/*line :308:1*/																																																																														goto l193
-/*line :308:1*/																																																																													l52:
-/*line :310:1*/																																																																														p33 = i32(261)
-/*line :310:1*/																																																																														goto l193
-/*line :310:1*/																																																																													l53:
-/*line :312:1*/																																																																														p33 = i32(302)
-/*line :312:1*/																																																																														goto l193
-/*line :312:1*/																																																																													l54:
-/*line :313:1*/																																																																														p33 = i32(303)
-/*line :313:1*/																																																																														goto l193
-/*line :313:1*/																																																																													l55:
-/*line :314:1*/																																																																														p33 = i32(304)
-/*line :314:1*/																																																																														goto l193
-/*line :314:1*/																																																																													l56:
-/*line :315:1*/																																																																														p33 = i32(305)
-/*line :315:1*/																																																																														goto l193
-/*line :315:1*/																																																																													l57:
-/*line :316:1*/																																																																														p33 = i32(306)
-/*line :316:1*/																																																																														goto l193
-/*line :316:1*/																																																																													l58:
-/*line :317:1*/																																																																														p33 = i32(307)
-/*line :317:1*/																																																																														goto l193
-/*line :317:1*/																																																																													l59:
-/*line :318:1*/																																																																														p33 = i32(308)
-/*line :318:1*/																																																																														goto l193
-/*line :318:1*/																																																																													l60:
-/*line :319:1*/																																																																														p33 = i32(309)
-/*line :319:1*/																																																																														goto l193
-/*line :319:1*/																																																																													l61:
-/*line :320:1*/																																																																														p33 = i32(310)
-/*line :320:1*/																																																																														goto l193
-/*line :320:1*/																																																																													l62:
-/*line :322:1*/																																																																														p33 = i32(266)
-/*line :322:1*/																																																																														goto l193
-/*line :322:1*/																																																																													l63:
-/*line :323:1*/																																																																														p33 = i32(267)
-/*line :323:1*/																																																																														goto l193
-/*line :323:1*/																																																																													l64:
-/*line :324:1*/																																																																														p33 = i32(270)
-/*line :324:1*/																																																																														goto l193
-/*line :324:1*/																																																																													l65:
-/*line :325:1*/																																																																														p33 = i32(290)
-/*line :325:1*/																																																																														goto l193
-/*line :325:1*/																																																																													l66:
-/*line :326:1*/																																																																														p33 = i32(291)
-/*line :326:1*/																																																																														goto l193
-/*line :326:1*/																																																																													l67:
-/*line :328:1*/																																																																														p33 = i32(378)
-/*line :328:1*/																																																																														goto l193
-/*line :328:1*/																																																																													l68:
-/*line :329:1*/																																																																														p33 = i32(377)
-/*line :329:1*/																																																																														goto l193
-/*line :329:1*/																																																																													l69:
-/*line :330:1*/																																																																														p33 = i32(33)
-/*line :330:1*/																																																																														goto l193
-/*line :330:1*/																																																																													l70:
-/*line :332:1*/																																																																														p33 = i32(322)
-/*line :332:1*/																																																																														goto l193
-/*line :332:1*/																																																																													l71:
-/*line :333:1*/																																																																														p33 = i32(293)
-/*line :333:1*/																																																																														goto l193
-/*line :333:1*/																																																																													l72:
-/*line :334:1*/																																																																														p33 = i32(294)
-/*line :334:1*/																																																																														goto l193
-/*line :334:1*/																																																																													l73:
-/*line :336:1*/																																																																														p33 = i32(295)
-/*line :336:1*/																																																																														goto l193
-/*line :336:1*/																																																																													l74:
-/*line :338:1*/																																																																														p33 = i32(327)
-/*line :338:1*/																																																																														goto l193
-/*line :338:1*/																																																																													l75:
-/*line :339:1*/																																																																														p33 = i32(328)
-/*line :339:1*/																																																																														goto l193
-/*line :339:1*/																																																																													l76:
-/*line :340:1*/																																																																														p33 = i32(329)
-/*line :340:1*/																																																																														goto l193
-/*line :340:1*/																																																																													l77:
-/*line :341:1*/																																																																														p33 = i32(330)
-/*line :341:1*/																																																																														goto l193
-/*line :341:1*/																																																																													l78:
-/*line :342:1*/																																																																														p33 = i32(331)
-/*line :342:1*/																																																																														goto l193
-/*line :342:1*/																																																																													l79:
-/*line :343:1*/																																																																														p33 = i32(332)
-/*line :343:1*/																																																																														goto l193
-/*line :343:1*/																																																																													l80:
-/*line :345:1*/																																																																														p33 = i32(347)
-/*line :345:1*/																																																																														goto l193
-/*line :345:1*/																																																																													l81:
-/*line :346:1*/																																																																														p33 = i32(348)
-/*line :346:1*/																																																																														goto l193
-/*line :346:1*/																																																																													l82:
-/*line :347:1*/																																																																														p33 = i32(349)
-/*line :347:1*/																																																																														goto l193
-/*line :347:1*/																																																																													l83:
-/*line :348:1*/																																																																														p33 = i32(350)
-/*line :348:1*/																																																																														goto l193
-/*line :348:1*/																																																																													l84:
-/*line :349:1*/																																																																														p33 = i32(355)
-/*line :349:1*/																																																																														goto l193
-/*line :349:1*/																																																																													l85:
-/*line :350:1*/																																																																														p33 = i32(356)
-/*line :350:1*/																																																																														goto l193
-/*line :350:1*/																																																																													l86:
-/*line :351:1*/																																																																														p33 = i32(353)
-/*line :351:1*/																																																																														goto l193
-/*line :351:1*/																																																																													l87:
-/*line :352:1*/																																																																														p33 = i32(354)
-/*line :352:1*/																																																																														goto l193
-/*line :352:1*/																																																																													l88:
-/*line :353:1*/																																																																														p33 = i32(351)
-/*line :353:1*/																																																																														goto l193
-/*line :353:1*/																																																																													l89:
-/*line :354:1*/																																																																														p33 = i32(352)
-/*line :354:1*/																																																																														goto l193
-/*line :354:1*/																																																																													l90:
-/*line :355:1*/																																																																														p33 = i32(359)
-/*line :355:1*/																																																																														goto l193
-/*line :355:1*/																																																																													l91:
-/*line :356:1*/																																																																														p33 = i32(360)
-/*line :356:1*/																																																																														goto l193
-/*line :356:1*/																																																																													l92:
-/*line :357:1*/																																																																														p33 = i32(357)
-/*line :357:1*/																																																																														goto l193
-/*line :357:1*/																																																																													l93:
-/*line :358:1*/																																																																														p33 = i32(358)
-/*line :358:1*/																																																																														goto l193
-/*line :358:1*/																																																																													l94:
-/*line :360:1*/																																																																														p33 = i32(296)
-/*line :360:1*/																																																																														goto l193
-/*line :360:1*/																																																																													l95:
-/*line :361:1*/																																																																														p33 = i32(297)
-/*line :361:1*/																																																																														goto l193
-/*line :361:1*/																																																																													l96:
-/*line :362:1*/																																																																														p33 = i32(298)
-/*line :362:1*/																																																																														goto l193
-/*line :362:1*/																																																																													l97:
-/*line :363:1*/																																																																														p33 = i32(299)
-/*line :363:1*/																																																																														goto l193
-/*line :363:1*/																																																																													l98:
-/*line :364:1*/																																																																														p33 = i32(300)
-/*line :364:1*/																																																																														goto l193
-/*line :364:1*/																																																																													l99:
-/*line :365:1*/																																																																														p33 = i32(301)
-/*line :365:1*/																																																																														goto l193
-/*line :365:1*/																																																																													l100:
-/*line :367:1*/																																																																														p33 = i32(362)
-/*line :367:1*/																																																																														goto l193
-/*line :367:1*/																																																																													l101:
-/*line :368:1*/																																																																														p33 = i32(363)
-/*line :368:1*/																																																																														goto l193
-/*line :368:1*/																																																																													l102:
-/*line :370:1*/																																																																														p33 = i32(364)
-/*line :370:1*/																																																																														goto l193
-/*line :370:1*/																																																																													l103:
-/*line :371:1*/																																																																														p33 = i32(365)
-/*line :371:1*/																																																																														goto l193
-/*line :371:1*/																																																																													l104:
-/*line :372:1*/																																																																														p33 = i32(366)
-/*line :372:1*/																																																																														goto l193
-/*line :372:1*/																																																																													l105:
-/*line :373:1*/																																																																														p33 = i32(367)
-/*line :373:1*/																																																																														goto l193
-/*line :373:1*/																																																																													l106:
-/*line :374:1*/																																																																														p33 = i32(368)
-/*line :374:1*/																																																																														goto l193
-/*line :374:1*/																																																																													l107:
-/*line :375:1*/																																																																														p33 = i32(369)
-/*line :375:1*/																																																																														goto l193
-/*line :375:1*/																																																																													l108:
-/*line :376:1*/																																																																														p33 = i32(370)
-/*line :376:1*/																																																																														goto l193
-/*line :376:1*/																																																																													l109:
-/*line :377:1*/																																																																														p33 = i32(371)
-/*line :377:1*/																																																																														goto l193
-/*line :377:1*/																																																																													l110:
-/*line :378:1*/																																																																														p33 = i32(372)
-/*line :378:1*/																																																																														goto l193
-/*line :378:1*/																																																																													l111:
-/*line :379:1*/																																																																														p33 = i32(373)
-/*line :379:1*/																																																																														goto l193
-/*line :379:1*/																																																																													l112:
-/*line :380:1*/																																																																														p33 = i32(374)
-/*line :380:1*/																																																																														goto l193
-/*line :380:1*/																																																																													l113:
-/*line :381:1*/																																																																														p33 = i32(375)
-/*line :381:1*/																																																																														goto l193
-/*line :381:1*/																																																																													l115:
-/*line :384:8*/																																																																														t35 := int32(load32(m.memory, uint64(uint32(v1))+80))
-/*line :384:8*/																																																																														t36 := int32(int8(m.memory[uint32(t35)]))
-/*line :384:1*/																																																																														p33 = t36
-/*line :384:1*/																																																																														goto l193
-/*line :384:1*/																																																																													}
-/*line :384:1*/																																																																												l116:
-/*line :385:1*/																																																																													p33 = i32(312)
-/*line :385:1*/																																																																													goto l193
-/*line :385:1*/																																																																												l117:
-/*line :386:1*/																																																																													p33 = i32(313)
-/*line :386:1*/																																																																													goto l193
-/*line :386:1*/																																																																												l118:
-/*line :387:1*/																																																																													p33 = i32(314)
-/*line :387:1*/																																																																													goto l193
-/*line :387:1*/																																																																												l119:
-/*line :388:1*/																																																																													p33 = i32(61)
-/*line :388:1*/																																																																													goto l193
-/*line :388:1*/																																																																												l120:
-/*line :389:1*/																																																																													p33 = i32(320)
-/*line :389:1*/																																																																													goto l193
-/*line :389:1*/																																																																												l121:
-/*line :390:1*/																																																																													p33 = i32(321)
-/*line :390:1*/																																																																													goto l193
-/*line :390:1*/																																																																												l122:
-/*line :391:20*/																																																																													t37 := int32(load32(m.memory, uint32(v1)))
-/*line :391:29*/																																																																													t38 := int32(load32(m.memory, uint64(uint32(v1))+80))
-/*line :391:15*/																																																																													t39 := m._sdup(t37, t38)
-/*line :391:15*/																																																																													v0 = t39
-/*line :391:3*/																																																																													t40 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :391:13*/																																																																													store32(m.memory, uint32(t40), uint32(v0))
-/*line :391:38*/																																																																													p33 = i32(319)
-/*line :391:38*/																																																																													goto l193
-/*line :391:38*/																																																																												}
-/*line :391:38*/																																																																											l123:
-/*line :392:20*/																																																																												t41 := int32(load32(m.memory, uint32(v1)))
-/*line :392:29*/																																																																												t42 := int32(load32(m.memory, uint64(uint32(v1))+80))
-/*line :392:15*/																																																																												t43 := m._sdup(t41, t42)
-/*line :392:15*/																																																																												v0 = t43
-/*line :392:3*/																																																																												t44 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :392:13*/																																																																												store32(m.memory, uint32(t44), uint32(v0))
+/*line :3497:3*/																																																																															{
+/*line :3497:3*/																																																																																{
+/*line :3497:3*/																																																																																	{
+/*line :3497:3*/																																																																																		{
+/*line :3497:3*/																																																																																			switch v0 {
+/*line :3497:3*/																																																																																			case 0:
+/*line :3497:3*/																																																																																				goto l3
+/*line :3497:3*/																																																																																			case 1:
+/*line :3497:3*/																																																																																				goto l4
+/*line :3497:3*/																																																																																			case 2:
+/*line :3497:3*/																																																																																				goto l5
+/*line :3497:3*/																																																																																			case 3, 4:
+/*line :3497:3*/																																																																																				goto l6
+/*line :3497:3*/																																																																																			case 5:
+/*line :3497:3*/																																																																																				goto l7
+/*line :3497:3*/																																																																																			case 6:
+/*line :3497:3*/																																																																																				goto l8
+/*line :3497:3*/																																																																																			case 7:
+/*line :3497:3*/																																																																																				goto l9
+/*line :3497:3*/																																																																																			case 8:
+/*line :3497:3*/																																																																																				goto l10
+/*line :3497:3*/																																																																																			case 9:
+/*line :3497:3*/																																																																																				goto l11
+/*line :3497:3*/																																																																																			case 10:
+/*line :3497:3*/																																																																																				goto l12
+/*line :3497:3*/																																																																																			case 11:
+/*line :3497:3*/																																																																																				goto l13
+/*line :3497:3*/																																																																																			case 12:
+/*line :3497:3*/																																																																																				goto l14
+/*line :3497:3*/																																																																																			case 13:
+/*line :3497:3*/																																																																																				goto l15
+/*line :3497:3*/																																																																																			case 14:
+/*line :3497:3*/																																																																																				goto l16
+/*line :3497:3*/																																																																																			case 15:
+/*line :3497:3*/																																																																																				goto l17
+/*line :3497:3*/																																																																																			case 16:
+/*line :3497:3*/																																																																																				goto l18
+/*line :3497:3*/																																																																																			case 17:
+/*line :3497:3*/																																																																																				goto l19
+/*line :3497:3*/																																																																																			case 18:
+/*line :3497:3*/																																																																																				goto l20
+/*line :3497:3*/																																																																																			case 19:
+/*line :3497:3*/																																																																																				goto l21
+/*line :3497:3*/																																																																																			case 20:
+/*line :3497:3*/																																																																																				goto l22
+/*line :3497:3*/																																																																																			case 21:
+/*line :3497:3*/																																																																																				goto l23
+/*line :3497:3*/																																																																																			case 22:
+/*line :3497:3*/																																																																																				goto l24
+/*line :3497:3*/																																																																																			case 23:
+/*line :3497:3*/																																																																																				goto l25
+/*line :3497:3*/																																																																																			case 24:
+/*line :3497:3*/																																																																																				goto l26
+/*line :3497:3*/																																																																																			case 25:
+/*line :3497:3*/																																																																																				goto l27
+/*line :3497:3*/																																																																																			case 26:
+/*line :3497:3*/																																																																																				goto l28
+/*line :3497:3*/																																																																																			case 27:
+/*line :3497:3*/																																																																																				goto l29
+/*line :3497:3*/																																																																																			case 28:
+/*line :3497:3*/																																																																																				goto l30
+/*line :3497:3*/																																																																																			case 29:
+/*line :3497:3*/																																																																																				goto l31
+/*line :3497:3*/																																																																																			case 30, 31:
+/*line :3497:3*/																																																																																				goto l32
+/*line :3497:3*/																																																																																			case 32, 33:
+/*line :3497:3*/																																																																																				goto l33
+/*line :3497:3*/																																																																																			case 34:
+/*line :3497:3*/																																																																																				goto l34
+/*line :3497:3*/																																																																																			case 35:
+/*line :3497:3*/																																																																																				goto l35
+/*line :3497:3*/																																																																																			case 36:
+/*line :3497:3*/																																																																																				goto l36
+/*line :3497:3*/																																																																																			case 37:
+/*line :3497:3*/																																																																																				goto l37
+/*line :3497:3*/																																																																																			case 38:
+/*line :3497:3*/																																																																																				goto l38
+/*line :3497:3*/																																																																																			case 39:
+/*line :3497:3*/																																																																																				goto l39
+/*line :3497:3*/																																																																																			case 40:
+/*line :3497:3*/																																																																																				goto l40
+/*line :3497:3*/																																																																																			case 41:
+/*line :3497:3*/																																																																																				goto l41
+/*line :3497:3*/																																																																																			case 42:
+/*line :3497:3*/																																																																																				goto l42
+/*line :3497:3*/																																																																																			case 43:
+/*line :3497:3*/																																																																																				goto l43
+/*line :3497:3*/																																																																																			case 44:
+/*line :3497:3*/																																																																																				goto l44
+/*line :3497:3*/																																																																																			case 45:
+/*line :3497:3*/																																																																																				goto l45
+/*line :3497:3*/																																																																																			case 46:
+/*line :3497:3*/																																																																																				goto l46
+/*line :3497:3*/																																																																																			case 47:
+/*line :3497:3*/																																																																																				goto l47
+/*line :3497:3*/																																																																																			case 48:
+/*line :3497:3*/																																																																																				goto l48
+/*line :3497:3*/																																																																																			case 49:
+/*line :3497:3*/																																																																																				goto l49
+/*line :3497:3*/																																																																																			case 50:
+/*line :3497:3*/																																																																																				goto l50
+/*line :3497:3*/																																																																																			case 51:
+/*line :3497:3*/																																																																																				goto l51
+/*line :3497:3*/																																																																																			case 52:
+/*line :3497:3*/																																																																																				goto l52
+/*line :3497:3*/																																																																																			case 53:
+/*line :3497:3*/																																																																																				goto l53
+/*line :3497:3*/																																																																																			case 54:
+/*line :3497:3*/																																																																																				goto l54
+/*line :3497:3*/																																																																																			case 55:
+/*line :3497:3*/																																																																																				goto l55
+/*line :3497:3*/																																																																																			case 56:
+/*line :3497:3*/																																																																																				goto l56
+/*line :3497:3*/																																																																																			case 57:
+/*line :3497:3*/																																																																																				goto l57
+/*line :3497:3*/																																																																																			case 58:
+/*line :3497:3*/																																																																																				goto l58
+/*line :3497:3*/																																																																																			case 59:
+/*line :3497:3*/																																																																																				goto l59
+/*line :3497:3*/																																																																																			case 60:
+/*line :3497:3*/																																																																																				goto l60
+/*line :3497:3*/																																																																																			case 61:
+/*line :3497:3*/																																																																																				goto l61
+/*line :3497:3*/																																																																																			case 62:
+/*line :3497:3*/																																																																																				goto l62
+/*line :3497:3*/																																																																																			case 63:
+/*line :3497:3*/																																																																																				goto l63
+/*line :3497:3*/																																																																																			case 64:
+/*line :3497:3*/																																																																																				goto l64
+/*line :3497:3*/																																																																																			case 65:
+/*line :3497:3*/																																																																																				goto l65
+/*line :3497:3*/																																																																																			case 66:
+/*line :3497:3*/																																																																																				goto l66
+/*line :3497:3*/																																																																																			case 67:
+/*line :3497:3*/																																																																																				goto l67
+/*line :3497:3*/																																																																																			case 68:
+/*line :3497:3*/																																																																																				goto l68
+/*line :3497:3*/																																																																																			case 69:
+/*line :3497:3*/																																																																																				goto l69
+/*line :3497:3*/																																																																																			case 70:
+/*line :3497:3*/																																																																																				goto l70
+/*line :3497:3*/																																																																																			case 71:
+/*line :3497:3*/																																																																																				goto l71
+/*line :3497:3*/																																																																																			case 72:
+/*line :3497:3*/																																																																																				goto l72
+/*line :3497:3*/																																																																																			case 73:
+/*line :3497:3*/																																																																																				goto l73
+/*line :3497:3*/																																																																																			case 74:
+/*line :3497:3*/																																																																																				goto l74
+/*line :3497:3*/																																																																																			case 75:
+/*line :3497:3*/																																																																																				goto l75
+/*line :3497:3*/																																																																																			case 76:
+/*line :3497:3*/																																																																																				goto l76
+/*line :3497:3*/																																																																																			case 77:
+/*line :3497:3*/																																																																																				goto l77
+/*line :3497:3*/																																																																																			case 78:
+/*line :3497:3*/																																																																																				goto l78
+/*line :3497:3*/																																																																																			case 79:
+/*line :3497:3*/																																																																																				goto l79
+/*line :3497:3*/																																																																																			case 80:
+/*line :3497:3*/																																																																																				goto l80
+/*line :3497:3*/																																																																																			case 81:
+/*line :3497:3*/																																																																																				goto l81
+/*line :3497:3*/																																																																																			case 82:
+/*line :3497:3*/																																																																																				goto l82
+/*line :3497:3*/																																																																																			case 83:
+/*line :3497:3*/																																																																																				goto l83
+/*line :3497:3*/																																																																																			case 84:
+/*line :3497:3*/																																																																																				goto l84
+/*line :3497:3*/																																																																																			case 85:
+/*line :3497:3*/																																																																																				goto l85
+/*line :3497:3*/																																																																																			case 86:
+/*line :3497:3*/																																																																																				goto l86
+/*line :3497:3*/																																																																																			case 87:
+/*line :3497:3*/																																																																																				goto l87
+/*line :3497:3*/																																																																																			case 88:
+/*line :3497:3*/																																																																																				goto l88
+/*line :3497:3*/																																																																																			case 89:
+/*line :3497:3*/																																																																																				goto l89
+/*line :3497:3*/																																																																																			case 90:
+/*line :3497:3*/																																																																																				goto l90
+/*line :3497:3*/																																																																																			case 91:
+/*line :3497:3*/																																																																																				goto l91
+/*line :3497:3*/																																																																																			case 92:
+/*line :3497:3*/																																																																																				goto l92
+/*line :3497:3*/																																																																																			case 93:
+/*line :3497:3*/																																																																																				goto l93
+/*line :3497:3*/																																																																																			case 94:
+/*line :3497:3*/																																																																																				goto l94
+/*line :3497:3*/																																																																																			case 95:
+/*line :3497:3*/																																																																																				goto l95
+/*line :3497:3*/																																																																																			case 96:
+/*line :3497:3*/																																																																																				goto l96
+/*line :3497:3*/																																																																																			case 97:
+/*line :3497:3*/																																																																																				goto l97
+/*line :3497:3*/																																																																																			case 98:
+/*line :3497:3*/																																																																																				goto l98
+/*line :3497:3*/																																																																																			case 99:
+/*line :3497:3*/																																																																																				goto l99
+/*line :3497:3*/																																																																																			case 100:
+/*line :3497:3*/																																																																																				goto l100
+/*line :3497:3*/																																																																																			case 101, 102:
+/*line :3497:3*/																																																																																				goto l101
+/*line :3497:3*/																																																																																			case 103:
+/*line :3497:3*/																																																																																				goto l102
+/*line :3497:3*/																																																																																			case 104:
+/*line :3497:3*/																																																																																				goto l103
+/*line :3497:3*/																																																																																			case 105:
+/*line :3497:3*/																																																																																				goto l104
+/*line :3497:3*/																																																																																			case 106:
+/*line :3497:3*/																																																																																				goto l105
+/*line :3497:3*/																																																																																			case 107:
+/*line :3497:3*/																																																																																				goto l106
+/*line :3497:3*/																																																																																			case 108:
+/*line :3497:3*/																																																																																				goto l107
+/*line :3497:3*/																																																																																			case 109:
+/*line :3497:3*/																																																																																				goto l108
+/*line :3497:3*/																																																																																			case 110:
+/*line :3497:3*/																																																																																				goto l109
+/*line :3497:3*/																																																																																			case 111:
+/*line :3497:3*/																																																																																				goto l110
+/*line :3497:3*/																																																																																			case 112:
+/*line :3497:3*/																																																																																				goto l111
+/*line :3497:3*/																																																																																			case 113:
+/*line :3497:3*/																																																																																				goto l112
+/*line :3497:3*/																																																																																			case 114:
+/*line :3497:3*/																																																																																				goto l113
+/*line :3497:3*/																																																																																			case 115:
+/*line :3497:3*/																																																																																				goto l114
+/*line :3497:3*/																																																																																			case 116:
+/*line :3497:3*/																																																																																				goto l115
+/*line :3497:3*/																																																																																			case 117:
+/*line :3497:3*/																																																																																				goto l116
+/*line :3497:3*/																																																																																			case 118:
+/*line :3497:3*/																																																																																				goto l117
+/*line :3497:3*/																																																																																			case 119:
+/*line :3497:3*/																																																																																				goto l118
+/*line :3497:3*/																																																																																			case 120:
+/*line :3497:3*/																																																																																				goto l119
+/*line :3497:3*/																																																																																			case 121:
+/*line :3497:3*/																																																																																				goto l120
+/*line :3497:3*/																																																																																			case 122:
+/*line :3497:3*/																																																																																				goto l121
+/*line :3497:3*/																																																																																			case 123:
+/*line :3497:3*/																																																																																				goto l122
+/*line :3497:3*/																																																																																			case 124:
+/*line :3497:3*/																																																																																				goto l123
+/*line :3497:3*/																																																																																			case 125:
+/*line :3497:3*/																																																																																				goto l124
+/*line :3497:3*/																																																																																			case 126:
+/*line :3497:3*/																																																																																				goto l125
+/*line :3497:3*/																																																																																			case 127:
+/*line :3497:3*/																																																																																				goto l126
+/*line :3497:3*/																																																																																			case 128:
+/*line :3497:3*/																																																																																				goto l127
+/*line :3497:3*/																																																																																			case 129:
+/*line :3497:3*/																																																																																				goto l128
+/*line :3497:3*/																																																																																			case 130:
+/*line :3497:3*/																																																																																				goto l129
+/*line :3497:3*/																																																																																			case 131:
+/*line :3497:3*/																																																																																				goto l130
+/*line :3497:3*/																																																																																			case 132:
+/*line :3497:3*/																																																																																				goto l131
+/*line :3497:3*/																																																																																			case 133:
+/*line :3497:3*/																																																																																				goto l132
+/*line :3497:3*/																																																																																			case 134:
+/*line :3497:3*/																																																																																				goto l133
+/*line :3497:3*/																																																																																			case 135:
+/*line :3497:3*/																																																																																				goto l134
+/*line :3497:3*/																																																																																			case 136:
+/*line :3497:3*/																																																																																				goto l135
+/*line :3497:3*/																																																																																			case 137:
+/*line :3497:3*/																																																																																				goto l136
+/*line :3497:3*/																																																																																			case 138:
+/*line :3497:3*/																																																																																				goto l137
+/*line :3497:3*/																																																																																			case 139:
+/*line :3497:3*/																																																																																				goto l138
+/*line :3497:3*/																																																																																			case 140:
+/*line :3497:3*/																																																																																				goto l139
+/*line :3497:3*/																																																																																			case 141:
+/*line :3497:3*/																																																																																				goto l140
+/*line :3497:3*/																																																																																			case 142:
+/*line :3497:3*/																																																																																				goto l141
+/*line :3497:3*/																																																																																			case 143:
+/*line :3497:3*/																																																																																				goto l142
+/*line :3497:3*/																																																																																			case 144:
+/*line :3497:3*/																																																																																				goto l143
+/*line :3497:3*/																																																																																			case 145:
+/*line :3497:3*/																																																																																				goto l144
+/*line :3497:3*/																																																																																			case 146:
+/*line :3497:3*/																																																																																				goto l145
+/*line :3497:3*/																																																																																			case 147:
+/*line :3497:3*/																																																																																				goto l146
+/*line :3497:3*/																																																																																			case 148:
+/*line :3497:3*/																																																																																				goto l147
+/*line :3497:3*/																																																																																			case 149:
+/*line :3497:3*/																																																																																				goto l148
+/*line :3497:3*/																																																																																			case 150:
+/*line :3497:3*/																																																																																				goto l149
+/*line :3497:3*/																																																																																			case 151:
+/*line :3497:3*/																																																																																				goto l150
+/*line :3497:3*/																																																																																			case 152:
+/*line :3497:3*/																																																																																				goto l151
+/*line :3497:3*/																																																																																			case 153:
+/*line :3497:3*/																																																																																				goto l152
+/*line :3497:3*/																																																																																			case 154:
+/*line :3497:3*/																																																																																				goto l153
+/*line :3497:3*/																																																																																			case 155:
+/*line :3497:3*/																																																																																				goto l154
+/*line :3497:3*/																																																																																			case 156:
+/*line :3497:3*/																																																																																				goto l155
+/*line :3497:3*/																																																																																			case 157:
+/*line :3497:3*/																																																																																				goto l156
+/*line :3497:3*/																																																																																			case 158:
+/*line :3497:3*/																																																																																				goto l157
+/*line :3497:3*/																																																																																			case 159:
+/*line :3497:3*/																																																																																				goto l158
+/*line :3497:3*/																																																																																			case 160:
+/*line :3497:3*/																																																																																				goto l159
+/*line :3497:3*/																																																																																			case 161:
+/*line :3497:3*/																																																																																				goto l160
+/*line :3497:3*/																																																																																			case 162:
+/*line :3497:3*/																																																																																				goto l161
+/*line :3497:3*/																																																																																			case 163:
+/*line :3497:3*/																																																																																				goto l162
+/*line :3497:3*/																																																																																			case 164:
+/*line :3497:3*/																																																																																				goto l163
+/*line :3497:3*/																																																																																			case 165:
+/*line :3497:3*/																																																																																				goto l164
+/*line :3497:3*/																																																																																			case 166:
+/*line :3497:3*/																																																																																				goto l165
+/*line :3497:3*/																																																																																			case 167:
+/*line :3497:3*/																																																																																				goto l166
+/*line :3497:3*/																																																																																			case 168:
+/*line :3497:3*/																																																																																				goto l167
+/*line :3497:3*/																																																																																			case 169:
+/*line :3497:3*/																																																																																				goto l168
+/*line :3497:3*/																																																																																			case 170:
+/*line :3497:3*/																																																																																				goto l169
+/*line :3497:3*/																																																																																			case 171:
+/*line :3497:3*/																																																																																				goto l170
+/*line :3497:3*/																																																																																			case 172:
+/*line :3497:3*/																																																																																				goto l171
+/*line :3497:3*/																																																																																			case 173:
+/*line :3497:3*/																																																																																				goto l172
+/*line :3497:3*/																																																																																			case 174:
+/*line :3497:3*/																																																																																				goto l173
+/*line :3497:3*/																																																																																			case 175:
+/*line :3497:3*/																																																																																				goto l174
+/*line :3497:3*/																																																																																			case 176:
+/*line :3497:3*/																																																																																				goto l175
+/*line :3497:3*/																																																																																			case 177:
+/*line :3497:3*/																																																																																				goto l176
+/*line :3497:3*/																																																																																			case 178:
+/*line :3497:3*/																																																																																				goto l177
+/*line :3497:3*/																																																																																			case 179:
+/*line :3497:3*/																																																																																				goto l178
+/*line :3497:3*/																																																																																			case 180:
+/*line :3497:3*/																																																																																				goto l179
+/*line :3497:3*/																																																																																			case 181:
+/*line :3497:3*/																																																																																				goto l180
+/*line :3497:3*/																																																																																			case 182:
+/*line :3497:3*/																																																																																				goto l181
+/*line :3497:3*/																																																																																			case 183:
+/*line :3497:3*/																																																																																				goto l182
+/*line :3497:3*/																																																																																			case 184:
+/*line :3497:3*/																																																																																				goto l183
+/*line :3497:3*/																																																																																			case 185:
+/*line :3497:3*/																																																																																				goto l184
+/*line :3497:3*/																																																																																			case 186:
+/*line :3497:3*/																																																																																				goto l185
+/*line :3497:3*/																																																																																			case 187:
+/*line :3497:3*/																																																																																				goto l186
+/*line :3497:3*/																																																																																			case 188:
+/*line :3497:3*/																																																																																				goto l187
+/*line :3497:3*/																																																																																			case 189:
+/*line :3497:3*/																																																																																				goto l188
+/*line :3497:3*/																																																																																			case 190:
+/*line :3497:3*/																																																																																				goto l189
+/*line :3497:3*/																																																																																			case 191:
+/*line :3497:3*/																																																																																				goto l190
+/*line :3497:3*/																																																																																			default:
+/*line :3497:3*/																																																																																				goto l191
+/*line :3497:3*/																																																																																			}
+/*line :3497:3*/																																																																																		l3:
+/*line :3501:18*/																																																																																			t34 := int32(m.memory[uint64(uint32(v1))+24])
+/*line :3501:11*/																																																																																			m.memory[uint32(v3)] = byte(t34)
+/*line :3504:4*/																																																																																			goto l192
+/*line :3504:4*/																																																																																		}
+/*line :3504:4*/																																																																																	l10:
+/*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/scanner.l:257:1*/																																																																																		p33 = i32(274)
+/*line :257:1*/																																																																																		goto l193
+/*line :257:1*/																																																																																	l11:
+/*line :258:1*/																																																																																		p33 = i32(275)
+/*line :258:1*/																																																																																		goto l193
+/*line :258:1*/																																																																																	l12:
+/*line :259:1*/																																																																																		p33 = i32(276)
+/*line :259:1*/																																																																																		goto l193
+/*line :259:1*/																																																																																	l13:
+/*line :260:1*/																																																																																		p33 = i32(277)
+/*line :260:1*/																																																																																		goto l193
+/*line :260:1*/																																																																																	l14:
+/*line :261:1*/																																																																																		p33 = i32(278)
+/*line :261:1*/																																																																																		goto l193
+/*line :261:1*/																																																																																	l15:
+/*line :262:1*/																																																																																		p33 = i32(279)
+/*line :262:1*/																																																																																		goto l193
+/*line :262:1*/																																																																																	l16:
+/*line :263:1*/																																																																																		p33 = i32(280)
+/*line :263:1*/																																																																																		goto l193
+/*line :263:1*/																																																																																	l17:
+/*line :264:1*/																																																																																		p33 = i32(281)
+/*line :264:1*/																																																																																		goto l193
+/*line :264:1*/																																																																																	l18:
+/*line :265:1*/																																																																																		p33 = i32(282)
+/*line :265:1*/																																																																																		goto l193
+/*line :265:1*/																																																																																	l19:
+/*line :266:1*/																																																																																		p33 = i32(361)
+/*line :266:1*/																																																																																		goto l193
+/*line :266:1*/																																																																																	l20:
+/*line :268:1*/																																																																																		p33 = i32(323)
+/*line :268:1*/																																																																																		goto l193
+/*line :268:1*/																																																																																	l21:
+/*line :269:1*/																																																																																		p33 = i32(324)
+/*line :269:1*/																																																																																		goto l193
+/*line :269:1*/																																																																																	l22:
+/*line :270:1*/																																																																																		p33 = i32(325)
+/*line :270:1*/																																																																																		goto l193
+/*line :270:1*/																																																																																	l23:
+/*line :271:1*/																																																																																		p33 = i32(326)
+/*line :271:1*/																																																																																		goto l193
+/*line :271:1*/																																																																																	l24:
+/*line :273:1*/																																																																																		p33 = i32(283)
+/*line :273:1*/																																																																																		goto l193
+/*line :273:1*/																																																																																	l25:
+/*line :274:1*/																																																																																		p33 = i32(284)
+/*line :274:1*/																																																																																		goto l193
+/*line :274:1*/																																																																																	l26:
+/*line :275:1*/																																																																																		p33 = i32(285)
+/*line :275:1*/																																																																																		goto l193
+/*line :275:1*/																																																																																	l27:
+/*line :276:1*/																																																																																		p33 = i32(286)
+/*line :276:1*/																																																																																		goto l193
+/*line :276:1*/																																																																																	l28:
+/*line :277:1*/																																																																																		p33 = i32(287)
+/*line :277:1*/																																																																																		goto l193
+/*line :277:1*/																																																																																	l29:
+/*line :278:1*/																																																																																		p33 = i32(288)
+/*line :278:1*/																																																																																		goto l193
+/*line :278:1*/																																																																																	l30:
+/*line :279:1*/																																																																																		p33 = i32(289)
+/*line :279:1*/																																																																																		goto l193
+/*line :279:1*/																																																																																	l31:
+/*line :281:1*/																																																																																		p33 = i32(333)
+/*line :281:1*/																																																																																		goto l193
+/*line :281:1*/																																																																																	l32:
+/*line :282:1*/																																																																																		p33 = i32(334)
+/*line :282:1*/																																																																																		goto l193
+/*line :282:1*/																																																																																	l33:
+/*line :284:1*/																																																																																		p33 = i32(336)
+/*line :284:1*/																																																																																		goto l193
+/*line :284:1*/																																																																																	l34:
+/*line :286:1*/																																																																																		p33 = i32(337)
+/*line :286:1*/																																																																																		goto l193
+/*line :286:1*/																																																																																	l35:
+/*line :287:1*/																																																																																		p33 = i32(338)
+/*line :287:1*/																																																																																		goto l193
+/*line :287:1*/																																																																																	l36:
+/*line :288:1*/																																																																																		p33 = i32(339)
+/*line :288:1*/																																																																																		goto l193
+/*line :288:1*/																																																																																	l37:
+/*line :289:1*/																																																																																		p33 = i32(340)
+/*line :289:1*/																																																																																		goto l193
+/*line :289:1*/																																																																																	l38:
+/*line :290:1*/																																																																																		p33 = i32(341)
+/*line :290:1*/																																																																																		goto l193
+/*line :290:1*/																																																																																	l39:
+/*line :291:1*/																																																																																		p33 = i32(342)
+/*line :291:1*/																																																																																		goto l193
+/*line :291:1*/																																																																																	l40:
+/*line :292:1*/																																																																																		p33 = i32(343)
+/*line :292:1*/																																																																																		goto l193
+/*line :292:1*/																																																																																	l41:
+/*line :294:1*/																																																																																		p33 = i32(335)
+/*line :294:1*/																																																																																		goto l193
+/*line :294:1*/																																																																																	l42:
+/*line :296:1*/																																																																																		p33 = i32(344)
+/*line :296:1*/																																																																																		goto l193
+/*line :296:1*/																																																																																	l43:
+/*line :298:1*/																																																																																		p33 = i32(345)
+/*line :298:1*/																																																																																		goto l193
+/*line :298:1*/																																																																																	l44:
+/*line :300:1*/																																																																																		p33 = i32(346)
+/*line :300:1*/																																																																																		goto l193
+/*line :300:1*/																																																																																	l45:
+/*line :302:1*/																																																																																		p33 = i32(260)
+/*line :302:1*/																																																																																		goto l193
+/*line :302:1*/																																																																																	l46:
+/*line :303:1*/																																																																																		p33 = i32(262)
+/*line :303:1*/																																																																																		goto l193
+/*line :303:1*/																																																																																	l47:
+/*line :304:1*/																																																																																		p33 = i32(263)
+/*line :304:1*/																																																																																		goto l193
+/*line :304:1*/																																																																																	l48:
+/*line :305:1*/																																																																																		p33 = i32(264)
+/*line :305:1*/																																																																																		goto l193
+/*line :305:1*/																																																																																	l49:
+/*line :306:1*/																																																																																		p33 = i32(265)
+/*line :306:1*/																																																																																		goto l193
+/*line :306:1*/																																																																																	l50:
+/*line :307:1*/																																																																																		p33 = i32(268)
+/*line :307:1*/																																																																																		goto l193
+/*line :307:1*/																																																																																	l51:
+/*line :308:1*/																																																																																		p33 = i32(269)
+/*line :308:1*/																																																																																		goto l193
+/*line :308:1*/																																																																																	l52:
+/*line :310:1*/																																																																																		p33 = i32(261)
+/*line :310:1*/																																																																																		goto l193
+/*line :310:1*/																																																																																	l53:
+/*line :312:1*/																																																																																		p33 = i32(302)
+/*line :312:1*/																																																																																		goto l193
+/*line :312:1*/																																																																																	l54:
+/*line :313:1*/																																																																																		p33 = i32(303)
+/*line :313:1*/																																																																																		goto l193
+/*line :313:1*/																																																																																	l55:
+/*line :314:1*/																																																																																		p33 = i32(304)
+/*line :314:1*/																																																																																		goto l193
+/*line :314:1*/																																																																																	l56:
+/*line :315:1*/																																																																																		p33 = i32(305)
+/*line :315:1*/																																																																																		goto l193
+/*line :315:1*/																																																																																	l57:
+/*line :316:1*/																																																																																		p33 = i32(306)
+/*line :316:1*/																																																																																		goto l193
+/*line :316:1*/																																																																																	l58:
+/*line :317:1*/																																																																																		p33 = i32(307)
+/*line :317:1*/																																																																																		goto l193
+/*line :317:1*/																																																																																	l59:
+/*line :318:1*/																																																																																		p33 = i32(308)
+/*line :318:1*/																																																																																		goto l193
+/*line :318:1*/																																																																																	l60:
+/*line :319:1*/																																																																																		p33 = i32(309)
+/*line :319:1*/																																																																																		goto l193
+/*line :319:1*/																																																																																	l61:
+/*line :320:1*/																																																																																		p33 = i32(310)
+/*line :320:1*/																																																																																		goto l193
+/*line :320:1*/																																																																																	l62:
+/*line :322:1*/																																																																																		p33 = i32(266)
+/*line :322:1*/																																																																																		goto l193
+/*line :322:1*/																																																																																	l63:
+/*line :323:1*/																																																																																		p33 = i32(267)
+/*line :323:1*/																																																																																		goto l193
+/*line :323:1*/																																																																																	l64:
+/*line :324:1*/																																																																																		p33 = i32(270)
+/*line :324:1*/																																																																																		goto l193
+/*line :324:1*/																																																																																	l65:
+/*line :325:1*/																																																																																		p33 = i32(290)
+/*line :325:1*/																																																																																		goto l193
+/*line :325:1*/																																																																																	l66:
+/*line :326:1*/																																																																																		p33 = i32(291)
+/*line :326:1*/																																																																																		goto l193
+/*line :326:1*/																																																																																	l67:
+/*line :328:1*/																																																																																		p33 = i32(378)
+/*line :328:1*/																																																																																		goto l193
+/*line :328:1*/																																																																																	l68:
+/*line :329:1*/																																																																																		p33 = i32(377)
+/*line :329:1*/																																																																																		goto l193
+/*line :329:1*/																																																																																	l69:
+/*line :330:1*/																																																																																		p33 = i32(33)
+/*line :330:1*/																																																																																		goto l193
+/*line :330:1*/																																																																																	l70:
+/*line :332:1*/																																																																																		p33 = i32(322)
+/*line :332:1*/																																																																																		goto l193
+/*line :332:1*/																																																																																	l71:
+/*line :333:1*/																																																																																		p33 = i32(293)
+/*line :333:1*/																																																																																		goto l193
+/*line :333:1*/																																																																																	l72:
+/*line :334:1*/																																																																																		p33 = i32(294)
+/*line :334:1*/																																																																																		goto l193
+/*line :334:1*/																																																																																	l73:
+/*line :336:1*/																																																																																		p33 = i32(295)
+/*line :336:1*/																																																																																		goto l193
+/*line :336:1*/																																																																																	l74:
+/*line :338:1*/																																																																																		p33 = i32(327)
+/*line :338:1*/																																																																																		goto l193
+/*line :338:1*/																																																																																	l75:
+/*line :339:1*/																																																																																		p33 = i32(328)
+/*line :339:1*/																																																																																		goto l193
+/*line :339:1*/																																																																																	l76:
+/*line :340:1*/																																																																																		p33 = i32(329)
+/*line :340:1*/																																																																																		goto l193
+/*line :340:1*/																																																																																	l77:
+/*line :341:1*/																																																																																		p33 = i32(330)
+/*line :341:1*/																																																																																		goto l193
+/*line :341:1*/																																																																																	l78:
+/*line :342:1*/																																																																																		p33 = i32(331)
+/*line :342:1*/																																																																																		goto l193
+/*line :342:1*/																																																																																	l79:
+/*line :343:1*/																																																																																		p33 = i32(332)
+/*line :343:1*/																																																																																		goto l193
+/*line :343:1*/																																																																																	l80:
+/*line :345:1*/																																																																																		p33 = i32(347)
+/*line :345:1*/																																																																																		goto l193
+/*line :345:1*/																																																																																	l81:
+/*line :346:1*/																																																																																		p33 = i32(348)
+/*line :346:1*/																																																																																		goto l193
+/*line :346:1*/																																																																																	l82:
+/*line :347:1*/																																																																																		p33 = i32(349)
+/*line :347:1*/																																																																																		goto l193
+/*line :347:1*/																																																																																	l83:
+/*line :348:1*/																																																																																		p33 = i32(350)
+/*line :348:1*/																																																																																		goto l193
+/*line :348:1*/																																																																																	l84:
+/*line :349:1*/																																																																																		p33 = i32(355)
+/*line :349:1*/																																																																																		goto l193
+/*line :349:1*/																																																																																	l85:
+/*line :350:1*/																																																																																		p33 = i32(356)
+/*line :350:1*/																																																																																		goto l193
+/*line :350:1*/																																																																																	l86:
+/*line :351:1*/																																																																																		p33 = i32(353)
+/*line :351:1*/																																																																																		goto l193
+/*line :351:1*/																																																																																	l87:
+/*line :352:1*/																																																																																		p33 = i32(354)
+/*line :352:1*/																																																																																		goto l193
+/*line :352:1*/																																																																																	l88:
+/*line :353:1*/																																																																																		p33 = i32(351)
+/*line :353:1*/																																																																																		goto l193
+/*line :353:1*/																																																																																	l89:
+/*line :354:1*/																																																																																		p33 = i32(352)
+/*line :354:1*/																																																																																		goto l193
+/*line :354:1*/																																																																																	l90:
+/*line :355:1*/																																																																																		p33 = i32(359)
+/*line :355:1*/																																																																																		goto l193
+/*line :355:1*/																																																																																	l91:
+/*line :356:1*/																																																																																		p33 = i32(360)
+/*line :356:1*/																																																																																		goto l193
+/*line :356:1*/																																																																																	l92:
+/*line :357:1*/																																																																																		p33 = i32(357)
+/*line :357:1*/																																																																																		goto l193
+/*line :357:1*/																																																																																	l93:
+/*line :358:1*/																																																																																		p33 = i32(358)
+/*line :358:1*/																																																																																		goto l193
+/*line :358:1*/																																																																																	l94:
+/*line :360:1*/																																																																																		p33 = i32(296)
+/*line :360:1*/																																																																																		goto l193
+/*line :360:1*/																																																																																	l95:
+/*line :361:1*/																																																																																		p33 = i32(297)
+/*line :361:1*/																																																																																		goto l193
+/*line :361:1*/																																																																																	l96:
+/*line :362:1*/																																																																																		p33 = i32(298)
+/*line :362:1*/																																																																																		goto l193
+/*line :362:1*/																																																																																	l97:
+/*line :363:1*/																																																																																		p33 = i32(299)
+/*line :363:1*/																																																																																		goto l193
+/*line :363:1*/																																																																																	l98:
+/*line :364:1*/																																																																																		p33 = i32(300)
+/*line :364:1*/																																																																																		goto l193
+/*line :364:1*/																																																																																	l99:
+/*line :365:1*/																																																																																		p33 = i32(301)
+/*line :365:1*/																																																																																		goto l193
+/*line :365:1*/																																																																																	l100:
+/*line :367:1*/																																																																																		p33 = i32(362)
+/*line :367:1*/																																																																																		goto l193
+/*line :367:1*/																																																																																	l101:
+/*line :368:1*/																																																																																		p33 = i32(363)
+/*line :368:1*/																																																																																		goto l193
+/*line :368:1*/																																																																																	l102:
+/*line :370:1*/																																																																																		p33 = i32(364)
+/*line :370:1*/																																																																																		goto l193
+/*line :370:1*/																																																																																	l103:
+/*line :371:1*/																																																																																		p33 = i32(365)
+/*line :371:1*/																																																																																		goto l193
+/*line :371:1*/																																																																																	l104:
+/*line :372:1*/																																																																																		p33 = i32(366)
+/*line :372:1*/																																																																																		goto l193
+/*line :372:1*/																																																																																	l105:
+/*line :373:1*/																																																																																		p33 = i32(367)
+/*line :373:1*/																																																																																		goto l193
+/*line :373:1*/																																																																																	l106:
+/*line :374:1*/																																																																																		p33 = i32(368)
+/*line :374:1*/																																																																																		goto l193
+/*line :374:1*/																																																																																	l107:
+/*line :375:1*/																																																																																		p33 = i32(369)
+/*line :375:1*/																																																																																		goto l193
+/*line :375:1*/																																																																																	l108:
+/*line :376:1*/																																																																																		p33 = i32(370)
+/*line :376:1*/																																																																																		goto l193
+/*line :376:1*/																																																																																	l109:
+/*line :377:1*/																																																																																		p33 = i32(371)
+/*line :377:1*/																																																																																		goto l193
+/*line :377:1*/																																																																																	l110:
+/*line :378:1*/																																																																																		p33 = i32(372)
+/*line :378:1*/																																																																																		goto l193
+/*line :378:1*/																																																																																	l111:
+/*line :379:1*/																																																																																		p33 = i32(373)
+/*line :379:1*/																																																																																		goto l193
+/*line :379:1*/																																																																																	l112:
+/*line :380:1*/																																																																																		p33 = i32(374)
+/*line :380:1*/																																																																																		goto l193
+/*line :380:1*/																																																																																	l113:
+/*line :381:1*/																																																																																		p33 = i32(375)
+/*line :381:1*/																																																																																		goto l193
+/*line :381:1*/																																																																																	l115:
+/*line :384:8*/																																																																																		t35 := int32(load32(m.memory, uint64(uint32(v1))+80))
+/*line :384:8*/																																																																																		t36 := int32(int8(m.memory[uint32(t35)]))
+/*line :384:1*/																																																																																		p33 = t36
+/*line :384:1*/																																																																																		goto l193
+/*line :384:1*/																																																																																	}
+/*line :384:1*/																																																																																l116:
+/*line :385:1*/																																																																																	p33 = i32(312)
+/*line :385:1*/																																																																																	goto l193
+/*line :385:1*/																																																																																l117:
+/*line :386:1*/																																																																																	p33 = i32(313)
+/*line :386:1*/																																																																																	goto l193
+/*line :386:1*/																																																																																l118:
+/*line :387:1*/																																																																																	p33 = i32(314)
+/*line :387:1*/																																																																																	goto l193
+/*line :387:1*/																																																																																l119:
+/*line :388:1*/																																																																																	p33 = i32(61)
+/*line :388:1*/																																																																																	goto l193
+/*line :388:1*/																																																																																l120:
+/*line :389:1*/																																																																																	p33 = i32(320)
+/*line :389:1*/																																																																																	goto l193
+/*line :389:1*/																																																																																l121:
+/*line :390:1*/																																																																																	p33 = i32(321)
+/*line :390:1*/																																																																																	goto l193
+/*line :390:1*/																																																																																l122:
+/*line :391:20*/																																																																																	t37 := int32(load32(m.memory, uint32(v1)))
+/*line :391:29*/																																																																																	t38 := int32(load32(m.memory, uint64(uint32(v1))+80))
+/*line :391:15*/																																																																																	t39 := m._sdup(t37, t38)
+/*line :391:15*/																																																																																	v0 = t39
+/*line :391:3*/																																																																																	t40 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :391:13*/																																																																																	store32(m.memory, uint32(t40), uint32(v0))
+/*line :391:38*/																																																																																	p33 = i32(319)
+/*line :391:38*/																																																																																	goto l193
+/*line :391:38*/																																																																																}
+/*line :391:38*/																																																																															l123:
+/*line :392:20*/																																																																																t41 := int32(load32(m.memory, uint32(v1)))
+/*line :392:29*/																																																																																t42 := int32(load32(m.memory, uint64(uint32(v1))+80))
+/*line :392:15*/																																																																																t43 := m._sdup(t41, t42)
+/*line :392:15*/																																																																																v0 = t43
+/*line :392:3*/																																																																																t44 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :392:13*/																																																																																store32(m.memory, uint32(t44), uint32(v0))
+/*line :406:84*/																																																																																p33 = i32(316)
+/*line :406:84*/																																																																																goto l193
+/*line :406:84*/																																																																															}
+/*line :406:84*/																																																																														l124:
+/*line :393:15*/																																																																															t45 := int32(load32(m.memory, uint64(uint32(v1))+80))
+/*line :393:23*/																																																																															t46 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :393:31*/																																																																															t47 := int32(load32(m.memory, uint32(v1)))
+/*line :393:10*/																																																																															t48 := m._stou(t45, t46, t47)
+/*line :393:3*/																																																																															p33 = t48
+/*line :393:3*/																																																																															goto l193
+/*line :393:3*/																																																																														}
+/*line :393:3*/																																																																													l125:
+/*line :395:21*/																																																																														t49 := int32(load32(m.memory, uint32(v1)))
+/*line :395:38*/																																																																														t50 := int32(load32(m.memory, uint64(uint32(v1))+80))
+/*line :395:16*/																																																																														t51 := m._sdup(t49, t50)
+/*line :395:16*/																																																																														v0 = t51
+/*line :395:4*/																																																																														t52 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :395:14*/																																																																														store32(m.memory, uint32(t52), uint32(v0))
+/*line :395:47*/																																																																														p33 = i32(317)
+/*line :395:47*/																																																																														goto l193
+/*line :395:47*/																																																																													}
+/*line :395:47*/																																																																												l126:
+/*line :398:35*/																																																																													t53 := int32(load32(m.memory, uint64(uint32(v1))+80))
+/*line :398:15*/																																																																													t54 := m._inet_pton(i32(2), t53, v9+i32(32))
+/*line :398:15*/																																																																													v0 = t54
+/*line :398:15*/																																																																													t55 := int32(load32(m.memory, uint64(uint32(v1))+80))
+/*line :398:15*/																																																																													v2 = t55
+/*line :398:15*/																																																																													t56 := int32(load32(m.memory, uint32(v1)))
+/*line :398:15*/																																																																													v3 = t56
+/*line :398:12*/																																																																													var p57 int32
+/*line :398:12*/																																																																													{
+/*line :398:12*/																																																																														if v0 != i32(1) {
+/*line :399:5*/																																																																															store32(m.memory, uint32(v9), uint32(v2))
+/*line :399:5*/																																																																															m._bpf_set_error(v3, i32(67317), v9)
+/*line :401:6*/																																																																															p57 = i32(0)
+/*line :401:6*/																																																																															goto l194
+/*line :401:6*/																																																																														}
+/*line :402:17*/																																																																														t58 := m._sdup(v3, v2)
+/*line :402:17*/																																																																														p57 = t58
+/*line :402:17*/																																																																													}
+/*line :402:17*/																																																																												l194:
+/*line :402:17*/																																																																													v0 = p57
+/*line :402:17*/																																																																													t59 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :402:17*/																																																																													store32(m.memory, uint32(t59), uint32(v0))
+/*line :402:17*/																																																																													p33 = i32(318)
+/*line :402:17*/																																																																													goto l193
+/*line :402:17*/																																																																												}
+/*line :402:17*/																																																																											l127:
+/*line :406:17*/																																																																												t60 := int32(load32(m.memory, uint32(v1)))
+/*line :406:57*/																																																																												t61 := int32(load32(m.memory, uint64(uint32(v1))+80))
+/*line :406:3*/																																																																												store32(m.memory, uint64(uint32(v9))+16, uint32(t61))
+/*line :406:3*/																																																																												m._bpf_set_error(t60, i32(67289), v9+i32(16))
+/*line :406:66*/																																																																												t62 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :406:76*/																																																																												store32(m.memory, uint32(t62), uint32(i32(0)))
 /*line :406:84*/																																																																												p33 = i32(316)
 /*line :406:84*/																																																																												goto l193
 /*line :406:84*/																																																																											}
-/*line :406:84*/																																																																										l124:
-/*line :393:15*/																																																																											t45 := int32(load32(m.memory, uint64(uint32(v1))+80))
-/*line :393:23*/																																																																											t46 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :393:31*/																																																																											t47 := int32(load32(m.memory, uint32(v1)))
-/*line :393:10*/																																																																											t48 := m._stou(t45, t46, t47)
-/*line :393:3*/																																																																											p33 = t48
-/*line :393:3*/																																																																											goto l193
-/*line :393:3*/																																																																										}
-/*line :393:3*/																																																																									l125:
-/*line :395:21*/																																																																										t49 := int32(load32(m.memory, uint32(v1)))
-/*line :395:38*/																																																																										t50 := int32(load32(m.memory, uint64(uint32(v1))+80))
-/*line :395:16*/																																																																										t51 := m._sdup(t49, t50)
-/*line :395:16*/																																																																										v0 = t51
-/*line :395:4*/																																																																										t52 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :395:14*/																																																																										store32(m.memory, uint32(t52), uint32(v0))
-/*line :395:47*/																																																																										p33 = i32(317)
-/*line :395:47*/																																																																										goto l193
-/*line :395:47*/																																																																									}
-/*line :395:47*/																																																																								l126:
-/*line :398:35*/																																																																									t53 := int32(load32(m.memory, uint64(uint32(v1))+80))
-/*line :398:15*/																																																																									t54 := m._inet_pton(i32(2), t53, v9+i32(32))
-/*line :398:15*/																																																																									v0 = t54
-/*line :398:15*/																																																																									t55 := int32(load32(m.memory, uint64(uint32(v1))+80))
-/*line :398:15*/																																																																									v2 = t55
-/*line :398:15*/																																																																									t56 := int32(load32(m.memory, uint32(v1)))
-/*line :398:15*/																																																																									v5 = t56
-/*line :398:15*/																																																																									var p57 int32
-/*line :398:15*/																																																																									{
-/*line :398:12*/																																																																										if v0 != i32(1) {
-/*line :399:5*/																																																																											store32(m.memory, uint32(v9), uint32(v2))
-/*line :399:5*/																																																																											m._bpf_set_error(v5, i32(67317), v9)
-/*line :401:6*/																																																																											p57 = i32(0)
-/*line :401:6*/																																																																											goto l194
-/*line :401:6*/																																																																										}
-/*line :402:17*/																																																																										t58 := m._sdup(v5, v2)
-/*line :402:17*/																																																																										p57 = t58
-/*line :402:17*/																																																																									}
-/*line :402:17*/																																																																								l194:
-/*line :402:17*/																																																																									v0 = p57
-/*line :402:17*/																																																																									t59 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :402:17*/																																																																									store32(m.memory, uint32(t59), uint32(v0))
-/*line :402:17*/																																																																									p33 = i32(318)
-/*line :402:17*/																																																																									goto l193
-/*line :402:17*/																																																																								}
-/*line :402:17*/																																																																							l127:
-/*line :406:17*/																																																																								t60 := int32(load32(m.memory, uint32(v1)))
-/*line :406:57*/																																																																								t61 := int32(load32(m.memory, uint64(uint32(v1))+80))
-/*line :406:3*/																																																																								store32(m.memory, uint64(uint32(v9))+16, uint32(t61))
-/*line :406:3*/																																																																								m._bpf_set_error(t60, i32(67289), v9+i32(16))
-/*line :406:66*/																																																																								t62 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :406:76*/																																																																								store32(m.memory, uint32(t62), uint32(i32(0)))
-/*line :406:84*/																																																																								p33 = i32(316)
-/*line :406:84*/																																																																								goto l193
-/*line :406:84*/																																																																							}
-/*line :406:84*/																																																																						l128:
-/*line :407:3*/																																																																							t63 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :407:13*/																																																																							store32(m.memory, uint32(t63), uint32(i32(0)))
+/*line :406:84*/																																																																										l128:
+/*line :407:3*/																																																																											t63 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :407:13*/																																																																											store32(m.memory, uint32(t63), uint32(i32(0)))
+/*line :466:21*/																																																																											p33 = i32(292)
+/*line :466:21*/																																																																											goto l193
+/*line :466:21*/																																																																										}
+/*line :466:21*/																																																																									l129:
+/*line :408:3*/																																																																										t64 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :408:13*/																																																																										store32(m.memory, uint32(t64), uint32(i32(1)))
+/*line :466:21*/																																																																										p33 = i32(292)
+/*line :466:21*/																																																																										goto l193
+/*line :466:21*/																																																																									}
+/*line :466:21*/																																																																								l130:
+/*line :409:3*/																																																																									t65 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :409:13*/																																																																									store32(m.memory, uint32(t65), uint32(i32(0)))
+/*line :466:21*/																																																																									p33 = i32(292)
+/*line :466:21*/																																																																									goto l193
+/*line :466:21*/																																																																								}
+/*line :466:21*/																																																																							l131:
+/*line :410:3*/																																																																								t66 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :410:13*/																																																																								store32(m.memory, uint32(t66), uint32(i32(3)))
+/*line :466:21*/																																																																								p33 = i32(292)
+/*line :466:21*/																																																																								goto l193
+/*line :466:21*/																																																																							}
+/*line :466:21*/																																																																						l132:
+/*line :411:3*/																																																																							t67 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :411:13*/																																																																							store32(m.memory, uint32(t67), uint32(i32(4)))
 /*line :466:21*/																																																																							p33 = i32(292)
 /*line :466:21*/																																																																							goto l193
 /*line :466:21*/																																																																						}
-/*line :466:21*/																																																																					l129:
-/*line :408:3*/																																																																						t64 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :408:13*/																																																																						store32(m.memory, uint32(t64), uint32(i32(1)))
+/*line :466:21*/																																																																					l133:
+/*line :412:3*/																																																																						t68 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :412:13*/																																																																						store32(m.memory, uint32(t68), uint32(i32(5)))
 /*line :466:21*/																																																																						p33 = i32(292)
 /*line :466:21*/																																																																						goto l193
 /*line :466:21*/																																																																					}
-/*line :466:21*/																																																																				l130:
-/*line :409:3*/																																																																					t65 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :409:13*/																																																																					store32(m.memory, uint32(t65), uint32(i32(0)))
+/*line :466:21*/																																																																				l134:
+/*line :413:3*/																																																																					t69 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :413:13*/																																																																					store32(m.memory, uint32(t69), uint32(i32(8)))
 /*line :466:21*/																																																																					p33 = i32(292)
 /*line :466:21*/																																																																					goto l193
 /*line :466:21*/																																																																				}
-/*line :466:21*/																																																																			l131:
-/*line :410:3*/																																																																				t66 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :410:13*/																																																																				store32(m.memory, uint32(t66), uint32(i32(3)))
+/*line :466:21*/																																																																			l135:
+/*line :414:3*/																																																																				t70 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :414:13*/																																																																				store32(m.memory, uint32(t70), uint32(i32(9)))
 /*line :466:21*/																																																																				p33 = i32(292)
 /*line :466:21*/																																																																				goto l193
 /*line :466:21*/																																																																			}
-/*line :466:21*/																																																																		l132:
-/*line :411:3*/																																																																			t67 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :411:13*/																																																																			store32(m.memory, uint32(t67), uint32(i32(4)))
+/*line :466:21*/																																																																		l136:
+/*line :415:3*/																																																																			t71 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :415:13*/																																																																			store32(m.memory, uint32(t71), uint32(i32(10)))
 /*line :466:21*/																																																																			p33 = i32(292)
 /*line :466:21*/																																																																			goto l193
 /*line :466:21*/																																																																		}
-/*line :466:21*/																																																																	l133:
-/*line :412:3*/																																																																		t68 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :412:13*/																																																																		store32(m.memory, uint32(t68), uint32(i32(5)))
+/*line :466:21*/																																																																	l137:
+/*line :416:3*/																																																																		t72 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :416:13*/																																																																		store32(m.memory, uint32(t72), uint32(i32(11)))
 /*line :466:21*/																																																																		p33 = i32(292)
 /*line :466:21*/																																																																		goto l193
 /*line :466:21*/																																																																	}
-/*line :466:21*/																																																																l134:
-/*line :413:3*/																																																																	t69 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :413:13*/																																																																	store32(m.memory, uint32(t69), uint32(i32(8)))
+/*line :466:21*/																																																																l138:
+/*line :417:3*/																																																																	t73 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :417:13*/																																																																	store32(m.memory, uint32(t73), uint32(i32(12)))
 /*line :466:21*/																																																																	p33 = i32(292)
 /*line :466:21*/																																																																	goto l193
 /*line :466:21*/																																																																}
-/*line :466:21*/																																																															l135:
-/*line :414:3*/																																																																t70 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :414:13*/																																																																store32(m.memory, uint32(t70), uint32(i32(9)))
+/*line :466:21*/																																																															l139:
+/*line :418:3*/																																																																t74 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :418:13*/																																																																store32(m.memory, uint32(t74), uint32(i32(13)))
 /*line :466:21*/																																																																p33 = i32(292)
 /*line :466:21*/																																																																goto l193
 /*line :466:21*/																																																															}
-/*line :466:21*/																																																														l136:
-/*line :415:3*/																																																															t71 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :415:13*/																																																															store32(m.memory, uint32(t71), uint32(i32(10)))
+/*line :466:21*/																																																														l140:
+/*line :419:3*/																																																															t75 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :419:13*/																																																															store32(m.memory, uint32(t75), uint32(i32(14)))
 /*line :466:21*/																																																															p33 = i32(292)
 /*line :466:21*/																																																															goto l193
 /*line :466:21*/																																																														}
-/*line :466:21*/																																																													l137:
-/*line :416:3*/																																																														t72 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :416:13*/																																																														store32(m.memory, uint32(t72), uint32(i32(11)))
+/*line :466:21*/																																																													l141:
+/*line :420:3*/																																																														t76 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :420:13*/																																																														store32(m.memory, uint32(t76), uint32(i32(15)))
 /*line :466:21*/																																																														p33 = i32(292)
 /*line :466:21*/																																																														goto l193
 /*line :466:21*/																																																													}
-/*line :466:21*/																																																												l138:
-/*line :417:3*/																																																													t73 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :417:13*/																																																													store32(m.memory, uint32(t73), uint32(i32(12)))
+/*line :466:21*/																																																												l142:
+/*line :421:3*/																																																													t77 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :421:13*/																																																													store32(m.memory, uint32(t77), uint32(i32(16)))
 /*line :466:21*/																																																													p33 = i32(292)
 /*line :466:21*/																																																													goto l193
 /*line :466:21*/																																																												}
-/*line :466:21*/																																																											l139:
-/*line :418:3*/																																																												t74 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :418:13*/																																																												store32(m.memory, uint32(t74), uint32(i32(13)))
+/*line :466:21*/																																																											l143:
+/*line :422:3*/																																																												t78 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :422:13*/																																																												store32(m.memory, uint32(t78), uint32(i32(17)))
 /*line :466:21*/																																																												p33 = i32(292)
 /*line :466:21*/																																																												goto l193
 /*line :466:21*/																																																											}
-/*line :466:21*/																																																										l140:
-/*line :419:3*/																																																											t75 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :419:13*/																																																											store32(m.memory, uint32(t75), uint32(i32(14)))
+/*line :466:21*/																																																										l144:
+/*line :423:3*/																																																											t79 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :423:13*/																																																											store32(m.memory, uint32(t79), uint32(i32(18)))
 /*line :466:21*/																																																											p33 = i32(292)
 /*line :466:21*/																																																											goto l193
 /*line :466:21*/																																																										}
-/*line :466:21*/																																																									l141:
-/*line :420:3*/																																																										t76 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :420:13*/																																																										store32(m.memory, uint32(t76), uint32(i32(15)))
+/*line :466:21*/																																																									l145:
+/*line :425:3*/																																																										t80 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :425:13*/																																																										store32(m.memory, uint32(t80), uint32(i32(0)))
 /*line :466:21*/																																																										p33 = i32(292)
 /*line :466:21*/																																																										goto l193
 /*line :466:21*/																																																									}
-/*line :466:21*/																																																								l142:
-/*line :421:3*/																																																									t77 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :421:13*/																																																									store32(m.memory, uint32(t77), uint32(i32(16)))
+/*line :466:21*/																																																								l146:
+/*line :426:3*/																																																									t81 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :426:13*/																																																									store32(m.memory, uint32(t81), uint32(i32(1)))
 /*line :466:21*/																																																									p33 = i32(292)
 /*line :466:21*/																																																									goto l193
 /*line :466:21*/																																																								}
-/*line :466:21*/																																																							l143:
-/*line :422:3*/																																																								t78 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :422:13*/																																																								store32(m.memory, uint32(t78), uint32(i32(17)))
+/*line :466:21*/																																																							l147:
+/*line :428:3*/																																																								t82 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :428:13*/																																																								store32(m.memory, uint32(t82), uint32(i32(1)))
 /*line :466:21*/																																																								p33 = i32(292)
 /*line :466:21*/																																																								goto l193
 /*line :466:21*/																																																							}
-/*line :466:21*/																																																						l144:
-/*line :423:3*/																																																							t79 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :423:13*/																																																							store32(m.memory, uint32(t79), uint32(i32(18)))
+/*line :466:21*/																																																						l148:
+/*line :429:3*/																																																							t83 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :429:13*/																																																							store32(m.memory, uint32(t83), uint32(i32(2)))
 /*line :466:21*/																																																							p33 = i32(292)
 /*line :466:21*/																																																							goto l193
 /*line :466:21*/																																																						}
-/*line :466:21*/																																																					l145:
-/*line :425:3*/																																																						t80 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :425:13*/																																																						store32(m.memory, uint32(t80), uint32(i32(0)))
+/*line :466:21*/																																																					l149:
+/*line :430:3*/																																																						t84 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :430:13*/																																																						store32(m.memory, uint32(t84), uint32(i32(3)))
 /*line :466:21*/																																																						p33 = i32(292)
 /*line :466:21*/																																																						goto l193
 /*line :466:21*/																																																					}
-/*line :466:21*/																																																				l146:
-/*line :426:3*/																																																					t81 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :426:13*/																																																					store32(m.memory, uint32(t81), uint32(i32(1)))
+/*line :466:21*/																																																				l150:
+/*line :431:3*/																																																					t85 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :431:13*/																																																					store32(m.memory, uint32(t85), uint32(i32(4)))
 /*line :466:21*/																																																					p33 = i32(292)
 /*line :466:21*/																																																					goto l193
 /*line :466:21*/																																																				}
-/*line :466:21*/																																																			l147:
-/*line :428:3*/																																																				t82 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :428:13*/																																																				store32(m.memory, uint32(t82), uint32(i32(1)))
+/*line :466:21*/																																																			l151:
+/*line :432:3*/																																																				t86 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :432:13*/																																																				store32(m.memory, uint32(t86), uint32(i32(128)))
 /*line :466:21*/																																																				p33 = i32(292)
 /*line :466:21*/																																																				goto l193
 /*line :466:21*/																																																			}
-/*line :466:21*/																																																		l148:
-/*line :429:3*/																																																			t83 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :429:13*/																																																			store32(m.memory, uint32(t83), uint32(i32(2)))
+/*line :466:21*/																																																		l152:
+/*line :433:3*/																																																			t87 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :433:13*/																																																			store32(m.memory, uint32(t87), uint32(i32(129)))
 /*line :466:21*/																																																			p33 = i32(292)
 /*line :466:21*/																																																			goto l193
 /*line :466:21*/																																																		}
-/*line :466:21*/																																																	l149:
-/*line :430:3*/																																																		t84 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :430:13*/																																																		store32(m.memory, uint32(t84), uint32(i32(3)))
+/*line :466:21*/																																																	l153:
+/*line :434:3*/																																																		t88 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :434:13*/																																																		store32(m.memory, uint32(t88), uint32(i32(130)))
 /*line :466:21*/																																																		p33 = i32(292)
 /*line :466:21*/																																																		goto l193
 /*line :466:21*/																																																	}
-/*line :466:21*/																																																l150:
-/*line :431:3*/																																																	t85 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :431:13*/																																																	store32(m.memory, uint32(t85), uint32(i32(4)))
+/*line :466:21*/																																																l154:
+/*line :435:3*/																																																	t89 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :435:13*/																																																	store32(m.memory, uint32(t89), uint32(i32(131)))
 /*line :466:21*/																																																	p33 = i32(292)
 /*line :466:21*/																																																	goto l193
 /*line :466:21*/																																																}
-/*line :466:21*/																																															l151:
-/*line :432:3*/																																																t86 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :432:13*/																																																store32(m.memory, uint32(t86), uint32(i32(128)))
+/*line :466:21*/																																															l155:
+/*line :436:3*/																																																t90 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :436:13*/																																																store32(m.memory, uint32(t90), uint32(i32(132)))
 /*line :466:21*/																																																p33 = i32(292)
 /*line :466:21*/																																																goto l193
 /*line :466:21*/																																															}
-/*line :466:21*/																																														l152:
-/*line :433:3*/																																															t87 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :433:13*/																																															store32(m.memory, uint32(t87), uint32(i32(129)))
+/*line :466:21*/																																														l156:
+/*line :437:3*/																																															t91 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :437:13*/																																															store32(m.memory, uint32(t91), uint32(i32(133)))
 /*line :466:21*/																																															p33 = i32(292)
 /*line :466:21*/																																															goto l193
 /*line :466:21*/																																														}
-/*line :466:21*/																																													l153:
-/*line :434:3*/																																														t88 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :434:13*/																																														store32(m.memory, uint32(t88), uint32(i32(130)))
+/*line :466:21*/																																													l157:
+/*line :438:3*/																																														t92 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :438:13*/																																														store32(m.memory, uint32(t92), uint32(i32(134)))
 /*line :466:21*/																																														p33 = i32(292)
 /*line :466:21*/																																														goto l193
 /*line :466:21*/																																													}
-/*line :466:21*/																																												l154:
-/*line :435:3*/																																													t89 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :435:13*/																																													store32(m.memory, uint32(t89), uint32(i32(131)))
+/*line :466:21*/																																												l158:
+/*line :439:3*/																																													t93 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :439:13*/																																													store32(m.memory, uint32(t93), uint32(i32(135)))
 /*line :466:21*/																																													p33 = i32(292)
 /*line :466:21*/																																													goto l193
 /*line :466:21*/																																												}
-/*line :466:21*/																																											l155:
-/*line :436:3*/																																												t90 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :436:13*/																																												store32(m.memory, uint32(t90), uint32(i32(132)))
+/*line :466:21*/																																											l159:
+/*line :440:3*/																																												t94 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :440:13*/																																												store32(m.memory, uint32(t94), uint32(i32(136)))
 /*line :466:21*/																																												p33 = i32(292)
 /*line :466:21*/																																												goto l193
 /*line :466:21*/																																											}
-/*line :466:21*/																																										l156:
-/*line :437:3*/																																											t91 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :437:13*/																																											store32(m.memory, uint32(t91), uint32(i32(133)))
+/*line :466:21*/																																										l160:
+/*line :441:3*/																																											t95 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :441:13*/																																											store32(m.memory, uint32(t95), uint32(i32(137)))
 /*line :466:21*/																																											p33 = i32(292)
 /*line :466:21*/																																											goto l193
 /*line :466:21*/																																										}
-/*line :466:21*/																																									l157:
-/*line :438:3*/																																										t92 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :438:13*/																																										store32(m.memory, uint32(t92), uint32(i32(134)))
+/*line :466:21*/																																									l161:
+/*line :442:3*/																																										t96 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :442:13*/																																										store32(m.memory, uint32(t96), uint32(i32(138)))
 /*line :466:21*/																																										p33 = i32(292)
 /*line :466:21*/																																										goto l193
 /*line :466:21*/																																									}
-/*line :466:21*/																																								l158:
-/*line :439:3*/																																									t93 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :439:13*/																																									store32(m.memory, uint32(t93), uint32(i32(135)))
+/*line :466:21*/																																								l162:
+/*line :443:3*/																																									t97 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :443:13*/																																									store32(m.memory, uint32(t97), uint32(i32(139)))
 /*line :466:21*/																																									p33 = i32(292)
 /*line :466:21*/																																									goto l193
 /*line :466:21*/																																								}
-/*line :466:21*/																																							l159:
-/*line :440:3*/																																								t94 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :440:13*/																																								store32(m.memory, uint32(t94), uint32(i32(136)))
+/*line :466:21*/																																							l163:
+/*line :444:3*/																																								t98 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :444:13*/																																								store32(m.memory, uint32(t98), uint32(i32(140)))
 /*line :466:21*/																																								p33 = i32(292)
 /*line :466:21*/																																								goto l193
 /*line :466:21*/																																							}
-/*line :466:21*/																																						l160:
-/*line :441:3*/																																							t95 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :441:13*/																																							store32(m.memory, uint32(t95), uint32(i32(137)))
+/*line :466:21*/																																						l164:
+/*line :445:3*/																																							t99 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :445:13*/																																							store32(m.memory, uint32(t99), uint32(i32(141)))
 /*line :466:21*/																																							p33 = i32(292)
 /*line :466:21*/																																							goto l193
 /*line :466:21*/																																						}
-/*line :466:21*/																																					l161:
-/*line :442:3*/																																						t96 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :442:13*/																																						store32(m.memory, uint32(t96), uint32(i32(138)))
+/*line :466:21*/																																					l165:
+/*line :446:3*/																																						t100 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :446:13*/																																						store32(m.memory, uint32(t100), uint32(i32(142)))
 /*line :466:21*/																																						p33 = i32(292)
 /*line :466:21*/																																						goto l193
 /*line :466:21*/																																					}
-/*line :466:21*/																																				l162:
-/*line :443:3*/																																					t97 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :443:13*/																																					store32(m.memory, uint32(t97), uint32(i32(139)))
+/*line :466:21*/																																				l166:
+/*line :447:3*/																																					t101 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :447:13*/																																					store32(m.memory, uint32(t101), uint32(i32(143)))
 /*line :466:21*/																																					p33 = i32(292)
 /*line :466:21*/																																					goto l193
 /*line :466:21*/																																				}
-/*line :466:21*/																																			l163:
-/*line :444:3*/																																				t98 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :444:13*/																																				store32(m.memory, uint32(t98), uint32(i32(140)))
+/*line :466:21*/																																			l167:
+/*line :448:3*/																																				t102 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :448:13*/																																				store32(m.memory, uint32(t102), uint32(i32(144)))
 /*line :466:21*/																																				p33 = i32(292)
 /*line :466:21*/																																				goto l193
 /*line :466:21*/																																			}
-/*line :466:21*/																																		l164:
-/*line :445:3*/																																			t99 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :445:13*/																																			store32(m.memory, uint32(t99), uint32(i32(141)))
+/*line :466:21*/																																		l168:
+/*line :449:3*/																																			t103 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :449:13*/																																			store32(m.memory, uint32(t103), uint32(i32(145)))
 /*line :466:21*/																																			p33 = i32(292)
 /*line :466:21*/																																			goto l193
 /*line :466:21*/																																		}
-/*line :466:21*/																																	l165:
-/*line :446:3*/																																		t100 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :446:13*/																																		store32(m.memory, uint32(t100), uint32(i32(142)))
+/*line :466:21*/																																	l169:
+/*line :450:3*/																																		t104 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :450:13*/																																		store32(m.memory, uint32(t104), uint32(i32(146)))
 /*line :466:21*/																																		p33 = i32(292)
 /*line :466:21*/																																		goto l193
 /*line :466:21*/																																	}
-/*line :466:21*/																																l166:
-/*line :447:3*/																																	t101 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :447:13*/																																	store32(m.memory, uint32(t101), uint32(i32(143)))
+/*line :466:21*/																																l170:
+/*line :451:3*/																																	t105 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :451:13*/																																	store32(m.memory, uint32(t105), uint32(i32(147)))
 /*line :466:21*/																																	p33 = i32(292)
 /*line :466:21*/																																	goto l193
 /*line :466:21*/																																}
-/*line :466:21*/																															l167:
-/*line :448:3*/																																t102 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :448:13*/																																store32(m.memory, uint32(t102), uint32(i32(144)))
+/*line :466:21*/																															l171:
+/*line :452:3*/																																t106 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :452:13*/																																store32(m.memory, uint32(t106), uint32(i32(148)))
 /*line :466:21*/																																p33 = i32(292)
 /*line :466:21*/																																goto l193
 /*line :466:21*/																															}
-/*line :466:21*/																														l168:
-/*line :449:3*/																															t103 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :449:13*/																															store32(m.memory, uint32(t103), uint32(i32(145)))
+/*line :466:21*/																														l172:
+/*line :453:3*/																															t107 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :453:13*/																															store32(m.memory, uint32(t107), uint32(i32(149)))
 /*line :466:21*/																															p33 = i32(292)
 /*line :466:21*/																															goto l193
 /*line :466:21*/																														}
-/*line :466:21*/																													l169:
-/*line :450:3*/																														t104 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :450:13*/																														store32(m.memory, uint32(t104), uint32(i32(146)))
+/*line :466:21*/																													l173:
+/*line :454:3*/																														t108 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :454:13*/																														store32(m.memory, uint32(t108), uint32(i32(151)))
 /*line :466:21*/																														p33 = i32(292)
 /*line :466:21*/																														goto l193
 /*line :466:21*/																													}
-/*line :466:21*/																												l170:
-/*line :451:3*/																													t105 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :451:13*/																													store32(m.memory, uint32(t105), uint32(i32(147)))
+/*line :466:21*/																												l174:
+/*line :455:3*/																													t109 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :455:13*/																													store32(m.memory, uint32(t109), uint32(i32(152)))
 /*line :466:21*/																													p33 = i32(292)
 /*line :466:21*/																													goto l193
 /*line :466:21*/																												}
-/*line :466:21*/																											l171:
-/*line :452:3*/																												t106 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :452:13*/																												store32(m.memory, uint32(t106), uint32(i32(148)))
+/*line :466:21*/																											l175:
+/*line :456:3*/																												t110 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :456:13*/																												store32(m.memory, uint32(t110), uint32(i32(153)))
 /*line :466:21*/																												p33 = i32(292)
 /*line :466:21*/																												goto l193
 /*line :466:21*/																											}
-/*line :466:21*/																										l172:
-/*line :453:3*/																											t107 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :453:13*/																											store32(m.memory, uint32(t107), uint32(i32(149)))
+/*line :466:21*/																										l176:
+/*line :458:3*/																											t111 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :458:13*/																											store32(m.memory, uint32(t111), uint32(i32(13)))
 /*line :466:21*/																											p33 = i32(292)
 /*line :466:21*/																											goto l193
 /*line :466:21*/																										}
-/*line :466:21*/																									l173:
-/*line :454:3*/																										t108 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :454:13*/																										store32(m.memory, uint32(t108), uint32(i32(151)))
+/*line :466:21*/																									l177:
+/*line :459:3*/																										t112 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :459:13*/																										store32(m.memory, uint32(t112), uint32(i32(1)))
 /*line :466:21*/																										p33 = i32(292)
 /*line :466:21*/																										goto l193
 /*line :466:21*/																									}
-/*line :466:21*/																								l174:
-/*line :455:3*/																									t109 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :455:13*/																									store32(m.memory, uint32(t109), uint32(i32(152)))
+/*line :466:21*/																								l178:
+/*line :460:3*/																									t113 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :460:13*/																									store32(m.memory, uint32(t113), uint32(i32(2)))
 /*line :466:21*/																									p33 = i32(292)
 /*line :466:21*/																									goto l193
 /*line :466:21*/																								}
-/*line :466:21*/																							l175:
-/*line :456:3*/																								t110 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :456:13*/																								store32(m.memory, uint32(t110), uint32(i32(153)))
+/*line :466:21*/																							l179:
+/*line :461:3*/																								t114 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :461:13*/																								store32(m.memory, uint32(t114), uint32(i32(4)))
 /*line :466:21*/																								p33 = i32(292)
 /*line :466:21*/																								goto l193
 /*line :466:21*/																							}
-/*line :466:21*/																						l176:
-/*line :458:3*/																							t111 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :458:13*/																							store32(m.memory, uint32(t111), uint32(i32(13)))
+/*line :466:21*/																						l180:
+/*line :462:3*/																							t115 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :462:13*/																							store32(m.memory, uint32(t115), uint32(i32(8)))
 /*line :466:21*/																							p33 = i32(292)
 /*line :466:21*/																							goto l193
 /*line :466:21*/																						}
-/*line :466:21*/																					l177:
-/*line :459:3*/																						t112 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :459:13*/																						store32(m.memory, uint32(t112), uint32(i32(1)))
+/*line :466:21*/																					l181:
+/*line :463:3*/																						t116 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :463:13*/																						store32(m.memory, uint32(t116), uint32(i32(16)))
 /*line :466:21*/																						p33 = i32(292)
 /*line :466:21*/																						goto l193
 /*line :466:21*/																					}
-/*line :466:21*/																				l178:
-/*line :460:3*/																					t113 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :460:13*/																					store32(m.memory, uint32(t113), uint32(i32(2)))
+/*line :466:21*/																				l182:
+/*line :464:3*/																					t117 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :464:13*/																					store32(m.memory, uint32(t117), uint32(i32(32)))
 /*line :466:21*/																					p33 = i32(292)
 /*line :466:21*/																					goto l193
 /*line :466:21*/																				}
-/*line :466:21*/																			l179:
-/*line :461:3*/																				t114 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :461:13*/																				store32(m.memory, uint32(t114), uint32(i32(4)))
+/*line :466:21*/																			l183:
+/*line :465:3*/																				t118 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :465:13*/																				store32(m.memory, uint32(t118), uint32(i32(64)))
 /*line :466:21*/																				p33 = i32(292)
 /*line :466:21*/																				goto l193
 /*line :466:21*/																			}
-/*line :466:21*/																		l180:
-/*line :462:3*/																			t115 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :462:13*/																			store32(m.memory, uint32(t115), uint32(i32(8)))
+/*line :466:21*/																		l184:
+/*line :466:3*/																			t119 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :466:13*/																			store32(m.memory, uint32(t119), uint32(i32(128)))
 /*line :466:21*/																			p33 = i32(292)
 /*line :466:21*/																			goto l193
 /*line :466:21*/																		}
-/*line :466:21*/																	l181:
-/*line :463:3*/																		t116 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :463:13*/																		store32(m.memory, uint32(t116), uint32(i32(16)))
-/*line :466:21*/																		p33 = i32(292)
-/*line :466:21*/																		goto l193
-/*line :466:21*/																	}
-/*line :466:21*/																l182:
-/*line :464:3*/																	t117 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :464:13*/																	store32(m.memory, uint32(t117), uint32(i32(32)))
-/*line :466:21*/																	p33 = i32(292)
-/*line :466:21*/																	goto l193
-/*line :466:21*/																}
-/*line :466:21*/															l183:
-/*line :465:3*/																t118 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :465:13*/																store32(m.memory, uint32(t118), uint32(i32(64)))
-/*line :466:21*/																p33 = i32(292)
-/*line :466:21*/																goto l193
-/*line :466:21*/															}
-/*line :466:21*/														l184:
-/*line :466:3*/															t119 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :466:13*/															store32(m.memory, uint32(t119), uint32(i32(128)))
-/*line :466:21*/															p33 = i32(292)
-/*line :466:21*/															goto l193
-/*line :466:21*/														}
-/*line :466:21*/													l185:
-/*line :468:22*/														t120 := int32(load32(m.memory, uint32(v1)))
-/*line :468:39*/														t121 := int32(load32(m.memory, uint64(uint32(v1))+80))
-/*line :468:17*/														t122 := m._sdup(t120, t121)
-/*line :468:17*/														v0 = t122
-/*line :468:5*/														t123 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :468:15*/														store32(m.memory, uint32(t123), uint32(v0))
-/*line :469:50*/														p33 = i32(315)
-/*line :469:50*/														goto l193
-/*line :469:50*/													}
-/*line :469:50*/												l186:
-/*line :469:20*/													t124 := int32(load32(m.memory, uint32(v1)))
-/*line :469:37*/													t125 := int32(load32(m.memory, uint64(uint32(v1))+80))
-/*line :469:15*/													t126 := m._sdup(t124, t125+i32(1))
-/*line :469:15*/													v0 = t126
-/*line :469:3*/													t127 := int32(load32(m.memory, uint64(uint32(v1))+92))
-/*line :469:13*/													store32(m.memory, uint32(t127), uint32(v0))
-/*line :469:50*/													p33 = i32(315)
-/*line :469:50*/													goto l193
-/*line :469:50*/												}
-/*line :469:50*/											l187:
-/*line :470:3*/												p33 = i32(376)
-/*line :470:3*/												goto l193
-/*line :470:3*/											l188:
-/*line :471:1*/												t128 := int32(load32(m.memory, uint64(uint32(v1))+80))
-/*line :471:1*/												t129 := int32(load32(m.memory, uint64(uint32(v1))+32))
-/*line :471:1*/												t130 := int32(load32(m.memory, uint64(uint32(v1))+8))
-/*line :471:1*/												_ = _fwrite(t128, t129, i32(1), t130)
-/*line :472:2*/												goto l114
-/*line :472:2*/											}
-/*line :472:2*/										l190:
-/*line ../src/scanner.c:4465:2*/											p33 = i32(0)
-/*line :4465:2*/											goto l193
-/*line :4465:2*/										l189:
-/*line :4470:55*/											t132 := int32(load32(m.memory, uint64(uint32(v1))+80))
-/*line :4470:55*/											v11 = t132
-/*line :4473:17*/											t133 := int32(m.memory[uint64(uint32(v1))+24])
-/*line :4473:10*/											m.memory[uint32(v5)] = byte(t133)
-/*line :4476:8*/											{
-/*line :4476:8*/												t134 := int32(load32(m.memory, uint64(uint32(v1))+20))
-/*line :4476:8*/												t135 := int32(load32(m.memory, uint64(uint32(v1))+12))
-/*line :4476:8*/												t136 := int32(load32(m.memory, uint32(t134+t135<<2)))
-/*line :4476:34*/												v2 = t136
-/*line :4476:34*/												t137 := int32(load32(m.memory, uint64(uint32(v2))+44))
-/*line :4476:51*/												v3 = t137
-/*line :4476:51*/												if v3 != 0 {
-/*line :4499:69*/													t138 := int32(load32(m.memory, uint64(uint32(v1))+28))
-/*line :4499:69*/													v4 = t138
-/*line :4476:51*/													goto l195
-/*line :4476:51*/												}
-/*line :4476:51*/												v3 = i32(1)
-/*line :4489:47*/												store32(m.memory, uint64(uint32(v2))+44, uint32(i32(1)))
-/*line :4487:48*/												t139 := int32(load32(m.memory, uint64(uint32(v2))+16))
-/*line :4487:20*/												t140 := v1
-/*line :4487:20*/												v4 = t139
-/*line :4487:20*/												store32(m.memory, uint64(uint32(t140))+28, uint32(v4))
-/*line :4488:46*/												t141 := int32(load32(m.memory, uint64(uint32(v1))+4))
-/*line :4488:44*/												store32(m.memory, uint32(v2), uint32(t141))
-/*line :4488:44*/											}
-/*line :4488:44*/										l195:
-/*line :4488:44*/											t142 := int32(load32(m.memory, uint64(uint32(v1))+36))
-/*line :4499:54*/											v10 = t142
-/*line :4499:54*/											t143 := int32(load32(m.memory, uint64(uint32(v2))+4))
-/*line :4499:28*/											t144 := v10
-/*line :4499:28*/											v0 = t143
-/*line :4499:24*/											v6 = v0 + v4
-/*line :4499:24*/											if uint32(t144) <= uint32(v6) {
-/*line :4503:27*/												t145 := int32(load32(m.memory, uint64(uint32(v1))+80))
-/*line :4503:27*/												t146 := v1
-/*line :4503:27*/												v7 = t145
-/*line :4503:38*/												t147 := v7
-/*line :4503:38*/												v2 = v11 ^ i32(-1) + v5
-/*line :4503:20*/												v6 = t147 + v2
-/*line :4503:20*/												store32(m.memory, uint64(uint32(t146))+36, uint32(v6))
-/*line :4750:26*/												t148 := int32(load32(m.memory, uint64(uint32(v1))+44))
-/*line :4750:26*/												v0 = t148
-/*line :4752:53*/												if v2 > i32(0) {
-/*line :4752:53*/													v4 = v7
-/*line :4752:53*/												l197:
-/*line :4752:53*/													{
-/*line :4752:53*/														v2 = i32(1)
-/*line :4752:53*/														t149 := int32(m.memory[uint32(v4)])
-/*line :4752:53*/														v5 = t149
-/*line :4752:53*/														if v5 != 0 {
-/*line :4754:28*/															t150 := int32(m.memory[uint64(uint32(v5))+81216])
-/*line :4754:28*/															v2 = t150
-/*line :4754:28*/														}
-/*line :4755:8*/														t151 := int32(load16(m.memory, uint32(v0<<1+i32(81472))))
-/*line :4755:8*/														if t151 != 0 {
-/*line :4758:32*/															store32(m.memory, uint64(uint32(v1))+68, uint32(v4))
-/*line :4757:33*/															store32(m.memory, uint64(uint32(v1))+64, uint32(v0))
-/*line :4757:33*/														}
-/*line :4760:44*/														v5 = v2 & i32(255)
-/*line :4760:18*/														t152 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
-/*line :4760:18*/														v3 = v5 + t152
-/*line :4760:11*/														t153 := int32(int16(load16(m.memory, uint32(v3<<1+i32(85056)))))
-/*line :4760:52*/														if t153 != v0 {
-/*line :4760:52*/														l196:
-/*line :4760:52*/															{
-/*line :4762:29*/																t154 := int32(int16(load16(m.memory, uint32(v0<<1+i32(105152)))))
-/*line :4762:29*/																v0 = t154
-/*line :4762:29*/																if v0 >= i32(1789) {
-/*line :4764:12*/																	t155 := int32(m.memory[uint64(uint32(v5))+109664])
-/*line :4764:12*/																	v2 = t155
-/*line :4764:12*/																}
-/*line :4760:44*/																v5 = v2 & i32(255)
-/*line :4760:18*/																t156 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
-/*line :4760:18*/																v3 = v5 + t156
-/*line :4760:11*/																t157 := int32(load16(m.memory, uint32(v3<<1+i32(85056))))
-/*line :4760:3*/																if t157 != v0&i32(0xffff) {
-/*line :4760:3*/																	goto l196
-/*line :4760:3*/																}
-/*line :4760:3*/															}
-/*line :4760:3*/														}
-/*line :4766:22*/														t158 := int32(int16(load16(m.memory, uint32(v3<<1+i32(109728)))))
-/*line :4766:22*/														v0 = t158
-/*line :4752:53*/														v4 = v4 + i32(1)
-/*line :4752:2*/														if v4 != v6 {
-/*line :4752:2*/															goto l197
-/*line :4752:2*/														}
-/*line :4752:2*/													}
+/*line :466:21*/																	l185:
+/*line :468:22*/																		t120 := int32(load32(m.memory, uint32(v1)))
+/*line :468:39*/																		t121 := int32(load32(m.memory, uint64(uint32(v1))+80))
+/*line :468:17*/																		t122 := m._sdup(t120, t121)
+/*line :468:17*/																		v0 = t122
+/*line :468:5*/																		t123 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :468:15*/																		store32(m.memory, uint32(t123), uint32(v0))
+/*line :469:50*/																		p33 = i32(315)
+/*line :469:50*/																		goto l193
+/*line :469:50*/																	}
+/*line :469:50*/																l186:
+/*line :469:20*/																	t124 := int32(load32(m.memory, uint32(v1)))
+/*line :469:37*/																	t125 := int32(load32(m.memory, uint64(uint32(v1))+80))
+/*line :469:15*/																	t126 := m._sdup(t124, t125+i32(1))
+/*line :469:15*/																	v0 = t126
+/*line :469:3*/																	t127 := int32(load32(m.memory, uint64(uint32(v1))+92))
+/*line :469:13*/																	store32(m.memory, uint32(t127), uint32(v0))
+/*line :469:50*/																	p33 = i32(315)
+/*line :469:50*/																	goto l193
+/*line :469:50*/																}
+/*line :469:50*/															l187:
+/*line :470:3*/																p33 = i32(376)
+/*line :470:3*/																goto l193
+/*line :470:3*/															l188:
+/*line :471:1*/																t128 := int32(load32(m.memory, uint64(uint32(v1))+80))
+/*line :471:1*/																t129 := int32(load32(m.memory, uint64(uint32(v1))+32))
+/*line :471:1*/																t130 := int32(load32(m.memory, uint64(uint32(v1))+8))
+/*line :471:1*/																_ = _fwrite(t128, t129, i32(1), t130)
+/*line :472:2*/																goto l114
+/*line :472:2*/															}
+/*line :472:2*/														l190:
+/*line ../src/scanner.c:4465:2*/															p33 = i32(0)
+/*line :4465:2*/															goto l193
+/*line :4465:2*/														l189:
+/*line :4470:55*/															t132 := int32(load32(m.memory, uint64(uint32(v1))+80))
+/*line :4470:55*/															v11 = t132
+/*line :4473:17*/															t133 := int32(m.memory[uint64(uint32(v1))+24])
+/*line :4473:10*/															m.memory[uint32(v3)] = byte(t133)
+/*line :4476:8*/															{
+/*line :4476:8*/																t134 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4476:8*/																t135 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4476:8*/																t136 := int32(load32(m.memory, uint32(t134+t135<<2)))
+/*line :4476:34*/																v2 = t136
+/*line :4476:34*/																t137 := int32(load32(m.memory, uint64(uint32(v2))+44))
+/*line :4476:51*/																v4 = t137
+/*line :4476:51*/																if v4 != 0 {
+/*line :4499:69*/																	t138 := int32(load32(m.memory, uint64(uint32(v1))+28))
+/*line :4499:69*/																	v6 = t138
+/*line :4476:51*/																	goto l195
+/*line :4476:51*/																}
+/*line :4476:51*/																v4 = i32(1)
+/*line :4489:47*/																store32(m.memory, uint64(uint32(v2))+44, uint32(i32(1)))
+/*line :4487:48*/																t139 := int32(load32(m.memory, uint64(uint32(v2))+16))
+/*line :4487:20*/																t140 := v1
+/*line :4487:20*/																v6 = t139
+/*line :4487:20*/																store32(m.memory, uint64(uint32(t140))+28, uint32(v6))
+/*line :4488:46*/																t141 := int32(load32(m.memory, uint64(uint32(v1))+4))
+/*line :4488:44*/																store32(m.memory, uint32(v2), uint32(t141))
+/*line :4488:44*/															}
+/*line :4488:44*/														l195:
+/*line :4488:44*/															t142 := int32(load32(m.memory, uint64(uint32(v1))+36))
+/*line :4499:54*/															v10 = t142
+/*line :4499:54*/															t143 := int32(load32(m.memory, uint64(uint32(v2))+4))
+/*line :4499:28*/															t144 := v10
+/*line :4499:28*/															v0 = t143
+/*line :4499:24*/															v5 = v0 + v6
+/*line :4499:24*/															if uint32(t144) <= uint32(v5) {
+/*line :4503:27*/																t145 := int32(load32(m.memory, uint64(uint32(v1))+80))
+/*line :4503:27*/																t146 := v1
+/*line :4503:27*/																v8 = t145
+/*line :4503:38*/																t147 := v8
+/*line :4503:38*/																v2 = v11 ^ i32(-1) + v3
+/*line :4503:20*/																v5 = t147 + v2
+/*line :4503:20*/																store32(m.memory, uint64(uint32(t146))+36, uint32(v5))
+/*line :4750:26*/																t148 := int32(load32(m.memory, uint64(uint32(v1))+44))
+/*line :4750:26*/																v0 = t148
+/*line :4750:26*/																if v2 > i32(0) {
+/*line :4750:26*/																	v6 = v8
+/*line :4750:26*/																l197:
+/*line :4750:26*/																	{
+/*line :4750:26*/																		v2 = i32(1)
+/*line :4750:26*/																		t149 := int32(m.memory[uint32(v6)])
+/*line :4750:26*/																		v3 = t149
+/*line :4750:26*/																		if v3 != 0 {
+/*line :4754:28*/																			t150 := int32(m.memory[uint64(uint32(v3))+81216])
+/*line :4754:28*/																			v2 = t150
+/*line :4754:28*/																		}
+/*line :4755:8*/																		t151 := int32(load16(m.memory, uint32(v0<<1+i32(81472))))
+/*line :4755:8*/																		if t151 != 0 {
+/*line :4758:32*/																			store32(m.memory, uint64(uint32(v1))+68, uint32(v6))
+/*line :4757:33*/																			store32(m.memory, uint64(uint32(v1))+64, uint32(v0))
+/*line :4757:33*/																		}
+/*line :4760:44*/																		v3 = v2 & i32(255)
+/*line :4760:18*/																		t152 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
+/*line :4760:18*/																		v4 = v3 + t152
+/*line :4760:11*/																		t153 := int32(int16(load16(m.memory, uint32(v4<<1+i32(85056)))))
+/*line :4760:52*/																		if t153 != v0 {
+/*line :4760:52*/																		l196:
+/*line :4760:52*/																			{
+/*line :4762:29*/																				t154 := int32(int16(load16(m.memory, uint32(v0<<1+i32(105152)))))
+/*line :4762:29*/																				v0 = t154
+/*line :4762:29*/																				if v0 >= i32(1789) {
+/*line :4764:12*/																					t155 := int32(m.memory[uint64(uint32(v3))+109664])
+/*line :4764:12*/																					v2 = t155
+/*line :4764:12*/																				}
+/*line :4760:44*/																				v3 = v2 & i32(255)
+/*line :4760:18*/																				t156 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
+/*line :4760:18*/																				v4 = v3 + t156
+/*line :4760:11*/																				t157 := int32(load16(m.memory, uint32(v4<<1+i32(85056))))
+/*line :4760:3*/																				if t157 != v0&i32(0xffff) {
+/*line :4760:3*/																					goto l196
+/*line :4760:3*/																				}
+/*line :4760:3*/																			}
+/*line :4760:3*/																		}
+/*line :4766:22*/																		t158 := int32(int16(load16(m.memory, uint32(v4<<1+i32(109728)))))
+/*line :4766:22*/																		v0 = t158
+/*line :4752:53*/																		v6 = v6 + i32(1)
+/*line :4752:2*/																		if v6 != v5 {
+/*line :4752:2*/																			goto l197
+/*line :4752:2*/																		}
+/*line :4752:2*/																	}
+/*line :4752:2*/																}
+/*line :4784:7*/																t159 := int32(load16(m.memory, uint32(v0<<1+i32(81472))))
+/*line :4784:7*/																if t159 != 0 {
+/*line :4787:31*/																	store32(m.memory, uint64(uint32(v1))+68, uint32(v5))
+/*line :4786:32*/																	store32(m.memory, uint64(uint32(v1))+64, uint32(v0))
+/*line :4786:32*/																}
+/*line :4789:17*/																t160 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
+/*line :4789:43*/																v2 = t160 + i32(1)
+/*line :4789:10*/																t161 := int32(int16(load16(m.memory, uint32(v2<<1+i32(85056)))))
+/*line :4789:51*/																if t161 != v0 {
+/*line :4789:51*/																l198:
+/*line :4789:51*/																	{
+/*line :4791:28*/																		t162 := int32(load16(m.memory, uint32(v0<<1+i32(105152))))
+/*line :4791:22*/																		v0 = t162
+/*line :4791:22*/																		t163 := v0
+/*line :4791:22*/																		v0 = int32(int16(v0))
+/*line :4789:17*/																		t164 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
+/*line :4789:43*/																		v2 = t164 + i32(1)
+/*line :4789:10*/																		t165 := int32(load16(m.memory, uint32(v2<<1+i32(85056))))
+/*line :4789:2*/																		if t163 != t165 {
+/*line :4789:2*/																			goto l198
+/*line :4789:2*/																		}
+/*line :4789:2*/																	}
+/*line :4789:2*/																}
+/*line :4795:21*/																t166 := int32(load16(m.memory, uint32(v2<<1+i32(109728))))
+/*line :4520:9*/																v0 = t166
+/*line :4520:9*/																if v0 == 0 {
+/*line :4520:9*/																	goto l192
+/*line :4520:9*/																}
+/*line :4520:9*/																if v0 == i32(1788) {
+/*line :4520:9*/																	goto l192
+/*line :4520:9*/																}
+/*line :4520:9*/																v0 = int32(int16(v0))
+/*line :4523:13*/																t167 := v1
+/*line :4523:13*/																v6 = v5 + i32(1)
+/*line :4523:13*/																store32(m.memory, uint64(uint32(t167))+36, uint32(v6))
+/*line :4525:5*/																goto l2
+/*line :4525:5*/															}
+/*line :4613:23*/															if uint32(v10) > uint32(v5+i32(1)) {
+/*line :4613:23*/																goto l199
+/*line :4613:23*/															}
+/*line :4613:23*/															t168 := int32(load32(m.memory, uint64(uint32(v1))+80))
+/*line :4613:23*/															v7 = t168
+/*line :4613:23*/															t169 := int32(load32(m.memory, uint64(uint32(v2))+40))
+/*line :4613:23*/															if t169 == 0 {
+/*line :4619:56*/																if v10-v7 != i32(1) {
+/*line :4619:56*/																	goto l200
+/*line :4619:56*/																}
+/*line :4619:56*/																goto l201
+/*line :4619:56*/															}
+/*line :4641:17*/															v5 = v7 ^ i32(-1) + v10
+/*line :4641:17*/															if v5 > i32(0) {
+/*line :4641:17*/																v4 = v5 & i32(7)
+/*line :4641:17*/																if uint32(v10-v7-i32(2)) < uint32(i32(7)) {
+/*line :4641:17*/																	v2 = v7
+/*line :4641:2*/																	goto l202
+/*line :4641:2*/																}
+/*line :4641:2*/																v6 = v5 & i32(0x7ffffff8)
+/*line :4641:2*/																v2 = v7
+/*line :4642:15*/															l203:
+/*line :4642:15*/																{
+/*line :4642:15*/																	t170 := int32(m.memory[uint32(v2)])
+/*line :4642:13*/																	m.memory[uint32(v0)] = byte(t170)
+/*line :4642:15*/																	t171 := int32(m.memory[uint64(uint32(v2))+1])
+/*line :4642:13*/																	m.memory[uint64(uint32(v0))+1] = byte(t171)
+/*line :4642:15*/																	t172 := int32(m.memory[uint64(uint32(v2))+2])
+/*line :4642:13*/																	m.memory[uint64(uint32(v0))+2] = byte(t172)
+/*line :4642:15*/																	t173 := int32(m.memory[uint64(uint32(v2))+3])
+/*line :4642:13*/																	m.memory[uint64(uint32(v0))+3] = byte(t173)
+/*line :4642:15*/																	t174 := int32(m.memory[uint64(uint32(v2))+4])
+/*line :4642:13*/																	m.memory[uint64(uint32(v0))+4] = byte(t174)
+/*line :4642:15*/																	t175 := int32(m.memory[uint64(uint32(v2))+5])
+/*line :4642:13*/																	m.memory[uint64(uint32(v0))+5] = byte(t175)
+/*line :4642:15*/																	t176 := int32(m.memory[uint64(uint32(v2))+6])
+/*line :4642:13*/																	m.memory[uint64(uint32(v0))+6] = byte(t176)
+/*line :4642:15*/																	t177 := int32(m.memory[uint64(uint32(v2))+7])
+/*line :4642:13*/																	m.memory[uint64(uint32(v0))+7] = byte(t177)
+/*line :4642:23*/																	v2 = v2 + i32(8)
+/*line :4642:9*/																	v0 = v0 + i32(8)
+/*line :4641:2*/																	v6 = v6 - i32(8)
+/*line :4641:2*/																	if v6 != 0 {
+/*line :4641:2*/																		goto l203
+/*line :4641:2*/																	}
+/*line :4641:2*/																}
+/*line :4641:2*/																if v4 == 0 {
+/*line :4641:2*/																	goto l204
+/*line :4641:2*/																}
+/*line :4641:2*/															l202:
+/*line :4642:15*/															l205:
+/*line :4642:15*/																{
+/*line :4642:15*/																	t178 := int32(m.memory[uint32(v2)])
+/*line :4642:13*/																	m.memory[uint32(v0)] = byte(t178)
+/*line :4642:9*/																	v0 = v0 + i32(1)
+/*line :4642:23*/																	v2 = v2 + i32(1)
+/*line :4641:2*/																	v4 = v4 - i32(1)
+/*line :4641:2*/																	if v4 != 0 {
+/*line :4641:2*/																		goto l205
+/*line :4641:2*/																	}
+/*line :4641:2*/																}
+/*line :4641:2*/															l204:
+/*line :4644:7*/																t179 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4644:7*/																t180 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4644:7*/																t181 := int32(load32(m.memory, uint32(t179+t180<<2)))
+/*line :4644:33*/																v2 = t181
+/*line :4644:33*/																t182 := int32(load32(m.memory, uint64(uint32(v2))+44))
+/*line :4644:33*/																v4 = t182
+/*line :4644:33*/															}
+/*line :4644:33*/															if v4 == i32(2) {
+/*line :4648:40*/																store32(m.memory, uint64(uint32(v2))+16, uint32(i32(0)))
+/*line :4648:58*/																store32(m.memory, uint64(uint32(v1))+28, uint32(i32(0)))
+/*line :4648:58*/																goto l206
+/*line :4648:58*/															}
+/*line :4648:58*/															t183 := int32(load32(m.memory, uint64(uint32(v2))+12))
+/*line :4653:59*/															v0 = t183
+/*line :4653:59*/															t184 := v0
+/*line :4653:59*/															v7 = v7 - v10
+/*line :4655:23*/															v4 = t184 + v7
+/*line :4655:23*/															if v4 <= i32(0) {
+/*line :4662:17*/																t185 := int32(load32(m.memory, uint64(uint32(v1))+36))
+/*line :4662:17*/																v6 = t185
+/*line :4664:12*/															l208:
+/*line :4664:12*/																{
+/*line :4664:12*/																	t186 := int32(load32(m.memory, uint64(uint32(v2))+20))
+/*line :4664:12*/																	if t186 == 0 {
+/*line :4664:12*/																		store32(m.memory, uint64(uint32(v2))+4, uint32(i32(0)))
+/*line :4664:12*/																		goto l207
+/*line :4664:12*/																	}
+/*line :4664:12*/																	t187 := int32(load32(m.memory, uint64(uint32(v2))+4))
+/*line :4664:12*/																	v4 = t187
+/*line :4668:19*/																	t189 := v2
+/*line :4668:19*/																	p188 := v0 << 1
+/*line :4668:19*/																	if v0 <= i32(0) {
+/*line :4668:19*/																		p188 = v0 - int32(uint32(i32(0)-v0)>>3)
+/*line :4668:19*/																	}
+/*line :4668:19*/																	v0 = p188
+/*line :4668:19*/																	store32(m.memory, uint64(uint32(t189))+12, uint32(v0))
+/*line :5595:9*/																	t190 := m._realloc(v4, v0+i32(2))
+/*line :5595:9*/																	t191 := v2
+/*line :5595:9*/																	v0 = t190
+/*line :5595:9*/																	store32(m.memory, uint64(uint32(t191))+4, uint32(v0))
+/*line :4682:9*/																	if v0 == 0 {
+/*line :4682:9*/																		goto l207
+/*line :4682:9*/																	}
+/*line :4686:20*/																	t192 := v1
+/*line :4686:20*/																	v6 = v0 + (v6 - v4)
+/*line :4686:20*/																	store32(m.memory, uint64(uint32(t192))+36, uint32(v6))
+/*line :4688:18*/																	t193 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4688:18*/																	t194 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4688:18*/																	t195 := int32(load32(m.memory, uint32(t193+t194<<2)))
+/*line :4688:18*/																	v2 = t195
+/*line :4688:18*/																	t196 := int32(load32(m.memory, uint64(uint32(v2))+12))
+/*line :4688:18*/																	v0 = t196
+/*line :4688:18*/																	v4 = v0 + v7
+/*line :4655:3*/																	if v4 <= i32(0) {
+/*line :4655:3*/																		goto l208
+/*line :4655:3*/																	}
+/*line :4655:3*/																}
+/*line :4655:3*/															}
+/*line :4693:20*/															p197 := v4
+/*line :4693:20*/															if uint32(v4) >= uint32(i32(8192)) {
+/*line :4693:20*/																p197 = i32(8192)
+/*line :4693:20*/															}
+/*line :4693:20*/															v4 = p197
+/*line :4693:20*/															t198 := int32(load32(m.memory, uint64(uint32(v2))+24))
+/*line :4693:20*/															if t198 != 0 {
+/*line :4693:20*/																v0 = i32(0)
+/*line :4697:3*/															l211:
+/*line :4697:3*/																{
+/*line :4697:3*/																	{
+/*line :4697:3*/																		t199 := int32(load32(m.memory, uint64(uint32(v1))+4))
+/*line :4697:3*/																		t200 := _getc(t199)
+/*line :4697:3*/																		v2 = t200
+/*line :4697:3*/																		switch v2 + i32(1) {
+/*line :4697:3*/																		case 0, 11:
+/*line :4697:3*/																			goto l209
+/*line :4697:3*/																		default:
+/*line :4697:3*/																			goto l210
+/*line :4697:3*/																		}
+/*line :4697:3*/																	}
+/*line :4697:3*/																l210:
+/*line :4697:15*/																	t201 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4697:15*/																	t202 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4697:15*/																	t203 := int32(load32(m.memory, uint32(t201+t202<<2)))
+/*line :4697:41*/																	t204 := int32(load32(m.memory, uint64(uint32(t203))+4))
+/*line :4697:3*/																	m.memory[uint32(t204+v5+v0)] = byte(v2)
+/*line :4697:3*/																	t205 := v4
+/*line :4697:3*/																	v0 = v0 + i32(1)
+/*line :4697:3*/																	if t205 != v0 {
+/*line :4697:3*/																		goto l211
+/*line :4697:3*/																	}
+/*line :4697:3*/																}
+/*line :4697:3*/																v0 = v4
+/*line :4697:3*/															l209:
+/*line :4697:3*/																{
+/*line :4697:3*/																	{
+/*line :4697:3*/																		switch v2 + i32(1) {
+/*line :4697:3*/																		case 0:
+/*line :4697:3*/																			goto l212
+/*line :4697:3*/																		case 11:
+/*line :4697:3*/																			goto l214
+/*line :4697:3*/																		default:
+/*line :4697:3*/																			goto l213
+/*line :4697:3*/																		}
+/*line :4697:3*/																	l212:
+/*line :4697:3*/																		t206 := int32(load32(m.memory, uint64(uint32(v1))+4))
+/*line :4697:3*/																		t207 := _ferror(t206)
+/*line :4697:3*/																		if t207 == 0 {
+/*line :4697:3*/																			goto l213
+/*line :4697:3*/																		}
+/*line :4697:3*/																		m._yy_fatal_error(i32(70620))
+/*line :4697:3*/																		panic("unreachable")
+/*line :4697:3*/																	}
+/*line :4697:3*/																l214:
+/*line :4697:15*/																	t208 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4697:15*/																	t209 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4697:15*/																	t210 := int32(load32(m.memory, uint32(t208+t209<<2)))
+/*line :4697:41*/																	t211 := int32(load32(m.memory, uint64(uint32(t210))+4))
+/*line :4697:3*/																	m.memory[uint32(t211+v5+v0)] = byte(i32(10))
+/*line :4697:3*/																	v0 = v0 + i32(1)
+/*line :4697:3*/																}
+/*line :4697:3*/															l213:
+/*line :4697:3*/																store32(m.memory, uint64(uint32(v1))+28, uint32(v0))
+/*line :4697:3*/																goto l215
+/*line :4697:3*/															}
+/*line :4697:3*/															store32(m.memory, uint32(i32(127520)), uint32(i32(0)))
+/*line :4697:41*/															t212 := int32(load32(m.memory, uint64(uint32(v2))+4))
+/*line :4697:3*/															t213 := int32(load32(m.memory, uint64(uint32(v1))+4))
+/*line :4697:3*/															t214 := _fread(t212+v5, i32(1), v4, t213)
+/*line :4697:3*/															v0 = t214
+/*line :4697:3*/														l218:
+/*line :4697:3*/															{
+/*line :4697:3*/																store32(m.memory, uint64(uint32(v1))+28, uint32(v0))
+/*line :4697:3*/																if v0 != 0 {
+/*line :4697:3*/																	goto l216
+/*line :4697:3*/																}
+/*line :4697:3*/																t215 := int32(load32(m.memory, uint64(uint32(v1))+4))
+/*line :4697:3*/																t216 := _ferror(t215)
+/*line :4697:3*/																if t216 == 0 {
+/*line :4700:47*/																	t217 := int32(load32(m.memory, uint64(uint32(v1))+28))
+/*line :4700:47*/																	v0 = t217
+/*line :4697:3*/																	goto l215
+/*line :4697:3*/																}
+/*line :4697:3*/																t218 := int32(load32(m.memory, uint32(i32(127520))))
+/*line :4697:3*/																if t218 != i32(4) {
+/*line :4697:3*/																	goto l217
+/*line :4697:3*/																}
+/*line :4697:3*/																store32(m.memory, uint32(i32(127520)), uint32(i32(0)))
+/*line :4697:3*/																t219 := int32(load32(m.memory, uint64(uint32(v1))+4))
+/*line :4697:3*/																_clearerr(t219)
+/*line :4697:15*/																t220 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4697:15*/																t221 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4697:15*/																t222 := int32(load32(m.memory, uint32(t220+t221<<2)))
+/*line :4697:41*/																t223 := int32(load32(m.memory, uint64(uint32(t222))+4))
+/*line :4697:3*/																t224 := int32(load32(m.memory, uint64(uint32(v1))+4))
+/*line :4697:3*/																t225 := _fread(t223+v5, i32(1), v4, t224)
+/*line :4697:3*/																v0 = t225
+/*line :4697:3*/																goto l218
+/*line :4697:3*/															}
+/*line :4697:3*/														l216:
+/*line :4700:3*/															t226 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4700:3*/															t227 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4700:3*/															t228 := int32(load32(m.memory, uint32(t226+t227<<2)))
+/*line :4700:40*/															v2 = t228
+/*line :4700:40*/															store32(m.memory, uint64(uint32(v2))+16, uint32(v0))
+/*line :4700:40*/															goto l219
+/*line :4700:40*/														}
+/*line :4700:40*/													l191:
+/*line :4591:3*/														m._yy_fatal_error(i32(70373))
+/*line :4591:3*/														panic("unreachable")
+/*line :4591:3*/													l4:
+/*line :4596:1*/														p33 = i32(258)
+/*line :4596:1*/														goto l193
+/*line :4596:1*/													l5:
+/*line :4596:1*/														p33 = i32(259)
+/*line :4596:1*/														goto l193
+/*line :4596:1*/													l6:
+/*line :4596:1*/														p33 = i32(311)
+/*line :4596:1*/														goto l193
+/*line :4596:1*/													l7:
+/*line :4596:1*/														p33 = i32(271)
+/*line :4596:1*/														goto l193
+/*line :4596:1*/													l8:
+/*line :4596:1*/														p33 = i32(272)
+/*line :4596:1*/														goto l193
+/*line :4596:1*/													l9:
+/*line :4596:1*/														p33 = i32(273)
+/*line :4596:1*/													l193:
+/*line :4596:1*/														m.___stack_pointer = v9 + i32(48)
+/*line :4596:1*/														return p33
+/*line :4596:1*/													}
+/*line :4596:1*/												l199:
+/*line :4614:3*/													m._yy_fatal_error(i32(70564))
+/*line :4614:3*/													panic("unreachable")
+/*line :4614:3*/												l217:
+/*line :4697:3*/													m._yy_fatal_error(i32(70620))
+/*line :4697:3*/													panic("unreachable")
+/*line :4697:3*/												l215:
+/*line :4700:3*/													t229 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4700:3*/													t230 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4700:3*/													t231 := int32(load32(m.memory, uint32(t229+t230<<2)))
+/*line :4700:40*/													v2 = t231
+/*line :4700:40*/													store32(m.memory, uint64(uint32(v2))+16, uint32(v0))
+/*line :4700:40*/													if v0 == 0 {
+/*line :4700:40*/														goto l206
+/*line :4700:40*/													}
+/*line :4700:40*/												}
+/*line :4700:40*/											l219:
+/*line :4700:40*/												v4 = v11 ^ i32(-1) + v3
+/*line :4722:23*/												{
+/*line :4722:69*/													v3 = v0 + v5
+/*line :4722:69*/													t232 := int32(load32(m.memory, uint64(uint32(v2))+12))
+/*line :4722:41*/													if v3 <= t232 {
+/*line :4734:28*/														t233 := int32(load32(m.memory, uint64(uint32(v2))+4))
+/*line :4734:28*/														v0 = t233
+/*line :4722:41*/														goto l220
+/*line :4722:41*/													}
+/*line :4726:39*/													t234 := int32(load32(m.memory, uint64(uint32(v2))+4))
+/*line :5595:9*/													v2 = v3 + v0>>1
+/*line :5595:9*/													t235 := m._realloc(t234, v2)
+/*line :5595:9*/													v0 = t235
+/*line :4725:3*/													t236 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4725:3*/													t237 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4725:3*/													t238 := int32(load32(m.memory, uint32(t236+t237<<2)))
+/*line :4725:39*/													v3 = t238
+/*line :4725:39*/													store32(m.memory, uint64(uint32(v3))+4, uint32(v0))
+/*line :4727:8*/													if v0 == 0 {
+/*line :4727:8*/														goto l221
+/*line :4727:8*/													}
+/*line :4730:41*/													store32(m.memory, uint64(uint32(v3))+12, uint32(v2-i32(2)))
+/*line :4733:18*/													t239 := int32(load32(m.memory, uint64(uint32(v1))+28))
+/*line :4733:18*/													v3 = t239 + v5
+/*line :4733:18*/												}
+/*line :4733:18*/											l220:
+/*line :4733:18*/												store32(m.memory, uint64(uint32(v1))+28, uint32(v3))
+/*line :4734:55*/												m.memory[uint32(v0+v3)] = byte(i32(0))
+/*line :4735:2*/												t240 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4735:2*/												t241 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4735:2*/												t242 := int32(load32(m.memory, uint32(t240+t241<<2)))
+/*line :4735:28*/												t243 := int32(load32(m.memory, uint64(uint32(t242))+4))
+/*line :4735:43*/												t244 := int32(load32(m.memory, uint64(uint32(v1))+28))
+/*line :4735:59*/												m.memory[uint64(uint32(t243+t244))+1] = byte(i32(0))
+/*line :4737:21*/												t245 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4737:21*/												t246 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4737:21*/												t247 := int32(load32(m.memory, uint32(t245+t246<<2)))
+/*line :4737:47*/												t248 := int32(load32(m.memory, uint64(uint32(t247))+4))
+/*line :4737:18*/												t249 := v1
+/*line :4737:18*/												v8 = t248
+/*line :4737:18*/												store32(m.memory, uint64(uint32(t249))+80, uint32(v8))
+/*line :4568:21*/												t250 := v1
+/*line :4568:21*/												v6 = v4 + v8
+/*line :4568:21*/												store32(m.memory, uint64(uint32(t250))+36, uint32(v6))
+/*line :4750:26*/												t251 := int32(load32(m.memory, uint64(uint32(v1))+44))
+/*line :4750:26*/												v0 = t251
+/*line :4750:26*/												v5 = v8
+/*line :4752:2*/												if v4 <= i32(0) {
+/*line :4752:2*/													goto l2
 /*line :4752:2*/												}
-/*line :4784:7*/												t159 := int32(load16(m.memory, uint32(v0<<1+i32(81472))))
-/*line :4784:7*/												if t159 != 0 {
-/*line :4787:31*/													store32(m.memory, uint64(uint32(v1))+68, uint32(v6))
-/*line :4786:32*/													store32(m.memory, uint64(uint32(v1))+64, uint32(v0))
-/*line :4786:32*/												}
-/*line :4789:17*/												t160 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
-/*line :4789:43*/												v2 = t160 + i32(1)
-/*line :4789:10*/												t161 := int32(int16(load16(m.memory, uint32(v2<<1+i32(85056)))))
-/*line :4789:51*/												if t161 != v0 {
-/*line :4789:51*/												l198:
-/*line :4789:51*/													{
-/*line :4791:28*/														t162 := int32(load16(m.memory, uint32(v0<<1+i32(105152))))
-/*line :4791:22*/														v0 = t162
-/*line :4791:22*/														t163 := v0
-/*line :4791:22*/														v0 = int32(int16(v0))
-/*line :4789:17*/														t164 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
-/*line :4789:43*/														v2 = t164 + i32(1)
-/*line :4789:10*/														t165 := int32(load16(m.memory, uint32(v2<<1+i32(85056))))
-/*line :4789:2*/														if t163 != t165 {
-/*line :4789:2*/															goto l198
-/*line :4789:2*/														}
-/*line :4789:2*/													}
-/*line :4789:2*/												}
-/*line :4795:21*/												t166 := int32(load16(m.memory, uint32(v2<<1+i32(109728))))
-/*line :4520:9*/												v0 = t166
-/*line :4520:9*/												if v0 == 0 {
-/*line :4520:9*/													goto l192
-/*line :4520:9*/												}
-/*line :4520:9*/												if v0 == i32(1788) {
-/*line :4520:9*/													goto l192
-/*line :4520:9*/												}
-/*line :4520:9*/												v0 = int32(int16(v0))
-/*line :4523:13*/												t167 := v1
-/*line :4523:13*/												v4 = v6 + i32(1)
-/*line :4523:13*/												store32(m.memory, uint64(uint32(t167))+36, uint32(v4))
-/*line :4523:13*/												v6 = v7
-/*line :4525:5*/												goto l2
-/*line :4525:5*/											}
-/*line :4613:23*/											if uint32(v10) > uint32(v6+i32(1)) {
-/*line :4613:23*/												goto l199
-/*line :4613:23*/											}
-/*line :4613:23*/											t168 := int32(load32(m.memory, uint64(uint32(v1))+80))
-/*line :4613:23*/											v6 = t168
-/*line :4613:23*/											t169 := int32(load32(m.memory, uint64(uint32(v2))+40))
-/*line :4613:23*/											if t169 == 0 {
-/*line :4619:56*/												if v10-v6 != i32(1) {
-/*line :4619:56*/													goto l200
-/*line :4619:56*/												}
-/*line :4619:56*/												goto l201
-/*line :4619:56*/											}
-/*line :4639:60*/											v8 = v6 ^ i32(-1) + v10
-/*line :4641:17*/											if v8 > i32(0) {
-/*line :4641:2*/												v3 = v8 & i32(7)
-/*line :4641:2*/												if uint32(v10-v6-i32(2)) < uint32(i32(7)) {
-/*line :4641:2*/													v2 = v6
-/*line :4641:2*/													goto l202
-/*line :4641:2*/												}
-/*line :4641:2*/												v4 = v8 & i32(0x7ffffff8)
-/*line :4641:2*/												v2 = v6
-/*line :4642:15*/											l203:
-/*line :4642:15*/												{
-/*line :4642:15*/													t170 := int32(m.memory[uint32(v2)])
-/*line :4642:13*/													m.memory[uint32(v0)] = byte(t170)
-/*line :4642:15*/													t171 := int32(m.memory[uint64(uint32(v2))+1])
-/*line :4642:13*/													m.memory[uint64(uint32(v0))+1] = byte(t171)
-/*line :4642:15*/													t172 := int32(m.memory[uint64(uint32(v2))+2])
-/*line :4642:13*/													m.memory[uint64(uint32(v0))+2] = byte(t172)
-/*line :4642:15*/													t173 := int32(m.memory[uint64(uint32(v2))+3])
-/*line :4642:13*/													m.memory[uint64(uint32(v0))+3] = byte(t173)
-/*line :4642:15*/													t174 := int32(m.memory[uint64(uint32(v2))+4])
-/*line :4642:13*/													m.memory[uint64(uint32(v0))+4] = byte(t174)
-/*line :4642:15*/													t175 := int32(m.memory[uint64(uint32(v2))+5])
-/*line :4642:13*/													m.memory[uint64(uint32(v0))+5] = byte(t175)
-/*line :4642:15*/													t176 := int32(m.memory[uint64(uint32(v2))+6])
-/*line :4642:13*/													m.memory[uint64(uint32(v0))+6] = byte(t176)
-/*line :4642:15*/													t177 := int32(m.memory[uint64(uint32(v2))+7])
-/*line :4642:13*/													m.memory[uint64(uint32(v0))+7] = byte(t177)
-/*line :4642:23*/													v2 = v2 + i32(8)
-/*line :4642:9*/													v0 = v0 + i32(8)
-/*line :4641:2*/													v4 = v4 - i32(8)
-/*line :4641:2*/													if v4 != 0 {
-/*line :4641:2*/														goto l203
-/*line :4641:2*/													}
-/*line :4641:2*/												}
-/*line :4641:2*/												if v3 == 0 {
-/*line :4641:2*/													goto l204
-/*line :4641:2*/												}
-/*line :4641:2*/											l202:
-/*line :4642:15*/											l205:
-/*line :4642:15*/												{
-/*line :4642:15*/													t178 := int32(m.memory[uint32(v2)])
-/*line :4642:13*/													m.memory[uint32(v0)] = byte(t178)
-/*line :4642:9*/													v0 = v0 + i32(1)
-/*line :4642:23*/													v2 = v2 + i32(1)
-/*line :4641:2*/													v3 = v3 - i32(1)
-/*line :4641:2*/													if v3 != 0 {
-/*line :4641:2*/														goto l205
-/*line :4641:2*/													}
-/*line :4641:2*/												}
-/*line :4641:2*/											l204:
-/*line :4644:7*/												t179 := int32(load32(m.memory, uint64(uint32(v1))+20))
-/*line :4644:7*/												t180 := int32(load32(m.memory, uint64(uint32(v1))+12))
-/*line :4644:7*/												t181 := int32(load32(m.memory, uint32(t179+t180<<2)))
-/*line :4644:33*/												v2 = t181
-/*line :4644:33*/												t182 := int32(load32(m.memory, uint64(uint32(v2))+44))
-/*line :4644:33*/												v3 = t182
-/*line :4644:33*/											}
-/*line :4644:50*/											if v3 == i32(2) {
-/*line :4648:40*/												store32(m.memory, uint64(uint32(v2))+16, uint32(i32(0)))
-/*line :4648:58*/												store32(m.memory, uint64(uint32(v1))+28, uint32(i32(0)))
-/*line :4703:23*/												goto l206
-/*line :4703:23*/											}
-/*line :4703:23*/											t183 := int32(load32(m.memory, uint64(uint32(v2))+12))
-/*line :4653:59*/											v0 = t183
-/*line :4653:59*/											t184 := v0
-/*line :4653:59*/											v6 = v6 - v10
-/*line :4653:59*/											v3 = t184 + v6
-/*line :4655:23*/											if v3 <= i32(0) {
-/*line :4662:17*/												t185 := int32(load32(m.memory, uint64(uint32(v1))+36))
-/*line :4662:17*/												v4 = t185
-/*line :4664:12*/											l208:
-/*line :4664:12*/												{
-/*line :4664:12*/													t186 := int32(load32(m.memory, uint64(uint32(v2))+20))
-/*line :4664:12*/													if t186 == 0 {
-/*line :4664:12*/														store32(m.memory, uint64(uint32(v2))+4, uint32(i32(0)))
-/*line :4664:12*/														goto l207
-/*line :4664:12*/													}
-/*line :4664:12*/													t187 := int32(load32(m.memory, uint64(uint32(v2))+4))
-/*line :4664:12*/													v3 = t187
-/*line :4668:19*/													t189 := v2
-/*line :4668:19*/													p188 := v0 << 1
-/*line :4668:19*/													if v0 <= i32(0) {
-/*line :4668:19*/														p188 = v0 - int32(uint32(i32(0)-v0)>>3)
-/*line :4668:19*/													}
-/*line :4668:19*/													v0 = p188
-/*line :4668:19*/													store32(m.memory, uint64(uint32(t189))+12, uint32(v0))
-/*line :5595:9*/													t190 := m._realloc(v3, v0+i32(2))
-/*line :5595:9*/													t191 := v2
-/*line :5595:9*/													v0 = t190
-/*line :5595:9*/													store32(m.memory, uint64(uint32(t191))+4, uint32(v0))
-/*line :4682:9*/													if v0 == 0 {
-/*line :4682:9*/														goto l207
-/*line :4682:9*/													}
-/*line :4686:20*/													t192 := v1
-/*line :4686:20*/													v4 = v0 + (v4 - v3)
-/*line :4686:20*/													store32(m.memory, uint64(uint32(t192))+36, uint32(v4))
-/*line :4688:18*/													t193 := int32(load32(m.memory, uint64(uint32(v1))+20))
-/*line :4688:18*/													t194 := int32(load32(m.memory, uint64(uint32(v1))+12))
-/*line :4688:18*/													t195 := int32(load32(m.memory, uint32(t193+t194<<2)))
-/*line :4688:18*/													v2 = t195
-/*line :4688:18*/													t196 := int32(load32(m.memory, uint64(uint32(v2))+12))
-/*line :4688:18*/													v0 = t196
-/*line :4688:18*/													v3 = v0 + v6
-/*line :4655:3*/													if v3 <= i32(0) {
-/*line :4655:3*/														goto l208
-/*line :4655:3*/													}
-/*line :4655:3*/												}
-/*line :4655:3*/											}
-/*line :4693:20*/											p197 := v3
-/*line :4693:20*/											if uint32(v3) >= uint32(i32(8192)) {
-/*line :4693:20*/												p197 = i32(8192)
-/*line :4693:20*/											}
-/*line :4693:20*/											v3 = p197
-/*line :4693:20*/											t198 := int32(load32(m.memory, uint64(uint32(v2))+24))
-/*line :4693:20*/											if t198 != 0 {
-/*line :4693:20*/												v0 = i32(0)
-/*line :4697:3*/											l211:
-/*line :4697:3*/												{
-/*line :4697:3*/													{
-/*line :4697:3*/														t199 := int32(load32(m.memory, uint64(uint32(v1))+4))
-/*line :4697:3*/														t200 := _getc(t199)
-/*line :4697:3*/														v2 = t200
-/*line :4697:3*/														switch v2 + i32(1) {
-/*line :4697:3*/														case 0, 11:
-/*line :4697:3*/															goto l209
-/*line :4697:3*/														default:
-/*line :4697:3*/															goto l210
-/*line :4697:3*/														}
-/*line :4697:3*/													}
-/*line :4697:3*/												l210:
-/*line :4697:15*/													t201 := int32(load32(m.memory, uint64(uint32(v1))+20))
-/*line :4697:15*/													t202 := int32(load32(m.memory, uint64(uint32(v1))+12))
-/*line :4697:15*/													t203 := int32(load32(m.memory, uint32(t201+t202<<2)))
-/*line :4697:41*/													t204 := int32(load32(m.memory, uint64(uint32(t203))+4))
-/*line :4697:3*/													m.memory[uint32(t204+v8+v0)] = byte(v2)
-/*line :4697:3*/													t205 := v3
-/*line :4697:3*/													v0 = v0 + i32(1)
-/*line :4697:3*/													if t205 != v0 {
-/*line :4697:3*/														goto l211
-/*line :4697:3*/													}
-/*line :4697:3*/												}
-/*line :4697:3*/												v0 = v3
-/*line :4697:3*/											l209:
-/*line :4697:3*/												{
-/*line :4697:3*/													{
-/*line :4697:3*/														switch v2 + i32(1) {
-/*line :4697:3*/														case 0:
-/*line :4697:3*/															goto l212
-/*line :4697:3*/														case 11:
-/*line :4697:3*/															goto l214
-/*line :4697:3*/														default:
-/*line :4697:3*/															goto l213
-/*line :4697:3*/														}
-/*line :4697:3*/													l212:
-/*line :4697:3*/														t206 := int32(load32(m.memory, uint64(uint32(v1))+4))
-/*line :4697:3*/														t207 := _ferror(t206)
-/*line :4697:3*/														if t207 == 0 {
-/*line :4697:3*/															goto l213
-/*line :4697:3*/														}
-/*line :4697:3*/														m._yy_fatal_error(i32(70620))
-/*line :4697:3*/														panic("unreachable")
-/*line :4697:3*/													}
-/*line :4697:3*/												l214:
-/*line :4697:15*/													t208 := int32(load32(m.memory, uint64(uint32(v1))+20))
-/*line :4697:15*/													t209 := int32(load32(m.memory, uint64(uint32(v1))+12))
-/*line :4697:15*/													t210 := int32(load32(m.memory, uint32(t208+t209<<2)))
-/*line :4697:41*/													t211 := int32(load32(m.memory, uint64(uint32(t210))+4))
-/*line :4697:3*/													m.memory[uint32(t211+v8+v0)] = byte(i32(10))
-/*line :4697:3*/													v0 = v0 + i32(1)
-/*line :4697:3*/												}
-/*line :4697:3*/											l213:
-/*line :4697:3*/												store32(m.memory, uint64(uint32(v1))+28, uint32(v0))
-/*line :4697:3*/												goto l215
-/*line :4697:3*/											}
-/*line :4697:3*/											v4 = i32(0)
-/*line :4697:3*/											store32(m.memory, uint32(i32(127520)), uint32(i32(0)))
-/*line :4697:41*/											t212 := int32(load32(m.memory, uint64(uint32(v2))+4))
-/*line :4697:3*/											t213 := int32(load32(m.memory, uint64(uint32(v1))+4))
-/*line :4697:3*/											t214 := _fread(t212+v8, i32(1), v3, t213)
-/*line :4697:3*/											v0 = t214
-/*line :4697:3*/										l218:
-/*line :4697:3*/											{
-/*line :4697:3*/												store32(m.memory, uint64(uint32(v1))+28, uint32(v0))
-/*line :4697:3*/												if v0 != 0 {
-/*line :4697:3*/													goto l216
-/*line :4697:3*/												}
-/*line :4697:3*/												t215 := int32(load32(m.memory, uint64(uint32(v1))+4))
-/*line :4697:3*/												t216 := _ferror(t215)
-/*line :4697:3*/												if t216 == 0 {
-/*line :4700:47*/													t217 := int32(load32(m.memory, uint64(uint32(v1))+28))
-/*line :4700:47*/													v0 = t217
-/*line :4697:3*/													goto l215
-/*line :4697:3*/												}
-/*line :4697:3*/												t218 := int32(load32(m.memory, uint32(i32(127520))))
-/*line :4697:3*/												if t218 != i32(4) {
-/*line :4697:3*/													goto l217
-/*line :4697:3*/												}
-/*line :4697:3*/												store32(m.memory, uint32(i32(127520)), uint32(i32(0)))
-/*line :4697:3*/												t219 := int32(load32(m.memory, uint64(uint32(v1))+4))
-/*line :4697:3*/												_clearerr(t219)
-/*line :4697:15*/												t220 := int32(load32(m.memory, uint64(uint32(v1))+20))
-/*line :4697:15*/												t221 := int32(load32(m.memory, uint64(uint32(v1))+12))
-/*line :4697:15*/												t222 := int32(load32(m.memory, uint32(t220+t221<<2)))
-/*line :4697:41*/												t223 := int32(load32(m.memory, uint64(uint32(t222))+4))
-/*line :4697:3*/												t224 := int32(load32(m.memory, uint64(uint32(v1))+4))
-/*line :4697:3*/												t225 := _fread(t223+v8, i32(1), v3, t224)
-/*line :4697:3*/												v0 = t225
-/*line :4697:3*/												goto l218
-/*line :4697:3*/											}
-/*line :4697:3*/										l216:
-/*line :4700:3*/											t226 := int32(load32(m.memory, uint64(uint32(v1))+20))
-/*line :4700:3*/											t227 := int32(load32(m.memory, uint64(uint32(v1))+12))
-/*line :4700:3*/											t228 := int32(load32(m.memory, uint32(t226+t227<<2)))
-/*line :4700:40*/											v2 = t228
-/*line :4700:40*/											store32(m.memory, uint64(uint32(v2))+16, uint32(v0))
-/*line :4703:23*/											goto l219
-/*line :4703:23*/										}
-/*line :4703:23*/									l191:
-/*line :4591:3*/										m._yy_fatal_error(i32(70373))
-/*line :4591:3*/										panic("unreachable")
-/*line :4591:3*/									l4:
-/*line :4596:1*/										p33 = i32(258)
-/*line :4596:1*/										goto l193
-/*line :4596:1*/									l5:
-/*line :4596:1*/										p33 = i32(259)
-/*line :4596:1*/										goto l193
-/*line :4596:1*/									l6:
-/*line :4596:1*/										p33 = i32(311)
-/*line :4596:1*/										goto l193
-/*line :4596:1*/									l7:
-/*line :4596:1*/										p33 = i32(271)
-/*line :4596:1*/										goto l193
-/*line :4596:1*/									l8:
-/*line :4596:1*/										p33 = i32(272)
-/*line :4596:1*/										goto l193
-/*line :4596:1*/									l9:
-/*line :4596:1*/										p33 = i32(273)
-/*line :4596:1*/									l193:
-/*line :4596:1*/										m.___stack_pointer = v9 + i32(48)
-/*line :4596:1*/										return p33
-/*line :4596:1*/									}
-/*line :4596:1*/								l199:
-/*line :4614:3*/									m._yy_fatal_error(i32(70564))
-/*line :4614:3*/									panic("unreachable")
-/*line :4614:3*/								l217:
-/*line :4697:3*/									m._yy_fatal_error(i32(70620))
-/*line :4697:3*/									panic("unreachable")
-/*line :4697:3*/								l215:
-/*line :4700:3*/									t229 := int32(load32(m.memory, uint64(uint32(v1))+20))
-/*line :4700:3*/									t230 := int32(load32(m.memory, uint64(uint32(v1))+12))
-/*line :4700:3*/									t231 := int32(load32(m.memory, uint32(t229+t230<<2)))
-/*line :4700:40*/									v2 = t231
-/*line :4700:40*/									store32(m.memory, uint64(uint32(v2))+16, uint32(v0))
-/*line :4700:40*/									v4 = i32(0)
-/*line :4700:40*/									if v0 != 0 {
-/*line :4700:40*/										goto l219
-/*line :4700:40*/									}
-/*line :4700:40*/								}
-/*line :4700:40*/							l206:
-/*line :4700:40*/								if v8 == 0 {
-/*line :4708:15*/									t232 := int32(load32(m.memory, uint64(uint32(v1))+4))
-/*line :4708:4*/									m._pcap_restart(t232, v1)
-/*line :4722:43*/									t233 := int32(load32(m.memory, uint64(uint32(v1))+20))
-/*line :4722:43*/									t234 := int32(load32(m.memory, uint64(uint32(v1))+12))
-/*line :4722:43*/									t235 := int32(load32(m.memory, uint32(t233+t234<<2)))
-/*line :4722:43*/									v2 = t235
-/*line :4722:12*/									t236 := int32(load32(m.memory, uint64(uint32(v1))+28))
-/*line :4722:12*/									v0 = t236
-/*line :4722:12*/									v4 = i32(1)
-/*line :4709:4*/									goto l219
-/*line :4709:4*/								}
-/*line :4709:4*/								v4 = i32(2)
-/*line :4714:47*/								store32(m.memory, uint64(uint32(v2))+44, uint32(i32(2)))
-/*line :4714:47*/								v0 = i32(0)
-/*line :4714:47*/							l219:
-/*line :4722:23*/								{
-/*line :4722:69*/									v3 = v0 + v8
-/*line :4722:69*/									t237 := int32(load32(m.memory, uint64(uint32(v2))+12))
-/*line :4722:41*/									if v3 <= t237 {
-/*line :4734:28*/										t238 := int32(load32(m.memory, uint64(uint32(v2))+4))
-/*line :4734:28*/										v0 = t238
-/*line :4722:41*/										goto l220
+/*line :4752:2*/											l223:
+/*line :4752:2*/												{
+/*line :4752:2*/													v2 = i32(1)
+/*line :4752:2*/													t252 := int32(m.memory[uint32(v5)])
+/*line :4752:2*/													v3 = t252
+/*line :4752:2*/													if v3 != 0 {
+/*line :4754:28*/														t253 := int32(m.memory[uint64(uint32(v3))+81216])
+/*line :4754:28*/														v2 = t253
+/*line :4754:28*/													}
+/*line :4755:8*/													v3 = v0 << 1
+/*line :4755:8*/													t254 := int32(load16(m.memory, uint32(v3+i32(81472))))
+/*line :4755:8*/													if t254 != 0 {
+/*line :4758:32*/														store32(m.memory, uint64(uint32(v1))+68, uint32(v5))
+/*line :4757:33*/														store32(m.memory, uint64(uint32(v1))+64, uint32(v0))
+/*line :4757:33*/													}
+/*line :4757:33*/													t255 := int32(int16(load16(m.memory, uint32(v3+i32(100640)))))
+/*line :4760:44*/													v3 = v2 & i32(255)
+/*line :4760:44*/													v4 = t255 + v3
+/*line :4760:11*/													t256 := int32(int16(load16(m.memory, uint32(v4<<1+i32(85056)))))
+/*line :4760:52*/													if t256 != v0 {
+/*line :4760:52*/													l222:
+/*line :4760:52*/														{
+/*line :4762:29*/															t257 := int32(int16(load16(m.memory, uint32(v0<<1+i32(105152)))))
+/*line :4762:29*/															v0 = t257
+/*line :4762:29*/															if v0 >= i32(1789) {
+/*line :4764:12*/																t258 := int32(m.memory[uint64(uint32(v3))+109664])
+/*line :4764:12*/																v2 = t258
+/*line :4764:12*/															}
+/*line :4760:44*/															v3 = v2 & i32(255)
+/*line :4760:18*/															t259 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
+/*line :4760:18*/															v4 = v3 + t259
+/*line :4760:11*/															t260 := int32(load16(m.memory, uint32(v4<<1+i32(85056))))
+/*line :4760:52*/															if t260 != v0&i32(0xffff) {
+/*line :4760:52*/																goto l222
+/*line :4760:52*/															}
+/*line :4760:52*/														}
+/*line :4760:52*/													}
+/*line :4766:22*/													t261 := int32(int16(load16(m.memory, uint32(v4<<1+i32(109728)))))
+/*line :4766:22*/													v0 = t261
+/*line :4752:53*/													t262 := v6
+/*line :4752:53*/													v5 = v5 + i32(1)
+/*line :4752:53*/													if t262 != v5 {
+/*line :4752:53*/														goto l223
+/*line :4752:53*/													}
+/*line :4752:53*/												}
+/*line :4752:53*/												goto l2
+/*line :4752:53*/											}
+/*line :4752:53*/										l207:
+/*line :4683:5*/											m._yy_fatal_error(i32(65778))
+/*line :4683:5*/											panic("unreachable")
+/*line :4683:5*/										l206:
+/*line :4705:23*/											if v5 == 0 {
+/*line :4705:23*/												goto l224
+/*line :4705:23*/											}
+/*line :4714:47*/											store32(m.memory, uint64(uint32(v2))+44, uint32(i32(2)))
+/*line :4714:47*/											t263 := int32(load32(m.memory, uint64(uint32(v2))+4))
+/*line :4714:47*/											v0 = t263
+/*line :4714:47*/											t264 := int32(load32(m.memory, uint64(uint32(v2))+12))
+/*line :4722:41*/											if t264 < v5 {
+/*line :5595:9*/												t265 := m._realloc(v0, v5)
+/*line :5595:9*/												v0 = t265
+/*line :4725:3*/												t266 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4725:3*/												t267 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4725:3*/												t268 := int32(load32(m.memory, uint32(t266+t267<<2)))
+/*line :4725:39*/												v2 = t268
+/*line :4725:39*/												store32(m.memory, uint64(uint32(v2))+4, uint32(v0))
+/*line :4727:8*/												if v0 == 0 {
+/*line :4727:8*/													goto l221
+/*line :4727:8*/												}
+/*line :4730:41*/												store32(m.memory, uint64(uint32(v2))+12, uint32(v5-i32(2)))
+/*line :4733:18*/												t269 := int32(load32(m.memory, uint64(uint32(v1))+28))
+/*line :4733:18*/												v5 = t269 + v5
+/*line :4733:18*/											}
+/*line :4733:18*/											store32(m.memory, uint64(uint32(v1))+28, uint32(v5))
+/*line :4734:55*/											m.memory[uint32(v0+v5)] = byte(i32(0))
+/*line :4735:2*/											t270 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4735:2*/											t271 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4735:2*/											t272 := int32(load32(m.memory, uint32(t270+t271<<2)))
+/*line :4735:28*/											t273 := int32(load32(m.memory, uint64(uint32(t272))+4))
+/*line :4735:43*/											t274 := int32(load32(m.memory, uint64(uint32(v1))+28))
+/*line :4735:59*/											m.memory[uint64(uint32(t273+t274))+1] = byte(i32(0))
+/*line :4737:21*/											t275 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4737:21*/											t276 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4737:21*/											t277 := int32(load32(m.memory, uint32(t275+t276<<2)))
+/*line :4737:47*/											t278 := int32(load32(m.memory, uint64(uint32(t277))+4))
+/*line :4737:18*/											t279 := v1
+/*line :4737:18*/											v7 = t278
+/*line :4737:18*/											store32(m.memory, uint64(uint32(t279))+80, uint32(v7))
+/*line :4579:47*/											t280 := int32(load32(m.memory, uint64(uint32(v1))+28))
+/*line :4579:47*/											v6 = t280
+/*line :4579:47*/											v0 = v7
+/*line :4579:47*/										}
+/*line :4579:47*/									l200:
+/*line :4578:21*/										t281 := v1
+/*line :4578:21*/										v3 = v0 + v6
+/*line :4578:21*/										store32(m.memory, uint64(uint32(t281))+36, uint32(v3))
+/*line :4750:26*/										t282 := int32(load32(m.memory, uint64(uint32(v1))+44))
+/*line :4750:26*/										v0 = t282
+/*line :4750:26*/										v8 = v7
+/*line :4752:53*/										if uint32(v3) <= uint32(v7) {
+/*line :4752:53*/											goto l225
+/*line :4752:53*/										}
+/*line :4752:53*/									l227:
+/*line :4752:53*/										{
+/*line :4752:53*/											v2 = i32(1)
+/*line :4752:53*/											t283 := int32(m.memory[uint32(v8)])
+/*line :4752:53*/											v4 = t283
+/*line :4752:53*/											if v4 != 0 {
+/*line :4754:28*/												t284 := int32(m.memory[uint64(uint32(v4))+81216])
+/*line :4754:28*/												v2 = t284
+/*line :4754:28*/											}
+/*line :4755:8*/											t285 := int32(load16(m.memory, uint32(v0<<1+i32(81472))))
+/*line :4755:8*/											if t285 != 0 {
+/*line :4758:32*/												store32(m.memory, uint64(uint32(v1))+68, uint32(v8))
+/*line :4757:33*/												store32(m.memory, uint64(uint32(v1))+64, uint32(v0))
+/*line :4757:33*/											}
+/*line :4760:44*/											v4 = v2 & i32(255)
+/*line :4760:18*/											t286 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
+/*line :4760:18*/											v6 = v4 + t286
+/*line :4760:11*/											t287 := int32(int16(load16(m.memory, uint32(v6<<1+i32(85056)))))
+/*line :4760:52*/											if t287 != v0 {
+/*line :4760:52*/											l226:
+/*line :4760:52*/												{
+/*line :4762:29*/													t288 := int32(int16(load16(m.memory, uint32(v0<<1+i32(105152)))))
+/*line :4762:29*/													v0 = t288
+/*line :4762:29*/													if v0 >= i32(1789) {
+/*line :4764:12*/														t289 := int32(m.memory[uint64(uint32(v4))+109664])
+/*line :4764:12*/														v2 = t289
+/*line :4764:12*/													}
+/*line :4760:44*/													v4 = v2 & i32(255)
+/*line :4760:18*/													t290 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
+/*line :4760:18*/													v6 = v4 + t290
+/*line :4760:11*/													t291 := int32(load16(m.memory, uint32(v6<<1+i32(85056))))
+/*line :4760:52*/													if t291 != v0&i32(0xffff) {
+/*line :4760:52*/														goto l226
+/*line :4760:52*/													}
+/*line :4760:52*/												}
+/*line :4760:52*/											}
+/*line :4766:22*/											t292 := int32(int16(load16(m.memory, uint32(v6<<1+i32(109728)))))
+/*line :4766:22*/											v0 = t292
+/*line :4752:53*/											v8 = v8 + i32(1)
+/*line :4752:53*/											if v8 != v3 {
+/*line :4752:53*/												goto l227
+/*line :4752:53*/											}
+/*line :4752:53*/										}
+/*line :4752:53*/										v8 = v7
+/*line :4752:2*/										goto l225
+/*line :4752:2*/									}
+/*line :4752:2*/								l224:
+/*line :4708:15*/									t293 := int32(load32(m.memory, uint64(uint32(v1))+4))
+/*line :4708:4*/									m._pcap_restart(t293, v1)
+/*line :4708:4*/									t294 := int32(load32(m.memory, uint64(uint32(v1))+28))
+/*line :4722:43*/									v0 = t294
+/*line :4722:43*/									t295 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4722:43*/									t296 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4722:43*/									t297 := int32(load32(m.memory, uint32(t295+t296<<2)))
+/*line :4722:69*/									t298 := v0
+/*line :4722:69*/									v2 = t297
+/*line :4722:69*/									t299 := int32(load32(m.memory, uint64(uint32(v2))+12))
+/*line :4722:41*/									if t298 <= t299 {
+/*line :4734:28*/										t300 := int32(load32(m.memory, uint64(uint32(v2))+4))
+/*line :4734:28*/										v2 = t300
+/*line :4722:41*/										goto l228
 /*line :4722:41*/									}
-/*line :4726:39*/									t239 := int32(load32(m.memory, uint64(uint32(v2))+4))
-/*line :5595:9*/									v2 = v3 + v0>>1
-/*line :5595:9*/									t240 := m._realloc(t239, v2)
-/*line :5595:9*/									v0 = t240
-/*line :4725:3*/									t241 := int32(load32(m.memory, uint64(uint32(v1))+20))
-/*line :4725:3*/									t242 := int32(load32(m.memory, uint64(uint32(v1))+12))
-/*line :4725:3*/									t243 := int32(load32(m.memory, uint32(t241+t242<<2)))
-/*line :4725:39*/									v3 = t243
-/*line :4725:39*/									store32(m.memory, uint64(uint32(v3))+4, uint32(v0))
-/*line :4727:8*/									if v0 == 0 {
-/*line :4727:8*/										goto l221
+/*line :4726:39*/									t301 := int32(load32(m.memory, uint64(uint32(v2))+4))
+/*line :5595:9*/									v0 = v0 + v0>>1
+/*line :5595:9*/									t302 := m._realloc(t301, v0)
+/*line :5595:9*/									v2 = t302
+/*line :4725:3*/									t303 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4725:3*/									t304 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4725:3*/									t305 := int32(load32(m.memory, uint32(t303+t304<<2)))
+/*line :4725:39*/									v4 = t305
+/*line :4725:39*/									store32(m.memory, uint64(uint32(v4))+4, uint32(v2))
+/*line :4727:8*/									if v2 != 0 {
+/*line :4727:8*/										goto l229
 /*line :4727:8*/									}
-/*line :4730:41*/									store32(m.memory, uint64(uint32(v3))+12, uint32(v2-i32(2)))
-/*line :4733:18*/									t244 := int32(load32(m.memory, uint64(uint32(v1))+28))
-/*line :4733:18*/									v3 = t244 + v8
-/*line :4733:18*/								}
-/*line :4733:18*/							l220:
-/*line :4733:18*/								store32(m.memory, uint64(uint32(v1))+28, uint32(v3))
-/*line :4734:55*/								m.memory[uint32(v0+v3)] = byte(i32(0))
-/*line :4735:2*/								t245 := int32(load32(m.memory, uint64(uint32(v1))+20))
-/*line :4735:2*/								t246 := int32(load32(m.memory, uint64(uint32(v1))+12))
-/*line :4735:2*/								t247 := int32(load32(m.memory, uint32(t245+t246<<2)))
-/*line :4735:28*/								t248 := int32(load32(m.memory, uint64(uint32(t247))+4))
-/*line :4735:43*/								t249 := int32(load32(m.memory, uint64(uint32(v1))+28))
-/*line :4735:59*/								m.memory[uint64(uint32(t248+t249))+1] = byte(i32(0))
-/*line :4737:21*/								t250 := int32(load32(m.memory, uint64(uint32(v1))+20))
-/*line :4737:21*/								t251 := int32(load32(m.memory, uint64(uint32(v1))+12))
-/*line :4737:21*/								t252 := int32(load32(m.memory, uint32(t250+t251<<2)))
-/*line :4737:47*/								t253 := int32(load32(m.memory, uint64(uint32(t252))+4))
-/*line :4737:18*/								t254 := v1
-/*line :4737:18*/								v6 = t253
-/*line :4737:18*/								store32(m.memory, uint64(uint32(t254))+80, uint32(v6))
-/*line :4536:8*/								if v4 == i32(1) {
-/*line :4536:8*/									goto l201
-/*line :4536:8*/								}
-/*line :4536:8*/								{
-/*line :4536:8*/									switch v4 - i32(1) {
-/*line :4536:8*/									case 0:
-/*line :4536:8*/										goto l222
-/*line :4536:8*/									case 1:
-/*line :4536:8*/										goto l223
-/*line :4536:8*/									default:
-/*line :4536:8*/										goto l224
-/*line :4536:8*/									}
-/*line :4536:8*/								l224:
-/*line :4569:22*/									t255 := v1
-/*line :4569:22*/									t256 := v6
-/*line :4569:22*/									v2 = v11 ^ i32(-1) + v5
-/*line :4568:21*/									v4 = t256 + v2
-/*line :4568:21*/									store32(m.memory, uint64(uint32(t255))+36, uint32(v4))
-/*line :4750:26*/									t257 := int32(load32(m.memory, uint64(uint32(v1))+44))
-/*line :4750:26*/									v0 = t257
-/*line :4752:2*/									if v2 <= i32(0) {
-/*line :4752:2*/										goto l2
-/*line :4752:2*/									}
-/*line :4752:2*/									v7 = v6
-/*line :4752:2*/								l226:
-/*line :4752:2*/									{
-/*line :4752:2*/										v2 = i32(1)
-/*line :4752:2*/										t258 := int32(m.memory[uint32(v7)])
-/*line :4752:2*/										v5 = t258
-/*line :4752:2*/										if v5 != 0 {
-/*line :4754:28*/											t259 := int32(m.memory[uint64(uint32(v5))+81216])
-/*line :4754:28*/											v2 = t259
-/*line :4754:28*/										}
-/*line :4755:8*/										t260 := int32(load16(m.memory, uint32(v0<<1+i32(81472))))
-/*line :4755:8*/										if t260 != 0 {
-/*line :4758:32*/											store32(m.memory, uint64(uint32(v1))+68, uint32(v7))
-/*line :4757:33*/											store32(m.memory, uint64(uint32(v1))+64, uint32(v0))
-/*line :4757:33*/										}
-/*line :4760:44*/										v5 = v2 & i32(255)
-/*line :4760:18*/										t261 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
-/*line :4760:18*/										v3 = v5 + t261
-/*line :4760:11*/										t262 := int32(int16(load16(m.memory, uint32(v3<<1+i32(85056)))))
-/*line :4760:52*/										if t262 != v0 {
-/*line :4760:52*/										l225:
-/*line :4760:52*/											{
-/*line :4762:29*/												t263 := int32(int16(load16(m.memory, uint32(v0<<1+i32(105152)))))
-/*line :4762:29*/												v0 = t263
-/*line :4762:29*/												if v0 >= i32(1789) {
-/*line :4764:12*/													t264 := int32(m.memory[uint64(uint32(v5))+109664])
-/*line :4764:12*/													v2 = t264
-/*line :4764:12*/												}
-/*line :4760:44*/												v5 = v2 & i32(255)
-/*line :4760:18*/												t265 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
-/*line :4760:18*/												v3 = v5 + t265
-/*line :4760:11*/												t266 := int32(load16(m.memory, uint32(v3<<1+i32(85056))))
-/*line :4760:3*/												if t266 != v0&i32(0xffff) {
-/*line :4760:3*/													goto l225
-/*line :4760:3*/												}
-/*line :4760:3*/											}
-/*line :4760:3*/										}
-/*line :4766:22*/										t267 := int32(int16(load16(m.memory, uint32(v3<<1+i32(109728)))))
-/*line :4766:22*/										v0 = t267
-/*line :4752:53*/										t268 := v4
-/*line :4752:53*/										v7 = v7 + i32(1)
-/*line :4752:2*/										if t268 != v7 {
-/*line :4752:2*/											goto l226
-/*line :4752:2*/										}
-/*line :4752:2*/									}
-/*line :4752:2*/									goto l2
-/*line :4752:2*/								}
-/*line :4752:2*/							l223:
-/*line :4579:47*/								t269 := int32(load32(m.memory, uint64(uint32(v1))+28))
-/*line :4579:47*/								v4 = t269
-/*line :4579:47*/								v0 = v6
-/*line :4579:47*/							}
-/*line :4579:47*/						l200:
-/*line :4578:21*/							t270 := v1
-/*line :4578:21*/							v5 = v0 + v4
-/*line :4578:21*/							store32(m.memory, uint64(uint32(t270))+36, uint32(v5))
-/*line :4750:26*/							t271 := int32(load32(m.memory, uint64(uint32(v1))+44))
-/*line :4750:26*/							v0 = t271
-/*line :4750:26*/							v7 = v6
-/*line :4752:2*/							if uint32(v5) <= uint32(v6) {
-/*line :4752:2*/								goto l227
-/*line :4752:2*/							}
-/*line :4752:2*/						l229:
-/*line :4752:2*/							{
-/*line :4752:2*/								v2 = i32(1)
-/*line :4752:2*/								t272 := int32(m.memory[uint32(v7)])
-/*line :4752:2*/								v3 = t272
-/*line :4752:2*/								if v3 != 0 {
-/*line :4754:28*/									t273 := int32(m.memory[uint64(uint32(v3))+81216])
-/*line :4754:28*/									v2 = t273
-/*line :4754:28*/								}
-/*line :4755:8*/								t274 := int32(load16(m.memory, uint32(v0<<1+i32(81472))))
-/*line :4755:8*/								if t274 != 0 {
-/*line :4758:32*/									store32(m.memory, uint64(uint32(v1))+68, uint32(v7))
-/*line :4757:33*/									store32(m.memory, uint64(uint32(v1))+64, uint32(v0))
-/*line :4757:33*/								}
-/*line :4760:44*/								v3 = v2 & i32(255)
-/*line :4760:18*/								t275 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
-/*line :4760:18*/								v4 = v3 + t275
-/*line :4760:11*/								t276 := int32(int16(load16(m.memory, uint32(v4<<1+i32(85056)))))
-/*line :4760:52*/								if t276 != v0 {
-/*line :4760:52*/								l228:
-/*line :4760:52*/									{
-/*line :4762:29*/										t277 := int32(int16(load16(m.memory, uint32(v0<<1+i32(105152)))))
-/*line :4762:29*/										v0 = t277
-/*line :4762:29*/										if v0 >= i32(1789) {
-/*line :4764:12*/											t278 := int32(m.memory[uint64(uint32(v3))+109664])
-/*line :4764:12*/											v2 = t278
-/*line :4764:12*/										}
-/*line :4760:44*/										v3 = v2 & i32(255)
-/*line :4760:18*/										t279 := int32(int16(load16(m.memory, uint32(v0<<1+i32(100640)))))
-/*line :4760:18*/										v4 = v3 + t279
-/*line :4760:11*/										t280 := int32(load16(m.memory, uint32(v4<<1+i32(85056))))
-/*line :4760:3*/										if t280 != v0&i32(0xffff) {
-/*line :4760:3*/											goto l228
-/*line :4760:3*/										}
-/*line :4760:3*/									}
-/*line :4760:3*/								}
-/*line :4766:22*/								t281 := int32(int16(load16(m.memory, uint32(v4<<1+i32(109728)))))
-/*line :4766:22*/								v0 = t281
-/*line :4752:53*/								v7 = v7 + i32(1)
-/*line :4752:2*/								if v7 != v5 {
-/*line :4752:2*/									goto l229
-/*line :4752:2*/								}
-/*line :4752:2*/							}
-/*line :4752:2*/							v7 = v6
-/*line :4752:2*/							goto l227
-/*line :4752:2*/						}
-/*line :4752:2*/					l222:
-/*line :4752:2*/						panic("unreachable")
-/*line :4752:2*/					l221:
-/*line :4728:4*/						m._yy_fatal_error(i32(71903))
-/*line :4728:4*/						panic("unreachable")
-/*line :4728:4*/					l207:
-/*line :4683:5*/						m._yy_fatal_error(i32(65778))
-/*line :4683:5*/						panic("unreachable")
-/*line :4683:5*/					l201:
-/*line :4553:22*/						store32(m.memory, uint64(uint32(v1))+36, uint32(v6))
+/*line :4727:8*/								}
+/*line :4727:8*/							l221:
+/*line :4728:4*/								m._yy_fatal_error(i32(71903))
+/*line :4728:4*/								panic("unreachable")
+/*line :4728:4*/							l229:
+/*line :4730:41*/								store32(m.memory, uint64(uint32(v4))+12, uint32(v0-i32(2)))
+/*line :4733:18*/								t306 := int32(load32(m.memory, uint64(uint32(v1))+28))
+/*line :4733:18*/								v0 = t306
+/*line :4733:18*/							}
+/*line :4733:18*/						l228:
+/*line :4733:18*/							store32(m.memory, uint64(uint32(v1))+28, uint32(v0))
+/*line :4734:55*/							m.memory[uint32(v0+v2)] = byte(i32(0))
+/*line :4735:2*/							t307 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4735:2*/							t308 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4735:2*/							t309 := int32(load32(m.memory, uint32(t307+t308<<2)))
+/*line :4735:28*/							t310 := int32(load32(m.memory, uint64(uint32(t309))+4))
+/*line :4735:43*/							t311 := int32(load32(m.memory, uint64(uint32(v1))+28))
+/*line :4735:59*/							m.memory[uint64(uint32(t310+t311))+1] = byte(i32(0))
+/*line :4737:21*/							t312 := int32(load32(m.memory, uint64(uint32(v1))+20))
+/*line :4737:21*/							t313 := int32(load32(m.memory, uint64(uint32(v1))+12))
+/*line :4737:21*/							t314 := int32(load32(m.memory, uint32(t312+t313<<2)))
+/*line :4737:47*/							t315 := int32(load32(m.memory, uint64(uint32(t314))+4))
+/*line :4737:18*/							t316 := v1
+/*line :4737:18*/							v7 = t315
+/*line :4737:18*/							store32(m.memory, uint64(uint32(t316))+80, uint32(v7))
+/*line :4737:18*/						}
+/*line :4737:18*/					l201:
+/*line :4553:22*/						store32(m.memory, uint64(uint32(v1))+36, uint32(v7))
 /*line :4540:38*/						store32(m.memory, uint64(uint32(v1))+48, uint32(i32(0)))
-/*line :4555:28*/						t282 := int32(load32(m.memory, uint64(uint32(v1))+44))
-/*line :4555:28*/						v0 = (t282-i32(1))/i32(2) + i32(191)
+/*line :4555:28*/						t317 := int32(load32(m.memory, uint64(uint32(v1))+44))
+/*line :4555:28*/						v0 = (t317-i32(1))/i32(2) + i32(191)
 /*line :4555:28*/						goto l230
 /*line :4555:28*/					}
 /*line :4555:28*/				}
 /*line :4555:28*/			}
 /*line :4555:28*/		}
 /*line :4555:28*/	}
-/*line bpf.go:49608:1*/}
-/*line :49609:1*/func (m *Module) _pcap_ensure_buffer_stack(v0 int32) {
-/*line :49610:1*/	var v1 int32
-/*line :49611:1*/	var v2 int32
+/*line bpf.go:49567:1*/}
+/*line :49568:1*/func (m *Module) _pcap_ensure_buffer_stack(v0 int32) {
+/*line :49569:1*/	var v1 int32
+/*line :49570:1*/	var v2 int32
 /*line ../src/scanner.c:5114:12*/	{
 /*line :5114:12*/		t0 := int32(load32(m.memory, uint64(uint32(v0))+20))
 /*line :5114:6*/		v1 = t0
@@ -49626,11 +49585,11 @@
 /*line :5151:1*/		}
 /*line :5151:1*/		t3 := int32(load32(m.memory, uint64(uint32(v0))+12))
 /*line :5134:40*/		t4 := int32(load32(m.memory, uint64(uint32(v0))+16))
-/*line :5134:40*/		v2 = t4
+/*line :5134:61*/		v2 = t4
 /*line :5134:31*/		if uint32(t3) >= uint32(v2-i32(1)) {
-/*line :5139:43*/			t5 := v0
-/*line :5139:43*/			t6 := v1
-/*line :5139:43*/			v2 = v2 + i32(8)
+/*line :5142:22*/			t5 := v0
+/*line :5142:22*/			t6 := v1
+/*line :5142:22*/			v2 = v2 + i32(8)
 /*line :5595:9*/			t7 := m._realloc(t6, v2<<2)
 /*line :5140:24*/			v1 = t7
 /*line :5140:24*/			store32(m.memory, uint64(uint32(t5))+20, uint32(v1))
@@ -49653,12 +49612,12 @@
 /*line :5125:4*/l1:
 /*line :5145:4*/	m._yy_fatal_error(i32(72035))
 /*line :5145:4*/	panic("unreachable")
-/*line bpf.go:49656:1*/}
-/*line :49657:1*/func (m *Module) _pcap__create_buffer(v0, v1, v2 int32) int32 {
-/*line :49658:1*/	var v3 int32
-/*line :49659:1*/	var v4 int32
-/*line :49660:1*/	var v5 int32
-/*line ../src/scanner.c:4952*/	{
+/*line bpf.go:49615:1*/}
+/*line :49616:1*/func (m *Module) _pcap__create_buffer(v0, v1, v2 int32) int32 {
+/*line :49617:1*/	var v3 int32
+/*line :49618:1*/	var v4 int32
+/*line :49619:1*/	var v5 int32
+/*line ../src/scanner.c:5580:9*/	{
 /*line :5580:9*/		t0 := m.Xmalloc(i32(48))
 /*line :4956:7*/		v3 = t0
 /*line :4956:7*/		if v3 != 0 {
@@ -49724,10 +49683,10 @@
 /*line :4957:3*/l0:
 /*line :4966:3*/	m._yy_fatal_error(i32(71991))
 /*line :4966:3*/	panic("unreachable")
-/*line bpf.go:49727:1*/}
-/*line :49728:1*/func (m *Module) _stou(v0, v1, v2 int32) int32 {
-/*line :49729:1*/	var v3 int32
-/*line :49730:1*/	var v4 int32
+/*line bpf.go:49686:1*/}
+/*line :49687:1*/func (m *Module) _stou(v0, v1, v2 int32) int32 {
+/*line :49688:1*/	var v3 int32
+/*line :49689:1*/	var v4 int32
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/scanner.l:632*/	t0 := m.___stack_pointer
 /*line :632*/	v3 = t0 - i32(48)
 /*line :632*/	m.___stack_pointer = v3
@@ -49764,9 +49723,9 @@
 /*line :653:3*/l4:
 /*line :666:1*/	m.___stack_pointer = v3 + i32(48)
 /*line :666:1*/	return v4
-/*line bpf.go:49767:1*/}
-/*line :49768:1*/func (m *Module) _yy_fatal_error(v0 int32) {
-/*line :49769:1*/	var v1 int32
+/*line bpf.go:49726:1*/}
+/*line :49727:1*/func (m *Module) _yy_fatal_error(v0 int32) {
+/*line :49728:1*/	var v1 int32
 /*line ../src/scanner.c:5244*/	t0 := m.___stack_pointer
 /*line :5244*/	v1 = t0 - i32(16)
 /*line :5244*/	m.___stack_pointer = v1
@@ -49774,13 +49733,13 @@
 /*line :5247:2*/	_ = m._fprintf(i32(2), i32(72781), v1)
 /*line :5248:2*/	m._exit(i32(2))
 /*line :5248:2*/	panic("unreachable")
-/*line bpf.go:49777:1*/}
-/*line :49778:1*/func (m *Module) _pcap_restart(v0, v1 int32) {
-/*line :49779:1*/	var v2 int32
-/*line :49780:1*/	var v3 int32
-/*line :49781:1*/	var v4 int32
-/*line :49782:1*/	var v5 int32
-/*line :49783:1*/	var v6 int32
+/*line bpf.go:49736:1*/}
+/*line :49737:1*/func (m *Module) _pcap_restart(v0, v1 int32) {
+/*line :49738:1*/	var v2 int32
+/*line :49739:1*/	var v3 int32
+/*line :49740:1*/	var v4 int32
+/*line :49741:1*/	var v5 int32
+/*line :49742:1*/	var v6 int32
 /*line ../src/scanner.c:4890:9*/	{
 /*line :4890:9*/		t0 := int32(load32(m.memory, uint64(uint32(v1))+20))
 /*line :4890:7*/		v2 = t0
@@ -49859,14 +49818,14 @@
 /*line :4939:18*/	store32(m.memory, uint64(uint32(v1))+28, uint32(t24))
 /*line :4942:22*/	t25 := int32(m.memory[uint32(v2)])
 /*line :4942:20*/	m.memory[uint64(uint32(v1))+24] = byte(t25)
-/*line bpf.go:49862:1*/}
-/*line :49863:1*/func (m *Module) _stoulen(v0, v1, v2, v3 int32) int32 {
-/*line :49864:1*/	var v4 int32
-/*line :49865:1*/	var v5 int32
-/*line :49866:1*/	var v6 int32
-/*line :49867:1*/	var v7 int32
-/*line :49868:1*/	var v8 int32
-/*line :49869:1*/	var v9 int32
+/*line bpf.go:49821:1*/}
+/*line :49822:1*/func (m *Module) _stoulen(v0, v1, v2, v3 int32) int32 {
+/*line :49823:1*/	var v4 int32
+/*line :49824:1*/	var v5 int32
+/*line :49825:1*/	var v6 int32
+/*line :49826:1*/	var v7 int32
+/*line :49827:1*/	var v8 int32
+/*line :49828:1*/	var v9 int32
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/scanner.l:483*/	t0 := m.___stack_pointer
 /*line :483*/	v5 = t0 - i32(48)
 /*line :483*/	m.___stack_pointer = v5
@@ -49913,7 +49872,7 @@
 /*line :494:24*/		}
 /*line :494:24*/		t4 := int32(m.memory[uint64(uint32(v0))+1])
 /*line :494:40*/		if t4|i32(32) == i32(120) {
-/*line :494:40*/			v6 = i32(2)
+/*line :503:22*/			v6 = i32(2)
 /*line :503:4*/			if v1 == i32(2) {
 /*line :503:4*/				goto l0
 /*line :503:4*/			}
@@ -49988,9 +49947,9 @@
 /*line :618:7*/l1:
 /*line :620:1*/	m.___stack_pointer = v5 + i32(48)
 /*line :620:1*/	return v8
-/*line bpf.go:49991:1*/}
-/*line :49992:1*/func (m *Module) _pcap__delete_buffer(v0, v1 int32) {
-/*line :49993:1*/	var v2 int32
+/*line bpf.go:49950:1*/}
+/*line :49951:1*/func (m *Module) _pcap__delete_buffer(v0, v1 int32) {
+/*line :49952:1*/	var v2 int32
 /*line ../src/github.com/the-tcpdump-group/libpcap@69733af23a/scanner.l:620:1*/	if v0 != 0 {
 /*line ../src/scanner.c:4986:12*/		{
 /*line :4986:12*/			t0 := int32(load32(m.memory, uint64(uint32(v1))+20))
@@ -50015,13 +49974,13 @@
 /*line :5602:2*/		}
 /*line :5602:2*/		m.Xfree(v0)
 /*line :5602:2*/	}
-/*line bpf.go:50018:1*/}
-/*line :50019:1*/func (m *Module) _pcap__scan_buffer(v0, v1, v2 int32) int32 {
-/*line :50020:1*/	var v3 int32
-/*line :50021:1*/	var v4 int32
-/*line :50022:1*/	var v5 int32
-/*line :50023:1*/	var v6 int32
-/*line ../src/scanner.c:5160*/	{
+/*line bpf.go:49977:1*/}
+/*line :49978:1*/func (m *Module) _pcap__scan_buffer(v0, v1, v2 int32) int32 {
+/*line :49979:1*/	var v3 int32
+/*line :49980:1*/	var v4 int32
+/*line :49981:1*/	var v5 int32
+/*line :49982:1*/	var v6 int32
+/*line ../src/scanner.c:5163:12*/	{
 /*line :5163:16*/		if uint32(v1) < uint32(i32(2)) {
 /*line :5163:16*/			goto l0
 /*line :5163:16*/		}
@@ -50090,17 +50049,17 @@
 /*line :5186:1*/l1:
 /*line :5171:3*/	m._yy_fatal_error(i32(71949))
 /*line :5171:3*/	panic("unreachable")
-/*line bpf.go:50093:1*/}
-/*line :50094:1*/func (m *Module) _pcap__scan_string(v0, v1 int32) int32 {
-/*line :50095:1*/	var v2 int32
-/*line :50096:1*/	var v3 int32
-/*line :50097:1*/	var v4 int32
-/*line :50098:1*/	var v5 int32
-/*line :50099:1*/	var v6 int32
-/*line :50100:1*/	var v7 int32
+/*line bpf.go:50052:1*/}
+/*line :50053:1*/func (m *Module) _pcap__scan_string(v0, v1 int32) int32 {
+/*line :50054:1*/	var v2 int32
+/*line :50055:1*/	var v3 int32
+/*line :50056:1*/	var v4 int32
+/*line :50057:1*/	var v5 int32
+/*line :50058:1*/	var v6 int32
+/*line :50059:1*/	var v7 int32
 /*line ../src/scanner.c:5199:37*/	{
 /*line :5199:37*/		t0 := m._strlen(v0)
-/*line :5199:37*/		v3 = t0
+/*line :5217:32*/		v3 = t0
 /*line :5580:9*/		v6 = v3 + i32(2)
 /*line :5580:9*/		t1 := m.Xmalloc(v6)
 /*line :5219:7*/		v4 = t1
@@ -50154,12 +50113,12 @@
 /*line :5220:3*/l3:
 /*line :5229:3*/	m._yy_fatal_error(i32(71873))
 /*line :5229:3*/	panic("unreachable")
-/*line bpf.go:50157:1*/}
-/*line :50158:1*/func (m *Module) _pcap_set_extra(v0, v1 int32) {
+/*line bpf.go:50116:1*/}
+/*line :50117:1*/func (m *Module) _pcap_set_extra(v0, v1 int32) {
 /*line ../src/scanner.c:5349:13*/	store32(m.memory, uint32(v1), uint32(v0))
-/*line bpf.go:50160:1*/}
-/*line :50161:1*/func (m *Module) _pcap_lex_init(v0 int32) int32 {
-/*line :50162:1*/	var v1 int32
+/*line bpf.go:50119:1*/}
+/*line :50120:1*/func (m *Module) _pcap_lex_init(v0 int32) int32 {
+/*line :50121:1*/	var v1 int32
 /*line ../src/scanner.c:5350:1*/	if v0 == 0 {
 /*line :5435:15*/		store32(m.memory, uint32(i32(127520)), uint32(i32(22)))
 /*line :5450:1*/		return i32(1)
@@ -50174,11 +50133,11 @@
 /*line :5450:1*/	}
 /*line :5509:10*/	memory_zero(m.memory, uint32(v1), uint32(i32(96)))
 /*line :5450:1*/	return i32(0)
-/*line bpf.go:50177:1*/}
-/*line :50178:1*/func (m *Module) _pcap_lex_destroy(v0 int32) int32 {
-/*line :50179:1*/	var v1 int32
-/*line :50180:1*/	var v2 int32
-/*line :50181:1*/	var v3 int32
+/*line bpf.go:50136:1*/}
+/*line :50137:1*/func (m *Module) _pcap_lex_destroy(v0 int32) int32 {
+/*line :50138:1*/	var v1 int32
+/*line :50139:1*/	var v2 int32
+/*line :50140:1*/	var v3 int32
 /*line ../src/scanner.c:5525:8*/	{
 /*line :5525:8*/		t0 := int32(load32(m.memory, uint64(uint32(v0))+20))
 /*line :5525:8*/		v1 = t0
@@ -50219,12 +50178,12 @@
 /*line :5509:10*/	store64(m.memory, uint64(uint32(v0))+4, uint64(i64(0)))
 /*line :5602:2*/	m.Xfree(v0)
 /*line :5546:5*/	return i32(0)
-/*line bpf.go:50222:1*/}
-/*line :50223:1*/func (m *Module) _getaddrinfo(v0, v1, v2, v3 int32) int32 {
-/*line :50224:1*/	var v4 int32
-/*line :50225:1*/	var v5 int32
-/*line :50226:1*/	var v6 int32
-/*line :50227:1*/	var v7 int32
+/*line bpf.go:50181:1*/}
+/*line :50182:1*/func (m *Module) _getaddrinfo(v0, v1, v2, v3 int32) int32 {
+/*line :50183:1*/	var v4 int32
+/*line :50184:1*/	var v5 int32
+/*line :50185:1*/	var v6 int32
+/*line :50186:1*/	var v7 int32
 /*line ../src/netdb.c:6*/	t0 := m.___stack_pointer
 /*line :6*/	v5 = t0 - i32(16)
 /*line :6*/	m.___stack_pointer = v5
@@ -50243,8 +50202,8 @@
 /*line :12:35*/				v7 = t3
 /*line :12:35*/				v4 = v3
 /*line :11:33*/				t4 := int32(load32(m.memory, uint64(uint32(v2))+4))
-/*line :11:33*/				t5 := v4
-/*line :11:33*/				v2 = t4
+/*line :17:29*/				t5 := v4
+/*line :17:29*/				v2 = t4
 /*line :17:29*/				if uint32(v2) > uint32(i32(1)) {
 /*line :17:29*/					p2 = t5
 /*line :17:29*/					goto l1
@@ -50288,7 +50247,7 @@
 /*line :32:17*/		}
 /*line :32:17*/	l1:
 /*line :32:17*/		v4 = p2
-/*line :32:17*/		{
+/*line :37:29*/		{
 /*line :37:29*/			if v2&i32(-3) != 0 {
 /*line :37:29*/				goto l3
 /*line :37:29*/			}
@@ -50335,9 +50294,9 @@
 /*line :57:12*/	}
 /*line :58:1*/	m.___stack_pointer = v5 + i32(16)
 /*line :58:1*/	return p1
-/*line bpf.go:50338:1*/}
-/*line :50339:1*/func (m *Module) _freeaddrinfo(v0 int32) {
-/*line :50340:1*/	var _ int32
+/*line bpf.go:50297:1*/}
+/*line :50298:1*/func (m *Module) _freeaddrinfo(v0 int32) {
+/*line :50299:1*/	var _ int32
 /*line ../src/netdb.c:58:1*/	if v0 != 0 {
 /*line :62:38*/	l0:
 /*line :62:38*/		{
@@ -50351,34 +50310,34 @@
 /*line :64:9*/			}
 /*line :61:5*/		}
 /*line :61:5*/	}
-/*line bpf.go:50354:1*/}
-/*line :50355:1*/func _getnetbyname(v0 int32) int32 {
+/*line bpf.go:50313:1*/}
+/*line :50314:1*/func _getnetbyname(v0 int32) int32 {
 /*line ../src/netdb.c:92:5*/	return i32(0)
-/*line bpf.go:50357:1*/}
-/*line :50358:1*/func _getprotobyname(v0 int32) int32 {
+/*line bpf.go:50316:1*/}
+/*line :50317:1*/func _getprotobyname(v0 int32) int32 {
 /*line ../src/netdb.c:96:5*/	return i32(0)
-/*line bpf.go:50360:1*/}
-/*line :50361:1*/func _ntohl(v0 int32) int32 {
-/*line ../src/netinet.c:13:30*/	return i32_rotr(v0, i32(24))&i32(0xff00ff) | i32_rotr(v0&i32(0xff00ff), i32(8))
-/*line bpf.go:50363:1*/}
-/*line :50364:1*/func _htonl(v0 int32) int32 {
-/*line ../src/netinet.c:14:30*/	return i32_rotr(v0, i32(24))&i32(0xff00ff) | i32_rotr(v0&i32(0xff00ff), i32(8))
-/*line bpf.go:50366:1*/}
-/*line :50367:1*/func _ntohs(v0 int32) int32 {
+/*line bpf.go:50319:1*/}
+/*line :50320:1*/func _ntohl(v0 int32) int32 {
+/*line ../src/netinet.c:13:30*/	return int32(uint32((v0^i32_rotr(v0, i32(16)))&i32(-0xff0100))>>8) ^ i32_rotr(v0, i32(8))
+/*line bpf.go:50322:1*/}
+/*line :50323:1*/func _htonl(v0 int32) int32 {
+/*line ../src/netinet.c:14:30*/	return int32(uint32((v0^i32_rotr(v0, i32(16)))&i32(-0xff0100))>>8) ^ i32_rotr(v0, i32(8))
+/*line bpf.go:50325:1*/}
+/*line :50326:1*/func _ntohs(v0 int32) int32 {
 /*line ../src/netinet.c:15:30*/	return (v0<<8 | int32(uint32(v0)>>8)) & i32(0xffff)
-/*line bpf.go:50369:1*/}
-/*line :50370:1*/func (m *Module) _inet_pton(v0, v1, v2 int32) int32 {
-/*line :50371:1*/	var v3 int32
-/*line :50372:1*/	var v4 int32
-/*line :50373:1*/	var v5 int32
-/*line :50374:1*/	var v6 int32
-/*line :50375:1*/	var v7 int32
-/*line :50376:1*/	var v8 int32
-/*line :50377:1*/	var v9 int32
+/*line bpf.go:50328:1*/}
+/*line :50329:1*/func (m *Module) _inet_pton(v0, v1, v2 int32) int32 {
+/*line :50330:1*/	var v3 int32
+/*line :50331:1*/	var v4 int32
+/*line :50332:1*/	var v5 int32
+/*line :50333:1*/	var v6 int32
+/*line :50334:1*/	var v7 int32
+/*line :50335:1*/	var v8 int32
+/*line :50336:1*/	var v9 int32
 /*line ../src/netinet.c:27*/	t0 := m.___stack_pointer
 /*line :27*/	v5 = t0 - i32(16)
-/*line :27*/	{
-/*line :27*/		{
+/*line :32:8*/	{
+/*line :32:8*/		{
 /*line :32:8*/			switch v0 - i32(1) {
 /*line :32:8*/			case 0:
 /*line :32:8*/				goto l0
@@ -50395,7 +50354,7 @@
 /*line :34:4*/				goto l3
 /*line :34:4*/			}
 /*line :34:4*/			t2 := int32(int8(m.memory[uint64(uint32(v1))+1]))
-/*line :34:4*/			v4 = t2
+/*line :34:23*/			v4 = t2
 /*line :34:23*/			var p3 int32
 /*line :34:23*/			if uint32(v4-i32(48)) > uint32(i32(9)) {
 /*line :34:23*/				p3 = i32(1)
@@ -50443,7 +50402,7 @@
 /*line :34:4*/				goto l3
 /*line :34:4*/			}
 /*line :34:4*/			t13 := int32(int8(m.memory[uint64(uint32(v0))+2]))
-/*line :34:4*/			v5 = t13
+/*line :34:23*/			v5 = t13
 /*line :34:23*/			var p14 int32
 /*line :34:23*/			if uint32(v5-i32(48)) > uint32(i32(9)) {
 /*line :34:23*/				p14 = i32(1)
@@ -50490,7 +50449,7 @@
 /*line :34:4*/				goto l3
 /*line :34:4*/			}
 /*line :34:4*/			t24 := int32(int8(m.memory[uint64(uint32(v0))+2]))
-/*line :34:4*/			v5 = t24
+/*line :34:23*/			v5 = t24
 /*line :34:23*/			var p25 int32
 /*line :34:23*/			if uint32(v5-i32(48)) > uint32(i32(9)) {
 /*line :34:23*/				p25 = i32(1)
@@ -50538,7 +50497,7 @@
 /*line :34:4*/			}
 /*line :34:4*/			v5 = i32(1)
 /*line :34:4*/			t35 := int32(int8(m.memory[uint64(uint32(v0))+2]))
-/*line :34:4*/			v7 = t35
+/*line :34:23*/			v7 = t35
 /*line :34:23*/			if uint32(v7-i32(48)) <= uint32(i32(9)) {
 /*line :36:35*/				if v4 == i32(48) {
 /*line :36:35*/					goto l3
@@ -50581,7 +50540,7 @@
 /*line :83:1*/		return i32(-1)
 /*line :83:1*/	l1:
 /*line :83:1*/		t45 := int32(m.memory[uint32(v1)])
-/*line :83:1*/		v3 = t45
+/*line :48:8*/		v3 = t45
 /*line :48:8*/		if v3 == i32(58) {
 /*line :48:8*/			t46 := int32(m.memory[uint64(uint32(v1))+1])
 /*line :48:21*/			if t46 != i32(58) {
@@ -50591,427 +50550,434 @@
 /*line :48:21*/		}
 /*line :48:21*/		v7 = i32(-1)
 /*line :48:21*/		v0 = i32(0)
-/*line :48:21*/	l17:
+/*line :48:21*/	l18:
 /*line :48:21*/		{
 /*line :48:21*/			{
 /*line :48:21*/				{
-/*line :48:21*/					var p47 int32
 /*line :48:21*/					{
-/*line :51:17*/						var p48 int32
-/*line :51:17*/						if v3&i32(255) == i32(58) {
-/*line :51:17*/							p48 = 1
-/*line :51:17*/						}
-/*line :51:17*/						var p49 int32
-/*line :51:17*/						if v7 < i32(0) {
-/*line :51:17*/							p49 = 1
-/*line :51:17*/						}
-/*line :51:17*/						if p48&p49 == 0 {
-/*line :51:17*/							v4 = int32(int8(v3))
-/*line :20:7*/							v3 = v4 - i32(48)
-/*line :20:11*/							if uint32(v3) >= uint32(i32(10)) {
-/*line :21:4*/								v3 = v4 | i32(32)
-/*line :22:11*/								if uint32(v3-i32(97)) > uint32(i32(5)) {
-/*line :22:11*/									goto l4
+/*line :48:21*/						var p47 int32
+/*line :48:21*/						{
+/*line :51:17*/							var p48 int32
+/*line :51:17*/							if v3&i32(255) == i32(58) {
+/*line :51:17*/								p48 = 1
+/*line :51:17*/							}
+/*line :51:17*/							var p49 int32
+/*line :51:17*/							if v7 < i32(0) {
+/*line :51:17*/								p49 = 1
+/*line :51:17*/							}
+/*line :51:17*/							if p48&p49 == 0 {
+/*line :51:17*/								v4 = int32(int8(v3))
+/*line :20:7*/								v3 = v4 - i32(48)
+/*line :20:11*/								if uint32(v3) >= uint32(i32(10)) {
+/*line :21:4*/									v3 = v4 | i32(32)
+/*line :22:11*/									if uint32(v3-i32(97)) > uint32(i32(5)) {
+/*line :22:11*/										goto l4
+/*line :22:11*/									}
+/*line :22:11*/									v3 = v3 - i32(87)
 /*line :22:11*/								}
-/*line :22:11*/								v3 = v3 - i32(87)
+/*line :58:32*/								t50 := int32(int8(m.memory[uint64(uint32(v1))+1]))
+/*line :58:32*/								v6 = t50
+/*line :20:7*/								v4 = v6 - i32(48)
+/*line :20:11*/								if uint32(v4) < uint32(i32(10)) {
+/*line :20:11*/									goto l5
+/*line :20:11*/								}
+/*line :21:4*/								v4 = v6 | i32(32)
+/*line :22:11*/								if uint32(v4-i32(97)) <= uint32(i32(5)) {
+/*line :22:11*/									goto l6
+/*line :22:11*/								}
+/*line :22:11*/								p47 = i32(1)
+/*line :22:11*/								goto l7
 /*line :22:11*/							}
-/*line :58:32*/							t50 := int32(int8(m.memory[uint64(uint32(v1))+1]))
-/*line :58:32*/							v6 = t50
-/*line :20:7*/							v4 = v6 - i32(48)
-/*line :20:11*/							if uint32(v4) < uint32(i32(10)) {
-/*line :20:11*/								goto l5
-/*line :20:11*/							}
-/*line :21:4*/							v4 = v6 | i32(32)
-/*line :22:11*/							if uint32(v4-i32(97)) <= uint32(i32(5)) {
-/*line :22:11*/								goto l6
-/*line :22:11*/							}
-/*line :22:11*/							p47 = i32(1)
-/*line :22:11*/							goto l7
-/*line :22:11*/						}
-/*line :22:11*/						v6 = i32(1)
-/*line :53:11*/						store16(m.memory, uint32(v5|v0&i32(7)<<1), uint16(i32(0)))
-/*line :54:10*/						v4 = v1 + i32(1)
-/*line :54:10*/						t51 := int32(m.memory[uint64(uint32(v1))+1])
-/*line :54:8*/						v3 = t51
-/*line :54:8*/						if v3 == 0 {
-/*line :54:8*/							v1 = v4
+/*line :22:11*/							v6 = i32(1)
+/*line :53:11*/							store16(m.memory, uint32(v5|v0&i32(7)<<1), uint16(i32(0)))
+/*line :54:10*/							v4 = v1 + i32(1)
+/*line :54:10*/							t51 := int32(m.memory[uint64(uint32(v1))+1])
+/*line :54:8*/							v3 = t51
+/*line :54:8*/							if v3 == 0 {
+/*line :54:8*/								v7 = v0
+/*line :54:8*/								v1 = v4
+/*line :54:8*/								goto l8
+/*line :54:8*/							}
 /*line :54:8*/							v7 = v0
-/*line :54:8*/							goto l8
-/*line :54:8*/						}
-/*line :54:8*/						v7 = v0
-/*line :55:9*/						if v0 != i32(7) {
-/*line :55:9*/							goto l9
+/*line :55:9*/							if v0 != i32(7) {
+/*line :55:9*/								goto l9
+/*line :55:9*/							}
 /*line :55:9*/						}
-/*line :55:9*/					}
-/*line :55:9*/				l4:
-/*line :83:1*/					return i32(0)
-/*line :83:1*/				l6:
-/*line :83:1*/					v4 = v4 - i32(87)
-/*line :83:1*/				l5:
-/*line :58:32*/					{
-/*line :59:10*/						v3 = v4 + v3<<4
-/*line :59:8*/						t52 := int32(int8(m.memory[uint64(uint32(v1))+2]))
-/*line :59:8*/						t53 := v3 << 4
-/*line :59:8*/						v6 = t52
-/*line :20:7*/						v4 = v6 - i32(48)
-/*line :20:11*/						if uint32(v4) >= uint32(i32(10)) {
-/*line :21:4*/							v4 = v6 | i32(32)
-/*line :22:11*/							if uint32(v4-i32(97)) > uint32(i32(5)) {
-/*line :22:11*/								goto l10
-/*line :22:11*/							}
-/*line :22:11*/							v4 = v4 - i32(87)
-/*line :22:11*/						}
-/*line :59:10*/						v3 = t53 + v4
-/*line :59:8*/						t54 := int32(int8(m.memory[uint64(uint32(v1))+3]))
-/*line :59:8*/						t55 := v3 << 4
-/*line :59:8*/						v4 = t54
-/*line :20:7*/						v6 = v4 - i32(48)
-/*line :20:11*/						if uint32(v6) >= uint32(i32(10)) {
-/*line :21:4*/							v4 = v4 | i32(32)
-/*line :22:11*/							if uint32(v4-i32(97)) > uint32(i32(5)) {
-/*line :22:11*/								goto l11
-/*line :22:11*/							}
-/*line :22:11*/							v6 = v4 - i32(87)
-/*line :22:11*/						}
-/*line :59:10*/						v3 = t55 + v6
-/*line :59:10*/						p47 = i32(4)
-/*line :59:10*/						goto l7
-/*line :59:10*/					}
-/*line :59:10*/				l10:
-/*line :22:11*/					p47 = i32(2)
-/*line :22:11*/					goto l7
-/*line :22:11*/				l11:
-/*line :22:11*/					p47 = i32(3)
-/*line :22:11*/				l7:
-/*line :22:11*/					v4 = p47
-/*line :61:11*/					store16(m.memory, uint32(v5|v0&i32(7)<<1), uint16(v3))
-/*line :61:11*/					v3 = v1 + v4
-/*line :61:11*/					t56 := int32(m.memory[uint32(v3)])
-/*line :62:13*/					v4 = t56
-/*line :62:13*/					if v4 == 0 {
-/*line :62:13*/						v6 = i32(1)
-/*line :62:24*/						if v7 >= i32(0) {
-/*line :62:24*/							goto l8
-/*line :62:24*/						}
-/*line :62:24*/						if v0 == i32(7) {
-/*line :62:24*/							goto l8
-/*line :62:24*/						}
+/*line :55:9*/					l4:
 /*line :83:1*/						return i32(0)
-/*line :83:1*/					}
-/*line :83:1*/					v6 = i32(0)
-/*line :63:8*/					if v0 == i32(7) {
-/*line :63:8*/						goto l3
-/*line :63:8*/					}
-/*line :64:11*/					if v4 == i32(58) {
-/*line :64:11*/						goto l12
-/*line :64:11*/					}
-/*line :64:11*/					if v4 != i32(46) {
-/*line :64:11*/						goto l3
-/*line :64:11*/					}
-/*line :65:23*/					var p57 int32
-/*line :65:23*/					if v7 < i32(0) {
-/*line :65:23*/						p57 = 1
-/*line :65:23*/					}
-/*line :65:23*/					var p58 int32
-/*line :65:23*/					if uint32(v0) <= uint32(i32(5)) {
-/*line :65:23*/						p58 = 1
-/*line :65:23*/					}
-/*line :65:23*/					if p57&p58 != 0 {
-/*line :65:23*/						goto l3
-/*line :65:23*/					}
-/*line :68:8*/					t59 := v5
-/*line :68:8*/					v0 = v0 + i32(1)
-/*line :68:11*/					store16(m.memory, uint32(t59|v0&i32(7)<<1), uint16(i32(0)))
-/*line :68:11*/				}
-/*line :68:11*/			l8:
-/*line :68:11*/				{
-/*line :73:9*/					if v7 < i32(0) {
-/*line :73:9*/						goto l13
+/*line :83:1*/					l6:
+/*line :83:1*/						v4 = v4 - i32(87)
+/*line :83:1*/					l5:
+/*line :58:32*/						{
+/*line :59:10*/							v3 = v4 + v3<<4
+/*line :59:8*/							t52 := int32(int8(m.memory[uint64(uint32(v1))+2]))
+/*line :59:8*/							t53 := v3 << 4
+/*line :59:8*/							v6 = t52
+/*line :20:7*/							v4 = v6 - i32(48)
+/*line :20:11*/							if uint32(v4) >= uint32(i32(10)) {
+/*line :21:4*/								v4 = v6 | i32(32)
+/*line :22:11*/								if uint32(v4-i32(97)) > uint32(i32(5)) {
+/*line :22:11*/									goto l10
+/*line :22:11*/								}
+/*line :22:11*/								v4 = v4 - i32(87)
+/*line :22:11*/							}
+/*line :59:10*/							v3 = t53 + v4
+/*line :59:8*/							t54 := int32(int8(m.memory[uint64(uint32(v1))+3]))
+/*line :59:8*/							t55 := v3 << 4
+/*line :59:8*/							v4 = t54
+/*line :20:7*/							v6 = v4 - i32(48)
+/*line :20:11*/							if uint32(v6) >= uint32(i32(10)) {
+/*line :21:4*/								v4 = v4 | i32(32)
+/*line :22:11*/								if uint32(v4-i32(97)) > uint32(i32(5)) {
+/*line :22:11*/									goto l11
+/*line :22:11*/								}
+/*line :22:11*/								v6 = v4 - i32(87)
+/*line :22:11*/							}
+/*line :59:10*/							v3 = t55 + v6
+/*line :59:10*/							p47 = i32(4)
+/*line :59:10*/							goto l7
+/*line :59:10*/						}
+/*line :59:10*/					l10:
+/*line :22:11*/						p47 = i32(2)
+/*line :22:11*/						goto l7
+/*line :22:11*/					l11:
+/*line :22:11*/						p47 = i32(3)
+/*line :22:11*/					l7:
+/*line :22:11*/						v4 = p47
+/*line :61:11*/						store16(m.memory, uint32(v5|v0&i32(7)<<1), uint16(v3))
+/*line :62:8*/						{
+/*line :62:8*/							v3 = v1 + v4
+/*line :62:8*/							t56 := int32(m.memory[uint32(v3)])
+/*line :62:13*/							v4 = t56
+/*line :62:13*/							if v4 == 0 {
+/*line :62:24*/								if v7 >= i32(0) {
+/*line :62:24*/									goto l12
+/*line :62:24*/								}
+/*line :62:24*/								if v0 == i32(7) {
+/*line :62:24*/									goto l12
+/*line :62:24*/								}
+/*line :83:1*/								return i32(0)
+/*line :83:1*/							}
+/*line :83:1*/							v6 = i32(0)
+/*line :63:8*/							if v0 == i32(7) {
+/*line :63:8*/								goto l3
+/*line :63:8*/							}
+/*line :64:11*/							if v4 == i32(58) {
+/*line :64:11*/								goto l13
+/*line :64:11*/							}
+/*line :64:11*/							if v4 != i32(46) {
+/*line :64:11*/								goto l3
+/*line :64:11*/							}
+/*line :65:26*/							var p57 int32
+/*line :65:26*/							if v7 < i32(0) {
+/*line :65:26*/								p57 = 1
+/*line :65:26*/							}
+/*line :65:26*/							var p58 int32
+/*line :65:26*/							if uint32(v0) <= uint32(i32(5)) {
+/*line :65:26*/								p58 = 1
+/*line :65:26*/							}
+/*line :65:26*/							if p57&p58 != 0 {
+/*line :65:26*/								goto l3
+/*line :65:26*/							}
+/*line :68:8*/							t59 := v5
+/*line :68:8*/							v0 = v0 + i32(1)
+/*line :68:11*/							store16(m.memory, uint32(t59|v0&i32(7)<<1), uint16(i32(0)))
+/*line :68:11*/						}
+/*line :68:11*/					l12:
+/*line :68:11*/						var p60 int32
+/*line :68:11*/						if v4 == 0 {
+/*line :68:11*/							p60 = 1
+/*line :68:11*/						}
+/*line :68:11*/						v6 = p60
+/*line :73:9*/						if v7 < i32(0) {
+/*line :73:9*/							goto l14
+/*line :73:9*/						}
 /*line :73:9*/					}
+/*line :73:9*/				l8:
 /*line :74:3*/					v3 = v5 + v7<<1
 /*line :74:3*/					v4 = (v0-v7)<<1 + i32(2)
 /*line :74:3*/					if v4 != 0 {
 /*line :74:3*/						memory_copy(m.memory, uint32(v3-v0<<1+i32(14)), uint32(v3), uint32(v4))
 /*line :74:3*/					}
 /*line :75:14*/					if v0 > i32(6) {
-/*line :75:14*/						goto l13
+/*line :75:14*/						goto l14
 /*line :75:14*/					}
-/*line :75:14*/					v8 = i32(7) - v0
-/*line :75:3*/					p60 := v8
+/*line :75:3*/					v8 = i32(7) - v0
+/*line :75:3*/					p61 := v8
 /*line :75:3*/					if v8 <= i32(1) {
-/*line :75:3*/						p60 = i32(1)
+/*line :75:3*/						p61 = i32(1)
 /*line :75:3*/					}
-/*line :75:3*/					v9 = p60
+/*line :75:3*/					v9 = p61
 /*line :75:3*/					v4 = v9 & i32(7)
 /*line :75:3*/					v0 = i32(0)
 /*line :75:3*/					if v8 >= i32(8) {
 /*line :75:3*/						v8 = v9 & i32(0x7ffffff8)
-/*line :75:3*/					l14:
+/*line :75:3*/					l15:
 /*line :75:3*/						{
 /*line :75:35*/							store64(m.memory, uint32(v3), uint64(i64(0)))
 /*line :75:35*/							store64(m.memory, uint64(uint32(v3))+8, uint64(i64(0)))
 /*line :75:3*/							v3 = v3 + i32(16)
-/*line :75:3*/							t61 := v8
+/*line :75:3*/							t62 := v8
 /*line :75:3*/							v0 = v0 + i32(8)
-/*line :75:3*/							if t61 != v0 {
-/*line :75:3*/								goto l14
+/*line :75:3*/							if t62 != v0 {
+/*line :75:3*/								goto l15
 /*line :75:3*/							}
 /*line :75:3*/						}
 /*line :75:3*/						if v4 == 0 {
-/*line :75:3*/							goto l13
+/*line :75:3*/							goto l14
 /*line :75:3*/						}
 /*line :75:3*/					}
 /*line :75:3*/					v0 = v5 + (v7<<1 + v0<<1)
-/*line :75:3*/				l15:
+/*line :75:3*/				l16:
 /*line :75:35*/					store16(m.memory, uint32(v0), uint16(i32(0)))
 /*line :75:3*/					v0 = v0 + i32(2)
 /*line :75:3*/					v4 = v4 - i32(1)
 /*line :75:3*/					if v4 != 0 {
-/*line :75:3*/						goto l15
+/*line :75:3*/						goto l16
 /*line :75:3*/					}
 /*line :75:3*/				}
-/*line :75:3*/			l13:
-/*line :78:10*/				t62 := int32(load16(m.memory, uint32(v5)))
-/*line :78:10*/				t63 := v2
-/*line :78:10*/				v0 = t62
-/*line :79:8*/				store16(m.memory, uint32(t63), uint16(v0<<8|int32(uint32(v0)>>8)))
-/*line :78:10*/				t64 := int32(load16(m.memory, uint64(uint32(v5))+2))
-/*line :78:10*/				t65 := v2
-/*line :78:10*/				v0 = t64
-/*line :79:8*/				store16(m.memory, uint64(uint32(t65))+2, uint16(v0<<8|int32(uint32(v0)>>8)))
-/*line :78:10*/				t66 := int32(load16(m.memory, uint64(uint32(v5))+4))
-/*line :78:10*/				t67 := v2
-/*line :78:10*/				v0 = t66
-/*line :79:8*/				store16(m.memory, uint64(uint32(t67))+4, uint16(v0<<8|int32(uint32(v0)>>8)))
-/*line :78:10*/				t68 := int32(load16(m.memory, uint64(uint32(v5))+6))
-/*line :78:10*/				t69 := v2
-/*line :78:10*/				v0 = t68
-/*line :79:8*/				store16(m.memory, uint64(uint32(t69))+6, uint16(v0<<8|int32(uint32(v0)>>8)))
-/*line :78:10*/				t70 := int32(load16(m.memory, uint64(uint32(v5))+8))
-/*line :78:10*/				t71 := v2
-/*line :78:10*/				v0 = t70
-/*line :79:8*/				store16(m.memory, uint64(uint32(t71))+8, uint16(v0<<8|int32(uint32(v0)>>8)))
-/*line :78:10*/				t72 := int32(load16(m.memory, uint64(uint32(v5))+10))
-/*line :78:10*/				t73 := v2
-/*line :78:10*/				v0 = t72
-/*line :79:8*/				store16(m.memory, uint64(uint32(t73))+10, uint16(v0<<8|int32(uint32(v0)>>8)))
-/*line :78:10*/				t74 := int32(load16(m.memory, uint64(uint32(v5))+12))
-/*line :78:10*/				t75 := v2
-/*line :78:10*/				v0 = t74
-/*line :79:8*/				store16(m.memory, uint64(uint32(t75))+12, uint16(v0<<8|int32(uint32(v0)>>8)))
-/*line :78:10*/				t76 := int32(load16(m.memory, uint64(uint32(v5))+14))
-/*line :78:10*/				t77 := v2
-/*line :78:10*/				v0 = t76
-/*line :79:8*/				store16(m.memory, uint64(uint32(t77))+14, uint16(v0<<8|int32(uint32(v0)>>8)))
+/*line :75:3*/			l14:
+/*line :78:10*/				t63 := int32(load16(m.memory, uint32(v5)))
+/*line :78:10*/				t64 := v2
+/*line :78:10*/				v0 = t63
+/*line :79:8*/				store16(m.memory, uint32(t64), uint16(v0<<8|int32(uint32(v0)>>8)))
+/*line :78:10*/				t65 := int32(load16(m.memory, uint64(uint32(v5))+2))
+/*line :78:10*/				t66 := v2
+/*line :78:10*/				v0 = t65
+/*line :79:8*/				store16(m.memory, uint64(uint32(t66))+2, uint16(v0<<8|int32(uint32(v0)>>8)))
+/*line :78:10*/				t67 := int32(load16(m.memory, uint64(uint32(v5))+4))
+/*line :78:10*/				t68 := v2
+/*line :78:10*/				v0 = t67
+/*line :79:8*/				store16(m.memory, uint64(uint32(t68))+4, uint16(v0<<8|int32(uint32(v0)>>8)))
+/*line :78:10*/				t69 := int32(load16(m.memory, uint64(uint32(v5))+6))
+/*line :78:10*/				t70 := v2
+/*line :78:10*/				v0 = t69
+/*line :79:8*/				store16(m.memory, uint64(uint32(t70))+6, uint16(v0<<8|int32(uint32(v0)>>8)))
+/*line :78:10*/				t71 := int32(load16(m.memory, uint64(uint32(v5))+8))
+/*line :78:10*/				t72 := v2
+/*line :78:10*/				v0 = t71
+/*line :79:8*/				store16(m.memory, uint64(uint32(t72))+8, uint16(v0<<8|int32(uint32(v0)>>8)))
+/*line :78:10*/				t73 := int32(load16(m.memory, uint64(uint32(v5))+10))
+/*line :78:10*/				t74 := v2
+/*line :78:10*/				v0 = t73
+/*line :79:8*/				store16(m.memory, uint64(uint32(t74))+10, uint16(v0<<8|int32(uint32(v0)>>8)))
+/*line :78:10*/				t75 := int32(load16(m.memory, uint64(uint32(v5))+12))
+/*line :78:10*/				t76 := v2
+/*line :78:10*/				v0 = t75
+/*line :79:8*/				store16(m.memory, uint64(uint32(t76))+12, uint16(v0<<8|int32(uint32(v0)>>8)))
+/*line :78:10*/				t77 := int32(load16(m.memory, uint64(uint32(v5))+14))
+/*line :78:10*/				t78 := v2
+/*line :78:10*/				v0 = t77
+/*line :79:8*/				store16(m.memory, uint64(uint32(t78))+14, uint16(v0<<8|int32(uint32(v0)>>8)))
 /*line :79:8*/				if v6 == 0 {
-/*line :79:8*/					goto l16
+/*line :79:8*/					goto l17
 /*line :79:8*/				}
 /*line :83:1*/				return i32(1)
 /*line :83:1*/			}
-/*line :83:1*/		l12:
+/*line :83:1*/		l13:
 /*line :71:5*/			v4 = v3 + i32(1)
-/*line :51:7*/			t78 := int32(m.memory[uint64(uint32(v3))+1])
-/*line :51:7*/			v3 = t78
+/*line :51:7*/			t79 := int32(m.memory[uint64(uint32(v3))+1])
+/*line :51:7*/			v3 = t79
 /*line :51:7*/		}
 /*line :51:7*/	l9:
 /*line :50:15*/		v0 = v0 + i32(1)
 /*line :50:15*/		v1 = v4
-/*line :50:2*/		goto l17
-/*line :50:2*/	l16:
+/*line :50:2*/		goto l18
+/*line :50:2*/	l17:
 /*line :50:2*/		v6 = i32(0)
-/*line :34:23*/		t79 := int32(int8(m.memory[uint32(v1)]))
-/*line :34:23*/		v3 = t79
+/*line :34:23*/		t80 := int32(int8(m.memory[uint32(v1)]))
+/*line :34:23*/		v3 = t80
 /*line :34:23*/		v0 = v3 - i32(48)
 /*line :34:4*/		if uint32(v0) > uint32(i32(9)) {
 /*line :34:4*/			goto l3
 /*line :34:4*/		}
-/*line :34:4*/		t80 := int32(int8(m.memory[uint64(uint32(v1))+1]))
-/*line :34:4*/		v4 = t80
-/*line :34:23*/		var p81 int32
+/*line :34:4*/		t81 := int32(int8(m.memory[uint64(uint32(v1))+1]))
+/*line :34:23*/		v4 = t81
+/*line :34:23*/		var p82 int32
 /*line :34:23*/		if uint32(v4-i32(48)) > uint32(i32(9)) {
-/*line :34:23*/			p81 = i32(1)
+/*line :34:23*/			p82 = i32(1)
 /*line :34:23*/		} else {
 /*line :36:35*/			if v3 == i32(48) {
 /*line :36:35*/				goto l3
 /*line :36:35*/			}
-/*line :36:35*/			t82 := int32(int8(m.memory[uint64(uint32(v1))+2]))
-/*line :36:35*/			v3 = t82 - i32(48)
-/*line :36:35*/			t83 := v3
+/*line :36:35*/			t83 := int32(int8(m.memory[uint64(uint32(v1))+2]))
+/*line :36:35*/			v3 = t83 - i32(48)
+/*line :36:35*/			t84 := v3
 /*line :36:35*/			v0 = v0*i32(10) + v4 - i32(48)
-/*line :36:35*/			t84 := t83 + v0*i32(10)
-/*line :36:35*/			t85 := v0
-/*line :36:35*/			var p86 int32
+/*line :36:35*/			t85 := t84 + v0*i32(10)
+/*line :36:35*/			t86 := v0
+/*line :36:35*/			var p87 int32
 /*line :36:35*/			if uint32(v3) < uint32(i32(10)) {
-/*line :36:35*/				p86 = 1
+/*line :36:35*/				p87 = 1
 /*line :36:35*/			}
-/*line :36:35*/			v3 = p86
-/*line :36:35*/			p87 := t85
+/*line :36:35*/			v3 = p87
+/*line :36:35*/			p88 := t86
 /*line :36:35*/			if v3 != 0 {
-/*line :36:35*/				p87 = t84
+/*line :36:35*/				p88 = t85
 /*line :36:35*/			}
-/*line :36:35*/			v0 = p87
+/*line :36:35*/			v0 = p88
 /*line :36:35*/			if uint32(v0) > uint32(i32(255)) {
 /*line :36:35*/				goto l3
 /*line :36:35*/			}
-/*line :36:35*/			p88 := i32(2)
+/*line :36:35*/			p89 := i32(2)
 /*line :36:35*/			if v3 != 0 {
-/*line :36:35*/				p88 = i32(3)
+/*line :36:35*/				p89 = i32(3)
 /*line :36:35*/			}
-/*line :36:35*/			p81 = p88
+/*line :36:35*/			p82 = p89
 /*line :36:35*/		}
-/*line :36:35*/		v3 = p81
+/*line :36:35*/		v3 = p82
 /*line :37:9*/		m.memory[uint64(uint32(v2))+12] = byte(v0)
 /*line :38:8*/		v0 = v1 + v3
-/*line :38:8*/		t89 := int32(m.memory[uint32(v0)])
-/*line :39:12*/		if t89 != i32(46) {
+/*line :38:8*/		t90 := int32(m.memory[uint32(v0)])
+/*line :39:12*/		if t90 != i32(46) {
 /*line :39:12*/			goto l3
 /*line :39:12*/		}
 /*line :34:23*/		v3 = v0 + i32(1)
-/*line :34:23*/		t90 := int32(int8(m.memory[uint32(v3)]))
-/*line :34:23*/		v4 = t90
+/*line :34:23*/		t91 := int32(int8(m.memory[uint32(v3)]))
+/*line :34:23*/		v4 = t91
 /*line :34:23*/		v1 = v4 - i32(48)
 /*line :34:4*/		if uint32(v1) > uint32(i32(9)) {
 /*line :34:4*/			goto l3
 /*line :34:4*/		}
-/*line :34:4*/		t91 := int32(int8(m.memory[uint64(uint32(v0))+2]))
-/*line :34:4*/		v5 = t91
-/*line :34:23*/		var p92 int32
+/*line :34:4*/		t92 := int32(int8(m.memory[uint64(uint32(v0))+2]))
+/*line :34:23*/		v5 = t92
+/*line :34:23*/		var p93 int32
 /*line :34:23*/		if uint32(v5-i32(48)) > uint32(i32(9)) {
-/*line :34:23*/			p92 = i32(1)
+/*line :34:23*/			p93 = i32(1)
 /*line :34:23*/		} else {
 /*line :36:35*/			if v4 == i32(48) {
 /*line :36:35*/				goto l3
 /*line :36:35*/			}
-/*line :36:35*/			t93 := int32(int8(m.memory[uint64(uint32(v0))+3]))
-/*line :36:35*/			v0 = t93 - i32(48)
-/*line :36:35*/			t94 := v0
+/*line :36:35*/			t94 := int32(int8(m.memory[uint64(uint32(v0))+3]))
+/*line :36:35*/			v0 = t94 - i32(48)
+/*line :36:35*/			t95 := v0
 /*line :36:35*/			v1 = v1*i32(10) + v5 - i32(48)
-/*line :36:35*/			t95 := t94 + v1*i32(10)
-/*line :36:35*/			t96 := v1
-/*line :36:35*/			var p97 int32
+/*line :36:35*/			t96 := t95 + v1*i32(10)
+/*line :36:35*/			t97 := v1
+/*line :36:35*/			var p98 int32
 /*line :36:35*/			if uint32(v0) < uint32(i32(10)) {
-/*line :36:35*/				p97 = 1
+/*line :36:35*/				p98 = 1
 /*line :36:35*/			}
-/*line :36:35*/			v0 = p97
-/*line :36:35*/			p98 := t96
+/*line :36:35*/			v0 = p98
+/*line :36:35*/			p99 := t97
 /*line :36:35*/			if v0 != 0 {
-/*line :36:35*/				p98 = t95
+/*line :36:35*/				p99 = t96
 /*line :36:35*/			}
-/*line :36:35*/			v1 = p98
+/*line :36:35*/			v1 = p99
 /*line :36:35*/			if uint32(v1) > uint32(i32(255)) {
 /*line :36:35*/				goto l3
 /*line :36:35*/			}
-/*line :36:35*/			p99 := i32(2)
+/*line :36:35*/			p100 := i32(2)
 /*line :36:35*/			if v0 != 0 {
-/*line :36:35*/				p99 = i32(3)
+/*line :36:35*/				p100 = i32(3)
 /*line :36:35*/			}
-/*line :36:35*/			p92 = p99
+/*line :36:35*/			p93 = p100
 /*line :36:35*/		}
 /*line :37:9*/		m.memory[uint64(uint32(v2))+13] = byte(v1)
-/*line :38:8*/		v0 = p92 + v3
-/*line :38:8*/		t100 := int32(m.memory[uint32(v0)])
-/*line :39:12*/		if t100 != i32(46) {
+/*line :38:8*/		v0 = p93 + v3
+/*line :38:8*/		t101 := int32(m.memory[uint32(v0)])
+/*line :39:12*/		if t101 != i32(46) {
 /*line :39:12*/			goto l3
 /*line :39:12*/		}
 /*line :34:23*/		v3 = v0 + i32(1)
-/*line :34:23*/		t101 := int32(int8(m.memory[uint32(v3)]))
-/*line :34:23*/		v4 = t101
+/*line :34:23*/		t102 := int32(int8(m.memory[uint32(v3)]))
+/*line :34:23*/		v4 = t102
 /*line :34:23*/		v1 = v4 - i32(48)
 /*line :34:4*/		if uint32(v1) > uint32(i32(9)) {
 /*line :34:4*/			goto l3
 /*line :34:4*/		}
-/*line :34:4*/		t102 := int32(int8(m.memory[uint64(uint32(v0))+2]))
-/*line :34:4*/		v5 = t102
-/*line :34:23*/		var p103 int32
+/*line :34:4*/		t103 := int32(int8(m.memory[uint64(uint32(v0))+2]))
+/*line :34:23*/		v5 = t103
+/*line :34:23*/		var p104 int32
 /*line :34:23*/		if uint32(v5-i32(48)) > uint32(i32(9)) {
-/*line :34:23*/			p103 = i32(1)
+/*line :34:23*/			p104 = i32(1)
 /*line :34:23*/		} else {
 /*line :36:35*/			if v4 == i32(48) {
 /*line :36:35*/				goto l3
 /*line :36:35*/			}
-/*line :36:35*/			t104 := int32(int8(m.memory[uint64(uint32(v0))+3]))
-/*line :36:35*/			v0 = t104 - i32(48)
-/*line :36:35*/			t105 := v0
+/*line :36:35*/			t105 := int32(int8(m.memory[uint64(uint32(v0))+3]))
+/*line :36:35*/			v0 = t105 - i32(48)
+/*line :36:35*/			t106 := v0
 /*line :36:35*/			v1 = v1*i32(10) + v5 - i32(48)
-/*line :36:35*/			t106 := t105 + v1*i32(10)
-/*line :36:35*/			t107 := v1
-/*line :36:35*/			var p108 int32
+/*line :36:35*/			t107 := t106 + v1*i32(10)
+/*line :36:35*/			t108 := v1
+/*line :36:35*/			var p109 int32
 /*line :36:35*/			if uint32(v0) < uint32(i32(10)) {
-/*line :36:35*/				p108 = 1
+/*line :36:35*/				p109 = 1
 /*line :36:35*/			}
-/*line :36:35*/			v0 = p108
-/*line :36:35*/			p109 := t107
+/*line :36:35*/			v0 = p109
+/*line :36:35*/			p110 := t108
 /*line :36:35*/			if v0 != 0 {
-/*line :36:35*/				p109 = t106
+/*line :36:35*/				p110 = t107
 /*line :36:35*/			}
-/*line :36:35*/			v1 = p109
+/*line :36:35*/			v1 = p110
 /*line :36:35*/			if uint32(v1) > uint32(i32(255)) {
 /*line :36:35*/				goto l3
 /*line :36:35*/			}
-/*line :36:35*/			p110 := i32(2)
+/*line :36:35*/			p111 := i32(2)
 /*line :36:35*/			if v0 != 0 {
-/*line :36:35*/				p110 = i32(3)
+/*line :36:35*/				p111 = i32(3)
 /*line :36:35*/			}
-/*line :36:35*/			p103 = p110
+/*line :36:35*/			p104 = p111
 /*line :36:35*/		}
 /*line :37:9*/		m.memory[uint64(uint32(v2))+14] = byte(v1)
-/*line :38:8*/		v0 = p103 + v3
-/*line :38:8*/		t111 := int32(m.memory[uint32(v0)])
-/*line :39:12*/		if t111 != i32(46) {
+/*line :38:8*/		v0 = p104 + v3
+/*line :38:8*/		t112 := int32(m.memory[uint32(v0)])
+/*line :39:12*/		if t112 != i32(46) {
 /*line :39:12*/			goto l3
 /*line :39:12*/		}
 /*line :34:23*/		v3 = v0 + i32(1)
-/*line :34:23*/		t112 := int32(int8(m.memory[uint32(v3)]))
-/*line :34:23*/		v4 = t112
+/*line :34:23*/		t113 := int32(int8(m.memory[uint32(v3)]))
+/*line :34:23*/		v4 = t113
 /*line :34:23*/		v1 = v4 - i32(48)
 /*line :34:4*/		if uint32(v1) > uint32(i32(9)) {
 /*line :34:4*/			goto l3
 /*line :34:4*/		}
 /*line :34:4*/		v5 = i32(1)
-/*line :34:4*/		t113 := int32(int8(m.memory[uint64(uint32(v0))+2]))
-/*line :34:4*/		v7 = t113
+/*line :34:4*/		t114 := int32(int8(m.memory[uint64(uint32(v0))+2]))
+/*line :34:23*/		v7 = t114
 /*line :34:23*/		if uint32(v7-i32(48)) <= uint32(i32(9)) {
 /*line :36:35*/			if v4 == i32(48) {
 /*line :36:35*/				goto l3
 /*line :36:35*/			}
-/*line :36:35*/			t114 := int32(int8(m.memory[uint64(uint32(v0))+3]))
-/*line :36:35*/			v0 = t114 - i32(48)
-/*line :36:35*/			t115 := v0
+/*line :36:35*/			t115 := int32(int8(m.memory[uint64(uint32(v0))+3]))
+/*line :36:35*/			v0 = t115 - i32(48)
+/*line :36:35*/			t116 := v0
 /*line :36:35*/			v1 = v1*i32(10) + v7 - i32(48)
-/*line :36:35*/			t116 := t115 + v1*i32(10)
-/*line :36:35*/			t117 := v1
-/*line :36:35*/			var p118 int32
+/*line :36:35*/			t117 := t116 + v1*i32(10)
+/*line :36:35*/			t118 := v1
+/*line :36:35*/			var p119 int32
 /*line :36:35*/			if uint32(v0) < uint32(i32(10)) {
-/*line :36:35*/				p118 = 1
+/*line :36:35*/				p119 = 1
 /*line :36:35*/			}
-/*line :36:35*/			v0 = p118
-/*line :36:35*/			p119 := t117
+/*line :36:35*/			v0 = p119
+/*line :36:35*/			p120 := t118
 /*line :36:35*/			if v0 != 0 {
-/*line :36:35*/				p119 = t116
+/*line :36:35*/				p120 = t117
 /*line :36:35*/			}
-/*line :36:35*/			v1 = p119
+/*line :36:35*/			v1 = p120
 /*line :36:35*/			if uint32(v1) > uint32(i32(255)) {
 /*line :36:35*/				goto l3
 /*line :36:35*/			}
-/*line :36:35*/			p120 := i32(2)
+/*line :36:35*/			p121 := i32(2)
 /*line :36:35*/			if v0 != 0 {
-/*line :36:35*/				p120 = i32(3)
+/*line :36:35*/				p121 = i32(3)
 /*line :36:35*/			}
-/*line :36:35*/			v5 = p120
+/*line :36:35*/			v5 = p121
 /*line :36:35*/		}
 /*line :37:9*/		m.memory[uint64(uint32(v2))+15] = byte(v1)
-/*line :38:8*/		t121 := int32(m.memory[uint32(v3+v5)])
-/*line :38:12*/		var p122 int32
-/*line :38:12*/		if t121 == 0 {
-/*line :38:12*/			p122 = 1
+/*line :38:8*/		t122 := int32(m.memory[uint32(v3+v5)])
+/*line :38:12*/		var p123 int32
+/*line :38:12*/		if t122 == 0 {
+/*line :38:12*/			p123 = 1
 /*line :38:12*/		}
-/*line :38:12*/		v6 = p122
+/*line :38:12*/		v6 = p123
 /*line :38:12*/	}
 /*line :38:12*/l3:
 /*line :83:1*/	return v6
-/*line bpf.go:51012:1*/}
-/*line :51013:1*/func (m *Module) _pcap_open_dummy(v0, v1 int32) int32 {
-/*line :51014:1*/	var v2 int32
+/*line bpf.go:50978:1*/}
+/*line :50979:1*/func (m *Module) _pcap_open_dummy(v0, v1 int32) int32 {
+/*line :50980:1*/	var v2 int32
 /*line ../src/pcap-dummy.c:34:17*/	t0 := m._calloc(i32(1), i32(512))
 /*line :35:11*/	v2 = t0
 /*line :35:11*/	if v2 != 0 {
@@ -51033,58 +50999,58 @@
 /*line :53:33*/		store32(m.memory, uint64(uint32(v2))+76, uint32(i32(1)))
 /*line :53:33*/	}
 /*line :55:1*/	return v2
-/*line bpf.go:51036:1*/}
-/*line :51037:1*/func _pcap_cant_set_rfmon_dummy(v0 int32) int32 {
-/*line ../src/pcap-dummy.c:20*/	panic("unreachable")
-/*line bpf.go:51039:1*/}
-/*line :51040:1*/func _pcap_cleanup_dummy(v0 int32) {
-/*line ../src/pcap-dummy.c:20:58*/	panic("unreachable")
-/*line bpf.go:51042:1*/}
-/*line :51043:1*/func _pcap_breakloop_dummy(v0 int32) {
-/*line ../src/pcap-dummy.c:20:58*/	panic("unreachable")
-/*line bpf.go:51045:1*/}
-/*line :51046:1*/func _pcap_stats_dummy(v0, v1 int32) int32 {
+/*line bpf.go:51002:1*/}
+/*line :51003:1*/func _pcap_cant_set_rfmon_dummy(v0 int32) int32 {
+/*line ../src/pcap-dummy.c:55:1*/	panic("unreachable")
+/*line bpf.go:51005:1*/}
+/*line :51006:1*/func _pcap_cleanup_dummy(v0 int32) {
+/*line ../src/pcap-dummy.c:55:1*/	panic("unreachable")
+/*line bpf.go:51008:1*/}
+/*line :51009:1*/func _pcap_breakloop_dummy(v0 int32) {
+/*line ../src/pcap-dummy.c:55:1*/	panic("unreachable")
+/*line bpf.go:51011:1*/}
+/*line :51012:1*/func _pcap_stats_dummy(v0, v1 int32) int32 {
 /*line ../src/pcap-dummy.c:28:78*/	return i32(-1)
-/*line bpf.go:51048:1*/}
-/*line :51049:1*/func _pcap_setnonblock_dummy(v0, v1 int32) int32 {
+/*line bpf.go:51014:1*/}
+/*line :51015:1*/func _pcap_setnonblock_dummy(v0, v1 int32) int32 {
 /*line ../src/pcap-dummy.c:27:70*/	return i32(-1)
-/*line bpf.go:51051:1*/}
-/*line :51052:1*/func _pcap_getnonblock_dummy(v0 int32) int32 {
-/*line ../src/pcap-dummy.c:26*/	panic("unreachable")
-/*line bpf.go:51054:1*/}
-/*line :51055:1*/func _pcap_set_datalink_dummy(v0, v1 int32) int32 {
+/*line bpf.go:51017:1*/}
+/*line :51018:1*/func _pcap_getnonblock_dummy(v0 int32) int32 {
+/*line ../src/pcap-dummy.c:27:70*/	panic("unreachable")
+/*line bpf.go:51020:1*/}
+/*line :51021:1*/func _pcap_set_datalink_dummy(v0, v1 int32) int32 {
 /*line ../src/pcap-dummy.c:25:72*/	return i32(-1)
-/*line bpf.go:51057:1*/}
-/*line :51058:1*/func _pcap_setdirection_dummy(v0, v1 int32) int32 {
+/*line bpf.go:51023:1*/}
+/*line :51024:1*/func _pcap_setdirection_dummy(v0, v1 int32) int32 {
 /*line ../src/pcap-dummy.c:24:83*/	return i32(-1)
-/*line bpf.go:51060:1*/}
-/*line :51061:1*/func _pcap_setfilter_dummy(v0, v1 int32) int32 {
+/*line bpf.go:51026:1*/}
+/*line :51027:1*/func _pcap_setfilter_dummy(v0, v1 int32) int32 {
 /*line ../src/pcap-dummy.c:23:84*/	return i32(-1)
-/*line bpf.go:51063:1*/}
-/*line :51064:1*/func _pcap_inject_dummy(v0, v1, v2 int32) int32 {
+/*line bpf.go:51029:1*/}
+/*line :51030:1*/func _pcap_inject_dummy(v0, v1, v2 int32) int32 {
 /*line ../src/pcap-dummy.c:22:86*/	return i32(-1)
-/*line bpf.go:51066:1*/}
-/*line :51067:1*/func _pcap_read_dummy(v0, v1, v2, v3 int32) int32 {
-/*line ../src/pcap-dummy.c:21*/	panic("unreachable")
-/*line bpf.go:51069:1*/}
-/*line :51070:1*/func (m *Module) _pcap_close(v0 int32) {
+/*line bpf.go:51032:1*/}
+/*line :51033:1*/func _pcap_read_dummy(v0, v1, v2, v3 int32) int32 {
+/*line ../src/pcap-dummy.c:22:86*/	panic("unreachable")
+/*line bpf.go:51035:1*/}
+/*line :51036:1*/func (m *Module) _pcap_close(v0 int32) {
 /*line ../src/pcap-dummy.c:62:5*/	m.Xfree(v0)
-/*line bpf.go:51072:1*/}
-/*line :51073:1*/func (m *Module) _pcap_snapshot(v0 int32) int32 {
+/*line bpf.go:51038:1*/}
+/*line :51039:1*/func (m *Module) _pcap_snapshot(v0 int32) int32 {
 /*line ../src/pcap-dummy.c:63:1*/	t0 := int32(load32(m.memory, uint64(uint32(v0))+76))
 /*line :63:1*/	if t0 == 0 {
 /*line :63:1*/		return i32(-3)
 /*line :63:1*/	}
 /*line :68:15*/	t1 := int32(load32(m.memory, uint64(uint32(v0))+60))
 /*line :69:1*/	return t1
-/*line bpf.go:51080:1*/}
-/*line :51081:1*/func (m *Module) _pcap_datalink(v0 int32) int32 {
+/*line bpf.go:51046:1*/}
+/*line :51047:1*/func (m *Module) _pcap_datalink(v0 int32) int32 {
 /*line ../src/pcap-dummy.c:72:15*/	t0 := int32(load32(m.memory, uint64(uint32(v0))+64))
 /*line :72:5*/	return t0
-/*line bpf.go:51084:1*/}
-/*line :51085:1*/func (m *Module) _pcapint_strcasecmp(v0, v1 int32) int32 {
-/*line :51086:1*/	var v2 int32
-/*line :51087:1*/	var v3 int32
+/*line bpf.go:51050:1*/}
+/*line :51051:1*/func (m *Module) _pcapint_strcasecmp(v0, v1 int32) int32 {
+/*line :51052:1*/	var v2 int32
+/*line :51053:1*/	var v3 int32
 /*line ../src/pcap-dummy.c:83:48*/l1:
 /*line :83:48*/	{
 /*line :83:48*/		t0 := int32(m.memory[uint32(v1)])
@@ -51113,23 +51079,23 @@
 /*line :83:31*/	v2 = v3 - v2
 /*line :83:31*/l2:
 /*line :84:1*/	return v2
-/*line bpf.go:51116:1*/}
-/*line :51117:1*/func (m *Module) _ether_hostton(v0, v1 int32) int32 {
+/*line bpf.go:51082:1*/}
+/*line :51083:1*/func (m *Module) _ether_hostton(v0, v1 int32) int32 {
 /*line ../src/pcap-dummy.c:89:12*/	t0 := m.__env_ether_hostton(v0, v1)
 /*line :89:12*/	p1 := i32(0)
 /*line :89:12*/	if t0 != 0 {
 /*line :89:12*/		p1 = i32(-1)
 /*line :89:12*/	}
 /*line :89:5*/	return p1
-/*line bpf.go:51124:1*/}
-/*line :51125:1*/func _pcap_datalink_val_to_name(v0 int32) int32 {
+/*line bpf.go:51090:1*/}
+/*line :51091:1*/func _pcap_datalink_val_to_name(v0 int32) int32 {
 /*line ../src/pcap-dummy.c:96:57*/	return i32(0)
-/*line bpf.go:51127:1*/}
-/*line :51128:1*/func _pcap_datalink_val_to_description(v0 int32) int32 {
+/*line bpf.go:51093:1*/}
+/*line :51094:1*/func _pcap_datalink_val_to_description(v0 int32) int32 {
 /*line ../src/pcap-dummy.c:97:64*/	return i32(0)
-/*line bpf.go:51130:1*/}
-/*line :51131:1*/func (m *Module) _pcap_datalink_val_to_description_or_dlt(v0 int32) int32 {
-/*line :51132:1*/	var v1 int32
+/*line bpf.go:51096:1*/}
+/*line :51097:1*/func (m *Module) _pcap_datalink_val_to_description_or_dlt(v0 int32) int32 {
+/*line :51098:1*/	var v1 int32
 /*line ../src/pcap-dummy.c:98*/	t0 := m.___stack_pointer
 /*line :98*/	v1 = t0 - i32(16)
 /*line :98*/	m.___stack_pointer = v1
@@ -51137,16 +51103,16 @@
 /*line :100:5*/	_ = m._snprintf(i32(127536), i32(16), i32(70800), v1)
 /*line :101:5*/	m.___stack_pointer = v1 + i32(16)
 /*line :101:5*/	return i32(127536)
-/*line bpf.go:51140:1*/}
-/*line :51141:1*/func _pcap_strerror(v0 int32) int32 {
+/*line bpf.go:51106:1*/}
+/*line :51107:1*/func _pcap_strerror(v0 int32) int32 {
 /*line ../src/pcap-dummy.c:104:5*/	return i32(67524)
-/*line bpf.go:51143:1*/}
-/*line :51144:1*/func __pcap_errbuf(v0 int32) int32 {
+/*line bpf.go:51109:1*/}
+/*line :51110:1*/func __pcap_errbuf(v0 int32) int32 {
 /*line ../src/pcap-dummy.c:108:5*/	return v0 + i32(148)
-/*line bpf.go:51146:1*/}
-/*line :51147:1*/func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
-/*line :51148:1*/	var v5 int32
-/*line :51149:1*/	var v6 int32
+/*line bpf.go:51112:1*/}
+/*line :51113:1*/func (m *Module) Xbpf_compile(v0, v1, v2, v3, v4 int32) (int32, int32) {
+/*line :51114:1*/	var v5 int32
+/*line :51115:1*/	var v6 int32
 /*line ../src/bpf.c:13*/	t0 := m.___stack_pointer
 /*line :13*/	v6 = t0 - i32(16)
 /*line :13*/	m.___stack_pointer = v6
@@ -51182,13 +51148,13 @@
 /*line :34:58*/l0:
 /*line :35:1*/	m.___stack_pointer = v6 + i32(16)
 /*line :35:1*/	return p1, v5
-/*line bpf.go:51185:1*/}
-/*line :51186:1*/func (m *Module) Xbpf_result_free() {
+/*line bpf.go:51151:1*/}
+/*line :51152:1*/func (m *Module) Xbpf_result_free() {
 /*line ../src/bpf.c:38:5*/	m._pcap_freecode(i32(127552))
-/*line bpf.go:51188:1*/}
-/*line :51189:1*/func (m *Module) Xbpf_errbuf() int32 {
-/*line :51190:1*/	var v0 int32
-/*line :51191:1*/	var v1 int32
+/*line bpf.go:51154:1*/}
+/*line :51155:1*/func (m *Module) Xbpf_errbuf() int32 {
+/*line :51156:1*/	var v0 int32
+/*line :51157:1*/	var v1 int32
 /*line ../src/bpf.c:41*/	v0 = i32(127568)
 /*line :44:9*/	{
 /*line :44:9*/		t0 := int32(load32(m.memory, uint32(i32(127828))))
@@ -51207,158 +51173,158 @@
 /*line :45:16*/	}
 /*line :45:16*/l0:
 /*line :48:1*/	return v0
-/*line bpf.go:51210:1*/}
-/*line :51211:1*/func (m *Module) _exit(v0 int32) {
+/*line bpf.go:51176:1*/}
+/*line :51177:1*/func (m *Module) _exit(v0 int32) {
 /*line ../src/bpf.c:51:32*/	m.__env_panic(i32(66234))
 /*line :51:32*/	panic("unreachable")
-/*line bpf.go:51214:1*/}
-/*line :51215:1*/func _fwrite(v0, v1, v2, v3 int32) int32 {
+/*line bpf.go:51180:1*/}
+/*line :51181:1*/func _fwrite(v0, v1, v2, v3 int32) int32 {
 /*line ../src/bpf.c:56:99*/	return i32(0)
-/*line bpf.go:51217:1*/}
-/*line :51218:1*/func _fread(v0, v1, v2, v3 int32) int32 {
+/*line bpf.go:51183:1*/}
+/*line :51184:1*/func _fread(v0, v1, v2, v3 int32) int32 {
 /*line ../src/bpf.c:57:92*/	return i32(0)
-/*line bpf.go:51220:1*/}
-/*line :51221:1*/func _getc(v0 int32) int32 {
+/*line bpf.go:51186:1*/}
+/*line :51187:1*/func _getc(v0 int32) int32 {
 /*line ../src/bpf.c:59:33*/	return i32(-1)
-/*line bpf.go:51223:1*/}
-/*line :51224:1*/func _ferror(v0 int32) int32 {
+/*line bpf.go:51189:1*/}
+/*line :51190:1*/func _ferror(v0 int32) int32 {
 /*line ../src/bpf.c:60:35*/	return i32(0)
-/*line bpf.go:51226:1*/}
-/*line :51227:1*/func _clearerr(v0 int32) {
+/*line bpf.go:51192:1*/}
+/*line :51193:1*/func _clearerr(v0 int32) {
+/*line :51194:1*/}
+/*line :51195:1*/func (m *Module) Xmemory() Memory {
+/*line :51196:1*/	return &m.wasmMemory
+/*line :51197:1*/}
+
+//go:nosplit
+/*line :51200:1*/func i32(x int32) int32 { return x }
+
+//go:nosplit
+/*line :51203:1*/func i64(x int64) int64 { return x }
+
+//go:nosplit
+/*line :51206:1*/func i32_shl(x, y int32) int32 {
+/*line :51207:1*/	return x << (y & 31)
+/*line :51208:1*/}
+
+//go:nosplit
+/*line :51211:1*/func i32_shr_u(x, y int32) int32 {
+/*line :51212:1*/	return int32(uint32(x) >> (y & 31))
+/*line :51213:1*/}
+
+//go:nosplit
+/*line :51216:1*/func i64_shl(x, y int64) int64 {
+/*line :51217:1*/	return x << (y & 63)
+/*line :51218:1*/}
+
+//go:nosplit
+/*line :51221:1*/func i64_shr_u(x, y int64) int64 {
+/*line :51222:1*/	return int64(uint64(x) >> (y & 63))
+/*line :51223:1*/}
+
+//go:nosplit
+/*line :51226:1*/func i32_rotl(x, y int32) int32 {
+/*line :51227:1*/	return int32(bits.RotateLeft32(uint32(x), int(y)))
 /*line :51228:1*/}
-/*line :51229:1*/func (m *Module) Xmemory() Memory {
-/*line :51230:1*/	return &m.wasmMemory
-/*line :51231:1*/}
 
 //go:nosplit
-/*line :51234:1*/func i32(x int32) int32 { return x }
+/*line :51231:1*/func i32_rotr(x, y int32) int32 {
+/*line :51232:1*/	return int32(bits.RotateLeft32(uint32(x), -int(y)))
+/*line :51233:1*/}
 
 //go:nosplit
-/*line :51237:1*/func i64(x int64) int64 { return x }
+/*line :51236:1*/func load16[T uint32 | uint64](mem []byte, addr T) uint16 {
+/*line :51237:1*/	a := uint64(addr)
+/*line :51238:1*/	return binary.LittleEndian.Uint16(mem[:0:len(mem)][a : a+2 : a+2])
+/*line :51239:1*/}
 
 //go:nosplit
-/*line :51240:1*/func i32_shl(x, y int32) int32 {
-/*line :51241:1*/	return x << (y & 31)
-/*line :51242:1*/}
+/*line :51242:1*/func store16[T uint32 | uint64](mem []byte, addr T, val uint16) {
+/*line :51243:1*/	a := uint64(addr)
+/*line :51244:1*/	binary.LittleEndian.PutUint16(mem[:0:len(mem)][a:a+2:a+2], val)
+/*line :51245:1*/}
 
 //go:nosplit
-/*line :51245:1*/func i32_shr_u(x, y int32) int32 {
-/*line :51246:1*/	return int32(uint32(x) >> (y & 31))
-/*line :51247:1*/}
+/*line :51248:1*/func load32[T uint32 | uint64](mem []byte, addr T) uint32 {
+/*line :51249:1*/	a := uint64(addr)
+/*line :51250:1*/	return binary.LittleEndian.Uint32(mem[:0:len(mem)][a : a+4 : a+4])
+/*line :51251:1*/}
 
 //go:nosplit
-/*line :51250:1*/func i64_shl(x, y int64) int64 {
-/*line :51251:1*/	return x << (y & 63)
-/*line :51252:1*/}
-
-//go:nosplit
-/*line :51255:1*/func i64_shr_u(x, y int64) int64 {
-/*line :51256:1*/	return int64(uint64(x) >> (y & 63))
+/*line :51254:1*/func store32[T uint32 | uint64](mem []byte, addr T, val uint32) {
+/*line :51255:1*/	a := uint64(addr)
+/*line :51256:1*/	binary.LittleEndian.PutUint32(mem[:0:len(mem)][a:a+4:a+4], val)
 /*line :51257:1*/}
 
 //go:nosplit
-/*line :51260:1*/func i32_rotl(x, y int32) int32 {
-/*line :51261:1*/	return int32(bits.RotateLeft32(uint32(x), int(y)))
-/*line :51262:1*/}
+/*line :51260:1*/func load64[T uint32 | uint64](mem []byte, addr T) uint64 {
+/*line :51261:1*/	a := uint64(addr)
+/*line :51262:1*/	return binary.LittleEndian.Uint64(mem[:0:len(mem)][a : a+8 : a+8])
+/*line :51263:1*/}
 
 //go:nosplit
-/*line :51265:1*/func i32_rotr(x, y int32) int32 {
-/*line :51266:1*/	return int32(bits.RotateLeft32(uint32(x), -int(y)))
-/*line :51267:1*/}
+/*line :51266:1*/func store64[T uint32 | uint64](mem []byte, addr T, val uint64) {
+/*line :51267:1*/	a := uint64(addr)
+/*line :51268:1*/	binary.LittleEndian.PutUint64(mem[:0:len(mem)][a:a+8:a+8], val)
+/*line :51269:1*/}
 
-//go:nosplit
-/*line :51270:1*/func load16[T uint32 | uint64](mem []byte, addr T) uint16 {
-/*line :51271:1*/	a := uint64(addr)
-/*line :51272:1*/	return binary.LittleEndian.Uint16(mem[:0:len(mem)][a : a+2 : a+2])
-/*line :51273:1*/}
-
-//go:nosplit
-/*line :51276:1*/func store16[T uint32 | uint64](mem []byte, addr T, val uint16) {
-/*line :51277:1*/	a := uint64(addr)
-/*line :51278:1*/	binary.LittleEndian.PutUint16(mem[:0:len(mem)][a:a+2:a+2], val)
-/*line :51279:1*/}
-
-//go:nosplit
-/*line :51282:1*/func load32[T uint32 | uint64](mem []byte, addr T) uint32 {
-/*line :51283:1*/	a := uint64(addr)
-/*line :51284:1*/	return binary.LittleEndian.Uint32(mem[:0:len(mem)][a : a+4 : a+4])
+/*line :51271:1*/func memory_grow(mem *[]byte, delta, max int64) int64 {
+/*line :51272:1*/	buf := *mem
+/*line :51273:1*/	len := len(buf)
+/*line :51274:1*/	old := len >> 16
+/*line :51275:1*/	if delta == 0 {
+/*line :51276:1*/		return int64(old)
+/*line :51277:1*/	}
+/*line :51278:1*/	max = int64(min(uint64(max), math.MaxInt>>16))
+/*line :51279:1*/	new, c := bits.Add64(uint64(old), uint64(delta), 0)
+/*line :51280:1*/	if c != 0 || new > uint64(max) {
+/*line :51281:1*/		return -1
+/*line :51282:1*/	}
+/*line :51283:1*/	*mem = append(buf, make([]byte, int(new<<16)-len)...)
+/*line :51284:1*/	return int64(old)
 /*line :51285:1*/}
 
-//go:nosplit
-/*line :51288:1*/func store32[T uint32 | uint64](mem []byte, addr T, val uint32) {
-/*line :51289:1*/	a := uint64(addr)
-/*line :51290:1*/	binary.LittleEndian.PutUint32(mem[:0:len(mem)][a:a+4:a+4], val)
-/*line :51291:1*/}
+/*line :51287:1*/func memory_init[T1, T2 int | uint32 | uint64](mem []byte, data string, dest T1, src, n T2) {
+/*line :51288:1*/	x := uint64(dest)
+/*line :51289:1*/	z := uint64(src)
+/*line :51290:1*/	y := x + uint64(n)
+/*line :51291:1*/	w := z + uint64(n)
+/*line :51292:1*/	copy(mem[x:y:len(mem)], data[z:w])
+/*line :51293:1*/}
 
-//go:nosplit
-/*line :51294:1*/func load64[T uint32 | uint64](mem []byte, addr T) uint64 {
-/*line :51295:1*/	a := uint64(addr)
-/*line :51296:1*/	return binary.LittleEndian.Uint64(mem[:0:len(mem)][a : a+8 : a+8])
-/*line :51297:1*/}
+/*line :51295:1*/func memory_copy[T uint32 | uint64](mem []byte, dest, src, n T) {
+/*line :51296:1*/	x := uint64(dest)
+/*line :51297:1*/	z := uint64(src)
+/*line :51298:1*/	y := x + uint64(n)
+/*line :51299:1*/	w := z + uint64(n)
+/*line :51300:1*/	copy(mem[x:y:len(mem)], mem[z:w:len(mem)])
+/*line :51301:1*/}
 
-//go:nosplit
-/*line :51300:1*/func store64[T uint32 | uint64](mem []byte, addr T, val uint64) {
-/*line :51301:1*/	a := uint64(addr)
-/*line :51302:1*/	binary.LittleEndian.PutUint64(mem[:0:len(mem)][a:a+8:a+8], val)
-/*line :51303:1*/}
+/*line :51303:1*/func memory_fill[T uint32 | uint64](mem []byte, dest T, val int32, n T) {
+/*line :51304:1*/	x := uint64(dest)
+/*line :51305:1*/	y := x + uint64(n)
+/*line :51306:1*/	buf := mem[x:y:len(mem)]
+/*line :51307:1*/	if len(buf) > 0 {
+/*line :51308:1*/		buf[0] = byte(val)
+/*line :51309:1*/		for i := 1; i < len(buf); {
+/*line :51310:1*/			chunk := min(i, 8192)
+/*line :51311:1*/			i += copy(buf[i:], buf[:chunk])
+/*line :51312:1*/		}
+/*line :51313:1*/	}
+/*line :51314:1*/}
 
-/*line :51305:1*/func memory_grow(mem *[]byte, delta, max int64) int64 {
-/*line :51306:1*/	buf := *mem
-/*line :51307:1*/	len := len(buf)
-/*line :51308:1*/	old := len >> 16
-/*line :51309:1*/	if delta == 0 {
-/*line :51310:1*/		return int64(old)
-/*line :51311:1*/	}
-/*line :51312:1*/	max = int64(min(uint64(max), math.MaxInt>>16))
-/*line :51313:1*/	new, c := bits.Add64(uint64(old), uint64(delta), 0)
-/*line :51314:1*/	if c != 0 || new > uint64(max) {
-/*line :51315:1*/		return -1
-/*line :51316:1*/	}
-/*line :51317:1*/	*mem = append(buf, make([]byte, int(new<<16)-len)...)
-/*line :51318:1*/	return int64(old)
-/*line :51319:1*/}
+/*line :51316:1*/func memory_zero[T uint32 | uint64](mem []byte, dest, n T) {
+/*line :51317:1*/	x := uint64(dest)
+/*line :51318:1*/	y := x + uint64(n)
+/*line :51319:1*/	clear(mem[x:y:len(mem)])
+/*line :51320:1*/}
 
-/*line :51321:1*/func memory_init[T1, T2 int | uint32 | uint64](mem []byte, data string, dest T1, src, n T2) {
-/*line :51322:1*/	x := uint64(dest)
-/*line :51323:1*/	z := uint64(src)
-/*line :51324:1*/	y := x + uint64(n)
-/*line :51325:1*/	w := z + uint64(n)
-/*line :51326:1*/	copy(mem[x:y:len(mem)], data[z:w])
-/*line :51327:1*/}
-
-/*line :51329:1*/func memory_copy[T uint32 | uint64](mem []byte, dest, src, n T) {
-/*line :51330:1*/	x := uint64(dest)
-/*line :51331:1*/	z := uint64(src)
-/*line :51332:1*/	y := x + uint64(n)
-/*line :51333:1*/	w := z + uint64(n)
-/*line :51334:1*/	copy(mem[x:y:len(mem)], mem[z:w:len(mem)])
-/*line :51335:1*/}
-
-/*line :51337:1*/func memory_fill[T uint32 | uint64](mem []byte, dest T, val int32, n T) {
-/*line :51338:1*/	x := uint64(dest)
-/*line :51339:1*/	y := x + uint64(n)
-/*line :51340:1*/	buf := mem[x:y:len(mem)]
-/*line :51341:1*/	if len(buf) > 0 {
-/*line :51342:1*/		buf[0] = byte(val)
-/*line :51343:1*/		for i := 1; i < len(buf); {
-/*line :51344:1*/			chunk := min(i, 8192)
-/*line :51345:1*/			i += copy(buf[i:], buf[:chunk])
-/*line :51346:1*/		}
-/*line :51347:1*/	}
-/*line :51348:1*/}
-
-/*line :51350:1*/func memory_zero[T uint32 | uint64](mem []byte, dest, n T) {
-/*line :51351:1*/	x := uint64(dest)
-/*line :51352:1*/	y := x + uint64(n)
-/*line :51353:1*/	clear(mem[x:y:len(mem)])
-/*line :51354:1*/}
-
-/*line :51356:1*/func table_init[T1, T2, T3 int | int32 | int64](tab, elems []any, dest T1, src T2, n T3) {
-/*line :51357:1*/	x := uint64(dest)
-/*line :51358:1*/	z := uint64(src)
-/*line :51359:1*/	y := x + uint64(n)
-/*line :51360:1*/	w := z + uint64(n)
-/*line :51361:1*/	copy(tab[x:y:len(tab)], elems[z:w:len(elems)])
-/*line :51362:1*/}
+/*line :51322:1*/func table_init[T1, T2, T3 int | int32 | int64](tab, elems []any, dest T1, src T2, n T3) {
+/*line :51323:1*/	x := uint64(dest)
+/*line :51324:1*/	z := uint64(src)
+/*line :51325:1*/	y := x + uint64(n)
+/*line :51326:1*/	w := z + uint64(n)
+/*line :51327:1*/	copy(tab[x:y:len(tab)], elems[z:w:len(elems)])
+/*line :51328:1*/}
 //go:embed bpf.dat
-/*line :51364:1*/var data string
+/*line :51330:1*/var data string
