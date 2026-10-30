@@ -227,6 +227,7 @@ const (
 	DLT_DECT_NR                    = LinkType(bpf_wasm.DLT_DECT_NR)
 	DLT_EDK2_MM                    = LinkType(bpf_wasm.DLT_EDK2_MM)
 	DLT_DEBUG_ONLY                 = LinkType(bpf_wasm.DLT_DEBUG_ONLY)
+	DLT_DECT_NR_TAP                = LinkType(bpf_wasm.DLT_DECT_NR_TAP)
 )
 
 // LookupLinkType gets a link-layer type by name (e.g. "EN10MB" or "DLT_EN10MB") case-insensitively.
@@ -668,6 +669,8 @@ func LookupLinkType(name string) (LinkType, bool) {
 		return DLT_EDK2_MM, true
 	case "DEBUG_ONLY":
 		return DLT_DEBUG_ONLY, true
+	case "DECT_NR_TAP":
+		return DLT_DECT_NR_TAP, true
 	default:
 		return 0, false
 	}

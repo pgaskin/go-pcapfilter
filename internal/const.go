@@ -225,4 +225,5 @@ const (
 	DLT_DECT_NR                    = 301
 	DLT_EDK2_MM                    = 302
 	DLT_DEBUG_ONLY                 = 303
+	DLT_DECT_NR_TAP                = 304
 )

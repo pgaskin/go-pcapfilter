@@ -81,16 +81,32 @@ func TestMatch(t *testing.T) {
 				func() []byte { p := tcp4(hw1, hw2, ip1, ip2, 1234, 80); p[47] = 0x10; return p }(),
 			},
 		},
+		{
+			name:   "AllOnesMask",
+			filter: "ether[12:4] & 0xffffffff != 0",
+			match: [][]byte{
+				tcp4(hw1, hw2, ip1, ip2, 1, 2),
+			},
+			nomatch: [][]byte{
+				func() []byte { p := tcp4(hw1, hw2, ip1, ip2, 1, 2); clear(p[12:16]); return p }(),
+			},
+		},
 	} {
-		t.Run(tc.name, func(t *testing.T) {
-			p := mkfilter(t, tc.filter, nil)
-			for _, pkt := range tc.match {
-				test(t, p, pkt, true)
+		for _, optimize := range []bool{false, true} {
+			name := tc.name
+			if optimize {
+				name += "/Optimize"
 			}
-			for _, pkt := range tc.nomatch {
-				test(t, p, pkt, false)
-			}
-		})
+			t.Run(name, func(t *testing.T) {
+				p := mkfilter(t, tc.filter, &Options{Optimize: optimize})
+				for _, pkt := range tc.match {
+					test(t, p, pkt, true)
+				}
+				for _, pkt := range tc.nomatch {
+					test(t, p, pkt, false)
+				}
+			})
+		}
 	}
 }
 

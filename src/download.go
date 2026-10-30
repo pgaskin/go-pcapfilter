@@ -16,7 +16,7 @@ import (
 
 const (
 	Repo   = "the-tcpdump-group/libpcap"
-	Commit = "6b5de1e5f07a4fea6672caa2d34935c3da24a8f2"
+	Commit = "69733af23aa55f221aaa5e23053f13eb55af4d35"
 	Dest   = "libpcap"
 )
 

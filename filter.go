@@ -221,7 +221,7 @@ func (p *Program) Match(pkt []byte) bool {
 	defer p.mu.Unlock()
 
 	n := copy((*p.env.mod.Xmemory().Slice())[p.pkt:], pkt[:min(len(pkt), int(p.snaplen))])
-	return p.env.mod.Xbpf_filter(p.ptr, p.pkt, int32(len(pkt)), int32(n)) != 0
+	return p.env.mod.Xpcapint_filter(p.ptr, p.n, p.pkt, int32(len(pkt)), int32(n)) != 0
 }
 
 type panicErr struct{ msg string }
